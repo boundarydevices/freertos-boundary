@@ -1,0 +1,132 @@
+;
+; Script to attach to a running system, halt the CPU,
+; and display the ASM code
+;
+
+RESet
+
+screen.on
+
+; Debugger Reset
+
+winpage.reset
+area.reset
+WINPOS 0. 26. 75. 8. 0. 0. W000
+area
+
+print "resetting ICD..."
+
+System.Down
+Break.Delete
+MAP.RESet
+TASK.RESet
+sYmbol.RESet
+Data.PROLOG.RESet
+Data.EPILOG.RESet
+sYmbol.AutoLoad.CHECK OFF      ; disable dynamic autoloader
+sYmbol.AutoLoad.RESet          ; reset autoloader list
+MMU.RESet
+
+; setup of ICD JTAG
+
+print "initializing A9 JTAG..."
+SYStem.CPU CORTEXA9
+SYStem.CONFIG.CHIPIRPOST 0x0
+SYStem.CONFIG.CHIPIRPRE  0x0
+SYStem.CONFIG.CHIPDRPOST 0x0
+SYStem.CONFIG.CHIPDRPRE  0x0
+SYStem.CONFIG.DAPIRPOST  0x09
+SYStem.CONFIG.DAPIRPRE   0x4
+SYStem.CONFIG.DAPDRPOST  0x02
+SYStem.CONFIG.DAPDRPRE   0x1
+
+;diag 3411
+
+SYStem.CONFIG.MEMORYACCESSPORT 0
+SYStem.CONFIG.DEBUGACCESSPORT 1
+SYStem.CONFIG.COREDEBUG.BASE DAP:0x82150000
+SYStem.Option DACR ON          ; give Debugger global write permissions
+TrOnchip.Set DABORT OFF        ; used by Linux OS for page miss!
+TrOnchip.Set PABORT OFF        ; used by Linux OS for page miss!
+TrOnchip.Set UNDEF OFF         ; let UNDEF be handled by Linux OS
+SYStem.Option MMU OFF          ; no space ids used (yet)
+SYStem.JtagClock 5.0MHz
+SETUP.IMASKASM ON              ; lock interrupts while single stepping
+
+; Use on-chip breakpoints
+Break.SELect PROGRAM ONCHIP
+Break.SELect READ ONCHIP
+Break.SELect WRITE ONCHIP
+Break.SELect ALPHA ONCHIP
+Break.SELect BETA ONCHIP
+Break.SELect CHARLY ONCHIP
+Break.SELect DELTA ONCHIP
+Break.SELect ECHO ONCHIP
+
+SYStem.Option EnReset OFF			;do not allow the jtag to reset the target
+SYS.m attach
+; wait until reset is complete
+wait 1.s
+if run()
+    Break
+
+; Open a Code Window -- we like to see something
+
+WINPOS 0. 0. 75. 20.
+Data.List
+mode.hll
+
+; Make sure M4 is hung up
+per.set.field ZSD:0x020d8000 %LE %LONG 0x00000010 1
+
+; Give access to peripherals for M4
+D.S ZSD:0x207C000 %LE %LONG 0x77000700
+D.S ZSD:0x217C000 %LE %LONG 0x77000700
+D.S ZSD:0x227C000 %LE %LONG 0x77000700
+
+; Open M4 clocks
+D.S ZSD:0x20c4068 %LE %LONG 0xFFFFFFFF
+D.S ZSD:0x20c406C %LE %LONG 0xFFFFFFFF
+D.S ZSD:0x20c4070 %LE %LONG 0xFFFFFFFF
+D.S ZSD:0x20c4074 %LE %LONG 0xFFFFFFFF
+D.S ZSD:0x20c4078 %LE %LONG 0xFFFFFFFF
+D.S ZSD:0x20c407C %LE %LONG 0xFFFFFFFF
+D.S ZSD:0x20c4080 %LE %LONG 0xFFFFFFFF
+
+; Prepare M4 entry
+; Stack at TCMU
+D.S ZSD:0x007f8000 %LE %LONG 0x20008000
+; Code at BootRom
+D.S ZSD:0x007f8004 %LE %LONG 0x00000009
+; Loop code 
+D.S ZSD:0x007f8008 %LE %LONG 0xe7fee7fe
+
+; Enable M4
+per.set.field ZSD:0x020d8000 %LE %LONG 0x00400000 1
+per.set.field ZSD:0x020d8000 %LE %LONG 0x00000010 0
+
+print "initializing M4 JTAG..."
+SYStem.CPU CortexM4F
+SYStem.CONFIG.CHIPIRPOST 0x0
+SYStem.CONFIG.CHIPIRPRE  0x0
+SYStem.CONFIG.CHIPDRPOST 0x0
+SYStem.CONFIG.CHIPDRPRE  0x0
+SYStem.CONFIG.DAPIRPOST  0x0D
+SYStem.CONFIG.DAPIRPRE   0x0
+SYStem.CONFIG.DAPDRPOST  0x03
+SYStem.CONFIG.DAPDRPRE   0x0
+
+
+SYStem.JtagClock 1.0MHz
+
+SYStem.Option EnReset OFF			;do not allow the jtag to reset the target
+SYS.m attach
+; wait until reset is complete
+wait 1.s
+
+if run()
+    Break
+
+data.load.elf "E:\FSL_FreeRTOS_BSP_1.0.0_iMX6SX\examples\imx6sx_sdb_m4\demo_apps\hello_world\iar\debug\hello_world.out" /verify
+
+enddo
