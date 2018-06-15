@@ -125,31 +125,31 @@ void BOARD_BootClockRUN(void)
     CLOCK_SetRootMux(kCLOCK_RootM4, kCLOCK_M4RootmuxOsc25m);
     /* switch NOC root to 25M first */
     CLOCK_SetRootMux(kCLOCK_RootNoc, 0U);
-    
+
     CLOCK_InitSysPll1(&g_sysPll1Config);     /* init SYSTEM PLL1 run at 800MHZ */
     CLOCK_InitSysPll2(&g_sysPll2Config);     /* init SYSTEM PLL2 run at 1000MHZ */
     CLOCK_InitSysPll3(&g_sysPll3Config);     /* init SYSTEM PLL3 run at 1000MHZ */
-    
+
     CLOCK_InitAudioPll1(&g_audioPll1Config); /* init AUDIO PLL1 run at 650MHZ */
     CLOCK_InitAudioPll2(&g_audioPll2Config); /* init AUDIO PLL2 run at 650MHZ */
     CLOCK_InitVideoPll1(&g_videoPll1Config); /* init VIDEO PLL1 run at 650MHZ */
-    
+
     CLOCK_SetRootMux(kCLOCK_RootM4, kCLOCK_M4RootmuxSysPll1Div3); /* switch cortex-m4 to SYSTEM pll1 */
-    
-    CLOCK_SetRootMux(kCLOCK_RootNoc, 3U); /* switch NOC to SYSTEM pll1 DIV3*/ 
-    
+
+    CLOCK_SetRootMux(kCLOCK_RootNoc, 3U); /* switch NOC to SYSTEM pll1 DIV3*/
+
     CLOCK_SetRootDivider(kCLOCK_RootAhb, 1U, 1U);
     CLOCK_SetRootMux(kCLOCK_RootAhb, kCLOCK_AhbRootmuxSysPll1Div6); /* switch AHB to SYSTEM PLL1 DIV6 = 133MHZ */
-    
+
     CLOCK_SetRootDivider(kCLOCK_RootAxi, 3U, 1U);
     CLOCK_SetRootMux(kCLOCK_RootAxi, kCLOCK_AxiRootmuxSysPll1); /* switch AXI to SYSTEM PLL1 = 266MHZ */
 
-    
+
     CLOCK_SetRootMux(kCLOCK_RootUart2, kCLOCK_UartRootmuxSysPll1Div10); /* Set UART source to SysPLL1 Div10 80MHZ */
-    CLOCK_SetRootDivider(kCLOCK_RootUart2, 1U, 1U);                  /* Set root clock to 80MHZ/ 1= 80MHZ */   
-    
+    CLOCK_SetRootDivider(kCLOCK_RootUart2, 1U, 1U);                  /* Set root clock to 80MHZ/ 1= 80MHZ */
+
     CLOCK_EnableClock(kCLOCK_Rdc);   /* Enable RDC clock */
-    
+
     /* Disable unused PLL */
     CLOCK_DeinitSysPll3();
     CLOCK_DeinitVedioPll1();

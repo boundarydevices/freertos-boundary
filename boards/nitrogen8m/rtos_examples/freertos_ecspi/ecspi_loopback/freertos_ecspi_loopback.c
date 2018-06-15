@@ -3,7 +3,7 @@
  * Copyright (c) 2015, Freescale Semiconductor, Inc.
  * Copyright 2016-2017 NXP
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted (subject to the limitations in the disclaimer below) provided
  *  that the following conditions are met:
@@ -79,19 +79,19 @@ int main(void)
 {
 /* Init board hardware. */
     /* Board specific RDC settings */
-    BOARD_RdcInit();  
-    
+    BOARD_RdcInit();
+
     BOARD_InitPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
     BOARD_InitMemory();
-    
+
     CLOCK_SetRootMux(kCLOCK_RootEcspi1, kCLOCK_EcspiRootmuxSysPll1); /* Set ECSPI1 source to SYSTEM PLL1 800MHZ */
     CLOCK_SetRootDivider(kCLOCK_RootEcspi1, 2U, 5U);                  /* Set root clock to 800MHZ / 10 = 80MHZ */
     /* Set IRQ priority for freertos_ecspi */
     NVIC_SetPriority(EXAMPLE_ECSPI_MASTER_IRQN, 2);
 
-    
+
     PRINTF("\r\n***FreeRTOS ECSPI Loopback Demo***\r\n");
     PRINTF("\r\nThis demo is a loopback transfer test for ECSPI.\r\n");
     PRINTF("The ECSPI will connect the transmitter and receiver sections internally.\r\n");
@@ -116,20 +116,20 @@ static void ecspi_task(void *pvParameters)
      uint8_t i;
      status_t status;
      ecspi_rtos_handle_t master_rtos_handle;
-     
+
      ECSPI_MasterGetDefaultConfig(&masterConfig);
-     
+
      masterConfig.baudRate_Bps = ECSPI_TRANSFER_BAUDRATE;
      masterConfig.enableLoopback = true;
 
      status = ECSPI_RTOS_Init(&master_rtos_handle, ECSPI_MASTER_BASEADDR, &masterConfig, ECSPI_MASTER_CLK_FREQ);
-     
+
      if (status != kStatus_Success)
     {
         PRINTF("ECSPI meets error during initialization. \r\n");
         vTaskSuspend(NULL);
     }
-    
+
     for (i = 0; i < ECSPI_TRANSFER_SIZE; i++)
     {
         masterTxData[i] = i;
@@ -139,14 +139,14 @@ static void ecspi_task(void *pvParameters)
     masterXfer.dataSize = ECSPI_TRANSFER_SIZE;
     masterXfer.channel = ECSPI_MASTER_TRANSFER_CHANNEL;
      /*Start master transfer*/
-    
+
     status = ECSPI_RTOS_Transfer(&master_rtos_handle, &masterXfer);
     if (status != kStatus_Success)
     {
         PRINTF("ECSPI transfer completed with error. \r\n\r\n");
         vTaskSuspend(NULL);
     }
-     
+
     /* Compare Tx and Rx data. */
     for (i = 0; i < ECSPI_TRANSFER_SIZE; i++)
     {
@@ -168,5 +168,5 @@ static void ecspi_task(void *pvParameters)
     /* Deinit the ECSPI. */
     ECSPI_RTOS_Deinit(&master_rtos_handle);
     vTaskSuspend(NULL);
-   
+
 }

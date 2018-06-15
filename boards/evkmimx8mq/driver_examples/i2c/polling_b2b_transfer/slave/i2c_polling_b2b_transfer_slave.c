@@ -44,7 +44,7 @@
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define EXAMPLE_I2C_SLAVE_BASEADDR I2C2 
+#define EXAMPLE_I2C_SLAVE_BASEADDR I2C2
 
 #define I2C_MASTER_SLAVE_ADDR_7BIT 0x7EU
 #define I2C_DATA_LENGTH 32U
@@ -103,12 +103,12 @@ int main(void)
 
     /* Board specific RDC settings */
     BOARD_RdcInit();
-    
+
     BOARD_InitPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
     BOARD_InitMemory();
-    
+
 
 
     PRINTF("\r\nI2C board2board polling example -- Slave transfer.\r\n\r\n");

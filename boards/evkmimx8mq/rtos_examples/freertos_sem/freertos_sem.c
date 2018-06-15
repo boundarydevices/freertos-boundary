@@ -71,7 +71,7 @@ int main(void)
     /* Init board hardware. */
     /* Board specific RDC settings */
     BOARD_RdcInit();
-    
+
     BOARD_InitPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();

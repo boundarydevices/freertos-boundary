@@ -1,6 +1,6 @@
 Overview
 ========
-This document explains the freertos_tickless example. It shows the CPU enter at sleep mode and then 
+This document explains the freertos_tickless example. It shows the CPU enter at sleep mode and then
 it is waked up by expired time delay that using GPT module.
 
 
@@ -40,7 +40,7 @@ Prepare the Demo
 
 Running the demo
 ================
-After the board is flashed the Tera Term will start periodically printing number tick count when the CPU 
+After the board is flashed the Tera Term will start periodically printing number tick count when the CPU
 is running.
 
 Example output like the following shows:
@@ -58,10 +58,10 @@ Tick count :
 
 Explanation of the example
 The example application will get tick count number after every period time delay vTaskDelay(time)
-When this function called the CPU enter to sleep mode a period of time that called by vTaskDelay 
+When this function called the CPU enter to sleep mode a period of time that called by vTaskDelay
 function.
 
-While the CPU is sleeping, if several time on board then CPU waked up 
+While the CPU is sleeping, if several time on board then CPU waked up
 by external interrupt and continuous enter sleep mode after complete interrupt service.
 The period of time delay is not change after occur external interrupt.
 Customization options

@@ -2,7 +2,7 @@ Overview
 ========
 The uart_auto_baudrate_detect example shows how to use uart auto baud rate detect feature:
 
-In this example, one uart instance connect to PC through uart. First, we should send characters a or A to board. 
+In this example, one uart instance connect to PC through uart. First, we should send characters a or A to board.
 The boars will set baud rate automatic. After baud rate has set, the board will send back all characters that PC
 send to the board.
 
@@ -41,7 +41,7 @@ Prepare the Demo
 
 Running the demo
 ================
-Set any baud rate in your terminal, and send character a or A to board, then  
+Set any baud rate in your terminal, and send character a or A to board, then
 When the demo runs successfully, the log would be seen on the debug terminal like:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -104,7 +104,7 @@ int main(void)
     pwm_config_t pwmConfig;
 
     /* Board pin, clock, debug console init */
-    
+
     /* Board specific RDC settings */
     BOARD_RdcInit();
 
@@ -112,7 +112,7 @@ int main(void)
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
     BOARD_InitMemory();
-    
+
 
     PRINTF("\r\nPWM driver example.\r\n");
 

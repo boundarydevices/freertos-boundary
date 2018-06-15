@@ -75,32 +75,32 @@ BOARD_InitPins:
 void BOARD_InitPins(void) {                                /*!< Function assigned for the core: Cortex-M4[m4] */
     IOMUXC_SetPinMux(IOMUXC_GPIO1_IO08_GPIO1_IO8, 1U);
     IOMUXC_SetPinMux(IOMUXC_SAI2_MCLK_SAI2_MCLK, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_SAI2_MCLK_SAI2_MCLK, 
+    IOMUXC_SetPinConfig(IOMUXC_SAI2_MCLK_SAI2_MCLK,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(2U) |
                         IOMUXC_SW_PAD_CTL_PAD_SRE(1U) |
                         IOMUXC_SW_PAD_CTL_PAD_HYS_MASK);
     IOMUXC_SetPinMux(IOMUXC_SAI2_TXC_SAI2_TX_BCLK, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_SAI2_TXC_SAI2_TX_BCLK, 
+    IOMUXC_SetPinConfig(IOMUXC_SAI2_TXC_SAI2_TX_BCLK,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(2U) |
                         IOMUXC_SW_PAD_CTL_PAD_SRE(1U) |
                         IOMUXC_SW_PAD_CTL_PAD_HYS_MASK);
     IOMUXC_SetPinMux(IOMUXC_SAI2_TXD0_SAI2_TX_DATA0, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_SAI2_TXD0_SAI2_TX_DATA0, 
+    IOMUXC_SetPinConfig(IOMUXC_SAI2_TXD0_SAI2_TX_DATA0,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(2U) |
                         IOMUXC_SW_PAD_CTL_PAD_SRE(1U) |
                         IOMUXC_SW_PAD_CTL_PAD_HYS_MASK);
     IOMUXC_SetPinMux(IOMUXC_SAI2_TXFS_SAI2_TX_SYNC, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_SAI2_TXFS_SAI2_TX_SYNC, 
+    IOMUXC_SetPinConfig(IOMUXC_SAI2_TXFS_SAI2_TX_SYNC,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(2U) |
                         IOMUXC_SW_PAD_CTL_PAD_SRE(1U) |
                         IOMUXC_SW_PAD_CTL_PAD_HYS_MASK);
     IOMUXC_SetPinMux(IOMUXC_UART2_RXD_UART2_RX, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_UART2_RXD_UART2_RX, 
+    IOMUXC_SetPinConfig(IOMUXC_UART2_RXD_UART2_RX,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(6U) |
                         IOMUXC_SW_PAD_CTL_PAD_SRE(1U) |
                         IOMUXC_SW_PAD_CTL_PAD_PUE_MASK);
     IOMUXC_SetPinMux(IOMUXC_UART2_TXD_UART2_TX, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_UART2_TXD_UART2_TX, 
+    IOMUXC_SetPinConfig(IOMUXC_UART2_TXD_UART2_TX,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(6U) |
                         IOMUXC_SW_PAD_CTL_PAD_SRE(1U) |
                         IOMUXC_SW_PAD_CTL_PAD_PUE_MASK);

@@ -17,7 +17,7 @@ SET(CMAKE_STATIC_LIBRARY_SUFFIX)
 SET(CMAKE_EXECUTABLE_LIBRARY_PREFIX)
 SET(CMAKE_EXECUTABLE_LIBRARY_SUFFIX)
 
- 
+
 # CURRENT DIRECTORY
 SET(ProjDirPath ${CMAKE_CURRENT_SOURCE_DIR})
 
@@ -614,7 +614,7 @@ include_directories(${ProjDirPath}/../../../../../../../devices/MIMX8MQ6/utiliti
 
 include_directories(${ProjDirPath}/../../../../../../../devices/MIMX8MQ6/utilities)
 
-add_executable(cmsis_ii2c_int_b2b_transfer_master.elf 
+add_executable(cmsis_ii2c_int_b2b_transfer_master.elf
 "${ProjDirPath}/../cmsis_i2c_int_b2b_transfer_master.c"
 "${ProjDirPath}/../pin_mux.c"
 "${ProjDirPath}/../pin_mux.h"

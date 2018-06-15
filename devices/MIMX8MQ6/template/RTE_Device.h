@@ -5,7 +5,7 @@
   * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
- * are permitted (subject to the limitations in the disclaimer below) provided that 
+ * are permitted (subject to the limitations in the disclaimer below) provided that
  * the following conditions are met:
  *
  * o Redistributions of source code must retain the above copyright notice, this list
@@ -36,8 +36,8 @@
 #define __RTE_DEVICE_H
 
 /* UART select, UART1-UART4 */
-/* User needs to provide the implementation for XXX_GetFreq/XXX_InitPins/XXX_DeinitPins 
-in the application for enabling according instance. */ 
+/* User needs to provide the implementation for XXX_GetFreq/XXX_InitPins/XXX_DeinitPins
+in the application for enabling according instance. */
 #define RTE_USART1 0
 #define RTE_USART1_DMA_EN 0
 #define RTE_USART2 0
@@ -49,8 +49,8 @@ in the application for enabling according instance. */
 
 
 /* I2C select, I2C1 - I2C4. */
-/* User needs to provide the implementation for XXX_GetFreq/XXX_InitPins/XXX_DeinitPins 
-in the application for enabling according instance. */ 
+/* User needs to provide the implementation for XXX_GetFreq/XXX_InitPins/XXX_DeinitPins
+in the application for enabling according instance. */
 #define RTE_I2C1 0
 #define RTE_I2C1_DMA_EN 0
 #define RTE_I2C2 0
@@ -62,8 +62,8 @@ in the application for enabling according instance. */
 
 
 /* SPI select, DSPI1 - DSPI3. */
-/* User needs to provide the implementation for XXX_GetFreq/XXX_InitPins/XXX_DeinitPins 
-in the application for enabling according instance. */ 
+/* User needs to provide the implementation for XXX_GetFreq/XXX_InitPins/XXX_DeinitPins
+in the application for enabling according instance. */
 #define RTE_SPI0 0
 #define RTE_SPI0_DMA_EN 0
 #define RTE_SPI1 0

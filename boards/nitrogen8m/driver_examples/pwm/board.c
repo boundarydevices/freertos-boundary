@@ -67,7 +67,7 @@ void BOARD_InitMemory(void)
     /* Disable the MPU. */
     MPU->CTRL = 0;
 
-    /* 
+    /*
        The ARMv7-M default address map define the address space 0x20000000 to 0x3FFFFFFF as SRAM with Normal type, but there the address
        space 0x28000000 ~ 0x3FFFFFFF has been physically mapped to smart subsystems, so there need change the default memory attributes.
        Since the base address of MPU region should be multiples of region size, to make it simple, the MPU region 0 set the all 512M of SRAM space
@@ -89,10 +89,10 @@ void BOARD_InitMemory(void)
     MPU->RASR =
         (0x1 << MPU_RASR_XN_Pos) | (0x3 << MPU_RASR_AP_Pos) | (0x2 << MPU_RASR_TEX_Pos) | (0x3 << MPU_RASR_SRD_Pos) | (28 << MPU_RASR_SIZE_Pos) | MPU_RASR_ENABLE_Msk;
 
-    /* 
-       Non-cacheable area is provided in DDR memory, the DDR region 2MB - 128MB totally 126MB is revserved for CM4 cores. 
+    /*
+       Non-cacheable area is provided in DDR memory, the DDR region 2MB - 128MB totally 126MB is revserved for CM4 cores.
        You can put global or static uninitialized variables in NonCacheable section(initialized variables in NonCacheable.init section)
-       to make them uncacheable. Since the base address of MPU region should be multiples of region size, to make it simple, 
+       to make them uncacheable. Since the base address of MPU region should be multiples of region size, to make it simple,
        the MPU region 1 & 2 set all DDR address space 0x40000000 ~ 0xBFFFFFFF to be non-cacheable). Then MPU region 3 set the text
        and data section to be cacheable if the program running on DDR. The cacheable area base address should be multiples of its size
        in linker file, they can be modified per your needs.
@@ -150,7 +150,7 @@ void BOARD_InitMemory(void)
         * 6) MPU Protection Region size get from linker file;
         * 7) Enable Region 3.
         */
-        MPU->RASR = 
+        MPU->RASR =
              (0x3 << MPU_RASR_AP_Pos) | (0x1 << MPU_RASR_TEX_Pos) | (0x1 << MPU_RASR_C_Pos) | (0x1 << MPU_RASR_B_Pos) | ((i-1) << MPU_RASR_SIZE_Pos) | MPU_RASR_ENABLE_Msk;
     }
 
@@ -168,7 +168,7 @@ void BOARD_RdcInit(void)
     /* This function would configure M4 core run at domain 1 and enable the PLL clock sources used to domain 1.*/
     /* Move M4 core to specific RDC domain 1 */
     rdc_domain_assignment_t assignment = {0};
-    
+
     assignment.domainId = BOARD_DOMAIN_ID;
     RDC_SetMasterDomainAssignment(RDC, kRDC_Master_M4,&assignment);
     /*

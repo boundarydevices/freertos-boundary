@@ -119,7 +119,7 @@ int main(void)
     /* Init board hardware. */
     /* Board specific RDC settings */
     BOARD_RdcInit();
-    
+
     BOARD_InitPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
@@ -127,7 +127,7 @@ int main(void)
 
     CLOCK_SetRootMux(kCLOCK_RootI2c2, kCLOCK_I2cRootmuxSysPll1Div5); /* Set I2C source to SysPLL1 Div5 160MHZ */
     CLOCK_SetRootDivider(kCLOCK_RootI2c2, 1U, 4U);                /* Set root clock to 160MHZ / 4 = 40MHZ */
-    
+
     NVIC_SetPriority(EXAMPLE_I2C_SLAVE_IRQN, 2);
     NVIC_SetPriority(EXAMPLE_I2C_MASTER_IRQN, 3);
 

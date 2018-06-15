@@ -1,8 +1,8 @@
 Overview
 ========
-CMSIS-Driver defines generic peripheral driver interfaces for middleware making it reusable across a wide 
-range of supported microcontroller devices. The API connects microcontroller peripherals with middleware 
-that implements for example communication stacks, file systems, or graphic user interfaces. 
+CMSIS-Driver defines generic peripheral driver interfaces for middleware making it reusable across a wide
+range of supported microcontroller devices. The API connects microcontroller peripherals with middleware
+that implements for example communication stacks, file systems, or graphic user interfaces.
 More information and usage methord please refer to http://www.keil.com/pack/doc/cmsis/Driver/html/index.html.
 
 The cmsis_uart_interrupt_transfer example shows how to use uart cmsis driver in interrupt way:

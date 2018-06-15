@@ -417,7 +417,7 @@ struct rpmsg_lite_endpoint *rpmsg_lite_create_ept(struct rpmsg_lite_instance *rp
     struct rpmsg_lite_endpoint *rl_ept;
     struct llist *node;
     unsigned int i;
-    
+
     if (!rpmsg_lite_dev)
         return RL_NULL;
 
@@ -506,10 +506,10 @@ int rpmsg_lite_destroy_ept(struct rpmsg_lite_instance *rpmsg_lite_dev, struct rp
 
     if (!rpmsg_lite_dev)
         return RL_ERR_PARAM;
-    
+
     if (!rl_ept)
         return RL_ERR_PARAM;
-    
+
     env_lock_mutex(rpmsg_lite_dev->lock);
     node = rpmsg_lite_get_endpoint_from_addr(rpmsg_lite_dev, rl_ept->addr);
     if (node)

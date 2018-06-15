@@ -4,7 +4,7 @@ The WDOG Example project is to demonstrate usage of the KSDK wdog driver.
 In this example,implemented to test the wdog.
 And then after 10 times of refreshing the watchdog, a timeout reset is generated.
 We also try to refresh out of window to trigger reset after 10 times of refreshing.
-Please notice that because WDOG control registers are write-once only, so the 
+Please notice that because WDOG control registers are write-once only, so the
 WDOG_Init function and the WDOG_Disable function can be called only once after reset.
 
 Toolchain supported

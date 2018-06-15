@@ -4,7 +4,7 @@
   * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
- * are permitted (subject to the limitations in the disclaimer below) provided that 
+ * are permitted (subject to the limitations in the disclaimer below) provided that
  * the following conditions are met:
  *
  * o Redistributions of source code must retain the above copyright notice, this list
@@ -159,7 +159,7 @@
     {                                                                \
         kCLOCK_Sdma1, kCLOCK_Sdma2                 \
     }
-    
+
 /*! @brief Clock ip name array for MU. */
 #define MU_CLOCKS  \
     {              \
@@ -167,12 +167,12 @@
     }
 /*!
  * @brief CCM reg macros to extract corresponding registers bit field.
- */ 
+ */
 #define CCM_BIT_FIELD_EXTRACTION(val, mask, shift)  (((val) & mask) >> shift)
 
 /*!
  * @brief CCM reg macros to map corresponding registers.
- */ 
+ */
 #define CCM_REG_OFF(root, off) (*((volatile uint32_t *)((uint32_t)root + off)))
 #define CCM_REG(root)          CCM_REG_OFF(root, 0U)
 #define CCM_REG_SET(root)      CCM_REG_OFF(root, 4U)
@@ -197,11 +197,11 @@
 typedef enum _clock_name
 {
     kCLOCK_CoreM4Clk,   /*!< ARM M4 Core clock                          */
-    
+
     kCLOCK_AxiClk,      /*!< Main AXI bus clock.                         */
     kCLOCK_AhbClk,      /*!< AHB bus clock.                         */
     kCLOCK_IpgClk,      /*!< IPG bus clock.                         */
-    
+
     /* -------------------------------- Other clock --------------------------*/
 } clock_name_t;
 
@@ -277,13 +277,13 @@ typedef enum _clock_ip_name
     kCLOCK_Wdog3      = CCM_TUPLE(85U, 114U), /*!< WDOG3 Clock Gate.*/
 
     kCLOCK_TempSensor = CCM_TUPLE(98U, 0xFFFF),  /*!< TempSensor Clock Gate.*/
-    
+
     kCLOCK_Sdma1      = CCM_TUPLE(58U, 33U),  /*!< SDMA1 Clock Gate.*/
     kCLOCK_Sdma2      = CCM_TUPLE(59U, 35U),  /*!< SDMA2 Clock Gate.*/
-    
+
 } clock_ip_name_t;
 
-/*! @brief ccm root name used to get clock frequency. */ 
+/*! @brief ccm root name used to get clock frequency. */
 typedef enum _clock_root_control
 {
     kCLOCK_RootM4     = (uint32_t)(&(CCM)->ROOT[1].TARGET_ROOT),   /*!< ARM Cortex-M4 Clock control name.*/
@@ -291,7 +291,7 @@ typedef enum _clock_root_control
     kCLOCK_RootNoc    = (uint32_t)(&(CCM)->ROOT[26].TARGET_ROOT),  /*!< NOC Clock control name.*/
     kCLOCK_RootAhb    = (uint32_t)(&(CCM)->ROOT[32].TARGET_ROOT),  /*!< AHB Clock control name.*/
     kCLOCK_RootIpg    = (uint32_t)(&(CCM)->ROOT[33].TARGET_ROOT),  /*!< IPG Clock control name.*/
-    
+
     kCLOCK_RootSai1   = (uint32_t)(&(CCM)->ROOT[75].TARGET_ROOT),  /*!< SAI1 Clock control name.*/
     kCLOCK_RootSai2   = (uint32_t)(&(CCM)->ROOT[76].TARGET_ROOT),  /*!< SAI2 Clock control name.*/
     kCLOCK_RootSai3   = (uint32_t)(&(CCM)->ROOT[77].TARGET_ROOT),  /*!< SAI3 Clock control name.*/
@@ -300,7 +300,7 @@ typedef enum _clock_root_control
     kCLOCK_RootSai6   = (uint32_t)(&(CCM)->ROOT[80].TARGET_ROOT),  /*!< SAI6 Clock control name.*/
 
     kCLOCK_RootQspi   = (uint32_t)(&(CCM)->ROOT[87].TARGET_ROOT),  /*!< QSPI Clock control name.*/
-    
+
     kCLOCK_RootI2c1   = (uint32_t)(&(CCM)->ROOT[90].TARGET_ROOT),  /*!< I2C1 Clock control name.*/
     kCLOCK_RootI2c2   = (uint32_t)(&(CCM)->ROOT[91].TARGET_ROOT),  /*!< I2C2 Clock control name.*/
     kCLOCK_RootI2c3   = (uint32_t)(&(CCM)->ROOT[92].TARGET_ROOT),  /*!< I2C3 Clock control name.*/
@@ -319,7 +319,7 @@ typedef enum _clock_root_control
     kCLOCK_RootPwm2   = (uint32_t)(&(CCM)->ROOT[104].TARGET_ROOT),  /*!< PWM2 Clock control name.*/
     kCLOCK_RootPwm3   = (uint32_t)(&(CCM)->ROOT[105].TARGET_ROOT),  /*!< PWM3 Clock control name.*/
     kCLOCK_RootPwm4   = (uint32_t)(&(CCM)->ROOT[106].TARGET_ROOT),  /*!< PWM4 Clock control name.*/
-    
+
     kCLOCK_RootGpt1   = (uint32_t)(&(CCM)->ROOT[107].TARGET_ROOT), /*!< GPT1 Clock control name.*/
     kCLOCK_RootGpt2   = (uint32_t)(&(CCM)->ROOT[108].TARGET_ROOT), /*!< GPT2 Clock control name.*/
     kCLOCK_RootGpt3   = (uint32_t)(&(CCM)->ROOT[109].TARGET_ROOT), /*!< GPT3 Clock control name.*/
@@ -477,7 +477,7 @@ typedef enum _clock_rootmux_sai_clk_sel
 typedef enum _clock_pll_gate
 {
     kCLOCK_ArmPllGate           = (uint32_t)(&(CCM)->PLL_CTRL[12].PLL_CTRL),  /*!< ARM PLL Gate.*/
-    
+
     kCLOCK_GpuPllGate           = (uint32_t)(&(CCM)->PLL_CTRL[13].PLL_CTRL),  /*!< GPU PLL Gate.*/
     kCLOCK_VpuPllGate           = (uint32_t)(&(CCM)->PLL_CTRL[14].PLL_CTRL),  /*!< VPU PLL Gate.*/
     kCLOCK_DramPllGate          = (uint32_t)(&(CCM)->PLL_CTRL[15].PLL_CTRL),  /*!< DRAM PLL1 Gate.*/
@@ -570,7 +570,7 @@ typedef enum _ccm_analog_pll_clke
     kCLOCK_SystemPll1Clke         = CCM_ANALOG_TUPLE(SYS_PLL_CFG0, CCM_ANALOG_SYS_PLL_CFG0_PLL_CLKE_SHIFT),           /*!< System pll1 clke */
     kCLOCK_SystemPll1Div2Clke     = CCM_ANALOG_TUPLE(SYS_PLL_CFG0, CCM_ANALOG_SYS_PLL_CFG0_PLL_DIV2_CLKE_SHIFT),      /*!< System pll1 Div2 clke */
     kCLOCK_SystemPll1Div3Clke     = CCM_ANALOG_TUPLE(SYS_PLL_CFG0, CCM_ANALOG_SYS_PLL_CFG0_PLL_DIV3_CLKE_SHIFT),      /*!< System pll1 Div3 clke */
-    kCLOCK_SystemPll1Div4Clke     = CCM_ANALOG_TUPLE(SYS_PLL_CFG0, CCM_ANALOG_SYS_PLL_CFG0_PLL_DIV4_CLKE_SHIFT),      /*!< System pll1 Div4 clke */       
+    kCLOCK_SystemPll1Div4Clke     = CCM_ANALOG_TUPLE(SYS_PLL_CFG0, CCM_ANALOG_SYS_PLL_CFG0_PLL_DIV4_CLKE_SHIFT),      /*!< System pll1 Div4 clke */
     kCLOCK_SystemPll1Div5Clke     = CCM_ANALOG_TUPLE(SYS_PLL_CFG0, CCM_ANALOG_SYS_PLL_CFG0_PLL_DIV5_CLKE_SHIFT),      /*!< System pll1 Div5 clke */
     kCLOCK_SystemPll1Div6Clke     = CCM_ANALOG_TUPLE(SYS_PLL_CFG0, CCM_ANALOG_SYS_PLL_CFG0_PLL_DIV6_CLKE_SHIFT),      /*!< System pll1 Div6 clke */
     kCLOCK_SystemPll1Div8Clke     = CCM_ANALOG_TUPLE(SYS_PLL_CFG0, CCM_ANALOG_SYS_PLL_CFG0_PLL_DIV8_CLKE_SHIFT),      /*!< System pll1 Div8 clke */
@@ -586,7 +586,7 @@ typedef enum _ccm_analog_pll_clke
     kCLOCK_SystemPll2Div8Clke     = CCM_ANALOG_TUPLE(SYS_PLL2_CFG0, CCM_ANALOG_SYS_PLL2_CFG0_PLL_DIV8_CLKE_SHIFT),     /*!< System pll2 Div8 clke */
     kCLOCK_SystemPll2Div10Clke    = CCM_ANALOG_TUPLE(SYS_PLL2_CFG0, CCM_ANALOG_SYS_PLL2_CFG0_PLL_DIV10_CLKE_SHIFT),    /*!< System pll2 Div10 clke */
     kCLOCK_SystemPll2Div20Clke    = CCM_ANALOG_TUPLE(SYS_PLL2_CFG0, CCM_ANALOG_SYS_PLL2_CFG0_PLL_DIV20_CLKE_SHIFT),    /*!< System pll2 Div20 clke */
-    
+
     kCLOCK_SystemPll3Clke         = CCM_ANALOG_TUPLE(SYS_PLL3_CFG0, CCM_ANALOG_SYS_PLL3_CFG0_PLL_CLKE_SHIFT),          /*!< System pll3 clke */
     kCLOCK_VideoPll2Clke          = CCM_ANALOG_TUPLE(VIDEO_PLL2_CFG0, CCM_ANALOG_VIDEO_PLL2_CFG0_PLL_CLKE_SHIFT),         /*!< Video pll2 clke */
     kCLOCK_DramPllClke            = CCM_ANALOG_TUPLE(DRAM_PLL_CFG0, CCM_ANALOG_DRAM_PLL_CFG0_PLL_CLKE_SHIFT),             /*!< Dram pll clke */
@@ -791,7 +791,7 @@ void CLOCK_SetRootDivider(clock_root_control_t ccmRootClk, uint32_t pre, uint32_
  */
 static inline uint32_t CLOCK_GetRootPreDivider(clock_root_control_t rootClk)
 {
-    return ((CCM_REG(rootClk) & CCM_TARGET_ROOT_PRE_PODF_MASK) >> CCM_TARGET_ROOT_PRE_PODF_SHIFT) + 1U;   
+    return ((CCM_REG(rootClk) & CCM_TARGET_ROOT_PRE_PODF_MASK) >> CCM_TARGET_ROOT_PRE_PODF_SHIFT) + 1U;
 }
 
 /*!
@@ -804,7 +804,7 @@ static inline uint32_t CLOCK_GetRootPreDivider(clock_root_control_t rootClk)
  */
 static inline uint32_t CLOCK_GetRootPostDivider(clock_root_control_t rootClk)
 {
-    return ((CCM_REG(rootClk) & CCM_TARGET_ROOT_POST_PODF_MASK) >> CCM_TARGET_ROOT_POST_PODF_SHIFT) + 1U;   
+    return ((CCM_REG(rootClk) & CCM_TARGET_ROOT_POST_PODF_MASK) >> CCM_TARGET_ROOT_POST_PODF_SHIFT) + 1U;
 }
 
 
@@ -815,7 +815,7 @@ static inline uint32_t CLOCK_GetRootPostDivider(clock_root_control_t rootClk)
 /*!
  * @brief OSC25M init
  *
- * @param config osc configuration 
+ * @param config osc configuration
  */
 void CLOCK_InitOSC25M(const osc_config_t *config);
 
@@ -834,7 +834,7 @@ void CLOCK_InitOSC27M(const osc_config_t *config);
 /*!
  * @brief OSC27M deinit
  *
- * @param config osc configuration 
+ * @param config osc configuration
  */
 void CLOCK_DeinitOSC27M(void);
 
@@ -1139,7 +1139,7 @@ void CLOCK_DeinitAudioPll2(void);
  *
  */
  void CLOCK_InitVideoPll1(const ccm_analog_frac_pll_config_t *config);
- 
+
 /*!
  * @brief De-initialize the Vedio PLL1.
  */
@@ -1154,7 +1154,7 @@ void CLOCK_DeinitVedioPll1(void);
  * used by some IPs.
  */
  void CLOCK_InitVideoPll2(const ccm_analog_sscg_pll_config_t *config);
- 
+
 /*!
  * @brief De-initialize the Vedio PLL2.
  */
@@ -1169,7 +1169,7 @@ void CLOCK_DeinitVedioPll2(void);
  *
  */
  void CLOCK_InitSSCGPll(CCM_ANALOG_Type *base, const ccm_analog_sscg_pll_config_t *config, clock_pll_ctrl_t type);
- 
+
 /*!
  * @brief Get the ANALOG SSCG PLL clock frequency.
  *
@@ -1178,7 +1178,7 @@ void CLOCK_DeinitVedioPll2(void);
  * @param pll1Bypass pll1 bypass flag
  *
  * @return  Clock frequency
- */  
+ */
 uint32_t CLOCK_GetSSCGPllFreq(CCM_ANALOG_Type *base, clock_pll_ctrl_t type, uint32_t refClkFreq, bool pll1Bypass);
 
 /*!
@@ -1190,7 +1190,7 @@ uint32_t CLOCK_GetSSCGPllFreq(CCM_ANALOG_Type *base, clock_pll_ctrl_t type, uint
  *
  */
  void CLOCK_InitFracPll(CCM_ANALOG_Type *base, const ccm_analog_frac_pll_config_t *config, clock_pll_ctrl_t type);
- 
+
 /*!
  * @brief Gets the ANALOG Fractional PLL clock frequency.
  *
@@ -1199,7 +1199,7 @@ uint32_t CLOCK_GetSSCGPllFreq(CCM_ANALOG_Type *base, clock_pll_ctrl_t type, uint
  * @param fractional pll reference clock frequency
  *
  * @return  Clock frequency
- */  
+ */
 uint32_t CLOCK_GetFracPllFreq(CCM_ANALOG_Type *base, clock_pll_ctrl_t type, uint32_t refClkFreq);
 
 /*!
@@ -1208,7 +1208,7 @@ uint32_t CLOCK_GetFracPllFreq(CCM_ANALOG_Type *base, clock_pll_ctrl_t type, uint
  * @param type fractional pll type.
 
  * @return  Clock frequency
- */  
+ */
 uint32_t CLOCK_GetPllFreq(clock_pll_ctrl_t pll);
 
 /*!
@@ -1217,7 +1217,7 @@ uint32_t CLOCK_GetPllFreq(clock_pll_ctrl_t pll);
  * @param type fractional pll type.
 
  * @return  Clock frequency
- */  
+ */
 uint32_t CLOCK_GetPllRefClkFreq(clock_pll_ctrl_t ctrl);
 
 /*!

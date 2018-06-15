@@ -46,7 +46,7 @@
 #define EXAMPLE_GPT GPT1
 #define EXAMPLE_GPT_CLK_FREQ \
         CLOCK_GetPllFreq(kCLOCK_SystemPll1Ctrl) / (CLOCK_GetRootPreDivider(kCLOCK_RootGpt1)) / \
-        (CLOCK_GetRootPostDivider(kCLOCK_RootGpt1)) / 2     /* SYSTEM PLL1 DIV2 */                   
+        (CLOCK_GetRootPostDivider(kCLOCK_RootGpt1)) / 2     /* SYSTEM PLL1 DIV2 */
 #define EXAMPLE_GPT_IRQHandler GPT1_IRQHandler
 
 /*******************************************************************************
@@ -86,12 +86,12 @@ int main(void)
     /* Board pin, clock, debug console init */
     /* Board specific RDC settings */
     BOARD_RdcInit();
-    
+
     BOARD_InitPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
     BOARD_InitMemory();
-    
+
     CLOCK_SetRootMux(kCLOCK_RootGpt1, kCLOCK_GptRootmuxSysPll1Div2); /* Set GPT1 source to SYSTEM PLL1 DIV2 400MHZ */
     CLOCK_SetRootDivider(kCLOCK_RootGpt1, 1U, 4U);                  /* Set root clock to 400MHZ / 4 = 100MHZ */
 

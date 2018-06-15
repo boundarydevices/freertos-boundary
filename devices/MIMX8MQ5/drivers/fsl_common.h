@@ -146,7 +146,7 @@ enum _status_groups
     kStatusGroup_SPDIF = 75,                  /*!< Group number for SPDIF status codes. */
     kStatusGroup_NOTIFIER = 98,               /*!< Group number for NOTIFIER status codes. */
     kStatusGroup_DebugConsole = 99,           /*!< Group number for debug console status codes. */
-    kStatusGroup_SEMC = 100,                   /*!< Group number for SEMC status codes. */    
+    kStatusGroup_SEMC = 100,                   /*!< Group number for SEMC status codes. */
     kStatusGroup_ApplicationRangeStart = 101, /*!< Starting number for application groups. */
 };
 
@@ -344,10 +344,10 @@ _Pragma("diag_suppress=Pm120")
 #define AT_QUICKACCESS_SECTION_DATA(func) func @"DataQuickAccess"
 #elif(defined(__ARMCC_VERSION))
 #define AT_QUICKACCESS_SECTION_CODE(func) __attribute__((section("CodeQuickAccess"), zero_init)) func
-#define AT_QUICKACCESS_SECTION_DATA(func) __attribute__((section("DataQuickAccess"), zero_init)) func       
+#define AT_QUICKACCESS_SECTION_DATA(func) __attribute__((section("DataQuickAccess"), zero_init)) func
 #elif(defined(__GNUC__))
 #define AT_QUICKACCESS_SECTION_CODE(func) __attribute__((section("CodeQuickAccess"))) func
-#define AT_QUICKACCESS_SECTION_DATA(func) __attribute__((section("DataQuickAccess"))) func  
+#define AT_QUICKACCESS_SECTION_DATA(func) __attribute__((section("DataQuickAccess"))) func
 #else
 #error Toolchain not supported.
 #endif /* defined(__ICCARM__) */
@@ -357,13 +357,13 @@ _Pragma("diag_suppress=Pm120")
 #define AT_QUICKACCESS_SECTION_DATA(func) func
 #elif(defined(__ARMCC_VERSION))
 #define AT_QUICKACCESS_SECTION_CODE(func) func
-#define AT_QUICKACCESS_SECTION_DATA(func) func    
+#define AT_QUICKACCESS_SECTION_DATA(func) func
 #elif(defined(__GNUC__))
 #define AT_QUICKACCESS_SECTION_CODE(func) func
 #define AT_QUICKACCESS_SECTION_DATA(func) func
 #else
 #error Toolchain not supported.
-#endif    
+#endif
 #endif /* __FSL_SDK_DRIVER_QUICK_ACCESS_ENABLE */
 /* @} */
 
