@@ -1,0 +1,57 @@
+Release Name: MCUXpresso Software Development Kit (SDK)
+Release Version: 2.3.0
+
+CMSIS Core header files    Author: ARM                                       
+                           parentversion: 5.0.1                              
+                           URL: http://silver.arm.com                        
+                           name: CMSIS Core header files                     
+                           Format: source code                               
+                           License: Apache License 2.0, See                  
+                           <rootfolder>/CMSIS/LICENSE.txt                    
+                           Location: CMSIS/Include                           
+                           version: 5.0.1 (CMSIS Download 5.0.1)             
+                           Description: Industry-standard header files       
+                           distributes by ARM for cortex-M cores             
+
+CMSIS DSP Library          name: CMSIS DSP Library                           
+                           Format: source code                               
+                           License: Apache License 2.0, See                  
+                           <rootfolder>/CMSIS/LICENSE.txt                    
+                           parentversion: 5.0.1                              
+                           Author: ARM                                       
+                           version: 5.0.1 (CMSIS download 5.0.1)             
+                           URL: http://silver.arm.com                        
+                           Location: CMSIS/DSP_Lib                           
+                           Description: A digital signal processing library  
+                           for Cortex-M cores from ARM                       
+
+FreeRTOS(tm)               Author: Real Time Engineers, Ltd.                 
+                           Description: A real-time operating system(RTOS)   
+                           from Real Time Engineers, Ltd.                    
+                           Format: source code                               
+                           License: Modified GPLv2. See                      
+                           ,<rootfolder>/rtos/freertos/License/license.txt.  
+                           Location: rtos/freertos                           
+                           name: FreeRTOS(tm)                                
+                           URL: http://www.freertos.org                      
+                           version: 9.0.0                                    
+
+KSDK Peripheral Driver     Description: Peripheral drivers are designed for  
+                           the most common use cases indentified for         
+                           the underlying hardware block.                    
+                           Author: Freescale                                 
+                           Version: 2.x.x                                    
+                           License: Open Source - BSD-3-Clause Clear         
+                           Format: source code                               
+                           Location: devices/<device_name>/drivers           
+
+RPMsg-Lite                 version: 1.2.0                                    
+                           Location: middleware/multicore/rpmsg_lite/        
+                           Description: Open Asymmetric Multi Processing     
+                           (OpenAMP) framework project                       
+                           License: Open Source - BSD 3-Clause Clear         
+                           Author: Mentor Graphics Corporation & community   
+                           contributors                                      
+                           name: RPMsg-Lite                                  
+                           Format: source code                               
+                           URL: https://github.com/OpenAMP/open-amp          
