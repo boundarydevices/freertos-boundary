@@ -445,7 +445,7 @@ __STATIC_INLINE void __set_FPSCR(uint32_t fpscr)
                    __schedule_barrier();\
                 } while (0U)
 
-                  
+
 /**
   \brief   Reverse byte order (32 bit)
   \details Reverses the byte order in unsigned integer value. For example, 0x12345678 becomes 0x78563412.

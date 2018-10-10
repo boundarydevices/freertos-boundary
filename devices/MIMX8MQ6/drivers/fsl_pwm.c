@@ -92,12 +92,12 @@ static uint32_t PWM_GetInstance(PWM_Type *base)
 status_t PWM_Init(PWM_Type *base, const pwm_config_t *config)
 {
     assert(config);
-	
+
 #if !(defined(FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL) && FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL)
     /* Ungate PWM clock */
     CLOCK_EnableClock(s_pwmClock[PWM_GetInstance(base)]);
 #endif /* FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL */
-    
+
     /* Setup the PWM operation */
     base->PWMCR = (PWM_PWMCR_REPEAT(config->sampleRepeat) | PWM_PWMCR_PRESCALER(config->prescale) | PWM_PWMCR_CLKSRC(config->clockSource) |
                     PWM_PWMCR_POUTC(config->outputConfig) | PWM_PWMCR_HCTR(config->halfWordSwap) | PWM_PWMCR_BCTR(config->byteSwap) |

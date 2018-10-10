@@ -29,7 +29,7 @@
  * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  */
 
 
@@ -83,24 +83,24 @@ BOARD_InitPins:
  * END ****************************************************************************************************************/
 void BOARD_InitPins(void) {                                /*!< Function assigned for the core: Cortex-M4[m4] */
     IOMUXC_SetPinMux(IOMUXC_I2C2_SCL_I2C2_SCL, 1U);
-    IOMUXC_SetPinConfig(IOMUXC_I2C2_SCL_I2C2_SCL, 
+    IOMUXC_SetPinConfig(IOMUXC_I2C2_SCL_I2C2_SCL,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(6U) |
                         IOMUXC_SW_PAD_CTL_PAD_SRE(1U) |
                         IOMUXC_SW_PAD_CTL_PAD_ODE_MASK |
                         IOMUXC_SW_PAD_CTL_PAD_HYS_MASK);
     IOMUXC_SetPinMux(IOMUXC_I2C2_SDA_I2C2_SDA, 1U);
-    IOMUXC_SetPinConfig(IOMUXC_I2C2_SDA_I2C2_SDA, 
+    IOMUXC_SetPinConfig(IOMUXC_I2C2_SDA_I2C2_SDA,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(6U) |
                         IOMUXC_SW_PAD_CTL_PAD_SRE(1U) |
                         IOMUXC_SW_PAD_CTL_PAD_ODE_MASK |
                         IOMUXC_SW_PAD_CTL_PAD_HYS_MASK);
     IOMUXC_SetPinMux(IOMUXC_UART2_RXD_UART2_RX, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_UART2_RXD_UART2_RX, 
+    IOMUXC_SetPinConfig(IOMUXC_UART2_RXD_UART2_RX,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(6U) |
                         IOMUXC_SW_PAD_CTL_PAD_SRE(1U) |
                         IOMUXC_SW_PAD_CTL_PAD_PUE_MASK);
     IOMUXC_SetPinMux(IOMUXC_UART2_TXD_UART2_TX, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_UART2_TXD_UART2_TX, 
+    IOMUXC_SetPinConfig(IOMUXC_UART2_TXD_UART2_TX,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(6U) |
                         IOMUXC_SW_PAD_CTL_PAD_SRE(1U) |
                         IOMUXC_SW_PAD_CTL_PAD_PUE_MASK);

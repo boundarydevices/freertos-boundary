@@ -47,7 +47,7 @@
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
- 
+
 /*******************************************************************************
 * Variables
 ******************************************************************************/
@@ -70,11 +70,11 @@ int main(void)
     wdog_config_t config;
     /* Board specific RDC settings */
     BOARD_RdcInit();
-    
+
     BOARD_InitPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
-    BOARD_InitMemory();   
+    BOARD_InitMemory();
     PRINTF("--- Start Wdog test ---\r\n");
     /*
     * wdogConfig->enableWdog = true;

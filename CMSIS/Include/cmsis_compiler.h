@@ -54,7 +54,7 @@
 #elif defined ( __ICCARM__ )
   #include <cmsis_iccarm.h>
 
-  
+
 /*
  * TI ARM Compiler
  */

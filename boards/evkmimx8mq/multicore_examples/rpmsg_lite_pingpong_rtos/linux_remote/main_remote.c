@@ -175,10 +175,10 @@ void app_task(void *param)
 int main(void)
 {
     /* Initialize standard SDK demo application pins */
-    
+
     /* Board specific RDC settings */
     BOARD_RdcInit();
-    
+
     BOARD_InitPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();

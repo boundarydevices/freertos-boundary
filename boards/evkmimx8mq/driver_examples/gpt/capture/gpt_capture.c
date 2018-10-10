@@ -88,7 +88,7 @@ int main(void)
     /* Board pin, clock, debug console init */
     /* Board specific RDC settings */
     BOARD_RdcInit();
-    
+
     BOARD_InitPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();

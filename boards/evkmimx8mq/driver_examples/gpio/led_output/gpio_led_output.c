@@ -81,12 +81,12 @@ int main(void)
     /* Board pin, clock, debug console init */
     /* Board specific RDC settings */
     BOARD_RdcInit();
-    
+
     BOARD_InitPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
     BOARD_InitMemory();
-    
+
 
     /* Print a note to terminal. */
     PRINTF("\r\n GPIO Driver example\r\n");

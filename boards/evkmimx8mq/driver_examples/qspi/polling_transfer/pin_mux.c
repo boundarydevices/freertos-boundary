@@ -29,7 +29,7 @@
  * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  */
 
 
@@ -87,37 +87,37 @@ BOARD_InitPins:
  * END ****************************************************************************************************************/
 void BOARD_InitPins(void) {                                /*!< Function assigned for the core: Cortex-M4[m4] */
     IOMUXC_SetPinMux(IOMUXC_NAND_ALE_QSPI_A_SCLK, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_NAND_ALE_QSPI_A_SCLK, 
+    IOMUXC_SetPinConfig(IOMUXC_NAND_ALE_QSPI_A_SCLK,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(2U) |
                         IOMUXC_SW_PAD_CTL_PAD_HYS_MASK);
     IOMUXC_SetPinMux(IOMUXC_NAND_CE0_B_QSPI_A_SS0_B, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_NAND_CE0_B_QSPI_A_SS0_B, 
+    IOMUXC_SetPinConfig(IOMUXC_NAND_CE0_B_QSPI_A_SS0_B,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(2U) |
                         IOMUXC_SW_PAD_CTL_PAD_HYS_MASK);
     IOMUXC_SetPinMux(IOMUXC_NAND_DATA00_QSPI_A_DATA0, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_NAND_DATA00_QSPI_A_DATA0, 
+    IOMUXC_SetPinConfig(IOMUXC_NAND_DATA00_QSPI_A_DATA0,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(2U) |
                         IOMUXC_SW_PAD_CTL_PAD_HYS_MASK);
     IOMUXC_SetPinMux(IOMUXC_NAND_DATA01_QSPI_A_DATA1, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_NAND_DATA01_QSPI_A_DATA1, 
+    IOMUXC_SetPinConfig(IOMUXC_NAND_DATA01_QSPI_A_DATA1,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(2U) |
                         IOMUXC_SW_PAD_CTL_PAD_HYS_MASK);
     IOMUXC_SetPinMux(IOMUXC_NAND_DATA02_QSPI_A_DATA2, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_NAND_DATA02_QSPI_A_DATA2, 
+    IOMUXC_SetPinConfig(IOMUXC_NAND_DATA02_QSPI_A_DATA2,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(2U) |
                         IOMUXC_SW_PAD_CTL_PAD_HYS_MASK);
     IOMUXC_SetPinMux(IOMUXC_NAND_DATA03_QSPI_A_DATA3, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_NAND_DATA03_QSPI_A_DATA3, 
+    IOMUXC_SetPinConfig(IOMUXC_NAND_DATA03_QSPI_A_DATA3,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(2U) |
                         IOMUXC_SW_PAD_CTL_PAD_HYS_MASK |
                         IOMUXC_SW_PAD_CTL_PAD_VSEL(3U));
     IOMUXC_SetPinMux(IOMUXC_UART2_RXD_UART2_RX, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_UART2_RXD_UART2_RX, 
+    IOMUXC_SetPinConfig(IOMUXC_UART2_RXD_UART2_RX,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(6U) |
                         IOMUXC_SW_PAD_CTL_PAD_SRE(1U) |
                         IOMUXC_SW_PAD_CTL_PAD_PUE_MASK);
     IOMUXC_SetPinMux(IOMUXC_UART2_TXD_UART2_TX, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_UART2_TXD_UART2_TX, 
+    IOMUXC_SetPinConfig(IOMUXC_UART2_TXD_UART2_TX,
                         IOMUXC_SW_PAD_CTL_PAD_DSE(6U) |
                         IOMUXC_SW_PAD_CTL_PAD_SRE(1U) |
                         IOMUXC_SW_PAD_CTL_PAD_PUE_MASK);

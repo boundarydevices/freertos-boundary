@@ -47,7 +47,7 @@
 #define EXAMPLE_I2C_MASTER_BASEADDR I2C2
 #define I2C_MASTER_CLK_FREQ \
              CLOCK_GetPllFreq(kCLOCK_SystemPll1Ctrl) / (CLOCK_GetRootPreDivider(kCLOCK_RootI2c2)) / \
-        (CLOCK_GetRootPostDivider(kCLOCK_RootI2c2)) / 5 /* SYSTEM PLL1 DIV5 */ 
+        (CLOCK_GetRootPostDivider(kCLOCK_RootI2c2)) / 5 /* SYSTEM PLL1 DIV5 */
 
 #define I2C_MASTER_SLAVE_ADDR_7BIT 0x7EU
 #define I2C_BAUDRATE 100000U
@@ -80,7 +80,7 @@ int main(void)
 
     /* Board specific RDC settings */
     BOARD_RdcInit();
-    
+
     BOARD_InitPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();

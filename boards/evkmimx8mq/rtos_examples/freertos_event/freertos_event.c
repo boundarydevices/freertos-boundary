@@ -74,11 +74,11 @@ int main(void)
 {
     /* Board specific RDC settings */
     BOARD_RdcInit();
-    
+
     BOARD_InitPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
-    BOARD_InitMemory();    
+    BOARD_InitMemory();
     event_group = xEventGroupCreate();
     if (xTaskCreate(write_task_1, "WRITE_TASK_1", configMINIMAL_STACK_SIZE + 38, NULL, tskIDLE_PRIORITY + 1, NULL) !=
         pdPASS)

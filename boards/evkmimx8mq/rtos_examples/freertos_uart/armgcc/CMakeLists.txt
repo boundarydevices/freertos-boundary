@@ -17,7 +17,7 @@ SET(CMAKE_STATIC_LIBRARY_SUFFIX)
 SET(CMAKE_EXECUTABLE_LIBRARY_PREFIX)
 SET(CMAKE_EXECUTABLE_LIBRARY_SUFFIX)
 
- 
+
 # CURRENT DIRECTORY
 SET(ProjDirPath ${CMAKE_CURRENT_SOURCE_DIR})
 
@@ -626,7 +626,7 @@ include_directories(${ProjDirPath}/../../../../../devices/MIMX8MQ6/utilities/log
 
 include_directories(${ProjDirPath}/../../../../../devices/MIMX8MQ6/utilities)
 
-add_executable(freertos_uart.elf 
+add_executable(freertos_uart.elf
 "${ProjDirPath}/../fsl_iomuxc.h"
 "${ProjDirPath}/../board.c"
 "${ProjDirPath}/../board.h"

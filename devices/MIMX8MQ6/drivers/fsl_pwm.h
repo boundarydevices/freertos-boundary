@@ -58,7 +58,7 @@ typedef enum _pwm_clock_source
     kPWM_LowFrequencyClock      /*!< Low-frequency reference clock(32KHz) is used as the clock */
 } pwm_clock_source_t;
 
-/*! 
+/*!
  * @brief PWM FIFO water mark select.
  * Sets the data level at which the FIFO empty flag will be set
  */
@@ -70,7 +70,7 @@ typedef enum _pwm_fifo_water_mark
     kPWM_FIFOWaterMark_4        /*!< FIFO empty flag is set when there are more than or equal to 4 empty slots */
 } pwm_fifo_water_mark_t;
 
-/*! 
+/*!
  * @brief PWM byte data swap select.
  * It determines the byte ordering of the 16-bit data when it goes into the FIFO from the sample register.
  */
@@ -95,7 +95,7 @@ typedef enum _pwm_output_configuration
     kPWM_NoConfigure        /*!< PWM output is disconnected */
 } pwm_output_configuration_t;
 
-/*! 
+/*!
  * @brief PWM FIFO sample repeat
  * It determines the number of times each sample from the FIFO is to be used.
  */
@@ -330,7 +330,7 @@ static inline uint32_t PWM_GetStatusFlags(PWM_Type *base)
  */
 static inline void PWM_clearStatusFlags(PWM_Type *base, uint32_t mask)
 {
-    base->PWMSR = (mask & (PWM_PWMSR_FE_MASK | PWM_PWMSR_ROV_MASK | 
+    base->PWMSR = (mask & (PWM_PWMSR_FE_MASK | PWM_PWMSR_ROV_MASK |
                     PWM_PWMSR_CMP_MASK | PWM_PWMSR_FWE_MASK));
 }
 
@@ -358,7 +358,7 @@ static inline uint32_t PWM_GetFIFOAvailable(PWM_Type *base)
  * @brief Sets the PWM sample value.
  *
  * @param base PWM peripheral base address
- * @param mask The sample value. This is the input to the 4x16 FIFO. The value in this register denotes 
+ * @param mask The sample value. This is the input to the 4x16 FIFO. The value in this register denotes
  *             the value of the sample being currently used.
  */
 static inline void PWM_SetSampleValue(PWM_Type *base, uint32_t value)
@@ -370,7 +370,7 @@ static inline void PWM_SetSampleValue(PWM_Type *base, uint32_t value)
  * @brief Gets the PWM sample value.
  *
  * @param base PWM peripheral base address
- * 
+ *
  * @return The sample value. It can be read only when the PWM is enable.
  */
 static inline uint32_t PWM_GetSampleValue(PWM_Type *base)
@@ -384,7 +384,7 @@ static inline uint32_t PWM_GetSampleValue(PWM_Type *base)
  * @brief Sets the PWM period value.
  *
  * @param base PWM peripheral base address
- * @param mask The period value. The PWM period register (PWM_PWMPR) determines the period of 
+ * @param mask The period value. The PWM period register (PWM_PWMPR) determines the period of
  *             the PWM output signal.
  *             Writing 0xFFFF to this register will achieve the same result as writing 0xFFFE.
  *             PWMO (Hz) = PCLK(Hz) / (period +2)
@@ -399,7 +399,7 @@ static inline void PWM_SetPeriodValue(PWM_Type *base, uint32_t value)
  *
  * @param base PWM peripheral base address
  *
- * @return The period value. The PWM period register (PWM_PWMPR) determines the period of 
+ * @return The period value. The PWM period register (PWM_PWMPR) determines the period of
  *             the PWM output signal.
  */
 static inline uint32_t PWM_GetPeriodValue(PWM_Type *base)

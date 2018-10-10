@@ -147,7 +147,7 @@ enum _status_groups
     kStatusGroup_LPC_MINISPI = 76,            /*!< Group number for LPC_MINISPI status codes. */
     kStatusGroup_NOTIFIER = 98,               /*!< Group number for NOTIFIER status codes. */
     kStatusGroup_DebugConsole = 99,           /*!< Group number for debug console status codes. */
-    kStatusGroup_SEMC = 100,                   /*!< Group number for SEMC status codes. */    
+    kStatusGroup_SEMC = 100,                   /*!< Group number for SEMC status codes. */
     kStatusGroup_ApplicationRangeStart = 101, /*!< Starting number for application groups. */
 };
 
@@ -364,7 +364,7 @@ _Pragma("diag_suppress=Pm120")
 #define AT_QUICKACCESS_SECTION_DATA(func) func
 #else
 #error Toolchain not supported.
-#endif    
+#endif
 #endif /* __FSL_SDK_DRIVER_QUICK_ACCESS_ENABLE */
 /* @} */
 

@@ -5,7 +5,7 @@
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
- * are permitted (subject to the limitations in the disclaimer below) provided that 
+ * are permitted (subject to the limitations in the disclaimer below) provided that
  * the following conditions are met:
  *
  * o Redistributions of source code must retain the above copyright notice, this list
@@ -186,7 +186,7 @@
 #define IOMUXC_SD1_DATA4_GPIO2_IO6                                    0x303300b8, 0x5, 0x00000000, 0x0, 0x30330320
 #define IOMUXC_SD1_DATA5_USDHC1_DATA5                                 0x303300bc, 0x0, 0x00000000, 0x0, 0x30330324
 #define IOMUXC_SD1_DATA5_GPIO2_IO7                                    0x303300bc, 0x5, 0x00000000, 0x0, 0x30330324
-#define IOMUXC_SD1_DATA6_USDHC1_DATA6                                 0x303300c0, 0x0, 0x00000000, 0x0, 0x30330328      
+#define IOMUXC_SD1_DATA6_USDHC1_DATA6                                 0x303300c0, 0x0, 0x00000000, 0x0, 0x30330328
 #define IOMUXC_SD1_DATA6_GPIO2_IO8                                    0x303300c0, 0x5, 0x00000000, 0x0, 0x30330328
 #define IOMUXC_SD1_DATA7_USDHC1_DATA7                                 0x303300c4, 0x0, 0x00000000, 0x0, 0x3033032c
 #define IOMUXC_SD1_DATA7_GPIO2_IO9                                    0x303300c4, 0x5, 0x00000000, 0x0, 0x3033032c
@@ -615,7 +615,7 @@
 #define IOMUXC_UART2_TXD_UART2_TX                                     0x30330240, 0x0, 0x00000000, 0x0, 0x303304a8
 #define IOMUXC_UART2_TXD_ECSPI3_SS0                                   0x30330240, 0x1, 0x00000000, 0x0, 0x303304a8
 #define IOMUXC_UART2_TXD_GPIO5_IO25                                 0x30330240, 0x5, 0x00000000, 0x0, 0x303304a8
-#define IOMUXC_UART2_TXD_TPSMP_HDATA27                              0x30330240, 0x7, 0x00000000, 0x0, 0x303304a8 
+#define IOMUXC_UART2_TXD_TPSMP_HDATA27                              0x30330240, 0x7, 0x00000000, 0x0, 0x303304a8
 #define IOMUXC_UART3_RXD_UART3_RX                                     0x30330244, 0x0, 0x30330504, 0x2, 0x303304ac
 #define IOMUXC_UART3_RXD_UART1_CTS_B                                  0x30330244, 0x1, 0x303304f0, 0x0, 0x303304ac
 #define IOMUXC_UART3_RXD_GPIO5_IO26                                 0x30330244, 0x5, 0x00000000, 0x0, 0x303304ac
