@@ -44,7 +44,7 @@
 /* Define the timeout ms to polling the CA7 link up status */
 #define APP_LINKUP_TIMER_PERIOD_MS (10U)
 
-#define RPMSG_LITE_SRTM_SHMEM_BASE (0xB8000000U)
+#define RPMSG_LITE_SRTM_SHMEM_BASE (0x71000000U)
 #define RPMSG_LITE_SRTM_LINK_ID (0U)
 
 #define APP_SRTM_AUDIO_CHANNEL_NAME "rpmsg-audio-channel"

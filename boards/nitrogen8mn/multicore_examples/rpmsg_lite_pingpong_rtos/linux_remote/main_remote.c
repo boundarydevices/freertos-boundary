@@ -24,7 +24,7 @@
  * Definitions
  ******************************************************************************/
 #define RPMSG_LITE_LINK_ID (RL_PLATFORM_IMX8MN_M7_USER_LINK_ID)
-#define RPMSG_LITE_SHMEM_BASE 0xB8000000
+#define RPMSG_LITE_SHMEM_BASE 0x71000000
 #define RPMSG_LITE_NS_ANNOUNCE_STRING "rpmsg-openamp-demo-channel"
 #define RPMSG_LITE_MASTER_IS_LINUX
 

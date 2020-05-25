@@ -35,7 +35,7 @@ MEMORY
   m_interrupts          (RX)  : ORIGIN = 0x08000000, LENGTH = 0x00000A00
   m_text                (RX)  : ORIGIN = 0x08000A00, LENGTH = 0x000FF600
   m_data                (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00020000
-  m_data2               (RW)  : ORIGIN = 0x80000000, LENGTH = 0x01000000
+  m_data2               (RW)  : ORIGIN = 0x70000000, LENGTH = 0x01000000
   m_tcml                (RW)  : ORIGIN = 0x00000020, LENGTH = 0x0001FFE0
 }
 
