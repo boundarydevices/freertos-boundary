@@ -136,8 +136,8 @@ void BOARD_BootClockRUN(void)
     CLOCK_SetRootDivider(kCLOCK_RootAxi, 3U, 1U);
     CLOCK_SetRootMux(kCLOCK_RootAxi, kCLOCK_AxiRootmuxSysPll1); /* switch AXI to SYSTEM PLL1 = 266MHZ */
 
-    CLOCK_SetRootMux(kCLOCK_RootUart2, kCLOCK_UartRootmuxSysPll1Div10); /* Set UART source to SysPLL1 Div10 80MHZ */
-    CLOCK_SetRootDivider(kCLOCK_RootUart2, 1U, 1U);                     /* Set root clock to 80MHZ/ 1= 80MHZ */
+    CLOCK_SetRootMux(kCLOCK_RootUart2, kCLOCK_UartRootmuxOsc25m); /* Set UART source to osc25MHZ */
+    CLOCK_SetRootDivider(kCLOCK_RootUart2, 1U, 1U);                     /* Set root clock to 25MHZ / 1 = 25MHZ */
 
     CLOCK_EnableClock(kCLOCK_Rdc); /* Enable RDC clock */
 
