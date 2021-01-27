@@ -24,7 +24,7 @@
 */
 
 
-define symbol m_interrupts_start       = 0x80000000;
+define symbol m_interrupts_start       = 0x70000000;
 define symbol m_interrupts_end         = 0x8000023F;
 
 define symbol m_text_start             = 0x80000240;

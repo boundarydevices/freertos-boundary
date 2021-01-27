@@ -104,7 +104,7 @@ void BOARD_InitMemory(void)
     MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 1, 1, 0, 0, 0, ARM_MPU_REGION_SIZE_1GB);
 
     /* Region 5 DDR[0x8000_0000 - 0xF000_0000]: Memory with Normal type, shareable, non-cacheable */
-    MPU->RBAR = ARM_MPU_RBAR(5, 0x80000000U);
+    MPU->RBAR = ARM_MPU_RBAR(5, 0x70000000U);
     MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 1, 1, 0, 0, 0, ARM_MPU_REGION_SIZE_1GB);
 
     /*
