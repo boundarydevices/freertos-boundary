@@ -259,7 +259,7 @@ static int32_t UARTx_SetModemControl(ARM_USART_MODEM_CONTROL control)
 
 static ARM_USART_MODEM_STATUS UARTx_GetModemStatus(void)
 {
-    ARM_USART_MODEM_STATUS modem_status;
+    ARM_USART_MODEM_STATUS modem_status = {0};
 
     modem_status.cts      = 0U;
     modem_status.dsr      = 0U;
@@ -347,7 +347,7 @@ static int32_t UART_SdmaPowerControl(ARM_POWER_STATE state,
                 return ARM_DRIVER_ERROR;
             }
 
-            if ((uart->flags & (uint8_t)USART_FLAG_POWER))
+            if ((uart->flags & (uint8_t)USART_FLAG_POWER) != 0U)
             {
                 /* Driver already powered */
                 break;
@@ -511,7 +511,7 @@ static int32_t UART_SdmaControl(uint32_t control, uint32_t arg, cmsis_uart_sdma_
 
 static ARM_USART_STATUS UART_SdmaGetStatus(cmsis_uart_sdma_driver_state_t *uart)
 {
-    ARM_USART_STATUS stat;
+    ARM_USART_STATUS stat = {0};
 
     stat.tx_busy = ((uint8_t)kUART_TxBusy == uart->handle->txState) ? (1U) : (0U);
     stat.rx_busy = ((uint8_t)kUART_RxBusy == uart->handle->rxState) ? (1U) : (0U);
@@ -578,18 +578,20 @@ static int32_t UART_NonBlockingPowerControl(ARM_POWER_STATE state, cmsis_uart_no
 {
     status_t status;
     uart_config_t config;
+    int32_t result = ARM_DRIVER_OK;
 
     switch (state)
     {
         case ARM_POWER_OFF:
-            if (uart->flags & USART_FLAG_POWER)
+            if ((uart->flags & (uint8_t)USART_FLAG_POWER) != 0U)
             {
                 UART_Deinit(uart->resource->base);
                 uart->flags = USART_FLAG_INIT;
             }
             break;
         case ARM_POWER_LOW:
-            return ARM_DRIVER_ERROR_UNSUPPORTED;
+            result = ARM_DRIVER_ERROR_UNSUPPORTED;
+            break;
         case ARM_POWER_FULL:
             /* Must be initialized first. */
             if (uart->flags == USART_FLAG_UNINIT)
@@ -597,7 +599,7 @@ static int32_t UART_NonBlockingPowerControl(ARM_POWER_STATE state, cmsis_uart_no
                 return ARM_DRIVER_ERROR;
             }
 
-            if (uart->flags & (uint8_t)USART_FLAG_POWER)
+            if ((uart->flags & (uint8_t)USART_FLAG_POWER) != 0U)
             {
                 /* Driver already powered */
                 break;
@@ -615,13 +617,13 @@ static int32_t UART_NonBlockingPowerControl(ARM_POWER_STATE state, cmsis_uart_no
             UART_TransferCreateHandle(uart->resource->base, uart->handle, KSDK_UART_NonBlockingCallback,
                                       (void *)uart->cb_event);
             uart->flags |= (USART_FLAG_POWER | USART_FLAG_CONFIGURED);
-
             break;
         default:
-            return ARM_DRIVER_ERROR_UNSUPPORTED;
+            result = ARM_DRIVER_ERROR_UNSUPPORTED;
+            break;
     }
 
-    return ARM_DRIVER_OK;
+    return result;
 }
 
 static int32_t UART_NonBlockingSend(const void *data, uint32_t num, cmsis_uart_non_blocking_driver_state_t *uart)
@@ -761,16 +763,16 @@ static int32_t UART_NonBlockingControl(uint32_t control, uint32_t arg, cmsis_uar
 
 static ARM_USART_STATUS UART_NonBlockingGetStatus(cmsis_uart_non_blocking_driver_state_t *uart)
 {
-    ARM_USART_STATUS stat;
+    ARM_USART_STATUS stat = {0};
 
     stat.tx_busy = (((uint8_t)kUART_TxBusy == uart->handle->txState) ? (1U) : (0U));
     stat.rx_busy = (((uint8_t)kUART_RxBusy == uart->handle->rxState) ? (1U) : (0U));
 
     stat.tx_underflow     = 0U;
-    stat.rx_overflow      = UART_GetStatusFlag(uart->resource->base, (uint32_t)kUART_RxOverrunFlag);
-    stat.rx_break         = UART_GetStatusFlag(uart->resource->base, (uint32_t)kUART_BreakDetectFlag);
-    stat.rx_framing_error = UART_GetStatusFlag(uart->resource->base, (uint8_t)kUART_FrameErrorFlag);
-    stat.rx_parity_error  = UART_GetStatusFlag(uart->resource->base, (uint32_t)kUART_ParityErrorFlag);
+    stat.rx_overflow      = (uint32_t)UART_GetStatusFlag(uart->resource->base, (uint32_t)kUART_RxOverrunFlag);
+    stat.rx_break         = (uint32_t)UART_GetStatusFlag(uart->resource->base, (uint32_t)kUART_BreakDetectFlag);
+    stat.rx_framing_error = (uint32_t)UART_GetStatusFlag(uart->resource->base, (uint32_t)kUART_FrameErrorFlag);
+    stat.rx_parity_error  = (uint32_t)UART_GetStatusFlag(uart->resource->base, (uint32_t)kUART_ParityErrorFlag);
     stat.reserved         = 0U;
 
     return stat;
@@ -789,17 +791,17 @@ static cmsis_uart_resource_t UART1_Resource = {UART1, UART1_GetFreq};
 
 #if defined(RTE_USART1_DMA_EN) && RTE_USART1_DMA_EN
 
-cmsis_uart_sdma_resource_t UART1_SdmaResource = {
+static cmsis_uart_sdma_resource_t UART1_SdmaResource = {
     RTE_USART1_SDMA_TX_DMA_BASE, RTE_USART1_SDMA_TX_CH, RTE_USART1_SDMA_TX_REQUEST, RTE_USART1_SDMA_TX_PRIORITY,
     RTE_USART1_SDMA_RX_DMA_BASE, RTE_USART1_SDMA_RX_CH, RTE_USART1_SDMA_RX_REQUEST, RTE_USART1_SDMA_RX_PRIORITY,
 };
 
-AT_NONCACHEABLE_SECTION_ALIGN(uart_sdma_handle_t UART1_SdmaHandle, 4);
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_handle_t UART1_SdmaTxHandle, 4);
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_handle_t UART1_SdmaRxHandle, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static uart_sdma_handle_t UART1_SdmaHandle, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_handle_t UART1_SdmaTxHandle, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_handle_t UART1_SdmaRxHandle, 4);
 
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_context_data_t UART1_SdmaTxContext, 4);
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_context_data_t UART1_SdmaRxContext, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_context_data_t UART1_SdmaTxContext, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_context_data_t UART1_SdmaRxContext, 4);
 
 #if defined(__CC_ARM) || defined(__ARMCC_VERSION)
 ARMCC_SECTION("uart1_sdma_driver_state")
@@ -999,17 +1001,17 @@ static cmsis_uart_resource_t UART2_Resource = {UART2, UART2_GetFreq};
 
 #if defined(RTE_USART2_DMA_EN) && RTE_USART2_DMA_EN
 
-cmsis_uart_sdma_resource_t UART2_SdmaResource = {
+static cmsis_uart_sdma_resource_t UART2_SdmaResource = {
     RTE_USART2_SDMA_TX_DMA_BASE, RTE_USART2_SDMA_TX_CH, RTE_USART2_SDMA_TX_REQUEST, RTE_USART2_SDMA_TX_PRIORITY,
     RTE_USART2_SDMA_RX_DMA_BASE, RTE_USART2_SDMA_RX_CH, RTE_USART2_SDMA_RX_REQUEST, RTE_USART2_SDMA_RX_PRIORITY,
 };
 
-AT_NONCACHEABLE_SECTION_ALIGN(uart_sdma_handle_t UART2_SdmaHandle, 4);
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_handle_t UART2_SdmaTxHandle, 4);
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_handle_t UART2_SdmaRxHandle, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static uart_sdma_handle_t UART2_SdmaHandle, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_handle_t UART2_SdmaTxHandle, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_handle_t UART2_SdmaRxHandle, 4);
 
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_context_data_t UART2_SdmaTxContext, 4);
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_context_data_t UART2_SdmaRxContext, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_context_data_t UART2_SdmaTxContext, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_context_data_t UART2_SdmaRxContext, 4);
 
 #if defined(__CC_ARM) || defined(__ARMCC_VERSION)
 ARMCC_SECTION("uart2_sdma_driver_state")
@@ -1209,17 +1211,17 @@ static cmsis_uart_resource_t UART3_Resource = {UART3, UART3_GetFreq};
 
 #if defined(RTE_USART3_DMA_EN) && RTE_USART3_DMA_EN
 
-cmsis_uart_sdma_resource_t UART3_SdmaResource = {
+static cmsis_uart_sdma_resource_t UART3_SdmaResource = {
     RTE_USART3_SDMA_TX_DMA_BASE, RTE_USART3_SDMA_TX_CH, RTE_USART3_SDMA_TX_REQUEST, RTE_USART3_SDMA_TX_PRIORITY,
     RTE_USART3_SDMA_RX_DMA_BASE, RTE_USART3_SDMA_RX_CH, RTE_USART3_SDMA_RX_REQUEST, RTE_USART3_SDMA_RX_PRIORITY,
 };
 
-AT_NONCACHEABLE_SECTION_ALIGN(uart_sdma_handle_t UART3_SdmaHandle, 4);
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_handle_t UART3_SdmaTxHandle, 4);
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_handle_t UART3_SdmaRxHandle, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static uart_sdma_handle_t UART3_SdmaHandle, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_handle_t UART3_SdmaTxHandle, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_handle_t UART3_SdmaRxHandle, 4);
 
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_context_data_t UART3_SdmaTxContext, 4);
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_context_data_t UART3_SdmaRxContext, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_context_data_t UART3_SdmaTxContext, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_context_data_t UART3_SdmaRxContext, 4);
 
 #if defined(__CC_ARM) || defined(__ARMCC_VERSION)
 ARMCC_SECTION("uart3_sdma_driver_state")
@@ -1419,17 +1421,17 @@ static cmsis_uart_resource_t UART4_Resource = {UART4, UART4_GetFreq};
 
 #if defined(RTE_USART4_DMA_EN) && RTE_USART4_DMA_EN
 
-cmsis_uart_sdma_resource_t UART4_SdmaResource = {
+static cmsis_uart_sdma_resource_t UART4_SdmaResource = {
     RTE_USART4_SDMA_TX_DMA_BASE, RTE_USART4_SDMA_TX_CH, RTE_USART4_SDMA_TX_REQUEST, RTE_USART4_SDMA_TX_PRIORITY,
     RTE_USART4_SDMA_RX_DMA_BASE, RTE_USART4_SDMA_RX_CH, RTE_USART4_SDMA_RX_REQUEST, RTE_USART4_SDMA_RX_PRIORITY,
 };
 
-AT_NONCACHEABLE_SECTION_ALIGN(uart_sdma_handle_t UART4_SdmaHandle, 4);
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_handle_t UART4_SdmaTxHandle, 4);
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_handle_t UART4_SdmaRxHandle, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static uart_sdma_handle_t UART4_SdmaHandle, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_handle_t UART4_SdmaTxHandle, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_handle_t UART4_SdmaRxHandle, 4);
 
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_context_data_t UART4_SdmaTxContext, 4);
-AT_NONCACHEABLE_SECTION_ALIGN(sdma_context_data_t UART4_SdmaRxContext, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_context_data_t UART4_SdmaTxContext, 4);
+AT_NONCACHEABLE_SECTION_ALIGN(static sdma_context_data_t UART4_SdmaRxContext, 4);
 
 #if defined(__CC_ARM) || defined(__ARMCC_VERSION)
 ARMCC_SECTION("uart4_sdma_driver_state")

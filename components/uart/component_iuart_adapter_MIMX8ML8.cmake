@@ -1,19 +1,17 @@
-if(NOT COMPONENT_IUART_ADAPTER_MIMX8ML8_INCLUDED)
-    
-    set(COMPONENT_IUART_ADAPTER_MIMX8ML8_INCLUDED true CACHE BOOL "component_iuart_adapter component is included.")
+include_guard(GLOBAL)
+message("component_iuart_adapter component is included.")
 
-    target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}/fsl_adapter_iuart.c
-    )
-
-
-    target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}/.
-    )
+target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_LIST_DIR}/fsl_adapter_iuart.c
+)
 
 
-    include(driver_common_MIMX8ML8)
+target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_LIST_DIR}/.
+)
 
-    include(driver_iuart_MIMX8ML8)
 
-endif()
+include(driver_common_MIMX8ML8)
+
+include(driver_iuart_MIMX8ML8)
+

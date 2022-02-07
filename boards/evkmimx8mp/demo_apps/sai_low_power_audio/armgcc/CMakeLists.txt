@@ -1,6 +1,6 @@
 # CROSS COMPILER SETTING
 SET(CMAKE_SYSTEM_NAME Generic)
-CMAKE_MINIMUM_REQUIRED (VERSION 3.1.1)
+CMAKE_MINIMUM_REQUIRED (VERSION 3.10.0)
 
 # THE VERSION NUMBER
 SET (Tutorial_VERSION_MAJOR 1)
@@ -55,31 +55,30 @@ add_executable(${MCUX_SDK_PROJECT_NAME}
 "${ProjDirPath}/../../../../../components/srtm/services/srtm_audio_service.c"
 "${ProjDirPath}/../../../../../components/srtm/services/srtm_sai_sdma_adapter.h"
 "${ProjDirPath}/../../../../../components/srtm/services/srtm_sai_sdma_adapter.c"
+"${ProjDirPath}/../../../../../components/srtm/services/srtm_pdm_sdma_adapter.h"
+"${ProjDirPath}/../../../../../components/srtm/services/srtm_pdm_sdma_adapter.c"
 "${ProjDirPath}/../../../../../components/srtm/services/srtm_i2c_service.h"
 "${ProjDirPath}/../../../../../components/srtm/services/srtm_i2c_service.c"
 )
 
 target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
-    ${ProjDirPath}/.. debug
-    ${ProjDirPath}/../../.. debug
     ${ProjDirPath}/..
-    ${ProjDirPath}/../../..
     ${ProjDirPath}/../../../../../components/srtm/channels
     ${ProjDirPath}/../../../../../components/srtm/services
 )
 
 set(CMAKE_MODULE_PATH
     ${ProjDirPath}/../../../../../devices/MIMX8ML8/drivers
+    ${ProjDirPath}/../../../../../middleware/multicore
     ${ProjDirPath}/../../../../../devices/MIMX8ML8
     ${ProjDirPath}/../../../../../devices/MIMX8ML8/utilities
     ${ProjDirPath}/../../../../../components/uart
     ${ProjDirPath}/../../../../../components/serial_manager
     ${ProjDirPath}/../../../../../components/lists
-    ${ProjDirPath}/../../../../../CMSIS/Include
+    ${ProjDirPath}/../../../../../CMSIS/Core/Include
     ${ProjDirPath}/../../../../../components/srtm/port
     ${ProjDirPath}/../../../../../components/srtm
-    ${ProjDirPath}/../../../../../middleware/multicore
-    ${ProjDirPath}/../../../../../rtos/freertos
+    ${ProjDirPath}/../../../../../rtos/freertos/freertos_kernel
 )
 
 # include modules
@@ -90,6 +89,14 @@ include(driver_ii2c_MIMX8ML8)
 include(driver_gpt_MIMX8ML8)
 
 include(driver_gpc_2_MIMX8ML8)
+
+include(driver_pdm_MIMX8ML8)
+
+include(driver_pdm_sdma_MIMX8ML8)
+
+include(middleware_multicore_rpmsg_lite_MIMX8ML8)
+
+include(middleware_multicore_rpmsg_lite_freertos_MIMX8ML8)
 
 include(driver_clock_MIMX8ML8)
 
@@ -121,11 +128,7 @@ include(device_MIMX8ML8_startup_MIMX8ML8)
 
 include(utility_assert_MIMX8ML8)
 
-include(CMSIS_Include_core_cm7_MIMX8ML8)
-
-include(CMSIS_Include_common_MIMX8ML8)
-
-include(CMSIS_Include_dsp_MIMX8ML8)
+include(CMSIS_Include_core_cm_MIMX8ML8)
 
 include(driver_sdma_MIMX8ML8)
 
@@ -138,8 +141,6 @@ include(driver_srtm_freertos_MIMX8ML8)
 include(driver_srtm_MIMX8ML8)
 
 include(middleware_multicore_rpmsg_lite_imx8mp_m7_freertos_MIMX8ML8)
-
-include(middleware_multicore_rpmsg_lite_MIMX8ML8)
 
 include(middleware_freertos-kernel_MIMX8ML8)
 

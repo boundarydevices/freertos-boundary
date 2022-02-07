@@ -13,9 +13,9 @@
 #include "music.h"
 #include "fsl_codec_common.h"
 #include "fsl_asrc.h"
-#include "fsl_wm8960.h"
 #include "fsl_gpio.h"
 #include "fsl_iomuxc.h"
+#include "fsl_wm8960.h"
 #include "fsl_codec_adapter.h"
 #include "fsl_sai.h"
 /*******************************************************************************
@@ -26,7 +26,7 @@
 #define DEMO_SAI_CLK_FREQ 24576000U
 
 #define DEMO_IRQn             I2S3_IRQn
-#define DEMO_DMA              SDMAARM2
+#define DEMO_DMA              SDMAARM3
 #define DEMO_SAI_SDMA_CHANNEL (1)
 #define DEMO_ASRC_CONTEXT     kASRC_Context0
 #define DEMO_SAI_TX_SOURCE    (5)
@@ -168,7 +168,7 @@ int main(void)
     /* Board specific RDC settings */
     BOARD_RdcInit();
 
-    BOARD_InitPins();
+    BOARD_InitBootPins();
     BOARD_BootClockRUN();
     BOARD_I2C_ReleaseBus();
     BOARD_I2C_ConfigurePins();

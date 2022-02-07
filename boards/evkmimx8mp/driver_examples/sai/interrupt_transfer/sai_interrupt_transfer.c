@@ -14,9 +14,9 @@
 #include "music.h"
 #include "fsl_codec_common.h"
 
-#include "fsl_wm8960.h"
 #include "fsl_gpio.h"
 #include "fsl_iomuxc.h"
+#include "fsl_wm8960.h"
 #include "fsl_codec_adapter.h"
 /*******************************************************************************
  * Definitions
@@ -46,7 +46,12 @@
 #define DEMO_AUDIO_MASTER_CLOCK DEMO_SAI_CLK_FREQ
 
 #define BOARD_SAI_RXCONFIG(config, mode)
-
+#ifndef DEMO_CODEC_INIT_DELAY_MS
+#define DEMO_CODEC_INIT_DELAY_MS (1000U)
+#endif
+#ifndef DEMO_CODEC_VOLUME
+#define DEMO_CODEC_VOLUME 100U
+#endif
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
@@ -147,6 +152,14 @@ static void callback(I2S_Type *base, sai_handle_t *handle, status_t status, void
     isFinished = true;
 }
 
+void DelayMS(uint32_t ms)
+{
+    for (uint32_t i = 0; i < ms; i++)
+    {
+        SDK_DelayAtLeastUs(1000, SystemCoreClock);
+    }
+}
+
 /*!
  * @brief Main function
  */
@@ -154,7 +167,7 @@ int main(void)
 {
     sai_transfer_t xfer;
     uint32_t temp = 0;
-    sai_transceiver_t config;
+    sai_transceiver_t saiConfig;
 
     /* M7 has its local cache and enabled by default,
      * need to set smart subsystems (0x28000000 ~ 0x3FFFFFFF)
@@ -164,7 +177,7 @@ int main(void)
     /* Board specific RDC settings */
     BOARD_RdcInit();
 
-    BOARD_InitPins();
+    BOARD_InitBootPins();
     BOARD_BootClockRUN();
     BOARD_I2C_ReleaseBus();
     BOARD_I2C_ConfigurePins();
@@ -184,24 +197,34 @@ int main(void)
     SAI_Init(DEMO_SAI);
     SAI_TransferTxCreateHandle(DEMO_SAI, &txHandle, callback, NULL);
     /* I2S mode configurations */
-    SAI_GetClassicI2SConfig(&config, DEMO_AUDIO_BIT_WIDTH, kSAI_Stereo, 1U << DEMO_SAI_CHANNEL);
-    config.syncMode    = DEMO_SAI_TX_SYNC_MODE;
-    config.masterSlave = DEMO_SAI_MASTER_SLAVE;
-    SAI_TransferTxSetConfig(DEMO_SAI, &txHandle, &config);
+    SAI_GetClassicI2SConfig(&saiConfig, DEMO_AUDIO_BIT_WIDTH, kSAI_Stereo, 1U << DEMO_SAI_CHANNEL);
+    saiConfig.syncMode    = DEMO_SAI_TX_SYNC_MODE;
+    saiConfig.masterSlave = DEMO_SAI_MASTER_SLAVE;
+    SAI_TransferTxSetConfig(DEMO_SAI, &txHandle, &saiConfig);
 
     /* set bit clock divider */
     SAI_TxSetBitClockRate(DEMO_SAI, DEMO_AUDIO_MASTER_CLOCK, DEMO_AUDIO_SAMPLE_RATE, DEMO_AUDIO_BIT_WIDTH,
                           DEMO_AUDIO_DATA_CHANNEL);
     /* sai rx configurations */
-    BOARD_SAI_RXCONFIG(&config, DEMO_SAI_RX_SYNC_MODE);
+    BOARD_SAI_RXCONFIG(&saiConfig, DEMO_SAI_RX_SYNC_MODE);
     /* master clock configurations */
     BOARD_MASTER_CLOCK_CONFIG();
 
-    /* Use default setting to init codec */
+#if defined DEMO_BOARD_CODEC_INIT
+    DEMO_BOARD_CODEC_INIT();
+#else
     if (CODEC_Init(&codecHandle, &boardCodecConfig) != kStatus_Success)
     {
         assert(false);
     }
+    if (CODEC_SetVolume(&codecHandle, kCODEC_PlayChannelHeadphoneLeft | kCODEC_PlayChannelHeadphoneRight,
+                        DEMO_CODEC_VOLUME) != kStatus_Success)
+    {
+        assert(false);
+    }
+#endif
+    /* delay for codec output stable */
+    DelayMS(DEMO_CODEC_INIT_DELAY_MS);
 
     /*  xfer structure */
     temp          = (uint32_t)music;

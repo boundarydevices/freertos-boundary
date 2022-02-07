@@ -9,8 +9,8 @@ The file 'ecspi_polling_b2b_transfer_master.c' includes the ECSPI master code.
 
 Toolchain supported
 ===================
-- IAR embedded Workbench  8.50.6
-- GCC ARM Embedded  9.2.1
+- IAR embedded Workbench  9.10.2
+- GCC ARM Embedded  10.2.1
 
 Hardware requirements
 =====================

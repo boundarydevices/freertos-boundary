@@ -12,8 +12,8 @@ via debug console utility and suspend itself.
 
 Toolchain supported
 ===================
-- IAR embedded Workbench  8.50.6
-- GCC ARM Embedded  9.2.1
+- IAR embedded Workbench  9.10.2
+- GCC ARM Embedded  10.2.1
 
 Hardware requirements
 =====================

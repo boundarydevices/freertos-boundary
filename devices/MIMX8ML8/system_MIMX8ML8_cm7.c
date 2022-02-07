@@ -7,9 +7,9 @@
 **                          IAR ANSI C/C++ Compiler for ARM
 **                          Keil ARM C/C++ Compiler
 **
-**     Reference manual:    IMX8MPRM, Rev.D, 10/2020
-**     Version:             rev. 4.0, 2020-11-16
-**     Build:               b201104
+**     Reference manual:    IMX8MPRM, Rev.D, 12/2020
+**     Version:             rev. 5.0, 2021-03-01
+**     Build:               b210301
 **
 **     Abstract:
 **         Provides a system configuration function and a global variable that
@@ -17,7 +17,7 @@
 **         the oscillator (PLL) that is part of the microcontroller device.
 **
 **     Copyright 2016 Freescale Semiconductor, Inc.
-**     Copyright 2016-2020 NXP
+**     Copyright 2016-2021 NXP
 **     All rights reserved.
 **
 **     SPDX-License-Identifier: BSD-3-Clause
@@ -34,14 +34,16 @@
 **         Rev.C Header.
 **     - rev. 4.0 (2020-11-16)
 **         Rev.D Header.
+**     - rev. 5.0 (2021-03-01)
+**         Rev.D Header Final.
 **
 ** ###################################################################
 */
 
 /*!
  * @file MIMX8ML8_cm7
- * @version 4.0
- * @date 2020-11-16
+ * @version 5.0
+ * @date 2021-03-01
  * @brief Device specific configuration file for MIMX8ML8_cm7 (implementation
  *        file)
  *

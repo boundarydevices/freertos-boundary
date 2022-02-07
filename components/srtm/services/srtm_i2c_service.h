@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, NXP
+ * Copyright 2018-2021, NXP
  * All rights reserved.
  *
  *
@@ -30,9 +30,9 @@
 #endif
 
 /* Protocol definition */
-#define SRTM_I2C_BUF_LEN 16
+#define SRTM_I2C_BUF_LEN (16U)
 
-#define SRTM_I2C_FLAG_NEED_STOP 0x200
+#define SRTM_I2C_FLAG_NEED_STOP (0x200U)
 
 /* I2C Service Notification Command definition */
 

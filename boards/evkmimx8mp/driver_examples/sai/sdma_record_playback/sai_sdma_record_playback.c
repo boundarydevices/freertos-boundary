@@ -11,9 +11,9 @@
 #include "fsl_debug_console.h"
 #include "fsl_sai_sdma.h"
 #include "fsl_codec_common.h"
-#include "fsl_wm8960.h"
 #include "fsl_gpio.h"
 #include "fsl_iomuxc.h"
+#include "fsl_wm8960.h"
 #include "fsl_codec_adapter.h"
 #include "fsl_sai.h"
 /*******************************************************************************
@@ -34,10 +34,11 @@
 #define DEMO_SAI_CLOCK_SOURCE (1U)
 #define SDMA_FREQ_EQUALS_ARM  (1U)
 
-#define DEMO_SAI_TX_SYNC_MODE kSAI_ModeAsync
-#define DEMO_SAI_RX_SYNC_MODE kSAI_ModeSync
-#define DEMO_SAI_MCLK_OUTPUT  true
-#define DEMO_SAI_MASTER_SLAVE kSAI_Master
+#define DEMO_SAI_TX_SYNC_MODE          kSAI_ModeAsync
+#define DEMO_SAI_RX_SYNC_MODE          kSAI_ModeSync
+#define DEMO_SAI_TX_BIT_CLOCK_POLARITY kSAI_PolarityActiveLow
+#define DEMO_SAI_MCLK_OUTPUT           true
+#define DEMO_SAI_MASTER_SLAVE          kSAI_Slave
 
 #define DEMO_AUDIO_DATA_CHANNEL (2U)
 #define DEMO_AUDIO_BIT_WIDTH    kSAI_WordWidth16bits
@@ -47,7 +48,6 @@
 #define BOARD_SAI_RXCONFIG(config, mode)
 
 #define DEMO_DMA                SDMAARM3
-#define DEMO_RX_DMA             SDMAARM2
 #define DEMO_SAI_SDMA_TX_SOURCE 5
 #define DEMO_SAI_SDMA_RX_SOURCE 4
 #define DEMO_TX_SDMA_CHANNEL    1
@@ -71,10 +71,10 @@ wm8960_config_t wm8960Config = {
     .playSource      = kWM8960_PlaySourceDAC,
     .slaveAddress    = WM8960_I2C_ADDR,
     .bus             = kWM8960_BusI2S,
-    .format          = {.mclk_HZ    = 24576000U,
+    .format          = {.mclk_HZ    = 24576000U / 2,
                .sampleRate = kWM8960_AudioSampleRate16KHz,
                .bitWidth   = kWM8960_AudioBitWidth16bit},
-    .master_slave    = false,
+    .master_slave    = true,
 };
 codec_config_t boardCodecConfig = {.codecDevType = kCODEC_WM8960, .codecDevConfig = &wm8960Config};
 
@@ -179,7 +179,7 @@ int main(void)
 {
     sai_transfer_t xfer;
     sdma_config_t dmaConfig = {0};
-    sai_transceiver_t config;
+    sai_transceiver_t saiConfig;
 
     /* M7 has its local cache and enabled by default,
      * need to set smart subsystems (0x28000000 ~ 0x3FFFFFFF)
@@ -189,14 +189,14 @@ int main(void)
     /* Board specific RDC settings */
     BOARD_RdcInit();
 
-    BOARD_InitPins();
+    BOARD_InitBootPins();
     BOARD_BootClockRUN();
     BOARD_I2C_ReleaseBus();
     BOARD_I2C_ConfigurePins();
     BOARD_InitDebugConsole();
 
     CLOCK_SetRootMux(kCLOCK_RootSai3, kCLOCK_SaiRootmuxAudioPll1); /* Set SAI source to AUDIO PLL1 393216000HZ*/
-    CLOCK_SetRootDivider(kCLOCK_RootSai3, 1U, 16U);                /* Set root clock to 393216000HZ / 16 = 24.576MHz */
+    CLOCK_SetRootDivider(kCLOCK_RootSai3, 1U, 32U);                /* Set root clock to 393216000HZ / 32 = 12.288MHz */
     CLOCK_SetRootMux(kCLOCK_RootI2c3, kCLOCK_I2cRootmuxSysPll1Div5); /* Set I2C source to SysPLL1 Div5 160MHZ */
     CLOCK_SetRootDivider(kCLOCK_RootI2c3, 1U, 10U);                  /* Set root clock to 160MHZ / 10 = 16MHZ */
 
@@ -221,12 +221,12 @@ int main(void)
     SAI_TransferRxCreateHandleSDMA(DEMO_SAI, &rxHandle, rxCallback, NULL, &rxDmaHandle, DEMO_SAI_SDMA_RX_SOURCE);
 
     /* I2S mode configurations */
-    SAI_GetClassicI2SConfig(&config, DEMO_AUDIO_BIT_WIDTH, kSAI_Stereo, kSAI_Channel0Mask);
-    config.syncMode            = DEMO_SAI_TX_SYNC_MODE;
-    config.bitClock.bclkSource = (sai_bclk_source_t)DEMO_SAI_CLOCK_SOURCE;
-    SAI_TransferTxSetConfigSDMA(DEMO_SAI, &txHandle, &config);
-    config.syncMode = DEMO_SAI_RX_SYNC_MODE;
-    SAI_TransferRxSetConfigSDMA(DEMO_SAI, &rxHandle, &config);
+    SAI_GetClassicI2SConfig(&saiConfig, DEMO_AUDIO_BIT_WIDTH, kSAI_Stereo, kSAI_Channel0Mask);
+    saiConfig.syncMode            = DEMO_SAI_TX_SYNC_MODE;
+    saiConfig.bitClock.bclkSource = (sai_bclk_source_t)DEMO_SAI_CLOCK_SOURCE;
+    SAI_TransferTxSetConfigSDMA(DEMO_SAI, &txHandle, &saiConfig);
+    saiConfig.syncMode = DEMO_SAI_RX_SYNC_MODE;
+    SAI_TransferRxSetConfigSDMA(DEMO_SAI, &rxHandle, &saiConfig);
 
     /* set bit clock divider */
     SAI_TxSetBitClockRate(DEMO_SAI, DEMO_AUDIO_MASTER_CLOCK, DEMO_AUDIO_SAMPLE_RATE, DEMO_AUDIO_BIT_WIDTH,

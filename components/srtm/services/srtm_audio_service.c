@@ -96,10 +96,14 @@ typedef struct _srtm_audio_iface
 srtm_audio_format_map_t saiFormatMap[6] = {{SRTM_Audio_Stereo16Bits, 16U}, {SRTM_Audio_Stereo24Bits, 24U},
                                            {SRTM_Audio_Stereo32Bits, 32U}, {SRTM_Audio_DSD8bits, 8U},
                                            {SRTM_Audio_DSD16bits, 16U},    {SRTM_Audio_DSD32bits, 32U}};
+static uint8_t s_audIdx;
+
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
 static srtm_audio_iface_t SRTM_AudioService_FindInterface(srtm_audio_service_t handle, uint8_t index);
+static srtm_audio_iface_t SRTM_AudioService_FindInterfaceByChannel(srtm_audio_service_t handle, srtm_channel_t channel);
+static srtm_audio_iface_t SRTM_AudioService_FindInterfaceByAdapter(srtm_audio_service_t handle, srtm_sai_adapter_t sai);
 
 /*******************************************************************************
  * Variables
@@ -129,9 +133,9 @@ static void SRTM_AudioService_HandlePeriodDone(srtm_dispatcher_t dispatcher,
     struct _srtm_audio_payload *payload;
     uint32_t audioIdx        = index >> 24U;
     uint32_t periodIdx       = index & 0xFFFFFFU;
-    srtm_audio_iface_t iface = SRTM_AudioService_FindInterface(handle, audioIdx);
+    srtm_audio_iface_t iface = SRTM_AudioService_FindInterface(handle, (uint8_t)audioIdx);
 
-    assert(iface && iface->channel);
+    assert((iface != NULL) && (iface->channel != NULL));
 
     SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_INFO, "%s: %s\r\n", __func__, dir == SRTM_AudioDirTx ? "Tx" : "Rx");
 
@@ -139,29 +143,32 @@ static void SRTM_AudioService_HandlePeriodDone(srtm_dispatcher_t dispatcher,
     notif =
         SRTM_Notification_Create(iface->channel, SRTM_AUDIO_CATEGORY, SRTM_AUDIO_VERSION,
                                  dir == SRTM_AudioDirTx ? SRTM_AUDIO_NTF_TX_PERIOD_DONE : SRTM_AUDIO_NTF_RX_PERIOD_DONE,
-                                 sizeof(struct _srtm_audio_payload));
-    if (!notif)
+                                 (uint16_t)sizeof(struct _srtm_audio_payload));
+    if (notif == NULL)
     {
         SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_ERROR, "%s(%d): alloc %s notification failed.\r\n", __func__, audioIdx,
                            dir == SRTM_AudioDirTx ? "Tx" : "Rx");
-        return;
     }
+    else
+    {
+        payload            = (struct _srtm_audio_payload *)(void *)SRTM_CommMessage_GetPayload(notif);
+        payload->index     = (uint8_t)audioIdx;
+        payload->periodIdx = periodIdx;
 
-    payload            = (struct _srtm_audio_payload *)SRTM_CommMessage_GetPayload(notif);
-    payload->index     = (uint8_t)audioIdx;
-    payload->periodIdx = periodIdx;
-
-    SRTM_Dispatcher_DeliverNotification(handle->service.dispatcher, notif);
+        (void)SRTM_Dispatcher_DeliverNotification(handle->service.dispatcher, notif);
+    }
 }
 
 static void SRTM_AudioService_HandleTxPeriodDone(srtm_dispatcher_t dispatcher, void *param1, void *param2)
 {
-    SRTM_AudioService_HandlePeriodDone(dispatcher, SRTM_AudioDirTx, (srtm_audio_service_t)param1, (uint32_t)param2);
+    SRTM_AudioService_HandlePeriodDone(dispatcher, SRTM_AudioDirTx, (srtm_audio_service_t)param1,
+                                       (uint32_t)(uint8_t *)param2);
 }
 
 static void SRTM_AudioService_HandleRxPeriodDone(srtm_dispatcher_t dispatcher, void *param1, void *param2)
 {
-    SRTM_AudioService_HandlePeriodDone(dispatcher, SRTM_AudioDirRx, (srtm_audio_service_t)param1, (uint32_t)param2);
+    SRTM_AudioService_HandlePeriodDone(dispatcher, SRTM_AudioDirRx, (srtm_audio_service_t)param1,
+                                       (uint32_t)(uint8_t *)param2);
 }
 
 /* CALLED IN AUDIO DRIVER ISR */
@@ -170,11 +177,12 @@ static srtm_status_t SRTM_AudioService_PeriodDone(srtm_service_t service,
                                                   uint8_t index,
                                                   uint32_t periodIdx)
 {
-    srtm_audio_service_t handle = (srtm_audio_service_t)service;
+    srtm_audio_service_t handle = (srtm_audio_service_t)(void *)service;
     srtm_audio_iface_t iface    = SRTM_AudioService_FindInterface(handle, index);
     uint32_t primask;
     srtm_list_t *list;
     srtm_procedure_t proc = NULL;
+    srtm_status_t status;
 
     assert(iface != NULL);
 
@@ -189,37 +197,41 @@ static srtm_status_t SRTM_AudioService_PeriodDone(srtm_service_t service,
 
     assert(proc != NULL); /* For debugging the shortage of procedure messages */
 
-    if (!proc)
+    if (proc == NULL)
     {
-        return SRTM_Status_OutOfMemory;
+        status = SRTM_Status_OutOfMemory;
     }
     else
     {
+        proc->channel = iface->channel;
         proc->procMsg.cb =
             dir == SRTM_AudioDirTx ? SRTM_AudioService_HandleTxPeriodDone : SRTM_AudioService_HandleRxPeriodDone;
         proc->procMsg.param1 = service;
-        proc->procMsg.param2 = (void *)((((uint32_t)index) << 24U) | (periodIdx & 0xFFFFFFU));
+        proc->procMsg.param2 = (void *)(uint8_t *)((((uint32_t)index) << 24U) | (periodIdx & 0xFFFFFFU));
+        status               = SRTM_Dispatcher_PostProc(service->dispatcher, proc);
     }
 
-    return SRTM_Dispatcher_PostProc(service->dispatcher, proc);
+    return status;
 }
 
 static uint16_t SRTM_AudioService_GetRespLen(uint8_t command)
 {
-    return sizeof(struct _srtm_audio_payload);
+    return (uint16_t)sizeof(struct _srtm_audio_payload);
 }
 
 /* Both request and notify are called from SRTM dispatcher context */
 static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_request_t request)
 {
     srtm_status_t status;
-    srtm_audio_service_t handle = (srtm_audio_service_t)service;
+    srtm_audio_service_t handle = (srtm_audio_service_t)(void *)service;
     srtm_audio_iface_t iface;
     srtm_sai_adapter_t sai;
     srtm_codec_adapter_t codec;
     srtm_channel_t channel;
     uint8_t command;
     uint32_t payloadLen;
+    uint32_t regVal;
+    uint32_t bufOffset;
     srtm_response_t response;
     struct _srtm_audio_payload *audioReq;
     uint8_t *audioRespBuf;
@@ -236,54 +248,52 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
 
     response = SRTM_Response_Create(channel, SRTM_AUDIO_CATEGORY, SRTM_AUDIO_VERSION, command,
                                     SRTM_AudioService_GetRespLen(command));
-    if (!response)
+    if (response == NULL)
     {
         return SRTM_Status_OutOfMemory;
     }
 
     audioRespBuf = (uint8_t *)SRTM_CommMessage_GetPayload(response);
-    audioResp    = (struct _srtm_audio_payload *)audioRespBuf;
+    audioResp    = (struct _srtm_audio_payload *)(void *)audioRespBuf;
 
     status = SRTM_Service_CheckVersion(service, request, SRTM_AUDIO_VERSION);
-    if (status != SRTM_Status_Success || !audioReq || payloadLen != sizeof(struct _srtm_audio_payload))
+    if ((status != SRTM_Status_Success) || (audioReq == NULL) || (payloadLen != sizeof(struct _srtm_audio_payload)))
     {
         SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_WARN, "%s: format error!\r\n", __func__);
-        audioRespBuf[0] = audioReq ? audioReq->index : 0;
+        audioRespBuf[0] = (audioReq != NULL) ? audioReq->index : 0U;
         audioRespBuf[1] = SRTM_AUDIO_RETURN_CODE_UNSUPPORTED;
     }
     else
     {
         audioRespBuf[0] = audioReq->index;
-        iface           = SRTM_AudioService_FindInterface(handle, audioReq->index);
-        if (!iface)
+        iface           = SRTM_AudioService_FindInterfaceByChannel(handle, request->channel);
+        if (iface == NULL)
         {
-            SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_WARN, "%s: audio interface %d not found!\r\n", __func__,
-                               audioReq->index);
+            SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_WARN, "%s: audio interface for channel 0x%x not found!\r\n", __func__,
+                               request->channel);
             audioRespBuf[1] = SRTM_AUDIO_RETURN_CODE_FAIL;
         }
         else
         {
-            sai   = iface->sai;
-            codec = iface->codec;
+            audioRespBuf[0] = iface->index;
+            sai             = iface->sai;
+            codec           = iface->codec;
             switch (command)
             {
                 case SRTM_AUDIO_CMD_TX_OPEN:
                     /* Only when no one else is using the audio interface, we can open it. */
-                    if (sai && sai->open && (!iface->channel || iface->channel == channel))
+                    if ((sai != NULL) && (sai->open != NULL))
                     {
-                        status = sai->open(sai, SRTM_AudioDirTx, audioReq->index);
+                        status = sai->open(sai, SRTM_AudioDirTx, iface->index);
                     }
                     else
                     {
-                        SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_WARN, "%s: audio interface %d %s!\r\n", __func__,
-                                           audioReq->index,
-                                           (sai && sai->open) ? "occupied by others." : "tx open unavailable");
+                        SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_WARN, "%s: audio interface %d tx open unavailable!\r\n",
+                                           __func__, iface->index);
                         status = SRTM_Status_Error;
                     }
                     if (status == SRTM_Status_Success)
                     {
-                        /* remember channel for future use. */
-                        iface->channel = channel;
                         iface->useCount++;
                         audioRespBuf[1] = SRTM_AUDIO_RETURN_CODE_SUCEESS;
                     }
@@ -293,9 +303,9 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                     }
                     break;
                 case SRTM_AUDIO_CMD_TX_START:
-                    if (sai && sai->start)
+                    if ((sai != NULL) && (sai->start != NULL))
                     {
-                        status = sai->start(sai, SRTM_AudioDirTx, audioReq->index);
+                        status = sai->start(sai, SRTM_AudioDirTx, iface->index);
                     }
                     else
                     {
@@ -305,9 +315,9 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_TX_PAUSE:
-                    if (sai && sai->pause)
+                    if ((sai != NULL) && (sai->pause != NULL))
                     {
-                        status = sai->pause(sai, SRTM_AudioDirTx, audioReq->index);
+                        status = sai->pause(sai, SRTM_AudioDirTx, iface->index);
                     }
                     else
                     {
@@ -317,9 +327,9 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_TX_RESTART:
-                    if (sai && sai->restart)
+                    if ((sai != NULL) && (sai->restart != NULL))
                     {
-                        status = sai->restart(sai, SRTM_AudioDirTx, audioReq->index);
+                        status = sai->restart(sai, SRTM_AudioDirTx, iface->index);
                     }
                     else
                     {
@@ -329,9 +339,9 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_TX_STOP:
-                    if (sai && sai->stop)
+                    if ((sai != NULL) && (sai->stop != NULL))
                     {
-                        status = sai->stop(sai, SRTM_AudioDirTx, audioReq->index);
+                        status = sai->stop(sai, SRTM_AudioDirTx, iface->index);
                     }
                     else
                     {
@@ -341,9 +351,9 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_TX_CLOSE:
-                    if (sai && sai->close)
+                    if ((sai != NULL) && (sai->close != NULL))
                     {
-                        status = sai->close(sai, SRTM_AudioDirTx, audioReq->index);
+                        status = sai->close(sai, SRTM_AudioDirTx, iface->index);
                     }
                     else
                     {
@@ -351,12 +361,8 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                     }
                     if (status == SRTM_Status_Success)
                     {
-                        assert(iface->useCount > 0);
+                        assert(iface->useCount > 0U);
                         iface->useCount--;
-                        if (iface->useCount == 0)
-                        {
-                            iface->channel = NULL;
-                        }
                         audioRespBuf[1] = SRTM_AUDIO_RETURN_CODE_SUCEESS;
                     }
                     else
@@ -365,21 +371,21 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                     }
                     break;
                 case SRTM_AUDIO_CMD_TX_SET_PARAM:
-                    if (sai && sai->setParam)
+                    if ((sai != NULL) && (sai->setParam != NULL))
                     {
-                        status = sai->setParam(sai, SRTM_AudioDirTx, audioReq->index, audioReq->format,
-                                               audioReq->channels, audioReq->srate);
+                        status = sai->setParam(sai, SRTM_AudioDirTx, iface->index, audioReq->format, audioReq->channels,
+                                               audioReq->srate);
                     }
-                    status = ((status == SRTM_Status_Success) && codec && codec->setParam) ?
-                                 codec->setParam(codec, audioReq->index, audioReq->format, audioReq->srate) :
+                    status = ((status == SRTM_Status_Success) && (codec != NULL) && (codec->setParam != NULL)) ?
+                                 codec->setParam(codec, iface->index, audioReq->format, audioReq->srate) :
                                  status;
                     audioRespBuf[1] =
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_TX_SET_BUF:
-                    if (sai && sai->setBuf)
+                    if ((sai != NULL) && (sai->setBuf != NULL))
                     {
-                        status = sai->setBuf(sai, SRTM_AudioDirTx, audioReq->index, (uint8_t *)audioReq->bufAddr,
+                        status = sai->setBuf(sai, SRTM_AudioDirTx, iface->index, (uint8_t *)audioReq->bufAddr,
                                              audioReq->bufSize, audioReq->periodSize, audioReq->periodIdx);
                     }
                     else
@@ -390,9 +396,9 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_TX_SUSPEND:
-                    if (sai && sai->suspend)
+                    if ((sai != NULL) && (sai->suspend != NULL))
                     {
-                        status = sai->suspend(sai, SRTM_AudioDirTx, audioReq->index);
+                        status = sai->suspend(sai, SRTM_AudioDirTx, iface->index);
                     }
                     else
                     {
@@ -402,9 +408,9 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_TX_RESUME:
-                    if (sai && sai->resume)
+                    if ((sai != NULL) && (sai->resume != NULL))
                     {
-                        status = sai->resume(sai, SRTM_AudioDirTx, audioReq->index);
+                        status = sai->resume(sai, SRTM_AudioDirTx, iface->index);
                     }
                     else
                     {
@@ -415,21 +421,18 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                     break;
                 case SRTM_AUDIO_CMD_RX_OPEN:
                     /* Only when no one else is using the audio interface, we can open it. */
-                    if (sai && sai->open && (!iface->channel || iface->channel == channel))
+                    if ((sai != NULL) && (sai->open != NULL))
                     {
-                        status = sai->open(sai, SRTM_AudioDirRx, audioReq->index);
+                        status = sai->open(sai, SRTM_AudioDirRx, iface->index);
                     }
                     else
                     {
-                        SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_WARN, "%s: audio interface %d %s!\r\n", __func__,
-                                           audioReq->index,
-                                           (sai && sai->open) ? "occupied by others." : "rx open unavailable");
+                        SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_WARN, "%s: audio interface %d rx open unavailable!\r\n",
+                                           __func__, iface->index);
                         status = SRTM_Status_Error;
                     }
                     if (status == SRTM_Status_Success)
                     {
-                        /* remember channel for future use. */
-                        iface->channel = channel;
                         iface->useCount++;
                         audioRespBuf[1] = SRTM_AUDIO_RETURN_CODE_SUCEESS;
                     }
@@ -439,9 +442,9 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                     }
                     break;
                 case SRTM_AUDIO_CMD_RX_START:
-                    if (sai && sai->start)
+                    if ((sai != NULL) && (sai->start != NULL))
                     {
-                        status = sai->start(sai, SRTM_AudioDirRx, audioReq->index);
+                        status = sai->start(sai, SRTM_AudioDirRx, iface->index);
                     }
                     else
                     {
@@ -451,9 +454,9 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_RX_PAUSE:
-                    if (sai && sai->pause)
+                    if ((sai != NULL) && (sai->pause != NULL))
                     {
-                        status = sai->pause(sai, SRTM_AudioDirRx, audioReq->index);
+                        status = sai->pause(sai, SRTM_AudioDirRx, iface->index);
                     }
                     else
                     {
@@ -463,9 +466,9 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_RX_RESTART:
-                    if (sai && sai->restart)
+                    if ((sai != NULL) && (sai->restart != NULL))
                     {
-                        status = sai->restart(sai, SRTM_AudioDirRx, audioReq->index);
+                        status = sai->restart(sai, SRTM_AudioDirRx, iface->index);
                     }
                     else
                     {
@@ -475,9 +478,9 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_RX_STOP:
-                    if (sai && sai->stop)
+                    if ((sai != NULL) && (sai->stop != NULL))
                     {
-                        status = sai->stop(sai, SRTM_AudioDirRx, audioReq->index);
+                        status = sai->stop(sai, SRTM_AudioDirRx, iface->index);
                     }
                     else
                     {
@@ -487,9 +490,9 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_RX_CLOSE:
-                    if (sai && sai->close)
+                    if ((sai != NULL) && (sai->close != NULL))
                     {
-                        status = sai->close(sai, SRTM_AudioDirRx, audioReq->index);
+                        status = sai->close(sai, SRTM_AudioDirRx, iface->index);
                     }
                     else
                     {
@@ -497,12 +500,8 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                     }
                     if (status == SRTM_Status_Success)
                     {
-                        assert(iface->useCount > 0);
+                        assert(iface->useCount > 0U);
                         iface->useCount--;
-                        if (iface->useCount == 0)
-                        {
-                            iface->channel = NULL;
-                        }
                         audioRespBuf[1] = SRTM_AUDIO_RETURN_CODE_SUCEESS;
                     }
                     else
@@ -511,21 +510,21 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                     }
                     break;
                 case SRTM_AUDIO_CMD_RX_SET_PARAM:
-                    if (sai && sai->setParam)
+                    if ((sai != NULL) && (sai->setParam != NULL))
                     {
-                        status = sai->setParam(sai, SRTM_AudioDirRx, audioReq->index, audioReq->format,
-                                               audioReq->channels, audioReq->srate);
+                        status = sai->setParam(sai, SRTM_AudioDirRx, iface->index, audioReq->format, audioReq->channels,
+                                               audioReq->srate);
                     }
-                    status = ((status == SRTM_Status_Success) && codec && codec->setParam) ?
-                                 codec->setParam(codec, audioReq->index, audioReq->format, audioReq->srate) :
+                    status = ((status == SRTM_Status_Success) && (codec != NULL) && (codec->setParam != NULL)) ?
+                                 codec->setParam(codec, iface->index, audioReq->format, audioReq->srate) :
                                  status;
                     audioRespBuf[1] =
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_RX_SET_BUF:
-                    if (sai && sai->setBuf)
+                    if ((sai != NULL) && (sai->setBuf != NULL))
                     {
-                        status = sai->setBuf(sai, SRTM_AudioDirRx, audioReq->index, (uint8_t *)audioReq->bufAddr,
+                        status = sai->setBuf(sai, SRTM_AudioDirRx, iface->index, (uint8_t *)audioReq->bufAddr,
                                              audioReq->bufSize, audioReq->periodSize, audioReq->periodIdx);
                     }
                     else
@@ -536,9 +535,9 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_RX_SUSPEND:
-                    if (sai && sai->suspend)
+                    if ((sai != NULL) && (sai->suspend != NULL))
                     {
-                        status = sai->suspend(sai, SRTM_AudioDirRx, audioReq->index);
+                        status = sai->suspend(sai, SRTM_AudioDirRx, iface->index);
                     }
                     else
                     {
@@ -548,9 +547,9 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_RX_RESUME:
-                    if (sai && sai->resume)
+                    if ((sai != NULL) && (sai->resume != NULL))
                     {
-                        status = sai->resume(sai, SRTM_AudioDirRx, audioReq->index);
+                        status = sai->resume(sai, SRTM_AudioDirRx, iface->index);
                     }
                     else
                     {
@@ -560,7 +559,7 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_SET_CODEC_REG:
-                    if (codec && codec->setReg)
+                    if ((codec != NULL) && (codec->setReg != NULL))
                     {
                         status = codec->setReg(codec, audioReq->reg, audioReq->regVal);
                     }
@@ -573,9 +572,10 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                     break;
                 case SRTM_AUDIO_CMD_GET_CODEC_REG:
                     audioResp->reg = audioReq->reg;
-                    if (codec && codec->getReg)
+                    if ((codec != NULL) && (codec->getReg != NULL))
                     {
-                        status = codec->getReg(codec, audioReq->reg, (uint32_t *)&audioResp->regVal);
+                        status            = codec->getReg(codec, audioReq->reg, &regVal);
+                        audioResp->regVal = regVal;
                     }
                     else
                     {
@@ -585,10 +585,10 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_TX_GET_BUF_OFFSET:
-                    if (sai && sai->getBufOffset)
+                    if ((sai != NULL) && (sai->getBufOffset != NULL))
                     {
-                        status =
-                            sai->getBufOffset(sai, SRTM_AudioDirTx, audioReq->index, (uint32_t *)&audioResp->bufOffset);
+                        status               = sai->getBufOffset(sai, SRTM_AudioDirTx, iface->index, &bufOffset);
+                        audioResp->bufOffset = bufOffset;
                     }
                     else
                     {
@@ -598,10 +598,10 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
                         status == SRTM_Status_Success ? SRTM_AUDIO_RETURN_CODE_SUCEESS : SRTM_AUDIO_RETURN_CODE_FAIL;
                     break;
                 case SRTM_AUDIO_CMD_RX_GET_BUF_OFFSET:
-                    if (sai && sai->getBufOffset)
+                    if ((sai != NULL) && (sai->getBufOffset != NULL))
                     {
-                        status =
-                            sai->getBufOffset(sai, SRTM_AudioDirRx, audioReq->index, (uint32_t *)&audioResp->bufOffset);
+                        status               = sai->getBufOffset(sai, SRTM_AudioDirRx, iface->index, &bufOffset);
+                        audioResp->bufOffset = bufOffset;
                     }
                     else
                     {
@@ -624,7 +624,7 @@ static srtm_status_t SRTM_AudioService_Request(srtm_service_t service, srtm_requ
 static srtm_status_t SRTM_AudioService_Notify(srtm_service_t service, srtm_notification_t notif)
 {
     srtm_status_t status;
-    srtm_audio_service_t handle = (srtm_audio_service_t)service;
+    srtm_audio_service_t handle = (srtm_audio_service_t)(void *)service;
     srtm_audio_iface_t iface;
     srtm_sai_adapter_t sai;
     uint8_t command;
@@ -636,22 +636,22 @@ static srtm_status_t SRTM_AudioService_Notify(srtm_service_t service, srtm_notif
     SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_INFO, "%s\r\n", __func__);
 
     command    = SRTM_CommMessage_GetCommand(notif);
-    payload    = (struct _srtm_audio_payload *)SRTM_CommMessage_GetPayload(notif);
+    payload    = (struct _srtm_audio_payload *)(void *)SRTM_CommMessage_GetPayload(notif);
     payloadLen = SRTM_CommMessage_GetPayloadLen(notif);
 
     status = SRTM_Service_CheckVersion(service, notif, SRTM_AUDIO_VERSION);
-    if (status != SRTM_Status_Success || !payload || payloadLen != sizeof(struct _srtm_audio_payload))
+    if ((status != SRTM_Status_Success) || (payload == NULL) || (payloadLen != sizeof(struct _srtm_audio_payload)))
     {
         SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_WARN, "%s: format error!\r\n", __func__);
         status = SRTM_Status_ServiceNotFound;
     }
     else
     {
-        iface = SRTM_AudioService_FindInterface(handle, payload->index);
-        if (!iface)
+        iface = SRTM_AudioService_FindInterfaceByChannel(handle, notif->channel);
+        if (iface == NULL)
         {
-            SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_WARN, "%s: audio interface %d not found!\r\n", __func__,
-                               payload->index);
+            SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_WARN, "%s: audio interface for channel 0x%x not found!\r\n", __func__,
+                               notif->channel);
             status = SRTM_Status_ServiceNotFound;
         }
         else
@@ -660,15 +660,15 @@ static srtm_status_t SRTM_AudioService_Notify(srtm_service_t service, srtm_notif
             switch (command)
             {
                 case SRTM_AUDIO_NTF_TX_PERIOD_DONE:
-                    if (sai && sai->periodReady)
+                    if ((sai != NULL) && (sai->periodReady != NULL))
                     {
-                        status = sai->periodReady(sai, SRTM_AudioDirTx, payload->index, payload->periodIdx);
+                        status = sai->periodReady(sai, SRTM_AudioDirTx, iface->index, payload->periodIdx);
                     }
                     break;
                 case SRTM_AUDIO_NTF_RX_PERIOD_DONE:
-                    if (sai && sai->periodReady)
+                    if ((sai != NULL) && (sai->periodReady != NULL))
                     {
-                        status = sai->periodReady(sai, SRTM_AudioDirRx, payload->index, payload->periodIdx);
+                        status = sai->periodReady(sai, SRTM_AudioDirRx, iface->index, payload->periodIdx);
                     }
                     break;
                 default:
@@ -690,12 +690,12 @@ static srtm_audio_iface_t SRTM_AudioService_CreateIface(srtm_audio_service_t han
     srtm_procedure_t proc;
     uint32_t i;
 
-    if (sai || codec)
+    if ((sai != NULL) || (codec != NULL))
     {
         iface = (srtm_audio_iface_t)SRTM_Heap_Malloc(sizeof(struct _srtm_audio_iface));
         assert(iface != NULL);
 
-        if (sai)
+        if (sai != NULL)
         {
             sai->service    = &handle->service;
             sai->periodDone = SRTM_AudioService_PeriodDone;
@@ -760,6 +760,44 @@ static srtm_audio_iface_t SRTM_AudioService_FindInterface(srtm_audio_service_t h
     return iface;
 }
 
+static srtm_audio_iface_t SRTM_AudioService_FindInterfaceByChannel(srtm_audio_service_t handle, srtm_channel_t channel)
+{
+    srtm_list_t *list;
+    srtm_audio_iface_t iface     = NULL;
+    srtm_audio_iface_t cur_iface = NULL;
+
+    for (list = handle->ifaces.next; list != &handle->ifaces; list = list->next)
+    {
+        cur_iface = SRTM_LIST_OBJ(srtm_audio_iface_t, node, list);
+        if (cur_iface->channel == channel)
+        {
+            iface = cur_iface;
+            break;
+        }
+    }
+
+    return iface;
+}
+
+static srtm_audio_iface_t SRTM_AudioService_FindInterfaceByAdapter(srtm_audio_service_t handle, srtm_sai_adapter_t sai)
+{
+    srtm_list_t *list;
+    srtm_audio_iface_t iface     = NULL;
+    srtm_audio_iface_t cur_iface = NULL;
+
+    for (list = handle->ifaces.next; list != &handle->ifaces; list = list->next)
+    {
+        cur_iface = SRTM_LIST_OBJ(srtm_audio_iface_t, node, list);
+        if (cur_iface->sai == sai)
+        {
+            iface = cur_iface;
+            break;
+        }
+    }
+
+    return iface;
+}
+
 srtm_service_t SRTM_AudioService_Create(srtm_sai_adapter_t sai, srtm_codec_adapter_t codec)
 {
     srtm_audio_service_t handle;
@@ -779,7 +817,7 @@ srtm_service_t SRTM_AudioService_Create(srtm_sai_adapter_t sai, srtm_codec_adapt
 
     SRTM_List_Init(&handle->ifaces);
     iface = SRTM_AudioService_CreateIface(handle, 0, sai, codec);
-    if (iface)
+    if (iface != NULL)
     {
         SRTM_List_AddTail(&handle->ifaces, &iface->node);
     }
@@ -791,7 +829,7 @@ void SRTM_AudioService_Destroy(srtm_service_t service)
 {
     srtm_list_t *list;
     srtm_audio_iface_t iface;
-    srtm_audio_service_t handle = (srtm_audio_service_t)service;
+    srtm_audio_service_t handle = (srtm_audio_service_t)(void *)service;
 
     assert(service != NULL);
 
@@ -813,7 +851,7 @@ void SRTM_AudioService_Destroy(srtm_service_t service)
 
 void SRTM_AudioService_Reset(srtm_service_t service, srtm_peercore_t core)
 {
-    srtm_audio_service_t handle = (srtm_audio_service_t)service;
+    srtm_audio_service_t handle = (srtm_audio_service_t)(void *)service;
     srtm_list_t *list;
     srtm_audio_iface_t iface;
 
@@ -824,41 +862,59 @@ void SRTM_AudioService_Reset(srtm_service_t service, srtm_peercore_t core)
     for (list = handle->ifaces.next; list != &handle->ifaces; list = list->next)
     {
         iface = SRTM_LIST_OBJ(srtm_audio_iface_t, node, list);
-        if (iface->sai && iface->useCount > 0 && iface->channel->core == core)
+        if ((iface->sai != NULL) && (iface->useCount > 0U) && (iface->channel->core == core))
         {
-            iface->sai->stop(iface->sai, SRTM_AudioDirRx, iface->index);
-            iface->sai->stop(iface->sai, SRTM_AudioDirTx, iface->index);
-            iface->sai->close(iface->sai, SRTM_AudioDirRx, iface->index);
-            iface->sai->close(iface->sai, SRTM_AudioDirTx, iface->index);
+            (void)iface->sai->stop(iface->sai, SRTM_AudioDirRx, iface->index);
+            (void)iface->sai->stop(iface->sai, SRTM_AudioDirTx, iface->index);
+            (void)iface->sai->close(iface->sai, SRTM_AudioDirRx, iface->index);
+            (void)iface->sai->close(iface->sai, SRTM_AudioDirTx, iface->index);
         }
         iface->channel  = NULL;
         iface->useCount = 0;
     }
 }
 
-srtm_status_t SRTM_AudioService_SetAudioInterface(srtm_service_t service,
-                                                  uint8_t index,
-                                                  srtm_sai_adapter_t sai,
-                                                  srtm_codec_adapter_t codec)
+srtm_status_t SRTM_AudioService_BindChannel(srtm_service_t service, srtm_sai_adapter_t sai, srtm_channel_t channel)
 {
+    srtm_status_t status = SRTM_Status_Success;
     srtm_audio_iface_t iface;
-    srtm_audio_service_t handle = (srtm_audio_service_t)service;
+    srtm_audio_service_t handle = (srtm_audio_service_t)(void *)service;
+
+    assert(service != NULL);
+    SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_INFO, "%s(0x%x)\r\n", __func__, channel);
+
+    iface = SRTM_AudioService_FindInterfaceByAdapter(handle, sai);
+    if (iface != NULL)
+    {
+        iface->channel = channel;
+    }
+    else
+    {
+        status = SRTM_Status_ServiceNotFound;
+    }
+
+    return status;
+}
+
+srtm_status_t SRTM_AudioService_AddAudioInterface(srtm_service_t service, srtm_sai_adapter_t sai)
+{
+    srtm_status_t status = SRTM_Status_Success;
+    srtm_audio_iface_t iface;
+    srtm_audio_service_t handle = (srtm_audio_service_t)(void *)service;
+    uint8_t index               = ++s_audIdx;
 
     assert(service != NULL);
     SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_INFO, "%s(%d)\r\n", __func__, index);
 
-    iface = SRTM_AudioService_FindInterface(handle, index);
-    if (iface)
-    {
-        assert(iface->useCount == 0);
-        SRTM_AudioService_DestroyIface(iface);
-    }
-
-    iface = SRTM_AudioService_CreateIface(handle, index, sai, codec);
-    if (iface)
+    iface = SRTM_AudioService_CreateIface(handle, index, sai, NULL);
+    if (iface != NULL)
     {
         SRTM_List_AddTail(&handle->ifaces, &iface->node);
     }
+    else
+    {
+        status = SRTM_Status_InvalidParameter;
+    }
 
-    return SRTM_Status_Success;
+    return status;
 }

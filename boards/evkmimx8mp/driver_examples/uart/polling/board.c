@@ -158,9 +158,15 @@ void BOARD_RdcInit(void)
 {
     /* Move M7 core to specific RDC domain 1 */
     rdc_domain_assignment_t assignment = {0};
+    uint8_t domainId                   = 0U;
 
-    assignment.domainId = BOARD_DOMAIN_ID;
-    RDC_SetMasterDomainAssignment(RDC, kRDC_Master_M7, &assignment);
+    domainId = RDC_GetCurrentMasterDomainId(RDC);
+    /* Only configure the RDC if RDC peripheral write access allowed. */
+    if ((0x1U & RDC_GetPeriphAccessPolicy(RDC, kRDC_Periph_RDC, domainId)) != 0U)
+    {
+        assignment.domainId = BOARD_DOMAIN_ID;
+        RDC_SetMasterDomainAssignment(RDC, kRDC_Master_M7, &assignment);
+    }
 
     /*
      * The M7 core is running at domain 1, now enable the clock gate of the following IP/BUS/PLL in domain 1 in the CCM.

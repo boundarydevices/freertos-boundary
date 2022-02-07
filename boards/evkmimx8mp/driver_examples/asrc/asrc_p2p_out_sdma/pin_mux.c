@@ -1,5 +1,5 @@
 /*
- * Copyright 2019-2020 NXP
+ * Copyright 2019-2021 NXP
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -15,11 +15,11 @@
 /*
  * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 !!GlobalInfo
-product: Pins v8.0
+product: Pins v9.0
 processor: MIMX8ML8xxxLZ
 package_id: MIMX8ML8DVNLZ
 mcu_data: ksdk2_0
-processor_version: 0.8.3
+processor_version: 0.9.1
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 
@@ -35,12 +35,13 @@ processor_version: 0.8.3
  * END ****************************************************************************************************************/
 void BOARD_InitBootPins(void)
 {
+    BOARD_InitPins();
 }
 
 /*
  * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 BOARD_InitPins:
-- options: {callFromInitBoot: 'false', coreID: m7}
+- options: {callFromInitBoot: 'true', coreID: cm7}
 - pin_list:
   - {pin_num: AJ5, peripheral: UART4, signal: uart_rx, pin_signal: UART4_RXD, PE: Enabled, PUE: Weak_Pull_Up, DSE: X1, SION: DISABLED}
   - {pin_num: AH5, peripheral: UART4, signal: uart_tx, pin_signal: UART4_TXD, PE: Enabled, PUE: Weak_Pull_Up, DSE: X1, SION: DISABLED}
@@ -96,7 +97,7 @@ void BOARD_InitPins(void) {                                /*!< Function assigne
 /*
  * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 BOARD_I2C_ConfigurePins:
-- options: {callFromInitBoot: 'false', coreID: m7}
+- options: {callFromInitBoot: 'false', coreID: cm7}
 - pin_list:
   - {pin_num: AJ7, peripheral: I2C3, signal: i2c_scl, pin_signal: I2C3_SCL, PE: Enabled, HYS: Schmitt, PUE: Weak_Pull_Up, DSE: X4, SION: ENABLED}
   - {pin_num: AJ6, peripheral: I2C3, signal: i2c_sda, pin_signal: I2C3_SDA, PE: Enabled, HYS: Schmitt, PUE: Weak_Pull_Up, DSE: X4, SION: ENABLED}

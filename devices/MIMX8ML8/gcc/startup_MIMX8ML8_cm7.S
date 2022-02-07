@@ -2,12 +2,12 @@
 /* @file:    startup_MIMX8ML8_cm7.s                                         */
 /* @purpose: CMSIS Cortex-M7 Core Device Startup File                       */
 /*           MIMX8ML8_cm7                                                   */
-/* @version: 4.0                                                            */
-/* @date:    2020-11-16                                                      */
+/* @version: 5.0                                                            */
+/* @date:    2021-3-1                                                      */
 /* --------------------------------------------------------------------------*/
 /*                                                                           */
 /* Copyright 1997-2016 Freescale Semiconductor, Inc.                         */
-/* Copyright 2016-2020 NXP                                                   */
+/* Copyright 2016-2021 NXP                                                   */
 /* All rights reserved.                                                      */
 /*                                                                           */
 /* SPDX-License-Identifier: BSD-3-Clause                                     */

@@ -9,8 +9,8 @@ If there is no audio palyback, M core will enter the STOP mode, and the whole SO
 
 Toolchain supported
 ===================
-- IAR embedded Workbench  8.50.6
-- GCC ARM Embedded  9.2.1
+- IAR embedded Workbench  9.10.2
+- GCC ARM Embedded  10.2.1
 
 Hardware requirements
 =====================
@@ -27,6 +27,7 @@ No special settings are required.
 
 #### Note! ####
 1.  This case does not support ddr and flash target. 
+2.  This case runs together with Linux and the Linux release version should be not lower than 5.10.72-2.2.0.
 
 Prepare the Demo
 ================
@@ -47,6 +48,9 @@ NOTE
 1.  The 16/24/32bits for PCM Music stream are supported.
 2.  Since the music files are typically large, users could create a new large size patition in the SD card to place the music files.
 3.  After M core running, please boot the linux kernel to create the rpmsg channel between A core and M core.
+    Make sure the FDT file is correctly set before booting the linux kernel. The following command can be used to set FDT file in uboot console:
+    u-boot=>setenv fdtfile imx8mp-evk-rpmsg.dtb
+    u-boot=>saveenv
 4.  Please make sure there exists xxx.wav file in the SD card.
     If the music file is placed at the Windows FAT32 paritions, after the linux kernel boots up and logs on as root,
     using the "mount /dev/mmcblk1p1 /mnt" and then go to "/mnt" folder to playabck the music using the playback command.
@@ -83,6 +87,7 @@ When playback the .wav file:
       "aplay -Dhw:3 --buffer-time=xxx --period-time=xxx xxx.wav -N &".
     E.g: "aplay -Dhw:3 --period-time=500000 --buffer-time=10000000 xxx.wav -N &"
     Now please use "echo mem > /sys/power/state" command to make A core enter suspend mode and the playabck work normally.
+    Note, make sure the A core has enough time to fill the audio buffer before going into suspend mode.
 
 Running the demo
 ================

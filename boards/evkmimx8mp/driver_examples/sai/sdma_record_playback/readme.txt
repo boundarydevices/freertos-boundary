@@ -6,8 +6,8 @@ In this example, one sai instance record the audio data from input and playbacks
 
 Toolchain supported
 ===================
-- IAR embedded Workbench  8.50.6
-- GCC ARM Embedded  9.2.1
+- IAR embedded Workbench  9.10.2
+- GCC ARM Embedded  10.2.1
 
 Hardware requirements
 =====================
@@ -39,8 +39,10 @@ Prepare the Demo
 
 Running the demo
 ================
+note: This demo uses codec master mode(external mclk mode).
+
 When the demo runs successfully, you can hear the recorded sound from the headphone mic on the left and the log would be seen on the terminal like:
 
 ~~~~~~~~~~~~~~~~~~~
 SAI SDMA record playback example started!
- ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~

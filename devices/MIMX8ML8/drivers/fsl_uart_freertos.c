@@ -257,7 +257,7 @@ int UART_RTOS_Send(uart_rtos_handle_t *handle, uint8_t *buffer, uint32_t length)
     }
 
     ev = xEventGroupWaitBits(handle->txEvent, RTOS_UART_COMPLETE, pdTRUE, pdFALSE, portMAX_DELAY);
-    if ((ev & RTOS_UART_COMPLETE) == 0)
+    if ((ev & RTOS_UART_COMPLETE) == 0U)
     {
         retval = kStatus_Fail;
     }
@@ -335,7 +335,7 @@ int UART_RTOS_Receive(uart_rtos_handle_t *handle, uint8_t *buffer, uint32_t leng
     ev = xEventGroupWaitBits(handle->rxEvent,
                              RTOS_UART_COMPLETE | RTOS_UART_RING_BUFFER_OVERRUN | RTOS_UART_HARDWARE_BUFFER_OVERRUN,
                              pdTRUE, pdFALSE, portMAX_DELAY);
-    if ((ev & RTOS_UART_HARDWARE_BUFFER_OVERRUN) != 0)
+    if ((ev & RTOS_UART_HARDWARE_BUFFER_OVERRUN) != 0U)
     {
         /* Stop data transfer to application buffer, ring buffer is still active */
         UART_TransferAbortReceive(handle->base, handle->t_state);
@@ -345,7 +345,7 @@ int UART_RTOS_Receive(uart_rtos_handle_t *handle, uint8_t *buffer, uint32_t leng
         retval         = kStatus_UART_RxHardwareOverrun;
         local_received = 0;
     }
-    else if ((ev & RTOS_UART_RING_BUFFER_OVERRUN) != 0)
+    else if ((ev & RTOS_UART_RING_BUFFER_OVERRUN) != 0U)
     {
         /* Stop data transfer to application buffer, ring buffer is still active */
         UART_TransferAbortReceive(handle->base, handle->t_state);
@@ -355,7 +355,7 @@ int UART_RTOS_Receive(uart_rtos_handle_t *handle, uint8_t *buffer, uint32_t leng
         retval         = kStatus_UART_RxRingBufferOverrun;
         local_received = 0;
     }
-    else if ((ev & RTOS_UART_COMPLETE) != 0)
+    else if ((ev & RTOS_UART_COMPLETE) != 0U)
     {
         retval         = kStatus_Success;
         local_received = length;

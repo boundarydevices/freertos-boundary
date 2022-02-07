@@ -27,10 +27,17 @@
 /*******************************************************************************
  * Code
  ******************************************************************************/
+#if defined(SRTM_STATIC_API) && SRTM_STATIC_API
+srtm_sem_t SRTM_Sem_Create(uint32_t maxCount, uint32_t initCount, srtm_sem_buf_t *stack)
+{
+    return xSemaphoreCreateCountingStatic(maxCount, initCount, stack);
+}
+#else
 srtm_sem_t SRTM_Sem_Create(uint32_t maxCount, uint32_t initCount)
 {
     return xSemaphoreCreateCounting(maxCount, initCount);
 }
+#endif
 
 void SRTM_Sem_Destroy(srtm_sem_t sem)
 {
@@ -41,30 +48,32 @@ void SRTM_Sem_Destroy(srtm_sem_t sem)
 
 srtm_status_t SRTM_Sem_Post(srtm_sem_t sem)
 {
+    srtm_status_t status     = SRTM_Status_Error;
     portBASE_TYPE taskToWake = pdFALSE;
 
-    if (__get_IPSR())
+    if (__get_IPSR() != 0U)
     {
         if (xSemaphoreGiveFromISR(sem, &taskToWake) == pdPASS)
         {
             portYIELD_FROM_ISR(taskToWake);
-            return SRTM_Status_Success;
+            status = SRTM_Status_Success;
         }
     }
     else
     {
         if (xSemaphoreGive(sem) == pdTRUE)
         {
-            return SRTM_Status_Success;
+            status = SRTM_Status_Success;
         }
     }
 
-    return SRTM_Status_Error;
+    return status;
 }
 
 srtm_status_t SRTM_Sem_Wait(srtm_sem_t sem, uint32_t timeout)
 {
     uint32_t ticks;
+    srtm_status_t status = SRTM_Status_Success;
 
     if (timeout == SRTM_WAIT_FOR_EVER)
     {
@@ -81,8 +90,8 @@ srtm_status_t SRTM_Sem_Wait(srtm_sem_t sem, uint32_t timeout)
 
     if (xSemaphoreTake(sem, ticks) == pdFALSE)
     {
-        return SRTM_Status_Timeout;
+        status = SRTM_Status_Timeout;
     }
 
-    return SRTM_Status_Success;
+    return status;
 }

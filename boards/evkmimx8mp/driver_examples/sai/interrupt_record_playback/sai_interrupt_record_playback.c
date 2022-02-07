@@ -13,9 +13,9 @@
 #include "fsl_sai.h"
 #include "fsl_codec_common.h"
 
-#include "fsl_wm8960.h"
 #include "fsl_gpio.h"
 #include "fsl_iomuxc.h"
+#include "fsl_wm8960.h"
 #include "fsl_codec_adapter.h"
 /*******************************************************************************
  * Definitions
@@ -47,6 +47,9 @@
 #define BOARD_SAI_RXCONFIG(config, mode)
 #define BUFFER_SIZE   (1024U)
 #define BUFFER_NUMBER (4U)
+#ifndef DEMO_CODEC_VOLUME
+#define DEMO_CODEC_VOLUME 100U
+#endif
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
@@ -174,7 +177,7 @@ static void tx_callback(I2S_Type *base, sai_handle_t *handle, status_t status, v
 int main(void)
 {
     sai_transfer_t xfer;
-    sai_transceiver_t config;
+    sai_transceiver_t saiConfig;
 
     /* M7 has its local cache and enabled by default,
      * need to set smart subsystems (0x28000000 ~ 0x3FFFFFFF)
@@ -184,7 +187,7 @@ int main(void)
     /* Board specific RDC settings */
     BOARD_RdcInit();
 
-    BOARD_InitPins();
+    BOARD_InitBootPins();
     BOARD_BootClockRUN();
     BOARD_I2C_ReleaseBus();
     BOARD_I2C_ConfigurePins();
@@ -206,12 +209,12 @@ int main(void)
     SAI_TransferRxCreateHandle(DEMO_SAI, &rxHandle, rx_callback, NULL);
 
     /* I2S mode configurations */
-    SAI_GetClassicI2SConfig(&config, DEMO_AUDIO_BIT_WIDTH, kSAI_Stereo, 1U << DEMO_SAI_CHANNEL);
-    config.syncMode    = DEMO_SAI_TX_SYNC_MODE;
-    config.masterSlave = DEMO_SAI_MASTER_SLAVE;
-    SAI_TransferTxSetConfig(DEMO_SAI, &txHandle, &config);
-    config.syncMode = DEMO_SAI_RX_SYNC_MODE;
-    SAI_TransferRxSetConfig(DEMO_SAI, &rxHandle, &config);
+    SAI_GetClassicI2SConfig(&saiConfig, DEMO_AUDIO_BIT_WIDTH, kSAI_Stereo, 1U << DEMO_SAI_CHANNEL);
+    saiConfig.syncMode    = DEMO_SAI_TX_SYNC_MODE;
+    saiConfig.masterSlave = DEMO_SAI_MASTER_SLAVE;
+    SAI_TransferTxSetConfig(DEMO_SAI, &txHandle, &saiConfig);
+    saiConfig.syncMode = DEMO_SAI_RX_SYNC_MODE;
+    SAI_TransferRxSetConfig(DEMO_SAI, &rxHandle, &saiConfig);
 
     /* set bit clock divider */
     SAI_TxSetBitClockRate(DEMO_SAI, DEMO_AUDIO_MASTER_CLOCK, DEMO_AUDIO_SAMPLE_RATE, DEMO_AUDIO_BIT_WIDTH,
@@ -227,7 +230,11 @@ int main(void)
     {
         assert(false);
     }
-
+    if (CODEC_SetVolume(&codecHandle, kCODEC_PlayChannelHeadphoneLeft | kCODEC_PlayChannelHeadphoneRight,
+                        DEMO_CODEC_VOLUME) != kStatus_Success)
+    {
+        assert(false);
+    }
     while (1)
     {
         if (emptyBlock > 0)

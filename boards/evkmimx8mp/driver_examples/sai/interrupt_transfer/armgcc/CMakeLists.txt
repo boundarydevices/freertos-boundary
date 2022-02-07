@@ -1,6 +1,6 @@
 # CROSS COMPILER SETTING
 SET(CMAKE_SYSTEM_NAME Generic)
-CMAKE_MINIMUM_REQUIRED (VERSION 3.1.1)
+CMAKE_MINIMUM_REQUIRED (VERSION 3.10.0)
 
 # THE VERSION NUMBER
 SET (Tutorial_VERSION_MAJOR 1)
@@ -51,14 +51,13 @@ set(CMAKE_MODULE_PATH
     ${ProjDirPath}/../../../../../../components/codec/wm8960
     ${ProjDirPath}/../../../../../../devices/MIMX8ML8/drivers
     ${ProjDirPath}/../../../../../../components/codec
-    ${ProjDirPath}/../../../../../../components/codec/port/wm8960
     ${ProjDirPath}/../../../../../../components/codec/i2c
     ${ProjDirPath}/../../../../../../components/i2c
     ${ProjDirPath}/../../../../../../devices/MIMX8ML8/utilities/debug_console_lite
     ${ProjDirPath}/../../../../../../devices/MIMX8ML8
     ${ProjDirPath}/../../../../../../components/uart
     ${ProjDirPath}/../../../../../../components/lists
-    ${ProjDirPath}/../../../../../../CMSIS/Include
+    ${ProjDirPath}/../../../../../../CMSIS/Core/Include
     ${ProjDirPath}/../../../../../../devices/MIMX8ML8/utilities
 )
 
@@ -101,11 +100,7 @@ include(driver_iuart_MIMX8ML8)
 
 include(device_MIMX8ML8_startup_MIMX8ML8)
 
-include(CMSIS_Include_core_cm7_MIMX8ML8)
-
-include(CMSIS_Include_common_MIMX8ML8)
-
-include(CMSIS_Include_dsp_MIMX8ML8)
+include(CMSIS_Include_core_cm_MIMX8ML8)
 
 include(utilities_misc_utilities_MIMX8ML8)
 

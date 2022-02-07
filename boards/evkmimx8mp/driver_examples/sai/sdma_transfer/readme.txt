@@ -6,8 +6,8 @@ In this example, one sai instance playbacks the audio data stored in flash/SRAM/
 
 Toolchain supported
 ===================
-- IAR embedded Workbench  8.50.6
-- GCC ARM Embedded  9.2.1
+- IAR embedded Workbench  9.10.2
+- GCC ARM Embedded  10.2.1
 
 Hardware requirements
 =====================
@@ -40,10 +40,12 @@ Prepare the Demo
 
 Running the demo
 ================
+note:This demo uses codec master mode(internal pll mode).
+
 When the demo runs successfully, you can hear the tone and the log would be seen on the terminal like:
 
 ~~~~~~~~~~~~~~~~~~~
 SAI SDMA example started!
 SAI SDMA example finished!
- ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
