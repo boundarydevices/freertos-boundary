@@ -9,8 +9,8 @@ Note: The example echo every 8 characters, so input 8 characters every time.
 
 Toolchain supported
 ===================
-- IAR embedded Workbench  8.50.9
-- GCC ARM Embedded  9.3.1
+- IAR embedded Workbench  9.10.2
+- GCC ARM Embedded  10.2.1
 
 Hardware requirements
 =====================
@@ -24,7 +24,12 @@ Board settings
 ==============
 No special settings are required.
 
-
+#### Please note this application can't support booting by uboot! and accordingly it does not support Flash target! ####
+This example aims to show the basic usage of the IP's function, some of the used Resources are assigned to Cortex-A core by uboot.
+To run the example, boot the A core into U-Boot and run the following command in the U-Boot console before starting the example to re-assign the resource.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+u-boot=> mw.b 0x303d022c 1 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Prepare the Demo
 ================

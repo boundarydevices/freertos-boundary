@@ -1,6 +1,6 @@
 # CROSS COMPILER SETTING
 SET(CMAKE_SYSTEM_NAME Generic)
-CMAKE_MINIMUM_REQUIRED (VERSION 3.1.1)
+CMAKE_MINIMUM_REQUIRED (VERSION 3.10.0)
 
 # THE VERSION NUMBER
 SET (Tutorial_VERSION_MAJOR 1)
@@ -46,20 +46,19 @@ add_executable(${MCUX_SDK_PROJECT_NAME}
 )
 
 target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
-    ${ProjDirPath}/.. debug
-    ${ProjDirPath}/../low_power_tickless
     ${ProjDirPath}/..
+    ${ProjDirPath}/../low_power_tickless
 )
 
 set(CMAKE_MODULE_PATH
     ${ProjDirPath}/../../../../../devices/MIMX8MN6/drivers
-    ${ProjDirPath}/../../../../../rtos/freertos
+    ${ProjDirPath}/../../../../../rtos/freertos/freertos_kernel
     ${ProjDirPath}/../../../../../devices/MIMX8MN6
     ${ProjDirPath}/../../../../../devices/MIMX8MN6/utilities
     ${ProjDirPath}/../../../../../components/uart
     ${ProjDirPath}/../../../../../components/serial_manager
     ${ProjDirPath}/../../../../../components/lists
-    ${ProjDirPath}/../../../../../CMSIS/Include
+    ${ProjDirPath}/../../../../../CMSIS/Core/Include
 )
 
 # include modules
@@ -93,11 +92,7 @@ include(device_MIMX8MN6_startup_MIMX8MN6)
 
 include(utility_assert_MIMX8MN6)
 
-include(CMSIS_Include_core_cm7_MIMX8MN6)
-
-include(CMSIS_Include_common_MIMX8MN6)
-
-include(CMSIS_Include_dsp_MIMX8MN6)
+include(CMSIS_Include_core_cm_MIMX8MN6)
 
 include(middleware_freertos-kernel_MIMX8MN6)
 

@@ -12,15 +12,16 @@
 #include "fsl_sai_sdma.h"
 #include "music.h"
 #include "fsl_codec_common.h"
-#include "fsl_wm8524.h"
 #include "fsl_common.h"
 #include "fsl_gpio.h"
+#include "fsl_wm8524.h"
 #include "fsl_codec_adapter.h"
 #include "fsl_sai.h"
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define DEMO_SAI (I2S3)
+#define DEMO_SAI              (I2S3)
+#define DEMO_SAI_MASTER_SLAVE kSAI_Master
 #define DEMO_SAI_CLK_FREQ                                                                  \
     (CLOCK_GetPllFreq(kCLOCK_AudioPll1Ctrl) / (CLOCK_GetRootPreDivider(kCLOCK_RootSai3)) / \
      (CLOCK_GetRootPostDivider(kCLOCK_RootSai3)))
@@ -30,7 +31,7 @@
 #define DEMO_CODEC_MUTE_PIN     (GPIO5)
 #define DEMO_CODEC_MUTE_PIN_NUM (21)
 #define DEMO_IRQn               I2S3_IRQn
-#define EXAMPLE_DMA             SDMAARM2
+#define EXAMPLE_DMA             SDMAARM3
 #define EXAMPLE_CHANNEL         (1)
 #define SAI_TX_SOURCE           (5)
 /*set Bclk source to Mclk clock*/
@@ -127,7 +128,7 @@ int main(void)
     /* Board specific RDC settings */
     BOARD_RdcInit();
 
-    BOARD_InitPins();
+    BOARD_InitBootPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
 
@@ -154,6 +155,7 @@ int main(void)
     /* I2S mode configurations */
     SAI_GetClassicI2SConfig(&saiConfig, DEMO_AUDIO_BIT_WIDTH, kSAI_Stereo, kSAI_Channel0Mask);
     saiConfig.bitClock.bclkSource = (sai_bclk_source_t)DEMO_SAI_CLOCK_SOURCE;
+    saiConfig.masterSlave         = DEMO_SAI_MASTER_SLAVE;
     SAI_TransferTxSetConfigSDMA(DEMO_SAI, &txHandle, &saiConfig);
 
     /* set bit clock divider */

@@ -15,9 +15,9 @@
 #include "fsl_asrc_sdma.h"
 #include "fsl_asrc.h"
 
-#include "fsl_wm8524.h"
 #include "fsl_common.h"
 #include "fsl_gpio.h"
+#include "fsl_wm8524.h"
 #include "fsl_codec_adapter.h"
 #include "fsl_sai.h"
 /*******************************************************************************
@@ -34,7 +34,7 @@
 #define DEMO_CODEC_MUTE_PIN        (GPIO5)
 #define DEMO_CODEC_MUTE_PIN_NUM    (21)
 #define DEMO_IRQn                  I2S3_IRQn
-#define DEMO_DMA                   SDMAARM2
+#define DEMO_DMA                   SDMAARM3
 #define DEMO_SAI_SDMA_CHANNEL      (1)
 #define DEMO_ASRC_IN_SDMA_CHANNEL  2
 #define DEMO_ASRC_OUT_SDMA_CHANNEL 3
@@ -48,7 +48,7 @@
 /*set Bclk source to Mclk clock*/
 #define DEMO_SAI_CLOCK_SOURCE     (1U)
 #define SDMA_FREQ_EQUALS_ARM      (1U)
-#define DEMO_ASRC_IN_SAMPLE_RATE  44100
+#define DEMO_ASRC_IN_SAMPLE_RATE  48000
 #define DEMO_ASRC_OUT_SAMPLE_RATE 16000
 /* convert buffer size, please note that the maximum size  of once transfer that SDMA can support is 64k */
 #define DEMO_AUDIO_BUFFER_SIZE (16000U)
@@ -141,7 +141,7 @@ int main(void)
     /* Board specific RDC settings */
     BOARD_RdcInit();
 
-    BOARD_InitPins();
+    BOARD_InitBootPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
 
@@ -210,7 +210,10 @@ int main(void)
         assert(false);
     }
 
-    PRINTF("Playback original 48K audio data.\n\r");
+    PRINTF("Playback raw audio data\r\n");
+    PRINTF("    sample rate : %d\r\n", DEMO_ASRC_IN_SAMPLE_RATE);
+    PRINTF("    channel number: %d\r\n", DEMO_AUDIO_DATA_CHANNEL);
+    PRINTF("    frequency: 1KHZ.\r\n\r\n");
     saiPlayAudio(temp, MUSIC_LEN);
 
     /* reconfigure the sai bit clock*/
@@ -222,7 +225,11 @@ int main(void)
         assert(false);
     }
 
-    PRINTF("Playback converted 16K audio data.\n\r");
+    PRINTF("Playback converted audio data\r\n");
+    PRINTF("    sample rate : %d\r\n", DEMO_ASRC_OUT_SAMPLE_RATE);
+    PRINTF("    channel number: %d\r\n", DEMO_AUDIO_DATA_CHANNEL);
+    PRINTF("    frequency: 1KHZ.\r\n\r\n");
+
     asrcConvertAudio(temp, s_asrcOutBuffer, MUSIC_LEN);
     saiPlayAudio((uint8_t *)s_asrcOutBuffer,
                  ASRC_GetContextOutSampleSize(DEMO_ASRC_IN_SAMPLE_RATE, MUSIC_LEN, 2, DEMO_ASRC_OUT_SAMPLE_RATE, 2));

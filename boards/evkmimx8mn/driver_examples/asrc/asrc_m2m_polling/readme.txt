@@ -6,8 +6,8 @@ In this example, one asrc instance convert the audio data stored in flash/SRAM/D
 
 Toolchain supported
 ===================
-- IAR embedded Workbench  8.50.9
-- GCC ARM Embedded  9.3.1
+- IAR embedded Workbench  9.10.2
+- GCC ARM Embedded  10.2.1
 
 Hardware requirements
 =====================
@@ -46,8 +46,27 @@ When the demo runs successfully, you can hear two audio clips, one is 16K, later
 The log would be seen on the terminal like:
 ~~~~~~~~~~~~~~~~~~~
 ASRC memory to memory polling example.
-Playback original 16K audio data.
-Playback converted 48K audio data.
+
+Playback raw audio data
+
+    sample rate : 16000
+
+    channel number: 2
+
+    frequency: 215HZ.
+
+
+
+Playback converted audio data
+
+    sample rate : 48000
+
+    channel number: 2
+
+    frequency: 215HZ.
+
+
+
 ASRC memory to memory polling example finished.
  ~~~~~~~~~~~~~~~~~~~
 

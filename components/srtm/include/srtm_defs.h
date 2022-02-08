@@ -9,9 +9,10 @@
 #ifndef __SRTM_DEFS_H__
 #define __SRTM_DEFS_H__
 
-#include <stdint.h>
-#include <stdbool.h>
+#include "srtm_config.h"
 #include <assert.h>
+#include <stdbool.h>
+#include <stdint.h>
 
 /*!
  * @addtogroup srtm
@@ -24,12 +25,17 @@
 /*! @brief Defines SRTM major version */
 #define SRTM_VERSION_MAJOR (0x01UL)
 /*! @brief Defines SRTM minor version */
-#define SRTM_VERSION_MINOR (0x00UL)
+#define SRTM_VERSION_MINOR (0x01UL)
 /*! @brief Defines SRTM bugfix version */
 #define SRTM_VERSION_BUGFIX (0x00UL)
 
 /*! @brief SRTM version definition */
 #define SRTM_MAKE_VERSION(major, minor, bugfix) ((((uint32_t)major) << 16) | (((uint32_t)minor) << 8) | (bugfix))
+
+/*! Define static api calls as disabled, if no other option is present. */
+#ifndef SRTM_STATIC_API
+#define SRTM_STATIC_API 0
+#endif
 
 /* IAR ARM build tools */
 #if defined(__ICCARM__)

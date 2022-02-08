@@ -6,8 +6,8 @@ In this example, one asrc instance convert the audio data stored in flash/SRAM/D
 
 Toolchain supported
 ===================
-- IAR embedded Workbench  8.50.9
-- GCC ARM Embedded  9.3.1
+- IAR embedded Workbench  9.10.2
+- GCC ARM Embedded  10.2.1
 
 Hardware requirements
 =====================
@@ -49,7 +49,19 @@ The log would be seen on the terminal like:
 
 ~~~~~~~~~~~~~~~~~~~
 ASRC peripheral to peripheral SDMA example.
-Playback converted 16K audio data.
+
+
+
+Playback converted audio data
+
+    sample rate : 16000
+
+    channel number: 2
+
+    frequency: 1kHZ.
+
+
+
 ASRC peripheral to peripheral SDMA example finished.
 ~~~~~~~~~~~~~~~~~~~
 

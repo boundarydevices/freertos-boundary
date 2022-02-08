@@ -26,21 +26,28 @@
 /*******************************************************************************
  * Code
  ******************************************************************************/
+#if defined(SRTM_STATIC_API) && SRTM_STATIC_API
+srtm_mutex_t SRTM_Mutex_Create(srtm_mutex_buf_t *stack)
+{
+    return xSemaphoreCreateMutexStatic(stack);
+}
+#else
 srtm_mutex_t SRTM_Mutex_Create(void)
 {
     return xSemaphoreCreateMutex();
 }
+#endif
 
 void SRTM_Mutex_Destroy(srtm_mutex_t mutex)
 {
-    assert(mutex);
+    assert(mutex != NULL);
 
     vSemaphoreDelete(mutex);
 }
 
 srtm_status_t SRTM_Mutex_Lock(srtm_mutex_t mutex)
 {
-    assert(mutex);
+    assert(mutex != NULL);
 
     if (xSemaphoreTake(mutex, portMAX_DELAY) == pdFALSE)
     {
@@ -52,7 +59,7 @@ srtm_status_t SRTM_Mutex_Lock(srtm_mutex_t mutex)
 
 srtm_status_t SRTM_Mutex_Unlock(srtm_mutex_t mutex)
 {
-    assert(mutex);
+    assert(mutex != NULL);
 
     if (xSemaphoreGive(mutex) == pdFALSE)
     {

@@ -9,8 +9,8 @@
 #include "clock_config.h"
 #include "board.h"
 
-#include "fsl_rdc.h"
 #include "fsl_uart_cmsis.h"
+#include "fsl_rdc.h"
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
@@ -72,10 +72,14 @@ int main(void)
 {
     sdma_config_t sdmaConfig;
 
-    /*set SDMA1 PERIPH to M7 Domain(DID=1),due to UART not be accessible by DID=0 by default*/
-    rdc_domain_assignment_t assignment = {0};
-    assignment.domainId                = BOARD_DOMAIN_ID;
-    RDC_SetMasterDomainAssignment(RDC, kRDC_Master_SDMA1_PERIPH, &assignment);
+    /* Only configure the RDC if RDC peripheral write access is allowed. */
+    if ((0x1U & RDC_GetPeriphAccessPolicy(RDC, kRDC_Periph_RDC, RDC_GetCurrentMasterDomainId(RDC))) != 0U)
+    {
+        /*set SDMA1 PERIPH to M7 Domain(DID=1),due to UART not be accessible by DID=0 by default*/
+        rdc_domain_assignment_t assignment = {0};
+        assignment.domainId                = BOARD_DOMAIN_ID;
+        RDC_SetMasterDomainAssignment(RDC, kRDC_Master_SDMA1_PERIPH, &assignment);
+    }
 
     /* M7 has its local cache and enabled by default,
      * need to set smart subsystems (0x28000000 ~ 0x3FFFFFFF)
@@ -85,7 +89,7 @@ int main(void)
     /* Board specific RDC settings */
     BOARD_RdcInit();
 
-    BOARD_InitPins();
+    BOARD_InitBootPins();
     BOARD_BootClockRUN();
 
     /* Init the SDMA module */

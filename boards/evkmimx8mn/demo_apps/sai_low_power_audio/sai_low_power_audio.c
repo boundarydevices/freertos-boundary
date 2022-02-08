@@ -45,19 +45,24 @@ void Peripheral_RdcSetting(void)
     rdc_periph_access_config_t periphConfig;
 
     assignment.domainId = BOARD_DOMAIN_ID;
-    RDC_SetMasterDomainAssignment(RDC, kRDC_Master_SDMA3_PERIPH, &assignment);
-    RDC_SetMasterDomainAssignment(RDC, kRDC_Master_SDMA3_BURST, &assignment);
-    RDC_SetMasterDomainAssignment(RDC, kRDC_Master_SDMA3_SPBA2, &assignment);
 
-    RDC_GetDefaultPeriphAccessConfig(&periphConfig);
-    /* Do not allow the A53 domain(domain0) to access the following peripherals. */
-    periphConfig.policy = RDC_DISABLE_A53_ACCESS;
-    periphConfig.periph = kRDC_Periph_SAI3;
-    RDC_SetPeriphAccessConfig(RDC, &periphConfig);
-    periphConfig.periph = kRDC_Periph_UART4;
-    RDC_SetPeriphAccessConfig(RDC, &periphConfig);
-    periphConfig.periph = kRDC_Periph_GPT1;
-    RDC_SetPeriphAccessConfig(RDC, &periphConfig);
+    /* Only configure the RDC if the RDC peripheral write access is allowed. */
+    if ((0x1U & RDC_GetPeriphAccessPolicy(RDC, kRDC_Periph_RDC, assignment.domainId)) != 0U)
+    {
+        RDC_SetMasterDomainAssignment(RDC, kRDC_Master_SDMA3_PERIPH, &assignment);
+        RDC_SetMasterDomainAssignment(RDC, kRDC_Master_SDMA3_BURST, &assignment);
+        RDC_SetMasterDomainAssignment(RDC, kRDC_Master_SDMA3_SPBA2, &assignment);
+
+        RDC_GetDefaultPeriphAccessConfig(&periphConfig);
+        /* Do not allow the A53 domain(domain0) to access the following peripherals. */
+        periphConfig.policy = RDC_DISABLE_A53_ACCESS;
+        periphConfig.periph = kRDC_Periph_SAI3;
+        RDC_SetPeriphAccessConfig(RDC, &periphConfig);
+        periphConfig.periph = kRDC_Periph_UART4;
+        RDC_SetPeriphAccessConfig(RDC, &periphConfig);
+        periphConfig.periph = kRDC_Periph_GPT1;
+        RDC_SetPeriphAccessConfig(RDC, &periphConfig);
+    }
 }
 void LPM_MCORE_ChangeM7Clock(LPM_M7_CLOCK_SPEED target)
 {
@@ -72,10 +77,10 @@ void LPM_MCORE_ChangeM7Clock(LPM_M7_CLOCK_SPEED target)
             }
             break;
         case LPM_M7_HIGH_FREQ:
-            if (CLOCK_GetRootMux(kCLOCK_RootM7) != kCLOCK_M7RootmuxSysPll1)
+            if (CLOCK_GetRootMux(kCLOCK_RootM7) != kCLOCK_M7RootmuxSysPll3)
             {
-                CLOCK_SetRootDivider(kCLOCK_RootM7, 1U, 2U);
-                CLOCK_SetRootMux(kCLOCK_RootM7, kCLOCK_M7RootmuxSysPll1); /* switch cortex-m7 to SYSTEM PLL1 */
+                CLOCK_SetRootDivider(kCLOCK_RootM7, 1U, 1U);
+                CLOCK_SetRootMux(kCLOCK_RootM7, kCLOCK_M7RootmuxSysPll3); /* switch cortex-m7 to SYSTEM PLL3 */
             }
             break;
         default:
@@ -250,7 +255,7 @@ int main(void)
 
     BOARD_RdcInit();
     Peripheral_RdcSetting();
-    BOARD_InitPins();
+    BOARD_InitBootPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
     /*
@@ -260,9 +265,7 @@ int main(void)
     {
         CCM->PLL_CTRL[i].PLL_CTRL = kCLOCK_ClockNeededRun;
     }
-    CLOCK_SetRootMux(kCLOCK_RootSai3, kCLOCK_SaiRootmuxAudioPll1); /* Set SAI source to Audio PLL1 393215996HZ */
-    CLOCK_SetRootDivider(kCLOCK_RootSai3, 1U, 16U);                /* Set root clock to 393215996HZ / 16 = 24.576MHZ */
-    CLOCK_SetRootMux(kCLOCK_RootGpt1, kCLOCK_GptRootmuxOsc24M);    /* Set GPT source to Osc24 MHZ */
+    CLOCK_SetRootMux(kCLOCK_RootGpt1, kCLOCK_GptRootmuxOsc24M); /* Set GPT source to Osc24 MHZ */
     CLOCK_SetRootDivider(kCLOCK_RootGpt1, 1U, 1U);
 
     /* gpio initialization */

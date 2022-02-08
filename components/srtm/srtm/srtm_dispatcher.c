@@ -200,11 +200,19 @@ static void SRTM_Dispatcher_RecycleMessage(srtm_message_t msg, void *param)
 srtm_dispatcher_t SRTM_Dispatcher_Create(void)
 {
     srtm_dispatcher_t disp = (srtm_dispatcher_t)SRTM_Heap_Malloc(sizeof(struct _srtm_dispatcher));
-    srtm_mutex_t mutex     = SRTM_Mutex_Create();
-    srtm_sem_t startSig    = SRTM_Sem_Create(1U, 0U);
-    srtm_sem_t stopSig     = SRTM_Sem_Create(1U, 0U);
+#if defined(SRTM_STATIC_API) && SRTM_STATIC_API
+    srtm_mutex_t mutex  = SRTM_Mutex_Create(&disp->mutexStatic);
+    srtm_sem_t startSig = SRTM_Sem_Create(1U, 0U, &disp->startSigStatic);
+    srtm_sem_t stopSig  = SRTM_Sem_Create(1U, 0U, &disp->stopSigStatic);
+    /* Assume same maximum message number of local and remote in messageQ */
+    srtm_sem_t queueSig = SRTM_Sem_Create(SRTM_DISPATCHER_CONFIG_RX_MSG_NUMBER * 2, 0U, &disp->queueSigStatic);
+#else
+    srtm_mutex_t mutex  = SRTM_Mutex_Create();
+    srtm_sem_t startSig = SRTM_Sem_Create(1U, 0U);
+    srtm_sem_t stopSig  = SRTM_Sem_Create(1U, 0U);
     /* Assume same maximum message number of local and remote in messageQ */
     srtm_sem_t queueSig = SRTM_Sem_Create(SRTM_DISPATCHER_CONFIG_RX_MSG_NUMBER * 2U, 0U);
+#endif
     srtm_message_t msg;
     uint32_t i;
 
@@ -349,9 +357,17 @@ void SRTM_Dispatcher_Run(srtm_dispatcher_t disp)
             /* Wait for message putting into Q */
             (void)SRTM_Sem_Wait(disp->queueSig, SRTM_WAIT_FOR_EVER);
             /* Handle as many messages as possible */
-            while ((message = SRTM_Dispatcher_RecvMessage(disp)) != NULL)
+            while (!disp->stopReq)
             {
-                (void)SRTM_Dispatcher_ProcessMessage(disp, message);
+                message = SRTM_Dispatcher_RecvMessage(disp);
+                if (message != NULL)
+                {
+                    (void)SRTM_Dispatcher_ProcessMessage(disp, message);
+                }
+                else
+                {
+                    break;
+                }
             }
         }
 
@@ -519,13 +535,20 @@ srtm_status_t SRTM_Dispatcher_Request(srtm_dispatcher_t disp,
     srtm_sem_t signal;
     srtm_status_t status;
     srtm_response_t resp;
+#if defined(SRTM_STATIC_API) && SRTM_STATIC_API
+    srtm_sem_buf_t signalStatic;
+#endif
 
     assert(disp);
     assert(req);
 
     SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_DEBUG, "%s\r\n", __func__);
 
-    signal = SRTM_Sem_Create(1U, 0U);
+#if defined(SRTM_STATIC_API) && SRTM_STATIC_API
+    signal = SRTM_Sem_Create(1U, 0U, &signalStatic);
+#else
+    signal              = SRTM_Sem_Create(1U, 0U);
+#endif
     if (signal == NULL)
     {
         return SRTM_Status_OutOfMemory;
@@ -649,6 +672,9 @@ srtm_status_t SRTM_Dispatcher_DeliverMessages(srtm_dispatcher_t disp, srtm_list_
 srtm_status_t SRTM_Dispatcher_CallProc(srtm_dispatcher_t disp, srtm_procedure_t proc, uint32_t timeout)
 {
     srtm_sem_t signal;
+#if defined(SRTM_STATIC_API) && SRTM_STATIC_API
+    srtm_sem_buf_t signalStatic;
+#endif
     srtm_status_t status;
 
     assert(disp);
@@ -656,7 +682,11 @@ srtm_status_t SRTM_Dispatcher_CallProc(srtm_dispatcher_t disp, srtm_procedure_t 
 
     SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_DEBUG, "%s\r\n", __func__);
 
-    signal = SRTM_Sem_Create(1U, 0U);
+#if defined(SRTM_STATIC_API) && SRTM_STATIC_API
+    signal = SRTM_Sem_Create(1U, 0U, &signalStatic);
+#else
+    signal              = SRTM_Sem_Create(1U, 0U);
+#endif
     if (signal == NULL)
     {
         return SRTM_Status_OutOfMemory;

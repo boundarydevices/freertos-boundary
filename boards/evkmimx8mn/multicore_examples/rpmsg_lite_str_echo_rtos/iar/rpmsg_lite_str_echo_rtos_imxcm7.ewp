@@ -182,9 +182,11 @@
           <name>CCDefines</name>
           <state>DEBUG</state>
           <state>CPU_MIMX8MN6DVTJZ</state>
+          <state>CPU_MIMX8MN6DVTJZ_cm7</state>
           <state>SDK_DELAY_USE_DWT</state>
-          <state>FSL_RTOS_FREE_RTOS</state>
+          <state>SDK_OS_FREE_RTOS</state>
           <state>SERIAL_PORT_TYPE_UART=1</state>
+          <state>MCUXPRESSO_SDK</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -315,6 +317,8 @@
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$/..</state>
           <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/platform/imx8mn_m7</state>
+          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include</state>
+          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/environment/freertos</state>
           <state>$PROJ_DIR$/../../../../../devices/MIMX8MN6/drivers</state>
           <state>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/include</state>
           <state>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/portable/IAR/ARM_CM4F</state>
@@ -324,8 +328,7 @@
           <state>$PROJ_DIR$/../../../../../components/uart</state>
           <state>$PROJ_DIR$/../../../../../components/serial_manager</state>
           <state>$PROJ_DIR$/../../../../../components/lists</state>
-          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include</state>
-          <state>$PROJ_DIR$/../../../../../CMSIS/Include</state>
+          <state>$PROJ_DIR$/../../../../../CMSIS/Core/Include</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -792,7 +795,7 @@
         </option>
         <option>
           <name>IlinkOverrideProgramEntryLabel</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IlinkProgramEntryLabelSelect</name>
@@ -800,7 +803,7 @@
         </option>
         <option>
           <name>IlinkProgramEntryLabel</name>
-          <state>__iar_program_start</state>
+          <state>Reset_Handler</state>
         </option>
         <option>
           <name>DoFill</name>
@@ -1157,9 +1160,11 @@
           <name>CCDefines</name>
           <state>FLASH_TARGET</state>
           <state>CPU_MIMX8MN6DVTJZ</state>
+          <state>CPU_MIMX8MN6DVTJZ_cm7</state>
           <state>SDK_DELAY_USE_DWT</state>
-          <state>FSL_RTOS_FREE_RTOS</state>
+          <state>SDK_OS_FREE_RTOS</state>
           <state>SERIAL_PORT_TYPE_UART=1</state>
+          <state>MCUXPRESSO_SDK</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1290,6 +1295,8 @@
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$/..</state>
           <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/platform/imx8mn_m7</state>
+          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include</state>
+          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/environment/freertos</state>
           <state>$PROJ_DIR$/../../../../../devices/MIMX8MN6/drivers</state>
           <state>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/include</state>
           <state>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/portable/IAR/ARM_CM4F</state>
@@ -1299,8 +1306,7 @@
           <state>$PROJ_DIR$/../../../../../components/uart</state>
           <state>$PROJ_DIR$/../../../../../components/serial_manager</state>
           <state>$PROJ_DIR$/../../../../../components/lists</state>
-          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include</state>
-          <state>$PROJ_DIR$/../../../../../CMSIS/Include</state>
+          <state>$PROJ_DIR$/../../../../../CMSIS/Core/Include</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -1766,7 +1772,7 @@
         </option>
         <option>
           <name>IlinkOverrideProgramEntryLabel</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IlinkProgramEntryLabelSelect</name>
@@ -1774,7 +1780,7 @@
         </option>
         <option>
           <name>IlinkProgramEntryLabel</name>
-          <state>__iar_program_start</state>
+          <state>Reset_Handler</state>
         </option>
         <option>
           <name>DoFill</name>
@@ -2130,9 +2136,11 @@
         <option>
           <name>CCDefines</name>
           <state>CPU_MIMX8MN6DVTJZ</state>
+          <state>CPU_MIMX8MN6DVTJZ_cm7</state>
           <state>SDK_DELAY_USE_DWT</state>
-          <state>FSL_RTOS_FREE_RTOS</state>
+          <state>SDK_OS_FREE_RTOS</state>
           <state>SERIAL_PORT_TYPE_UART=1</state>
+          <state>MCUXPRESSO_SDK</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -2263,6 +2271,8 @@
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$/..</state>
           <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/platform/imx8mn_m7</state>
+          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include</state>
+          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/environment/freertos</state>
           <state>$PROJ_DIR$/../../../../../devices/MIMX8MN6/drivers</state>
           <state>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/include</state>
           <state>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/portable/IAR/ARM_CM4F</state>
@@ -2272,8 +2282,7 @@
           <state>$PROJ_DIR$/../../../../../components/uart</state>
           <state>$PROJ_DIR$/../../../../../components/serial_manager</state>
           <state>$PROJ_DIR$/../../../../../components/lists</state>
-          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include</state>
-          <state>$PROJ_DIR$/../../../../../CMSIS/Include</state>
+          <state>$PROJ_DIR$/../../../../../CMSIS/Core/Include</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -2739,7 +2748,7 @@
         </option>
         <option>
           <name>IlinkOverrideProgramEntryLabel</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IlinkProgramEntryLabelSelect</name>
@@ -2747,7 +2756,7 @@
         </option>
         <option>
           <name>IlinkProgramEntryLabel</name>
-          <state>__iar_program_start</state>
+          <state>Reset_Handler</state>
         </option>
         <option>
           <name>DoFill</name>
@@ -3104,9 +3113,11 @@
           <name>CCDefines</name>
           <state>NDEBUG</state>
           <state>CPU_MIMX8MN6DVTJZ</state>
+          <state>CPU_MIMX8MN6DVTJZ_cm7</state>
           <state>SDK_DELAY_USE_DWT</state>
-          <state>FSL_RTOS_FREE_RTOS</state>
+          <state>SDK_OS_FREE_RTOS</state>
           <state>SERIAL_PORT_TYPE_UART=1</state>
+          <state>MCUXPRESSO_SDK</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -3237,6 +3248,8 @@
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$/..</state>
           <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/platform/imx8mn_m7</state>
+          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include</state>
+          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/environment/freertos</state>
           <state>$PROJ_DIR$/../../../../../devices/MIMX8MN6/drivers</state>
           <state>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/include</state>
           <state>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/portable/IAR/ARM_CM4F</state>
@@ -3246,8 +3259,7 @@
           <state>$PROJ_DIR$/../../../../../components/uart</state>
           <state>$PROJ_DIR$/../../../../../components/serial_manager</state>
           <state>$PROJ_DIR$/../../../../../components/lists</state>
-          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include</state>
-          <state>$PROJ_DIR$/../../../../../CMSIS/Include</state>
+          <state>$PROJ_DIR$/../../../../../CMSIS/Core/Include</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -3714,7 +3726,7 @@
         </option>
         <option>
           <name>IlinkOverrideProgramEntryLabel</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IlinkProgramEntryLabelSelect</name>
@@ -3722,7 +3734,7 @@
         </option>
         <option>
           <name>IlinkProgramEntryLabel</name>
-          <state>__iar_program_start</state>
+          <state>Reset_Handler</state>
         </option>
         <option>
           <name>DoFill</name>
@@ -4079,9 +4091,11 @@
           <name>CCDefines</name>
           <state>FLASH_TARGET</state>
           <state>CPU_MIMX8MN6DVTJZ</state>
+          <state>CPU_MIMX8MN6DVTJZ_cm7</state>
           <state>SDK_DELAY_USE_DWT</state>
-          <state>FSL_RTOS_FREE_RTOS</state>
+          <state>SDK_OS_FREE_RTOS</state>
           <state>SERIAL_PORT_TYPE_UART=1</state>
+          <state>MCUXPRESSO_SDK</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -4212,6 +4226,8 @@
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$/..</state>
           <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/platform/imx8mn_m7</state>
+          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include</state>
+          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/environment/freertos</state>
           <state>$PROJ_DIR$/../../../../../devices/MIMX8MN6/drivers</state>
           <state>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/include</state>
           <state>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/portable/IAR/ARM_CM4F</state>
@@ -4221,8 +4237,7 @@
           <state>$PROJ_DIR$/../../../../../components/uart</state>
           <state>$PROJ_DIR$/../../../../../components/serial_manager</state>
           <state>$PROJ_DIR$/../../../../../components/lists</state>
-          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include</state>
-          <state>$PROJ_DIR$/../../../../../CMSIS/Include</state>
+          <state>$PROJ_DIR$/../../../../../CMSIS/Core/Include</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -4688,7 +4703,7 @@
         </option>
         <option>
           <name>IlinkOverrideProgramEntryLabel</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IlinkProgramEntryLabelSelect</name>
@@ -4696,7 +4711,7 @@
         </option>
         <option>
           <name>IlinkProgramEntryLabel</name>
-          <state>__iar_program_start</state>
+          <state>Reset_Handler</state>
         </option>
         <option>
           <name>DoFill</name>
@@ -5052,9 +5067,11 @@
         <option>
           <name>CCDefines</name>
           <state>CPU_MIMX8MN6DVTJZ</state>
+          <state>CPU_MIMX8MN6DVTJZ_cm7</state>
           <state>SDK_DELAY_USE_DWT</state>
-          <state>FSL_RTOS_FREE_RTOS</state>
+          <state>SDK_OS_FREE_RTOS</state>
           <state>SERIAL_PORT_TYPE_UART=1</state>
+          <state>MCUXPRESSO_SDK</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -5185,6 +5202,8 @@
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$/..</state>
           <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/platform/imx8mn_m7</state>
+          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include</state>
+          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/environment/freertos</state>
           <state>$PROJ_DIR$/../../../../../devices/MIMX8MN6/drivers</state>
           <state>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/include</state>
           <state>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/portable/IAR/ARM_CM4F</state>
@@ -5194,8 +5213,7 @@
           <state>$PROJ_DIR$/../../../../../components/uart</state>
           <state>$PROJ_DIR$/../../../../../components/serial_manager</state>
           <state>$PROJ_DIR$/../../../../../components/lists</state>
-          <state>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include</state>
-          <state>$PROJ_DIR$/../../../../../CMSIS/Include</state>
+          <state>$PROJ_DIR$/../../../../../CMSIS/Core/Include</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -5661,7 +5679,7 @@
         </option>
         <option>
           <name>IlinkOverrideProgramEntryLabel</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IlinkProgramEntryLabelSelect</name>
@@ -5669,7 +5687,7 @@
         </option>
         <option>
           <name>IlinkProgramEntryLabel</name>
-          <state>__iar_program_start</state>
+          <state>Reset_Handler</state>
         </option>
         <option>
           <name>DoFill</name>
@@ -5902,65 +5920,95 @@
   <group>
     <name>rpmsg_lite</name>
     <group>
-      <name>porting</name>
-      <file>
-        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/platform/imx8mn_m7/rpmsg_platform.h</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/rpmsg_lite/porting/platform/imx8mn_m7/rpmsg_platform.c</name>
-      </file>
-    </group>
-    <file>
-      <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/rpmsg_lite.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/rpmsg_ns.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/llist.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/rpmsg_default_config.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/virtio_ring.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/virtqueue.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/rpmsg_compiler.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/common/llist.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/rpmsg_lite/rpmsg_lite.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/rpmsg_lite/rpmsg_ns.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/virtio/virtqueue.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/rpmsg_env.h</name>
-    </file>
-    <group>
-      <name>env</name>
+      <name>include</name>
       <group>
-        <name>freertos</name>
-        <file>
-          <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/rpmsg_lite/porting/environment/rpmsg_env_freertos.c</name>
-        </file>
-        <file>
-          <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/rpmsg_lite/rpmsg_queue.c</name>
-        </file>
+        <name>platform</name>
+        <group>
+          <name>imx8mn_m7</name>
+          <file>
+            <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/platform/imx8mn_m7/rpmsg_platform.h</name>
+          </file>
+        </group>
+      </group>
+      <file>
+        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/rpmsg_lite.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/rpmsg_ns.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/llist.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/rpmsg_default_config.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/virtio_ring.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/virtqueue.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/rpmsg_compiler.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/rpmsg_env.h</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/rpmsg_queue.h</name>
+      </file>
+      <group>
+        <name>environment</name>
+        <group>
+          <name>freertos</name>
+          <file>
+            <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/environment/freertos/rpmsg_env_specific.h</name>
+          </file>
+        </group>
       </group>
     </group>
-    <file>
-      <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/include/rpmsg_queue.h</name>
-    </file>
+    <group>
+      <name>rpmsg_lite</name>
+      <group>
+        <name>porting</name>
+        <group>
+          <name>platform</name>
+          <group>
+            <name>imx8mn_m7</name>
+            <file>
+              <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/rpmsg_lite/porting/platform/imx8mn_m7/rpmsg_platform.c</name>
+            </file>
+          </group>
+        </group>
+        <group>
+          <name>environment</name>
+          <file>
+            <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/rpmsg_lite/porting/environment/rpmsg_env_freertos.c</name>
+          </file>
+        </group>
+      </group>
+      <file>
+        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/rpmsg_lite/rpmsg_lite.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/rpmsg_lite/rpmsg_ns.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/rpmsg_lite/rpmsg_queue.c</name>
+      </file>
+    </group>
+    <group>
+      <name>common</name>
+      <file>
+        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/common/llist.c</name>
+      </file>
+    </group>
+    <group>
+      <name>virtio</name>
+      <file>
+        <name>$PROJ_DIR$/../../../../../middleware/multicore/rpmsg_lite/lib/virtio/virtqueue.c</name>
+      </file>
+    </group>
   </group>
   <group>
     <name>freertos</name>
@@ -5997,21 +6045,18 @@
         </file>
       </group>
       <file>
-        <name>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/event_groups.c</name>
+        <name>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/croutine.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/croutine.c</name>
+        <name>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/event_groups.c</name>
       </file>
       <group>
         <name>include</name>
         <file>
-          <name>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/include/croutine.h</name>
-        </file>
-        <file>
-          <name>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/include/StackMacros.h</name>
-        </file>
-        <file>
           <name>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/include/atomic.h</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/include/croutine.h</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/include/deprecated_definitions.h</name>
@@ -6048,6 +6093,12 @@
         </file>
         <file>
           <name>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/include/stack_macros.h</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/include/StackMacros.h</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/include/stdint.readme</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../../../../rtos/freertos/freertos_kernel/include/stream_buffer.h</name>
@@ -6098,6 +6149,12 @@
     </file>
     <file>
       <name>$PROJ_DIR$/../../../../../devices/MIMX8MN6/drivers/fsl_common.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$/../../../../../devices/MIMX8MN6/drivers/fsl_common_arm.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$/../../../../../devices/MIMX8MN6/drivers/fsl_common_arm.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$/../../../../../devices/MIMX8MN6/drivers/fsl_rdc.h</name>
@@ -6199,40 +6256,31 @@
   <group>
     <name>CMSIS</name>
     <file>
-      <name>$PROJ_DIR$/../../../../../CMSIS/Include/core_cm7.h</name>
+      <name>$PROJ_DIR$/../../../../../CMSIS/Core/Include/cmsis_armcc.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/../../../../../CMSIS/Include/mpu_armv7.h</name>
+      <name>$PROJ_DIR$/../../../../../CMSIS/Core/Include/cmsis_armclang.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/../../../../../CMSIS/Include/cmsis_armcc.h</name>
+      <name>$PROJ_DIR$/../../../../../CMSIS/Core/Include/cmsis_armclang_ltm.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/../../../../../CMSIS/Include/cmsis_armclang.h</name>
+      <name>$PROJ_DIR$/../../../../../CMSIS/Core/Include/cmsis_compiler.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/../../../../../CMSIS/Include/cmsis_armclang_ltm.h</name>
+      <name>$PROJ_DIR$/../../../../../CMSIS/Core/Include/cmsis_gcc.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/../../../../../CMSIS/Include/cmsis_gcc.h</name>
+      <name>$PROJ_DIR$/../../../../../CMSIS/Core/Include/cmsis_iccarm.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/../../../../../CMSIS/Include/cmsis_compiler.h</name>
+      <name>$PROJ_DIR$/../../../../../CMSIS/Core/Include/cmsis_version.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/../../../../../CMSIS/Include/cmsis_version.h</name>
+      <name>$PROJ_DIR$/../../../../../CMSIS/Core/Include/core_cm7.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/../../../../../CMSIS/Include/cmsis_iccarm.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$/../../../../../CMSIS/Include/arm_common_tables.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$/../../../../../CMSIS/Include/arm_const_structs.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$/../../../../../CMSIS/Include/arm_math.h</name>
+      <name>$PROJ_DIR$/../../../../../CMSIS/Core/Include/mpu_armv7.h</name>
     </file>
   </group>
 </project>

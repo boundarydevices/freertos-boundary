@@ -49,13 +49,20 @@
 #define DEMO_AUDIO_DATA_CHANNEL (2U)
 #define DEMO_AUDIO_BIT_WIDTH    kSAI_WordWidth16bits
 
+#define DEMO_BOARD_CODEC_INIT BOARD_Codec_Init
+
 #define BUFFER_SIZE   (DEMO_PDM_FIFO_WATERMARK * FSL_FEATURE_PDM_FIFO_WIDTH * 2U)
 #define BUFFER_NUMBER (256U)
+#ifndef DEMO_CODEC_VOLUME
+#define DEMO_CODEC_VOLUME 100U
+#endif
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
 void BOARD_WM8524_Mute_GPIO(uint32_t output);
 void BOARD_MasterClockConfig(void);
+void BOARD_Codec_Init(void);
+
 static void saiCallback(I2S_Type *base, sai_handle_t *handle, status_t status, void *userData);
 /*******************************************************************************
  * Variables
@@ -67,6 +74,7 @@ static wm8524_config_t wm8524Config = {
 };
 codec_config_t boardCodecConfig = {.codecDevType = kCODEC_WM8524, .codecDevConfig = &wm8524Config};
 sai_master_clock_t mclkConfig;
+extern codec_handle_t codecHandle;
 
 sai_handle_t s_saiTxHandle         = {0};
 static volatile bool isSaiFinished = false;
@@ -81,8 +89,12 @@ static const pdm_config_t pdmConfig         = {
     .cicOverSampleRate = DEMO_PDM_CIC_OVERSAMPLE_RATE,
 };
 static pdm_channel_config_t channelConfig = {
+#if (defined(FSL_FEATURE_PDM_HAS_DC_OUT_CTRL) && (FSL_FEATURE_PDM_HAS_DC_OUT_CTRL))
+    .outputCutOffFreq = kPDM_DcRemoverCutOff40Hz,
+#else
     .cutOffFreq = kPDM_DcRemoverCutOff152Hz,
-    .gain       = kPDM_DfOutputGain7,
+#endif
+    .gain = kPDM_DfOutputGain7,
 };
 codec_handle_t codecHandle;
 extern codec_config_t boardCodecConfig;
@@ -101,6 +113,14 @@ void BOARD_MasterClockConfig(void)
     mclkConfig.mclkSourceClkHz = DEMO_SAI_CLK_FREQ;
     SAI_SetMasterClockConfig(DEMO_SAI, &mclkConfig);
 }
+
+void BOARD_Codec_Init(void)
+{
+    if (CODEC_Init(&codecHandle, &boardCodecConfig) != kStatus_Success)
+    {
+        assert(false);
+    }
+}
 static void saiCallback(I2S_Type *base, sai_handle_t *handle, status_t status, void *userData)
 {
     isSaiFinished = true;
@@ -109,10 +129,13 @@ static void saiCallback(I2S_Type *base, sai_handle_t *handle, status_t status, v
 static void pdm_error_irqHandler(void)
 {
     uint32_t status = 0U;
+
+#if (defined(FSL_FEATURE_PDM_HAS_STATUS_LOW_FREQ) && (FSL_FEATURE_PDM_HAS_STATUS_LOW_FREQ == 1U))
     if (PDM_GetStatus(DEMO_PDM) & PDM_STAT_LOWFREQF_MASK)
     {
         PDM_ClearStatus(DEMO_PDM, PDM_STAT_LOWFREQF_MASK);
     }
+#endif
 
     status = PDM_GetFifoStatus(DEMO_PDM);
     if (status != 0U)
@@ -186,7 +209,7 @@ int main(void)
     /* Board specific RDC settings */
     BOARD_RdcInit();
 
-    BOARD_InitPins();
+    BOARD_InitBootPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
 
@@ -210,21 +233,34 @@ int main(void)
     /* I2S mode configurations */
     SAI_GetClassicI2SConfig(&config, DEMO_AUDIO_BIT_WIDTH, kSAI_Stereo, 1U << DEMO_SAI_CHANNEL);
     config.bitClock.bclkSource = DEMO_SAI_CLOCK_SOURCE;
-    config.masterSlave         = DEMO_SAI_MASTER_SLAVE;
+#if defined BOARD_SAI_RXCONFIG
+    config.syncMode = DEMO_SAI_TX_SYNC_MODE;
+#endif
+    config.masterSlave = DEMO_SAI_MASTER_SLAVE;
     SAI_TransferTxSetConfig(DEMO_SAI, &s_saiTxHandle, &config);
 
     /* set bit clock divider */
     SAI_TxSetBitClockRate(DEMO_SAI, DEMO_AUDIO_MASTER_CLOCK, DEMO_AUDIO_SAMPLE_RATE, DEMO_AUDIO_BIT_WIDTH,
                           DEMO_AUDIO_DATA_CHANNEL);
+#if defined BOARD_SAI_RXCONFIG
+    BOARD_SAI_RXCONFIG(&config, DEMO_SAI_RX_SYNC_MODE);
+#endif
 
     /* master clock configurations */
     BOARD_MasterClockConfig();
-
+#if defined DEMO_BOARD_CODEC_INIT
+    DEMO_BOARD_CODEC_INIT();
+#else
     if (CODEC_Init(&codecHandle, &boardCodecConfig) != kStatus_Success)
     {
         assert(false);
     }
-
+    if (CODEC_SetVolume(&codecHandle, kCODEC_PlayChannelHeadphoneLeft | kCODEC_PlayChannelHeadphoneRight,
+                        DEMO_CODEC_VOLUME) != kStatus_Success)
+    {
+        assert(false);
+    }
+#endif
     /* Set up pdm */
     PDM_Init(DEMO_PDM, &pdmConfig);
     PDM_SetChannelConfig(DEMO_PDM, DEMO_PDM_ENABLE_CHANNEL_LEFT, &channelConfig);

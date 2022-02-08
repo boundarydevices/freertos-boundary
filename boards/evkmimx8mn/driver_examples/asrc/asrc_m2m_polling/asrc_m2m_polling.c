@@ -13,9 +13,9 @@
 #include "music.h"
 #include "fsl_codec_common.h"
 #include "fsl_asrc.h"
-#include "fsl_wm8524.h"
 #include "fsl_common.h"
 #include "fsl_gpio.h"
+#include "fsl_wm8524.h"
 #include "fsl_codec_adapter.h"
 #include "fsl_sai.h"
 
@@ -33,7 +33,7 @@
 #define DEMO_CODEC_MUTE_PIN     (GPIO5)
 #define DEMO_CODEC_MUTE_PIN_NUM (21)
 #define DEMO_IRQn               I2S3_IRQn
-#define DEMO_DMA                SDMAARM2
+#define DEMO_DMA                SDMAARM3
 #define DEMO_SAI_SDMA_CHANNEL   (1)
 #define DEMO_ASRC_CONTEXT       kASRC_Context0
 #define DEMO_SAI_TX_SOURCE      (5)
@@ -113,7 +113,7 @@ int main(void)
     /* Board specific RDC settings */
     BOARD_RdcInit();
 
-    BOARD_InitPins();
+    BOARD_InitBootPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
 
@@ -175,7 +175,11 @@ int main(void)
         assert(false);
     }
 
-    PRINTF("Playback original 16K audio data.\n\r");
+    PRINTF("Playback raw audio data\r\n");
+    PRINTF("    sample rate : %d\r\n", DEMO_ASRC_IN_SAMPLE_RATE);
+    PRINTF("    channel number: %d\r\n", DEMO_AUDIO_DATA_CHANNEL);
+    PRINTF("    frequency: 215HZ.\r\n\r\n");
+
     /*  xfer structure */
     saiPlayAudio((uint8_t *)music, MUSIC_LEN);
 
@@ -189,7 +193,12 @@ int main(void)
     /* reconfigure the sai clock */
     SAI_TxSetBitClockRate(DEMO_SAI, DEMO_AUDIO_MASTER_CLOCK, DEMO_ASRC_OUT_SAMPLE_RATE, DEMO_AUDIO_BIT_WIDTH,
                           DEMO_AUDIO_DATA_CHANNEL);
-    PRINTF("Playback converted 48K audio data.\n\r");
+
+    PRINTF("Playback converted audio data\r\n");
+    PRINTF("    sample rate : %d\r\n", DEMO_ASRC_OUT_SAMPLE_RATE);
+    PRINTF("    channel number: %d\r\n", DEMO_AUDIO_DATA_CHANNEL);
+    PRINTF("    frequency: 215HZ.\r\n\r\n");
+
     saiPlayAudio((uint8_t *)s_asrcOutBuffer,
                  ASRC_GetContextOutSampleSize(DEMO_ASRC_IN_SAMPLE_RATE, MUSIC_LEN, 2U, DEMO_ASRC_OUT_SAMPLE_RATE, 2U));
 
