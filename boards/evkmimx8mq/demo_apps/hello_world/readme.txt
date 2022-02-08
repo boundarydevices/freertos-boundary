@@ -9,8 +9,8 @@ just define DEBUG_CONSOLE_TRANSFER_NON_BLOCKING in your project to use the advan
 
 Toolchain supported
 ===================
-- GCC ARM Embedded  9.3.1
-- IAR embedded Workbench  8.50.9
+- GCC ARM Embedded  10.2.1
+- IAR embedded Workbench  9.10.2
 
 Hardware requirements
 =====================

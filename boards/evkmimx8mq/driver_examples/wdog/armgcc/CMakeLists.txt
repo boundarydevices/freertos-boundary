@@ -1,6 +1,6 @@
 # CROSS COMPILER SETTING
 SET(CMAKE_SYSTEM_NAME Generic)
-CMAKE_MINIMUM_REQUIRED (VERSION 3.1.1)
+CMAKE_MINIMUM_REQUIRED (VERSION 3.10.0)
 
 # THE VERSION NUMBER
 SET (Tutorial_VERSION_MAJOR 1)
@@ -52,7 +52,7 @@ set(CMAKE_MODULE_PATH
     ${ProjDirPath}/../../../../../devices/MIMX8MQ6
     ${ProjDirPath}/../../../../../components/uart
     ${ProjDirPath}/../../../../../components/lists
-    ${ProjDirPath}/../../../../../CMSIS/Include
+    ${ProjDirPath}/../../../../../CMSIS/Core/Include
     ${ProjDirPath}/../../../../../devices/MIMX8MQ6/utilities
 )
 
@@ -79,11 +79,7 @@ include(driver_iuart_MIMX8MQ6)
 
 include(device_MIMX8MQ6_startup_MIMX8MQ6)
 
-include(CMSIS_Include_core_cm4_MIMX8MQ6)
-
-include(CMSIS_Include_common_MIMX8MQ6)
-
-include(CMSIS_Include_dsp_MIMX8MQ6)
+include(CMSIS_Include_core_cm_MIMX8MQ6)
 
 include(utilities_misc_utilities_MIMX8MQ6)
 

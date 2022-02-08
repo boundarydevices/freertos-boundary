@@ -14,9 +14,16 @@
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
+
+/* @TEST_ANCHOR */
+
 #define DEMO_TMU_BASE               TMU
+#ifndef DEMO_TMU_IMMEDIATE_THRESOLD
 #define DEMO_TMU_IMMEDIATE_THRESOLD 0U
+#endif
+#ifndef DEMO_TMU_INTERVAL_VALUE
 #define DEMO_TMU_INTERVAL_VALUE     8U
+#endif
 #define DEMO_TMU_IRQ                TEMPMON_IRQn
 #define DEMO_TMU_IRQ_HANDLER_FUNC   TEMPMON_IRQHandler
 
@@ -70,7 +77,7 @@ int main(void)
     /* Board specific RDC settings */
     BOARD_RdcInit();
 
-    BOARD_InitPins();
+    BOARD_InitBootPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
     BOARD_InitMemory();

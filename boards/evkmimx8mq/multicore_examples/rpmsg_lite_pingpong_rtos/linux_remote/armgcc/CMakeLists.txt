@@ -1,6 +1,6 @@
 # CROSS COMPILER SETTING
 SET(CMAKE_SYSTEM_NAME Generic)
-CMAKE_MINIMUM_REQUIRED (VERSION 3.1.1)
+CMAKE_MINIMUM_REQUIRED (VERSION 3.10.0)
 
 # THE VERSION NUMBER
 SET (Tutorial_VERSION_MAJOR 1)
@@ -47,24 +47,27 @@ add_executable(${MCUX_SDK_PROJECT_NAME}
 )
 
 target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
-    ${ProjDirPath}/.. debug
     ${ProjDirPath}/..
 )
 
 set(CMAKE_MODULE_PATH
     ${ProjDirPath}/../../../../../../middleware/multicore
-    ${ProjDirPath}/../../../../../../rtos/freertos
+    ${ProjDirPath}/../../../../../../rtos/freertos/freertos_kernel
     ${ProjDirPath}/../../../../../../devices/MIMX8MQ6/drivers
     ${ProjDirPath}/../../../../../../devices/MIMX8MQ6
     ${ProjDirPath}/../../../../../../devices/MIMX8MQ6/utilities
     ${ProjDirPath}/../../../../../../components/uart
     ${ProjDirPath}/../../../../../../components/serial_manager
     ${ProjDirPath}/../../../../../../components/lists
-    ${ProjDirPath}/../../../../../../CMSIS/Include
+    ${ProjDirPath}/../../../../../../CMSIS/Core/Include
 )
 
 # include modules
 include(middleware_multicore_rpmsg_lite_imx8mq_m4_freertos_MIMX8MQ6)
+
+include(middleware_multicore_rpmsg_lite_MIMX8MQ6)
+
+include(middleware_multicore_rpmsg_lite_freertos_MIMX8MQ6)
 
 include(middleware_freertos-kernel_heap_4_MIMX8MQ6)
 
@@ -96,15 +99,9 @@ include(device_MIMX8MQ6_startup_MIMX8MQ6)
 
 include(utility_assert_MIMX8MQ6)
 
-include(middleware_multicore_rpmsg_lite_MIMX8MQ6)
-
 include(middleware_freertos-kernel_extension_MIMX8MQ6)
 
-include(CMSIS_Include_core_cm4_MIMX8MQ6)
-
-include(CMSIS_Include_common_MIMX8MQ6)
-
-include(CMSIS_Include_dsp_MIMX8MQ6)
+include(CMSIS_Include_core_cm_MIMX8MQ6)
 
 include(utilities_misc_utilities_MIMX8MQ6)
 

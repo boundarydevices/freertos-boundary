@@ -259,7 +259,7 @@ static int32_t UARTx_SetModemControl(ARM_USART_MODEM_CONTROL control)
 
 static ARM_USART_MODEM_STATUS UARTx_GetModemStatus(void)
 {
-    ARM_USART_MODEM_STATUS modem_status;
+    ARM_USART_MODEM_STATUS modem_status = {0};
 
     modem_status.cts      = 0U;
     modem_status.dsr      = 0U;
@@ -511,7 +511,7 @@ static int32_t UART_SdmaControl(uint32_t control, uint32_t arg, cmsis_uart_sdma_
 
 static ARM_USART_STATUS UART_SdmaGetStatus(cmsis_uart_sdma_driver_state_t *uart)
 {
-    ARM_USART_STATUS stat;
+    ARM_USART_STATUS stat = {0};
 
     stat.tx_busy = ((uint8_t)kUART_TxBusy == uart->handle->txState) ? (1U) : (0U);
     stat.rx_busy = ((uint8_t)kUART_RxBusy == uart->handle->rxState) ? (1U) : (0U);
@@ -583,7 +583,7 @@ static int32_t UART_NonBlockingPowerControl(ARM_POWER_STATE state, cmsis_uart_no
     switch (state)
     {
         case ARM_POWER_OFF:
-            if (uart->flags & USART_FLAG_POWER)
+            if ((uart->flags & (uint8_t)USART_FLAG_POWER) != 0U)
             {
                 UART_Deinit(uart->resource->base);
                 uart->flags = USART_FLAG_INIT;
@@ -599,7 +599,7 @@ static int32_t UART_NonBlockingPowerControl(ARM_POWER_STATE state, cmsis_uart_no
                 return ARM_DRIVER_ERROR;
             }
 
-            if (uart->flags & (uint8_t)USART_FLAG_POWER)
+            if ((uart->flags & (uint8_t)USART_FLAG_POWER) != 0U)
             {
                 /* Driver already powered */
                 break;
@@ -763,16 +763,16 @@ static int32_t UART_NonBlockingControl(uint32_t control, uint32_t arg, cmsis_uar
 
 static ARM_USART_STATUS UART_NonBlockingGetStatus(cmsis_uart_non_blocking_driver_state_t *uart)
 {
-    ARM_USART_STATUS stat;
+    ARM_USART_STATUS stat = {0};
 
     stat.tx_busy = (((uint8_t)kUART_TxBusy == uart->handle->txState) ? (1U) : (0U));
     stat.rx_busy = (((uint8_t)kUART_RxBusy == uart->handle->rxState) ? (1U) : (0U));
 
     stat.tx_underflow     = 0U;
-    stat.rx_overflow      = UART_GetStatusFlag(uart->resource->base, (uint32_t)kUART_RxOverrunFlag);
-    stat.rx_break         = UART_GetStatusFlag(uart->resource->base, (uint32_t)kUART_BreakDetectFlag);
-    stat.rx_framing_error = UART_GetStatusFlag(uart->resource->base, (uint8_t)kUART_FrameErrorFlag);
-    stat.rx_parity_error  = UART_GetStatusFlag(uart->resource->base, (uint32_t)kUART_ParityErrorFlag);
+    stat.rx_overflow      = (uint32_t)UART_GetStatusFlag(uart->resource->base, (uint32_t)kUART_RxOverrunFlag);
+    stat.rx_break         = (uint32_t)UART_GetStatusFlag(uart->resource->base, (uint32_t)kUART_BreakDetectFlag);
+    stat.rx_framing_error = (uint32_t)UART_GetStatusFlag(uart->resource->base, (uint32_t)kUART_FrameErrorFlag);
+    stat.rx_parity_error  = (uint32_t)UART_GetStatusFlag(uart->resource->base, (uint32_t)kUART_ParityErrorFlag);
     stat.reserved         = 0U;
 
     return stat;
