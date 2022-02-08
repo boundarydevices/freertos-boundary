@@ -1,6 +1,6 @@
 # CROSS COMPILER SETTING
 SET(CMAKE_SYSTEM_NAME Generic)
-CMAKE_MINIMUM_REQUIRED (VERSION 3.1.1)
+CMAKE_MINIMUM_REQUIRED (VERSION 3.10.0)
 
 # THE VERSION NUMBER
 SET (Tutorial_VERSION_MAJOR 1)
@@ -55,6 +55,8 @@ add_executable(${MCUX_SDK_PROJECT_NAME}
 "${ProjDirPath}/../../../../../components/srtm/services/srtm_audio_service.c"
 "${ProjDirPath}/../../../../../components/srtm/services/srtm_sai_sdma_adapter.h"
 "${ProjDirPath}/../../../../../components/srtm/services/srtm_sai_sdma_adapter.c"
+"${ProjDirPath}/../../../../../components/srtm/services/srtm_pdm_sdma_adapter.h"
+"${ProjDirPath}/../../../../../components/srtm/services/srtm_pdm_sdma_adapter.c"
 "${ProjDirPath}/../../../../../components/srtm/services/srtm_i2c_codec_adapter.h"
 "${ProjDirPath}/../../../../../components/srtm/services/srtm_i2c_codec_adapter.c"
 "${ProjDirPath}/../../../../../components/srtm/services/srtm_wm8524_adapter.h"
@@ -62,9 +64,6 @@ add_executable(${MCUX_SDK_PROJECT_NAME}
 )
 
 target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
-    ${ProjDirPath}/.. debug
-    ${ProjDirPath}/../../.. debug
-    ${ProjDirPath}/../../..
     ${ProjDirPath}/..
     ${ProjDirPath}/../../../../../components/srtm/channels
     ${ProjDirPath}/../../../../../components/srtm/services
@@ -73,20 +72,19 @@ target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
 set(CMAKE_MODULE_PATH
     ${ProjDirPath}/../../../../../devices/MIMX8MM6/drivers
     ${ProjDirPath}/../../../../../components/codec
-    ${ProjDirPath}/../../../../../components/codec/port
     ${ProjDirPath}/../../../../../components/codec/i2c
     ${ProjDirPath}/../../../../../components/i2c
+    ${ProjDirPath}/../../../../../middleware/multicore
     ${ProjDirPath}/../../../../../devices/MIMX8MM6
     ${ProjDirPath}/../../../../../devices/MIMX8MM6/utilities
     ${ProjDirPath}/../../../../../components/uart
     ${ProjDirPath}/../../../../../components/serial_manager
     ${ProjDirPath}/../../../../../components/lists
-    ${ProjDirPath}/../../../../../CMSIS/Include
+    ${ProjDirPath}/../../../../../CMSIS/Core/Include
     ${ProjDirPath}/../../../../../components/codec/ak4497
     ${ProjDirPath}/../../../../../components/srtm/port
     ${ProjDirPath}/../../../../../components/srtm
-    ${ProjDirPath}/../../../../../rtos/freertos
-    ${ProjDirPath}/../../../../../middleware/multicore
+    ${ProjDirPath}/../../../../../rtos/freertos/freertos_kernel
     ${ProjDirPath}/../../../../../components/codec/wm8524
 )
 
@@ -103,13 +101,21 @@ include(driver_codec_MIMX8MM6)
 
 include(driver_common_MIMX8MM6)
 
-include(component_codec_ak4497_adapter_MIMX8MM6)
+include(component_codec_adapters_MIMX8MM6)
+
+include(driver_pdm_sdma_MIMX8MM6)
 
 include(component_codec_i2c_MIMX8MM6)
 
 include(component_ii2c_adapter_MIMX8MM6)
 
-include(component_codec_wm8524_adapter_MIMX8MM6)
+include(component_ak4497_adapter_MIMX8MM6)
+
+include(component_wm8524_adapter_MIMX8MM6)
+
+include(middleware_multicore_rpmsg_lite_MIMX8MM6)
+
+include(middleware_multicore_rpmsg_lite_freertos_MIMX8MM6)
 
 include(driver_clock_MIMX8MM6)
 
@@ -135,11 +141,7 @@ include(device_MIMX8MM6_startup_MIMX8MM6)
 
 include(utility_assert_MIMX8MM6)
 
-include(CMSIS_Include_core_cm4_MIMX8MM6)
-
-include(CMSIS_Include_common_MIMX8MM6)
-
-include(CMSIS_Include_dsp_MIMX8MM6)
+include(CMSIS_Include_core_cm_MIMX8MM6)
 
 include(driver_sdma_MIMX8MM6)
 
@@ -163,9 +165,9 @@ include(middleware_freertos-kernel_extension_MIMX8MM6)
 
 include(middleware_multicore_rpmsg_lite_imx8mm_m4_freertos_MIMX8MM6)
 
-include(middleware_multicore_rpmsg_lite_MIMX8MM6)
-
 include(middleware_freertos-kernel_heap_4_MIMX8MM6)
+
+include(driver_pdm_MIMX8MM6)
 
 include(driver_wm8524_MIMX8MM6)
 

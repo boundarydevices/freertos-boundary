@@ -20,8 +20,8 @@ address is then exported from the linker to the application.
 
 Toolchain supported
 ===================
-- GCC ARM Embedded  9.3.1
-- IAR embedded Workbench  8.50.9
+- GCC ARM Embedded  10.2.1
+- IAR embedded Workbench  9.10.2
 
 Hardware requirements
 =====================

@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 NXP
+ * Copyright 2018-2021 NXP
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -13,12 +13,11 @@
 /*
  * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 !!GlobalInfo
-product: Pins v6.0
+product: Pins v10.0
 processor: MIMX8MM6xxxLZ
 package_id: MIMX8MM6DVTLZ
 mcu_data: ksdk2_0
-processor_version: 6.0.1
-board: MIMX8MM-EVK-REV-C
+processor_version: 0.10.12
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 
@@ -34,13 +33,13 @@ board: MIMX8MM-EVK-REV-C
  * END ****************************************************************************************************************/
 void BOARD_InitBootPins(void)
 {
-    BOARD_I2C_ConfigurePins();
+    BOARD_InitPins();
 }
 
 /*
  * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 BOARD_InitPins:
-- options: {callFromInitBoot: 'false', prefix: BOARD_, coreID: m4}
+- options: {callFromInitBoot: 'true', prefix: BOARD_, coreID: cm4}
 - pin_list:
   - {pin_num: AB18, peripheral: SAI1, signal: sai_mclk, pin_signal: SAI1_MCLK, PE: Disabled, HYS: Enabled, DSE: X4_0}
   - {pin_num: AC18, peripheral: SAI1, signal: sai_tx_bclk, pin_signal: SAI1_TXC, PE: Disabled, HYS: Enabled, DSE: X4_0}
@@ -48,6 +47,11 @@ BOARD_InitPins:
   - {pin_num: AF19, peripheral: SAI1, signal: sai_tx_sync, pin_signal: SAI1_RXD7, PE: Disabled, HYS: Enabled, DSE: X4_0}
   - {pin_num: F19, peripheral: UART4, signal: uart_rx, pin_signal: UART4_RXD, PE: Disabled, PUE: Enabled, DSE: X6_0}
   - {pin_num: F18, peripheral: UART4, signal: uart_tx, pin_signal: UART4_TXD, PE: Disabled, PUE: Enabled, DSE: X6_0}
+  - {pin_num: AD6, peripheral: SAI3, signal: sai_mclk, pin_signal: SAI3_MCLK, PE: Disabled, HYS: Enabled, DSE: X4_0}
+  - {pin_num: AG6, peripheral: SAI3, signal: sai_tx_bclk, pin_signal: SAI3_TXC, PE: Disabled, HYS: Enabled, DSE: X4_0}
+  - {pin_num: AF6, peripheral: SAI3, signal: 'sai_tx_data, 0', pin_signal: SAI3_TXD, PE: Disabled, HYS: Enabled, FSEL: FAST0, DSE: X4_0}
+  - {pin_num: AC6, peripheral: SAI3, signal: sai_tx_sync, pin_signal: SAI3_TXFS, PE: Disabled, HYS: Enabled, FSEL: FAST0, DSE: X4_0}
+  - {pin_num: E13, peripheral: GPIO5, signal: 'gpio_io, 21', pin_signal: I2C4_SDA}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 
@@ -57,7 +61,7 @@ BOARD_InitPins:
  * Description   : Configures pin routing and optionally pin electrical features.
  *
  * END ****************************************************************************************************************/
-void BOARD_InitPins(void) {                                /*!< Function assigned for the core: Cortex-M4[m4] */
+void BOARD_InitPins(void) {                                /*!< Function assigned for the core: Cortex-M4[cm4] */
     IOMUXC_SetPinMux(IOMUXC_I2C4_SDA_GPIO5_IO21, 0U);
     IOMUXC_SetPinMux(IOMUXC_SAI1_MCLK_SAI1_MCLK, 0U);
     IOMUXC_SetPinConfig(IOMUXC_SAI1_MCLK_SAI1_MCLK, 
@@ -115,7 +119,7 @@ void BOARD_InitPins(void) {                                /*!< Function assigne
 /*
  * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 BOARD_I2C_ConfigurePins:
-- options: {callFromInitBoot: 'true', prefix: BOARD_, coreID: m4}
+- options: {callFromInitBoot: 'false', prefix: BOARD_, coreID: cm4}
 - pin_list:
   - {pin_num: E10, peripheral: I2C3, signal: i2c_scl, pin_signal: I2C3_SCL, PE: Disabled, HYS: Enabled, SION: ENABLED, DSE: X6_0}
   - {pin_num: F10, peripheral: I2C3, signal: i2c_sda, pin_signal: I2C3_SDA, PE: Disabled, HYS: Enabled, SION: ENABLED, DSE: X6_0}
@@ -128,7 +132,7 @@ BOARD_I2C_ConfigurePins:
  * Description   : Configures pin routing and optionally pin electrical features.
  *
  * END ****************************************************************************************************************/
-void BOARD_I2C_ConfigurePins(void) {                       /*!< Function assigned for the core: Cortex-M4[m4] */
+void BOARD_I2C_ConfigurePins(void) {                       /*!< Function assigned for the core: Cortex-M4[cm4] */
     IOMUXC_SetPinMux(IOMUXC_I2C3_SCL_I2C3_SCL, 1U);
     IOMUXC_SetPinConfig(IOMUXC_I2C3_SCL_I2C3_SCL, 
                         IOMUXC_SW_PAD_CTL_PAD_DSE(6U) |
@@ -139,6 +143,57 @@ void BOARD_I2C_ConfigurePins(void) {                       /*!< Function assigne
                         IOMUXC_SW_PAD_CTL_PAD_DSE(6U) |
                         IOMUXC_SW_PAD_CTL_PAD_FSEL(2U) |
                         IOMUXC_SW_PAD_CTL_PAD_HYS_MASK);
+}
+
+
+/*
+ * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+BOARD_PDM_ConfigurePins:
+- options: {callFromInitBoot: 'false', prefix: BOARD_, coreID: cm4}
+- pin_list:
+  - {pin_num: AD18, peripheral: PDM, signal: 'pdm_bit_stream, 0', pin_signal: SAI5_RXD0, PE: Enabled, PUE: Enabled, DSE: X6_1}
+  - {pin_num: AC14, peripheral: PDM, signal: 'pdm_bit_stream, 1', pin_signal: SAI5_RXD1, PE: Enabled, PUE: Enabled, DSE: X6_1}
+  - {pin_num: AD13, peripheral: PDM, signal: 'pdm_bit_stream, 2', pin_signal: SAI5_RXD2, PE: Enabled, PUE: Enabled, DSE: X6_1}
+  - {pin_num: AC13, peripheral: PDM, signal: 'pdm_bit_stream, 3', pin_signal: SAI5_RXD3, PE: Enabled, PUE: Enabled, DSE: X6_1}
+  - {pin_num: AC15, peripheral: PDM, signal: pdm_clk, pin_signal: SAI5_RXC, PE: Disabled, PUE: Disabled, ODE: Disabled, HYS: Disabled, DSE: X6_1}
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
+ */
+
+/* FUNCTION ************************************************************************************************************
+ *
+ * Function Name : BOARD_PDM_ConfigurePins
+ * Description   : Configures pin routing and optionally pin electrical features.
+ *
+ * END ****************************************************************************************************************/
+void BOARD_PDM_ConfigurePins(void) {                       /*!< Function assigned for the core: Cortex-M4[cm4] */
+    IOMUXC_SetPinMux(IOMUXC_SAI5_RXC_PDM_CLK, 0U);
+    IOMUXC_SetPinConfig(IOMUXC_SAI5_RXC_PDM_CLK, 
+                        IOMUXC_SW_PAD_CTL_PAD_DSE(7U) |
+                        IOMUXC_SW_PAD_CTL_PAD_FSEL(2U));
+    IOMUXC_SetPinMux(IOMUXC_SAI5_RXD0_PDM_BIT_STREAM0, 0U);
+    IOMUXC_SetPinConfig(IOMUXC_SAI5_RXD0_PDM_BIT_STREAM0, 
+                        IOMUXC_SW_PAD_CTL_PAD_DSE(7U) |
+                        IOMUXC_SW_PAD_CTL_PAD_FSEL(2U) |
+                        IOMUXC_SW_PAD_CTL_PAD_PUE_MASK |
+                        IOMUXC_SW_PAD_CTL_PAD_PE_MASK);
+    IOMUXC_SetPinMux(IOMUXC_SAI5_RXD1_PDM_BIT_STREAM1, 0U);
+    IOMUXC_SetPinConfig(IOMUXC_SAI5_RXD1_PDM_BIT_STREAM1, 
+                        IOMUXC_SW_PAD_CTL_PAD_DSE(7U) |
+                        IOMUXC_SW_PAD_CTL_PAD_FSEL(2U) |
+                        IOMUXC_SW_PAD_CTL_PAD_PUE_MASK |
+                        IOMUXC_SW_PAD_CTL_PAD_PE_MASK);
+    IOMUXC_SetPinMux(IOMUXC_SAI5_RXD2_PDM_BIT_STREAM2, 0U);
+    IOMUXC_SetPinConfig(IOMUXC_SAI5_RXD2_PDM_BIT_STREAM2, 
+                        IOMUXC_SW_PAD_CTL_PAD_DSE(7U) |
+                        IOMUXC_SW_PAD_CTL_PAD_FSEL(2U) |
+                        IOMUXC_SW_PAD_CTL_PAD_PUE_MASK |
+                        IOMUXC_SW_PAD_CTL_PAD_PE_MASK);
+    IOMUXC_SetPinMux(IOMUXC_SAI5_RXD3_PDM_BIT_STREAM3, 0U);
+    IOMUXC_SetPinConfig(IOMUXC_SAI5_RXD3_PDM_BIT_STREAM3, 
+                        IOMUXC_SW_PAD_CTL_PAD_DSE(7U) |
+                        IOMUXC_SW_PAD_CTL_PAD_FSEL(2U) |
+                        IOMUXC_SW_PAD_CTL_PAD_PUE_MASK |
+                        IOMUXC_SW_PAD_CTL_PAD_PE_MASK);
 }
 
 /***********************************************************************************************************************

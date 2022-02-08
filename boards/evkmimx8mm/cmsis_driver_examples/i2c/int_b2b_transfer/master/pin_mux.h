@@ -1,9 +1,8 @@
 /*
- * Copyright 2018 NXP
+ * Copyright 2018-2021 NXP
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
- *
  */
 
 
@@ -16,6 +15,12 @@
  * Definitions
  **********************************************************************************************************************/
 
+
+/* Symbols to be used with GPIO driver */
+#define I2C3_DEINITPINS_I2C3_SCL_GPIO_PIN_MASK                       (1U << 18U)   /*!< GPIO pin mask */
+
+/* Symbols to be used with GPIO driver */
+#define I2C3_DEINITPINS_I2C3_SDA_GPIO_PIN_MASK                       (1U << 19U)   /*!< GPIO pin mask */
 /*!
  * @addtogroup pin_mux
  * @{

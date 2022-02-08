@@ -1,6 +1,6 @@
 # CROSS COMPILER SETTING
 SET(CMAKE_SYSTEM_NAME Generic)
-CMAKE_MINIMUM_REQUIRED (VERSION 3.1.1)
+CMAKE_MINIMUM_REQUIRED (VERSION 3.10.0)
 
 # THE VERSION NUMBER
 SET (Tutorial_VERSION_MAJOR 1)
@@ -53,7 +53,7 @@ set(CMAKE_MODULE_PATH
     ${ProjDirPath}/../../../../../../components/uart
     ${ProjDirPath}/../../../../../../components/serial_manager
     ${ProjDirPath}/../../../../../../components/lists
-    ${ProjDirPath}/../../../../../../CMSIS/Include
+    ${ProjDirPath}/../../../../../../CMSIS/Core/Include
 )
 
 # include modules
@@ -83,11 +83,7 @@ include(utility_assert_MIMX8MM6)
 
 include(utilities_misc_utilities_MIMX8MM6)
 
-include(CMSIS_Include_core_cm4_MIMX8MM6)
-
-include(CMSIS_Include_common_MIMX8MM6)
-
-include(CMSIS_Include_dsp_MIMX8MM6)
+include(CMSIS_Include_core_cm_MIMX8MM6)
 
 include(device_MIMX8MM6_system_MIMX8MM6)
 

@@ -1,17 +1,15 @@
-if(NOT DRIVER_PDM_SDMA_MIMX8MM6_INCLUDED)
-    
-    set(DRIVER_PDM_SDMA_MIMX8MM6_INCLUDED true CACHE BOOL "driver_pdm_sdma component is included.")
+include_guard(GLOBAL)
+message("driver_pdm_sdma component is included.")
 
-    target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}/fsl_pdm_sdma.c
-    )
-
-
-    target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}/.
-    )
+target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_LIST_DIR}/fsl_pdm_sdma.c
+)
 
 
-    include(driver_pdm_MIMX8MM6)
+target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_LIST_DIR}/.
+)
 
-endif()
+
+include(driver_pdm_MIMX8MM6)
+
