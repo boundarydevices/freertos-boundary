@@ -104,7 +104,12 @@ static void SAI_TxSDMACallback(sdma_handle_t *handle, void *userData, bool trans
     /* If all data finished, just stop the transfer */
     if (saiHandle->saiQueue[saiHandle->queueDriver].data == NULL)
     {
-        SAI_TransferAbortSendSDMA(privHandle->base, saiHandle);
+        /* Disable dma */
+        SDMA_AbortTransfer(handle);
+        /* Disable DMA enable bit */
+        SAI_TxEnableDMA(privHandle->base, kSAI_FIFORequestDMAEnable, false);
+        /* Set the handle state */
+        saiHandle->state = (uint32_t)kSAI_Idle;
     }
 }
 
@@ -124,7 +129,12 @@ static void SAI_RxSDMACallback(sdma_handle_t *handle, void *userData, bool trans
     /* If all data finished, just stop the transfer */
     if (saiHandle->saiQueue[saiHandle->queueDriver].data == NULL)
     {
-        SAI_TransferAbortReceiveSDMA(privHandle->base, saiHandle);
+        /* Disable dma */
+        SDMA_AbortTransfer(handle);
+        /* Disable DMA enable bit */
+        SAI_RxEnableDMA(privHandle->base, kSAI_FIFORequestDMAEnable, false);
+        /* Set the handle state */
+        saiHandle->state = (uint32_t)kSAI_Idle;
     }
 }
 
@@ -671,8 +681,34 @@ void SAI_TransferAbortSendSDMA(I2S_Type *base, sai_sdma_handle_t *handle)
     /* Disable Tx */
     SAI_TxEnable(base, false);
 
+    /* Handle the queue index */
+    (void)memset(&handle->saiQueue[handle->queueDriver], 0, sizeof(sai_transfer_t));
+    handle->queueDriver = (handle->queueDriver + 1U) % (uint8_t)SAI_XFER_QUEUE_SIZE;
+
     /* Set the handle state */
     handle->state = (uint32_t)kSAI_Idle;
+}
+
+/*!
+ * brief Terminate all the SAI sdma send transfer.
+ *
+ * param base SAI base pointer.
+ * param handle SAI SDMA handle pointer.
+ */
+void SAI_TransferTerminateSendSDMA(I2S_Type *base, sai_sdma_handle_t *handle)
+{
+    assert(handle != NULL);
+
+    /* abort current transfer */
+    SAI_TransferAbortSendSDMA(base, handle);
+
+    /* Clear all the internal information */
+    (void)memset(handle->bdPool, 0, sizeof(handle->bdPool));
+    (void)memset(handle->saiQueue, 0, sizeof(handle->saiQueue));
+    (void)memset(handle->transferSize, 0, sizeof(handle->transferSize));
+
+    handle->queueUser   = 0U;
+    handle->queueDriver = 0U;
 }
 
 /*!
@@ -701,6 +737,32 @@ void SAI_TransferAbortReceiveSDMA(I2S_Type *base, sai_sdma_handle_t *handle)
     base->RCSR |= (I2S_RCSR_FR_MASK | I2S_RCSR_SR_MASK);
     base->RCSR &= ~I2S_RCSR_SR_MASK;
 
+    /* Handle the queue index */
+    (void)memset(&handle->saiQueue[handle->queueDriver], 0, sizeof(sai_transfer_t));
+    handle->queueDriver = (handle->queueDriver + 1U) % (uint8_t)SAI_XFER_QUEUE_SIZE;
+
     /* Set the handle state */
     handle->state = (uint32_t)kSAI_Idle;
+}
+
+/*!
+ * brief Terminate all the SAI sdma receive transfer.
+ *
+ * param base SAI base pointer.
+ * param handle SAI SDMA handle pointer.
+ */
+void SAI_TransferTerminateReceiveSDMA(I2S_Type *base, sai_sdma_handle_t *handle)
+{
+    assert(handle != NULL);
+
+    /* abort current transfer */
+    SAI_TransferAbortReceiveSDMA(base, handle);
+
+    /* Clear all the internal information */
+    (void)memset(handle->bdPool, 0, sizeof(handle->bdPool));
+    (void)memset(handle->saiQueue, 0, sizeof(handle->saiQueue));
+    (void)memset(handle->transferSize, 0, sizeof(handle->transferSize));
+
+    handle->queueUser   = 0U;
+    handle->queueDriver = 0U;
 }

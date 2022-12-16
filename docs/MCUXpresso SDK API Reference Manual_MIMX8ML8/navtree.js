@@ -5,7 +5,7 @@ var NAVTREE =
     [ "Trademarks", "a00002.html", null ],
     [ "Architectural Overview", "a00004.html", null ],
     [ "Driver errors status", "a00006.html", null ],
-    [ "Deprecated List", "a00134.html", null ],
+    [ "Deprecated List", "a00141.html", null ],
     [ "API Reference", "modules.html", "modules" ]
   ] ]
 ];
@@ -13,17 +13,19 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "a00002.html",
-"a00010.html#ga53acae220d651789bb505c53c73ecf2b",
-"a00010.html#gga354907dbe37238a37b1ad6c384a7df6aa4326acac68355707539361cb3b52b2ec",
-"a00011.html#acda24c6b9b8efe9624996cee729ccecb",
-"a00012.html#gga0946f249a6cbdb8987baa5f4bd39a0aba1ac961fb6f497e8ad9082fb07504e9c5",
-"a00016.html#gga385c44f6fb256e5716a2302a5b940388a628d242f7bc0e3d5949c7f73eafaa508",
-"a00018.html#ga18bf5683235bc9b86826603f499bc36c",
-"a00020.html#gga311302fe418002fddb7b0e553e73d22dae61dfe51028ddaa2f902dd74b6804d7b",
-"a00022.html#gga39fca1837c5ce7715cbf571669660c13adb0352ca50c26ea4b7f2ac9aaa955743",
-"a00026.html#gac88019d2b8abe60bd6ee8cf2c1e8dfb0",
-"a00030.html#ggad71999d652d6d29485aea6dacf371fc7ae06d8a84878c6ea432e3401e65fb87cb",
-"a00117.html#gga54dcbb5e3e5c8ceebef5f46a9ec73a2fa720ad082de555ca2262db6704c2a48a3"
+"a00010.html#ga50eba6f191f718209f78995833f59ed5",
+"a00010.html#gga2d35d3d410b4fcacd1aa5913c436b690a90463530081bae334eecfdd0ed661fbb",
+"a00010.html#ggacf12ec3f064c40b8a595a8d95179ad82a114f97c60c93b86cc3c2a7adefd4005a",
+"a00012.html#a00171",
+"a00014.html#af15c6f6b67b8bbdebda299b2137e3c48",
+"a00016.html#ga22997c2d644f6249b9c704afc230eedf",
+"a00018.html#gaaea68828df859b872a7a2da26f46698f",
+"a00021.html#a549071723581d7ac31f2fd5521a5bbb7",
+"a00022.html#ga800c1ed8e21055ea66e482ee4ddec955",
+"a00024.html#gacb98bd8be88e9a526f1e517bc6215a8d",
+"a00029.html#ac512e5cf0122162333483871e8ae055d",
+"a00114.html#gga7ff0b98bb1341c07acefb1473b6eda29a7c488d28bc9be2e29bd0d133bce7389a",
+"a00130.html#ga1c34c4b2eca52767539b73647e866e7f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

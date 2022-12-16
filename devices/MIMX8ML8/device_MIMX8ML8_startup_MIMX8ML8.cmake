@@ -1,4 +1,4 @@
-include_guard(GLOBAL)
+include_guard()
 message("device_MIMX8ML8_startup component is included.")
 
 target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
