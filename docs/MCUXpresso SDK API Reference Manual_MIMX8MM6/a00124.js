@@ -1,7 +1,5 @@
 var a00124 =
 [
-    [ "AK4497 Driver", "a00008.html", "a00008" ],
-    [ "CODEC Common Driver", "a00010.html", "a00010" ],
-    [ "CODEC I2C Driver", "a00011.html", "a00011" ],
-    [ "WM8524 Driver", "a00030.html", "a00030" ]
+    [ "SAI Driver", "a00021.html", "a00021" ],
+    [ "SAI SDMA Driver", "a00022.html", "a00022" ]
 ];

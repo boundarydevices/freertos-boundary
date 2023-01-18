@@ -1,114 +1,85 @@
 var a00016 =
 [
-    [ "i2c_master_config_t", "a00016.html#a00157", [
-      [ "enableMaster", "a00016.html#a2419131a10906475fd31950f17ac8895", null ],
-      [ "baudRate_Bps", "a00016.html#a2186844dc87bcde999fc12005f4c550a", null ]
+    [ "gpt_config_t", "a00016.html#a00176", [
+      [ "clockSource", "a00016.html#a25f268bc5fecec8069a572c4c3b58fc7", null ],
+      [ "divider", "a00016.html#a2407ae05cf065f7670679b3e1c2c2b50", null ],
+      [ "enableFreeRun", "a00016.html#aae502b9cc970005480f6ff1658972d53", null ],
+      [ "enableRunInWait", "a00016.html#a4ddfd1bd9f2f22b721a2bff60673fac5", null ],
+      [ "enableRunInStop", "a00016.html#a10b8bb88a27214987d3e877a6c0371db", null ],
+      [ "enableRunInDoze", "a00016.html#a0cfe8142bf85397f51921301055b1bb8", null ],
+      [ "enableRunInDbg", "a00016.html#a5c3a30242ed5d7d2675be2d300eed4d1", null ],
+      [ "enableMode", "a00016.html#a0c9bf1a239e33da721076aabd0c2b079", null ]
     ] ],
-    [ "i2c_master_transfer_t", "a00016.html#a00158", [
-      [ "flags", "a00016.html#a8835787e1b0f9a4b8868e7cbe53e45d5", null ],
-      [ "slaveAddress", "a00016.html#a3b9c4ae818b1194955db51de0f67795f", null ],
-      [ "direction", "a00016.html#ac5b89dc9115b7760431c981e0c1fd443", null ],
-      [ "subaddress", "a00016.html#ae7facb612714785d4e143e57d47a5af3", null ],
-      [ "subaddressSize", "a00016.html#a9c08797f65f0faac78f44ac038c45c38", null ],
-      [ "data", "a00016.html#a0b4fa495c845d29fe6eaad7350337943", null ],
-      [ "dataSize", "a00016.html#a071d26432bea08e4bf76bb4eb8805770", null ]
+    [ "gpt_clock_source_t", "a00016.html#gad0ed5e094d0bec112a065a0c6b057e56", [
+      [ "kGPT_ClockSource_Off", "a00016.html#ggad0ed5e094d0bec112a065a0c6b057e56a398f5e7765f47a492d625a7cb26bf499", null ],
+      [ "kGPT_ClockSource_Periph", "a00016.html#ggad0ed5e094d0bec112a065a0c6b057e56a728cff5c785288f3884d4c2cbdf0b466", null ],
+      [ "kGPT_ClockSource_HighFreq", "a00016.html#ggad0ed5e094d0bec112a065a0c6b057e56a1a2644f7461698f6515c3da0a7c1cbab", null ],
+      [ "kGPT_ClockSource_Ext", "a00016.html#ggad0ed5e094d0bec112a065a0c6b057e56ab76385e941d5ce14116ac5a55aaf5815", null ],
+      [ "kGPT_ClockSource_LowFreq", "a00016.html#ggad0ed5e094d0bec112a065a0c6b057e56acb33521779fb2addb21bb22f850c837d", null ],
+      [ "kGPT_ClockSource_Osc", "a00016.html#ggad0ed5e094d0bec112a065a0c6b057e56a9df479d2e5f5d539b053425ab986ad20", null ]
     ] ],
-    [ "i2c_master_handle_t", "a00016.html#a00134", [
-      [ "transfer", "a00016.html#a6858d3525f762d7aded20e6c95eb19fc", null ],
-      [ "transferSize", "a00016.html#a5f6e3613a1fe8c3534a31526b1a34647", null ],
-      [ "state", "a00016.html#add7ec18bc8239c5c87ffcec2fbcf5dd8", null ],
-      [ "completionCallback", "a00016.html#a15b84b8a94c2b2e5ace0a695c79edd84", null ],
-      [ "userData", "a00016.html#aad7df570c53adb2e80acd2ba0d39d109", null ]
+    [ "gpt_input_capture_channel_t", "a00016.html#gad36eff6489251bee506c6806c64a86d0", [
+      [ "kGPT_InputCapture_Channel1", "a00016.html#ggad36eff6489251bee506c6806c64a86d0a083b8ef10ac54db99013fdadaf40ea12", null ],
+      [ "kGPT_InputCapture_Channel2", "a00016.html#ggad36eff6489251bee506c6806c64a86d0a8ef1e1b7eee2eefaef9d4f9776bafe4a", null ]
     ] ],
-    [ "i2c_slave_config_t", "a00016.html#a00159", [
-      [ "enableSlave", "a00016.html#a92d20835618a946b8f7702455877ef7a", null ],
-      [ "slaveAddress", "a00016.html#a05851e26565e2b89bd49ef230cc397be", null ]
+    [ "gpt_input_operation_mode_t", "a00016.html#ga22997c2d644f6249b9c704afc230eedf", [
+      [ "kGPT_InputOperation_Disabled", "a00016.html#gga22997c2d644f6249b9c704afc230eedfaf7ecc55be6dd63a6be40d96dc9f8d24e", null ],
+      [ "kGPT_InputOperation_RiseEdge", "a00016.html#gga22997c2d644f6249b9c704afc230eedfa17ede75d0bb581f4fed42f678e1b81d1", null ],
+      [ "kGPT_InputOperation_FallEdge", "a00016.html#gga22997c2d644f6249b9c704afc230eedfaa0dcd1649563ba92f8f1e8230284edfa", null ],
+      [ "kGPT_InputOperation_BothEdge", "a00016.html#gga22997c2d644f6249b9c704afc230eedfa5ad14d26a16fa7d607a446440c88b735", null ]
     ] ],
-    [ "i2c_slave_transfer_t", "a00016.html#a00160", [
-      [ "event", "a00016.html#ad0a9e837e9df16d89bab98a78af5bd10", null ],
-      [ "data", "a00016.html#ae8dab4de2445f3094b6baef3712a80a9", null ],
-      [ "dataSize", "a00016.html#a96d433bce400dfc4917343f2b07e8b1d", null ],
-      [ "completionStatus", "a00016.html#a35adbf64ca65dd2c1b52f9260f5b9e90", null ],
-      [ "transferredCount", "a00016.html#a0394563c8d0f9eeeecd242a65cee2ad4", null ]
+    [ "gpt_output_compare_channel_t", "a00016.html#gae6c9b96e71d6a276ce8437708acddfda", [
+      [ "kGPT_OutputCompare_Channel1", "a00016.html#ggae6c9b96e71d6a276ce8437708acddfdaa68b52504e269393df3fc389c9b78c2d8", null ],
+      [ "kGPT_OutputCompare_Channel2", "a00016.html#ggae6c9b96e71d6a276ce8437708acddfdaa1be13c4fe09bed476ee7656b59f25d37", null ],
+      [ "kGPT_OutputCompare_Channel3", "a00016.html#ggae6c9b96e71d6a276ce8437708acddfdaa55da6b048e4471add16448bd43a6829c", null ]
     ] ],
-    [ "i2c_slave_handle_t", "a00016.html#a00135", [
-      [ "state", "a00016.html#a05e28c7ba871cce0a3dd1bad4b768336", null ],
-      [ "transfer", "a00016.html#a49f6e4eb57b2158f3886f47e6c84d1b9", null ],
-      [ "eventMask", "a00016.html#a8ab7d35b42a241c05ddb4c18f8d1e522", null ],
-      [ "callback", "a00016.html#a7229e894f762ead4bd08b4add49e6bc2", null ],
-      [ "userData", "a00016.html#a98ea5e99278b386e2ddb99d45a9750ee", null ]
+    [ "gpt_output_operation_mode_t", "a00016.html#ga54e26b65b23236492c81c572ba36ab20", [
+      [ "kGPT_OutputOperation_Disconnected", "a00016.html#gga54e26b65b23236492c81c572ba36ab20adedc5e02092eeab85600f919bf2dec82", null ],
+      [ "kGPT_OutputOperation_Toggle", "a00016.html#gga54e26b65b23236492c81c572ba36ab20acd8732f3636757f56665c6549a27c887", null ],
+      [ "kGPT_OutputOperation_Clear", "a00016.html#gga54e26b65b23236492c81c572ba36ab20ab74f183a3e8eb815a40a39eb033dc532", null ],
+      [ "kGPT_OutputOperation_Set", "a00016.html#gga54e26b65b23236492c81c572ba36ab20aae9329b2a4b5ea63e66ca10239efe669", null ],
+      [ "kGPT_OutputOperation_Activelow", "a00016.html#gga54e26b65b23236492c81c572ba36ab20a5bd080fd627f26d074da1b3dab7535f2", null ]
     ] ],
-    [ "FSL_I2C_DRIVER_VERSION", "a00016.html#ga60fdaec284298758a650ce1122aef231", null ],
-    [ "I2C_RETRY_TIMES", "a00016.html#gaac288786aaa7d0cb947c91591baf42d7", null ],
-    [ "i2c_master_transfer_callback_t", "a00016.html#ga1c6e059706357c744c165ce7ecd1c185", null ],
-    [ "i2c_slave_transfer_callback_t", "a00016.html#ga974310ded85af5ef341811d542db650c", [
-      [ "kStatus_I2C_Busy", "a00016.html#gga726ca809ffd3d67ab4b8476646f26635a49091894b590d7e479605bf113918952", null ],
-      [ "kStatus_I2C_Idle", "a00016.html#gga726ca809ffd3d67ab4b8476646f26635a628d242f7bc0e3d5949c7f73eafaa508", null ],
-      [ "kStatus_I2C_Nak", "a00016.html#gga726ca809ffd3d67ab4b8476646f26635a72fd33d0b5263a63766e62f71d16be00", null ],
-      [ "kStatus_I2C_ArbitrationLost", "a00016.html#gga726ca809ffd3d67ab4b8476646f26635a139b52cc3305ec2c06d0ac94313c221f", null ],
-      [ "kStatus_I2C_Timeout", "a00016.html#gga726ca809ffd3d67ab4b8476646f26635a81ad7cc198436cabbe91ea55c5288747", null ],
-      [ "kStatus_I2C_Addr_Nak", "a00016.html#gga726ca809ffd3d67ab4b8476646f26635adf7437bfedcc0d57338ed33f1be5c805", null ]
+    [ "gpt_interrupt_enable_t", "a00016.html#gac1d66bcf23acefc1a50049c7e24d77bb", [
+      [ "kGPT_OutputCompare1InterruptEnable", "a00016.html#ggac1d66bcf23acefc1a50049c7e24d77bba61170acbca36f4757633d1d12d3246ba", null ],
+      [ "kGPT_OutputCompare2InterruptEnable", "a00016.html#ggac1d66bcf23acefc1a50049c7e24d77bba4ebb7fc65d182cd6643fe237d60d91ed", null ],
+      [ "kGPT_OutputCompare3InterruptEnable", "a00016.html#ggac1d66bcf23acefc1a50049c7e24d77bba5141f4b482113c7763819b89c4abcc09", null ],
+      [ "kGPT_InputCapture1InterruptEnable", "a00016.html#ggac1d66bcf23acefc1a50049c7e24d77bba21a3c64b4edc196b24be9e12c061fe88", null ],
+      [ "kGPT_InputCapture2InterruptEnable", "a00016.html#ggac1d66bcf23acefc1a50049c7e24d77bbaf6dc605de633b7e545065bc952409562", null ],
+      [ "kGPT_RollOverFlagInterruptEnable", "a00016.html#ggac1d66bcf23acefc1a50049c7e24d77bba2bbf44ee3464387de1fd11a2c28a5132", null ]
     ] ],
-    [ "_i2c_flags", "a00016.html#ga1f1337bbe9d0b184d9dcee31f9ebade2", [
-      [ "kI2C_ReceiveNakFlag", "a00016.html#gga1f1337bbe9d0b184d9dcee31f9ebade2a4c3c2928e17ddbfbc1c346c6b9a8dccd", null ],
-      [ "kI2C_IntPendingFlag", "a00016.html#gga1f1337bbe9d0b184d9dcee31f9ebade2a647d0b1d1f9514ad483bef3ea3926c3b", null ],
-      [ "kI2C_TransferDirectionFlag", "a00016.html#gga1f1337bbe9d0b184d9dcee31f9ebade2a249f698970909f33b1b96139c05bd969", null ],
-      [ "kI2C_ArbitrationLostFlag", "a00016.html#gga1f1337bbe9d0b184d9dcee31f9ebade2a39fab5ef04e74d00ef4c4574899ab589", null ],
-      [ "kI2C_BusBusyFlag", "a00016.html#gga1f1337bbe9d0b184d9dcee31f9ebade2a37fb20742a15a63c1bc2551b997cdcff", null ],
-      [ "kI2C_AddressMatchFlag", "a00016.html#gga1f1337bbe9d0b184d9dcee31f9ebade2a10cd5797b1b8f809192423486a85d5fe", null ],
-      [ "kI2C_TransferCompleteFlag", "a00016.html#gga1f1337bbe9d0b184d9dcee31f9ebade2adb8f10365dfc2a3e849f05173fa4d83e", null ]
+    [ "gpt_status_flag_t", "a00016.html#ga21ce3ba40810ea60cf4b59a488e73cc5", [
+      [ "kGPT_OutputCompare1Flag", "a00016.html#gga21ce3ba40810ea60cf4b59a488e73cc5a241fcd87ab22fa9a7212739a39134dfe", null ],
+      [ "kGPT_OutputCompare2Flag", "a00016.html#gga21ce3ba40810ea60cf4b59a488e73cc5a75f50bb95d6a232c6bbb0b6c52db60e5", null ],
+      [ "kGPT_OutputCompare3Flag", "a00016.html#gga21ce3ba40810ea60cf4b59a488e73cc5abfc4b1e05ade49b83461447d4b4464b1", null ],
+      [ "kGPT_InputCapture1Flag", "a00016.html#gga21ce3ba40810ea60cf4b59a488e73cc5af8d82fdf4783ec7125f8f4cdedaed062", null ],
+      [ "kGPT_InputCapture2Flag", "a00016.html#gga21ce3ba40810ea60cf4b59a488e73cc5a64ff7cb952a6cd9c1d85d3dcffc1a50b", null ],
+      [ "kGPT_RollOverFlag", "a00016.html#gga21ce3ba40810ea60cf4b59a488e73cc5ae238e6b78d934129211d8e7aafef59a1", null ]
     ] ],
-    [ "_i2c_interrupt_enable", "a00016.html#ga87c81dd985dad07dc26cb93125a94ec7", [
-      [ "kI2C_GlobalInterruptEnable", "a00016.html#gga87c81dd985dad07dc26cb93125a94ec7a5526e27ef6e8317ba928849da890b3b2", null ]
-    ] ],
-    [ "i2c_direction_t", "a00016.html#gab49c827b45635206f06e5737606e4611", [
-      [ "kI2C_Write", "a00016.html#ggab49c827b45635206f06e5737606e4611a93b476b469c2a4bfed5916b458ae9bb0", null ],
-      [ "kI2C_Read", "a00016.html#ggab49c827b45635206f06e5737606e4611a3a7bb24dc8d1c1be8925603eeafe9b30", null ]
-    ] ],
-    [ "_i2c_master_transfer_flags", "a00016.html#ga87ea07668194cfb46c7c368d2cb42433", [
-      [ "kI2C_TransferDefaultFlag", "a00016.html#gga87ea07668194cfb46c7c368d2cb42433ae80f7b768b1621e42ac965d3d23de5e2", null ],
-      [ "kI2C_TransferNoStartFlag", "a00016.html#gga87ea07668194cfb46c7c368d2cb42433a5cb44bf860c0482c0ca0165cf0d31d8a", null ],
-      [ "kI2C_TransferRepeatedStartFlag", "a00016.html#gga87ea07668194cfb46c7c368d2cb42433aadf112471ef12f194985a093cd9b9721", null ],
-      [ "kI2C_TransferNoStopFlag", "a00016.html#gga87ea07668194cfb46c7c368d2cb42433afb8aeea71b5b7475e3d3df86220db566", null ]
-    ] ],
-    [ "i2c_slave_transfer_event_t", "a00016.html#gac53e5c96a2eed1b5a95b7d84be48f4ac", [
-      [ "kI2C_SlaveAddressMatchEvent", "a00016.html#ggac53e5c96a2eed1b5a95b7d84be48f4acacb1ae174dd6798a6fd79800a9e39a3c6", null ],
-      [ "kI2C_SlaveTransmitEvent", "a00016.html#ggac53e5c96a2eed1b5a95b7d84be48f4aca2f85039a57379838909876a1d509b7aa", null ],
-      [ "kI2C_SlaveReceiveEvent", "a00016.html#ggac53e5c96a2eed1b5a95b7d84be48f4acaac8593e808a8137d1b5d3a51640779de", null ],
-      [ "kI2C_SlaveTransmitAckEvent", "a00016.html#ggac53e5c96a2eed1b5a95b7d84be48f4aca43c045da27fa60e7a0540c743eca4e79", null ],
-      [ "kI2C_SlaveCompletionEvent", "a00016.html#ggac53e5c96a2eed1b5a95b7d84be48f4aca38cca3cd668e73f51b8e574835d419df", null ],
-      [ "kI2C_SlaveAllEvents", "a00016.html#ggac53e5c96a2eed1b5a95b7d84be48f4aca94b030ebdac378a84961893ae567bfbc", null ]
-    ] ],
-    [ "I2C_MasterInit", "a00016.html#ga29f967b3ae8487a36ba2a58deb01ccae", null ],
-    [ "I2C_MasterDeinit", "a00016.html#gadcf7122f0a38d4d9da0f052fcb167957", null ],
-    [ "I2C_MasterGetDefaultConfig", "a00016.html#gad69f2d63ea756dda60749ff6b09f587d", null ],
-    [ "I2C_SlaveInit", "a00016.html#gae6e155a5aadb43d527418e2965e39123", null ],
-    [ "I2C_SlaveDeinit", "a00016.html#gadb50014db29dd75ea2001fb7bc837e77", null ],
-    [ "I2C_SlaveGetDefaultConfig", "a00016.html#ga7115f80e28b62bbbd3be1a2a918529ba", null ],
-    [ "I2C_Enable", "a00016.html#gaaaaab1e83cb8c6117046bdb5bcbf9ac6", null ],
-    [ "I2C_MasterGetStatusFlags", "a00016.html#ga8219cf80c3be6c15fc5035326b7f62dc", null ],
-    [ "I2C_MasterClearStatusFlags", "a00016.html#ga437271ffb955b77df0a5dee9ea80cc63", null ],
-    [ "I2C_SlaveGetStatusFlags", "a00016.html#gac2794e138d94d9b6a761c074ad0899cd", null ],
-    [ "I2C_SlaveClearStatusFlags", "a00016.html#ga545c1a43d8d49c4675de493d45a4063a", null ],
-    [ "I2C_EnableInterrupts", "a00016.html#ga577e094cc4d39b88ec5bbe49bc199c77", null ],
-    [ "I2C_DisableInterrupts", "a00016.html#ga9839c1fd49a0f62f42b0adfa74f62853", null ],
-    [ "I2C_MasterSetBaudRate", "a00016.html#gafeab1d5249a8b39c8d9e1a54a85c23f0", null ],
-    [ "I2C_MasterStart", "a00016.html#ga7664234966e4162e952b6d57efcaa8a6", null ],
-    [ "I2C_MasterStop", "a00016.html#gaf46a8cc094fc18c6cadea8de71448723", null ],
-    [ "I2C_MasterRepeatedStart", "a00016.html#ga42ff265d25e713326c7d152adf350147", null ],
-    [ "I2C_MasterWriteBlocking", "a00016.html#gac4e1a954243aa852cb4d358e90091efd", null ],
-    [ "I2C_MasterReadBlocking", "a00016.html#gaf77526f32a16109abf265dbb022a26ba", null ],
-    [ "I2C_SlaveWriteBlocking", "a00016.html#ga280404c6b1ede542f2c1c20bd382869c", null ],
-    [ "I2C_SlaveReadBlocking", "a00016.html#ga89baaf8bc82b19c837032665e89a1707", null ],
-    [ "I2C_MasterTransferBlocking", "a00016.html#ga35cae3a5b4aa50ce8db28e3eb703a027", null ],
-    [ "I2C_MasterTransferCreateHandle", "a00016.html#ga31e3de02b57801c6896e6045c4a31268", null ],
-    [ "I2C_MasterTransferNonBlocking", "a00016.html#gac7f76a04b6f6873c52ad176d58901fe9", null ],
-    [ "I2C_MasterTransferGetCount", "a00016.html#ga7d720842e68161d2d52d56d119f20665", null ],
-    [ "I2C_MasterTransferAbort", "a00016.html#gabb386e53b2bc64e29b2915bdfac36800", null ],
-    [ "I2C_MasterTransferHandleIRQ", "a00016.html#gad091cd1857d2bd8ce64583739b3a35d5", null ],
-    [ "I2C_SlaveTransferCreateHandle", "a00016.html#gac9b90f575d92ff8ad3cc350a5c8ad1b9", null ],
-    [ "I2C_SlaveTransferNonBlocking", "a00016.html#gaa387d81ea08a9d4b39cfeb3dfec505f7", null ],
-    [ "I2C_SlaveTransferAbort", "a00016.html#ga5ae9f5e6e854d14d33ba3029128bd6f0", null ],
-    [ "I2C_SlaveTransferGetCount", "a00016.html#gabf38a498bd3527ea0b7cc947ae71e17e", null ],
-    [ "I2C_SlaveTransferHandleIRQ", "a00016.html#ga097c0b20503381de44cccba311dcf236", null ]
+    [ "GPT_Init", "a00016.html#ga6aeb20e99444bdaf31dd9c39c108e79f", null ],
+    [ "GPT_Deinit", "a00016.html#ga90be090ee63035f2a2b014adcfd8c60b", null ],
+    [ "GPT_GetDefaultConfig", "a00016.html#ga0f60fd16354f3fcf7bd02f1ccbee80e4", null ],
+    [ "GPT_SoftwareReset", "a00016.html#ga9cbb3514413d2eb8783bbce110451d60", null ],
+    [ "GPT_SetClockSource", "a00016.html#ga0328dbdc7fe6c17155f776f27692e3c1", null ],
+    [ "GPT_GetClockSource", "a00016.html#ga2ef3c43a4ea5e27291686fcf52a01c53", null ],
+    [ "GPT_SetClockDivider", "a00016.html#ga941a31e66563ec733dc4c69ab430af3f", null ],
+    [ "GPT_GetClockDivider", "a00016.html#ga9e4fc77424a6dccfb8a80f33145aa85f", null ],
+    [ "GPT_SetOscClockDivider", "a00016.html#ga81c59ed87813049b1b1931547c229688", null ],
+    [ "GPT_GetOscClockDivider", "a00016.html#ga7f55308a463986caceb5dc78f97f72ea", null ],
+    [ "GPT_StartTimer", "a00016.html#gafd643e0c52bdf9cb0ea78819cd5d1ca9", null ],
+    [ "GPT_StopTimer", "a00016.html#ga7d3298caf68180acb777d0bed3585a95", null ],
+    [ "GPT_GetCurrentTimerCount", "a00016.html#ga27f113c6b601234c6493e04ff7699f84", null ],
+    [ "GPT_SetInputOperationMode", "a00016.html#gaa0d5805eba17bbc982af80077e780bb0", null ],
+    [ "GPT_GetInputOperationMode", "a00016.html#ga075a62145685b5e150392b5bf0162af7", null ],
+    [ "GPT_GetInputCaptureValue", "a00016.html#ga613c750bc61498e596cc34bf3d7c8705", null ],
+    [ "GPT_SetOutputOperationMode", "a00016.html#ga2b4b3962e3f263e53d83ccabf2f3b489", null ],
+    [ "GPT_GetOutputOperationMode", "a00016.html#gaa4ed0958938a4a9c3c58050e26511026", null ],
+    [ "GPT_SetOutputCompareValue", "a00016.html#gab4482de4377738cf0ee065f6ad7d3547", null ],
+    [ "GPT_GetOutputCompareValue", "a00016.html#gaf152c66a815fd38352742ed4ba01d507", null ],
+    [ "GPT_ForceOutput", "a00016.html#ga82938d7d324ba16a8462f1b68284b6ba", null ],
+    [ "GPT_EnableInterrupts", "a00016.html#gaf441b1f196d31f08319db26487bbe496", null ],
+    [ "GPT_DisableInterrupts", "a00016.html#gaa4fd7eccba69c67e4facf6e9a5e9c62e", null ],
+    [ "GPT_GetEnabledInterrupts", "a00016.html#ga471739441f35a3f65707e40e8d5f0649", null ],
+    [ "GPT_GetStatusFlags", "a00016.html#ga9e19600458e9121125a370720b4f6f6d", null ],
+    [ "GPT_ClearStatusFlags", "a00016.html#gad0cdd59a23d43441a5a160bf01351754", null ]
 ];

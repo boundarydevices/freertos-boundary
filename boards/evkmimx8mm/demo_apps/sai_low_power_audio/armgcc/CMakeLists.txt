@@ -24,7 +24,13 @@ SET(LIBRARY_OUTPUT_PATH ${ProjDirPath}/${CMAKE_BUILD_TYPE})
 
 project(sai_low_power_audio)
 
+set(MCUX_BUILD_TYPES debug release)
+
 set(MCUX_SDK_PROJECT_NAME sai_low_power_audio.elf)
+
+if (NOT DEFINED SdkRootDirPath)
+    SET(SdkRootDirPath ${ProjDirPath}/../../../../..)
+endif()
 
 include(${ProjDirPath}/flags.cmake)
 
@@ -47,45 +53,47 @@ add_executable(${MCUX_SDK_PROJECT_NAME}
 "${ProjDirPath}/../clock_config.c"
 "${ProjDirPath}/../clock_config.h"
 "${ProjDirPath}/../fsl_iomuxc.h"
+"${ProjDirPath}/../srtm_config.h"
 "${ProjDirPath}/../app_srtm.c"
 "${ProjDirPath}/../app_srtm.h"
-"${ProjDirPath}/../../../../../components/srtm/channels/srtm_rpmsg_endpoint.h"
-"${ProjDirPath}/../../../../../components/srtm/channels/srtm_rpmsg_endpoint.c"
-"${ProjDirPath}/../../../../../components/srtm/services/srtm_audio_service.h"
-"${ProjDirPath}/../../../../../components/srtm/services/srtm_audio_service.c"
-"${ProjDirPath}/../../../../../components/srtm/services/srtm_sai_sdma_adapter.h"
-"${ProjDirPath}/../../../../../components/srtm/services/srtm_sai_sdma_adapter.c"
-"${ProjDirPath}/../../../../../components/srtm/services/srtm_pdm_sdma_adapter.h"
-"${ProjDirPath}/../../../../../components/srtm/services/srtm_pdm_sdma_adapter.c"
-"${ProjDirPath}/../../../../../components/srtm/services/srtm_i2c_codec_adapter.h"
-"${ProjDirPath}/../../../../../components/srtm/services/srtm_i2c_codec_adapter.c"
-"${ProjDirPath}/../../../../../components/srtm/services/srtm_wm8524_adapter.h"
-"${ProjDirPath}/../../../../../components/srtm/services/srtm_wm8524_adapter.c"
+"${SdkRootDirPath}/components/srtm/channels/srtm_rpmsg_endpoint.h"
+"${SdkRootDirPath}/components/srtm/channels/srtm_rpmsg_endpoint.c"
+"${SdkRootDirPath}/components/srtm/services/srtm_audio_service.h"
+"${SdkRootDirPath}/components/srtm/services/srtm_audio_service.c"
+"${SdkRootDirPath}/components/srtm/services/srtm_sai_sdma_adapter.h"
+"${SdkRootDirPath}/components/srtm/services/srtm_sai_sdma_adapter.c"
+"${SdkRootDirPath}/components/srtm/services/srtm_pdm_sdma_adapter.h"
+"${SdkRootDirPath}/components/srtm/services/srtm_pdm_sdma_adapter.c"
+"${SdkRootDirPath}/components/srtm/services/srtm_i2c_codec_adapter.h"
+"${SdkRootDirPath}/components/srtm/services/srtm_i2c_codec_adapter.c"
+"${SdkRootDirPath}/components/srtm/services/srtm_wm8524_adapter.h"
+"${SdkRootDirPath}/components/srtm/services/srtm_wm8524_adapter.c"
 )
 
-target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
+target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
     ${ProjDirPath}/..
-    ${ProjDirPath}/../../../../../components/srtm/channels
-    ${ProjDirPath}/../../../../../components/srtm/services
+    ${SdkRootDirPath}/components/srtm/channels
+    ${SdkRootDirPath}/components/srtm/services
 )
 
 set(CMAKE_MODULE_PATH
-    ${ProjDirPath}/../../../../../devices/MIMX8MM6/drivers
-    ${ProjDirPath}/../../../../../components/codec
-    ${ProjDirPath}/../../../../../components/codec/i2c
-    ${ProjDirPath}/../../../../../components/i2c
-    ${ProjDirPath}/../../../../../middleware/multicore
-    ${ProjDirPath}/../../../../../devices/MIMX8MM6
-    ${ProjDirPath}/../../../../../devices/MIMX8MM6/utilities
-    ${ProjDirPath}/../../../../../components/uart
-    ${ProjDirPath}/../../../../../components/serial_manager
-    ${ProjDirPath}/../../../../../components/lists
-    ${ProjDirPath}/../../../../../CMSIS/Core/Include
-    ${ProjDirPath}/../../../../../components/codec/ak4497
-    ${ProjDirPath}/../../../../../components/srtm/port
-    ${ProjDirPath}/../../../../../components/srtm
-    ${ProjDirPath}/../../../../../rtos/freertos/freertos_kernel
-    ${ProjDirPath}/../../../../../components/codec/wm8524
+    ${SdkRootDirPath}/devices/MIMX8MM6/drivers
+    ${SdkRootDirPath}/components/codec
+    ${SdkRootDirPath}/components/codec/
+    ${SdkRootDirPath}/components/codec/i2c
+    ${SdkRootDirPath}/components/i2c
+    ${SdkRootDirPath}/middleware/multicore
+    ${SdkRootDirPath}/devices/MIMX8MM6
+    ${SdkRootDirPath}/devices/MIMX8MM6/utilities
+    ${SdkRootDirPath}/components/uart
+    ${SdkRootDirPath}/components/serial_manager
+    ${SdkRootDirPath}/components/lists
+    ${SdkRootDirPath}/CMSIS/Core/Include
+    ${SdkRootDirPath}/components/codec/ak4497
+    ${SdkRootDirPath}/components/srtm/port
+    ${SdkRootDirPath}/components/srtm
+    ${SdkRootDirPath}/rtos/freertos/freertos-kernel
+    ${SdkRootDirPath}/components/codec/wm8524
 )
 
 # include modules
@@ -176,15 +184,13 @@ include(utilities_misc_utilities_MIMX8MM6)
 include(device_MIMX8MM6_system_MIMX8MM6)
 
 
+IF(NOT DEFINED TARGET_LINK_SYSTEM_LIBRARIES)  
+    SET(TARGET_LINK_SYSTEM_LIBRARIES "-lm -lc -lgcc -lnosys")  
+ENDIF()  
+
 TARGET_LINK_LIBRARIES(${MCUX_SDK_PROJECT_NAME} PRIVATE -Wl,--start-group)
 
-target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE m)
-
-target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE c)
-
-target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE gcc)
-
-target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE nosys)
+target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE ${TARGET_LINK_SYSTEM_LIBRARIES})
 
 TARGET_LINK_LIBRARIES(${MCUX_SDK_PROJECT_NAME} PRIVATE -Wl,--end-group)
 

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: I2C CMSIS Driver</title>
+<title>MCUXpresso SDK API Reference Manual: ECSPI FreeRTOS Driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.11.0</span>
+   &#160;<span id="projectnumber">Rev 2.13.0</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -99,67 +99,151 @@ $(document).ready(function(){initNavTree('a00112.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">I2C CMSIS Driver<div class="ingroups"><a class="el" href="a00110.html">I2C: Inter-Integrated Circuit Driver</a></div></div>  </div>
+<div class="title">ECSPI FreeRTOS Driver<div class="ingroups"><a class="el" href="a00111.html">ECSPI: Enhanced Configurable Serial Peripheral Interface Driver</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>This section describes the programming interface of the I2C Cortex Microcontroller Software Interface Standard (CMSIS) driver. This driver defines generic peripheral driver interfaces for middleware making it reusable across a wide range of supported microcontroller devices. The API connects microcontroller peripherals with middleware that implements for example communication stacks, file systems, or graphic user interfaces. More information and usage methord see <a href="http://www.keil.com/pack/doc/cmsis/Driver/html/index.html">http://www.keil.com/pack/doc/cmsis/Driver/html/index.html</a>.</p>
-<p>The I2C CMSIS driver includes transactional APIs.</p>
-<p>Transactional APIs are transaction target high-level APIs. The transactional APIs can be used to enable the peripheral quickly and also in the application if the code size and performance of transactional APIs satisfy the requirements. If the code size and performance are critical requirements, see the transactional API implementation and write custom code accessing the hardware registers.</p>
-<h1><a class="anchor" id="I2CCMSISDriver"></a>
-I2C CMSIS Driver</h1>
-<h2><a class="anchor" id="I2CMasterOpsTransIRQ"></a>
-Master Operation in interrupt transactional method</h2>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span> I2C_MasterSignalEvent_t(uint32_t event)</div>
-<div class="line">{</div>
-<div class="line">    <span class="keywordflow">if</span> (event == ARM_I2C_EVENT_TRANSFER_DONE)</div>
-<div class="line">    {</div>
-<div class="line">        g_MasterCompletionFlag = <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="line"><span class="comment">/*Init I2C1*/</span></div>
-<div class="line">Driver_I2C1.Initialize(I2C_MasterSignalEvent_t);</div>
-<div class="line"></div>
-<div class="line">Driver_I2C1.PowerControl(ARM_POWER_FULL);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/*config transmit speed*/</span></div>
-<div class="line">Driver_I2C1.Control(ARM_I2C_BUS_SPEED, ARM_I2C_BUS_SPEED_STANDARD);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/*start transmit*/</span></div>
-<div class="line">Driver_I2C1.MasterTransmit(I2C_MASTER_SLAVE_ADDR, g_master_buff, I2C_DATA_LENGTH, <span class="keyword">false</span>);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/*  Wait for transfer completed. */</span></div>
-<div class="line"><span class="keywordflow">while</span> (!g_MasterCompletionFlag)</div>
-<div class="line">{</div>
-<div class="line">}</div>
-<div class="line">g_MasterCompletionFlag = <span class="keyword">false</span>;</div>
-</div><!-- fragment --><h2><a class="anchor" id="I2CSlaveOpsTransIRQ"></a>
-Slave Operation in interrupt transactional method</h2>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span> I2C_SlaveSignalEvent_t(uint32_t event)</div>
-<div class="line">{</div>
-<div class="line">    <span class="comment">/*  Transfer done */</span></div>
-<div class="line">    <span class="keywordflow">if</span> (event == ARM_I2C_EVENT_TRANSFER_DONE)</div>
-<div class="line">    {</div>
-<div class="line">        g_SlaveCompletionFlag = <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/*Init I2C1*/</span></div>
-<div class="line">Driver_I2C1.Initialize(I2C_SlaveSignalEvent_t);</div>
-<div class="line"></div>
-<div class="line">Driver_I2C1.PowerControl(ARM_POWER_FULL);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/*config slave addr*/</span></div>
-<div class="line">Driver_I2C1.Control(ARM_I2C_OWN_ADDRESS, I2C_MASTER_SLAVE_ADDR);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/*start transfer*/</span></div>
-<div class="line">Driver_I2C1.SlaveReceive(g_slave_buff, I2C_DATA_LENGTH);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/*  Wait for transfer completed. */</span></div>
-<div class="line"><span class="keywordflow">while</span> (!g_SlaveCompletionFlag)</div>
-<div class="line">{</div>
-<div class="line">}</div>
-<div class="line">g_SlaveCompletionFlag = <span class="keyword">false</span>;</div>
-</div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Driver version</h2></td></tr>
+<tr class="memitem:ga10a34b5d38a5ff9822fc444148195799"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html#ga10a34b5d38a5ff9822fc444148195799">FSL_ECSPI_FREERTOS_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00110.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 2, 0))</td></tr>
+<tr class="memdesc:ga10a34b5d38a5ff9822fc444148195799"><td class="mdescLeft">&#160;</td><td class="mdescRight">ECSPI FreeRTOS driver version.  <a href="#ga10a34b5d38a5ff9822fc444148195799">More...</a><br/></td></tr>
+<tr class="separator:ga10a34b5d38a5ff9822fc444148195799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+ECSPI RTOS Operation</h2></td></tr>
+<tr class="memitem:ga7918b90668b02f4d4e996f8176168451"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00110.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html#ga7918b90668b02f4d4e996f8176168451">ECSPI_RTOS_Init</a> (ecspi_rtos_handle_t *handle, ECSPI_Type *base, const <a class="el" href="a00012.html#a00159">ecspi_master_config_t</a> *masterConfig, uint32_t srcClock_Hz)</td></tr>
+<tr class="memdesc:ga7918b90668b02f4d4e996f8176168451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes ECSPI.  <a href="#ga7918b90668b02f4d4e996f8176168451">More...</a><br/></td></tr>
+<tr class="separator:ga7918b90668b02f4d4e996f8176168451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga901f7e93af2ee61c81d4ee0ff4801724"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00110.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html#ga901f7e93af2ee61c81d4ee0ff4801724">ECSPI_RTOS_Deinit</a> (ecspi_rtos_handle_t *handle)</td></tr>
+<tr class="memdesc:ga901f7e93af2ee61c81d4ee0ff4801724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the ECSPI.  <a href="#ga901f7e93af2ee61c81d4ee0ff4801724">More...</a><br/></td></tr>
+<tr class="separator:ga901f7e93af2ee61c81d4ee0ff4801724"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabeedc3019d9f8ba9a20dcee2f9e14d1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00110.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html#gabeedc3019d9f8ba9a20dcee2f9e14d1e">ECSPI_RTOS_Transfer</a> (ecspi_rtos_handle_t *handle, <a class="el" href="a00012.html#a00161">ecspi_transfer_t</a> *transfer)</td></tr>
+<tr class="memdesc:gabeedc3019d9f8ba9a20dcee2f9e14d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs ECSPI transfer.  <a href="#gabeedc3019d9f8ba9a20dcee2f9e14d1e">More...</a><br/></td></tr>
+<tr class="separator:gabeedc3019d9f8ba9a20dcee2f9e14d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ga10a34b5d38a5ff9822fc444148195799"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FSL_ECSPI_FREERTOS_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00110.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 2, 0))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga7918b90668b02f4d4e996f8176168451"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00110.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> ECSPI_RTOS_Init </td>
+          <td>(</td>
+          <td class="paramtype">ecspi_rtos_handle_t *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ECSPI_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00012.html#a00159">ecspi_master_config_t</a> *&#160;</td>
+          <td class="paramname"><em>masterConfig</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>srcClock_Hz</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function initializes the ECSPI module and related RTOS context.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>The RTOS ECSPI handle, the pointer to an allocated space for RTOS context. </td></tr>
+    <tr><td class="paramname">base</td><td>The pointer base address of the ECSPI instance to initialize. </td></tr>
+    <tr><td class="paramname">masterConfig</td><td>Configuration structure to set-up ECSPI in master mode. </td></tr>
+    <tr><td class="paramname">srcClock_Hz</td><td>Frequency of input clock of the ECSPI module. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>status of the operation. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga901f7e93af2ee61c81d4ee0ff4801724"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00110.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> ECSPI_RTOS_Deinit </td>
+          <td>(</td>
+          <td class="paramtype">ecspi_rtos_handle_t *&#160;</td>
+          <td class="paramname"><em>handle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function deinitializes the ECSPI module and related RTOS context.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>The RTOS ECSPI handle. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gabeedc3019d9f8ba9a20dcee2f9e14d1e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00110.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> ECSPI_RTOS_Transfer </td>
+          <td>(</td>
+          <td class="paramtype">ecspi_rtos_handle_t *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00012.html#a00161">ecspi_transfer_t</a> *&#160;</td>
+          <td class="paramname"><em>transfer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function performs an ECSPI transfer according to data given in the transfer structure.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>The RTOS ECSPI handle. </td></tr>
+    <tr><td class="paramname">transfer</td><td>Structure specifying the transfer parameters. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>status of the operation. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.5-->
 <!-- start footer part -->

@@ -1,8 +1,8 @@
-include_guard(GLOBAL)
+include_guard()
 message("device_MIMX8MM6_CMSIS component is included.")
 
 
-target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
+target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
     ${CMAKE_CURRENT_LIST_DIR}/.
 )
 

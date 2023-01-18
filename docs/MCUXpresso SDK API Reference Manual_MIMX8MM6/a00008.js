@@ -1,12 +1,12 @@
 var a00008 =
 [
-    [ "ak4497_dsd_config_t", "a00008.html#a00143", null ],
-    [ "ak4497_pcm_config_t", "a00008.html#a00145", null ],
-    [ "ak4497_config_t", "a00008.html#a00142", [
+    [ "ak4497_dsd_config_t", "a00008.html#a00150", null ],
+    [ "ak4497_pcm_config_t", "a00008.html#a00152", null ],
+    [ "ak4497_config_t", "a00008.html#a00149", [
       [ "slaveAddress", "a00008.html#ab394ff3e2eb7297b95485ae4ed6fb4ca", null ],
       [ "i2cConfig", "a00008.html#a169be037a97014dbdd541f5665395709", null ]
     ] ],
-    [ "ak4497_handle_t", "a00008.html#a00144", [
+    [ "ak4497_handle_t", "a00008.html#a00151", [
       [ "config", "a00008.html#aeb11ca740cf86eaad2264c43ec7ec6a7", null ],
       [ "i2cHandle", "a00008.html#aabadcfec032bd4ee731cd80b802ee6ae", null ]
     ] ],
@@ -75,8 +75,8 @@ var a00008 =
     [ "ak4497_pcm_sds_select_t", "a00008.html#ga94cb16a7bd48cfa091d58474fe0b52af", null ],
     [ "ak4497_module_ctrl_cmd_t", "a00008.html#gac782838ead2e8fbd7a8e7997692e8a31", [
       [ "kAK4497_ModuleSwitchI2SInInterface", "a00008.html#ggac782838ead2e8fbd7a8e7997692e8a31a9e9065c6e69f877eef249bf502dcfd89", null ],
-      [ "kAK4497_ModuleI2SInInterfacePCM", "a00008.html#ggaae05225933a42f81e7c4a9fb286596f9a166b8cd09468429116fc8b61ba6e295c", null ],
-      [ "kAK4497_ModuleI2SInInterfaceDSD", "a00008.html#ggaae05225933a42f81e7c4a9fb286596f9ae148dfe4ea25d41433966056cf2fa0c2", null ]
+      [ "kAK4497_ModuleI2SInInterfacePCM", "a00008.html#gga39fca1837c5ce7715cbf571669660c13a166b8cd09468429116fc8b61ba6e295c", null ],
+      [ "kAK4497_ModuleI2SInInterfaceDSD", "a00008.html#gga39fca1837c5ce7715cbf571669660c13ae148dfe4ea25d41433966056cf2fa0c2", null ]
     ] ],
     [ "AK4497_DefaultConfig", "a00008.html#gaea568b79f6b2a7a1889b1eb83f310d03", null ],
     [ "AK4497_Init", "a00008.html#ga40292276bfeb3f8964b864c49289c053", null ],

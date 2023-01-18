@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['clock_5fcontrolgate',['CLOCK_ControlGate',['../a00009.html#gab9abff80b39b25f79d254576a32e22ae',1,'fsl_clock.h']]],
+  ['clock_5fcontrolgate',['CLOCK_ControlGate',['../a00009.html#gacbfbc399ef842fe2db27e6f9aec259ef',1,'fsl_clock.h']]],
   ['clock_5fdeinitarmpll',['CLOCK_DeinitArmPll',['../a00009.html#gaeb1d262df13a1a00d4092c2d39c67691',1,'fsl_clock.h']]],
   ['clock_5fdeinitaudiopll1',['CLOCK_DeinitAudioPll1',['../a00009.html#ga0ff57fca3dcd0e6d08f38a6252e0482b',1,'fsl_clock.h']]],
   ['clock_5fdeinitaudiopll2',['CLOCK_DeinitAudioPll2',['../a00009.html#ga8c99b8678aaf4e88f62254013ed935e3',1,'fsl_clock.h']]],
@@ -16,7 +16,9 @@ var searchData=
   ['clock_5fenableroot',['CLOCK_EnableRoot',['../a00009.html#ga3161f49728af82a4f33b39eb3f39c65b',1,'fsl_clock.h']]],
   ['clock_5fgetahbfreq',['CLOCK_GetAhbFreq',['../a00009.html#ga0ea673cf8969b18185d388e078d864c6',1,'fsl_clock.h']]],
   ['clock_5fgetaxifreq',['CLOCK_GetAxiFreq',['../a00009.html#ga6ac18d67ffcbf3c5907aa424134cb368',1,'fsl_clock.h']]],
+  ['clock_5fgetclockrootfreq',['CLOCK_GetClockRootFreq',['../a00009.html#ga4e30d8a034f22ac00efd062c2e92a1c6',1,'fsl_clock.h']]],
   ['clock_5fgetcorem4freq',['CLOCK_GetCoreM4Freq',['../a00009.html#ga24c9c1404ffb0e88f4f58e5b79ae8df0',1,'fsl_clock.h']]],
+  ['clock_5fgetenetaxifreq',['CLOCK_GetEnetAxiFreq',['../a00009.html#ga740a05c4f0c7019f6e062021e335aa85',1,'fsl_clock.h']]],
   ['clock_5fgetfracpllfreq',['CLOCK_GetFracPllFreq',['../a00009.html#gacdcd18950c0578e18ddb905909eb724a',1,'fsl_clock.h']]],
   ['clock_5fgetfreq',['CLOCK_GetFreq',['../a00009.html#ga53acae220d651789bb505c53c73ecf2b',1,'fsl_clock.h']]],
   ['clock_5fgetintegerpllfreq',['CLOCK_GetIntegerPllFreq',['../a00009.html#ga16c0fc4b46426d5b00e9057371a72c09',1,'fsl_clock.h']]],

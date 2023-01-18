@@ -4,11 +4,11 @@
 ;            MIMX8MM6_cm4
 ;  @version: 4.0
 ;  @date:    2019-2-18
-;  @build:   b200319
+;  @build:   b220622
 ; -------------------------------------------------------------------------
 ;
 ; Copyright 1997-2016 Freescale Semiconductor, Inc.
-; Copyright 2016-2020 NXP
+; Copyright 2016-2022 NXP
 ; All rights reserved.
 ;
 ; SPDX-License-Identifier: BSD-3-Clause
@@ -187,10 +187,10 @@ __vector_table_0x1c
         DCD     CAAM_ERROR_IRQHandler                         ;Recoverable error interrupt
         DCD     HS_CP0_IRQHandler                             ;HS Interrupt Request
         DCD     Reserved133_IRQHandler                        ;Reserved interrupt
-        DCD     ENET_MAC0_Rx_Tx_Done1_IRQHandler              ;MAC 0 Receive / Trasmit Frame / Buffer Done
-        DCD     ENET_MAC0_Rx_Tx_Done2_IRQHandler              ;MAC 0 Receive / Trasmit Frame / Buffer Done
-        DCD     ENET_IRQHandler                               ;MAC 0 IRQ
-        DCD     ENET_1588_IRQHandler                          ;MAC 0 1588 Timer Interrupt - synchronous
+        DCD     ENET1_MAC0_Rx_Tx_Done1_IRQHandler             ;MAC 0 Receive / Trasmit Frame / Buffer Done
+        DCD     ENET1_MAC0_Rx_Tx_Done2_IRQHandler             ;MAC 0 Receive / Trasmit Frame / Buffer Done
+        DCD     ENET1_IRQHandler                              ;MAC 0 IRQ
+        DCD     ENET1_1588_Timer_IRQHandler                   ;MAC 0 1588 Timer Interrupt - synchronous
         DCD     PCIE_CTRL1_IRQ0_IRQHandler                    ;Coming from GLUE logic, of set / reset FF, driven by PCIE signals.
         DCD     PCIE_CTRL1_IRQ1_IRQHandler                    ;Coming from GLUE logic, of set / reset FF, driven by PCIE signals.
         DCD     PCIE_CTRL1_IRQ2_IRQHandler                    ;Coming from GLUE logic, of set / reset FF, driven by PCIE signals.
@@ -422,7 +422,19 @@ I2C4_IRQHandler
         PUBWEAK Reserved58_IRQHandler
         PUBWEAK Reserved59_IRQHandler
         PUBWEAK PDM_HWVAD_EVENT_IRQHandler
+        PUBWEAK PDM_HWVAD_EVENT_DriverIRQHandler
+        SECTION .text:CODE:REORDER:NOROOT(2)
+PDM_HWVAD_EVENT_IRQHandler
+        LDR     R0, =PDM_HWVAD_EVENT_DriverIRQHandler
+        BX      R0
+
         PUBWEAK PDM_HWVAD_ERROR_IRQHandler
+        PUBWEAK PDM_HWVAD_ERROR_DriverIRQHandler
+        SECTION .text:CODE:REORDER:NOROOT(2)
+PDM_HWVAD_ERROR_IRQHandler
+        LDR     R0, =PDM_HWVAD_ERROR_DriverIRQHandler
+        BX      R0
+
         PUBWEAK GPT6_IRQHandler
         PUBWEAK SCTR_IRQ0_IRQHandler
         PUBWEAK SCTR_IRQ1_IRQHandler
@@ -537,32 +549,32 @@ PDM_EVENT_IRQHandler
         PUBWEAK CAAM_ERROR_IRQHandler
         PUBWEAK HS_CP0_IRQHandler
         PUBWEAK Reserved133_IRQHandler
-        PUBWEAK ENET_MAC0_Rx_Tx_Done1_IRQHandler
-        PUBWEAK ENET_MAC0_Rx_Tx_Done1_DriverIRQHandler
+        PUBWEAK ENET1_MAC0_Rx_Tx_Done1_IRQHandler
+        PUBWEAK ENET1_MAC0_Rx_Tx_Done1_DriverIRQHandler
         SECTION .text:CODE:REORDER:NOROOT(2)
-ENET_MAC0_Rx_Tx_Done1_IRQHandler
-        LDR     R0, =ENET_MAC0_Rx_Tx_Done1_DriverIRQHandler
+ENET1_MAC0_Rx_Tx_Done1_IRQHandler
+        LDR     R0, =ENET1_MAC0_Rx_Tx_Done1_DriverIRQHandler
         BX      R0
 
-        PUBWEAK ENET_MAC0_Rx_Tx_Done2_IRQHandler
-        PUBWEAK ENET_MAC0_Rx_Tx_Done2_DriverIRQHandler
+        PUBWEAK ENET1_MAC0_Rx_Tx_Done2_IRQHandler
+        PUBWEAK ENET1_MAC0_Rx_Tx_Done2_DriverIRQHandler
         SECTION .text:CODE:REORDER:NOROOT(2)
-ENET_MAC0_Rx_Tx_Done2_IRQHandler
-        LDR     R0, =ENET_MAC0_Rx_Tx_Done2_DriverIRQHandler
+ENET1_MAC0_Rx_Tx_Done2_IRQHandler
+        LDR     R0, =ENET1_MAC0_Rx_Tx_Done2_DriverIRQHandler
         BX      R0
 
-        PUBWEAK ENET_IRQHandler
-        PUBWEAK ENET_DriverIRQHandler
+        PUBWEAK ENET1_IRQHandler
+        PUBWEAK ENET1_DriverIRQHandler
         SECTION .text:CODE:REORDER:NOROOT(2)
-ENET_IRQHandler
-        LDR     R0, =ENET_DriverIRQHandler
+ENET1_IRQHandler
+        LDR     R0, =ENET1_DriverIRQHandler
         BX      R0
 
-        PUBWEAK ENET_1588_IRQHandler
-        PUBWEAK ENET_1588_DriverIRQHandler
+        PUBWEAK ENET1_1588_Timer_IRQHandler
+        PUBWEAK ENET1_1588_Timer_DriverIRQHandler
         SECTION .text:CODE:REORDER:NOROOT(2)
-ENET_1588_IRQHandler
-        LDR     R0, =ENET_1588_DriverIRQHandler
+ENET1_1588_Timer_IRQHandler
+        LDR     R0, =ENET1_1588_Timer_DriverIRQHandler
         BX      R0
 
         PUBWEAK PCIE_CTRL1_IRQ0_IRQHandler
@@ -617,8 +629,8 @@ USB1_IRQHandler
 USB2_IRQHandler
 Reserved58_IRQHandler
 Reserved59_IRQHandler
-PDM_HWVAD_EVENT_IRQHandler
-PDM_HWVAD_ERROR_IRQHandler
+PDM_HWVAD_EVENT_DriverIRQHandler
+PDM_HWVAD_ERROR_DriverIRQHandler
 GPT6_IRQHandler
 SCTR_IRQ0_IRQHandler
 SCTR_IRQ1_IRQHandler
@@ -691,10 +703,10 @@ CAAM_IRQ2_IRQHandler
 CAAM_ERROR_IRQHandler
 HS_CP0_IRQHandler
 Reserved133_IRQHandler
-ENET_MAC0_Rx_Tx_Done1_DriverIRQHandler
-ENET_MAC0_Rx_Tx_Done2_DriverIRQHandler
-ENET_DriverIRQHandler
-ENET_1588_DriverIRQHandler
+ENET1_MAC0_Rx_Tx_Done1_DriverIRQHandler
+ENET1_MAC0_Rx_Tx_Done2_DriverIRQHandler
+ENET1_DriverIRQHandler
+ENET1_1588_Timer_DriverIRQHandler
 PCIE_CTRL1_IRQ0_IRQHandler
 PCIE_CTRL1_IRQ1_IRQHandler
 PCIE_CTRL1_IRQ2_IRQHandler

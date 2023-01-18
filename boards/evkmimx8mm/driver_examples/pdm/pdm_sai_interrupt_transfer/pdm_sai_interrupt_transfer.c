@@ -32,7 +32,7 @@
 
 #define DEMO_SAI                 (I2S3)
 #define DEMO_SAI_CLK_FREQ        (24576000U)
-#define DEMO_SAI_FIFO_WATER_MARK (FSL_FEATURE_SAI_FIFO_COUNT / 2U)
+#define DEMO_SAI_FIFO_WATER_MARK (FSL_FEATURE_SAI_FIFO_COUNTn(DEMO_SAI) / 2U)
 #define DEMO_SAI_CLOCK_SOURCE    (kSAI_BclkSourceMclkDiv)
 #define DEMO_SAI_MASTER_SLAVE    kSAI_Master
 #define DEMO_SAI_CHANNEL         0U
@@ -91,7 +91,11 @@ static pdm_channel_config_t channelConfig = {
 #else
     .cutOffFreq = kPDM_DcRemoverCutOff152Hz,
 #endif
-    .gain = kPDM_DfOutputGain7,
+#ifdef DEMO_PDM_CHANNEL_GAIN
+    .gain = DEMO_PDM_CHANNEL_GAIN,
+#else
+    .gain       = kPDM_DfOutputGain7,
+#endif
 };
 
 codec_handle_t codecHandle;

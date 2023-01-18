@@ -1,21 +1,17 @@
 var a00028 =
 [
-    [ "uart_sdma_handle_t", "a00028.html#a00141", [
-      [ "callback", "a00028.html#a9bfac94dfa351480c7758f6eec951581", null ],
-      [ "userData", "a00028.html#a5acf81152cc288fefcd6529d50bc48b9", null ],
-      [ "rxDataSizeAll", "a00028.html#a5a78ec231b140dac6e2fde9f6b5bb88a", null ],
-      [ "txDataSizeAll", "a00028.html#ad53a7811ce1a24530f07b181194af6ce", null ],
-      [ "txSdmaHandle", "a00028.html#af638c5d4399fc677a928e6608a993eb4", null ],
-      [ "rxSdmaHandle", "a00028.html#a22b55cccadd9c0b5de6a5245e14600b2", null ],
-      [ "txState", "a00028.html#ac512e5cf0122162333483871e8ae055d", null ],
-      [ "rxState", "a00028.html#a38bcebb7fe84e03118f3dd231d99e883", null ]
+    [ "uart_rtos_config_t", "a00028.html#a00218", [
+      [ "base", "a00028.html#af93759d3503ab560aef347c02e5f42dd", null ],
+      [ "srcclk", "a00028.html#aaa9ea3cb62d50a49b907b1baddbeeaa0", null ],
+      [ "baudrate", "a00028.html#a3a516fb385a59c89720a3dead326df78", null ],
+      [ "parity", "a00028.html#a8d8809aff183104892d30cc0734679bd", null ],
+      [ "stopbits", "a00028.html#a2afb208100058edfc05aa161e555483f", null ],
+      [ "buffer", "a00028.html#ad05b4abce6a95baa7ba35eaa57569cfe", null ],
+      [ "buffer_size", "a00028.html#a7b7d6d667f6e06c720f506a07869e14d", null ]
     ] ],
-    [ "FSL_UART_SDMA_DRIVER_VERSION", "a00028.html#gaec24d47dcc6d0244294a3cd5e59944aa", null ],
-    [ "uart_sdma_transfer_callback_t", "a00028.html#ga99bbb5bd4c0958a0440d34d4000f24f0", null ],
-    [ "UART_TransferCreateHandleSDMA", "a00028.html#ga0c50f5dc5bfdd56a6d3100b0bd7c7253", null ],
-    [ "UART_SendSDMA", "a00028.html#ga38a0db46c56cc3ddf78142c88ad70669", null ],
-    [ "UART_ReceiveSDMA", "a00028.html#gac01a1eba1e297b0d7f48324c7a994bf3", null ],
-    [ "UART_TransferAbortSendSDMA", "a00028.html#ga4b8434c55fd82a8bb22e4b5b8adeb1b4", null ],
-    [ "UART_TransferAbortReceiveSDMA", "a00028.html#ga3d2e02cef72ee6ad5d24e999ab661e3b", null ],
-    [ "UART_TransferSdmaHandleIRQ", "a00028.html#ga8ec3b453066422fbaa7b2928b7890123", null ]
+    [ "FSL_UART_FREERTOS_DRIVER_VERSION", "a00028.html#ga0023d77491809dff862358266574febb", null ],
+    [ "UART_RTOS_Init", "a00028.html#ga1ca9d0f6b8d4d5fc3e64c9a57d7ada7d", null ],
+    [ "UART_RTOS_Deinit", "a00028.html#gab7ac281cb85e1d290c8f25c83a6facfc", null ],
+    [ "UART_RTOS_Send", "a00028.html#gac14fc0e6c6cac6818958e92d2f8950bb", null ],
+    [ "UART_RTOS_Receive", "a00028.html#gaa8adcb11232b565985f3f5961815a00c", null ]
 ];
