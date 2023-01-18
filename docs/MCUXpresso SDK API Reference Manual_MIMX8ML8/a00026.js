@@ -1,6 +1,6 @@
 var a00026 =
 [
-    [ "tmu_threshold_config_t", "a00026.html#a00227", [
+    [ "tmu_threshold_config_t", "a00026.html#a00226", [
       [ "immediateThresholdEnable", "a00026.html#abe20b7664069d1b8bb273328614171be", null ],
       [ "AverageThresholdEnable", "a00026.html#af27870280975a4be40a6c1b9b1f5101a", null ],
       [ "AverageCriticalThresholdEnable", "a00026.html#a4cd10aafd01f7abecf9aad7851e57d72", null ],
@@ -11,7 +11,7 @@ var a00026 =
       [ "averageThresholdValueOfRemoteProbe", "a00026.html#adbfe61ba5ddc5e3768696d175d71b63b", null ],
       [ "averageCriticalThresholdValueOfRemoteProbe", "a00026.html#aa7442e5e6a7a99bb56d8b4a0dd007188", null ]
     ] ],
-    [ "tmu_config_t", "a00026.html#a00226", [
+    [ "tmu_config_t", "a00026.html#a00225", [
       [ "probeSelect", "a00026.html#a02911799dd05ca9f99d4bea240e637c3", null ],
       [ "averageLPF", "a00026.html#a19cb414c5a89d06931bb5d3f48ba64c2", null ],
       [ "thresholdConfig", "a00026.html#a8a7d2ec898be517f1aa5b163520aec1d", null ]

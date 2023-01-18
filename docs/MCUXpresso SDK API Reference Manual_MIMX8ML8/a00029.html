@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.12.1</span>
+   &#160;<span id="projectnumber">Rev 2.13.0</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -102,38 +102,38 @@ $(document).ready(function(){initNavTree('a00029.html','');});
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">UART SDMA Driver<div class="ingroups"><a class="el" href="a00124.html">UART: Universal Asynchronous Receiver/Transmitter Driver</a></div></div>  </div>
+<div class="title">UART SDMA Driver<div class="ingroups"><a class="el" href="a00123.html">UART: Universal Asynchronous Receiver/Transmitter Driver</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:a00154"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#a00154">uart_sdma_handle_t</a></td></tr>
-<tr class="memdesc:a00154"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART sDMA handle.  <a href="a00029.html#a00154">More...</a><br/></td></tr>
-<tr class="separator:a00154"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00153"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#a00153">uart_sdma_handle_t</a></td></tr>
+<tr class="memdesc:a00153"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART sDMA handle.  <a href="a00029.html#a00153">More...</a><br/></td></tr>
+<tr class="separator:a00153"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ga99bbb5bd4c0958a0440d34d4000f24f0"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#ga99bbb5bd4c0958a0440d34d4000f24f0">uart_sdma_transfer_callback_t</a> )(UART_Type *base, uart_sdma_handle_t *handle, <a class="el" href="a00114.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> status, void *userData)</td></tr>
+<tr class="memitem:ga99bbb5bd4c0958a0440d34d4000f24f0"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#ga99bbb5bd4c0958a0440d34d4000f24f0">uart_sdma_transfer_callback_t</a> )(UART_Type *base, uart_sdma_handle_t *handle, <a class="el" href="a00113.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> status, void *userData)</td></tr>
 <tr class="memdesc:ga99bbb5bd4c0958a0440d34d4000f24f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART transfer callback function.  <a href="#ga99bbb5bd4c0958a0440d34d4000f24f0">More...</a><br/></td></tr>
 <tr class="separator:ga99bbb5bd4c0958a0440d34d4000f24f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
-<tr class="memitem:gaec24d47dcc6d0244294a3cd5e59944aa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#gaec24d47dcc6d0244294a3cd5e59944aa">FSL_UART_SDMA_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00114.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 3, 0))</td></tr>
+<tr class="memitem:gaec24d47dcc6d0244294a3cd5e59944aa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#gaec24d47dcc6d0244294a3cd5e59944aa">FSL_UART_SDMA_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00113.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 3, 0))</td></tr>
 <tr class="memdesc:gaec24d47dcc6d0244294a3cd5e59944aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART SDMA driver version.  <a href="#gaec24d47dcc6d0244294a3cd5e59944aa">More...</a><br/></td></tr>
 <tr class="separator:gaec24d47dcc6d0244294a3cd5e59944aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 sDMA transactional</h2></td></tr>
-<tr class="memitem:ga0c50f5dc5bfdd56a6d3100b0bd7c7253"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#ga0c50f5dc5bfdd56a6d3100b0bd7c7253">UART_TransferCreateHandleSDMA</a> (UART_Type *base, uart_sdma_handle_t *handle, <a class="el" href="a00029.html#ga99bbb5bd4c0958a0440d34d4000f24f0">uart_sdma_transfer_callback_t</a> callback, void *userData, <a class="el" href="a00023.html#a00218">sdma_handle_t</a> *txSdmaHandle, <a class="el" href="a00023.html#a00218">sdma_handle_t</a> *rxSdmaHandle, uint32_t eventSourceTx, uint32_t eventSourceRx)</td></tr>
+<tr class="memitem:ga0c50f5dc5bfdd56a6d3100b0bd7c7253"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#ga0c50f5dc5bfdd56a6d3100b0bd7c7253">UART_TransferCreateHandleSDMA</a> (UART_Type *base, uart_sdma_handle_t *handle, <a class="el" href="a00029.html#ga99bbb5bd4c0958a0440d34d4000f24f0">uart_sdma_transfer_callback_t</a> callback, void *userData, <a class="el" href="a00023.html#a00217">sdma_handle_t</a> *txSdmaHandle, <a class="el" href="a00023.html#a00217">sdma_handle_t</a> *rxSdmaHandle, uint32_t eventSourceTx, uint32_t eventSourceRx)</td></tr>
 <tr class="memdesc:ga0c50f5dc5bfdd56a6d3100b0bd7c7253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the UART handle which is used in transactional functions.  <a href="#ga0c50f5dc5bfdd56a6d3100b0bd7c7253">More...</a><br/></td></tr>
 <tr class="separator:ga0c50f5dc5bfdd56a6d3100b0bd7c7253"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga38a0db46c56cc3ddf78142c88ad70669"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00114.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#ga38a0db46c56cc3ddf78142c88ad70669">UART_SendSDMA</a> (UART_Type *base, uart_sdma_handle_t *handle, <a class="el" href="a00027.html#a00230">uart_transfer_t</a> *xfer)</td></tr>
+<tr class="memitem:ga38a0db46c56cc3ddf78142c88ad70669"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#ga38a0db46c56cc3ddf78142c88ad70669">UART_SendSDMA</a> (UART_Type *base, uart_sdma_handle_t *handle, <a class="el" href="a00027.html#a00229">uart_transfer_t</a> *xfer)</td></tr>
 <tr class="memdesc:ga38a0db46c56cc3ddf78142c88ad70669"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends data using sDMA.  <a href="#ga38a0db46c56cc3ddf78142c88ad70669">More...</a><br/></td></tr>
 <tr class="separator:ga38a0db46c56cc3ddf78142c88ad70669"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac01a1eba1e297b0d7f48324c7a994bf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00114.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#gac01a1eba1e297b0d7f48324c7a994bf3">UART_ReceiveSDMA</a> (UART_Type *base, uart_sdma_handle_t *handle, <a class="el" href="a00027.html#a00230">uart_transfer_t</a> *xfer)</td></tr>
+<tr class="memitem:gac01a1eba1e297b0d7f48324c7a994bf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#gac01a1eba1e297b0d7f48324c7a994bf3">UART_ReceiveSDMA</a> (UART_Type *base, uart_sdma_handle_t *handle, <a class="el" href="a00027.html#a00229">uart_transfer_t</a> *xfer)</td></tr>
 <tr class="memdesc:gac01a1eba1e297b0d7f48324c7a994bf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives data using sDMA.  <a href="#gac01a1eba1e297b0d7f48324c7a994bf3">More...</a><br/></td></tr>
 <tr class="separator:gac01a1eba1e297b0d7f48324c7a994bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4b8434c55fd82a8bb22e4b5b8adeb1b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#ga4b8434c55fd82a8bb22e4b5b8adeb1b4">UART_TransferAbortSendSDMA</a> (UART_Type *base, uart_sdma_handle_t *handle)</td></tr>
@@ -147,7 +147,7 @@ sDMA transactional</h2></td></tr>
 <tr class="separator:ga8ec3b453066422fbaa7b2928b7890123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="a00154" id="a00154"></a>
+<a name="a00153" id="a00153"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -170,10 +170,10 @@ sDMA transactional</h2></td></tr>
 <tr class="memitem:ad53a7811ce1a24530f07b181194af6ce"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#ad53a7811ce1a24530f07b181194af6ce">txDataSizeAll</a></td></tr>
 <tr class="memdesc:ad53a7811ce1a24530f07b181194af6ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the data to send out.  <a href="#ad53a7811ce1a24530f07b181194af6ce">More...</a><br/></td></tr>
 <tr class="separator:ad53a7811ce1a24530f07b181194af6ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af638c5d4399fc677a928e6608a993eb4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00023.html#a00218">sdma_handle_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#af638c5d4399fc677a928e6608a993eb4">txSdmaHandle</a></td></tr>
+<tr class="memitem:af638c5d4399fc677a928e6608a993eb4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00023.html#a00217">sdma_handle_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#af638c5d4399fc677a928e6608a993eb4">txSdmaHandle</a></td></tr>
 <tr class="memdesc:af638c5d4399fc677a928e6608a993eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The sDMA TX channel used.  <a href="#af638c5d4399fc677a928e6608a993eb4">More...</a><br/></td></tr>
 <tr class="separator:af638c5d4399fc677a928e6608a993eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22b55cccadd9c0b5de6a5245e14600b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00023.html#a00218">sdma_handle_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#a22b55cccadd9c0b5de6a5245e14600b2">rxSdmaHandle</a></td></tr>
+<tr class="memitem:a22b55cccadd9c0b5de6a5245e14600b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00023.html#a00217">sdma_handle_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#a22b55cccadd9c0b5de6a5245e14600b2">rxSdmaHandle</a></td></tr>
 <tr class="memdesc:a22b55cccadd9c0b5de6a5245e14600b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The sDMA RX channel used.  <a href="#a22b55cccadd9c0b5de6a5245e14600b2">More...</a><br/></td></tr>
 <tr class="separator:a22b55cccadd9c0b5de6a5245e14600b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac512e5cf0122162333483871e8ae055d"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00029.html#ac512e5cf0122162333483871e8ae055d">txState</a></td></tr>
@@ -238,7 +238,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00023.html#a00218">sdma_handle_t</a>* uart_sdma_handle_t::txSdmaHandle</td>
+          <td class="memname"><a class="el" href="a00023.html#a00217">sdma_handle_t</a>* uart_sdma_handle_t::txSdmaHandle</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -250,7 +250,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00023.html#a00218">sdma_handle_t</a>* uart_sdma_handle_t::rxSdmaHandle</td>
+          <td class="memname"><a class="el" href="a00023.html#a00217">sdma_handle_t</a>* uart_sdma_handle_t::rxSdmaHandle</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -278,7 +278,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FSL_UART_SDMA_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00114.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 3, 0))</td>
+          <td class="memname">#define FSL_UART_SDMA_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00113.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 3, 0))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -291,7 +291,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef void(* uart_sdma_transfer_callback_t)(UART_Type *base, uart_sdma_handle_t *handle, <a class="el" href="a00114.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> status, void *userData)</td>
+          <td class="memname">typedef void(* uart_sdma_transfer_callback_t)(UART_Type *base, uart_sdma_handle_t *handle, <a class="el" href="a00113.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> status, void *userData)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -330,13 +330,13 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00023.html#a00218">sdma_handle_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00023.html#a00217">sdma_handle_t</a> *&#160;</td>
           <td class="paramname"><em>txSdmaHandle</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00023.html#a00218">sdma_handle_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00023.html#a00217">sdma_handle_t</a> *&#160;</td>
           <td class="paramname"><em>rxSdmaHandle</em>, </td>
         </tr>
         <tr>
@@ -379,7 +379,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00114.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> UART_SendSDMA </td>
+          <td class="memname"><a class="el" href="a00113.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> UART_SendSDMA </td>
           <td>(</td>
           <td class="paramtype">UART_Type *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -393,7 +393,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00027.html#a00230">uart_transfer_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a00229">uart_transfer_t</a> *&#160;</td>
           <td class="paramname"><em>xfer</em>&#160;</td>
         </tr>
         <tr>
@@ -408,7 +408,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
   <table class="params">
     <tr><td class="paramname">base</td><td>UART peripheral base address. </td></tr>
     <tr><td class="paramname">handle</td><td>UART handle pointer. </td></tr>
-    <tr><td class="paramname">xfer</td><td>UART sDMA transfer structure. See <a class="el" href="a00027.html#a00230" title="UART transfer structure. ">uart_transfer_t</a>. </td></tr>
+    <tr><td class="paramname">xfer</td><td>UART sDMA transfer structure. See <a class="el" href="a00027.html#a00229" title="UART transfer structure. ">uart_transfer_t</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -428,7 +428,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00114.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> UART_ReceiveSDMA </td>
+          <td class="memname"><a class="el" href="a00113.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> UART_ReceiveSDMA </td>
           <td>(</td>
           <td class="paramtype">UART_Type *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -442,7 +442,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00027.html#a00230">uart_transfer_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a00229">uart_transfer_t</a> *&#160;</td>
           <td class="paramname"><em>xfer</em>&#160;</td>
         </tr>
         <tr>
@@ -457,7 +457,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
   <table class="params">
     <tr><td class="paramname">base</td><td>UART peripheral base address. </td></tr>
     <tr><td class="paramname">handle</td><td>Pointer to the uart_sdma_handle_t structure. </td></tr>
-    <tr><td class="paramname">xfer</td><td>UART sDMA transfer structure. See <a class="el" href="a00027.html#a00230" title="UART transfer structure. ">uart_transfer_t</a>. </td></tr>
+    <tr><td class="paramname">xfer</td><td>UART sDMA transfer structure. See <a class="el" href="a00027.html#a00229" title="UART transfer structure. ">uart_transfer_t</a>. </td></tr>
   </table>
   </dd>
 </dl>

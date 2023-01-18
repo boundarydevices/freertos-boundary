@@ -1,6 +1,6 @@
 var a00022 =
 [
-    [ "sai_sdma_handle_t", "a00022.html#a00152", [
+    [ "sai_sdma_handle_t", "a00022.html#a00151", [
       [ "dmaHandle", "a00022.html#a7771c623613c03018e26d1b9744e384b", null ],
       [ "bytesPerFrame", "a00022.html#abd9f526b0ce960a0501bc496db79eaa1", null ],
       [ "channel", "a00022.html#a63354dffe03c53eda17b58fdb477ba0a", null ],

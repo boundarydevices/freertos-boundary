@@ -27,6 +27,6 @@ var searchData=
   ['serial_5fmanager_5ftype_5ft',['serial_manager_type_t',['../a00024.html#ga7799e0e52d9e9fe5bf5198f0a337331d',1,'fsl_component_serial_manager.h']]],
   ['serial_5fport_5fswo_5fprotocol_5ft',['serial_port_swo_protocol_t',['../a00025.html#gab72244db50e88efd6d079d157558932d',1,'fsl_component_serial_port_swo.h']]],
   ['serial_5fport_5ftype_5ft',['serial_port_type_t',['../a00024.html#ga103db7d7f3fc8234978efadef0fdaf80',1,'fsl_component_serial_manager.h']]],
-  ['serial_5fport_5fuart_5fparity_5fmode_5ft',['serial_port_uart_parity_mode_t',['../a00137.html#ga89a4bbed0c24cfe5e085194add680ccc',1,'fsl_component_serial_port_uart.h']]],
-  ['serial_5fport_5fuart_5fstop_5fbit_5fcount_5ft',['serial_port_uart_stop_bit_count_t',['../a00137.html#ga8bdf0213026f54fd54c21971e07f2d56',1,'fsl_component_serial_port_uart.h']]]
+  ['serial_5fport_5fuart_5fparity_5fmode_5ft',['serial_port_uart_parity_mode_t',['../a00136.html#ga89a4bbed0c24cfe5e085194add680ccc',1,'fsl_component_serial_port_uart.h']]],
+  ['serial_5fport_5fuart_5fstop_5fbit_5fcount_5ft',['serial_port_uart_stop_bit_count_t',['../a00136.html#ga8bdf0213026f54fd54c21971e07f2d56',1,'fsl_component_serial_port_uart.h']]]
 ];

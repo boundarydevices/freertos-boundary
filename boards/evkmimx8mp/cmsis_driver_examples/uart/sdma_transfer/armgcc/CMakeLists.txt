@@ -24,7 +24,13 @@ SET(LIBRARY_OUTPUT_PATH ${ProjDirPath}/${CMAKE_BUILD_TYPE})
 
 project(cmsis_iuart_sdma_transfer)
 
+set(MCUX_BUILD_TYPES debug release ddr_debug ddr_release)
+
 set(MCUX_SDK_PROJECT_NAME cmsis_iuart_sdma_transfer.elf)
+
+if (NOT DEFINED SdkRootDirPath)
+    SET(SdkRootDirPath ${ProjDirPath}/../../../../../..)
+endif()
 
 include(${ProjDirPath}/flags.cmake)
 
@@ -43,20 +49,20 @@ add_executable(${MCUX_SDK_PROJECT_NAME}
 "${ProjDirPath}/../empty_rsc_table.c"
 )
 
-target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
+target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
     ${ProjDirPath}/..
 )
 
 set(CMAKE_MODULE_PATH
-    ${ProjDirPath}/../../../../../../devices/MIMX8ML8/drivers
-    ${ProjDirPath}/../../../../../../devices/MIMX8ML8/utilities/debug_console_lite
-    ${ProjDirPath}/../../../../../../devices/MIMX8ML8/cmsis_drivers
-    ${ProjDirPath}/../../../../../../devices/MIMX8ML8
-    ${ProjDirPath}/../../../../../../components/uart
-    ${ProjDirPath}/../../../../../../components/lists
-    ${ProjDirPath}/../../../../../../CMSIS/Core/Include
-    ${ProjDirPath}/../../../../../../CMSIS/Driver/Include
-    ${ProjDirPath}/../../../../../../devices/MIMX8ML8/utilities
+    ${SdkRootDirPath}/devices/MIMX8ML8/drivers
+    ${SdkRootDirPath}/devices/MIMX8ML8/utilities
+    ${SdkRootDirPath}/devices/MIMX8ML8/utilities/debug_console_lite
+    ${SdkRootDirPath}/devices/MIMX8ML8/cmsis_drivers
+    ${SdkRootDirPath}/devices/MIMX8ML8
+    ${SdkRootDirPath}/components/uart
+    ${SdkRootDirPath}/components/lists
+    ${SdkRootDirPath}/CMSIS/Core/Include
+    ${SdkRootDirPath}/CMSIS/Driver/Include
 )
 
 # include modules
@@ -101,15 +107,13 @@ include(utilities_misc_utilities_MIMX8ML8)
 include(device_MIMX8ML8_system_MIMX8ML8)
 
 
+IF(NOT DEFINED TARGET_LINK_SYSTEM_LIBRARIES)  
+    SET(TARGET_LINK_SYSTEM_LIBRARIES "-lm -lc -lgcc -lnosys")  
+ENDIF()  
+
 TARGET_LINK_LIBRARIES(${MCUX_SDK_PROJECT_NAME} PRIVATE -Wl,--start-group)
 
-target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE m)
-
-target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE c)
-
-target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE gcc)
-
-target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE nosys)
+target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE ${TARGET_LINK_SYSTEM_LIBRARIES})
 
 TARGET_LINK_LIBRARIES(${MCUX_SDK_PROJECT_NAME} PRIVATE -Wl,--end-group)
 

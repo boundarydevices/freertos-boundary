@@ -9,7 +9,7 @@ The outputs can be observed by oscilloscope.
 
 Toolchain supported
 ===================
-- IAR embedded Workbench  9.30.1
+- IAR embedded Workbench  9.32.1
 - GCC ARM Embedded  10.3.1
 
 Hardware requirements

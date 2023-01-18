@@ -1,24 +1,24 @@
 var a00023 =
 [
-    [ "sdma_config_t", "a00023.html#a00216", [
+    [ "sdma_config_t", "a00023.html#a00215", [
       [ "enableRealTimeDebugPin", "a00023.html#a82b3d4ea81f30cf4c687dc0fc2f1adbe", null ],
       [ "isSoftwareResetClearLock", "a00023.html#a69fe3d3e41b8c4f6b48fecc3d8e11a97", null ],
       [ "ratio", "a00023.html#a20bd6f6adea6bbdc51fcf0b1d4331ba5", null ]
     ] ],
-    [ "sdma_multi_fifo_config_t", "a00023.html#a00219", [
+    [ "sdma_multi_fifo_config_t", "a00023.html#a00218", [
       [ "fifoNums", "a00023.html#a6c16aec711b063ef52d67b14a301dc87", null ],
       [ "fifoOffset", "a00023.html#a6fb514a882f3632c19e0946c8ade4542", null ]
     ] ],
-    [ "sdma_sw_done_config_t", "a00023.html#a00221", [
+    [ "sdma_sw_done_config_t", "a00023.html#a00220", [
       [ "enableSwDone", "a00023.html#a29c406e4d0bdcbb476ab3794fedab35f", null ],
       [ "swDoneSel", "a00023.html#aab2a045d8ef6dc537cd45c2a11a4b0ba", null ]
     ] ],
-    [ "sdma_p2p_config_t", "a00023.html#a00220", [
+    [ "sdma_p2p_config_t", "a00023.html#a00219", [
       [ "sourceWatermark", "a00023.html#aabfe8fee8113d5129393572ea4b1c246", null ],
       [ "destWatermark", "a00023.html#a7812f989ff1b1d609cec77763b09eb4b", null ],
       [ "continuousTransfer", "a00023.html#ac257f2b4aebfce971cf2418a5e0ece17", null ]
     ] ],
-    [ "sdma_transfer_config_t", "a00023.html#a00222", [
+    [ "sdma_transfer_config_t", "a00023.html#a00221", [
       [ "srcAddr", "a00023.html#a7d8132828202b8416a29d552264832ba", null ],
       [ "destAddr", "a00023.html#a6713619d134c3a690657999b187fae06", null ],
       [ "srcTransferSize", "a00023.html#a4a1e7cb8f3826dc03a93a91bbbe8773c", null ],
@@ -37,23 +37,23 @@ var a00023 =
       [ "eventMask0", "a00023.html#a444748e8d9e4c0ddeeb086bfb28a80ec", null ],
       [ "eventMask1", "a00023.html#a91054cb734d533145b3c195ae787558e", null ]
     ] ],
-    [ "sdma_buffer_descriptor_t", "a00023.html#a00214", [
+    [ "sdma_buffer_descriptor_t", "a00023.html#a00213", [
       [ "count", "a00023.html#a7e3dd458ec183d4ca8179b9ad649b63a", null ],
       [ "status", "a00023.html#a9ec79aafebe5c93f1d538ce2551140c7", null ],
       [ "command", "a00023.html#a439f34551c2e8d13150a8f60768beb49", null ],
       [ "bufferAddr", "a00023.html#a2ddf152ce09e41d6890dead8c15142ea", null ],
       [ "extendBufferAddr", "a00023.html#aa960c896fade6283619fde1236de022b", null ]
     ] ],
-    [ "sdma_channel_control_t", "a00023.html#a00215", [
+    [ "sdma_channel_control_t", "a00023.html#a00214", [
       [ "currentBDAddr", "a00023.html#a7784ee8d1e42b9f35fecbddfb2c26df1", null ],
       [ "baseBDAddr", "a00023.html#acb0cc52393d44bc2bd25dbfcf4c76e05", null ],
       [ "channelDesc", "a00023.html#a09442829bd9d69cc30df580dc711c8d2", null ],
       [ "status", "a00023.html#a7af38afcb4ea94a5863e23e840c94d83", null ]
     ] ],
-    [ "sdma_context_data_t", "a00023.html#a00217", [
+    [ "sdma_context_data_t", "a00023.html#a00216", [
       [ "GeneralReg", "a00023.html#afbbb4a2f495ee70dedcc11179f0661db", null ]
     ] ],
-    [ "sdma_handle_t", "a00023.html#a00218", [
+    [ "sdma_handle_t", "a00023.html#a00217", [
       [ "callback", "a00023.html#a34cac4d5f1fda259609f0b047fae5ca7", null ],
       [ "userData", "a00023.html#a12a0aa1a191f006c1525bd4e2824af84", null ],
       [ "base", "a00023.html#a67a8c4e55fa8d248bd6436e079cbd690", null ],

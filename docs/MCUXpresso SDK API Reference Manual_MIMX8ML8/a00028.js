@@ -1,6 +1,6 @@
 var a00028 =
 [
-    [ "uart_rtos_config_t", "a00028.html#a00229", [
+    [ "uart_rtos_config_t", "a00028.html#a00228", [
       [ "base", "a00028.html#af93759d3503ab560aef347c02e5f42dd", null ],
       [ "srcclk", "a00028.html#aaa9ea3cb62d50a49b907b1baddbeeaa0", null ],
       [ "baudrate", "a00028.html#a3a516fb385a59c89720a3dead326df78", null ],

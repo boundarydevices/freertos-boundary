@@ -1,6 +1,6 @@
 var a00012 =
 [
-    [ "ecspi_channel_config_t", "a00012.html#a00170", [
+    [ "ecspi_channel_config_t", "a00012.html#a00169", [
       [ "channelMode", "a00012.html#ae4b6b855f5d5202d69995657f6b495f9", null ],
       [ "clockInactiveState", "a00012.html#aa08cd8243e60e65e43e5425c8a560a07", null ],
       [ "dataLineInactiveState", "a00012.html#a9ad22b79de30e56cb705c239c7bb62fd", null ],
@@ -8,7 +8,7 @@ var a00012 =
       [ "polarity", "a00012.html#aa6327b0a05d54c85c01ca246e86b50c4", null ],
       [ "phase", "a00012.html#aad4e0d3e01790b01e7c0ca7c6c5920af", null ]
     ] ],
-    [ "ecspi_master_config_t", "a00012.html#a00171", [
+    [ "ecspi_master_config_t", "a00012.html#a00170", [
       [ "channel", "a00012.html#ab7f80a7f7b11d5c4d3d08a39199dacfd", null ],
       [ "channelConfig", "a00012.html#a5a267f3458edd5cb57aea83c3a17ae1f", null ],
       [ "samplePeriodClock", "a00012.html#ae5056430705436de599aa16a0796f45b", null ],
@@ -20,19 +20,19 @@ var a00012 =
       [ "baudRate_Bps", "a00012.html#a8b5fce2d680a7e33f0ca1c03108f5a50", null ],
       [ "enableLoopback", "a00012.html#aa8d6779d34787c5fd43a3cdf6a12b42d", null ]
     ] ],
-    [ "ecspi_slave_config_t", "a00012.html#a00172", [
+    [ "ecspi_slave_config_t", "a00012.html#a00171", [
       [ "burstLength", "a00012.html#a47dc1fd0b2e1db49b4b0adb242cce23f", null ],
       [ "txFifoThreshold", "a00012.html#a878b083da83577aec35e0767d0e6842a", null ],
       [ "rxFifoThreshold", "a00012.html#a5b28b64178ee94d946c401519eeda64c", null ],
       [ "channelConfig", "a00012.html#af49e825bd581a557850df75f07e880ea", null ]
     ] ],
-    [ "ecspi_transfer_t", "a00012.html#a00173", [
+    [ "ecspi_transfer_t", "a00012.html#a00172", [
       [ "txData", "a00012.html#a024d7352f22d1a5b4e826cbc024581f0", null ],
       [ "rxData", "a00012.html#afc78bda57ee3f9b7d7d732ef02973c2c", null ],
       [ "dataSize", "a00012.html#ab2775e32b2da5edd97ca780106b17ca1", null ],
       [ "channel", "a00012.html#a6f085d63c254287974a6a9175befc55e", null ]
     ] ],
-    [ "ecspi_master_handle_t", "a00012.html#a00144", [
+    [ "ecspi_master_handle_t", "a00012.html#a00143", [
       [ "channel", "a00012.html#aa6c13a233cdacc489cf97bc3cd0fb6f5", null ],
       [ "txData", "a00012.html#a32a4f2d44ea110f92b775e1ec7824063", null ],
       [ "rxData", "a00012.html#aadd279e36f9879f8d7ce4881861cbe6f", null ],

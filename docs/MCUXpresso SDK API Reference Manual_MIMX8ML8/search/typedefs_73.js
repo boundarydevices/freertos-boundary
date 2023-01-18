@@ -8,5 +8,5 @@ var searchData=
   ['serial_5fmanager_5flowpower_5fcritical_5fcallback_5ft',['serial_manager_lowpower_critical_callback_t',['../a00024.html#ga856d80a20772bd9d9ad950b8ec852635',1,'fsl_component_serial_manager.h']]],
   ['serial_5fread_5fhandle_5ft',['serial_read_handle_t',['../a00024.html#ga8bfec9c49e40728806d775fdb4bbf78e',1,'fsl_component_serial_manager.h']]],
   ['serial_5fwrite_5fhandle_5ft',['serial_write_handle_t',['../a00024.html#gac8319b6189019680778f230eb319530e',1,'fsl_component_serial_manager.h']]],
-  ['status_5ft',['status_t',['../a00114.html#gaaabdaf7ee58ca7269bd4bf24efcde092',1,'fsl_common.h']]]
+  ['status_5ft',['status_t',['../a00113.html#gaaabdaf7ee58ca7269bd4bf24efcde092',1,'fsl_common.h']]]
 ];

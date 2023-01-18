@@ -10,7 +10,6 @@
 /*  SDK Included Files */
 #include "Driver_ETH_MAC.h"
 #include "pin_mux.h"
-#include "clock_config.h"
 #include "board.h"
 #include "fsl_debug_console.h"
 #include "fsl_enet.h"
@@ -20,21 +19,13 @@
 #include "stdlib.h"
 #include "fsl_silicon_id.h"
 
-#include "fsl_enet_mdio.h"
 #include "fsl_phyrtl8211f.h"
 #include "fsl_gpio.h"
-#include "RTE_Device.h"
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
 #define EXAMPLE_ENET     Driver_ETH_MAC0
 #define EXAMPLE_ENET_PHY Driver_ETH_PHY0
-
-/* MDIO operations. */
-#define EXAMPLE_MDIO_OPS enet_ops
-/* PHY operations. */
-#define EXAMPLE_PHY_OPS phyrtl8211_ops
-
 #define ENET_DATA_LENGTH        (1000)
 #define ENET_EXAMPLE_LOOP_COUNT (20U)
 
@@ -56,22 +47,39 @@
 /*******************************************************************************
  * Variables
  ******************************************************************************/
+cmsis_enet_mac_resource_t ENET0_Resource;
+cmsis_enet_phy_resource_t ENETPHY0_Resource;
+static phy_rtl8211f_resource_t g_phy_resource;
 uint8_t g_frame[ENET_DATA_LENGTH + 14];
 volatile uint32_t g_testTxNum  = 0;
 uint8_t g_macAddr[6]           = MAC_ADDRESS;
 volatile uint32_t g_rxIndex    = 0;
 volatile uint32_t g_rxCheckIdx = 0;
 volatile uint32_t g_txCheckIdx = 0;
+phy_handle_t phyHandle;
 /*******************************************************************************
  * Code
  ******************************************************************************/
-mdio_handle_t mdioHandle = {.resource = {.base = ENET1}, .ops = &EXAMPLE_MDIO_OPS};
-phy_handle_t phyHandle   = {.phyAddr = RTE_ENET_PHY_ADDRESS, .mdioHandle = &mdioHandle, .ops = &phyrtl8211f_ops};
-
-uint32_t ENET0_GetFreq(void)
+uint32_t ENET_GetFreq(void)
 {
     return (CLOCK_GetPllFreq(kCLOCK_SystemPll2Ctrl) / (CLOCK_GetRootPreDivider(kCLOCK_RootEnetAxi)) /
             (CLOCK_GetRootPostDivider(kCLOCK_RootEnetAxi)) / 4U);
+}
+
+static void MDIO_Init(void)
+{
+    (void)CLOCK_EnableClock(s_enetClock[ENET_GetInstance(ENET1)]);
+    ENET_SetSMI(ENET1, ENET_GetFreq(), false);
+}
+
+static status_t MDIO_Write(uint8_t phyAddr, uint8_t regAddr, uint16_t data)
+{
+    return ENET_MDIOWrite(ENET1, phyAddr, regAddr, data);
+}
+
+static status_t MDIO_Read(uint8_t phyAddr, uint8_t regAddr, uint16_t *pData)
+{
+    return ENET_MDIORead(ENET1, phyAddr, regAddr, pData);
 }
 
 void ENET_SignalEvent_t(uint32_t event)
@@ -156,8 +164,6 @@ int main(void)
     CLOCK_SetRootMux(kCLOCK_RootEnetRef, kCLOCK_EnetRefRootmuxSysPll2Div8); /* SYSTEM PLL2 divided by 10: 125Mhz */
     CLOCK_EnableClock(kCLOCK_Sim_enet);
 
-    mdioHandle.resource.csrClock_Hz = ENET0_GetFreq();
-
     gpio_pin_config_t gpio_config = {kGPIO_DigitalOutput, 0, kGPIO_NoIntmode};
     GPIO_PinInit(GPIO4, 2, &gpio_config);
     /* For a complete PHY reset of RTL8211FDI-CG, this pin must be asserted low for at least 10ms. And
@@ -169,6 +175,17 @@ int main(void)
 
     EnableIRQ(ENET1_MAC0_Rx_Tx_Done1_IRQn);
     EnableIRQ(ENET1_MAC0_Rx_Tx_Done2_IRQn);
+
+    g_phy_resource.read  = MDIO_Read;
+    g_phy_resource.write = MDIO_Write;
+
+    ENET0_Resource.base           = ENET1;
+    ENET0_Resource.GetFreq        = ENET_GetFreq;
+    ENETPHY0_Resource.phyAddr     = RTE_ENET_PHY_ADDRESS;
+    ENETPHY0_Resource.ops         = &phyrtl8211f_ops;
+    ENETPHY0_Resource.opsResource = &g_phy_resource;
+
+    MDIO_Init();
 
     PRINTF("\r\nENET example start.\r\n");
 

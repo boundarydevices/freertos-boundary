@@ -1,8 +1,8 @@
 var searchData=
 [
   ['callback',['callback',['../a00009.html#a9bb9248c6f45ba9e0e3df49ce5db3ada',1,'asrc_sdma_in_handle_t::callback()'],['../a00009.html#ad09588c48f374e972a6a0927f348c73a',1,'asrc_sdma_out_handle_t::callback()'],['../a00012.html#acf5bbc4426afa7bea77b107dbc37652c',1,'_ecspi_master_handle::callback()'],['../a00013.html#ad031f81d842bd5f28cf56288e17e19d3',1,'_ecspi_sdma_handle::callback()'],['../a00014.html#ac8ed5a6af987dea53b3a192fa09a2052',1,'enet_config_t::callback()'],['../a00014.html#ab6f1673b4b3b633bd4e6b0fa8732ea58',1,'_enet_handle::callback()'],['../a00017.html#a7229e894f762ead4bd08b4add49e6bc2',1,'_i2c_slave_handle::callback()'],['../a00027.html#a2ef9706e8203ba72fa1e04c48581fb0f',1,'_uart_handle::callback()'],['../a00029.html#a9bfac94dfa351480c7758f6eec951581',1,'_uart_sdma_handle::callback()'],['../a00018.html#a9930728ef1b19dc11541c140bace0cc3',1,'_pdm_handle::callback()'],['../a00019.html#a505b57dec1fdd09995b0688c364bc7ad',1,'_pdm_sdma_handle::callback()'],['../a00021.html#a05bc395932b5262476fa9a10fde9ede5',1,'_sai_handle::callback()'],['../a00022.html#a427de264b01acdb10b79255d84185568',1,'_sai_sdma_handle::callback()'],['../a00023.html#a34cac4d5f1fda259609f0b047fae5ca7',1,'sdma_handle_t::callback()']]],
-  ['ccm_5fanalog_5ffrac_5fpll_5fconfig_5ft',['ccm_analog_frac_pll_config_t',['../a00010.html#a00166',1,'']]],
-  ['ccm_5fanalog_5finteger_5fpll_5fconfig_5ft',['ccm_analog_integer_pll_config_t',['../a00010.html#a00167',1,'']]],
+  ['ccm_5fanalog_5ffrac_5fpll_5fconfig_5ft',['ccm_analog_frac_pll_config_t',['../a00010.html#a00165',1,'']]],
+  ['ccm_5fanalog_5finteger_5fpll_5fconfig_5ft',['ccm_analog_integer_pll_config_t',['../a00010.html#a00166',1,'']]],
   ['ccm_5fanalog_5ftuple',['CCM_ANALOG_TUPLE',['../a00010.html#gadd7b389c51857d41280baa4091c2a445',1,'fsl_clock.h']]],
   ['ccm_5fbit_5ffield_5fextraction',['CCM_BIT_FIELD_EXTRACTION',['../a00010.html#gab3e011514d7b4aba79e56f0f9a725f22',1,'fsl_clock.h']]],
   ['ccm_5freg_5foff',['CCM_REG_OFF',['../a00010.html#ga4f0b9958e4c969252366d387ddbaa575',1,'fsl_clock.h']]],
@@ -102,14 +102,14 @@ var searchData=
   ['clockinactivestate',['clockInactiveState',['../a00012.html#aa08cd8243e60e65e43e5425c8a560a07',1,'ecspi_channel_config_t']]],
   ['clockrate',['clockRate',['../a00025.html#a515e2f5ca8778fd65e10a0ac7f77d309',1,'serial_port_swo_config_t']]],
   ['clocksource',['clockSource',['../a00016.html#a25f268bc5fecec8069a572c4c3b58fc7',1,'gpt_config_t']]],
-  ['codec_20driver',['CODEC Driver',['../a00134.html',1,'']]],
-  ['codec_20adapter',['CODEC Adapter',['../a00139.html',1,'']]],
+  ['codec_20driver',['CODEC Driver',['../a00133.html',1,'']]],
+  ['codec_20adapter',['CODEC Adapter',['../a00138.html',1,'']]],
   ['codec_5faudio_5fprotocol_5ft',['codec_audio_protocol_t',['../a00011.html#gacb61ff2fd2c5789dc307bb82124345c0',1,'fsl_codec_common.h']]],
-  ['codec_5fcapability_5ft',['codec_capability_t',['../a00011.html#a00168',1,'']]],
+  ['codec_5fcapability_5ft',['codec_capability_t',['../a00011.html#a00167',1,'']]],
   ['codec_20common_20driver',['CODEC Common Driver',['../a00011.html',1,'']]],
-  ['codec_5fconfig_5ft',['codec_config_t',['../a00011.html#a00169',1,'']]],
+  ['codec_5fconfig_5ft',['codec_config_t',['../a00011.html#a00168',1,'']]],
   ['codec_5fdeinit',['CODEC_Deinit',['../a00011.html#ga32056c566dae7864a103114dd461b090',1,'fsl_codec_common.h']]],
-  ['codec_20i2c_20driver',['CODEC I2C Driver',['../a00135.html',1,'']]],
+  ['codec_20i2c_20driver',['CODEC I2C Driver',['../a00134.html',1,'']]],
   ['codec_5finit',['CODEC_Init',['../a00011.html#ga5d14bc698e079b917832b43b248ea78c',1,'fsl_codec_common.h']]],
   ['codec_5fmodule_5fctrl_5fcmd_5ft',['codec_module_ctrl_cmd_t',['../a00011.html#gab22469ad24122987e781861c07d9d872',1,'fsl_codec_common.h']]],
   ['codec_5fmodule_5ft',['codec_module_t',['../a00011.html#ga4fd5e17281a41a27986e98d1a6318ff6',1,'fsl_codec_common.h']]],
@@ -146,5 +146,5 @@ var searchData=
   ['count',['count',['../a00019.html#a9f1520e7f6f196c5566461d65fde5364',1,'_pdm_sdma_handle::count()'],['../a00022.html#aad480fc521ca3d19e751c5bd3b9fa8a9',1,'_sai_sdma_handle::count()'],['../a00023.html#a7e3dd458ec183d4ca8179b9ad649b63a',1,'sdma_buffer_descriptor_t::count()']]],
   ['currentbdaddr',['currentBDAddr',['../a00023.html#a7784ee8d1e42b9f35fecbddfb2c26df1',1,'sdma_channel_control_t']]],
   ['cutofffreq',['cutOffFreq',['../a00018.html#a892c726c35fa841ac00ae2c53aa5fc70',1,'pdm_channel_config_t::cutOffFreq()'],['../a00018.html#ab0fedec49ddafb0931d41c93834e4186',1,'pdm_hwvad_config_t::cutOffFreq()']]],
-  ['common_20driver',['Common Driver',['../a00114.html',1,'']]]
+  ['common_20driver',['Common Driver',['../a00113.html',1,'']]]
 ];

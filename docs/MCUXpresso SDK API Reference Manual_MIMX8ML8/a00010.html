@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.12.1</span>
+   &#160;<span id="projectnumber">Rev 2.13.0</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -117,12 +117,12 @@ $(document).ready(function(){initNavTree('a00010.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:a00166"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#a00166">ccm_analog_frac_pll_config_t</a></td></tr>
-<tr class="memdesc:a00166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fractional-N PLL configuration.  <a href="a00010.html#a00166">More...</a><br/></td></tr>
+<tr class="memitem:a00165"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#a00165">ccm_analog_frac_pll_config_t</a></td></tr>
+<tr class="memdesc:a00165"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fractional-N PLL configuration.  <a href="a00010.html#a00165">More...</a><br/></td></tr>
+<tr class="separator:a00165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00166"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a></td></tr>
+<tr class="memdesc:a00166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer PLL configuration.  <a href="a00010.html#a00166">More...</a><br/></td></tr>
 <tr class="separator:a00166"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00167"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a></td></tr>
-<tr class="memdesc:a00167"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer PLL configuration.  <a href="a00010.html#a00167">More...</a><br/></td></tr>
-<tr class="separator:a00167"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
@@ -1362,7 +1362,7 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
-<tr class="memitem:ga0c0cf401613f31feb4a9eb723ad51154"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga0c0cf401613f31feb4a9eb723ad51154">FSL_CLOCK_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00114.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 2, 0))</td></tr>
+<tr class="memitem:ga0c0cf401613f31feb4a9eb723ad51154"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga0c0cf401613f31feb4a9eb723ad51154">FSL_CLOCK_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00113.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 2, 0))</td></tr>
 <tr class="memdesc:ga0c0cf401613f31feb4a9eb723ad51154"><td class="mdescLeft">&#160;</td><td class="mdescRight">CLOCK driver version 2.2.0.  <a href="#ga0c0cf401613f31feb4a9eb723ad51154">More...</a><br/></td></tr>
 <tr class="separator:ga0c0cf401613f31feb4a9eb723ad51154"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -1437,62 +1437,62 @@ CCM Analog PLL Operatoin Functions</h2></td></tr>
 <tr class="memitem:ga6e78fc95041f751815d826d33f69cca8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga6e78fc95041f751815d826d33f69cca8">CLOCK_OverridePllPd</a> (CCM_ANALOG_Type *base, <a class="el" href="a00010.html#gac245b59566ac685395ff954a803d42ad">clock_pll_ctrl_t</a> pdClock, bool override)</td></tr>
 <tr class="memdesc:ga6e78fc95041f751815d826d33f69cca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override PLL power down.  <a href="#ga6e78fc95041f751815d826d33f69cca8">More...</a><br/></td></tr>
 <tr class="separator:ga6e78fc95041f751815d826d33f69cca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaa75d4d6a64ae7c5b876eb776c73f543"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#gaaa75d4d6a64ae7c5b876eb776c73f543">CLOCK_InitArmPll</a> (const <a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:gaaa75d4d6a64ae7c5b876eb776c73f543"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#gaaa75d4d6a64ae7c5b876eb776c73f543">CLOCK_InitArmPll</a> (const <a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:gaaa75d4d6a64ae7c5b876eb776c73f543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG ARM PLL.  <a href="#gaaa75d4d6a64ae7c5b876eb776c73f543">More...</a><br/></td></tr>
 <tr class="separator:gaaa75d4d6a64ae7c5b876eb776c73f543"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaeb1d262df13a1a00d4092c2d39c67691"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaeb1d262df13a1a00d4092c2d39c67691"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#gaeb1d262df13a1a00d4092c2d39c67691">CLOCK_DeinitArmPll</a> (void)</td></tr>
 <tr class="memdesc:gaeb1d262df13a1a00d4092c2d39c67691"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the ARM PLL. <br/></td></tr>
 <tr class="separator:gaeb1d262df13a1a00d4092c2d39c67691"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7eed151af16e80b87cb1b21d6f5f8e57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga7eed151af16e80b87cb1b21d6f5f8e57">CLOCK_InitSysPll1</a> (const <a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:ga7eed151af16e80b87cb1b21d6f5f8e57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga7eed151af16e80b87cb1b21d6f5f8e57">CLOCK_InitSysPll1</a> (const <a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga7eed151af16e80b87cb1b21d6f5f8e57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG SYS PLL1.  <a href="#ga7eed151af16e80b87cb1b21d6f5f8e57">More...</a><br/></td></tr>
 <tr class="separator:ga7eed151af16e80b87cb1b21d6f5f8e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac4d5011b6ef9fff57629bf787986ca5b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac4d5011b6ef9fff57629bf787986ca5b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#gac4d5011b6ef9fff57629bf787986ca5b">CLOCK_DeinitSysPll1</a> (void)</td></tr>
 <tr class="memdesc:gac4d5011b6ef9fff57629bf787986ca5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the System PLL1. <br/></td></tr>
 <tr class="separator:gac4d5011b6ef9fff57629bf787986ca5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa9def254fbc674b479fcfe868cf0aaa2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#gaa9def254fbc674b479fcfe868cf0aaa2">CLOCK_InitSysPll2</a> (const <a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:gaa9def254fbc674b479fcfe868cf0aaa2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#gaa9def254fbc674b479fcfe868cf0aaa2">CLOCK_InitSysPll2</a> (const <a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:gaa9def254fbc674b479fcfe868cf0aaa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG SYS PLL2.  <a href="#gaa9def254fbc674b479fcfe868cf0aaa2">More...</a><br/></td></tr>
 <tr class="separator:gaa9def254fbc674b479fcfe868cf0aaa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga91341902b5094241bcc413a88eb71039"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga91341902b5094241bcc413a88eb71039"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga91341902b5094241bcc413a88eb71039">CLOCK_DeinitSysPll2</a> (void)</td></tr>
 <tr class="memdesc:ga91341902b5094241bcc413a88eb71039"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the System PLL2. <br/></td></tr>
 <tr class="separator:ga91341902b5094241bcc413a88eb71039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga18e99a265fd175913a9b0358a3eed46e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga18e99a265fd175913a9b0358a3eed46e">CLOCK_InitSysPll3</a> (const <a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:ga18e99a265fd175913a9b0358a3eed46e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga18e99a265fd175913a9b0358a3eed46e">CLOCK_InitSysPll3</a> (const <a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga18e99a265fd175913a9b0358a3eed46e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG SYS PLL3.  <a href="#ga18e99a265fd175913a9b0358a3eed46e">More...</a><br/></td></tr>
 <tr class="separator:ga18e99a265fd175913a9b0358a3eed46e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa75846d1352b32a98c633e0358a3d12b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa75846d1352b32a98c633e0358a3d12b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#gaa75846d1352b32a98c633e0358a3d12b">CLOCK_DeinitSysPll3</a> (void)</td></tr>
 <tr class="memdesc:gaa75846d1352b32a98c633e0358a3d12b"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the System PLL3. <br/></td></tr>
 <tr class="separator:gaa75846d1352b32a98c633e0358a3d12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6c510be280e6613c3025a00ceff8011c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga6c510be280e6613c3025a00ceff8011c">CLOCK_InitAudioPll1</a> (const <a class="el" href="a00010.html#a00166">ccm_analog_frac_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:ga6c510be280e6613c3025a00ceff8011c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga6c510be280e6613c3025a00ceff8011c">CLOCK_InitAudioPll1</a> (const <a class="el" href="a00010.html#a00165">ccm_analog_frac_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga6c510be280e6613c3025a00ceff8011c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG AUDIO PLL1.  <a href="#ga6c510be280e6613c3025a00ceff8011c">More...</a><br/></td></tr>
 <tr class="separator:ga6c510be280e6613c3025a00ceff8011c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0ff57fca3dcd0e6d08f38a6252e0482b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga0ff57fca3dcd0e6d08f38a6252e0482b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga0ff57fca3dcd0e6d08f38a6252e0482b">CLOCK_DeinitAudioPll1</a> (void)</td></tr>
 <tr class="memdesc:ga0ff57fca3dcd0e6d08f38a6252e0482b"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the Audio PLL1. <br/></td></tr>
 <tr class="separator:ga0ff57fca3dcd0e6d08f38a6252e0482b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae47750e3618103144f50b991ef687cde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#gae47750e3618103144f50b991ef687cde">CLOCK_InitAudioPll2</a> (const <a class="el" href="a00010.html#a00166">ccm_analog_frac_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:gae47750e3618103144f50b991ef687cde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#gae47750e3618103144f50b991ef687cde">CLOCK_InitAudioPll2</a> (const <a class="el" href="a00010.html#a00165">ccm_analog_frac_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:gae47750e3618103144f50b991ef687cde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG AUDIO PLL2.  <a href="#gae47750e3618103144f50b991ef687cde">More...</a><br/></td></tr>
 <tr class="separator:gae47750e3618103144f50b991ef687cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8c99b8678aaf4e88f62254013ed935e3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8c99b8678aaf4e88f62254013ed935e3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga8c99b8678aaf4e88f62254013ed935e3">CLOCK_DeinitAudioPll2</a> (void)</td></tr>
 <tr class="memdesc:ga8c99b8678aaf4e88f62254013ed935e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the Audio PLL2. <br/></td></tr>
 <tr class="separator:ga8c99b8678aaf4e88f62254013ed935e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad1c80c015dc05a79c712cea61c617640"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#gad1c80c015dc05a79c712cea61c617640">CLOCK_InitVideoPll1</a> (const <a class="el" href="a00010.html#a00166">ccm_analog_frac_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:gad1c80c015dc05a79c712cea61c617640"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#gad1c80c015dc05a79c712cea61c617640">CLOCK_InitVideoPll1</a> (const <a class="el" href="a00010.html#a00165">ccm_analog_frac_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:gad1c80c015dc05a79c712cea61c617640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG VIDEO PLL1.  <a href="#gad1c80c015dc05a79c712cea61c617640">More...</a><br/></td></tr>
 <tr class="separator:gad1c80c015dc05a79c712cea61c617640"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8ec45594f19f22a1faa6abb370fd435b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8ec45594f19f22a1faa6abb370fd435b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga8ec45594f19f22a1faa6abb370fd435b">CLOCK_DeinitVideoPll1</a> (void)</td></tr>
 <tr class="memdesc:ga8ec45594f19f22a1faa6abb370fd435b"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the Video PLL1. <br/></td></tr>
 <tr class="separator:ga8ec45594f19f22a1faa6abb370fd435b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac8c75f8c490b20d656e3ca240f44db0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#gac8c75f8c490b20d656e3ca240f44db0c">CLOCK_InitIntegerPll</a> (CCM_ANALOG_Type *base, const <a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a> *config, <a class="el" href="a00010.html#gac245b59566ac685395ff954a803d42ad">clock_pll_ctrl_t</a> type)</td></tr>
+<tr class="memitem:gac8c75f8c490b20d656e3ca240f44db0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#gac8c75f8c490b20d656e3ca240f44db0c">CLOCK_InitIntegerPll</a> (CCM_ANALOG_Type *base, const <a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a> *config, <a class="el" href="a00010.html#gac245b59566ac685395ff954a803d42ad">clock_pll_ctrl_t</a> type)</td></tr>
 <tr class="memdesc:gac8c75f8c490b20d656e3ca240f44db0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG Integer PLL.  <a href="#gac8c75f8c490b20d656e3ca240f44db0c">More...</a><br/></td></tr>
 <tr class="separator:gac8c75f8c490b20d656e3ca240f44db0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga16c0fc4b46426d5b00e9057371a72c09"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga16c0fc4b46426d5b00e9057371a72c09">CLOCK_GetIntegerPllFreq</a> (CCM_ANALOG_Type *base, <a class="el" href="a00010.html#gac245b59566ac685395ff954a803d42ad">clock_pll_ctrl_t</a> type, uint32_t refClkFreq, bool pll1Bypass)</td></tr>
 <tr class="memdesc:ga16c0fc4b46426d5b00e9057371a72c09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ANALOG Integer PLL clock frequency.  <a href="#ga16c0fc4b46426d5b00e9057371a72c09">More...</a><br/></td></tr>
 <tr class="separator:ga16c0fc4b46426d5b00e9057371a72c09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7d751e578ca9667a9b94585df1cf343b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga7d751e578ca9667a9b94585df1cf343b">CLOCK_InitFracPll</a> (CCM_ANALOG_Type *base, const <a class="el" href="a00010.html#a00166">ccm_analog_frac_pll_config_t</a> *config, <a class="el" href="a00010.html#gac245b59566ac685395ff954a803d42ad">clock_pll_ctrl_t</a> type)</td></tr>
+<tr class="memitem:ga7d751e578ca9667a9b94585df1cf343b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#ga7d751e578ca9667a9b94585df1cf343b">CLOCK_InitFracPll</a> (CCM_ANALOG_Type *base, const <a class="el" href="a00010.html#a00165">ccm_analog_frac_pll_config_t</a> *config, <a class="el" href="a00010.html#gac245b59566ac685395ff954a803d42ad">clock_pll_ctrl_t</a> type)</td></tr>
 <tr class="memdesc:ga7d751e578ca9667a9b94585df1cf343b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG Fractional PLL.  <a href="#ga7d751e578ca9667a9b94585df1cf343b">More...</a><br/></td></tr>
 <tr class="separator:ga7d751e578ca9667a9b94585df1cf343b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacdcd18950c0578e18ddb905909eb724a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#gacdcd18950c0578e18ddb905909eb724a">CLOCK_GetFracPllFreq</a> (CCM_ANALOG_Type *base, <a class="el" href="a00010.html#gac245b59566ac685395ff954a803d42ad">clock_pll_ctrl_t</a> type, uint32_t refClkFreq)</td></tr>
@@ -1527,7 +1527,7 @@ CCM Get frequency</h2></td></tr>
 <tr class="separator:ga740a05c4f0c7019f6e062021e335aa85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="a00166" id="a00166"></a>
+<a name="a00165" id="a00165"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1563,7 +1563,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 
 </div>
 </div>
-<a name="a00167" id="a00167"></a>
+<a name="a00166" id="a00166"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1601,7 +1601,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FSL_CLOCK_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00114.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 2, 0))</td>
+          <td class="memname">#define FSL_CLOCK_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00113.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 2, 0))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -4792,7 +4792,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitArmPll </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4800,7 +4800,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a> enumeration).</td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a> enumeration).</td></tr>
   </table>
   </dd>
 </dl>
@@ -4815,7 +4815,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitSysPll1 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4823,7 +4823,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a> enumeration).</td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a> enumeration).</td></tr>
   </table>
   </dd>
 </dl>
@@ -4838,7 +4838,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitSysPll2 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4846,7 +4846,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a> enumeration).</td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a> enumeration).</td></tr>
   </table>
   </dd>
 </dl>
@@ -4861,7 +4861,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitSysPll3 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4869,7 +4869,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a> enumeration).</td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a> enumeration).</td></tr>
   </table>
   </dd>
 </dl>
@@ -4884,7 +4884,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitAudioPll1 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00010.html#a00166">ccm_analog_frac_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00010.html#a00165">ccm_analog_frac_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4892,7 +4892,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00166">ccm_analog_frac_pll_config_t</a> enumeration).</td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00165">ccm_analog_frac_pll_config_t</a> enumeration).</td></tr>
   </table>
   </dd>
 </dl>
@@ -4907,7 +4907,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitAudioPll2 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00010.html#a00166">ccm_analog_frac_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00010.html#a00165">ccm_analog_frac_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4915,7 +4915,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00166">ccm_analog_frac_pll_config_t</a> enumeration).</td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00165">ccm_analog_frac_pll_config_t</a> enumeration).</td></tr>
   </table>
   </dd>
 </dl>
@@ -4930,7 +4930,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitVideoPll1 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00010.html#a00166">ccm_analog_frac_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00010.html#a00165">ccm_analog_frac_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4938,7 +4938,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00166">ccm_analog_frac_pll_config_t</a> enumeration). </td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00165">ccm_analog_frac_pll_config_t</a> enumeration). </td></tr>
   </table>
   </dd>
 </dl>
@@ -4958,7 +4958,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>, </td>
         </tr>
         <tr>
@@ -4977,7 +4977,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>CCM ANALOG base address </td></tr>
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00167">ccm_analog_integer_pll_config_t</a> enumeration). </td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00166">ccm_analog_integer_pll_config_t</a> enumeration). </td></tr>
     <tr><td class="paramname">type</td><td>integer pll type </td></tr>
   </table>
   </dd>
@@ -5046,7 +5046,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00010.html#a00166">ccm_analog_frac_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00010.html#a00165">ccm_analog_frac_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>, </td>
         </tr>
         <tr>
@@ -5065,7 +5065,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>CCM ANALOG base address. </td></tr>
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00166">ccm_analog_frac_pll_config_t</a> enumeration). </td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00010.html#a00165">ccm_analog_frac_pll_config_t</a> enumeration). </td></tr>
     <tr><td class="paramname">type</td><td>fractional pll type. </td></tr>
   </table>
   </dd>

@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.12.1</span>
+   &#160;<span id="projectnumber">Rev 2.13.0</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -101,26 +101,26 @@ $(document).ready(function(){initNavTree('a00028.html','');});
   <div class="summary">
 <a href="#nested-classes">Data Structures</a>  </div>
   <div class="headertitle">
-<div class="title">UART FreeRTOS Driver<div class="ingroups"><a class="el" href="a00124.html">UART: Universal Asynchronous Receiver/Transmitter Driver</a></div></div>  </div>
+<div class="title">UART FreeRTOS Driver<div class="ingroups"><a class="el" href="a00123.html">UART: Universal Asynchronous Receiver/Transmitter Driver</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:a00229"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00028.html#a00229">uart_rtos_config_t</a></td></tr>
-<tr class="memdesc:a00229"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART configuration structure.  <a href="a00028.html#a00229">More...</a><br/></td></tr>
-<tr class="separator:a00229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00228"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00028.html#a00228">uart_rtos_config_t</a></td></tr>
+<tr class="memdesc:a00228"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART configuration structure.  <a href="a00028.html#a00228">More...</a><br/></td></tr>
+<tr class="separator:a00228"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
-<tr class="memitem:ga0023d77491809dff862358266574febb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00028.html#ga0023d77491809dff862358266574febb">FSL_UART_FREERTOS_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00114.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 1))</td></tr>
+<tr class="memitem:ga0023d77491809dff862358266574febb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00028.html#ga0023d77491809dff862358266574febb">FSL_UART_FREERTOS_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00113.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 1))</td></tr>
 <tr class="memdesc:ga0023d77491809dff862358266574febb"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART FreeRTOS driver version 2.1.1.  <a href="#ga0023d77491809dff862358266574febb">More...</a><br/></td></tr>
 <tr class="separator:ga0023d77491809dff862358266574febb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 UART RTOS Operation</h2></td></tr>
-<tr class="memitem:ga1ca9d0f6b8d4d5fc3e64c9a57d7ada7d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00028.html#ga1ca9d0f6b8d4d5fc3e64c9a57d7ada7d">UART_RTOS_Init</a> (uart_rtos_handle_t *handle, uart_handle_t *t_handle, const <a class="el" href="a00028.html#a00229">uart_rtos_config_t</a> *cfg)</td></tr>
+<tr class="memitem:ga1ca9d0f6b8d4d5fc3e64c9a57d7ada7d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00028.html#ga1ca9d0f6b8d4d5fc3e64c9a57d7ada7d">UART_RTOS_Init</a> (uart_rtos_handle_t *handle, uart_handle_t *t_handle, const <a class="el" href="a00028.html#a00228">uart_rtos_config_t</a> *cfg)</td></tr>
 <tr class="memdesc:ga1ca9d0f6b8d4d5fc3e64c9a57d7ada7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a UART instance for operation in RTOS.  <a href="#ga1ca9d0f6b8d4d5fc3e64c9a57d7ada7d">More...</a><br/></td></tr>
 <tr class="separator:ga1ca9d0f6b8d4d5fc3e64c9a57d7ada7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab7ac281cb85e1d290c8f25c83a6facfc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00028.html#gab7ac281cb85e1d290c8f25c83a6facfc">UART_RTOS_Deinit</a> (uart_rtos_handle_t *handle)</td></tr>
@@ -137,7 +137,7 @@ UART transactional Operation</h2></td></tr>
 <tr class="separator:gaa8adcb11232b565985f3f5961815a00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="a00229" id="a00229"></a>
+<a name="a00228" id="a00228"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -186,7 +186,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FSL_UART_FREERTOS_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00114.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 1))</td>
+          <td class="memname">#define FSL_UART_FREERTOS_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00113.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 1))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -213,7 +213,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00028.html#a00229">uart_rtos_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00028.html#a00228">uart_rtos_config_t</a> *&#160;</td>
           <td class="paramname"><em>cfg</em>&#160;</td>
         </tr>
         <tr>

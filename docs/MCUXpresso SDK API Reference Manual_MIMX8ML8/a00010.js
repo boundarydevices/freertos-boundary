@@ -1,13 +1,13 @@
 var a00010 =
 [
-    [ "ccm_analog_frac_pll_config_t", "a00010.html#a00166", [
+    [ "ccm_analog_frac_pll_config_t", "a00010.html#a00165", [
       [ "refSel", "a00010.html#aa0e5d2ff0bf801d61d40581c966fcc45", null ],
       [ "mainDiv", "a00010.html#acdef414efc0b5c3c00944b3f73446ebe", null ],
       [ "dsm", "a00010.html#a77c9b64b391c42fc4820606b6e97df0e", null ],
       [ "preDiv", "a00010.html#a61b86134ef4927c4e30faa14d329d532", null ],
       [ "postDiv", "a00010.html#a16391a77d2fa7f8ebdbd4c2dec5013f0", null ]
     ] ],
-    [ "ccm_analog_integer_pll_config_t", "a00010.html#a00167", [
+    [ "ccm_analog_integer_pll_config_t", "a00010.html#a00166", [
       [ "refSel", "a00010.html#a27997e380ef41e509fccc18123a57372", null ],
       [ "mainDiv", "a00010.html#abd00170654f0e1ce3108fc6d2b662427", null ],
       [ "preDiv", "a00010.html#abaf26d05aa3a46eec60502c9ab03d08d", null ],
