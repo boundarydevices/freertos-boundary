@@ -1,4 +1,4 @@
-include_guard(GLOBAL)
+include_guard()
 message("driver_iuart_sdma component is included.")
 
 target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
@@ -6,12 +6,12 @@ target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
 )
 
 
-target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
+target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
     ${CMAKE_CURRENT_LIST_DIR}/.
 )
 
 
-include(driver_iuart_MIMX8MN6)
-
 include(driver_sdma_MIMX8MN6)
+
+include(driver_iuart_MIMX8MN6)
 

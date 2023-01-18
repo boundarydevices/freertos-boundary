@@ -1,6 +1,6 @@
 var a00009 =
 [
-    [ "asrc_p2p_sdma_config_t", "a00009.html#a00152", [
+    [ "asrc_p2p_sdma_config_t", "a00009.html#a00151", [
       [ "eventSource", "a00009.html#ab2c151c3bcff6974e0bf4fbc636e93ca", null ],
       [ "watermark", "a00009.html#a7c4613e400e45d8d9dbb5aed9939bcb8", null ],
       [ "channel", "a00009.html#a61335e66d506e2d38ac136efb7a3f05a", null ],
@@ -8,7 +8,7 @@ var a00009 =
       [ "enableContinuous", "a00009.html#a08554f19e8557953fbc5955ddcdaddb9", null ],
       [ "startPeripheral", "a00009.html#a5e80a668e499422d444df3bdeb67ccb4", null ]
     ] ],
-    [ "asrc_sdma_in_handle_t", "a00009.html#a00153", [
+    [ "asrc_sdma_in_handle_t", "a00009.html#a00152", [
       [ "sdmaHandle", "a00009.html#a89f79d847b8da55b790081d091534e89", null ],
       [ "eventSource", "a00009.html#aeff0232c194e15f9b2de1427ccdf0118", null ],
       [ "callback", "a00009.html#a9bb9248c6f45ba9e0e3df49ce5db3ada", null ],
@@ -23,7 +23,7 @@ var a00009 =
       [ "peripheralConfig", "a00009.html#a92d6bb3826817eab8bb83f1b161f69bb", null ],
       [ "state", "a00009.html#aef140ad99d0175d7f2908d31270512f5", null ]
     ] ],
-    [ "asrc_sdma_out_handle_t", "a00009.html#a00154", [
+    [ "asrc_sdma_out_handle_t", "a00009.html#a00153", [
       [ "sdmaHandle", "a00009.html#a75967ef98d89237f3ff08af41334484b", null ],
       [ "userData", "a00009.html#ae05a26743851ba0f340f286001e765fa", null ],
       [ "state", "a00009.html#a6d3b09d6675f8ff002247c3497ac49e7", null ],
@@ -40,7 +40,7 @@ var a00009 =
       [ "nonAlignSize", "a00009.html#ad57c62e6a81a4879cd9abb9be759b64a", null ],
       [ "nonAlignAddr", "a00009.html#a51bc7186cd837fddb82e4e8c61977749", null ]
     ] ],
-    [ "asrc_sdma_handle_t", "a00009.html#a00133", [
+    [ "asrc_sdma_handle_t", "a00009.html#a00132", [
       [ "inDMAHandle", "a00009.html#a52f00c410b96fe08fb6b65c8be5341b8", null ],
       [ "outDMAHandle", "a00009.html#a800b95299bc6481c2b3d91b9838da76f", null ],
       [ "context", "a00009.html#a7c24e932a76ffb516ce3a0a3a8af5097", null ],

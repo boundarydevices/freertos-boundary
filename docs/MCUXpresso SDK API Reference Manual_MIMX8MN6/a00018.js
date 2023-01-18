@@ -1,6 +1,6 @@
 var a00018 =
 [
-    [ "pdm_sdma_handle_t", "a00018.html#a00140", [
+    [ "pdm_sdma_handle_t", "a00018.html#a00139", [
       [ "dmaHandle", "a00018.html#a106af245c9af466c8b7992e1d2408752", null ],
       [ "nbytes", "a00018.html#ac88d08bee4f1e71a5c6b685debfa498e", null ],
       [ "fifoWidth", "a00018.html#a80fdc6a5581637379f68752e890f86f8", null ],
@@ -22,5 +22,6 @@ var a00018 =
     [ "PDM_TransferCreateHandleSDMA", "a00018.html#ga392c8bd93a1571886d7d842debe2687e", null ],
     [ "PDM_TransferReceiveSDMA", "a00018.html#ga8a33e3bbfb5e3fef8469c89982f35c4a", null ],
     [ "PDM_TransferAbortReceiveSDMA", "a00018.html#ga86493e926b26487a7232cebdccb9256b", null ],
-    [ "PDM_SetChannelConfigSDMA", "a00018.html#gaeba86ea10b668daabf2b2f157ff0ef72", null ]
+    [ "PDM_SetChannelConfigSDMA", "a00018.html#gaeba86ea10b668daabf2b2f157ff0ef72", null ],
+    [ "PDM_TransferTerminateReceiveSDMA", "a00018.html#ga71da549cf9b8f358a0eddfc8e2db91ae", null ]
 ];

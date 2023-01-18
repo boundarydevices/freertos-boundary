@@ -5,7 +5,8 @@ var searchData=
   ['sdma_5fcallback',['sdma_callback',['../a00022.html#gaf58c0232a81493c44346fac69770dca3',1,'fsl_sdma.h']]],
   ['serial_5fhandle_5ft',['serial_handle_t',['../a00023.html#gaba1cc3859c4f829ee0bc6091184d4b08',1,'fsl_component_serial_manager.h']]],
   ['serial_5fmanager_5fcallback_5ft',['serial_manager_callback_t',['../a00023.html#gabe6a6263bb1570ea715938b2420af773',1,'fsl_component_serial_manager.h']]],
+  ['serial_5fmanager_5flowpower_5fcritical_5fcallback_5ft',['serial_manager_lowpower_critical_callback_t',['../a00023.html#ga856d80a20772bd9d9ad950b8ec852635',1,'fsl_component_serial_manager.h']]],
   ['serial_5fread_5fhandle_5ft',['serial_read_handle_t',['../a00023.html#ga8bfec9c49e40728806d775fdb4bbf78e',1,'fsl_component_serial_manager.h']]],
   ['serial_5fwrite_5fhandle_5ft',['serial_write_handle_t',['../a00023.html#gac8319b6189019680778f230eb319530e',1,'fsl_component_serial_manager.h']]],
-  ['status_5ft',['status_t',['../a00106.html#gaaabdaf7ee58ca7269bd4bf24efcde092',1,'fsl_common.h']]]
+  ['status_5ft',['status_t',['../a00105.html#gaaabdaf7ee58ca7269bd4bf24efcde092',1,'fsl_common.h']]]
 ];

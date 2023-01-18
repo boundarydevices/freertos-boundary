@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.11.0</span>
+   &#160;<span id="projectnumber">Rev 2.13.0</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -102,7 +102,7 @@ $(document).ready(function(){initNavTree('a00018.html','');});
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">PDM SDMA Driver<div class="ingroups"><a class="el" href="a00119.html">PDM: Microphone Interface</a></div></div>  </div>
+<div class="title">PDM SDMA Driver<div class="ingroups"><a class="el" href="a00118.html">PDM: Microphone Interface</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -128,22 +128,22 @@ Typical use case</h1>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:a00140"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#a00140">pdm_sdma_handle_t</a></td></tr>
-<tr class="memdesc:a00140"><td class="mdescLeft">&#160;</td><td class="mdescRight">PDM DMA transfer handle, users should not touch the content of the handle.  <a href="a00018.html#a00140">More...</a><br/></td></tr>
-<tr class="separator:a00140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00139"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#a00139">pdm_sdma_handle_t</a></td></tr>
+<tr class="memdesc:a00139"><td class="mdescLeft">&#160;</td><td class="mdescRight">PDM DMA transfer handle, users should not touch the content of the handle.  <a href="a00018.html#a00139">More...</a><br/></td></tr>
+<tr class="separator:a00139"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:ga18bf5683235bc9b86826603f499bc36c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga18bf5683235bc9b86826603f499bc36c"></a>
-typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#ga18bf5683235bc9b86826603f499bc36c">pdm_sdma_callback_t</a> )(PDM_Type *base, pdm_sdma_handle_t *handle, <a class="el" href="a00106.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> status, void *userData)</td></tr>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#ga18bf5683235bc9b86826603f499bc36c">pdm_sdma_callback_t</a> )(PDM_Type *base, pdm_sdma_handle_t *handle, <a class="el" href="a00105.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> status, void *userData)</td></tr>
 <tr class="memdesc:ga18bf5683235bc9b86826603f499bc36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">PDM eDMA transfer callback function for finish and error. <br/></td></tr>
 <tr class="separator:ga18bf5683235bc9b86826603f499bc36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
 <tr class="memitem:ga4af9aba12b2871e8a149e226a34d9bca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4af9aba12b2871e8a149e226a34d9bca"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#ga4af9aba12b2871e8a149e226a34d9bca">FSL_PDM_SDMA_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00106.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 6, 0))</td></tr>
-<tr class="memdesc:ga4af9aba12b2871e8a149e226a34d9bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version 2.6.0. <br/></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#ga4af9aba12b2871e8a149e226a34d9bca">FSL_PDM_SDMA_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00105.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 7, 0))</td></tr>
+<tr class="memdesc:ga4af9aba12b2871e8a149e226a34d9bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version 2.7.0. <br/></td></tr>
 <tr class="separator:ga4af9aba12b2871e8a149e226a34d9bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
@@ -151,18 +151,21 @@ eDMA Transactional</h2></td></tr>
 <tr class="memitem:ga392c8bd93a1571886d7d842debe2687e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#ga392c8bd93a1571886d7d842debe2687e">PDM_TransferCreateHandleSDMA</a> (PDM_Type *base, pdm_sdma_handle_t *handle, <a class="el" href="a00018.html#ga18bf5683235bc9b86826603f499bc36c">pdm_sdma_callback_t</a> callback, void *userData, <a class="el" href="a00022.html#a00194">sdma_handle_t</a> *dmaHandle, uint32_t eventSource)</td></tr>
 <tr class="memdesc:ga392c8bd93a1571886d7d842debe2687e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the PDM eDMA handle.  <a href="#ga392c8bd93a1571886d7d842debe2687e">More...</a><br/></td></tr>
 <tr class="separator:ga392c8bd93a1571886d7d842debe2687e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8a33e3bbfb5e3fef8469c89982f35c4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00106.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#ga8a33e3bbfb5e3fef8469c89982f35c4a">PDM_TransferReceiveSDMA</a> (PDM_Type *base, pdm_sdma_handle_t *handle, <a class="el" href="a00017.html#a00175">pdm_transfer_t</a> *xfer)</td></tr>
+<tr class="memitem:ga8a33e3bbfb5e3fef8469c89982f35c4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00105.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#ga8a33e3bbfb5e3fef8469c89982f35c4a">PDM_TransferReceiveSDMA</a> (PDM_Type *base, pdm_sdma_handle_t *handle, <a class="el" href="a00017.html#a00175">pdm_transfer_t</a> *xfer)</td></tr>
 <tr class="memdesc:ga8a33e3bbfb5e3fef8469c89982f35c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a non-blocking PDM receive using eDMA.  <a href="#ga8a33e3bbfb5e3fef8469c89982f35c4a">More...</a><br/></td></tr>
 <tr class="separator:ga8a33e3bbfb5e3fef8469c89982f35c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga86493e926b26487a7232cebdccb9256b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#ga86493e926b26487a7232cebdccb9256b">PDM_TransferAbortReceiveSDMA</a> (PDM_Type *base, pdm_sdma_handle_t *handle)</td></tr>
 <tr class="memdesc:ga86493e926b26487a7232cebdccb9256b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts a PDM receive using eDMA.  <a href="#ga86493e926b26487a7232cebdccb9256b">More...</a><br/></td></tr>
 <tr class="separator:ga86493e926b26487a7232cebdccb9256b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaeba86ea10b668daabf2b2f157ff0ef72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#gaeba86ea10b668daabf2b2f157ff0ef72">PDM_SetChannelConfigSDMA</a> (PDM_Type *base, pdm_sdma_handle_t *handle, uint32_t channel, const <a class="el" href="a00017.html#a00170">pdm_channel_config_t</a> *config)</td></tr>
+<tr class="memitem:gaeba86ea10b668daabf2b2f157ff0ef72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#gaeba86ea10b668daabf2b2f157ff0ef72">PDM_SetChannelConfigSDMA</a> (PDM_Type *base, pdm_sdma_handle_t *handle, uint32_t channel, const <a class="el" href="a00017.html#a00169">pdm_channel_config_t</a> *config)</td></tr>
 <tr class="memdesc:gaeba86ea10b668daabf2b2f157ff0ef72"><td class="mdescLeft">&#160;</td><td class="mdescRight">PDM channel configurations.  <a href="#gaeba86ea10b668daabf2b2f157ff0ef72">More...</a><br/></td></tr>
 <tr class="separator:gaeba86ea10b668daabf2b2f157ff0ef72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga71da549cf9b8f358a0eddfc8e2db91ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#ga71da549cf9b8f358a0eddfc8e2db91ae">PDM_TransferTerminateReceiveSDMA</a> (PDM_Type *base, pdm_sdma_handle_t *handle)</td></tr>
+<tr class="memdesc:ga71da549cf9b8f358a0eddfc8e2db91ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminate all the PDM sdma receive transfer.  <a href="#ga71da549cf9b8f358a0eddfc8e2db91ae">More...</a><br/></td></tr>
+<tr class="separator:ga71da549cf9b8f358a0eddfc8e2db91ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="a00140" id="a00140"></a>
+<a name="a00139" id="a00139"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -350,7 +353,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00106.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> PDM_TransferReceiveSDMA </td>
+          <td class="memname"><a class="el" href="a00105.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> PDM_TransferReceiveSDMA </td>
           <td>(</td>
           <td class="paramtype">PDM_Type *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -452,7 +455,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00017.html#a00170">pdm_channel_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00017.html#a00169">pdm_channel_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>&#160;</td>
         </tr>
         <tr>
@@ -468,6 +471,39 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
     <tr><td class="paramname">handle</td><td>PDM eDMA handle pointer. </td></tr>
     <tr><td class="paramname">channel</td><td>channel number. </td></tr>
     <tr><td class="paramname">config</td><td>channel configurations. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga71da549cf9b8f358a0eddfc8e2db91ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PDM_TransferTerminateReceiveSDMA </td>
+          <td>(</td>
+          <td class="paramtype">PDM_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">pdm_sdma_handle_t *&#160;</td>
+          <td class="paramname"><em>handle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>PDM base pointer. </td></tr>
+    <tr><td class="paramname">handle</td><td>PDM SDMA handle pointer. </td></tr>
   </table>
   </dd>
 </dl>

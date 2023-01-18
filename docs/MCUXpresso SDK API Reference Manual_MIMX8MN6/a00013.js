@@ -1,6 +1,6 @@
 var a00013 =
 [
-    [ "ecspi_sdma_handle_t", "a00013.html#a00136", [
+    [ "ecspi_sdma_handle_t", "a00013.html#a00135", [
       [ "txInProgress", "a00013.html#a7b3a0a7798aded04831738c113b58b48", null ],
       [ "rxInProgress", "a00013.html#a5b67c5fb9f537d95051a35e419bc6c33", null ],
       [ "txSdmaHandle", "a00013.html#aac3362fdc25ba2989c4bb41931c4be82", null ],

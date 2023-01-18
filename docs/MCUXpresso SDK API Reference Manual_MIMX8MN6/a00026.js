@@ -20,7 +20,7 @@ var a00026 =
       [ "txData", "a00026.html#a6b21ddbed7f4029bbd73c783d7633339", null ],
       [ "dataSize", "a00026.html#a21820f8294de0d75d863b72512a7c12f", null ]
     ] ],
-    [ "uart_handle_t", "a00026.html#a00143", [
+    [ "uart_handle_t", "a00026.html#a00142", [
       [ "txData", "a00026.html#a8335d5ed357baeccd5c4dc961be8441e", null ],
       [ "txDataSize", "a00026.html#a1e67a92b463ad328646834ea0de4d70d", null ],
       [ "txDataSizeAll", "a00026.html#a80361474eb03b3aa30d02bda82adce65", null ],

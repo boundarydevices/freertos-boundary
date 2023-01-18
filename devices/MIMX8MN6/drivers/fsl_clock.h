@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 -2020 NXP
+ * Copyright 2018-2022 NXP
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -26,8 +26,8 @@
 
 /*! @name Driver version */
 /*@{*/
-/*! @brief CLOCK driver version 2.2.2. */
-#define FSL_CLOCK_DRIVER_VERSION (MAKE_VERSION(2, 2, 2))
+/*! @brief CLOCK driver version 2.4.0. */
+#define FSL_CLOCK_DRIVER_VERSION (MAKE_VERSION(2, 4, 0))
 /*@}*/
 
 /* Definition for delay API in clock driver, users can redefine it to the real application. */
@@ -48,6 +48,12 @@
 #define ECSPI_CLOCKS                                                   \
     {                                                                  \
         kCLOCK_IpInvalid, kCLOCK_Ecspi1, kCLOCK_Ecspi2, kCLOCK_Ecspi3, \
+    }
+
+/*! @brief Clock ip name array for ENET. */
+#define ENET_CLOCKS   \
+    {                 \
+        kCLOCK_Enet1, \
     }
 
 /*! @brief Clock ip name array for GPIO. */
@@ -167,7 +173,7 @@
 /*!
  * @brief CCM reg macros to map corresponding registers.
  */
-#define CCM_REG_OFF(root, off) (*((volatile uint32_t *)((uint32_t)(root) + (off))))
+#define CCM_REG_OFF(root, off) (*((volatile uint32_t *)((uintptr_t)(root) + (off))))
 #define CCM_REG(root)          CCM_REG_OFF(root, 0U)
 #define CCM_REG_SET(root)      CCM_REG_OFF(root, 4U)
 #define CCM_REG_CLR(root)      CCM_REG_OFF(root, 8U)
@@ -192,25 +198,198 @@
 #define CCM_ANALOG_TUPLE(reg, shift)  ((((reg)&0xFFFFU) << 16U) | ((shift)))
 #define CCM_ANALOG_TUPLE_SHIFT(tuple) (((uint32_t)(tuple)) & 0x1FU)
 #define CCM_ANALOG_TUPLE_REG_OFF(base, tuple, off) \
-    (*((volatile uint32_t *)((uint32_t)(base) + (((uint32_t)(tuple) >> 16U) & 0xFFFFU) + (off))))
+    (*((volatile uint32_t *)((uintptr_t)(base) + (((uint32_t)(tuple) >> 16U) & 0xFFFFU) + (off))))
 #define CCM_ANALOG_TUPLE_REG(base, tuple) CCM_ANALOG_TUPLE_REG_OFF(base, tuple, 0U)
 
 /*!
  * @brief CCM CCGR and root tuple
  */
 #define CCM_TUPLE(ccgr, root) ((ccgr) << 16U | (root))
-#define CCM_TUPLE_CCGR(tuple) ((uint32_t)(&(CCM)->CCGR[(uint32_t)(tuple) >> 16U].CCGR))
-#define CCM_TUPLE_ROOT(tuple) ((uint32_t)(&(CCM)->ROOT[(uint32_t)(tuple)&0xFFFFU].TARGET_ROOT))
+#define CCM_TUPLE_CCGR(tuple) ((uintptr_t)(&(CCM)->CCGR[(uint32_t)(tuple) >> 16U].CCGR))
+#define CCM_TUPLE_ROOT(tuple) ((uintptr_t)(&(CCM)->ROOT[(uint32_t)(tuple)&0xFFFFU].TARGET_ROOT))
+
+/*!
+ * @brief clock root source
+ */
+#define CLOCK_ROOT_SOURCE                                                                                              \
+    {                                                                                                                  \
+        {kCLOCK_Osc24MClk,    kCLOCK_SysPll2Div5Clk, kCLOCK_SysPll2Div4Clk, kCLOCK_SysPll1Div3Clk, kCLOCK_SysPll1Clk,  \
+         kCLOCK_AudioPll1Clk, kCLOCK_VideoPll1Clk,   kCLOCK_SysPll3Clk}, /* Cortex-M7 Clock Root. */                   \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,      kCLOCK_SysPll2Div3Clk, kCLOCK_SysPll1Clk,                                       \
+                kCLOCK_SysPll2Div4Clk, kCLOCK_SysPll2Clk,     kCLOCK_AudioPll1Clk,                                     \
+                kCLOCK_VideoPll1Clk,   kCLOCK_SysPll1Div8Clk}, /* AXI Clock Root. */                                   \
+            {kCLOCK_Osc24MClk,    kCLOCK_SysPll1Clk,   kCLOCK_SysPll3Clk,  kCLOCK_SysPll2Clk, kCLOCK_SysPll2Div2Clk,   \
+             kCLOCK_AudioPll1Clk, kCLOCK_VideoPll1Clk, kCLOCK_AudioPll2Clk}, /* NOC Clock Root. */                     \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,      kCLOCK_SysPll1Div6Clk, kCLOCK_SysPll1Clk,                                       \
+                kCLOCK_SysPll1Div2Clk, kCLOCK_SysPll2Div8Clk, kCLOCK_SysPll3Clk,                                       \
+                kCLOCK_AudioPll1Clk,   kCLOCK_VideoPll1Clk}, /* AHB Clock Root. */                                     \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,      kCLOCK_SysPll1Div6Clk, kCLOCK_SysPll1Clk,                                       \
+                kCLOCK_SysPll1Div2Clk, kCLOCK_SysPll2Div8Clk, kCLOCK_SysPll3Clk,                                       \
+                kCLOCK_AudioPll1Clk,   kCLOCK_VideoPll1Clk}, /* IPG Clock Root. */                                     \
+            {kCLOCK_Osc24MClk,  kCLOCK_SysPll2Div2Clk, kCLOCK_SysPll1Clk,  kCLOCK_SysPll2Clk, kCLOCK_SysPll2Div6Clk,   \
+             kCLOCK_SysPll3Clk, kCLOCK_AudioPll1Clk,   kCLOCK_VideoPll1Clk}, /* Audio AHB Clock Root. */               \
+            {kCLOCK_Osc24MClk,  kCLOCK_SysPll2Div2Clk, kCLOCK_SysPll1Clk,  kCLOCK_SysPll2Clk, kCLOCK_SysPll2Div6Clk,   \
+             kCLOCK_SysPll3Clk, kCLOCK_AudioPll1Clk,   kCLOCK_VideoPll1Clk}, /* Audio IPG Clock Root. */               \
+            {kCLOCK_Osc24MClk,  kCLOCK_SysPll1Clk,   kCLOCK_SysPll1Div8Clk, kCLOCK_SysPll2Div2Clk, kCLOCK_SysPll2Clk,  \
+             kCLOCK_SysPll3Clk, kCLOCK_AudioPll1Clk, kCLOCK_SysPll1Div3Clk}, /* DRAM ALT Clock Root */                 \
+            {kCLOCK_Osc24MClk,      kCLOCK_AudioPll1Clk, kCLOCK_AudioPll2Clk, kCLOCK_VideoPll1Clk,                     \
+             kCLOCK_SysPll1Div6Clk, kCLOCK_NoneName,     kCLOCK_ExtClk2,      kCLOCK_ExtClk3}, /* SAI2 Clock Root */   \
+            {kCLOCK_Osc24MClk,      kCLOCK_AudioPll1Clk, kCLOCK_AudioPll2Clk, kCLOCK_VideoPll1Clk,                     \
+             kCLOCK_SysPll1Div6Clk, kCLOCK_NoneName,     kCLOCK_ExtClk3,      kCLOCK_ExtClk4}, /* SAI3 Clock Root */   \
+            {kCLOCK_Osc24MClk,      kCLOCK_AudioPll1Clk, kCLOCK_AudioPll2Clk, kCLOCK_VideoPll1Clk,                     \
+             kCLOCK_SysPll1Div6Clk, kCLOCK_NoneName,     kCLOCK_ExtClk2,      kCLOCK_ExtClk3}, /* SAI5 Clock Root */   \
+            {kCLOCK_Osc24MClk,      kCLOCK_AudioPll1Clk, kCLOCK_AudioPll2Clk, kCLOCK_VideoPll1Clk,                     \
+             kCLOCK_SysPll1Div6Clk, kCLOCK_NoneName,     kCLOCK_ExtClk3,      kCLOCK_ExtClk4}, /* SAI6 Clock Root. */  \
+            {kCLOCK_Osc24MClk,      kCLOCK_AudioPll1Clk, kCLOCK_AudioPll2Clk, kCLOCK_VideoPll1Clk,                     \
+             kCLOCK_SysPll1Div6Clk, kCLOCK_NoneName,     kCLOCK_ExtClk3,      kCLOCK_ExtClk4}, /* SAI7 Clock Root */   \
+            {kCLOCK_Osc24MClk,      kCLOCK_SysPll1Div2Clk, kCLOCK_SysPll2Div3Clk,                                      \
+             kCLOCK_SysPll2Div2Clk, kCLOCK_AudioPll2Clk,   kCLOCK_SysPll1Div3Clk,                                      \
+             kCLOCK_SysPll3Clk,     kCLOCK_SysPll1Div8Clk}, /* QSPI Clock Root */                                      \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,    kCLOCK_SysPll1Div5Clk, kCLOCK_SysPll2Div20Clk,                                    \
+                kCLOCK_SysPll3Clk,   kCLOCK_AudioPll1Clk,   kCLOCK_VideoPll1Clk,                                       \
+                kCLOCK_AudioPll2Clk, kCLOCK_SysPll1Div6Clk}, /* I2C1 Clock Root */                                     \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,    kCLOCK_SysPll1Div5Clk, kCLOCK_SysPll2Div20Clk,                                    \
+                kCLOCK_SysPll3Clk,   kCLOCK_AudioPll1Clk,   kCLOCK_VideoPll1Clk,                                       \
+                kCLOCK_AudioPll2Clk, kCLOCK_SysPll1Div6Clk}, /* I2C2 Clock Root */                                     \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,    kCLOCK_SysPll1Div5Clk, kCLOCK_SysPll2Div20Clk,                                    \
+                kCLOCK_SysPll3Clk,   kCLOCK_AudioPll1Clk,   kCLOCK_VideoPll1Clk,                                       \
+                kCLOCK_AudioPll2Clk, kCLOCK_SysPll1Div6Clk}, /* I2C3 Clock Root */                                     \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,    kCLOCK_SysPll1Div5Clk, kCLOCK_SysPll2Div20Clk,                                    \
+                kCLOCK_SysPll3Clk,   kCLOCK_AudioPll1Clk,   kCLOCK_VideoPll1Clk,                                       \
+                kCLOCK_AudioPll2Clk, kCLOCK_SysPll1Div6Clk}, /* I2C4 Clock Root */                                     \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,       kCLOCK_SysPll1Div10Clk, kCLOCK_SysPll2Div5Clk,                                 \
+                kCLOCK_SysPll2Div10Clk, kCLOCK_SysPll3Clk,      kCLOCK_ExtClk2,                                        \
+                kCLOCK_ExtClk4,         kCLOCK_AudioPll2Clk}, /* UART1 Clock Root */                                   \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,       kCLOCK_SysPll1Div10Clk, kCLOCK_SysPll2Div5Clk,                                 \
+                kCLOCK_SysPll2Div10Clk, kCLOCK_SysPll3Clk,      kCLOCK_ExtClk2,                                        \
+                kCLOCK_ExtClk3,         kCLOCK_AudioPll2Clk}, /* UART2 Clock Root */                                   \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,       kCLOCK_SysPll1Div10Clk, kCLOCK_SysPll2Div5Clk,                                 \
+                kCLOCK_SysPll2Div10Clk, kCLOCK_SysPll3Clk,      kCLOCK_ExtClk2,                                        \
+                kCLOCK_ExtClk4,         kCLOCK_AudioPll2Clk}, /* UART3 Clock Root */                                   \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,       kCLOCK_SysPll1Div10Clk, kCLOCK_SysPll2Div5Clk,                                 \
+                kCLOCK_SysPll2Div10Clk, kCLOCK_SysPll3Clk,      kCLOCK_ExtClk2,                                        \
+                kCLOCK_ExtClk3,         kCLOCK_AudioPll2Clk}, /* UART4 Clock Root */                                   \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,      kCLOCK_SysPll2Div5Clk, kCLOCK_SysPll1Div20Clk,                                  \
+                kCLOCK_SysPll1Div5Clk, kCLOCK_SysPll1Clk,     kCLOCK_SysPll3Clk,                                       \
+                kCLOCK_SysPll2Div4Clk, kCLOCK_AudioPll2Clk}, /* ECSPI1 Clock ROOT */                                   \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,      kCLOCK_SysPll2Div5Clk, kCLOCK_SysPll1Div20Clk,                                  \
+                kCLOCK_SysPll1Div5Clk, kCLOCK_SysPll1Clk,     kCLOCK_SysPll3Clk,                                       \
+                kCLOCK_SysPll2Div4Clk, kCLOCK_AudioPll2Clk}, /* ECSPI2 Clock ROOT */                                   \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,      kCLOCK_SysPll2Div5Clk, kCLOCK_SysPll1Div20Clk,                                  \
+                kCLOCK_SysPll1Div5Clk, kCLOCK_SysPll1Clk,     kCLOCK_SysPll3Clk,                                       \
+                kCLOCK_SysPll2Div4Clk, kCLOCK_AudioPll2Clk}, /* ECSPI3 Clock ROOT */                                   \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,       kCLOCK_SysPll2Div10Clk, kCLOCK_SysPll1Div5Clk,                                 \
+                kCLOCK_SysPll1Div20Clk, kCLOCK_SysPll3Clk,      kCLOCK_ExtClk1,                                        \
+                kCLOCK_SysPll1Div10Clk, kCLOCK_VideoPll1Clk}, /* PWM1 Clock ROOT */                                    \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,       kCLOCK_SysPll2Div10Clk, kCLOCK_SysPll1Div5Clk,                                 \
+                kCLOCK_SysPll1Div20Clk, kCLOCK_SysPll3Clk,      kCLOCK_ExtClk1,                                        \
+                kCLOCK_SysPll1Div10Clk, kCLOCK_VideoPll1Clk}, /* PWM2 Clock ROOT */                                    \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,       kCLOCK_SysPll2Div10Clk, kCLOCK_SysPll1Div5Clk,                                 \
+                kCLOCK_SysPll1Div20Clk, kCLOCK_SysPll3Clk,      kCLOCK_ExtClk2,                                        \
+                kCLOCK_SysPll1Div10Clk, kCLOCK_VideoPll1Clk}, /* PWM3 Clock ROOT */                                    \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,       kCLOCK_SysPll2Div10Clk, kCLOCK_SysPll1Div5Clk,                                 \
+                kCLOCK_SysPll1Div20Clk, kCLOCK_SysPll3Clk,      kCLOCK_ExtClk2,                                        \
+                kCLOCK_SysPll1Div10Clk, kCLOCK_VideoPll1Clk}, /* PWM4 Clock ROOT */                                    \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,       kCLOCK_SysPll2Div10Clk, kCLOCK_SysPll1Div2Clk,                                 \
+                kCLOCK_SysPll1Div20Clk, kCLOCK_VideoPll1Clk,    kCLOCK_SysPll1Div10Clk,                                \
+                kCLOCK_AudioPll1Clk,    kCLOCK_ExtClk1}, /* GPT1 Clock ROOT */                                         \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,       kCLOCK_SysPll2Div10Clk, kCLOCK_SysPll1Div2Clk,                                 \
+                kCLOCK_SysPll1Div20Clk, kCLOCK_VideoPll1Clk,    kCLOCK_SysPll1Div10Clk,                                \
+                kCLOCK_AudioPll1Clk,    kCLOCK_ExtClk2}, /* GPT2 Clock ROOT */                                         \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,       kCLOCK_SysPll2Div10Clk, kCLOCK_SysPll1Div2Clk,                                 \
+                kCLOCK_SysPll1Div20Clk, kCLOCK_VideoPll1Clk,    kCLOCK_SysPll1Div10Clk,                                \
+                kCLOCK_AudioPll1Clk,    kCLOCK_ExtClk3}, /* GPT3 Clock ROOT */                                         \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,       kCLOCK_SysPll2Div10Clk, kCLOCK_SysPll1Div2Clk,                                 \
+                kCLOCK_SysPll1Div20Clk, kCLOCK_VideoPll1Clk,    kCLOCK_SysPll1Div10Clk,                                \
+                kCLOCK_AudioPll1Clk,    kCLOCK_ExtClk1}, /* GPT4 Clock ROOT */                                         \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,       kCLOCK_SysPll2Div10Clk, kCLOCK_SysPll1Div2Clk,                                 \
+                kCLOCK_SysPll1Div20Clk, kCLOCK_VideoPll1Clk,    kCLOCK_SysPll1Div10Clk,                                \
+                kCLOCK_AudioPll1Clk,    kCLOCK_ExtClk2}, /* GPT5 Clock ROOT */                                         \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,       kCLOCK_SysPll2Div10Clk, kCLOCK_SysPll1Div2Clk,                                 \
+                kCLOCK_SysPll1Div20Clk, kCLOCK_VideoPll1Clk,    kCLOCK_SysPll1Div10Clk,                                \
+                kCLOCK_AudioPll1Clk,    kCLOCK_ExtClk3}, /* GPT6 Clock ROOT */                                         \
+            {kCLOCK_Osc24MClk,  kCLOCK_SysPll1Div6Clk,  kCLOCK_SysPll1Div5Clk, kCLOCK_NoneName, kCLOCK_SysPll2Div8Clk, \
+             kCLOCK_SysPll3Clk, kCLOCK_SysPll1Div10Clk, kCLOCK_SysPll2Div6Clk}, /* WDOG Clock ROOT */                  \
+            {                                                                                                          \
+                kCLOCK_Osc24MClk,  kCLOCK_SysPll2Div10Clk, kCLOCK_AudioPll1Clk, kCLOCK_SysPll1Clk, kCLOCK_SysPll2Clk,  \
+                kCLOCK_SysPll3Clk, kCLOCK_ExtClk3,         kCLOCK_AudioPll2Clk}, /* PDM Clock ROOT */                  \
+    }
+
+#define CLOCK_ROOT_CONTROL_TUPLE                                                                                  \
+    {                                                                                                             \
+        kCLOCK_RootM7, kCLOCK_RootAxi, kCLOCK_RootNoc, kCLOCK_RootAhb, kCLOCK_RootAhb, kCLOCK_RootAudioAhb,       \
+            kCLOCK_RootAudioAhb, kCLOCK_RootDramAlt, kCLOCK_RootSai2, kCLOCK_RootSai3, kCLOCK_RootSai5,           \
+            kCLOCK_RootSai6, kCLOCK_RootSai7, kCLOCK_RootQspi, kCLOCK_RootI2c1, kCLOCK_RootI2c2, kCLOCK_RootI2c3, \
+            kCLOCK_RootI2c4, kCLOCK_RootUart1, kCLOCK_RootUart2, kCLOCK_RootUart3, kCLOCK_RootUart4,              \
+            kCLOCK_RootEcspi1, kCLOCK_RootEcspi2, kCLOCK_RootEcspi3, kCLOCK_RootPwm1, kCLOCK_RootPwm2,            \
+            kCLOCK_RootPwm3, kCLOCK_RootPwm4, kCLOCK_RootGpt1, kCLOCK_RootGpt2, kCLOCK_RootGpt3, kCLOCK_RootGpt4, \
+            kCLOCK_RootGpt5, kCLOCK_RootGpt6, kCLOCK_RootWdog, kCLOCK_RootPdm,                                    \
+    }
 
 /*! @brief Clock name used to get clock frequency. */
 typedef enum _clock_name
 {
     kCLOCK_CoreM7Clk, /*!< ARM M7 Core clock                          */
 
-    kCLOCK_AxiClk, /*!< Main AXI bus clock.                         */
-    kCLOCK_AhbClk, /*!< AHB bus clock.                         */
-    kCLOCK_IpgClk, /*!< IPG bus clock.                         */
-
+    kCLOCK_AxiClk,          /*!< Main AXI bus clock.                         */
+    kCLOCK_AhbClk,          /*!< AHB bus clock.                         */
+    kCLOCK_IpgClk,          /*!< IPG bus clock.                         */
+    kCLOCK_PerClk,          /*!< Peripheral Clock.                      */
+    kCLOCK_EnetIpgClk,      /*!< ENET IPG Clock.                        */
+    kCLOCK_Osc24MClk,       /*!< OSC 24M clock.                         */
+    kCLOCK_ArmPllClk,       /*!< Arm PLL clock.                         */
+    kCLOCK_DramPllClk,      /*!< Dram PLL clock.                         */
+    kCLOCK_SysPll1Clk,      /*!< Sys PLL1 clock.                         */
+    kCLOCK_SysPll1Div2Clk,  /*!< Sys PLL1 clock divided by 2.            */
+    kCLOCK_SysPll1Div3Clk,  /*!< Sys PLL1 clock divided by 3.            */
+    kCLOCK_SysPll1Div4Clk,  /*!< Sys PLL1 clock divided by 4.            */
+    kCLOCK_SysPll1Div5Clk,  /*!< Sys PLL1 clock divided by 5.            */
+    kCLOCK_SysPll1Div6Clk,  /*!< Sys PLL1 clock divided by 6.            */
+    kCLOCK_SysPll1Div8Clk,  /*!< Sys PLL1 clock divided by 8.            */
+    kCLOCK_SysPll1Div10Clk, /*!< Sys PLL1 clock divided by 10.            */
+    kCLOCK_SysPll1Div20Clk, /*!< Sys PLL1 clock divided by 20.            */
+    kCLOCK_SysPll2Clk,      /*!< Sys PLL2 clock.            */
+    kCLOCK_SysPll2Div2Clk,  /*!< Sys PLL2 clock divided by 2.            */
+    kCLOCK_SysPll2Div3Clk,  /*!< Sys PLL2 clock divided by 3.            */
+    kCLOCK_SysPll2Div4Clk,  /*!< Sys PLL2 clock divided by 4.            */
+    kCLOCK_SysPll2Div5Clk,  /*!< Sys PLL2 clock divided by 5.            */
+    kCLOCK_SysPll2Div6Clk,  /*!< Sys PLL2 clock divided by 6.            */
+    kCLOCK_SysPll2Div8Clk,  /*!< Sys PLL2 clock divided by 8.            */
+    kCLOCK_SysPll2Div10Clk, /*!< Sys PLL2 clock divided by 10.            */
+    kCLOCK_SysPll2Div20Clk, /*!< Sys PLL2 clock divided by 20.            */
+    kCLOCK_SysPll3Clk,      /*!< Sys PLL3 clock.            */
+    kCLOCK_AudioPll1Clk,    /*!< Audio PLL1 clock.            */
+    kCLOCK_AudioPll2Clk,    /*!< Audio PLL2 clock.            */
+    kCLOCK_VideoPll1Clk,    /*!< Video PLL1 clock.            */
+    kCLOCK_ExtClk1,         /*!< External clock1.            */
+    kCLOCK_ExtClk2,         /*!< External clock2.            */
+    kCLOCK_ExtClk3,         /*!< External clock3.            */
+    kCLOCK_ExtClk4,         /*!< External clock4.            */
+    kCLOCK_NoneName,        /*!< None Clock Name. */
     /* -------------------------------- Other clock --------------------------*/
 } clock_name_t;
 
@@ -229,6 +408,8 @@ typedef enum _clock_ip_name
     kCLOCK_Ecspi1 = CCM_TUPLE(7U, 101U), /*!< ECSPI1 Clock Gate.*/
     kCLOCK_Ecspi2 = CCM_TUPLE(8U, 102U), /*!< ECSPI2 Clock Gate.*/
     kCLOCK_Ecspi3 = CCM_TUPLE(9U, 131U), /*!< ECSPI3 Clock Gate.*/
+
+    kCLOCK_Enet1 = CCM_TUPLE(10U, 17U), /*!< ENET1 Clock Gate.*/
 
     kCLOCK_Gpio1 = CCM_TUPLE(11U, 33U), /*!< GPIO1 Clock Gate.*/
     kCLOCK_Gpio2 = CCM_TUPLE(12U, 33U), /*!< GPIO2 Clock Gate.*/
@@ -311,54 +492,118 @@ typedef enum _clock_ip_name
 /*! @brief ccm root name used to get clock frequency. */
 typedef enum _clock_root_control
 {
-    kCLOCK_RootM7       = (uint32_t)(&(CCM)->ROOT[1].TARGET_ROOT),  /*!< ARM Cortex-M7 Clock control name.*/
-    kCLOCK_RootAxi      = (uint32_t)(&(CCM)->ROOT[16].TARGET_ROOT), /*!< AXI Clock control name.*/
-    kCLOCK_RootNoc      = (uint32_t)(&(CCM)->ROOT[26].TARGET_ROOT), /*!< NOC Clock control name.*/
-    kCLOCK_RootAhb      = (uint32_t)(&(CCM)->ROOT[32].TARGET_ROOT), /*!< AHB Clock control name.*/
-    kCLOCK_RootIpg      = (uint32_t)(&(CCM)->ROOT[33].TARGET_ROOT), /*!< IPG Clock control name.*/
-    kCLOCK_RootAudioAhb = (uint32_t)(&(CCM)->ROOT[34].TARGET_ROOT), /*!< Audio AHB Clock control name.*/
-    kCLOCK_RootAudioIpg = (uint32_t)(&(CCM)->ROOT[35].TARGET_ROOT), /*!< Audio IPG Clock control name.*/
-    kCLOCK_RootDramAlt  = (uint32_t)(&(CCM)->ROOT[64].TARGET_ROOT), /*!< DRAM ALT Clock control name.*/
+    kCLOCK_RootM7 =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[1].TARGET_ROOT), /*!< ARM Cortex-M7 Clock control name.*/
+    kCLOCK_RootAxi = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[16].TARGET_ROOT), /*!< AXI Clock control name.*/
+    kCLOCK_RootEnetAxi = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[17].TARGET_ROOT), /*!< ENET AXI Clock control name.*/
+    kCLOCK_RootNoc = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[26].TARGET_ROOT), /*!< NOC Clock control name.*/
+    kCLOCK_RootAhb = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[32].TARGET_ROOT), /*!< AHB Clock control name.*/
+    kCLOCK_RootIpg = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[33].TARGET_ROOT), /*!< IPG Clock control name.*/
+    kCLOCK_RootAudioAhb =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[34].TARGET_ROOT), /*!< Audio AHB Clock control name.*/
+    kCLOCK_RootAudioIpg =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[35].TARGET_ROOT), /*!< Audio IPG Clock control name.*/
+    kCLOCK_RootDramAlt =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[64].TARGET_ROOT), /*!< DRAM ALT Clock control name.*/
 
-    kCLOCK_RootSai2 = (uint32_t)(&(CCM)->ROOT[76].TARGET_ROOT),  /*!< SAI2 Clock control name.*/
-    kCLOCK_RootSai3 = (uint32_t)(&(CCM)->ROOT[77].TARGET_ROOT),  /*!< SAI3 Clock control name.*/
-    kCLOCK_RootSai5 = (uint32_t)(&(CCM)->ROOT[79].TARGET_ROOT),  /*!< SAI5 Clock control name.*/
-    kCLOCK_RootSai6 = (uint32_t)(&(CCM)->ROOT[80].TARGET_ROOT),  /*!< SAI6 Clock control name.*/
-    kCLOCK_RootSai7 = (uint32_t)(&(CCM)->ROOT[134].TARGET_ROOT), /*!< SAI7 Clock control name.*/
+    kCLOCK_RootSai2 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[76].TARGET_ROOT),  /*!< SAI2 Clock control name.*/
+    kCLOCK_RootSai3 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[77].TARGET_ROOT),  /*!< SAI3 Clock control name.*/
+    kCLOCK_RootSai5 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[79].TARGET_ROOT),  /*!< SAI5 Clock control name.*/
+    kCLOCK_RootSai6 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[80].TARGET_ROOT),  /*!< SAI6 Clock control name.*/
+    kCLOCK_RootSai7 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[134].TARGET_ROOT), /*!< SAI7 Clock control name.*/
 
-    kCLOCK_RootQspi = (uint32_t)(&(CCM)->ROOT[87].TARGET_ROOT), /*!< QSPI Clock control name.*/
+    kCLOCK_RootEnetRef   = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[83].TARGET_ROOT), /*!< ENET Clock control name.*/
+    kCLOCK_RootEnetTimer = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[84].TARGET_ROOT), /*!< ENET TIMER Clock control name.*/
+    kCLOCK_RootEnetPhy   = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[85].TARGET_ROOT), /*!< ENET PHY Clock control name.*/
 
-    kCLOCK_RootI2c1 = (uint32_t)(&(CCM)->ROOT[90].TARGET_ROOT), /*!< I2C1 Clock control name.*/
-    kCLOCK_RootI2c2 = (uint32_t)(&(CCM)->ROOT[91].TARGET_ROOT), /*!< I2C2 Clock control name.*/
-    kCLOCK_RootI2c3 = (uint32_t)(&(CCM)->ROOT[92].TARGET_ROOT), /*!< I2C3 Clock control name.*/
-    kCLOCK_RootI2c4 = (uint32_t)(&(CCM)->ROOT[93].TARGET_ROOT), /*!< I2C4 Clock control name.*/
+    kCLOCK_RootQspi = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[87].TARGET_ROOT), /*!< QSPI Clock control name.*/
 
-    kCLOCK_RootUart1 = (uint32_t)(&(CCM)->ROOT[94].TARGET_ROOT), /*!< UART1 Clock control name.*/
-    kCLOCK_RootUart2 = (uint32_t)(&(CCM)->ROOT[95].TARGET_ROOT), /*!< UART2 Clock control name.*/
-    kCLOCK_RootUart3 = (uint32_t)(&(CCM)->ROOT[96].TARGET_ROOT), /*!< UART3 Clock control name.*/
-    kCLOCK_RootUart4 = (uint32_t)(&(CCM)->ROOT[97].TARGET_ROOT), /*!< UART4 Clock control name.*/
+    kCLOCK_RootI2c1 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[90].TARGET_ROOT), /*!< I2C1 Clock control name.*/
+    kCLOCK_RootI2c2 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[91].TARGET_ROOT), /*!< I2C2 Clock control name.*/
+    kCLOCK_RootI2c3 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[92].TARGET_ROOT), /*!< I2C3 Clock control name.*/
+    kCLOCK_RootI2c4 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[93].TARGET_ROOT), /*!< I2C4 Clock control name.*/
 
-    kCLOCK_RootEcspi1 = (uint32_t)(&(CCM)->ROOT[101].TARGET_ROOT), /*!< ECSPI1 Clock control name.*/
-    kCLOCK_RootEcspi2 = (uint32_t)(&(CCM)->ROOT[102].TARGET_ROOT), /*!< ECSPI2 Clock control name.*/
-    kCLOCK_RootEcspi3 = (uint32_t)(&(CCM)->ROOT[131].TARGET_ROOT), /*!< ECSPI3 Clock control name.*/
+    kCLOCK_RootUart1 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[94].TARGET_ROOT), /*!< UART1 Clock control name.*/
+    kCLOCK_RootUart2 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[95].TARGET_ROOT), /*!< UART2 Clock control name.*/
+    kCLOCK_RootUart3 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[96].TARGET_ROOT), /*!< UART3 Clock control name.*/
+    kCLOCK_RootUart4 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[97].TARGET_ROOT), /*!< UART4 Clock control name.*/
 
-    kCLOCK_RootPwm1 = (uint32_t)(&(CCM)->ROOT[103].TARGET_ROOT), /*!< PWM1 Clock control name.*/
-    kCLOCK_RootPwm2 = (uint32_t)(&(CCM)->ROOT[104].TARGET_ROOT), /*!< PWM2 Clock control name.*/
-    kCLOCK_RootPwm3 = (uint32_t)(&(CCM)->ROOT[105].TARGET_ROOT), /*!< PWM3 Clock control name.*/
-    kCLOCK_RootPwm4 = (uint32_t)(&(CCM)->ROOT[106].TARGET_ROOT), /*!< PWM4 Clock control name.*/
+    kCLOCK_RootEcspi1 =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[101].TARGET_ROOT), /*!< ECSPI1 Clock control name.*/
+    kCLOCK_RootEcspi2 =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[102].TARGET_ROOT), /*!< ECSPI2 Clock control name.*/
+    kCLOCK_RootEcspi3 =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[131].TARGET_ROOT), /*!< ECSPI3 Clock control name.*/
 
-    kCLOCK_RootGpt1 = (uint32_t)(&(CCM)->ROOT[107].TARGET_ROOT), /*!< GPT1 Clock control name.*/
-    kCLOCK_RootGpt2 = (uint32_t)(&(CCM)->ROOT[108].TARGET_ROOT), /*!< GPT2 Clock control name.*/
-    kCLOCK_RootGpt3 = (uint32_t)(&(CCM)->ROOT[109].TARGET_ROOT), /*!< GPT3 Clock control name.*/
-    kCLOCK_RootGpt4 = (uint32_t)(&(CCM)->ROOT[110].TARGET_ROOT), /*!< GPT4 Clock control name.*/
-    kCLOCK_RootGpt5 = (uint32_t)(&(CCM)->ROOT[111].TARGET_ROOT), /*!< GPT5 Clock control name.*/
-    kCLOCK_RootGpt6 = (uint32_t)(&(CCM)->ROOT[112].TARGET_ROOT), /*!< GPT6 Clock control name.*/
+    kCLOCK_RootPwm1 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[103].TARGET_ROOT), /*!< PWM1 Clock control name.*/
+    kCLOCK_RootPwm2 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[104].TARGET_ROOT), /*!< PWM2 Clock control name.*/
+    kCLOCK_RootPwm3 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[105].TARGET_ROOT), /*!< PWM3 Clock control name.*/
+    kCLOCK_RootPwm4 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[106].TARGET_ROOT), /*!< PWM4 Clock control name.*/
 
-    kCLOCK_RootWdog = (uint32_t)(&(CCM)->ROOT[114].TARGET_ROOT), /*!< WDOG Clock control name.*/
+    kCLOCK_RootGpt1 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[107].TARGET_ROOT), /*!< GPT1 Clock control name.*/
+    kCLOCK_RootGpt2 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[108].TARGET_ROOT), /*!< GPT2 Clock control name.*/
+    kCLOCK_RootGpt3 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[109].TARGET_ROOT), /*!< GPT3 Clock control name.*/
+    kCLOCK_RootGpt4 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[110].TARGET_ROOT), /*!< GPT4 Clock control name.*/
+    kCLOCK_RootGpt5 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[111].TARGET_ROOT), /*!< GPT5 Clock control name.*/
+    kCLOCK_RootGpt6 = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[112].TARGET_ROOT), /*!< GPT6 Clock control name.*/
 
-    kCLOCK_RootPdm = (uint32_t)(&(CCM)->ROOT[132].TARGET_ROOT), /*!< PDM Clock control name.*/
+    kCLOCK_RootWdog = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[114].TARGET_ROOT), /*!< WDOG Clock control name.*/
+
+    kCLOCK_RootPdm = (uintptr_t)CCM_BASE + offsetof(CCM_Type, ROOT[132].TARGET_ROOT), /*!< PDM Clock control name.*/
 
 } clock_root_control_t;
+
+/*! @brief ccm clock root index used to get clock frequency. */
+typedef enum _clock_root
+{
+    kCLOCK_M7ClkRoot = 0,   /*!< ARM Cortex-M7 Clock control name.*/
+    kCLOCK_AxiClkRoot,      /*!< AXI Clock control name.*/
+    kCLOCK_NocClkRoot,      /*!< NOC Clock control name.*/
+    kCLOCK_AhbClkRoot,      /*!< AHB Clock control name.*/
+    kCLOCK_IpgClkRoot,      /*!< IPG Clock control name.*/
+    kCLOCK_AudioAhbClkRoot, /*!< Audio AHB Clock control name.*/
+    kCLOCK_AudioIpgClkRoot, /*!< Audio IPG Clock control name.*/
+    kCLOCK_DramAltClkRoot,  /*!< DRAM ALT Clock control name.*/
+
+    kCLOCK_Sai2ClkRoot, /*!< SAI2 Clock control name.*/
+    kCLOCK_Sai3ClkRoot, /*!< SAI3 Clock control name.*/
+    kCLOCK_Sai5ClkRoot, /*!< SAI5 Clock control name.*/
+    kCLOCK_Sai6ClkRoot, /*!< SAI6 Clock control name.*/
+    kCLOCK_Sai7ClkRoot, /*!< SAI7 Clock control name.*/
+
+    kCLOCK_QspiClkRoot, /*!< QSPI Clock control name.*/
+
+    kCLOCK_I2c1ClkRoot, /*!< I2C1 Clock control name.*/
+    kCLOCK_I2c2ClkRoot, /*!< I2C2 Clock control name.*/
+    kCLOCK_I2c3ClkRoot, /*!< I2C3 Clock control name.*/
+    kCLOCK_I2c4ClkRoot, /*!< I2C4 Clock control name.*/
+
+    kCLOCK_Uart1ClkRoot, /*!< UART1 Clock control name.*/
+    kCLOCK_Uart2ClkRoot, /*!< UART2 Clock control name.*/
+    kCLOCK_Uart3ClkRoot, /*!< UART3 Clock control name.*/
+    kCLOCK_Uart4ClkRoot, /*!< UART4 Clock control name.*/
+
+    kCLOCK_Ecspi1ClkRoot, /*!< ECSPI1 Clock control name.*/
+    kCLOCK_Ecspi2ClkRoot, /*!< ECSPI2 Clock control name.*/
+    kCLOCK_Ecspi3ClkRoot, /*!< ECSPI3 Clock control name.*/
+
+    kCLOCK_Pwm1ClkRoot, /*!< PWM1 Clock control name.*/
+    kCLOCK_Pwm2ClkRoot, /*!< PWM2 Clock control name.*/
+    kCLOCK_Pwm3ClkRoot, /*!< PWM3 Clock control name.*/
+    kCLOCK_Pwm4ClkRoot, /*!< PWM4 Clock control name.*/
+
+    kCLOCK_Gpt1ClkRoot, /*!< GPT1 Clock control name.*/
+    kCLOCK_Gpt2ClkRoot, /*!< GPT2 Clock control name.*/
+    kCLOCK_Gpt3ClkRoot, /*!< GPT3 Clock control name.*/
+    kCLOCK_Gpt4ClkRoot, /*!< GPT4 Clock control name.*/
+    kCLOCK_Gpt5ClkRoot, /*!< GPT5 Clock control name.*/
+    kCLOCK_Gpt6ClkRoot, /*!< GPT6 Clock control name.*/
+
+    kCLOCK_WdogClkRoot, /*!< WDOG Clock control name.*/
+
+    kCLOCK_PdmClkRoot, /*!< PDM Clock control name.*/
+
+} clock_root_t;
 
 /*! @brief Root clock select enumeration for ARM Cortex-M7 core. */
 typedef enum _clock_rootmux_m7_clk_sel
@@ -436,6 +681,58 @@ typedef enum _clock_rootmux_ecspi_clk_sel
     kCLOCK_EcspiRootmuxSysPll2Div4  = 6U, /*!< ECSPI Clock from SYSTEM PLL2 divided by 4.*/
     kCLOCK_EcspiRootmuxAudioPll2    = 7U, /*!< ECSPI Clock from AUDIO PLL2.*/
 } clock_rootmux_ecspi_clk_sel_t;
+
+/*! @brief Root clock select enumeration for ENET AXI bus. */
+typedef enum _clock_rootmux_enet_axi_clk_sel
+{
+    kCLOCK_EnetAxiRootmuxOsc24M      = 0U, /*!< ENET AXI Clock from OSC 24M.*/
+    kCLOCK_EnetAxiRootmuxSysPll1Div3 = 1U, /*!< ENET AXI Clock from SYSTEM PLL1 divided by 3.*/
+    kCLOCK_EnetAxiRootmuxSysPll1     = 2U, /*!< ENET AXI Clock from SYSTEM PLL1.*/
+    kCLOCK_EnetAxiRootmuxSysPll2Div4 = 3U, /*!< ENET AXI Clock from SYSTEM PLL2 divided by 4.*/
+    kCLOCK_EnetAxiRootmuxSysPll2Div5 = 4U, /*!< ENET AXI Clock from SYSTEM PLL2 divided by 5.*/
+    kCLOCK_EnetAxiRootmuxAudioPll1   = 5U, /*!< ENET AXI Clock from AUDIO PLL1.*/
+    kCLOCK_EnetAxiRootmuxVideoPll1   = 6U, /*!< ENET AXI Clock from VIDEO PLL1.*/
+    kCLOCK_EnetAxiRootmuxSysPll3     = 7U, /*!< ENET AXI Clock from SYSTEM PLL3.*/
+} clock_rootmux_enet_axi_clk_sel_t;
+
+/*! @brief Root clock select enumeration for ENET REF Clcok. */
+typedef enum _clock_rootmux_enet_ref_clk_sel
+{
+    kCLOCK_EnetRefRootmuxOsc24M       = 0U, /*!< ENET REF Clock from OSC 24M.*/
+    kCLOCK_EnetRefRootmuxSysPll2Div8  = 1U, /*!< ENET REF Clock from SYSTEM PLL2 divided by 8.*/
+    kCLOCK_EnetRefRootmuxSysPll2Div20 = 2U, /*!< ENET REF Clock from SYSTEM PLL2 divided by 20.*/
+    kCLOCK_EnetRefRootmuxSysPll2Div10 = 3U, /*!< ENET REF Clock from SYSTEM PLL2 divided by 10.*/
+    kCLOCK_EnetRefRootmuxSysPll1Div5  = 4U, /*!< ENET REF Clock from SYSTEM PLL1 divided by 5.*/
+    kCLOCK_EnetRefRootmuxAudioPll1    = 5U, /*!< ENET REF Clock from AUDIO PLL1.*/
+    kCLOCK_EnetRefRootmuxVideoPll1    = 6U, /*!< ENET REF Clock from VIDEO PLL1.*/
+    kCLOCK_EnetRefRootmuxExtClk4      = 7U, /*!< ENET REF Clock from External Clock 4.*/
+} clock_rootmux_enet_ref_clk_sel_t;
+
+/*! @brief Root clock select enumeration for ENET TIMER Clcok. */
+typedef enum _clock_rootmux_enet_timer_clk_sel
+{
+    kCLOCK_EnetTimerRootmuxOsc24M       = 0U, /*!< ENET TIMER Clock from OSC 24M.*/
+    kCLOCK_EnetTimerRootmuxSysPll2Div10 = 1U, /*!< ENET TIMER Clock from SYSTEM PLL2 divided by 10.*/
+    kCLOCK_EnetTimerRootmuxAudioPll1    = 2U, /*!< ENET TIMER Clock from AUDIO PLL1.*/
+    kCLOCK_EnetTimerRootmuxExtClk1      = 3U, /*!< ENET TIMER Clock from External Clock 1.*/
+    kCLOCK_EnetTimerRootmuxExtClk2      = 4U, /*!< ENET TIMER Clock External Clock 2.*/
+    kCLOCK_EnetTimerRootmuxExtClk3      = 5U, /*!< ENET TIMER Clock from External Clock 3.*/
+    kCLOCK_EnetTimerRootmuxExtClk4      = 6U, /*!< ENET TIMER Clock from External Clock 4.*/
+    kCLOCK_EnetTimerRootmuxVideoPll1    = 7U, /*!< ENET TIMER Clock from VIDEO PLL1.*/
+} clock_rootmux_enet_timer_clk_sel_t;
+
+/*! @brief Root clock select enumeration for ENET PHY Clcok. */
+typedef enum _clock_rootmux_enet_phy_clk_sel
+{
+    kCLOCK_EnetPhyRootmuxOsc24M       = 0U, /*!< ENET PHY Clock from OSC 24M.*/
+    kCLOCK_EnetPhyRootmuxSysPll2Div20 = 1U, /*!< ENET PHY Clock from SYSTEM PLL2 divided by 20.*/
+    kCLOCK_EnetPhyRootmuxSysPll2Div8  = 2U, /*!< ENET PHY Clock from SYSTEM PLL2 divided by 8.*/
+    kCLOCK_EnetPhyRootmuxSysPll2Div5  = 3U, /*!< ENET PHY Clock from SYSTEM PLL2 divided by 5.*/
+    kCLOCK_EnetPhyRootmuxSysPll2Div2  = 4U, /*!< ENET PHY Clock from SYSTEM PLL2 divided by 2.*/
+    kCLOCK_EnetPhyRootmuxAudioPll1    = 5U, /*!< ENET PHY Clock from AUDIO PLL1.*/
+    kCLOCK_EnetPhyRootmuxVideoPll1    = 6U, /*!< ENET PHY Clock from VIDEO PLL1.*/
+    kCLOCK_EnetPhyRootmuxAudioPll2    = 7U, /*!< ENET PHY Clock from AUDIO PLL2.*/
+} clock_rootmux_enet_phy_clk_sel_t;
 
 /*! @brief Root clock select enumeration for I2C peripheral. */
 typedef enum _clock_rootmux_i2c_clk_sel
@@ -545,38 +842,54 @@ typedef enum _clock_rootmux_noc_clk_sel
 /*! @brief CCM PLL gate control. */
 typedef enum _clock_pll_gate
 {
-    kCLOCK_ArmPllGate = (uint32_t)(&(CCM)->PLL_CTRL[12].PLL_CTRL), /*!< ARM PLL Gate.*/
+    kCLOCK_ArmPllGate = (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[12].PLL_CTRL), /*!< ARM PLL Gate.*/
 
-    kCLOCK_GpuPllGate  = (uint32_t)(&(CCM)->PLL_CTRL[13].PLL_CTRL), /*!< GPU PLL Gate.*/
-    kCLOCK_VpuPllGate  = (uint32_t)(&(CCM)->PLL_CTRL[14].PLL_CTRL), /*!< VPU PLL Gate.*/
-    kCLOCK_DramPllGate = (uint32_t)(&(CCM)->PLL_CTRL[15].PLL_CTRL), /*!< DRAM PLL1 Gate.*/
+    kCLOCK_GpuPllGate  = (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[13].PLL_CTRL), /*!< GPU PLL Gate.*/
+    kCLOCK_VpuPllGate  = (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[14].PLL_CTRL), /*!< VPU PLL Gate.*/
+    kCLOCK_DramPllGate = (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[15].PLL_CTRL), /*!< DRAM PLL1 Gate.*/
 
-    kCLOCK_SysPll1Gate      = (uint32_t)(&(CCM)->PLL_CTRL[16].PLL_CTRL), /*!< SYSTEM PLL1 Gate.*/
-    kCLOCK_SysPll1Div2Gate  = (uint32_t)(&(CCM)->PLL_CTRL[17].PLL_CTRL), /*!< SYSTEM PLL1 Div2 Gate.*/
-    kCLOCK_SysPll1Div3Gate  = (uint32_t)(&(CCM)->PLL_CTRL[18].PLL_CTRL), /*!< SYSTEM PLL1 Div3 Gate.*/
-    kCLOCK_SysPll1Div4Gate  = (uint32_t)(&(CCM)->PLL_CTRL[19].PLL_CTRL), /*!< SYSTEM PLL1 Div4 Gate.*/
-    kCLOCK_SysPll1Div5Gate  = (uint32_t)(&(CCM)->PLL_CTRL[20].PLL_CTRL), /*!< SYSTEM PLL1 Div5 Gate.*/
-    kCLOCK_SysPll1Div6Gate  = (uint32_t)(&(CCM)->PLL_CTRL[21].PLL_CTRL), /*!< SYSTEM PLL1 Div6 Gate.*/
-    kCLOCK_SysPll1Div8Gate  = (uint32_t)(&(CCM)->PLL_CTRL[22].PLL_CTRL), /*!< SYSTEM PLL1 Div8 Gate.*/
-    kCLOCK_SysPll1Div10Gate = (uint32_t)(&(CCM)->PLL_CTRL[23].PLL_CTRL), /*!< SYSTEM PLL1 Div10 Gate.*/
-    kCLOCK_SysPll1Div20Gate = (uint32_t)(&(CCM)->PLL_CTRL[24].PLL_CTRL), /*!< SYSTEM PLL1 Div20 Gate.*/
+    kCLOCK_SysPll1Gate = (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[16].PLL_CTRL), /*!< SYSTEM PLL1 Gate.*/
+    kCLOCK_SysPll1Div2Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[17].PLL_CTRL), /*!< SYSTEM PLL1 Div2 Gate.*/
+    kCLOCK_SysPll1Div3Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[18].PLL_CTRL), /*!< SYSTEM PLL1 Div3 Gate.*/
+    kCLOCK_SysPll1Div4Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[19].PLL_CTRL), /*!< SYSTEM PLL1 Div4 Gate.*/
+    kCLOCK_SysPll1Div5Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[20].PLL_CTRL), /*!< SYSTEM PLL1 Div5 Gate.*/
+    kCLOCK_SysPll1Div6Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[21].PLL_CTRL), /*!< SYSTEM PLL1 Div6 Gate.*/
+    kCLOCK_SysPll1Div8Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[22].PLL_CTRL), /*!< SYSTEM PLL1 Div8 Gate.*/
+    kCLOCK_SysPll1Div10Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[23].PLL_CTRL), /*!< SYSTEM PLL1 Div10 Gate.*/
+    kCLOCK_SysPll1Div20Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[24].PLL_CTRL), /*!< SYSTEM PLL1 Div20 Gate.*/
 
-    kCLOCK_SysPll2Gate      = (uint32_t)(&(CCM)->PLL_CTRL[25].PLL_CTRL), /*!< SYSTEM PLL2 Gate.*/
-    kCLOCK_SysPll2Div2Gate  = (uint32_t)(&(CCM)->PLL_CTRL[26].PLL_CTRL), /*!< SYSTEM PLL2 Div2 Gate.*/
-    kCLOCK_SysPll2Div3Gate  = (uint32_t)(&(CCM)->PLL_CTRL[27].PLL_CTRL), /*!< SYSTEM PLL2 Div3 Gate.*/
-    kCLOCK_SysPll2Div4Gate  = (uint32_t)(&(CCM)->PLL_CTRL[28].PLL_CTRL), /*!< SYSTEM PLL2 Div4 Gate.*/
-    kCLOCK_SysPll2Div5Gate  = (uint32_t)(&(CCM)->PLL_CTRL[29].PLL_CTRL), /*!< SYSTEM PLL2 Div5 Gate.*/
-    kCLOCK_SysPll2Div6Gate  = (uint32_t)(&(CCM)->PLL_CTRL[30].PLL_CTRL), /*!< SYSTEM PLL2 Div6 Gate.*/
-    kCLOCK_SysPll2Div8Gate  = (uint32_t)(&(CCM)->PLL_CTRL[31].PLL_CTRL), /*!< SYSTEM PLL2 Div8 Gate.*/
-    kCLOCK_SysPll2Div10Gate = (uint32_t)(&(CCM)->PLL_CTRL[32].PLL_CTRL), /*!< SYSTEM PLL2 Div10 Gate.*/
-    kCLOCK_SysPll2Div20Gate = (uint32_t)(&(CCM)->PLL_CTRL[33].PLL_CTRL), /*!< SYSTEM PLL2 Div20 Gate.*/
+    kCLOCK_SysPll2Gate = (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[25].PLL_CTRL), /*!< SYSTEM PLL2 Gate.*/
+    kCLOCK_SysPll2Div2Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[26].PLL_CTRL), /*!< SYSTEM PLL2 Div2 Gate.*/
+    kCLOCK_SysPll2Div3Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[27].PLL_CTRL), /*!< SYSTEM PLL2 Div3 Gate.*/
+    kCLOCK_SysPll2Div4Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[28].PLL_CTRL), /*!< SYSTEM PLL2 Div4 Gate.*/
+    kCLOCK_SysPll2Div5Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[29].PLL_CTRL), /*!< SYSTEM PLL2 Div5 Gate.*/
+    kCLOCK_SysPll2Div6Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[30].PLL_CTRL), /*!< SYSTEM PLL2 Div6 Gate.*/
+    kCLOCK_SysPll2Div8Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[31].PLL_CTRL), /*!< SYSTEM PLL2 Div8 Gate.*/
+    kCLOCK_SysPll2Div10Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[32].PLL_CTRL), /*!< SYSTEM PLL2 Div10 Gate.*/
+    kCLOCK_SysPll2Div20Gate =
+        (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[33].PLL_CTRL), /*!< SYSTEM PLL2 Div20 Gate.*/
 
-    kCLOCK_SysPll3Gate = (uint32_t)(&(CCM)->PLL_CTRL[34].PLL_CTRL), /*!< SYSTEM PLL3 Gate.*/
+    kCLOCK_SysPll3Gate = (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[34].PLL_CTRL), /*!< SYSTEM PLL3 Gate.*/
 
-    kCLOCK_AudioPll1Gate = (uint32_t)(&(CCM)->PLL_CTRL[35].PLL_CTRL), /*!< AUDIO PLL1 Gate.*/
-    kCLOCK_AudioPll2Gate = (uint32_t)(&(CCM)->PLL_CTRL[36].PLL_CTRL), /*!< AUDIO PLL2 Gate.*/
-    kCLOCK_VideoPll1Gate = (uint32_t)(&(CCM)->PLL_CTRL[37].PLL_CTRL), /*!< VIDEO PLL1 Gate.*/
-    kCLOCK_VideoPll2Gate = (uint32_t)(&(CCM)->PLL_CTRL[38].PLL_CTRL), /*!< VIDEO PLL2 Gate.*/
+    kCLOCK_AudioPll1Gate = (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[35].PLL_CTRL), /*!< AUDIO PLL1 Gate.*/
+    kCLOCK_AudioPll2Gate = (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[36].PLL_CTRL), /*!< AUDIO PLL2 Gate.*/
+    kCLOCK_VideoPll1Gate = (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[37].PLL_CTRL), /*!< VIDEO PLL1 Gate.*/
+    kCLOCK_VideoPll2Gate = (uintptr_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[38].PLL_CTRL), /*!< VIDEO PLL2 Gate.*/
 } clock_pll_gate_t;
 
 /*! @brief CCM gate control value. */
@@ -877,7 +1190,7 @@ static inline uint32_t CLOCK_GetRootPostDivider(clock_root_control_t rootClk)
  * @param ccmGate Gate control (see @ref clock_pll_gate_t and @ref clock_ip_name_t enumeration)
  * @param control Gate control value (see @ref clock_gate_value_t)
  */
-static inline void CLOCK_ControlGate(uint32_t ccmGate, clock_gate_value_t control)
+static inline void CLOCK_ControlGate(uintptr_t ccmGate, clock_gate_value_t control)
 {
     CCM_REG(ccmGate) = (uint32_t)control;
 }
@@ -1225,6 +1538,14 @@ uint32_t CLOCK_GetPllRefClkFreq(clock_pll_ctrl_t ctrl);
 uint32_t CLOCK_GetFreq(clock_name_t clockName);
 
 /*!
+ * @brief Gets the frequency of selected clock root.
+ *
+ * @param clockRoot The clock root used to get the frequency, please refer to @ref clock_root_t.
+ * @return The frequency of selected clock root.
+ */
+uint32_t CLOCK_GetClockRootFreq(clock_root_t clockRoot);
+
+/*!
  * @brief Get the CCM Cortex M7 core frequency.
  *
  * @return  Clock frequency; If the clock is invalid, returns 0.
@@ -1244,6 +1565,13 @@ uint32_t CLOCK_GetAxiFreq(void);
  * @return  Clock frequency; If the clock is invalid, returns 0.
  */
 uint32_t CLOCK_GetAhbFreq(void);
+
+/*!
+ * brief Get the CCM Enet AXI bus frequency.
+ *
+ * return  Clock frequency; If the clock is invalid, returns 0.
+ */
+uint32_t CLOCK_GetEnetAxiFreq(void);
 
 /* @} */
 

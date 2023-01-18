@@ -1,6 +1,6 @@
 var a00021 =
 [
-    [ "sai_sdma_handle_t", "a00021.html#a00142", [
+    [ "sai_sdma_handle_t", "a00021.html#a00141", [
       [ "dmaHandle", "a00021.html#a7771c623613c03018e26d1b9744e384b", null ],
       [ "bytesPerFrame", "a00021.html#abd9f526b0ce960a0501bc496db79eaa1", null ],
       [ "channel", "a00021.html#a63354dffe03c53eda17b58fdb477ba0a", null ],
@@ -28,6 +28,8 @@ var a00021 =
     [ "SAI_TransferReceiveSDMA", "a00021.html#ga8ac119494447713bbbecd02475f335e9", null ],
     [ "SAI_TransferAbortSendSDMA", "a00021.html#gaa102f6b25395920a22e84468e38a63b5", null ],
     [ "SAI_TransferAbortReceiveSDMA", "a00021.html#ga93db8e9103fdcfc4c7f64c572288d151", null ],
+    [ "SAI_TransferTerminateReceiveSDMA", "a00021.html#ga08bcefd2a1ef564438b2bf996703a9db", null ],
+    [ "SAI_TransferTerminateSendSDMA", "a00021.html#gad5cd6f638792215065929bb0abd008dc", null ],
     [ "SAI_TransferRxSetConfigSDMA", "a00021.html#gad667d44770096d3d683fb92b77f2663e", null ],
     [ "SAI_TransferTxSetConfigSDMA", "a00021.html#gab96d2c96aa6452cb79d54fdf264811a5", null ]
 ];

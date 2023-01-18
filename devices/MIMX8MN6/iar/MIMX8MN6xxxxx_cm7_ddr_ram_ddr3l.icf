@@ -25,16 +25,16 @@
 
 
 define symbol m_interrupts_start       = 0x70000000;
-define symbol m_interrupts_end         = 0x7700023F;
+define symbol m_interrupts_end         = 0x8000023F;
 
-define symbol m_text_start             = 0x77000240;
-define symbol m_text_end               = 0x771FFFFF;
+define symbol m_text_start             = 0x80000240;
+define symbol m_text_end               = 0x801FFFFF;
 
-define symbol m_data_start             = 0x77200000;
-define symbol m_data_end               = 0x773FFFFF;
+define symbol m_data_start             = 0x80200000;
+define symbol m_data_end               = 0x803FFFFF;
 
-define symbol m_data2_start            = 0x77400000;
-define symbol m_data2_end              = 0x77FFFFFF;
+define symbol m_data2_start            = 0x80400000;
+define symbol m_data2_end              = 0x80FFFFFF;
 
 /* Sizes */
 if (isdefinedsymbol(__stack_size__)) {

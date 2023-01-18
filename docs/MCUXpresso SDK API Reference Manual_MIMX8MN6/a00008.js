@@ -1,24 +1,24 @@
 var a00008 =
 [
-    [ "asrc_data_format_t", "a00008.html#a00151", [
+    [ "asrc_data_format_t", "a00008.html#a00150", [
       [ "dataPosition", "a00008.html#a4581e73b38540c5a6890dfef99d6b9fd", null ],
       [ "dataEndianness", "a00008.html#a9b866b26ec40c86786fafc66804f7301", null ],
       [ "dataWidth", "a00008.html#a47bd47be08dac714c1e3ffb89736a0b4", null ],
       [ "dataType", "a00008.html#a8352973a0c98187dcc15018f33393422", null ],
       [ "dataSign", "a00008.html#a1c7649e688acab6a31ea4d0012c41985", null ]
     ] ],
-    [ "asrc_access_ctrl_t", "a00008.html#a00145", [
+    [ "asrc_access_ctrl_t", "a00008.html#a00144", [
       [ "accessIterations", "a00008.html#a21b93594b378c67d50e1e8db05bb50b0", null ],
       [ "accessGroupLen", "a00008.html#af1c1fd23d31acb8dac962cafd4a39921", null ],
       [ "accessLen", "a00008.html#a32095169c0d829744b30d9cbc8e84f7e", null ]
     ] ],
-    [ "asrc_context_input_config_t", "a00008.html#a00147", [
+    [ "asrc_context_input_config_t", "a00008.html#a00146", [
       [ "sampleRate", "a00008.html#a52b2a9bc93036d786d114f94253ba93e", null ],
       [ "watermark", "a00008.html#a77e60e767e4829911f76ed2f6165dbb1", null ],
       [ "accessCtrl", "a00008.html#ad929e1e5919afdeea7a77f263526ae61", null ],
       [ "dataFormat", "a00008.html#a79a94f894c413de1f693008b921baeab", null ]
     ] ],
-    [ "asrc_context_output_config_t", "a00008.html#a00148", [
+    [ "asrc_context_output_config_t", "a00008.html#a00147", [
       [ "sampleRate", "a00008.html#a7218fedb61ee8a22f39ea3097348e671", null ],
       [ "watermark", "a00008.html#a0f03d520112abf2a0a9a9ed2e25acae8", null ],
       [ "accessCtrl", "a00008.html#adb077e59466e13f352a581c2b88e7e57", null ],
@@ -26,7 +26,7 @@ var a00008 =
       [ "enableDither", "a00008.html#adcbd780345b3cbabedff99398c7f0733", null ],
       [ "enableIEC60958", "a00008.html#a5ef8a02a4e68ebc113694f6cc77d775b", null ]
     ] ],
-    [ "asrc_context_prefilter_config_t", "a00008.html#a00149", [
+    [ "asrc_context_prefilter_config_t", "a00008.html#a00148", [
       [ "initMode", "a00008.html#a7cbacd163ead86bab8f8433ccaa7daca", null ],
       [ "stopMode", "a00008.html#aed5c3fca9a11f679a5ca656582282ae9", null ],
       [ "stage1Result", "a00008.html#a6134a0408d42ae652b133d0e9cec080d", null ],
@@ -35,7 +35,7 @@ var a00008 =
       [ "filterSt1Exp", "a00008.html#afa7f5af74d274554cadd25d4197aeb0b", null ],
       [ "filterCoeffAddress", "a00008.html#a2aefe38124e3b985075f6aa00a3df841", null ]
     ] ],
-    [ "asrc_context_resampler_config_t", "a00008.html#a00150", [
+    [ "asrc_context_resampler_config_t", "a00008.html#a00149", [
       [ "initMode", "a00008.html#a6e6cfcaa5271e2b11afcdc1426474e15", null ],
       [ "stopMode", "a00008.html#a0817584cd068a2a88c7eb9a4f52da75e", null ],
       [ "tap", "a00008.html#a2192fc25d544723189e2f655c0afa550", null ],
@@ -43,14 +43,14 @@ var a00008 =
       [ "filterCenterTap", "a00008.html#a36e03a0de995597dada504ecdcc99783", null ],
       [ "filterCoeffAddress", "a00008.html#aef8e2549a0405601125d3a2ef3e5f4e8", null ]
     ] ],
-    [ "asrc_context_config_t", "a00008.html#a00146", [
+    [ "asrc_context_config_t", "a00008.html#a00145", [
       [ "contextChannelNums", "a00008.html#a2540461b0df2289d02945f18b7783e05", null ],
       [ "contextInput", "a00008.html#ac0c8e499f3d01af236d5bc3875200766", null ],
       [ "contextOutput", "a00008.html#ada4483f50a7a21f0893f764246b4ee3d", null ],
       [ "contextPrefilter", "a00008.html#a1f20ddedf50313db8711835f9935e670", null ],
       [ "contextResampler", "a00008.html#a57c2247585303e8d2b2489c8d0ae54b4", null ]
     ] ],
-    [ "asrc_transfer_t", "a00008.html#a00155", [
+    [ "asrc_transfer_t", "a00008.html#a00154", [
       [ "inDataAddr", "a00008.html#a789df757ad0418966358f6608c263a8e", null ],
       [ "inDataSize", "a00008.html#a19e41a6dd58dc8b1b03a93c9dad00c07", null ],
       [ "outDataAddr", "a00008.html#ab2038ba02b5fd5c56be730e515c03283", null ],

@@ -37,7 +37,7 @@
 #define BOARD_MU_IRQ_NUM   MU_M7_IRQn
 
 /* Shared memory base for RPMsg communication. */
-#define VDEV0_VRING_BASE      (0xB8000000U)
+#define VDEV0_VRING_BASE      (0x71000000U)
 #define RESOURCE_TABLE_OFFSET (0xFF000)
 
 #if defined(__cplusplus)

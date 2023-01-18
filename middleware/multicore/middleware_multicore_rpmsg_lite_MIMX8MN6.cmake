@@ -1,4 +1,4 @@
-include_guard(GLOBAL)
+include_guard()
 message("middleware_multicore_rpmsg_lite component is included.")
 
 target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
@@ -9,7 +9,7 @@ target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
 )
 
 
-target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
+target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
     ${CMAKE_CURRENT_LIST_DIR}/rpmsg_lite/lib/include
 )
 
@@ -21,8 +21,11 @@ endif()
 if(CONFIG_USE_middleware_multicore_rpmsg_lite_bm_MIMX8MN6)
      include(middleware_multicore_rpmsg_lite_bm_MIMX8MN6)
 endif()
-if(NOT (CONFIG_USE_middleware_multicore_rpmsg_lite_freertos_MIMX8MN6 OR CONFIG_USE_middleware_multicore_rpmsg_lite_bm_MIMX8MN6))
-    message(WARNING "Since middleware_multicore_rpmsg_lite_freertos_MIMX8MN6/middleware_multicore_rpmsg_lite_bm_MIMX8MN6 is not included at first or config in config.cmake file, use middleware_multicore_rpmsg_lite_bm_MIMX8MN6 by default.")
+if(CONFIG_USE_middleware_multicore_rpmsg_lite_xos_MIMX8MN6)
+     include(middleware_multicore_rpmsg_lite_xos_MIMX8MN6)
+endif()
+if(NOT (CONFIG_USE_middleware_multicore_rpmsg_lite_freertos_MIMX8MN6 OR CONFIG_USE_middleware_multicore_rpmsg_lite_bm_MIMX8MN6 OR CONFIG_USE_middleware_multicore_rpmsg_lite_xos_MIMX8MN6))
+    message(WARNING "Since middleware_multicore_rpmsg_lite_freertos_MIMX8MN6/middleware_multicore_rpmsg_lite_bm_MIMX8MN6/middleware_multicore_rpmsg_lite_xos_MIMX8MN6 is not included at first or config in config.cmake file, use middleware_multicore_rpmsg_lite_bm_MIMX8MN6 by default.")
     include(middleware_multicore_rpmsg_lite_bm_MIMX8MN6)
 endif()
 

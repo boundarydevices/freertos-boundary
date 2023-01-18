@@ -24,17 +24,22 @@
 */
 
 
-define symbol m_interrupts_start       = 0x00000000;
-define symbol m_interrupts_end         = 0x0000023F;
+define symbol m_interrupts_start       = 0x08000000;
+define symbol m_interrupts_end         = 0x080009FF;
 
-define symbol m_text_start             = 0x00000240;
-define symbol m_text_end               = 0x0001FFFF;
+define symbol m_text_start             = 0x08000A00;
+define symbol m_text_end               = 0x08100000;
 
 define symbol m_data_start             = 0x20000000;
 define symbol m_data_end               = 0x2001FFFF;
 
-define symbol m_data2_start            = 0x77000000;
-define symbol m_data2_end              = 0x77FFFFFF;
+define symbol m_data2_start            = 0x70000000;
+define symbol m_data2_end              = 0x80FFFFFF;
+
+/* M7 always start up from TCM. The first 32 bytes of the binary contains values of  MSP and PC,
+if the start address is not TCM. The TCM region [0x00000000-0x0000001F] is reserved for this purpose. */
+define symbol m_tcml_start             = 0x00000020;
+define symbol m_tcml_end               = 0x0001FFFF;
 
 /* Sizes */
 if (isdefinedsymbol(__stack_size__)) {

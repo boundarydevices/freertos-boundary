@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <fileVersion>2</fileVersion>
+  <fileVersion>3</fileVersion>
   <configuration>
     <name>debug</name>
     <toolchain>
@@ -11,7 +11,7 @@
       <name>C-SPY</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>28</version>
+        <version>32</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -88,11 +88,11 @@
         </option>
         <option>
           <name>OCLastSavedByProductVersion</name>
-          <state>7.60.1.11206</state>
+          <state>9.30.1.48832</state>
         </option>
         <option>
           <name>UseFlashLoader</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CLowLevel</name>
@@ -112,7 +112,7 @@
         </option>
         <option>
           <name>FlashLoadersV3</name>
-          <state>$TOOLKIT_DIR$\config\flashloader\NXP\FlashK70Fxxx128K.board</state>
+          <state>$TOOLKIT_DIR$/config/flashloader/NXP/FlashK70Fxxx128K.board</state>
         </option>
         <option>
           <name>OCImagesSuppressCheck1</name>
@@ -183,14 +183,6 @@
           <state>1</state>
         </option>
         <option>
-          <name>OCMulticoreMaster</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCMulticorePort</name>
-          <state>53461</state>
-        </option>
-        <option>
           <name>OCMulticoreWorkspace</name>
           <state/>
         </option>
@@ -209,6 +201,26 @@
         <option>
           <name>OCAttachSlave</name>
           <state>0</state>
+        </option>
+        <option>
+          <name>MassEraseBeforeFlashing</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreNrOfCoresSlave</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCMulticoreAMPConfigType</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreSessionFile</name>
+          <state/>
+        </option>
+        <option>
+          <name>OCTpiuBaseOption</name>
+          <state>1</state>
         </option>
       </data>
     </settings>
@@ -238,40 +250,26 @@
       </data>
     </settings>
     <settings>
-      <name>ANGEL_ID</name>
+      <name>CADI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
         <version>0</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
-          <name>CCAngelHeartbeat</name>
+          <name>CCadiMemory</name>
           <state>1</state>
         </option>
         <option>
-          <name>CAngelCommunication</name>
-          <state>1</state>
+          <name>Fast Model</name>
+          <state/>
         </option>
         <option>
-          <name>CAngelCommBaud</name>
-          <version>0</version>
-          <state>3</state>
-        </option>
-        <option>
-          <name>CAngelCommPort</name>
-          <version>0</version>
+          <name>CCADILogFileCheck</name>
           <state>0</state>
         </option>
         <option>
-          <name>ANGELTCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
-        </option>
-        <option>
-          <name>DoAngelLogfile</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>AngelLogFile</name>
+          <name>CCADILogFileEditB</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
         </option>
         <option>
@@ -287,6 +285,10 @@
         <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -493,43 +495,16 @@
       </data>
     </settings>
     <settings>
-      <name>IARROM_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>1</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
-        <option>
-          <name>CRomLogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomLogFileEditB</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CRomCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomCommBaud</name>
-          <version>0</version>
-          <state>7</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>IJET_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>8</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -747,6 +722,58 @@
           <name>CCIjetUsbSerialNoSelect</name>
           <state>0</state>
         </option>
+        <option>
+          <name>CatchV8ARReset</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL3S</name>
+          <state>0</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -756,6 +783,10 @@
         <version>16</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CCCatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>JLinkSpeed</name>
           <state>32</state>
@@ -949,7 +980,7 @@
       <name>LMIFTDI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>2</version>
+        <version>3</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -976,27 +1007,31 @@
           <name>CCLmiFtdiInterfaceCmdLine</name>
           <state>0</state>
         </option>
-      </data>
-    </settings>
-    <settings>
-      <name>MACRAIGOR_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>3</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
         <option>
-          <name>jtag</name>
-          <version>0</version>
+          <name>CCLmiftdiUsbSerialNo</name>
+          <state/>
+        </option>
+        <option>
+          <name>CCLmiftdiUsbSerialNoSelect</name>
           <state>0</state>
         </option>
         <option>
-          <name>EmuSpeed</name>
-          <state>1</state>
+          <name>CCLmiftdiResetList</name>
+          <version>0</version>
+          <state>0</state>
         </option>
+      </data>
+    </settings>
+    <settings>
+      <name>NULINK_ID</name>
+      <archiveVersion>2</archiveVersion>
+      <data>
+        <version>0</version>
+        <wantNonLocal>1</wantNonLocal>
+        <debug>1</debug>
         <option>
-          <name>TCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
+          <name>OCDriverInfo</name>
+          <state>1</state>
         </option>
         <option>
           <name>DoLogfile</name>
@@ -1005,65 +1040,6 @@
         <option>
           <name>LogFile</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>DoEmuMultiTarget</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>EmuMultiTarget</name>
-          <state>0@ARM7TDMI</state>
-        </option>
-        <option>
-          <name>EmuHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CEmuCommBaud</name>
-          <version>0</version>
-          <state>4</state>
-        </option>
-        <option>
-          <name>CEmuCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>jtago</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>UnusedAddr</name>
-          <state>0x00800000</state>
-        </option>
-        <option>
-          <name>CCMacraigorHWResetDelay</name>
-          <state/>
-        </option>
-        <option>
-          <name>CCJTagBreakpointRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagDoUpdateBreakpoints</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagUpdateBreakpoints</name>
-          <state>_call_main</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceCmdLine</name>
-          <state>0</state>
         </option>
       </data>
     </settings>
@@ -1093,69 +1069,20 @@
       </data>
     </settings>
     <settings>
-      <name>RDI_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>2</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
-        <option>
-          <name>CRDIDriverDll</name>
-          <state>###Uninitialized###</state>
-        </option>
-        <option>
-          <name>CRDILogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRDILogFileEdit</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CCRDIHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchUndef</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchSWI</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchData</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchPrefetch</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchIRQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchFIQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>STLINK_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>3</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CCSTLinkCatchSFERR</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDAPNumber</name>
+          <state/>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -1170,7 +1097,7 @@
         </option>
         <option>
           <name>CCSTLinkResetList</name>
-          <version>1</version>
+          <version>3</version>
           <state>0</state>
         </option>
         <option>
@@ -1247,7 +1174,20 @@
         </option>
         <option>
           <name>CCSTLinkJtagSpeedList</name>
-          <version>0</version>
+          <version>2</version>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDebugAccessPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkUseServerSelect</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkProbeList</name>
+          <version>1</version>
           <state>0</state>
         </option>
       </data>
@@ -1352,9 +1292,13 @@
       <name>XDS100_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>5</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CCXds100CatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -1502,21 +1446,33 @@
           <version>0</version>
           <state>0</state>
         </option>
+        <option>
+          <name>CCXds100SWOPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXds100SWOPort</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVccEnable</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVoltage</name>
+          <state>###Uninitialized###</state>
+        </option>
+        <option>
+          <name>OCXDSDigitalStatesConfigFile</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCSelectedCoreName</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <debuggerPlugins>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\HCCWare\HCCWare.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\PercepioTraceExporter\PercepioTraceExportPlugin.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\AVIX\AVIX.ENU.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
       <plugin>
         <file>$TOOLKIT_DIR$\plugins\rtos\CMX\CmxArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
@@ -1530,7 +1486,15 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\MQX\MQXRtosPlugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\FreeRtos\FreeRtosArmPlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin2.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -1538,19 +1502,19 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\Quadros\Quadros_EWB7_Plugin.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
         <file>$TOOLKIT_DIR$\plugins\rtos\SafeRTOS\SafeRTOSPlugin.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\TI-RTOS\tirtosplugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9BE.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -1566,11 +1530,11 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\CodeCoverage\CodeCoverage.ENU.ewplugin</file>
-        <loadFlag>1</loadFlag>
+        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <file>$EW_DIR$\common\plugins\TargetAccessServer\TargetAccessServer.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -1589,7 +1553,7 @@
       <name>C-SPY</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>28</version>
+        <version>32</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -1666,11 +1630,11 @@
         </option>
         <option>
           <name>OCLastSavedByProductVersion</name>
-          <state>7.60.1.11206</state>
+          <state>9.30.1.48832</state>
         </option>
         <option>
           <name>UseFlashLoader</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CLowLevel</name>
@@ -1690,7 +1654,7 @@
         </option>
         <option>
           <name>FlashLoadersV3</name>
-          <state>$TOOLKIT_DIR$\config\flashloader\NXP\FlashK70Fxxx128K.board</state>
+          <state>$TOOLKIT_DIR$/config/flashloader/NXP/FlashK70Fxxx128K.board</state>
         </option>
         <option>
           <name>OCImagesSuppressCheck1</name>
@@ -1761,14 +1725,6 @@
           <state>1</state>
         </option>
         <option>
-          <name>OCMulticoreMaster</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCMulticorePort</name>
-          <state>53461</state>
-        </option>
-        <option>
           <name>OCMulticoreWorkspace</name>
           <state/>
         </option>
@@ -1787,6 +1743,26 @@
         <option>
           <name>OCAttachSlave</name>
           <state>0</state>
+        </option>
+        <option>
+          <name>MassEraseBeforeFlashing</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreNrOfCoresSlave</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCMulticoreAMPConfigType</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreSessionFile</name>
+          <state/>
+        </option>
+        <option>
+          <name>OCTpiuBaseOption</name>
+          <state>1</state>
         </option>
       </data>
     </settings>
@@ -1816,40 +1792,26 @@
       </data>
     </settings>
     <settings>
-      <name>ANGEL_ID</name>
+      <name>CADI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
         <version>0</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
-          <name>CCAngelHeartbeat</name>
+          <name>CCadiMemory</name>
           <state>1</state>
         </option>
         <option>
-          <name>CAngelCommunication</name>
-          <state>1</state>
+          <name>Fast Model</name>
+          <state/>
         </option>
         <option>
-          <name>CAngelCommBaud</name>
-          <version>0</version>
-          <state>3</state>
-        </option>
-        <option>
-          <name>CAngelCommPort</name>
-          <version>0</version>
+          <name>CCADILogFileCheck</name>
           <state>0</state>
         </option>
         <option>
-          <name>ANGELTCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
-        </option>
-        <option>
-          <name>DoAngelLogfile</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>AngelLogFile</name>
+          <name>CCADILogFileEditB</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
         </option>
         <option>
@@ -1865,6 +1827,10 @@
         <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -2071,43 +2037,16 @@
       </data>
     </settings>
     <settings>
-      <name>IARROM_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>1</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
-        <option>
-          <name>CRomLogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomLogFileEditB</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CRomCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomCommBaud</name>
-          <version>0</version>
-          <state>7</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>IJET_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>8</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -2325,6 +2264,58 @@
           <name>CCIjetUsbSerialNoSelect</name>
           <state>0</state>
         </option>
+        <option>
+          <name>CatchV8ARReset</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL3S</name>
+          <state>0</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -2334,6 +2325,10 @@
         <version>16</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CCCatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>JLinkSpeed</name>
           <state>32</state>
@@ -2527,7 +2522,7 @@
       <name>LMIFTDI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>2</version>
+        <version>3</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -2554,27 +2549,31 @@
           <name>CCLmiFtdiInterfaceCmdLine</name>
           <state>0</state>
         </option>
-      </data>
-    </settings>
-    <settings>
-      <name>MACRAIGOR_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>3</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
         <option>
-          <name>jtag</name>
-          <version>0</version>
+          <name>CCLmiftdiUsbSerialNo</name>
+          <state/>
+        </option>
+        <option>
+          <name>CCLmiftdiUsbSerialNoSelect</name>
           <state>0</state>
         </option>
         <option>
-          <name>EmuSpeed</name>
-          <state>1</state>
+          <name>CCLmiftdiResetList</name>
+          <version>0</version>
+          <state>0</state>
         </option>
+      </data>
+    </settings>
+    <settings>
+      <name>NULINK_ID</name>
+      <archiveVersion>2</archiveVersion>
+      <data>
+        <version>0</version>
+        <wantNonLocal>1</wantNonLocal>
+        <debug>1</debug>
         <option>
-          <name>TCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
+          <name>OCDriverInfo</name>
+          <state>1</state>
         </option>
         <option>
           <name>DoLogfile</name>
@@ -2583,65 +2582,6 @@
         <option>
           <name>LogFile</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>DoEmuMultiTarget</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>EmuMultiTarget</name>
-          <state>0@ARM7TDMI</state>
-        </option>
-        <option>
-          <name>EmuHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CEmuCommBaud</name>
-          <version>0</version>
-          <state>4</state>
-        </option>
-        <option>
-          <name>CEmuCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>jtago</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>UnusedAddr</name>
-          <state>0x00800000</state>
-        </option>
-        <option>
-          <name>CCMacraigorHWResetDelay</name>
-          <state/>
-        </option>
-        <option>
-          <name>CCJTagBreakpointRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagDoUpdateBreakpoints</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagUpdateBreakpoints</name>
-          <state>_call_main</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceCmdLine</name>
-          <state>0</state>
         </option>
       </data>
     </settings>
@@ -2671,69 +2611,20 @@
       </data>
     </settings>
     <settings>
-      <name>RDI_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>2</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
-        <option>
-          <name>CRDIDriverDll</name>
-          <state>###Uninitialized###</state>
-        </option>
-        <option>
-          <name>CRDILogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRDILogFileEdit</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CCRDIHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchUndef</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchSWI</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchData</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchPrefetch</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchIRQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchFIQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>STLINK_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>3</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CCSTLinkCatchSFERR</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDAPNumber</name>
+          <state/>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -2748,7 +2639,7 @@
         </option>
         <option>
           <name>CCSTLinkResetList</name>
-          <version>1</version>
+          <version>3</version>
           <state>0</state>
         </option>
         <option>
@@ -2825,7 +2716,20 @@
         </option>
         <option>
           <name>CCSTLinkJtagSpeedList</name>
-          <version>0</version>
+          <version>2</version>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDebugAccessPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkUseServerSelect</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkProbeList</name>
+          <version>1</version>
           <state>0</state>
         </option>
       </data>
@@ -2930,9 +2834,13 @@
       <name>XDS100_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>5</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CCXds100CatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -3080,21 +2988,33 @@
           <version>0</version>
           <state>0</state>
         </option>
+        <option>
+          <name>CCXds100SWOPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXds100SWOPort</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVccEnable</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVoltage</name>
+          <state>###Uninitialized###</state>
+        </option>
+        <option>
+          <name>OCXDSDigitalStatesConfigFile</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCSelectedCoreName</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <debuggerPlugins>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\HCCWare\HCCWare.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\PercepioTraceExporter\PercepioTraceExportPlugin.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\AVIX\AVIX.ENU.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
       <plugin>
         <file>$TOOLKIT_DIR$\plugins\rtos\CMX\CmxArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
@@ -3108,7 +3028,15 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\MQX\MQXRtosPlugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\FreeRtos\FreeRtosArmPlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin2.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -3116,19 +3044,19 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\Quadros\Quadros_EWB7_Plugin.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
         <file>$TOOLKIT_DIR$\plugins\rtos\SafeRTOS\SafeRTOSPlugin.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\TI-RTOS\tirtosplugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9BE.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -3144,11 +3072,11 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\CodeCoverage\CodeCoverage.ENU.ewplugin</file>
-        <loadFlag>1</loadFlag>
+        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <file>$EW_DIR$\common\plugins\TargetAccessServer\TargetAccessServer.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -3167,7 +3095,7 @@
       <name>C-SPY</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>28</version>
+        <version>32</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -3248,7 +3176,7 @@
         </option>
         <option>
           <name>UseFlashLoader</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CLowLevel</name>
@@ -3339,14 +3267,6 @@
           <state>1</state>
         </option>
         <option>
-          <name>OCMulticoreMaster</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCMulticorePort</name>
-          <state>53461</state>
-        </option>
-        <option>
           <name>OCMulticoreWorkspace</name>
           <state/>
         </option>
@@ -3365,6 +3285,26 @@
         <option>
           <name>OCAttachSlave</name>
           <state>0</state>
+        </option>
+        <option>
+          <name>MassEraseBeforeFlashing</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreNrOfCoresSlave</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCMulticoreAMPConfigType</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreSessionFile</name>
+          <state/>
+        </option>
+        <option>
+          <name>OCTpiuBaseOption</name>
+          <state>1</state>
         </option>
       </data>
     </settings>
@@ -3394,40 +3334,26 @@
       </data>
     </settings>
     <settings>
-      <name>ANGEL_ID</name>
+      <name>CADI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
         <version>0</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
-          <name>CCAngelHeartbeat</name>
+          <name>CCadiMemory</name>
           <state>1</state>
         </option>
         <option>
-          <name>CAngelCommunication</name>
-          <state>1</state>
+          <name>Fast Model</name>
+          <state/>
         </option>
         <option>
-          <name>CAngelCommBaud</name>
-          <version>0</version>
-          <state>3</state>
-        </option>
-        <option>
-          <name>CAngelCommPort</name>
-          <version>0</version>
+          <name>CCADILogFileCheck</name>
           <state>0</state>
         </option>
         <option>
-          <name>ANGELTCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
-        </option>
-        <option>
-          <name>DoAngelLogfile</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>AngelLogFile</name>
+          <name>CCADILogFileEditB</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
         </option>
         <option>
@@ -3443,6 +3369,10 @@
         <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -3649,43 +3579,16 @@
       </data>
     </settings>
     <settings>
-      <name>IARROM_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>1</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
-        <option>
-          <name>CRomLogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomLogFileEditB</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CRomCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomCommBaud</name>
-          <version>0</version>
-          <state>7</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>IJET_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>8</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -3903,6 +3806,58 @@
           <name>CCIjetUsbSerialNoSelect</name>
           <state>0</state>
         </option>
+        <option>
+          <name>CatchV8ARReset</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL3S</name>
+          <state>0</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -3912,6 +3867,10 @@
         <version>16</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CCCatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>JLinkSpeed</name>
           <state>32</state>
@@ -4105,7 +4064,7 @@
       <name>LMIFTDI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>2</version>
+        <version>3</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -4132,27 +4091,31 @@
           <name>CCLmiFtdiInterfaceCmdLine</name>
           <state>0</state>
         </option>
-      </data>
-    </settings>
-    <settings>
-      <name>MACRAIGOR_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>3</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
         <option>
-          <name>jtag</name>
-          <version>0</version>
+          <name>CCLmiftdiUsbSerialNo</name>
+          <state/>
+        </option>
+        <option>
+          <name>CCLmiftdiUsbSerialNoSelect</name>
           <state>0</state>
         </option>
         <option>
-          <name>EmuSpeed</name>
-          <state>1</state>
+          <name>CCLmiftdiResetList</name>
+          <version>0</version>
+          <state>0</state>
         </option>
+      </data>
+    </settings>
+    <settings>
+      <name>NULINK_ID</name>
+      <archiveVersion>2</archiveVersion>
+      <data>
+        <version>0</version>
+        <wantNonLocal>1</wantNonLocal>
+        <debug>0</debug>
         <option>
-          <name>TCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
+          <name>OCDriverInfo</name>
+          <state>1</state>
         </option>
         <option>
           <name>DoLogfile</name>
@@ -4161,65 +4124,6 @@
         <option>
           <name>LogFile</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>DoEmuMultiTarget</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>EmuMultiTarget</name>
-          <state>0@ARM7TDMI</state>
-        </option>
-        <option>
-          <name>EmuHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CEmuCommBaud</name>
-          <version>0</version>
-          <state>4</state>
-        </option>
-        <option>
-          <name>CEmuCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>jtago</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>UnusedAddr</name>
-          <state>0x00800000</state>
-        </option>
-        <option>
-          <name>CCMacraigorHWResetDelay</name>
-          <state/>
-        </option>
-        <option>
-          <name>CCJTagBreakpointRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagDoUpdateBreakpoints</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagUpdateBreakpoints</name>
-          <state>_call_main</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceCmdLine</name>
-          <state>0</state>
         </option>
       </data>
     </settings>
@@ -4249,69 +4153,20 @@
       </data>
     </settings>
     <settings>
-      <name>RDI_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>2</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
-        <option>
-          <name>CRDIDriverDll</name>
-          <state>###Uninitialized###</state>
-        </option>
-        <option>
-          <name>CRDILogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRDILogFileEdit</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CCRDIHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchUndef</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchSWI</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchData</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchPrefetch</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchIRQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchFIQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>STLINK_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>3</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CCSTLinkCatchSFERR</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDAPNumber</name>
+          <state/>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -4326,7 +4181,7 @@
         </option>
         <option>
           <name>CCSTLinkResetList</name>
-          <version>1</version>
+          <version>3</version>
           <state>0</state>
         </option>
         <option>
@@ -4403,7 +4258,20 @@
         </option>
         <option>
           <name>CCSTLinkJtagSpeedList</name>
-          <version>0</version>
+          <version>2</version>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDebugAccessPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkUseServerSelect</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkProbeList</name>
+          <version>1</version>
           <state>0</state>
         </option>
       </data>
@@ -4508,9 +4376,13 @@
       <name>XDS100_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>5</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CCXds100CatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -4658,21 +4530,33 @@
           <version>0</version>
           <state>0</state>
         </option>
+        <option>
+          <name>CCXds100SWOPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXds100SWOPort</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVccEnable</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVoltage</name>
+          <state>###Uninitialized###</state>
+        </option>
+        <option>
+          <name>OCXDSDigitalStatesConfigFile</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCSelectedCoreName</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <debuggerPlugins>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\HCCWare\HCCWare.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\PercepioTraceExporter\PercepioTraceExportPlugin.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\AVIX\AVIX.ENU.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
       <plugin>
         <file>$TOOLKIT_DIR$\plugins\rtos\CMX\CmxArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
@@ -4686,7 +4570,15 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\MQX\MQXRtosPlugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\FreeRtos\FreeRtosArmPlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin2.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -4694,19 +4586,19 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\Quadros\Quadros_EWB7_Plugin.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
         <file>$TOOLKIT_DIR$\plugins\rtos\SafeRTOS\SafeRTOSPlugin.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\TI-RTOS\tirtosplugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9BE.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -4722,11 +4614,11 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\CodeCoverage\CodeCoverage.ENU.ewplugin</file>
-        <loadFlag>1</loadFlag>
+        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <file>$EW_DIR$\common\plugins\TargetAccessServer\TargetAccessServer.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -4745,7 +4637,7 @@
       <name>C-SPY</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>28</version>
+        <version>32</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -4826,7 +4718,7 @@
         </option>
         <option>
           <name>UseFlashLoader</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CLowLevel</name>
@@ -4917,14 +4809,6 @@
           <state>1</state>
         </option>
         <option>
-          <name>OCMulticoreMaster</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCMulticorePort</name>
-          <state>53461</state>
-        </option>
-        <option>
           <name>OCMulticoreWorkspace</name>
           <state/>
         </option>
@@ -4943,6 +4827,26 @@
         <option>
           <name>OCAttachSlave</name>
           <state>0</state>
+        </option>
+        <option>
+          <name>MassEraseBeforeFlashing</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreNrOfCoresSlave</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCMulticoreAMPConfigType</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreSessionFile</name>
+          <state/>
+        </option>
+        <option>
+          <name>OCTpiuBaseOption</name>
+          <state>1</state>
         </option>
       </data>
     </settings>
@@ -4972,40 +4876,26 @@
       </data>
     </settings>
     <settings>
-      <name>ANGEL_ID</name>
+      <name>CADI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
         <version>0</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
-          <name>CCAngelHeartbeat</name>
+          <name>CCadiMemory</name>
           <state>1</state>
         </option>
         <option>
-          <name>CAngelCommunication</name>
-          <state>1</state>
+          <name>Fast Model</name>
+          <state/>
         </option>
         <option>
-          <name>CAngelCommBaud</name>
-          <version>0</version>
-          <state>3</state>
-        </option>
-        <option>
-          <name>CAngelCommPort</name>
-          <version>0</version>
+          <name>CCADILogFileCheck</name>
           <state>0</state>
         </option>
         <option>
-          <name>ANGELTCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
-        </option>
-        <option>
-          <name>DoAngelLogfile</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>AngelLogFile</name>
+          <name>CCADILogFileEditB</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
         </option>
         <option>
@@ -5021,6 +4911,10 @@
         <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -5227,43 +5121,16 @@
       </data>
     </settings>
     <settings>
-      <name>IARROM_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>1</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
-        <option>
-          <name>CRomLogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomLogFileEditB</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CRomCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomCommBaud</name>
-          <version>0</version>
-          <state>7</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>IJET_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>8</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -5481,6 +5348,58 @@
           <name>CCIjetUsbSerialNoSelect</name>
           <state>0</state>
         </option>
+        <option>
+          <name>CatchV8ARReset</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL3S</name>
+          <state>0</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -5490,6 +5409,10 @@
         <version>16</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CCCatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>JLinkSpeed</name>
           <state>32</state>
@@ -5683,7 +5606,7 @@
       <name>LMIFTDI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>2</version>
+        <version>3</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -5710,27 +5633,31 @@
           <name>CCLmiFtdiInterfaceCmdLine</name>
           <state>0</state>
         </option>
-      </data>
-    </settings>
-    <settings>
-      <name>MACRAIGOR_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>3</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
         <option>
-          <name>jtag</name>
-          <version>0</version>
+          <name>CCLmiftdiUsbSerialNo</name>
+          <state/>
+        </option>
+        <option>
+          <name>CCLmiftdiUsbSerialNoSelect</name>
           <state>0</state>
         </option>
         <option>
-          <name>EmuSpeed</name>
-          <state>1</state>
+          <name>CCLmiftdiResetList</name>
+          <version>0</version>
+          <state>0</state>
         </option>
+      </data>
+    </settings>
+    <settings>
+      <name>NULINK_ID</name>
+      <archiveVersion>2</archiveVersion>
+      <data>
+        <version>0</version>
+        <wantNonLocal>1</wantNonLocal>
+        <debug>0</debug>
         <option>
-          <name>TCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
+          <name>OCDriverInfo</name>
+          <state>1</state>
         </option>
         <option>
           <name>DoLogfile</name>
@@ -5739,65 +5666,6 @@
         <option>
           <name>LogFile</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>DoEmuMultiTarget</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>EmuMultiTarget</name>
-          <state>0@ARM7TDMI</state>
-        </option>
-        <option>
-          <name>EmuHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CEmuCommBaud</name>
-          <version>0</version>
-          <state>4</state>
-        </option>
-        <option>
-          <name>CEmuCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>jtago</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>UnusedAddr</name>
-          <state>0x00800000</state>
-        </option>
-        <option>
-          <name>CCMacraigorHWResetDelay</name>
-          <state/>
-        </option>
-        <option>
-          <name>CCJTagBreakpointRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagDoUpdateBreakpoints</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagUpdateBreakpoints</name>
-          <state>_call_main</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceCmdLine</name>
-          <state>0</state>
         </option>
       </data>
     </settings>
@@ -5827,69 +5695,20 @@
       </data>
     </settings>
     <settings>
-      <name>RDI_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>2</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
-        <option>
-          <name>CRDIDriverDll</name>
-          <state>###Uninitialized###</state>
-        </option>
-        <option>
-          <name>CRDILogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRDILogFileEdit</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CCRDIHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchUndef</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchSWI</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchData</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchPrefetch</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchIRQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchFIQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>STLINK_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>3</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CCSTLinkCatchSFERR</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDAPNumber</name>
+          <state/>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -5904,7 +5723,7 @@
         </option>
         <option>
           <name>CCSTLinkResetList</name>
-          <version>1</version>
+          <version>3</version>
           <state>0</state>
         </option>
         <option>
@@ -5981,7 +5800,20 @@
         </option>
         <option>
           <name>CCSTLinkJtagSpeedList</name>
-          <version>0</version>
+          <version>2</version>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDebugAccessPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkUseServerSelect</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkProbeList</name>
+          <version>1</version>
           <state>0</state>
         </option>
       </data>
@@ -6086,9 +5918,13 @@
       <name>XDS100_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>5</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CCXds100CatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -6236,21 +6072,33 @@
           <version>0</version>
           <state>0</state>
         </option>
+        <option>
+          <name>CCXds100SWOPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXds100SWOPort</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVccEnable</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVoltage</name>
+          <state>###Uninitialized###</state>
+        </option>
+        <option>
+          <name>OCXDSDigitalStatesConfigFile</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCSelectedCoreName</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <debuggerPlugins>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\HCCWare\HCCWare.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\PercepioTraceExporter\PercepioTraceExportPlugin.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\AVIX\AVIX.ENU.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
       <plugin>
         <file>$TOOLKIT_DIR$\plugins\rtos\CMX\CmxArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
@@ -6264,7 +6112,15 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\MQX\MQXRtosPlugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\FreeRtos\FreeRtosArmPlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin2.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -6272,19 +6128,19 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\Quadros\Quadros_EWB7_Plugin.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
         <file>$TOOLKIT_DIR$\plugins\rtos\SafeRTOS\SafeRTOSPlugin.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\TI-RTOS\tirtosplugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9BE.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -6300,11 +6156,11 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\CodeCoverage\CodeCoverage.ENU.ewplugin</file>
-        <loadFlag>1</loadFlag>
+        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <file>$EW_DIR$\common\plugins\TargetAccessServer\TargetAccessServer.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -6323,7 +6179,7 @@
       <name>C-SPY</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>28</version>
+        <version>32</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -6404,7 +6260,7 @@
         </option>
         <option>
           <name>UseFlashLoader</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CLowLevel</name>
@@ -6495,14 +6351,6 @@
           <state>1</state>
         </option>
         <option>
-          <name>OCMulticoreMaster</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCMulticorePort</name>
-          <state>53461</state>
-        </option>
-        <option>
           <name>OCMulticoreWorkspace</name>
           <state/>
         </option>
@@ -6521,6 +6369,26 @@
         <option>
           <name>OCAttachSlave</name>
           <state>0</state>
+        </option>
+        <option>
+          <name>MassEraseBeforeFlashing</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreNrOfCoresSlave</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCMulticoreAMPConfigType</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreSessionFile</name>
+          <state/>
+        </option>
+        <option>
+          <name>OCTpiuBaseOption</name>
+          <state>1</state>
         </option>
       </data>
     </settings>
@@ -6550,40 +6418,26 @@
       </data>
     </settings>
     <settings>
-      <name>ANGEL_ID</name>
+      <name>CADI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
         <version>0</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
-          <name>CCAngelHeartbeat</name>
+          <name>CCadiMemory</name>
           <state>1</state>
         </option>
         <option>
-          <name>CAngelCommunication</name>
-          <state>1</state>
+          <name>Fast Model</name>
+          <state/>
         </option>
         <option>
-          <name>CAngelCommBaud</name>
-          <version>0</version>
-          <state>3</state>
-        </option>
-        <option>
-          <name>CAngelCommPort</name>
-          <version>0</version>
+          <name>CCADILogFileCheck</name>
           <state>0</state>
         </option>
         <option>
-          <name>ANGELTCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
-        </option>
-        <option>
-          <name>DoAngelLogfile</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>AngelLogFile</name>
+          <name>CCADILogFileEditB</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
         </option>
         <option>
@@ -6599,6 +6453,10 @@
         <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -6805,43 +6663,16 @@
       </data>
     </settings>
     <settings>
-      <name>IARROM_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>1</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
-        <option>
-          <name>CRomLogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomLogFileEditB</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CRomCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomCommBaud</name>
-          <version>0</version>
-          <state>7</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>IJET_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>8</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -7059,6 +6890,58 @@
           <name>CCIjetUsbSerialNoSelect</name>
           <state>0</state>
         </option>
+        <option>
+          <name>CatchV8ARReset</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL3S</name>
+          <state>0</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -7068,6 +6951,10 @@
         <version>16</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CCCatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>JLinkSpeed</name>
           <state>100</state>
@@ -7261,7 +7148,7 @@
       <name>LMIFTDI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>2</version>
+        <version>3</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -7288,27 +7175,31 @@
           <name>CCLmiFtdiInterfaceCmdLine</name>
           <state>0</state>
         </option>
-      </data>
-    </settings>
-    <settings>
-      <name>MACRAIGOR_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>3</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
         <option>
-          <name>jtag</name>
-          <version>0</version>
+          <name>CCLmiftdiUsbSerialNo</name>
+          <state/>
+        </option>
+        <option>
+          <name>CCLmiftdiUsbSerialNoSelect</name>
           <state>0</state>
         </option>
         <option>
-          <name>EmuSpeed</name>
-          <state>1</state>
+          <name>CCLmiftdiResetList</name>
+          <version>0</version>
+          <state>0</state>
         </option>
+      </data>
+    </settings>
+    <settings>
+      <name>NULINK_ID</name>
+      <archiveVersion>2</archiveVersion>
+      <data>
+        <version>0</version>
+        <wantNonLocal>1</wantNonLocal>
+        <debug>1</debug>
         <option>
-          <name>TCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
+          <name>OCDriverInfo</name>
+          <state>1</state>
         </option>
         <option>
           <name>DoLogfile</name>
@@ -7317,65 +7208,6 @@
         <option>
           <name>LogFile</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>DoEmuMultiTarget</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>EmuMultiTarget</name>
-          <state>0@ARM7TDMI</state>
-        </option>
-        <option>
-          <name>EmuHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CEmuCommBaud</name>
-          <version>0</version>
-          <state>4</state>
-        </option>
-        <option>
-          <name>CEmuCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>jtago</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>UnusedAddr</name>
-          <state>0x00800000</state>
-        </option>
-        <option>
-          <name>CCMacraigorHWResetDelay</name>
-          <state/>
-        </option>
-        <option>
-          <name>CCJTagBreakpointRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagDoUpdateBreakpoints</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagUpdateBreakpoints</name>
-          <state>_call_main</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceCmdLine</name>
-          <state>0</state>
         </option>
       </data>
     </settings>
@@ -7405,69 +7237,20 @@
       </data>
     </settings>
     <settings>
-      <name>RDI_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>2</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
-        <option>
-          <name>CRDIDriverDll</name>
-          <state>###Uninitialized###</state>
-        </option>
-        <option>
-          <name>CRDILogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRDILogFileEdit</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CCRDIHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchUndef</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchSWI</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchData</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchPrefetch</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchIRQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchFIQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>STLINK_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>3</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CCSTLinkCatchSFERR</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDAPNumber</name>
+          <state/>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -7482,7 +7265,7 @@
         </option>
         <option>
           <name>CCSTLinkResetList</name>
-          <version>1</version>
+          <version>3</version>
           <state>0</state>
         </option>
         <option>
@@ -7559,7 +7342,20 @@
         </option>
         <option>
           <name>CCSTLinkJtagSpeedList</name>
-          <version>0</version>
+          <version>2</version>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDebugAccessPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkUseServerSelect</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkProbeList</name>
+          <version>1</version>
           <state>0</state>
         </option>
       </data>
@@ -7664,9 +7460,13 @@
       <name>XDS100_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>5</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CCXds100CatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -7814,21 +7614,33 @@
           <version>0</version>
           <state>0</state>
         </option>
+        <option>
+          <name>CCXds100SWOPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXds100SWOPort</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVccEnable</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVoltage</name>
+          <state>###Uninitialized###</state>
+        </option>
+        <option>
+          <name>OCXDSDigitalStatesConfigFile</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCSelectedCoreName</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <debuggerPlugins>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\HCCWare\HCCWare.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\PercepioTraceExporter\PercepioTraceExportPlugin.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\AVIX\AVIX.ENU.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
       <plugin>
         <file>$TOOLKIT_DIR$\plugins\rtos\CMX\CmxArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
@@ -7842,15 +7654,19 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\MQX\MQXRtosPlugin.ewplugin</file>
-        <loadFlag>1</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\OpenRTOS\OpenRTOSPlugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\FreeRtos\FreeRtosArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\Quadros\Quadros_EWB7_Plugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin2.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\OpenRTOS\OpenRTOSPlugin.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -7858,11 +7674,15 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\TI-RTOS\tirtosplugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9BE.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -7878,11 +7698,11 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\CodeCoverage\CodeCoverage.ENU.ewplugin</file>
-        <loadFlag>1</loadFlag>
+        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <file>$EW_DIR$\common\plugins\TargetAccessServer\TargetAccessServer.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -7901,7 +7721,7 @@
       <name>C-SPY</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>28</version>
+        <version>32</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -7982,7 +7802,7 @@
         </option>
         <option>
           <name>UseFlashLoader</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CLowLevel</name>
@@ -8073,14 +7893,6 @@
           <state>1</state>
         </option>
         <option>
-          <name>OCMulticoreMaster</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCMulticorePort</name>
-          <state>53461</state>
-        </option>
-        <option>
           <name>OCMulticoreWorkspace</name>
           <state/>
         </option>
@@ -8099,6 +7911,26 @@
         <option>
           <name>OCAttachSlave</name>
           <state>0</state>
+        </option>
+        <option>
+          <name>MassEraseBeforeFlashing</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreNrOfCoresSlave</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCMulticoreAMPConfigType</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreSessionFile</name>
+          <state/>
+        </option>
+        <option>
+          <name>OCTpiuBaseOption</name>
+          <state>1</state>
         </option>
       </data>
     </settings>
@@ -8128,40 +7960,26 @@
       </data>
     </settings>
     <settings>
-      <name>ANGEL_ID</name>
+      <name>CADI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
         <version>0</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
-          <name>CCAngelHeartbeat</name>
+          <name>CCadiMemory</name>
           <state>1</state>
         </option>
         <option>
-          <name>CAngelCommunication</name>
-          <state>1</state>
+          <name>Fast Model</name>
+          <state/>
         </option>
         <option>
-          <name>CAngelCommBaud</name>
-          <version>0</version>
-          <state>3</state>
-        </option>
-        <option>
-          <name>CAngelCommPort</name>
-          <version>0</version>
+          <name>CCADILogFileCheck</name>
           <state>0</state>
         </option>
         <option>
-          <name>ANGELTCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
-        </option>
-        <option>
-          <name>DoAngelLogfile</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>AngelLogFile</name>
+          <name>CCADILogFileEditB</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
         </option>
         <option>
@@ -8177,6 +7995,10 @@
         <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -8383,43 +8205,16 @@
       </data>
     </settings>
     <settings>
-      <name>IARROM_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>1</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
-        <option>
-          <name>CRomLogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomLogFileEditB</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CRomCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomCommBaud</name>
-          <version>0</version>
-          <state>7</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>IJET_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>8</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -8637,6 +8432,58 @@
           <name>CCIjetUsbSerialNoSelect</name>
           <state>0</state>
         </option>
+        <option>
+          <name>CatchV8ARReset</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL3S</name>
+          <state>0</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -8646,6 +8493,10 @@
         <version>16</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CCCatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>JLinkSpeed</name>
           <state>100</state>
@@ -8839,7 +8690,7 @@
       <name>LMIFTDI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>2</version>
+        <version>3</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -8866,27 +8717,31 @@
           <name>CCLmiFtdiInterfaceCmdLine</name>
           <state>0</state>
         </option>
-      </data>
-    </settings>
-    <settings>
-      <name>MACRAIGOR_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>3</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
         <option>
-          <name>jtag</name>
-          <version>0</version>
+          <name>CCLmiftdiUsbSerialNo</name>
+          <state/>
+        </option>
+        <option>
+          <name>CCLmiftdiUsbSerialNoSelect</name>
           <state>0</state>
         </option>
         <option>
-          <name>EmuSpeed</name>
-          <state>1</state>
+          <name>CCLmiftdiResetList</name>
+          <version>0</version>
+          <state>0</state>
         </option>
+      </data>
+    </settings>
+    <settings>
+      <name>NULINK_ID</name>
+      <archiveVersion>2</archiveVersion>
+      <data>
+        <version>0</version>
+        <wantNonLocal>1</wantNonLocal>
+        <debug>0</debug>
         <option>
-          <name>TCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
+          <name>OCDriverInfo</name>
+          <state>1</state>
         </option>
         <option>
           <name>DoLogfile</name>
@@ -8895,65 +8750,6 @@
         <option>
           <name>LogFile</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>DoEmuMultiTarget</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>EmuMultiTarget</name>
-          <state>0@ARM7TDMI</state>
-        </option>
-        <option>
-          <name>EmuHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CEmuCommBaud</name>
-          <version>0</version>
-          <state>4</state>
-        </option>
-        <option>
-          <name>CEmuCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>jtago</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>UnusedAddr</name>
-          <state>0x00800000</state>
-        </option>
-        <option>
-          <name>CCMacraigorHWResetDelay</name>
-          <state/>
-        </option>
-        <option>
-          <name>CCJTagBreakpointRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagDoUpdateBreakpoints</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagUpdateBreakpoints</name>
-          <state>_call_main</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceCmdLine</name>
-          <state>0</state>
         </option>
       </data>
     </settings>
@@ -8983,69 +8779,20 @@
       </data>
     </settings>
     <settings>
-      <name>RDI_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>2</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
-        <option>
-          <name>CRDIDriverDll</name>
-          <state>###Uninitialized###</state>
-        </option>
-        <option>
-          <name>CRDILogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRDILogFileEdit</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CCRDIHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchUndef</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchSWI</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchData</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchPrefetch</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchIRQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchFIQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>STLINK_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>3</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CCSTLinkCatchSFERR</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDAPNumber</name>
+          <state/>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -9060,7 +8807,7 @@
         </option>
         <option>
           <name>CCSTLinkResetList</name>
-          <version>1</version>
+          <version>3</version>
           <state>0</state>
         </option>
         <option>
@@ -9137,7 +8884,20 @@
         </option>
         <option>
           <name>CCSTLinkJtagSpeedList</name>
-          <version>0</version>
+          <version>2</version>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDebugAccessPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkUseServerSelect</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkProbeList</name>
+          <version>1</version>
           <state>0</state>
         </option>
       </data>
@@ -9242,9 +9002,13 @@
       <name>XDS100_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>5</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CCXds100CatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -9392,21 +9156,33 @@
           <version>0</version>
           <state>0</state>
         </option>
+        <option>
+          <name>CCXds100SWOPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXds100SWOPort</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVccEnable</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVoltage</name>
+          <state>###Uninitialized###</state>
+        </option>
+        <option>
+          <name>OCXDSDigitalStatesConfigFile</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCSelectedCoreName</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <debuggerPlugins>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\HCCWare\HCCWare.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\PercepioTraceExporter\PercepioTraceExportPlugin.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\AVIX\AVIX.ENU.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
       <plugin>
         <file>$TOOLKIT_DIR$\plugins\rtos\CMX\CmxArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
@@ -9420,15 +9196,19 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\MQX\MQXRtosPlugin.ewplugin</file>
-        <loadFlag>1</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\OpenRTOS\OpenRTOSPlugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\FreeRtos\FreeRtosArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\Quadros\Quadros_EWB7_Plugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin2.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\OpenRTOS\OpenRTOSPlugin.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -9436,11 +9216,15 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\TI-RTOS\tirtosplugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9BE.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -9456,11 +9240,11 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\CodeCoverage\CodeCoverage.ENU.ewplugin</file>
-        <loadFlag>1</loadFlag>
+        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <file>$EW_DIR$\common\plugins\TargetAccessServer\TargetAccessServer.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -9479,7 +9263,7 @@
       <name>C-SPY</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>28</version>
+        <version>32</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -9560,7 +9344,7 @@
         </option>
         <option>
           <name>UseFlashLoader</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CLowLevel</name>
@@ -9651,14 +9435,6 @@
           <state>1</state>
         </option>
         <option>
-          <name>OCMulticoreMaster</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCMulticorePort</name>
-          <state>53461</state>
-        </option>
-        <option>
           <name>OCMulticoreWorkspace</name>
           <state/>
         </option>
@@ -9677,6 +9453,26 @@
         <option>
           <name>OCAttachSlave</name>
           <state>0</state>
+        </option>
+        <option>
+          <name>MassEraseBeforeFlashing</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreNrOfCoresSlave</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCMulticoreAMPConfigType</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreSessionFile</name>
+          <state/>
+        </option>
+        <option>
+          <name>OCTpiuBaseOption</name>
+          <state>1</state>
         </option>
       </data>
     </settings>
@@ -9706,40 +9502,26 @@
       </data>
     </settings>
     <settings>
-      <name>ANGEL_ID</name>
+      <name>CADI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
         <version>0</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
-          <name>CCAngelHeartbeat</name>
+          <name>CCadiMemory</name>
           <state>1</state>
         </option>
         <option>
-          <name>CAngelCommunication</name>
-          <state>1</state>
+          <name>Fast Model</name>
+          <state/>
         </option>
         <option>
-          <name>CAngelCommBaud</name>
-          <version>0</version>
-          <state>3</state>
-        </option>
-        <option>
-          <name>CAngelCommPort</name>
-          <version>0</version>
+          <name>CCADILogFileCheck</name>
           <state>0</state>
         </option>
         <option>
-          <name>ANGELTCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
-        </option>
-        <option>
-          <name>DoAngelLogfile</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>AngelLogFile</name>
+          <name>CCADILogFileEditB</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
         </option>
         <option>
@@ -9755,6 +9537,10 @@
         <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -9961,43 +9747,16 @@
       </data>
     </settings>
     <settings>
-      <name>IARROM_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>1</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
-        <option>
-          <name>CRomLogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomLogFileEditB</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CRomCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomCommBaud</name>
-          <version>0</version>
-          <state>7</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>IJET_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>8</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -10215,6 +9974,58 @@
           <name>CCIjetUsbSerialNoSelect</name>
           <state>0</state>
         </option>
+        <option>
+          <name>CatchV8ARReset</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL3S</name>
+          <state>0</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -10224,6 +10035,10 @@
         <version>16</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CCCatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>JLinkSpeed</name>
           <state>100</state>
@@ -10417,7 +10232,7 @@
       <name>LMIFTDI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>2</version>
+        <version>3</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -10444,27 +10259,31 @@
           <name>CCLmiFtdiInterfaceCmdLine</name>
           <state>0</state>
         </option>
-      </data>
-    </settings>
-    <settings>
-      <name>MACRAIGOR_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>3</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
         <option>
-          <name>jtag</name>
-          <version>0</version>
+          <name>CCLmiftdiUsbSerialNo</name>
+          <state/>
+        </option>
+        <option>
+          <name>CCLmiftdiUsbSerialNoSelect</name>
           <state>0</state>
         </option>
         <option>
-          <name>EmuSpeed</name>
-          <state>1</state>
+          <name>CCLmiftdiResetList</name>
+          <version>0</version>
+          <state>0</state>
         </option>
+      </data>
+    </settings>
+    <settings>
+      <name>NULINK_ID</name>
+      <archiveVersion>2</archiveVersion>
+      <data>
+        <version>0</version>
+        <wantNonLocal>1</wantNonLocal>
+        <debug>1</debug>
         <option>
-          <name>TCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
+          <name>OCDriverInfo</name>
+          <state>1</state>
         </option>
         <option>
           <name>DoLogfile</name>
@@ -10473,65 +10292,6 @@
         <option>
           <name>LogFile</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>DoEmuMultiTarget</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>EmuMultiTarget</name>
-          <state>0@ARM7TDMI</state>
-        </option>
-        <option>
-          <name>EmuHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CEmuCommBaud</name>
-          <version>0</version>
-          <state>4</state>
-        </option>
-        <option>
-          <name>CEmuCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>jtago</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>UnusedAddr</name>
-          <state>0x00800000</state>
-        </option>
-        <option>
-          <name>CCMacraigorHWResetDelay</name>
-          <state/>
-        </option>
-        <option>
-          <name>CCJTagBreakpointRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagDoUpdateBreakpoints</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagUpdateBreakpoints</name>
-          <state>_call_main</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceCmdLine</name>
-          <state>0</state>
         </option>
       </data>
     </settings>
@@ -10561,69 +10321,20 @@
       </data>
     </settings>
     <settings>
-      <name>RDI_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>2</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
-        <option>
-          <name>CRDIDriverDll</name>
-          <state>###Uninitialized###</state>
-        </option>
-        <option>
-          <name>CRDILogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRDILogFileEdit</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CCRDIHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchUndef</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchSWI</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchData</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchPrefetch</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchIRQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchFIQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>STLINK_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>3</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CCSTLinkCatchSFERR</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDAPNumber</name>
+          <state/>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -10638,7 +10349,7 @@
         </option>
         <option>
           <name>CCSTLinkResetList</name>
-          <version>1</version>
+          <version>3</version>
           <state>0</state>
         </option>
         <option>
@@ -10715,7 +10426,20 @@
         </option>
         <option>
           <name>CCSTLinkJtagSpeedList</name>
-          <version>0</version>
+          <version>2</version>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDebugAccessPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkUseServerSelect</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkProbeList</name>
+          <version>1</version>
           <state>0</state>
         </option>
       </data>
@@ -10820,9 +10544,13 @@
       <name>XDS100_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>5</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CCXds100CatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -10970,21 +10698,33 @@
           <version>0</version>
           <state>0</state>
         </option>
+        <option>
+          <name>CCXds100SWOPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXds100SWOPort</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVccEnable</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVoltage</name>
+          <state>###Uninitialized###</state>
+        </option>
+        <option>
+          <name>OCXDSDigitalStatesConfigFile</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCSelectedCoreName</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <debuggerPlugins>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\HCCWare\HCCWare.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\PercepioTraceExporter\PercepioTraceExportPlugin.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\AVIX\AVIX.ENU.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
       <plugin>
         <file>$TOOLKIT_DIR$\plugins\rtos\CMX\CmxArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
@@ -10998,15 +10738,19 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\MQX\MQXRtosPlugin.ewplugin</file>
-        <loadFlag>1</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\OpenRTOS\OpenRTOSPlugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\FreeRtos\FreeRtosArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\Quadros\Quadros_EWB7_Plugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin2.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\OpenRTOS\OpenRTOSPlugin.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -11014,11 +10758,15 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\TI-RTOS\tirtosplugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9BE.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -11034,11 +10782,11 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\CodeCoverage\CodeCoverage.ENU.ewplugin</file>
-        <loadFlag>1</loadFlag>
+        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <file>$EW_DIR$\common\plugins\TargetAccessServer\TargetAccessServer.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -11057,7 +10805,7 @@
       <name>C-SPY</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>28</version>
+        <version>32</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -11138,7 +10886,7 @@
         </option>
         <option>
           <name>UseFlashLoader</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CLowLevel</name>
@@ -11229,14 +10977,6 @@
           <state>1</state>
         </option>
         <option>
-          <name>OCMulticoreMaster</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCMulticorePort</name>
-          <state>53461</state>
-        </option>
-        <option>
           <name>OCMulticoreWorkspace</name>
           <state/>
         </option>
@@ -11255,6 +10995,26 @@
         <option>
           <name>OCAttachSlave</name>
           <state>0</state>
+        </option>
+        <option>
+          <name>MassEraseBeforeFlashing</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreNrOfCoresSlave</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCMulticoreAMPConfigType</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreSessionFile</name>
+          <state/>
+        </option>
+        <option>
+          <name>OCTpiuBaseOption</name>
+          <state>1</state>
         </option>
       </data>
     </settings>
@@ -11284,40 +11044,26 @@
       </data>
     </settings>
     <settings>
-      <name>ANGEL_ID</name>
+      <name>CADI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
         <version>0</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
-          <name>CCAngelHeartbeat</name>
+          <name>CCadiMemory</name>
           <state>1</state>
         </option>
         <option>
-          <name>CAngelCommunication</name>
-          <state>1</state>
+          <name>Fast Model</name>
+          <state/>
         </option>
         <option>
-          <name>CAngelCommBaud</name>
-          <version>0</version>
-          <state>3</state>
-        </option>
-        <option>
-          <name>CAngelCommPort</name>
-          <version>0</version>
+          <name>CCADILogFileCheck</name>
           <state>0</state>
         </option>
         <option>
-          <name>ANGELTCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
-        </option>
-        <option>
-          <name>DoAngelLogfile</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>AngelLogFile</name>
+          <name>CCADILogFileEditB</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
         </option>
         <option>
@@ -11333,6 +11079,10 @@
         <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -11539,43 +11289,16 @@
       </data>
     </settings>
     <settings>
-      <name>IARROM_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>1</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
-        <option>
-          <name>CRomLogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomLogFileEditB</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CRomCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomCommBaud</name>
-          <version>0</version>
-          <state>7</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>IJET_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>8</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -11793,6 +11516,58 @@
           <name>CCIjetUsbSerialNoSelect</name>
           <state>0</state>
         </option>
+        <option>
+          <name>CatchV8ARReset</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL3S</name>
+          <state>0</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -11802,6 +11577,10 @@
         <version>16</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CCCatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>JLinkSpeed</name>
           <state>100</state>
@@ -11995,7 +11774,7 @@
       <name>LMIFTDI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>2</version>
+        <version>3</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -12022,27 +11801,31 @@
           <name>CCLmiFtdiInterfaceCmdLine</name>
           <state>0</state>
         </option>
-      </data>
-    </settings>
-    <settings>
-      <name>MACRAIGOR_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>3</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
         <option>
-          <name>jtag</name>
-          <version>0</version>
+          <name>CCLmiftdiUsbSerialNo</name>
+          <state/>
+        </option>
+        <option>
+          <name>CCLmiftdiUsbSerialNoSelect</name>
           <state>0</state>
         </option>
         <option>
-          <name>EmuSpeed</name>
-          <state>1</state>
+          <name>CCLmiftdiResetList</name>
+          <version>0</version>
+          <state>0</state>
         </option>
+      </data>
+    </settings>
+    <settings>
+      <name>NULINK_ID</name>
+      <archiveVersion>2</archiveVersion>
+      <data>
+        <version>0</version>
+        <wantNonLocal>1</wantNonLocal>
+        <debug>0</debug>
         <option>
-          <name>TCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
+          <name>OCDriverInfo</name>
+          <state>1</state>
         </option>
         <option>
           <name>DoLogfile</name>
@@ -12051,65 +11834,6 @@
         <option>
           <name>LogFile</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>DoEmuMultiTarget</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>EmuMultiTarget</name>
-          <state>0@ARM7TDMI</state>
-        </option>
-        <option>
-          <name>EmuHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CEmuCommBaud</name>
-          <version>0</version>
-          <state>4</state>
-        </option>
-        <option>
-          <name>CEmuCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>jtago</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>UnusedAddr</name>
-          <state>0x00800000</state>
-        </option>
-        <option>
-          <name>CCMacraigorHWResetDelay</name>
-          <state/>
-        </option>
-        <option>
-          <name>CCJTagBreakpointRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagDoUpdateBreakpoints</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagUpdateBreakpoints</name>
-          <state>_call_main</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceCmdLine</name>
-          <state>0</state>
         </option>
       </data>
     </settings>
@@ -12139,69 +11863,20 @@
       </data>
     </settings>
     <settings>
-      <name>RDI_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>2</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
-        <option>
-          <name>CRDIDriverDll</name>
-          <state>###Uninitialized###</state>
-        </option>
-        <option>
-          <name>CRDILogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRDILogFileEdit</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CCRDIHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchUndef</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchSWI</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchData</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchPrefetch</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchIRQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchFIQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>STLINK_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>3</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CCSTLinkCatchSFERR</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDAPNumber</name>
+          <state/>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -12216,7 +11891,7 @@
         </option>
         <option>
           <name>CCSTLinkResetList</name>
-          <version>1</version>
+          <version>3</version>
           <state>0</state>
         </option>
         <option>
@@ -12293,7 +11968,20 @@
         </option>
         <option>
           <name>CCSTLinkJtagSpeedList</name>
-          <version>0</version>
+          <version>2</version>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDebugAccessPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkUseServerSelect</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkProbeList</name>
+          <version>1</version>
           <state>0</state>
         </option>
       </data>
@@ -12398,9 +12086,13 @@
       <name>XDS100_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>5</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
+        <option>
+          <name>CCXds100CatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -12548,21 +12240,33 @@
           <version>0</version>
           <state>0</state>
         </option>
+        <option>
+          <name>CCXds100SWOPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXds100SWOPort</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVccEnable</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVoltage</name>
+          <state>###Uninitialized###</state>
+        </option>
+        <option>
+          <name>OCXDSDigitalStatesConfigFile</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCSelectedCoreName</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <debuggerPlugins>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\HCCWare\HCCWare.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\PercepioTraceExporter\PercepioTraceExportPlugin.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\AVIX\AVIX.ENU.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
       <plugin>
         <file>$TOOLKIT_DIR$\plugins\rtos\CMX\CmxArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
@@ -12576,15 +12280,19 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\MQX\MQXRtosPlugin.ewplugin</file>
-        <loadFlag>1</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\OpenRTOS\OpenRTOSPlugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\FreeRtos\FreeRtosArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\Quadros\Quadros_EWB7_Plugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin2.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\OpenRTOS\OpenRTOSPlugin.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -12592,11 +12300,15 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\TI-RTOS\tirtosplugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9BE.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -12612,11 +12324,11 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\CodeCoverage\CodeCoverage.ENU.ewplugin</file>
-        <loadFlag>1</loadFlag>
+        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <file>$EW_DIR$\common\plugins\TargetAccessServer\TargetAccessServer.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -12635,7 +12347,7 @@
       <name>C-SPY</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>28</version>
+        <version>32</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -12807,14 +12519,6 @@
           <state>1</state>
         </option>
         <option>
-          <name>OCMulticoreMaster</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCMulticorePort</name>
-          <state>53461</state>
-        </option>
-        <option>
           <name>OCMulticoreWorkspace</name>
           <state/>
         </option>
@@ -12833,6 +12537,26 @@
         <option>
           <name>OCAttachSlave</name>
           <state>0</state>
+        </option>
+        <option>
+          <name>MassEraseBeforeFlashing</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreNrOfCoresSlave</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCMulticoreAMPConfigType</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>OCMulticoreSessionFile</name>
+          <state/>
+        </option>
+        <option>
+          <name>OCTpiuBaseOption</name>
+          <state>1</state>
         </option>
       </data>
     </settings>
@@ -12862,40 +12586,26 @@
       </data>
     </settings>
     <settings>
-      <name>ANGEL_ID</name>
+      <name>CADI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
         <version>0</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
-          <name>CCAngelHeartbeat</name>
+          <name>CCadiMemory</name>
           <state>1</state>
         </option>
         <option>
-          <name>CAngelCommunication</name>
-          <state>1</state>
+          <name>Fast Model</name>
+          <state/>
         </option>
         <option>
-          <name>CAngelCommBaud</name>
-          <version>0</version>
-          <state>3</state>
-        </option>
-        <option>
-          <name>CAngelCommPort</name>
-          <version>0</version>
+          <name>CCADILogFileCheck</name>
           <state>0</state>
         </option>
         <option>
-          <name>ANGELTCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
-        </option>
-        <option>
-          <name>DoAngelLogfile</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>AngelLogFile</name>
+          <name>CCADILogFileEditB</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
         </option>
         <option>
@@ -12911,6 +12621,10 @@
         <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -13117,43 +12831,16 @@
       </data>
     </settings>
     <settings>
-      <name>IARROM_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>1</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
-        <option>
-          <name>CRomLogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomLogFileEditB</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CRomCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRomCommBaud</name>
-          <version>0</version>
-          <state>7</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>IJET_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>8</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CatchSFERR</name>
+          <state>1</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -13371,6 +13058,58 @@
           <name>CCIjetUsbSerialNoSelect</name>
           <state>0</state>
         </option>
+        <option>
+          <name>CatchV8ARReset</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREREL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL1S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL2NS</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8AREEL3S</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CatchV8ARREL3S</name>
+          <state>0</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -13380,6 +13119,10 @@
         <version>16</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CCCatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>JLinkSpeed</name>
           <state>100</state>
@@ -13573,7 +13316,7 @@
       <name>LMIFTDI_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>2</version>
+        <version>3</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -13600,27 +13343,31 @@
           <name>CCLmiFtdiInterfaceCmdLine</name>
           <state>0</state>
         </option>
-      </data>
-    </settings>
-    <settings>
-      <name>MACRAIGOR_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>3</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
         <option>
-          <name>jtag</name>
-          <version>0</version>
+          <name>CCLmiftdiUsbSerialNo</name>
+          <state/>
+        </option>
+        <option>
+          <name>CCLmiftdiUsbSerialNoSelect</name>
           <state>0</state>
         </option>
         <option>
-          <name>EmuSpeed</name>
-          <state>1</state>
+          <name>CCLmiftdiResetList</name>
+          <version>0</version>
+          <state>0</state>
         </option>
+      </data>
+    </settings>
+    <settings>
+      <name>NULINK_ID</name>
+      <archiveVersion>2</archiveVersion>
+      <data>
+        <version>0</version>
+        <wantNonLocal>1</wantNonLocal>
+        <debug>1</debug>
         <option>
-          <name>TCPIP</name>
-          <state>aaa.bbb.ccc.ddd</state>
+          <name>OCDriverInfo</name>
+          <state>1</state>
         </option>
         <option>
           <name>DoLogfile</name>
@@ -13629,65 +13376,6 @@
         <option>
           <name>LogFile</name>
           <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>DoEmuMultiTarget</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>EmuMultiTarget</name>
-          <state>0@ARM7TDMI</state>
-        </option>
-        <option>
-          <name>EmuHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CEmuCommBaud</name>
-          <version>0</version>
-          <state>4</state>
-        </option>
-        <option>
-          <name>CEmuCommPort</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>jtago</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>UnusedAddr</name>
-          <state>0x00800000</state>
-        </option>
-        <option>
-          <name>CCMacraigorHWResetDelay</name>
-          <state/>
-        </option>
-        <option>
-          <name>CCJTagBreakpointRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagDoUpdateBreakpoints</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCJTagUpdateBreakpoints</name>
-          <state>_call_main</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCMacraigorInterfaceCmdLine</name>
-          <state>0</state>
         </option>
       </data>
     </settings>
@@ -13717,69 +13405,20 @@
       </data>
     </settings>
     <settings>
-      <name>RDI_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>2</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
-        <option>
-          <name>CRDIDriverDll</name>
-          <state>###Uninitialized###</state>
-        </option>
-        <option>
-          <name>CRDILogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CRDILogFileEdit</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>CCRDIHWReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchReset</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchUndef</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchSWI</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchData</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchPrefetch</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchIRQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCRDICatchFIQ</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>STLINK_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>3</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CCSTLinkCatchSFERR</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDAPNumber</name>
+          <state/>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -13794,7 +13433,7 @@
         </option>
         <option>
           <name>CCSTLinkResetList</name>
-          <version>1</version>
+          <version>3</version>
           <state>0</state>
         </option>
         <option>
@@ -13871,7 +13510,20 @@
         </option>
         <option>
           <name>CCSTLinkJtagSpeedList</name>
-          <version>0</version>
+          <version>2</version>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkDebugAccessPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkUseServerSelect</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCSTLinkProbeList</name>
+          <version>1</version>
           <state>0</state>
         </option>
       </data>
@@ -13976,9 +13628,13 @@
       <name>XDS100_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>5</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>CCXds100CatchSFERR</name>
+          <state>0</state>
+        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -14126,21 +13782,33 @@
           <version>0</version>
           <state>0</state>
         </option>
+        <option>
+          <name>CCXds100SWOPortRadio</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXds100SWOPort</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVccEnable</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCXDSTargetVoltage</name>
+          <state>###Uninitialized###</state>
+        </option>
+        <option>
+          <name>OCXDSDigitalStatesConfigFile</name>
+          <state>1</state>
+        </option>
+        <option>
+          <name>OCSelectedCoreName</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <debuggerPlugins>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\HCCWare\HCCWare.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\middleware\PercepioTraceExporter\PercepioTraceExportPlugin.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\AVIX\AVIX.ENU.ewplugin</file>
-        <loadFlag>0</loadFlag>
-      </plugin>
       <plugin>
         <file>$TOOLKIT_DIR$\plugins\rtos\CMX\CmxArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
@@ -14154,15 +13822,19 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\MQX\MQXRtosPlugin.ewplugin</file>
-        <loadFlag>1</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\OpenRTOS\OpenRTOSPlugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\FreeRtos\FreeRtosArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\Quadros\Quadros_EWB7_Plugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\Mbed\MbedArmPlugin2.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\OpenRTOS\OpenRTOSPlugin.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -14170,11 +13842,15 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$TOOLKIT_DIR$\plugins\rtos\TI-RTOS\tirtosplugin.ewplugin</file>
+        <file>$TOOLKIT_DIR$\plugins\rtos\SMX\smxAwareIarArm9BE.ewplugin</file>
+        <loadFlag>0</loadFlag>
+      </plugin>
+      <plugin>
+        <file>$TOOLKIT_DIR$\plugins\rtos\ThreadX\ThreadXArmPlugin.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
@@ -14190,11 +13866,11 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\CodeCoverage\CodeCoverage.ENU.ewplugin</file>
-        <loadFlag>1</loadFlag>
+        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+        <file>$EW_DIR$\common\plugins\TargetAccessServer\TargetAccessServer.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>

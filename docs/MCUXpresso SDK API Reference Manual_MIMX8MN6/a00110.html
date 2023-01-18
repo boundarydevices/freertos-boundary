@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: ECSPI CMSIS Driver</title>
+<title>MCUXpresso SDK API Reference Manual: GPC: General Power Controller Driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.11.0</span>
+   &#160;<span id="projectnumber">Rev 2.13.0</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -98,72 +98,792 @@ $(document).ready(function(){initNavTree('a00110.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">ECSPI CMSIS Driver<div class="ingroups"><a class="el" href="a00108.html">ECSPI: Enhanced Configurable Serial Peripheral Interface Driver</a></div></div>  </div>
+<div class="title">GPC: General Power Controller Driver</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>This section describes the programming interface of the ecspi Cortex Microcontroller Software Interface Standard (CMSIS) driver. And this driver defines generic peripheral driver interfaces for middleware making it reusable across a wide range of supported microcontroller devices. The API connects microcontroller peripherals with middleware that implements for example communication stacks, file systems, or graphic user interfaces. More information and usage methord please refer to <a href="http://www.keil.com/pack/doc/cmsis/Driver/html/index.html">http://www.keil.com/pack/doc/cmsis/Driver/html/index.html</a>.</p>
-<h1><a class="anchor" id="ecspiFunGrps"></a>
-Function groups</h1>
-<h2><a class="anchor" id="ecspiGetVersionOps"></a>
-ECSPI CMSIS GetVersion Operation</h2>
-<p>This function group will return the ECSPI CMSIS Driver version to user.</p>
-<h2><a class="anchor" id="ecspiGetCapOps"></a>
-ECSPI CMSIS GetCapabilities Operation</h2>
-<p>This function group will return the capabilities of this driver.</p>
-<h2><a class="anchor" id="ecspiInitResetOps"></a>
-ECSPI CMSIS Initialize and Uninitialize Operation</h2>
-<p>This function will initialize and uninitialize the instance in master mode or slave mode. And this API must be called before you configure an instance or after you Deinit an instance.The right steps to start an instance is that you must initialize the instance which been slected firstly,then you can power on the instance.After these all have been done,you can configure the instance by using control operation.If you want to Uninitialize the instance, you must power off the instance first.</p>
-<h2><a class="anchor" id="ecspiTransOps"></a>
-ECSPI CMSIS Transfer Operation</h2>
-<p>This function group controls the transfer, master send/receive data, and slave send/receive data.</p>
-<h2><a class="anchor" id="ecspiStatusOps"></a>
-ECSPI CMSIS Status Operation</h2>
-<p>This function group gets the ecspi transfer status.</p>
-<h2><a class="anchor" id="ecspiControlOps"></a>
-ECSPI CMSIS Control Operation</h2>
-<p>This function can select instance as master mode or slave mode, set baudrate for master mode transfer, get current baudrate of master mode transfer,set transfer data bits and set other control command.</p>
-<h1><a class="anchor" id="ecspiTpyUC"></a>
-Typical use case</h1>
-<h2><a class="anchor" id="ecspiMasterOps"></a>
-Master Operation</h2>
-<div class="fragment"><div class="line"><span class="comment">/* Variables */</span></div>
-<div class="line">uint8_t masterRxData[TRANSFER_SIZE] = {0U};</div>
-<div class="line">uint8_t masterTxData[TRANSFER_SIZE] = {0U};</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/*ECSPI master init*/</span></div>
-<div class="line">Driver_SPI0.Initialize(ECSPI_MasterSignalEvent_t);</div>
-<div class="line">Driver_SPI0.PowerControl(ARM_POWER_FULL);</div>
-<div class="line">Driver_SPI0.Control(ARM_SPI_MODE_MASTER, TRANSFER_BAUDRATE);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* Start master transfer */</span></div>
-<div class="line">Driver_SPI0.Transfer(masterTxData, masterRxData, TRANSFER_SIZE);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* Master power off */</span></div>
-<div class="line">Driver_SPI0.PowerControl(ARM_POWER_OFF);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* Master uninitialize */</span></div>
-<div class="line">Driver_SPI0.Uninitialize();</div>
-</div><!-- fragment --><h2><a class="anchor" id="spiSlaveOps"></a>
-Slave Operation</h2>
-<div class="fragment"><div class="line"><span class="comment">/* Variables */</span></div>
-<div class="line">uint8_t slaveRxData[TRANSFER_SIZE] = {0U};</div>
-<div class="line">uint8_t slaveTxData[TRANSFER_SIZE] = {0U};</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/*DSPI slave init*/</span></div>
-<div class="line">Driver_SPI2.Initialize(ECSPI_SlaveSignalEvent_t);</div>
-<div class="line">Driver_SPI2.PowerControl(ARM_POWER_FULL);</div>
-<div class="line">Driver_SPI2.Control(ARM_SPI_MODE_SLAVE, <span class="keyword">false</span>);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* Start slave transfer */</span></div>
-<div class="line">Driver_SPI2.Transfer(slaveTxData, slaveRxData, TRANSFER_SIZE);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* slave power off */</span></div>
-<div class="line">Driver_SPI2.PowerControl(ARM_POWER_OFF);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* slave uninitialize */</span></div>
-<div class="line">Driver_SPI2.Uninitialize();</div>
-</div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
+<p>The MCUXpresso SDK provides a peripheral driver for the General Power Controller (GPC) module of MCUXpresso SDK devices.</p>
+<p>API functions are provided to configure the system about working in dedicated power mode. There are mainly about enabling the power for memory, enabling the wakeup sources for STOP modes, and power up/down operations for various peripherals. </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gaea3fbe2b605af85d1193f5105dd36a87"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaea3fbe2b605af85d1193f5105dd36a87"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#gaea3fbe2b605af85d1193f5105dd36a87">GPC_PCG_TIME_SLOT_TOTAL_NUMBER</a>&#160;&#160;&#160;GPC_SLT_CFG_PU_COUNT</td></tr>
+<tr class="memdesc:gaea3fbe2b605af85d1193f5105dd36a87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total number of the timeslot. <br/></td></tr>
+<tr class="separator:gaea3fbe2b605af85d1193f5105dd36a87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gaa3e6e34d866ba3560a0b428d42445565"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#gaa3e6e34d866ba3560a0b428d42445565">_gpc_lpm_mode</a> { <br/>
+&#160;&#160;<a class="el" href="a00110.html#ggaa3e6e34d866ba3560a0b428d42445565a7da7d3bf71b7a4f724b672ba5534fdbc">kGPC_RunMode</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00110.html#ggaa3e6e34d866ba3560a0b428d42445565adf1f22df0717e6ed38156e05ce2244a1">kGPC_WaitMode</a> = 1U, 
+<br/>
+&#160;&#160;<a class="el" href="a00110.html#ggaa3e6e34d866ba3560a0b428d42445565a49a546f006f76aa68c89e2321a46faf6">kGPC_StopMode</a> = 2U
+<br/>
+ }</td></tr>
+<tr class="memdesc:gaa3e6e34d866ba3560a0b428d42445565"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPC LPM mode definition.  <a href="a00110.html#gaa3e6e34d866ba3560a0b428d42445565">More...</a><br/></td></tr>
+<tr class="separator:gaa3e6e34d866ba3560a0b428d42445565"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga97c194acfba29d1b1793281f2cb0a762"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#ga97c194acfba29d1b1793281f2cb0a762">_gpc_pgc_ack_sel</a> { <br/>
+&#160;&#160;<a class="el" href="a00110.html#gga97c194acfba29d1b1793281f2cb0a762ad8b37333ce78b2c9c7c8d5403587c2fa">kGPC_DummyPGCPowerUpAck</a> = GPC_PGC_ACK_SEL_DUMMY_PGC_PUP_ACK_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00110.html#gga97c194acfba29d1b1793281f2cb0a762a5f39b03b7b8d8fd2d86788e191acdc20">kGPC_VirtualPGCPowerUpAck</a> = GPC_PGC_ACK_SEL_VIRTUAL_PGC_PUP_ACK_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00110.html#gga97c194acfba29d1b1793281f2cb0a762a5d815a69a9034b589cdfb5ccf206a3ba">kGPC_DummyPGCPowerDownAck</a> = GPC_PGC_ACK_SEL_DUMMY_PGC_PDN_ACK_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00110.html#gga97c194acfba29d1b1793281f2cb0a762a0243c004d047d1efebbc2e849f57e49e">kGPC_VirtualPGCPowerDownAck</a> = GPC_PGC_ACK_SEL_VIRTUAL_PGC_PDN_ACK_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00110.html#gga97c194acfba29d1b1793281f2cb0a762ab1d359b28a710d9950cb72e371f18bbf">kGPC_NocPGCPowerUpAck</a> = GPC_PGC_ACK_SEL_NOC_PGC_PUP_ACK, 
+<br/>
+&#160;&#160;<a class="el" href="a00110.html#gga97c194acfba29d1b1793281f2cb0a762ac6c414f4e1edc9320aaf2f3251f50615">kGPC_NocPGCPowerDownAck</a> = GPC_PGC_ACK_SEL_NOC_PGC_PDN_ACK
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga97c194acfba29d1b1793281f2cb0a762"><td class="mdescLeft">&#160;</td><td class="mdescRight">PGC ack signal selection.  <a href="a00110.html#ga97c194acfba29d1b1793281f2cb0a762">More...</a><br/></td></tr>
+<tr class="separator:ga97c194acfba29d1b1793281f2cb0a762"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0a79f381079bb028af26b5ddcb72152"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#gab0a79f381079bb028af26b5ddcb72152">_gpc_standby_count</a> { <br/>
+&#160;&#160;<a class="el" href="a00110.html#ggab0a79f381079bb028af26b5ddcb72152ab37c73c86b0b11af366354756b1188ac">kGPC_StandbyCounter4CkilClk</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00110.html#ggab0a79f381079bb028af26b5ddcb72152a82c18a5a511b1a3ecda8a543ac6856a0">kGPC_StandbyCounter8CkilClk</a> = 1U, 
+<br/>
+&#160;&#160;<a class="el" href="a00110.html#ggab0a79f381079bb028af26b5ddcb72152a22b15eb310ea14a972f8dd0c69316f17">kGPC_StandbyCounter16CkilClk</a> = 2U, 
+<br/>
+&#160;&#160;<a class="el" href="a00110.html#ggab0a79f381079bb028af26b5ddcb72152a269cedb79f2e69f1c9846863ed241935">kGPC_StandbyCounter32CkilClk</a> = 3U, 
+<br/>
+&#160;&#160;<a class="el" href="a00110.html#ggab0a79f381079bb028af26b5ddcb72152a8f6c11e06c7bdb1ba44acde1c59a3c8d">kGPC_StandbyCounter64CkilClk</a> = 4U, 
+<br/>
+&#160;&#160;<a class="el" href="a00110.html#ggab0a79f381079bb028af26b5ddcb72152af53aefac93b99b704dc54bb338db131b">kGPC_StandbyCounter128CkilClk</a> = 5U, 
+<br/>
+&#160;&#160;<a class="el" href="a00110.html#ggab0a79f381079bb028af26b5ddcb72152ae4b435947965145c0357c2ae39e04893">kGPC_StandbyCounter256CkilClk</a> = 6U, 
+<br/>
+&#160;&#160;<a class="el" href="a00110.html#ggab0a79f381079bb028af26b5ddcb72152a8df02960b9b0d9af2663a247204e3a3f">kGPC_StandbyCounter512CkilClk</a> = 7U
+<br/>
+ }</td></tr>
+<tr class="memdesc:gab0a79f381079bb028af26b5ddcb72152"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standby counter which GPC will wait between PMIC_STBY_REQ negation and assertion of PMIC_READY.  <a href="a00110.html#gab0a79f381079bb028af26b5ddcb72152">More...</a><br/></td></tr>
+<tr class="separator:gab0a79f381079bb028af26b5ddcb72152"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga32871c193625bac50b418474fe3fa3b6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#ga32871c193625bac50b418474fe3fa3b6">GPC_AllowIRQs</a> (GPC_Type *base)</td></tr>
+<tr class="memdesc:ga32871c193625bac50b418474fe3fa3b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow all the IRQ/Events within the charge of GPC.  <a href="#ga32871c193625bac50b418474fe3fa3b6">More...</a><br/></td></tr>
+<tr class="separator:ga32871c193625bac50b418474fe3fa3b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf2905349b2c84f9809ab9586d6e9764"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#gaaf2905349b2c84f9809ab9586d6e9764">GPC_DisallowIRQs</a> (GPC_Type *base)</td></tr>
+<tr class="memdesc:gaaf2905349b2c84f9809ab9586d6e9764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disallow all the IRQ/Events within the charge of GPC.  <a href="#gaaf2905349b2c84f9809ab9586d6e9764">More...</a><br/></td></tr>
+<tr class="separator:gaaf2905349b2c84f9809ab9586d6e9764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac5095d552b5c61114f6b52ff818b7de4"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#gac5095d552b5c61114f6b52ff818b7de4">GPC_GetLpmMode</a> (GPC_Type *base)</td></tr>
+<tr class="memdesc:gac5095d552b5c61114f6b52ff818b7de4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current LPM mode.  <a href="#gac5095d552b5c61114f6b52ff818b7de4">More...</a><br/></td></tr>
+<tr class="separator:gac5095d552b5c61114f6b52ff818b7de4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c73d81bfb34ebb7ca40a5ad2a63ad7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#ga7c73d81bfb34ebb7ca40a5ad2a63ad7e">GPC_EnableIRQ</a> (GPC_Type *base, uint32_t irqId)</td></tr>
+<tr class="memdesc:ga7c73d81bfb34ebb7ca40a5ad2a63ad7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the IRQ.  <a href="#ga7c73d81bfb34ebb7ca40a5ad2a63ad7e">More...</a><br/></td></tr>
+<tr class="separator:ga7c73d81bfb34ebb7ca40a5ad2a63ad7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacfd07601d1a0e90e3b80fffe14830010"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#gacfd07601d1a0e90e3b80fffe14830010">GPC_DisableIRQ</a> (GPC_Type *base, uint32_t irqId)</td></tr>
+<tr class="memdesc:gacfd07601d1a0e90e3b80fffe14830010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the IRQ.  <a href="#gacfd07601d1a0e90e3b80fffe14830010">More...</a><br/></td></tr>
+<tr class="separator:gacfd07601d1a0e90e3b80fffe14830010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1118000efd3c822329c63a7155bbe12e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#ga1118000efd3c822329c63a7155bbe12e">GPC_GetIRQStatusFlag</a> (GPC_Type *base, uint32_t irqId)</td></tr>
+<tr class="memdesc:ga1118000efd3c822329c63a7155bbe12e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the IRQ/Event flag.  <a href="#ga1118000efd3c822329c63a7155bbe12e">More...</a><br/></td></tr>
+<tr class="separator:ga1118000efd3c822329c63a7155bbe12e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa6045d73387a97cb4565472b98ca758a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#gaa6045d73387a97cb4565472b98ca758a">GPC_DsmTriggerMask</a> (GPC_Type *base, bool enable)</td></tr>
+<tr class="memdesc:gaa6045d73387a97cb4565472b98ca758a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask the DSM trigger.  <a href="#gaa6045d73387a97cb4565472b98ca758a">More...</a><br/></td></tr>
+<tr class="separator:gaa6045d73387a97cb4565472b98ca758a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b8d09af8bed4a37c595d7b10352d9f0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#ga5b8d09af8bed4a37c595d7b10352d9f0">GPC_WFIMask</a> (GPC_Type *base, bool enable)</td></tr>
+<tr class="memdesc:ga5b8d09af8bed4a37c595d7b10352d9f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask the WFI.  <a href="#ga5b8d09af8bed4a37c595d7b10352d9f0">More...</a><br/></td></tr>
+<tr class="separator:ga5b8d09af8bed4a37c595d7b10352d9f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga880b8db8a7c47039ebac1bfd7c101c5a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#ga880b8db8a7c47039ebac1bfd7c101c5a">GPC_SelectPGCAckSignal</a> (GPC_Type *base, uint32_t mask)</td></tr>
+<tr class="memdesc:ga880b8db8a7c47039ebac1bfd7c101c5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select the PGC ACK signal.  <a href="#ga880b8db8a7c47039ebac1bfd7c101c5a">More...</a><br/></td></tr>
+<tr class="separator:ga880b8db8a7c47039ebac1bfd7c101c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga001f2bbca9b9e7c920807e7fb824b26c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#ga001f2bbca9b9e7c920807e7fb824b26c">GPC_PowerDownRequestMask</a> (GPC_Type *base, bool enable)</td></tr>
+<tr class="memdesc:ga001f2bbca9b9e7c920807e7fb824b26c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power down request to virtual PGC mask or not.  <a href="#ga001f2bbca9b9e7c920807e7fb824b26c">More...</a><br/></td></tr>
+<tr class="separator:ga001f2bbca9b9e7c920807e7fb824b26c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23793d2d96f0300754b5fc8ebc0a7454"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#ga23793d2d96f0300754b5fc8ebc0a7454">GPC_PGCMapping</a> (GPC_Type *base, uint32_t mask)</td></tr>
+<tr class="memdesc:ga23793d2d96f0300754b5fc8ebc0a7454"><td class="mdescLeft">&#160;</td><td class="mdescRight">PGC CPU Mapping.  <a href="#ga23793d2d96f0300754b5fc8ebc0a7454">More...</a><br/></td></tr>
+<tr class="separator:ga23793d2d96f0300754b5fc8ebc0a7454"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga36437b129ce924593e86fc76fe53c1fe"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#ga36437b129ce924593e86fc76fe53c1fe">GPC_TimeSlotConfigureForPUS</a> (GPC_Type *base, uint8_t slotIndex, uint32_t value)</td></tr>
+<tr class="memdesc:ga36437b129ce924593e86fc76fe53c1fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time slot configure.  <a href="#ga36437b129ce924593e86fc76fe53c1fe">More...</a><br/></td></tr>
+<tr class="separator:ga36437b129ce924593e86fc76fe53c1fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d974ed7fbbeb5dafee134666a7f3a95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#ga5d974ed7fbbeb5dafee134666a7f3a95">GPC_EnterWaitMode</a> (GPC_Type *base, gpc_lpm_config_t *config)</td></tr>
+<tr class="memdesc:ga5d974ed7fbbeb5dafee134666a7f3a95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enter WAIT mode.  <a href="#ga5d974ed7fbbeb5dafee134666a7f3a95">More...</a><br/></td></tr>
+<tr class="separator:ga5d974ed7fbbeb5dafee134666a7f3a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9294160aee28ce6fba47cdd5ebee041"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#gae9294160aee28ce6fba47cdd5ebee041">GPC_EnterStopMode</a> (GPC_Type *base, gpc_lpm_config_t *config)</td></tr>
+<tr class="memdesc:gae9294160aee28ce6fba47cdd5ebee041"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enter STOP mode.  <a href="#gae9294160aee28ce6fba47cdd5ebee041">More...</a><br/></td></tr>
+<tr class="separator:gae9294160aee28ce6fba47cdd5ebee041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga85cf05014c7f508621fb9d9aa1611836"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#ga85cf05014c7f508621fb9d9aa1611836">GPC_Init</a> (GPC_Type *base, uint32_t powerUpSlot, uint32_t powerDownSlot)</td></tr>
+<tr class="memdesc:ga85cf05014c7f508621fb9d9aa1611836"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPC init function.  <a href="#ga85cf05014c7f508621fb9d9aa1611836">More...</a><br/></td></tr>
+<tr class="separator:ga85cf05014c7f508621fb9d9aa1611836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Driver version</h2></td></tr>
+<tr class="memitem:ga91a1b6b08dc09200c3b0ee314b362b74"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#ga91a1b6b08dc09200c3b0ee314b362b74">FSL_GPC_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00105.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 2, 0))</td></tr>
+<tr class="memdesc:ga91a1b6b08dc09200c3b0ee314b362b74"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPC driver version 2.2.0.  <a href="#ga91a1b6b08dc09200c3b0ee314b362b74">More...</a><br/></td></tr>
+<tr class="separator:ga91a1b6b08dc09200c3b0ee314b362b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ga91a1b6b08dc09200c3b0ee314b362b74"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FSL_GPC_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00105.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 2, 0))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="gaa3e6e34d866ba3560a0b428d42445565"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00110.html#gaa3e6e34d866ba3560a0b428d42445565">_gpc_lpm_mode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaa3e6e34d866ba3560a0b428d42445565a7da7d3bf71b7a4f724b672ba5534fdbc"></a>kGPC_RunMode</em>&nbsp;</td><td class="fielddoc">
+<p>run mode </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaa3e6e34d866ba3560a0b428d42445565adf1f22df0717e6ed38156e05ce2244a1"></a>kGPC_WaitMode</em>&nbsp;</td><td class="fielddoc">
+<p>wait mode </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaa3e6e34d866ba3560a0b428d42445565a49a546f006f76aa68c89e2321a46faf6"></a>kGPC_StopMode</em>&nbsp;</td><td class="fielddoc">
+<p>stop mode </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="ga97c194acfba29d1b1793281f2cb0a762"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00110.html#ga97c194acfba29d1b1793281f2cb0a762">_gpc_pgc_ack_sel</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga97c194acfba29d1b1793281f2cb0a762ad8b37333ce78b2c9c7c8d5403587c2fa"></a>kGPC_DummyPGCPowerUpAck</em>&nbsp;</td><td class="fielddoc">
+<p>dummy power up ack signal </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga97c194acfba29d1b1793281f2cb0a762a5f39b03b7b8d8fd2d86788e191acdc20"></a>kGPC_VirtualPGCPowerUpAck</em>&nbsp;</td><td class="fielddoc">
+<p>virtual pgc power up ack signal </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga97c194acfba29d1b1793281f2cb0a762a5d815a69a9034b589cdfb5ccf206a3ba"></a>kGPC_DummyPGCPowerDownAck</em>&nbsp;</td><td class="fielddoc">
+<p>dummy power down ack signal </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga97c194acfba29d1b1793281f2cb0a762a0243c004d047d1efebbc2e849f57e49e"></a>kGPC_VirtualPGCPowerDownAck</em>&nbsp;</td><td class="fielddoc">
+<p>virtual pgc power down ack signal </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga97c194acfba29d1b1793281f2cb0a762ab1d359b28a710d9950cb72e371f18bbf"></a>kGPC_NocPGCPowerUpAck</em>&nbsp;</td><td class="fielddoc">
+<p>NOC power up ack signal. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga97c194acfba29d1b1793281f2cb0a762ac6c414f4e1edc9320aaf2f3251f50615"></a>kGPC_NocPGCPowerDownAck</em>&nbsp;</td><td class="fielddoc">
+<p>NOC power. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="gab0a79f381079bb028af26b5ddcb72152"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00110.html#gab0a79f381079bb028af26b5ddcb72152">_gpc_standby_count</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggab0a79f381079bb028af26b5ddcb72152ab37c73c86b0b11af366354756b1188ac"></a>kGPC_StandbyCounter4CkilClk</em>&nbsp;</td><td class="fielddoc">
+<p>4 ckil clocks </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggab0a79f381079bb028af26b5ddcb72152a82c18a5a511b1a3ecda8a543ac6856a0"></a>kGPC_StandbyCounter8CkilClk</em>&nbsp;</td><td class="fielddoc">
+<p>8 ckil clocks </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggab0a79f381079bb028af26b5ddcb72152a22b15eb310ea14a972f8dd0c69316f17"></a>kGPC_StandbyCounter16CkilClk</em>&nbsp;</td><td class="fielddoc">
+<p>16 ckil clocks </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggab0a79f381079bb028af26b5ddcb72152a269cedb79f2e69f1c9846863ed241935"></a>kGPC_StandbyCounter32CkilClk</em>&nbsp;</td><td class="fielddoc">
+<p>32 ckil clocks </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggab0a79f381079bb028af26b5ddcb72152a8f6c11e06c7bdb1ba44acde1c59a3c8d"></a>kGPC_StandbyCounter64CkilClk</em>&nbsp;</td><td class="fielddoc">
+<p>64 ckil clocks </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggab0a79f381079bb028af26b5ddcb72152af53aefac93b99b704dc54bb338db131b"></a>kGPC_StandbyCounter128CkilClk</em>&nbsp;</td><td class="fielddoc">
+<p>128 ckil clocks </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggab0a79f381079bb028af26b5ddcb72152ae4b435947965145c0357c2ae39e04893"></a>kGPC_StandbyCounter256CkilClk</em>&nbsp;</td><td class="fielddoc">
+<p>256 ckil clocks </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggab0a79f381079bb028af26b5ddcb72152a8df02960b9b0d9af2663a247204e3a3f"></a>kGPC_StandbyCounter512CkilClk</em>&nbsp;</td><td class="fielddoc">
+<p>512 ckil clocks </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga32871c193625bac50b418474fe3fa3b6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void GPC_AllowIRQs </td>
+          <td>(</td>
+          <td class="paramtype">GPC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gaaf2905349b2c84f9809ab9586d6e9764"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void GPC_DisallowIRQs </td>
+          <td>(</td>
+          <td class="paramtype">GPC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gac5095d552b5c61114f6b52ff818b7de4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint32_t GPC_GetLpmMode </td>
+          <td>(</td>
+          <td class="paramtype">GPC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">lpm</td><td>mode, reference _gpc_lpm_mode </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga7c73d81bfb34ebb7ca40a5ad2a63ad7e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPC_EnableIRQ </td>
+          <td>(</td>
+          <td class="paramtype">GPC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>irqId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPC peripheral base address. </td></tr>
+    <tr><td class="paramname">irqId</td><td>ID number of IRQ to be enabled, available range is 0-127,reference SOC headerfile IRQn_Type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gacfd07601d1a0e90e3b80fffe14830010"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPC_DisableIRQ </td>
+          <td>(</td>
+          <td class="paramtype">GPC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>irqId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPC peripheral base address. </td></tr>
+    <tr><td class="paramname">irqId</td><td>ID number of IRQ to be disabled, available range is 0-127,reference SOC headerfile IRQn_Type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga1118000efd3c822329c63a7155bbe12e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GPC_GetIRQStatusFlag </td>
+          <td>(</td>
+          <td class="paramtype">GPC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>irqId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPC peripheral base address. </td></tr>
+    <tr><td class="paramname">irqId</td><td>ID number of IRQ to be enabled, available range is 0-127,reference SOC headerfile IRQn_Type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Indicated IRQ/Event is asserted or not. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa6045d73387a97cb4565472b98ca758a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void GPC_DsmTriggerMask </td>
+          <td>(</td>
+          <td class="paramtype">GPC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPC peripheral base address. </td></tr>
+    <tr><td class="paramname">enable</td><td>true to enable mask, false to disable mask. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga5b8d09af8bed4a37c595d7b10352d9f0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void GPC_WFIMask </td>
+          <td>(</td>
+          <td class="paramtype">GPC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPC peripheral base address. </td></tr>
+    <tr><td class="paramname">enable</td><td>true to enable mask, false to disable mask. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga880b8db8a7c47039ebac1bfd7c101c5a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void GPC_SelectPGCAckSignal </td>
+          <td>(</td>
+          <td class="paramtype">GPC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPC peripheral base address. </td></tr>
+    <tr><td class="paramname">mask</td><td>reference _gpc_pgc_ack_sel. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga001f2bbca9b9e7c920807e7fb824b26c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void GPC_PowerDownRequestMask </td>
+          <td>(</td>
+          <td class="paramtype">GPC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPC peripheral base address. </td></tr>
+    <tr><td class="paramname">enable</td><td>true to mask, false to not mask. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga23793d2d96f0300754b5fc8ebc0a7454"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void GPC_PGCMapping </td>
+          <td>(</td>
+          <td class="paramtype">GPC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPC peripheral base address. </td></tr>
+    <tr><td class="paramname">mask</td><td>mask value reference PGC CPU mapping definition. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga36437b129ce924593e86fc76fe53c1fe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void GPC_TimeSlotConfigureForPUS </td>
+          <td>(</td>
+          <td class="paramtype">GPC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>slotIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPC peripheral base address. </td></tr>
+    <tr><td class="paramname">slotIndex</td><td>time slot index. </td></tr>
+    <tr><td class="paramname">value</td><td>value to be configured </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga5d974ed7fbbeb5dafee134666a7f3a95"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPC_EnterWaitMode </td>
+          <td>(</td>
+          <td class="paramtype">GPC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gpc_lpm_config_t *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPC peripheral base address. </td></tr>
+    <tr><td class="paramname">config</td><td>lpm mode configurations. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gae9294160aee28ce6fba47cdd5ebee041"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPC_EnterStopMode </td>
+          <td>(</td>
+          <td class="paramtype">GPC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gpc_lpm_config_t *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPC peripheral base address. </td></tr>
+    <tr><td class="paramname">config</td><td>lpm mode configurations. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga85cf05014c7f508621fb9d9aa1611836"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPC_Init </td>
+          <td>(</td>
+          <td class="paramtype">GPC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>powerUpSlot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>powerDownSlot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPC peripheral base address. </td></tr>
+    <tr><td class="paramname">powerUpSlot</td><td>power up slot number. </td></tr>
+    <tr><td class="paramname">powerDownSlot</td><td>power down slot number. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.5-->
 <!-- start footer part -->

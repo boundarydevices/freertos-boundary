@@ -39,6 +39,7 @@ var a00020 =
     [ "sai_frame_sync_t", "a00020.html#a00184", [
       [ "frameSyncWidth", "a00020.html#a220329ad330217786663fee4457a7281", null ],
       [ "frameSyncEarly", "a00020.html#af23c63fada62140420230a61abe37d4e", null ],
+      [ "frameSyncGenerateOnDemand", "a00020.html#adcc4ee55d055827215038e2cc4ea8b1b", null ],
       [ "frameSyncPolarity", "a00020.html#a6fbff9ec23d1ba0bb54ca7d91b7f40d9", null ]
     ] ],
     [ "sai_serial_data_t", "a00020.html#a00186", [
@@ -67,7 +68,7 @@ var a00020 =
       [ "data", "a00020.html#a5a8e66b73932caa8eaf99df59127e389", null ],
       [ "dataSize", "a00020.html#a9518c75eb06dadc3b73f44ee49f4e0ff", null ]
     ] ],
-    [ "sai_handle_t", "a00020.html#a00141", [
+    [ "sai_handle_t", "a00020.html#a00140", [
       [ "base", "a00020.html#a39a102177f33c97feccda8cdfa9c7335", null ],
       [ "state", "a00020.html#a5b505d55e77d3b5329b368d3007ce816", null ],
       [ "callback", "a00020.html#a05bc395932b5262476fa9a10fde9ede5", null ],
@@ -240,8 +241,8 @@ var a00020 =
     [ "SAI_TxClearStatusFlags", "a00020.html#ga11127bb45b18dfa9d897046ab69b218d", null ],
     [ "SAI_RxGetStatusFlag", "a00020.html#ga9857a73c0d40d12438a9bd336e237dfe", null ],
     [ "SAI_RxClearStatusFlags", "a00020.html#ga3329969cbf718114c37f10d88e527669", null ],
-    [ "SAI_TxSoftwareReset", "a00020.html#ga5130499a5c0da79e9ddfa9882c2f8328", null ],
-    [ "SAI_RxSoftwareReset", "a00020.html#ga3884861b9de4eb9dacd5f45d98a974d7", null ],
+    [ "SAI_TxSoftwareReset", "a00020.html#gae9ff8664d0683df7a60078b1e41cce17", null ],
+    [ "SAI_RxSoftwareReset", "a00020.html#ga503d652201ae85fd82dd20e908b6afea", null ],
     [ "SAI_TxSetChannelFIFOMask", "a00020.html#ga633f5af270fa98e7dad379a2c78b4d72", null ],
     [ "SAI_RxSetChannelFIFOMask", "a00020.html#ga7fd29bef62a3d5609a78bb25f6fb66d6", null ],
     [ "SAI_TxSetDataOrder", "a00020.html#ga27fad059ad2e1ef81ef83fbce4284e13", null ],
@@ -260,8 +261,8 @@ var a00020 =
     [ "SAI_RxDisableInterrupts", "a00020.html#ga9cbeb122b61a580d052438157661c46f", null ],
     [ "SAI_TxEnableDMA", "a00020.html#ga131a59354eae81bb20068b7c5e805f9a", null ],
     [ "SAI_RxEnableDMA", "a00020.html#ga8061229e53203dfca2ed45b2f7648ca5", null ],
-    [ "SAI_TxGetDataRegisterAddress", "a00020.html#gac19d42fce7cc3f6ab68f279be959f3bb", null ],
-    [ "SAI_RxGetDataRegisterAddress", "a00020.html#ga2b90519b672bb8cb8b0aa6386f66c251", null ],
+    [ "SAI_TxGetDataRegisterAddress", "a00020.html#ga9eb7289d72ab3d607b85948bd8377dcc", null ],
+    [ "SAI_RxGetDataRegisterAddress", "a00020.html#gaad41b09d7c4c5e3fbd6a6584ea1eb015", null ],
     [ "SAI_TxSetFormat", "a00020.html#gaeeab03e24aa74980dd770d9e740c0b06", null ],
     [ "SAI_RxSetFormat", "a00020.html#ga542afa36d64a6848bf174cb0e695b42b", null ],
     [ "SAI_WriteBlocking", "a00020.html#ga32e4d2e732142517cc9ae2c1d12ee641", null ],

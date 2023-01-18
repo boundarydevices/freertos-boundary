@@ -21,7 +21,7 @@ var searchData=
   ['wdog_5ftriggersystemsoftwarereset',['WDOG_TriggerSystemSoftwareReset',['../a00029.html#ga148420ea7de00bc3c60c40abffcdf1cb',1,'fsl_wdog.h']]],
   ['wdog_5fwork_5fmode_5ft',['wdog_work_mode_t',['../a00029.html#a00209',1,'']]],
   ['wm8524_20driver',['WM8524 Driver',['../a00030.html',1,'']]],
-  ['wm8524_20adapter',['WM8524 Adapter',['../a00128.html',1,'']]],
+  ['wm8524_20adapter',['WM8524 Adapter',['../a00127.html',1,'']]],
   ['wm8524_5fconfigformat',['WM8524_ConfigFormat',['../a00030.html#ga27adb51025eae2b414cddd9cb45f87ce',1,'fsl_wm8524.h']]],
   ['wm8524_5fhandle_5ft',['wm8524_handle_t',['../a00030.html#a00210',1,'']]],
   ['wm8524_5finit',['WM8524_Init',['../a00030.html#gafd9277c5ea97104ae693098801a31242',1,'fsl_wm8524.h']]],

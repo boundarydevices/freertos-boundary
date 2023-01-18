@@ -1,6 +1,6 @@
 var a00028 =
 [
-    [ "uart_sdma_handle_t", "a00028.html#a00144", [
+    [ "uart_sdma_handle_t", "a00028.html#a00143", [
       [ "callback", "a00028.html#a9bfac94dfa351480c7758f6eec951581", null ],
       [ "userData", "a00028.html#a5acf81152cc288fefcd6529d50bc48b9", null ],
       [ "rxDataSizeAll", "a00028.html#a5a78ec231b140dac6e2fde9f6b5bb88a", null ],
