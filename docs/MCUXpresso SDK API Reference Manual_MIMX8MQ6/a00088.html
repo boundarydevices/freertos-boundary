@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: ECSPI FreeRTOS Driver</title>
+<title>MCUXpresso SDK API Reference Manual: ECSPI CMSIS Driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.11.0</span>
+   &#160;<span id="projectnumber">Rev 2.13.0</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -99,151 +99,71 @@ $(document).ready(function(){initNavTree('a00088.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ECSPI FreeRTOS Driver<div class="ingroups"><a class="el" href="a00087.html">ECSPI: Enhanced Configurable Serial Peripheral Interface Driver</a></div></div>  </div>
+<div class="title">ECSPI CMSIS Driver<div class="ingroups"><a class="el" href="a00086.html">ECSPI: Enhanced Configurable Serial Peripheral Interface Driver</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-<a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-Driver version</h2></td></tr>
-<tr class="memitem:ga10a34b5d38a5ff9822fc444148195799"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00088.html#ga10a34b5d38a5ff9822fc444148195799">FSL_ECSPI_FREERTOS_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00086.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 2, 0))</td></tr>
-<tr class="memdesc:ga10a34b5d38a5ff9822fc444148195799"><td class="mdescLeft">&#160;</td><td class="mdescRight">ECSPI FreeRTOS driver version.  <a href="#ga10a34b5d38a5ff9822fc444148195799">More...</a><br/></td></tr>
-<tr class="separator:ga10a34b5d38a5ff9822fc444148195799"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-ECSPI RTOS Operation</h2></td></tr>
-<tr class="memitem:ga7918b90668b02f4d4e996f8176168451"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00086.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00088.html#ga7918b90668b02f4d4e996f8176168451">ECSPI_RTOS_Init</a> (ecspi_rtos_handle_t *handle, ECSPI_Type *base, const <a class="el" href="a00010.html#a00123">ecspi_master_config_t</a> *masterConfig, uint32_t srcClock_Hz)</td></tr>
-<tr class="memdesc:ga7918b90668b02f4d4e996f8176168451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes ECSPI.  <a href="#ga7918b90668b02f4d4e996f8176168451">More...</a><br/></td></tr>
-<tr class="separator:ga7918b90668b02f4d4e996f8176168451"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga901f7e93af2ee61c81d4ee0ff4801724"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00086.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00088.html#ga901f7e93af2ee61c81d4ee0ff4801724">ECSPI_RTOS_Deinit</a> (ecspi_rtos_handle_t *handle)</td></tr>
-<tr class="memdesc:ga901f7e93af2ee61c81d4ee0ff4801724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the ECSPI.  <a href="#ga901f7e93af2ee61c81d4ee0ff4801724">More...</a><br/></td></tr>
-<tr class="separator:ga901f7e93af2ee61c81d4ee0ff4801724"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabeedc3019d9f8ba9a20dcee2f9e14d1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00086.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00088.html#gabeedc3019d9f8ba9a20dcee2f9e14d1e">ECSPI_RTOS_Transfer</a> (ecspi_rtos_handle_t *handle, <a class="el" href="a00010.html#a00125">ecspi_transfer_t</a> *transfer)</td></tr>
-<tr class="memdesc:gabeedc3019d9f8ba9a20dcee2f9e14d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs ECSPI transfer.  <a href="#gabeedc3019d9f8ba9a20dcee2f9e14d1e">More...</a><br/></td></tr>
-<tr class="separator:gabeedc3019d9f8ba9a20dcee2f9e14d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="ga10a34b5d38a5ff9822fc444148195799"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FSL_ECSPI_FREERTOS_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00086.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 2, 0))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga7918b90668b02f4d4e996f8176168451"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00086.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> ECSPI_RTOS_Init </td>
-          <td>(</td>
-          <td class="paramtype">ecspi_rtos_handle_t *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">ECSPI_Type *&#160;</td>
-          <td class="paramname"><em>base</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00010.html#a00123">ecspi_master_config_t</a> *&#160;</td>
-          <td class="paramname"><em>masterConfig</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>srcClock_Hz</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function initializes the ECSPI module and related RTOS context.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>The RTOS ECSPI handle, the pointer to an allocated space for RTOS context. </td></tr>
-    <tr><td class="paramname">base</td><td>The pointer base address of the ECSPI instance to initialize. </td></tr>
-    <tr><td class="paramname">masterConfig</td><td>Configuration structure to set-up ECSPI in master mode. </td></tr>
-    <tr><td class="paramname">srcClock_Hz</td><td>Frequency of input clock of the ECSPI module. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>status of the operation. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga901f7e93af2ee61c81d4ee0ff4801724"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00086.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> ECSPI_RTOS_Deinit </td>
-          <td>(</td>
-          <td class="paramtype">ecspi_rtos_handle_t *&#160;</td>
-          <td class="paramname"><em>handle</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function deinitializes the ECSPI module and related RTOS context.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>The RTOS ECSPI handle. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gabeedc3019d9f8ba9a20dcee2f9e14d1e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00086.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> ECSPI_RTOS_Transfer </td>
-          <td>(</td>
-          <td class="paramtype">ecspi_rtos_handle_t *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00010.html#a00125">ecspi_transfer_t</a> *&#160;</td>
-          <td class="paramname"><em>transfer</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function performs an ECSPI transfer according to data given in the transfer structure.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>The RTOS ECSPI handle. </td></tr>
-    <tr><td class="paramname">transfer</td><td>Structure specifying the transfer parameters. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>status of the operation. </dd></dl>
-
-</div>
-</div>
-</div><!-- contents -->
+<p>This section describes the programming interface of the ecspi Cortex Microcontroller Software Interface Standard (CMSIS) driver. And this driver defines generic peripheral driver interfaces for middleware making it reusable across a wide range of supported microcontroller devices. The API connects microcontroller peripherals with middleware that implements for example communication stacks, file systems, or graphic user interfaces. More information and usage methord please refer to <a href="http://www.keil.com/pack/doc/cmsis/Driver/html/index.html">http://www.keil.com/pack/doc/cmsis/Driver/html/index.html</a>.</p>
+<h1><a class="anchor" id="ecspiFunGrps"></a>
+Function groups</h1>
+<h2><a class="anchor" id="ecspiGetVersionOps"></a>
+ECSPI CMSIS GetVersion Operation</h2>
+<p>This function group will return the ECSPI CMSIS Driver version to user.</p>
+<h2><a class="anchor" id="ecspiGetCapOps"></a>
+ECSPI CMSIS GetCapabilities Operation</h2>
+<p>This function group will return the capabilities of this driver.</p>
+<h2><a class="anchor" id="ecspiInitResetOps"></a>
+ECSPI CMSIS Initialize and Uninitialize Operation</h2>
+<p>This function will initialize and uninitialize the instance in master mode or slave mode. And this API must be called before you configure an instance or after you Deinit an instance.The right steps to start an instance is that you must initialize the instance which been slected firstly,then you can power on the instance.After these all have been done,you can configure the instance by using control operation.If you want to Uninitialize the instance, you must power off the instance first.</p>
+<h2><a class="anchor" id="ecspiTransOps"></a>
+ECSPI CMSIS Transfer Operation</h2>
+<p>This function group controls the transfer, master send/receive data, and slave send/receive data.</p>
+<h2><a class="anchor" id="ecspiStatusOps"></a>
+ECSPI CMSIS Status Operation</h2>
+<p>This function group gets the ecspi transfer status.</p>
+<h2><a class="anchor" id="ecspiControlOps"></a>
+ECSPI CMSIS Control Operation</h2>
+<p>This function can select instance as master mode or slave mode, set baudrate for master mode transfer, get current baudrate of master mode transfer,set transfer data bits and set other control command.</p>
+<h1><a class="anchor" id="ecspiTpyUC"></a>
+Typical use case</h1>
+<h2><a class="anchor" id="ecspiMasterOps"></a>
+Master Operation</h2>
+<div class="fragment"><div class="line"><span class="comment">/* Variables */</span></div>
+<div class="line">uint8_t masterRxData[TRANSFER_SIZE] = {0U};</div>
+<div class="line">uint8_t masterTxData[TRANSFER_SIZE] = {0U};</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/*ECSPI master init*/</span></div>
+<div class="line">Driver_SPI0.Initialize(ECSPI_MasterSignalEvent_t);</div>
+<div class="line">Driver_SPI0.PowerControl(ARM_POWER_FULL);</div>
+<div class="line">Driver_SPI0.Control(ARM_SPI_MODE_MASTER, TRANSFER_BAUDRATE);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* Start master transfer */</span></div>
+<div class="line">Driver_SPI0.Transfer(masterTxData, masterRxData, TRANSFER_SIZE);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* Master power off */</span></div>
+<div class="line">Driver_SPI0.PowerControl(ARM_POWER_OFF);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* Master uninitialize */</span></div>
+<div class="line">Driver_SPI0.Uninitialize();</div>
+</div><!-- fragment --><h2><a class="anchor" id="spiSlaveOps"></a>
+Slave Operation</h2>
+<div class="fragment"><div class="line"><span class="comment">/* Variables */</span></div>
+<div class="line">uint8_t slaveRxData[TRANSFER_SIZE] = {0U};</div>
+<div class="line">uint8_t slaveTxData[TRANSFER_SIZE] = {0U};</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/*DSPI slave init*/</span></div>
+<div class="line">Driver_SPI2.Initialize(ECSPI_SlaveSignalEvent_t);</div>
+<div class="line">Driver_SPI2.PowerControl(ARM_POWER_FULL);</div>
+<div class="line">Driver_SPI2.Control(ARM_SPI_MODE_SLAVE, <span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* Start slave transfer */</span></div>
+<div class="line">Driver_SPI2.Transfer(slaveTxData, slaveRxData, TRANSFER_SIZE);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* slave power off */</span></div>
+<div class="line">Driver_SPI2.PowerControl(ARM_POWER_OFF);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* slave uninitialize */</span></div>
+<div class="line">Driver_SPI2.Uninitialize();</div>
+</div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.5-->
 <!-- start footer part -->

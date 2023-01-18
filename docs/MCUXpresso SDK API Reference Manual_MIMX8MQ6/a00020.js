@@ -1,6 +1,6 @@
 var a00020 =
 [
-    [ "uart_config_t", "a00020.html#a00158", [
+    [ "uart_config_t", "a00020.html#a00157", [
       [ "baudRate_Bps", "a00020.html#acc123668836f3432c54ee6a2f6f318f1", null ],
       [ "parityMode", "a00020.html#a1a3abcf4f0f5d0a3893df14f2991aa39", null ],
       [ "dataBitsCount", "a00020.html#aa026642db643d8cae1a64869acd9baf5", null ],
@@ -14,13 +14,13 @@ var a00020 =
       [ "enableRxRTS", "a00020.html#adc47219b87ec27ff77d872e1dd234fa4", null ],
       [ "enableTxCTS", "a00020.html#a800f164d6cfca4e94dedf307bbc6a555", null ]
     ] ],
-    [ "uart_transfer_t", "a00020.html#a00160", [
+    [ "uart_transfer_t", "a00020.html#a00159", [
       [ "data", "a00020.html#af91f05b0f951836e3002f60f0575f369", null ],
       [ "rxData", "a00020.html#a6a01cecc49085fd54225618e4aa7d9df", null ],
       [ "txData", "a00020.html#a6b21ddbed7f4029bbd73c783d7633339", null ],
       [ "dataSize", "a00020.html#a21820f8294de0d75d863b72512a7c12f", null ]
     ] ],
-    [ "uart_handle_t", "a00020.html#a00117", [
+    [ "uart_handle_t", "a00020.html#a00116", [
       [ "txData", "a00020.html#a8335d5ed357baeccd5c4dc961be8441e", null ],
       [ "txDataSize", "a00020.html#a1e67a92b463ad328646834ea0de4d70d", null ],
       [ "txDataSizeAll", "a00020.html#a80361474eb03b3aa30d02bda82adce65", null ],

@@ -1,17 +1,17 @@
 var a00014 =
 [
-    [ "qspi_dqs_config_t", "a00014.html#a00135", [
+    [ "qspi_dqs_config_t", "a00014.html#a00134", [
       [ "portADelayTapNum", "a00014.html#ab166711d9c9ea0accacffbd9463ba91a", null ],
       [ "shift", "a00014.html#a41a08deef01859490a87688da1a2f166", null ],
       [ "rxSampleClock", "a00014.html#ad1f0bd234f0c3fb83147c25819949729", null ],
       [ "enableDQSClkInverse", "a00014.html#a501b65137e9c19834a56df7812708328", null ]
     ] ],
-    [ "qspi_flash_timing_t", "a00014.html#a00137", [
+    [ "qspi_flash_timing_t", "a00014.html#a00136", [
       [ "dataHoldTime", "a00014.html#a1c4812527eaebb35bab982a6635b4106", null ],
       [ "CSHoldTime", "a00014.html#a46b400bc95b18888574e5d20ae4c2c1e", null ],
       [ "CSSetupTime", "a00014.html#a94b7c0ea1ba1f3dbf06b11062d0e8e85", null ]
     ] ],
-    [ "qspi_config_t", "a00014.html#a00134", [
+    [ "qspi_config_t", "a00014.html#a00133", [
       [ "clockSource", "a00014.html#a4636154d339f8a457267a51d17c6028f", null ],
       [ "baudRate", "a00014.html#ab90e8b90f6ac0da5ce3102ec2104e6f7", null ],
       [ "txWatermark", "a00014.html#aacef56c9b3a210643d8d3de452dbf1b5", null ],
@@ -22,7 +22,7 @@ var a00014 =
       [ "area", "a00014.html#a29b0ae614176264f9d58d2152e80cd70", null ],
       [ "enableQspi", "a00014.html#ad280dc96ddc5397ce1cde0d8b1104098", null ]
     ] ],
-    [ "qspi_flash_config_t", "a00014.html#a00136", [
+    [ "qspi_flash_config_t", "a00014.html#a00135", [
       [ "flashA1Size", "a00014.html#adb2a4c29ddc58b85de0d82f75b0f045b", null ],
       [ "flashA2Size", "a00014.html#acace5b5a54558a7c1cbe9e3ab4948a82", null ],
       [ "flashB1Size", "a00014.html#a415ea1611adead970da3abd8de2d3f40", null ],
@@ -36,11 +36,11 @@ var a00014 =
       [ "endian", "a00014.html#a83ac59682812f8f55a5be71c2ff9e579", null ],
       [ "enableWordAddress", "a00014.html#add68d248634adee8b831a50bada4c37d", null ]
     ] ],
-    [ "qspi_transfer_t", "a00014.html#a00138", [
+    [ "qspi_transfer_t", "a00014.html#a00137", [
       [ "data", "a00014.html#aa543a15bba26a35f1ea6bc8a1d6bac3f", null ],
       [ "dataSize", "a00014.html#a0570176d8c8dac4e5a64f52505d07138", null ]
     ] ],
-    [ "ip_command_config_t", "a00014.html#a00132", [
+    [ "ip_command_config_t", "a00014.html#a00131", [
       [ "IPCR", "a00014.html#a7d420ffb60e25fae42040f263b135ef8", null ],
       [ "IDATZ", "a00014.html#a1d385262c3e1abd8d79e5a30109acbd4", null ],
       [ "RESERVED_0", "a00014.html#af65d7730ff79bd3239f8c7b3f48f58d0", null ],

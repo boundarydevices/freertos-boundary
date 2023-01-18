@@ -6,8 +6,8 @@ a message a printed on the UART terminal.
 
 Toolchain supported
 ===================
-- IAR embedded Workbench  9.10.2
-- GCC ARM Embedded  10.2.1
+- IAR embedded Workbench  9.32.1
+- GCC ARM Embedded  10.3.1
 
 Hardware requirements
 =====================

@@ -1,10 +1,10 @@
 var a00013 =
 [
-    [ "i2c_master_config_t", "a00013.html#a00128", [
+    [ "i2c_master_config_t", "a00013.html#a00127", [
       [ "enableMaster", "a00013.html#a2419131a10906475fd31950f17ac8895", null ],
       [ "baudRate_Bps", "a00013.html#a2186844dc87bcde999fc12005f4c550a", null ]
     ] ],
-    [ "i2c_master_transfer_t", "a00013.html#a00129", [
+    [ "i2c_master_transfer_t", "a00013.html#a00128", [
       [ "flags", "a00013.html#a8835787e1b0f9a4b8868e7cbe53e45d5", null ],
       [ "slaveAddress", "a00013.html#a3b9c4ae818b1194955db51de0f67795f", null ],
       [ "direction", "a00013.html#ac5b89dc9115b7760431c981e0c1fd443", null ],
@@ -13,25 +13,25 @@ var a00013 =
       [ "data", "a00013.html#a0b4fa495c845d29fe6eaad7350337943", null ],
       [ "dataSize", "a00013.html#a071d26432bea08e4bf76bb4eb8805770", null ]
     ] ],
-    [ "i2c_master_handle_t", "a00013.html#a00114", [
+    [ "i2c_master_handle_t", "a00013.html#a00113", [
       [ "transfer", "a00013.html#a6858d3525f762d7aded20e6c95eb19fc", null ],
       [ "transferSize", "a00013.html#a5f6e3613a1fe8c3534a31526b1a34647", null ],
       [ "state", "a00013.html#add7ec18bc8239c5c87ffcec2fbcf5dd8", null ],
       [ "completionCallback", "a00013.html#a15b84b8a94c2b2e5ace0a695c79edd84", null ],
       [ "userData", "a00013.html#aad7df570c53adb2e80acd2ba0d39d109", null ]
     ] ],
-    [ "i2c_slave_config_t", "a00013.html#a00130", [
+    [ "i2c_slave_config_t", "a00013.html#a00129", [
       [ "enableSlave", "a00013.html#a92d20835618a946b8f7702455877ef7a", null ],
       [ "slaveAddress", "a00013.html#a05851e26565e2b89bd49ef230cc397be", null ]
     ] ],
-    [ "i2c_slave_transfer_t", "a00013.html#a00131", [
+    [ "i2c_slave_transfer_t", "a00013.html#a00130", [
       [ "event", "a00013.html#ad0a9e837e9df16d89bab98a78af5bd10", null ],
       [ "data", "a00013.html#ae8dab4de2445f3094b6baef3712a80a9", null ],
       [ "dataSize", "a00013.html#a96d433bce400dfc4917343f2b07e8b1d", null ],
       [ "completionStatus", "a00013.html#a35adbf64ca65dd2c1b52f9260f5b9e90", null ],
       [ "transferredCount", "a00013.html#a0394563c8d0f9eeeecd242a65cee2ad4", null ]
     ] ],
-    [ "i2c_slave_handle_t", "a00013.html#a00115", [
+    [ "i2c_slave_handle_t", "a00013.html#a00114", [
       [ "state", "a00013.html#a05e28c7ba871cce0a3dd1bad4b768336", null ],
       [ "transfer", "a00013.html#a49f6e4eb57b2158f3886f47e6c84d1b9", null ],
       [ "eventMask", "a00013.html#a8ab7d35b42a241c05ddb4c18f8d1e522", null ],

@@ -13,6 +13,7 @@ var searchData=
   ['fractiondiv',['fractionDiv',['../a00008.html#a604c9b5294aa7496877d143cdbf088e6',1,'ccm_analog_frac_pll_config_t']]],
   ['framesync',['frameSync',['../a00016.html#a46ce7801a6ba02d5dd8f56e431d681f1',1,'sai_transceiver_t']]],
   ['framesyncearly',['frameSyncEarly',['../a00016.html#af23c63fada62140420230a61abe37d4e',1,'sai_frame_sync_t']]],
+  ['framesyncgenerateondemand',['frameSyncGenerateOnDemand',['../a00016.html#adcc4ee55d055827215038e2cc4ea8b1b',1,'sai_frame_sync_t']]],
   ['framesyncpolarity',['frameSyncPolarity',['../a00016.html#a6fbff9ec23d1ba0bb54ca7d91b7f40d9',1,'sai_frame_sync_t']]],
   ['framesyncwidth',['frameSyncWidth',['../a00016.html#a220329ad330217786663fee4457a7281',1,'sai_frame_sync_t']]]
 ];

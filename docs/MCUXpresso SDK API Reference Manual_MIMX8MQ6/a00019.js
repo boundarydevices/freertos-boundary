@@ -1,6 +1,6 @@
 var a00019 =
 [
-    [ "tmu_thresold_config_t", "a00019.html#a00157", [
+    [ "tmu_thresold_config_t", "a00019.html#a00156", [
       [ "immediateThresoldEnable", "a00019.html#a26dcfbd2e1b2358536423c97a932b220", null ],
       [ "AverageThresoldEnable", "a00019.html#a269f4768530d6a95fd23ad2bce651cde", null ],
       [ "AverageCriticalThresoldEnable", "a00019.html#ae3422784818643c5e78ab9b2b545204b", null ],
@@ -8,13 +8,13 @@ var a00019 =
       [ "averageThresoldValue", "a00019.html#aee4703600e7bae9134b7fb717071a3d0", null ],
       [ "averageCriticalThresoldValue", "a00019.html#a36c49c9978a39decb657e72026189754", null ]
     ] ],
-    [ "tmu_interrupt_status_t", "a00019.html#a00156", [
+    [ "tmu_interrupt_status_t", "a00019.html#a00155", [
       [ "interruptDetectMask", "a00019.html#ab43148d3beb8ceff37928791119ccad5", null ],
       [ "immediateInterruptsSiteMask", "a00019.html#ae3c226f844d7000f1b2b8f6470401bc9", null ],
       [ "AverageInterruptsSiteMask", "a00019.html#a24bd33df8c9f3c8ec609b5fb72d8cf7c", null ],
       [ "AverageCriticalInterruptsSiteMask", "a00019.html#a326c080425bcc9219dd9db338bf48180", null ]
     ] ],
-    [ "tmu_config_t", "a00019.html#a00155", [
+    [ "tmu_config_t", "a00019.html#a00154", [
       [ "monitorInterval", "a00019.html#a7049d2607cf6ad72fa1ea42c92d5ad2d", null ],
       [ "monitorSiteSelection", "a00019.html#a22e27a3d3ae32b6f8b46729c402a0dfb", null ],
       [ "averageLPF", "a00019.html#a19cb414c5a89d06931bb5d3f48ba64c2", null ]

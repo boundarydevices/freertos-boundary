@@ -8,6 +8,7 @@ var searchData=
   ['clock_5fpll_5fctrl_5ft',['clock_pll_ctrl_t',['../a00008.html#gac245b59566ac685395ff954a803d42ad',1,'fsl_clock.h']]],
   ['clock_5fpll_5fgate_5ft',['clock_pll_gate_t',['../a00008.html#ga923caa97330169c94c2065eeef0c21b9',1,'fsl_clock.h']]],
   ['clock_5froot_5fcontrol_5ft',['clock_root_control_t',['../a00008.html#gaa7b50225aaae5ae2c328987528fc46b0',1,'fsl_clock.h']]],
+  ['clock_5froot_5ft',['clock_root_t',['../a00008.html#ga34b61a432881891d16e812469e5376fa',1,'fsl_clock.h']]],
   ['clock_5frootmux_5fahb_5fclk_5fsel_5ft',['clock_rootmux_ahb_clk_sel_t',['../a00008.html#gabcd9b41ff3412c89fa320fc86f251586',1,'fsl_clock.h']]],
   ['clock_5frootmux_5faxi_5fclk_5fsel_5ft',['clock_rootmux_axi_clk_sel_t',['../a00008.html#gaedfd07497c56a8db9e03fe0c4f614df1',1,'fsl_clock.h']]],
   ['clock_5frootmux_5fecspi_5fclk_5fsel_5ft',['clock_rootmux_ecspi_clk_sel_t',['../a00008.html#ga5af203615387394b42055ef2f13f1c45',1,'fsl_clock.h']]],

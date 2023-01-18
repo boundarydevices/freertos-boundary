@@ -1,12 +1,12 @@
 var a00016 =
 [
-    [ "sai_config_t", "a00016.html#a00145", [
+    [ "sai_config_t", "a00016.html#a00144", [
       [ "protocol", "a00016.html#ae6b6e06a6051825c0797e1ab7fce5f92", null ],
       [ "syncMode", "a00016.html#a1c625b880a5721c9bf58ab081c08fea5", null ],
       [ "bclkSource", "a00016.html#a156dc7868da25bfc262bfac4bd4499a1", null ],
       [ "masterSlave", "a00016.html#a2c16d7b69db892ed087ced965280be77", null ]
     ] ],
-    [ "sai_transfer_format_t", "a00016.html#a00150", [
+    [ "sai_transfer_format_t", "a00016.html#a00149", [
       [ "sampleRate_Hz", "a00016.html#a629aeb07579875fda77e38851c683ae0", null ],
       [ "bitWidth", "a00016.html#ad4f8f19e4e01850841127ca7d0920302", null ],
       [ "stereo", "a00016.html#a1398f0cd36eabc05f7bc448db6355562", null ],
@@ -18,24 +18,25 @@ var a00016 =
       [ "protocol", "a00016.html#a2df4853c14ae76c214bddc23787e2327", null ],
       [ "isFrameSyncCompact", "a00016.html#ada875cc5c68938e26714e01ac909cc25", null ]
     ] ],
-    [ "sai_fifo_t", "a00016.html#a00146", [
+    [ "sai_fifo_t", "a00016.html#a00145", [
       [ "fifoContinueOneError", "a00016.html#ac914c718157b8e739d84dcdca12ac4dd", null ],
       [ "fifoCombine", "a00016.html#a149927ef6832b9115ae40fe0c5931bdb", null ],
       [ "fifoPacking", "a00016.html#a4e5b8949998b3072a76efc1c118131b4", null ],
       [ "fifoWatermark", "a00016.html#a592b24b0ef9dfb5c4a1eb1aac1056cc3", null ]
     ] ],
-    [ "sai_bit_clock_t", "a00016.html#a00144", [
+    [ "sai_bit_clock_t", "a00016.html#a00143", [
       [ "bclkSrcSwap", "a00016.html#ab4f8c0bd4eb48623a7804caecf4f3985", null ],
       [ "bclkInputDelay", "a00016.html#a6b6f07959f9178be8a812d3cf0c2b5aa", null ],
       [ "bclkPolarity", "a00016.html#a42d3debf179fb3168f945ba53c8f4ed9", null ],
       [ "bclkSource", "a00016.html#a3734e8fb8f5c15d3e3769db3740474d6", null ]
     ] ],
-    [ "sai_frame_sync_t", "a00016.html#a00147", [
+    [ "sai_frame_sync_t", "a00016.html#a00146", [
       [ "frameSyncWidth", "a00016.html#a220329ad330217786663fee4457a7281", null ],
       [ "frameSyncEarly", "a00016.html#af23c63fada62140420230a61abe37d4e", null ],
+      [ "frameSyncGenerateOnDemand", "a00016.html#adcc4ee55d055827215038e2cc4ea8b1b", null ],
       [ "frameSyncPolarity", "a00016.html#a6fbff9ec23d1ba0bb54ca7d91b7f40d9", null ]
     ] ],
-    [ "sai_serial_data_t", "a00016.html#a00148", [
+    [ "sai_serial_data_t", "a00016.html#a00147", [
       [ "dataMode", "a00016.html#a3b2bf9ccec21dde86dda8ad3e43db654", null ],
       [ "dataOrder", "a00016.html#a0d695a6e8766dae568984b61cd14f402", null ],
       [ "dataWord0Length", "a00016.html#a51fdf10f1675981b4ac23478610daac3", null ],
@@ -45,7 +46,7 @@ var a00016 =
       [ "dataWordNum", "a00016.html#ac9610cfcf7625775b74eff890e1d8471", null ],
       [ "dataMaskedWord", "a00016.html#ac8224253c6c3ed58f1a5219f6f97f231", null ]
     ] ],
-    [ "sai_transceiver_t", "a00016.html#a00149", [
+    [ "sai_transceiver_t", "a00016.html#a00148", [
       [ "serialData", "a00016.html#acccc152bf9df33f9c63951fd36716a27", null ],
       [ "frameSync", "a00016.html#a46ce7801a6ba02d5dd8f56e431d681f1", null ],
       [ "bitClock", "a00016.html#ae054379f5d808df31dd9413d589aeba6", null ],
@@ -57,11 +58,11 @@ var a00016 =
       [ "endChannel", "a00016.html#a5beee2fa239e1099dbe9a792128f3292", null ],
       [ "channelNums", "a00016.html#a34eab3bb191b22d6c2622fd5fc8cb6a5", null ]
     ] ],
-    [ "sai_transfer_t", "a00016.html#a00151", [
+    [ "sai_transfer_t", "a00016.html#a00150", [
       [ "data", "a00016.html#a5a8e66b73932caa8eaf99df59127e389", null ],
       [ "dataSize", "a00016.html#a9518c75eb06dadc3b73f44ee49f4e0ff", null ]
     ] ],
-    [ "sai_handle_t", "a00016.html#a00116", [
+    [ "sai_handle_t", "a00016.html#a00115", [
       [ "base", "a00016.html#a39a102177f33c97feccda8cdfa9c7335", null ],
       [ "state", "a00016.html#a5b505d55e77d3b5329b368d3007ce816", null ],
       [ "callback", "a00016.html#a05bc395932b5262476fa9a10fde9ede5", null ],
@@ -233,8 +234,8 @@ var a00016 =
     [ "SAI_TxClearStatusFlags", "a00016.html#ga11127bb45b18dfa9d897046ab69b218d", null ],
     [ "SAI_RxGetStatusFlag", "a00016.html#ga9857a73c0d40d12438a9bd336e237dfe", null ],
     [ "SAI_RxClearStatusFlags", "a00016.html#ga3329969cbf718114c37f10d88e527669", null ],
-    [ "SAI_TxSoftwareReset", "a00016.html#ga5130499a5c0da79e9ddfa9882c2f8328", null ],
-    [ "SAI_RxSoftwareReset", "a00016.html#ga3884861b9de4eb9dacd5f45d98a974d7", null ],
+    [ "SAI_TxSoftwareReset", "a00016.html#gae9ff8664d0683df7a60078b1e41cce17", null ],
+    [ "SAI_RxSoftwareReset", "a00016.html#ga503d652201ae85fd82dd20e908b6afea", null ],
     [ "SAI_TxSetChannelFIFOMask", "a00016.html#ga633f5af270fa98e7dad379a2c78b4d72", null ],
     [ "SAI_RxSetChannelFIFOMask", "a00016.html#ga7fd29bef62a3d5609a78bb25f6fb66d6", null ],
     [ "SAI_TxSetDataOrder", "a00016.html#ga27fad059ad2e1ef81ef83fbce4284e13", null ],
@@ -253,8 +254,8 @@ var a00016 =
     [ "SAI_RxDisableInterrupts", "a00016.html#ga9cbeb122b61a580d052438157661c46f", null ],
     [ "SAI_TxEnableDMA", "a00016.html#ga131a59354eae81bb20068b7c5e805f9a", null ],
     [ "SAI_RxEnableDMA", "a00016.html#ga8061229e53203dfca2ed45b2f7648ca5", null ],
-    [ "SAI_TxGetDataRegisterAddress", "a00016.html#gac19d42fce7cc3f6ab68f279be959f3bb", null ],
-    [ "SAI_RxGetDataRegisterAddress", "a00016.html#ga2b90519b672bb8cb8b0aa6386f66c251", null ],
+    [ "SAI_TxGetDataRegisterAddress", "a00016.html#ga9eb7289d72ab3d607b85948bd8377dcc", null ],
+    [ "SAI_RxGetDataRegisterAddress", "a00016.html#gaad41b09d7c4c5e3fbd6a6584ea1eb015", null ],
     [ "SAI_TxSetFormat", "a00016.html#gaeeab03e24aa74980dd770d9e740c0b06", null ],
     [ "SAI_RxSetFormat", "a00016.html#ga542afa36d64a6848bf174cb0e695b42b", null ],
     [ "SAI_WriteBlocking", "a00016.html#ga32e4d2e732142517cc9ae2c1d12ee641", null ],

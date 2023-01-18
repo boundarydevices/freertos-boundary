@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.11.0</span>
+   &#160;<span id="projectnumber">Rev 2.13.0</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -117,15 +117,15 @@ $(document).ready(function(){initNavTree('a00008.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:a00133"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00133">osc_config_t</a></td></tr>
-<tr class="memdesc:a00133"><td class="mdescLeft">&#160;</td><td class="mdescRight">OSC configuration structure.  <a href="a00008.html#a00133">More...</a><br/></td></tr>
-<tr class="separator:a00133"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00118"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a></td></tr>
-<tr class="memdesc:a00118"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fractional-N PLL configuration.  <a href="a00008.html#a00118">More...</a><br/></td></tr>
+<tr class="memitem:a00132"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00132">osc_config_t</a></td></tr>
+<tr class="memdesc:a00132"><td class="mdescLeft">&#160;</td><td class="mdescRight">OSC configuration structure.  <a href="a00008.html#a00132">More...</a><br/></td></tr>
+<tr class="separator:a00132"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00117"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a></td></tr>
+<tr class="memdesc:a00117"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fractional-N PLL configuration.  <a href="a00008.html#a00117">More...</a><br/></td></tr>
+<tr class="separator:a00117"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00118"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a></td></tr>
+<tr class="memdesc:a00118"><td class="mdescLeft">&#160;</td><td class="mdescRight">SSCG PLL configuration.  <a href="a00008.html#a00118">More...</a><br/></td></tr>
 <tr class="separator:a00118"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00119"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a></td></tr>
-<tr class="memdesc:a00119"><td class="mdescLeft">&#160;</td><td class="mdescRight">SSCG PLL configuration.  <a href="a00008.html#a00119">More...</a><br/></td></tr>
-<tr class="separator:a00119"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
@@ -216,6 +216,10 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga75c4f03ce1692430161d00025a4b167b">CCM_TUPLE</a>(ccgr, root)&#160;&#160;&#160;((ccgr) &lt;&lt; 16U | (root))</td></tr>
 <tr class="memdesc:ga75c4f03ce1692430161d00025a4b167b"><td class="mdescLeft">&#160;</td><td class="mdescRight">CCM CCGR and root tuple. <br/></td></tr>
 <tr class="separator:ga75c4f03ce1692430161d00025a4b167b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad92cdf533aa267e3795d4640d6da8654"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad92cdf533aa267e3795d4640d6da8654"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gad92cdf533aa267e3795d4640d6da8654">CLOCK_ROOT_SOURCE</a></td></tr>
+<tr class="memdesc:gad92cdf533aa267e3795d4640d6da8654"><td class="mdescLeft">&#160;</td><td class="mdescRight">clock root source <br/></td></tr>
+<tr class="separator:gad92cdf533aa267e3795d4640d6da8654"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2ac490bbbcf33ed03edc91cba530c0ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga2ac490bbbcf33ed03edc91cba530c0ea">kCLOCK_CoreSysClk</a>&#160;&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a3cdd606da1fcf97ee33be85365c22ef9">kCLOCK_CoreM4Clk</a></td></tr>
 <tr class="memdesc:ga2ac490bbbcf33ed03edc91cba530c0ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">For compatible with other platforms without CCM.  <a href="#ga2ac490bbbcf33ed03edc91cba530c0ea">More...</a><br/></td></tr>
 <tr class="separator:ga2ac490bbbcf33ed03edc91cba530c0ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -232,7 +236,71 @@ Enumerations</h2></td></tr>
 <br/>
 &#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3afc42c9c22354cdf9bdebef0f762e4626">kCLOCK_AhbClk</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a27855f57a378c5f8e8d5cea16f366fc3">kCLOCK_IpgClk</a>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a27855f57a378c5f8e8d5cea16f366fc3">kCLOCK_IpgClk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a8ec1a4155de2ca510d1183760e0c0571">kCLOCK_Osc25MClk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3afab4c1ca00a5085eb454c0b294404630">kCLOCK_Osc27MClk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a1100b7459c47a1b3417aafd790532d1d">kCLOCK_ArmPllClk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3abe52da72bee646d99e4380e21ac77290">kCLOCK_VpuPllClk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3acd2034efc20ff92eedc0f8c45393d2a5">kCLOCK_DramPllClk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a8bde4da0d8115cefc3d068fb2cb4f559">kCLOCK_SysPll1Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a01da823a4b076ff3f9586698f7d754d5">kCLOCK_SysPll1Div2Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3ac7b753471cf5e22cbfa8e1c4f31bb23f">kCLOCK_SysPll1Div3Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a1cb24cb0a98614be9bb18b485c090f59">kCLOCK_SysPll1Div4Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a7beacea43c82a814bb4c7f661cf804f7">kCLOCK_SysPll1Div5Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a46bf373f516f561a0f6d861af5010181">kCLOCK_SysPll1Div6Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3abaf82372db373e5418d9a40c475a4c1c">kCLOCK_SysPll1Div8Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a7b3f956acffe2711a2de9b6217c00915">kCLOCK_SysPll1Div10Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3adcb45418ee3836e0cbe33ce0618fba24">kCLOCK_SysPll1Div20Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a58c5846224305363732b97d49f375e6e">kCLOCK_SysPll2Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a01b3fa3cbc0a32bdd482f7d48fef8139">kCLOCK_SysPll2Div2Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3ac6278b5b0fa2d3a8fd4fa2524cf7f5e2">kCLOCK_SysPll2Div3Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a7f5cbe6559106157ac966f541c2a2a66">kCLOCK_SysPll2Div4Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3ab3c8a4b320699966f01ab00f66e0933c">kCLOCK_SysPll2Div5Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a3609febccb076ef558c689c691e354da">kCLOCK_SysPll2Div6Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a44984609b149a3b340ff421a1813c1ac">kCLOCK_SysPll2Div8Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3aca89495853cd320ce054259ab8321ed1">kCLOCK_SysPll2Div10Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3aff1bef676e879ff3b3630e0c23383803">kCLOCK_SysPll2Div20Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a69480266b3d0259402162e1f49cdbc05">kCLOCK_SysPll3Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a329ac043f56800d90b1ed5baddc5537f">kCLOCK_AudioPll1Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3af21ff8a963af5061cebdf0f7bbc24155">kCLOCK_AudioPll2Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a217ea8cb98ea4a85da5b70693092adb2">kCLOCK_VideoPll1Clk</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a9b5e7fff9a0941083a9f2ccf24b6591d">kCLOCK_ExtClk1</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a571b5e28a814dfba0d9fee4e0cbb94fe">kCLOCK_ExtClk2</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3ae2b44b6e10a6c655feb507501893455e">kCLOCK_ExtClk3</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3a0e81155d69e10d57544a9d94d9eb8133">kCLOCK_ExtClk4</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaf74854e9bcee544d7646c5bafdc00bd3aaf713ef1c3dc5f108b834c1f73816c30">kCLOCK_NoneName</a>
 <br/>
  }</td></tr>
 <tr class="memdesc:gaf74854e9bcee544d7646c5bafdc00bd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clock name used to get clock frequency.  <a href="a00008.html#gaf74854e9bcee544d7646c5bafdc00bd3">More...</a><br/></td></tr>
@@ -360,79 +428,153 @@ Enumerations</h2></td></tr>
 <tr class="memdesc:ga23c8b3ae62f7865b2e228408be95946d"><td class="mdescLeft">&#160;</td><td class="mdescRight">CCM CCGR gate control.  <a href="a00008.html#ga23c8b3ae62f7865b2e228408be95946d">More...</a><br/></td></tr>
 <tr class="separator:ga23c8b3ae62f7865b2e228408be95946d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa7b50225aaae5ae2c328987528fc46b0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaa7b50225aaae5ae2c328987528fc46b0">clock_root_control_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0aac498d2962f9b0c6e3e90f70166d875f">kCLOCK_RootM4</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[1].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0aac498d2962f9b0c6e3e90f70166d875f">kCLOCK_RootM4</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0ac54d90af897bd03f85871af695f0c3f6">kCLOCK_RootAxi</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[16].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0ac54d90af897bd03f85871af695f0c3f6">kCLOCK_RootAxi</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[16].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a21ce9570071458534e62c507399467c9">kCLOCK_RootNoc</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[26].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a21ce9570071458534e62c507399467c9">kCLOCK_RootNoc</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[26].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a2d06d2b333d40299e46d9ff4541b8c0b">kCLOCK_RootAhb</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[32].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a2d06d2b333d40299e46d9ff4541b8c0b">kCLOCK_RootAhb</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[32].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0aa76dfec652cf8f1e58b0133a51df0d87">kCLOCK_RootIpg</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[33].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0aa76dfec652cf8f1e58b0133a51df0d87">kCLOCK_RootIpg</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[33].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a8168aef90a0bdb8781d49590ae3c6aeb">kCLOCK_RootDramAlt</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[64].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a8168aef90a0bdb8781d49590ae3c6aeb">kCLOCK_RootDramAlt</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a721cbbc4374a32da571b4b6098946523">kCLOCK_RootSai1</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[75].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a721cbbc4374a32da571b4b6098946523">kCLOCK_RootSai1</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[75].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a6bbccd07053ddcfb3c83f8d041ca76d2">kCLOCK_RootSai2</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[76].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a6bbccd07053ddcfb3c83f8d041ca76d2">kCLOCK_RootSai2</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[76].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a93d0b631d5f370e31a9f41d8dfa13620">kCLOCK_RootSai3</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[77].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a93d0b631d5f370e31a9f41d8dfa13620">kCLOCK_RootSai3</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[77].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0ae2354788b049fc90b0c7694cb638bce0">kCLOCK_RootSai4</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[78].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0ae2354788b049fc90b0c7694cb638bce0">kCLOCK_RootSai4</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[78].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0aad7e27bf74d957755f0220706463a0ca">kCLOCK_RootSai5</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[79].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0aad7e27bf74d957755f0220706463a0ca">kCLOCK_RootSai5</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[79].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0acb8192e3ef770a0ed319937326440627">kCLOCK_RootSai6</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[80].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0acb8192e3ef770a0ed319937326440627">kCLOCK_RootSai6</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[80].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a889773420f51637b834f891973fd9ac2">kCLOCK_RootQspi</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[87].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a889773420f51637b834f891973fd9ac2">kCLOCK_RootQspi</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[87].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a25522f208a1da65be7b8221dd507ce37">kCLOCK_RootI2c1</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[90].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a25522f208a1da65be7b8221dd507ce37">kCLOCK_RootI2c1</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[90].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0aac88fe03407873d4540fba53da83d1eb">kCLOCK_RootI2c2</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[91].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0aac88fe03407873d4540fba53da83d1eb">kCLOCK_RootI2c2</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[91].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a46fa65c5b72978aeeb825f6564cb4faa">kCLOCK_RootI2c3</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[92].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a46fa65c5b72978aeeb825f6564cb4faa">kCLOCK_RootI2c3</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[92].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a25d75193ef05df212d4a6b81e72c5a12">kCLOCK_RootI2c4</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[93].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a25d75193ef05df212d4a6b81e72c5a12">kCLOCK_RootI2c4</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[93].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a35fd28f92262596c3527c5c251ec42d5">kCLOCK_RootUart1</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[94].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a35fd28f92262596c3527c5c251ec42d5">kCLOCK_RootUart1</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[94].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a6b269caccbd982ca11a82eaf91fa1aba">kCLOCK_RootUart2</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[95].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a6b269caccbd982ca11a82eaf91fa1aba">kCLOCK_RootUart2</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[95].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a87382acc2848ddacb035770f95137836">kCLOCK_RootUart3</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[96].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a87382acc2848ddacb035770f95137836">kCLOCK_RootUart3</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[96].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a454a98b689afa39183f9dc904f7fc28d">kCLOCK_RootUart4</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[97].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a454a98b689afa39183f9dc904f7fc28d">kCLOCK_RootUart4</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[97].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0ac21f1ee2a333f11584b73d957b1314f3">kCLOCK_RootEcspi1</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[101].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0ac21f1ee2a333f11584b73d957b1314f3">kCLOCK_RootEcspi1</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a30cc83dbd8998be99720cd2738cca4fc">kCLOCK_RootEcspi2</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[102].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a30cc83dbd8998be99720cd2738cca4fc">kCLOCK_RootEcspi2</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a8bcff901c3ec97e3aaf65edec25491f6">kCLOCK_RootEcspi3</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[131].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a8bcff901c3ec97e3aaf65edec25491f6">kCLOCK_RootEcspi3</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a1580d355ce456d87022767db672e1882">kCLOCK_RootPwm1</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[103].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a1580d355ce456d87022767db672e1882">kCLOCK_RootPwm1</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[103].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a653434b8a2f95f5f30c8460de33c7326">kCLOCK_RootPwm2</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[104].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a653434b8a2f95f5f30c8460de33c7326">kCLOCK_RootPwm2</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[104].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0ae7ee1e574821232ab1fe957c0796bd7e">kCLOCK_RootPwm3</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[105].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0ae7ee1e574821232ab1fe957c0796bd7e">kCLOCK_RootPwm3</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[105].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a6c86ec41f835dbde6bc9c1f6d676b42d">kCLOCK_RootPwm4</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[106].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a6c86ec41f835dbde6bc9c1f6d676b42d">kCLOCK_RootPwm4</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[106].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a97933e00e0cd025a76b870c352b08f3f">kCLOCK_RootGpt1</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[107].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a97933e00e0cd025a76b870c352b08f3f">kCLOCK_RootGpt1</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[107].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0ad5bf1622ecb0fb3b2ebbba1cb2afb31b">kCLOCK_RootGpt2</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[108].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0ad5bf1622ecb0fb3b2ebbba1cb2afb31b">kCLOCK_RootGpt2</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[108].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0aff2cee551ab1ab958317c4aa5d6681f5">kCLOCK_RootGpt3</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[109].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0aff2cee551ab1ab958317c4aa5d6681f5">kCLOCK_RootGpt3</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[109].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a2c9033c4e2e8d9acbe2d8beb492d8ab0">kCLOCK_RootGpt4</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[110].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a2c9033c4e2e8d9acbe2d8beb492d8ab0">kCLOCK_RootGpt4</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[110].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0aaf15b5d6ad29a7b83ffa9a208ddc62df">kCLOCK_RootGpt5</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[111].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0aaf15b5d6ad29a7b83ffa9a208ddc62df">kCLOCK_RootGpt5</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[111].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a897bc7479969dcb179e4b35873522fa8">kCLOCK_RootGpt6</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[112].TARGET_ROOT), 
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a897bc7479969dcb179e4b35873522fa8">kCLOCK_RootGpt6</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[112].TARGET_ROOT), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a3858fc3e2e239d79fccc33ca335c72a5">kCLOCK_RootWdog</a> = (uint32_t)(&amp;(CCM)-&gt;ROOT[114].TARGET_ROOT)
+&#160;&#160;<a class="el" href="a00008.html#ggaa7b50225aaae5ae2c328987528fc46b0a3858fc3e2e239d79fccc33ca335c72a5">kCLOCK_RootWdog</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, ROOT[114].TARGET_ROOT)
 <br/>
  }</td></tr>
 <tr class="memdesc:gaa7b50225aaae5ae2c328987528fc46b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">ccm root name used to get clock frequency.  <a href="a00008.html#gaa7b50225aaae5ae2c328987528fc46b0">More...</a><br/></td></tr>
 <tr class="separator:gaa7b50225aaae5ae2c328987528fc46b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga34b61a432881891d16e812469e5376fa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga34b61a432881891d16e812469e5376fa">clock_root_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faaeaf2cf1120fc2d223ead0d4fb5ff2018">kCLOCK_M4ClkRoot</a> = 0, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faaf1b59e1900b53de71572c0865b5d6c41">kCLOCK_AxiClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa28a55cc01c9434466bf15ecf03d422e6">kCLOCK_NocClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faad3129db8d62e3c18958470f8bc3c1e0b">kCLOCK_AhbClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faadcf601c5d16440ed1fea7dabfbcfad7c">kCLOCK_IpgClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa55f73b79ce8d4ac543436aab2abba608">kCLOCK_DramAltClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faab02e4682b1557a3f453ca9246c6d830b">kCLOCK_Sai1ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa3e2f49d77d28167f973157c958d94d84">kCLOCK_Sai2ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa66b65ff8113412f89815e952f9475077">kCLOCK_Sai3ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa5a56a2f6bc1e4e8f97e1834586477ab6">kCLOCK_Sai4ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa4f06eeb83dd347f778da1076cf5791de">kCLOCK_Sai5ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa2a50820f57bed86e25c28054c525d9a0">kCLOCK_Sai6ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa8b1dcf9f110b57839e651138b82b5647">kCLOCK_QspiClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa044b3f12f7c74c8c60f6a0e74c09dc29">kCLOCK_I2c1ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa02289538887bafcfb4542cb933c907b1">kCLOCK_I2c2ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faaab060d361eeb70848772951273fb6bfa">kCLOCK_I2c3ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faad308ff519fb13ee8f0790ebb8c9b2472">kCLOCK_I2c4ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa20747371e8f038dfd337a3259f386893">kCLOCK_Uart1ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa19b5bbb4b4204cf60da25c50bb3cf75b">kCLOCK_Uart2ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa957900a54c1a2975113b17f94a4b7b53">kCLOCK_Uart3ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faafcb4543e48e82b29fabdf2ea93918147">kCLOCK_Uart4ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faaad1bf888889a8227abeb722fde4a8f91">kCLOCK_Ecspi1ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faaebbf58e7b2e78961620317505dc337c3">kCLOCK_Ecspi2ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa4fbc596d2af6ba1e69770ec7c4e7eda1">kCLOCK_Ecspi3ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa45983b57d77a213404e6ef387e77b84d">kCLOCK_Pwm1ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faab2356c36e8ef5ab56ec7091feaba3123">kCLOCK_Pwm2ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faac50c448337324a72c4e621d730ae8e8c">kCLOCK_Pwm3ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa53d6c00f293ecf38c9829167ce8177e1">kCLOCK_Pwm4ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa8c16f1218facfd97cc4a970941e46a16">kCLOCK_Gpt1ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa10473f979252847bedaccb8e0baa113e">kCLOCK_Gpt2ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa516c5906d3ed79076226313977652c97">kCLOCK_Gpt3ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa1547c2d4fba045f83eaf19abfe369079">kCLOCK_Gpt4ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faa99c57aa58d1f84623caa7207dab6d357">kCLOCK_Gpt5ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faadeae6d87dae06c067be8988c3cef2ad2">kCLOCK_Gpt6ClkRoot</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga34b61a432881891d16e812469e5376faaf46752774723ccbe0437a5346154ca33">kCLOCK_WdogClkRoot</a>
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga34b61a432881891d16e812469e5376fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">ccm clock root used to get clock frequency.  <a href="a00008.html#ga34b61a432881891d16e812469e5376fa">More...</a><br/></td></tr>
+<tr class="separator:ga34b61a432881891d16e812469e5376fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga08836cbb036eb3be59d9bdf73e101b84"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga08836cbb036eb3be59d9bdf73e101b84">clock_rootmux_m4_clk_sel_t</a> { <br/>
 &#160;&#160;<a class="el" href="a00008.html#gga08836cbb036eb3be59d9bdf73e101b84a6b5f807aa0a2ef55f9718a94c780ea54">kCLOCK_M4RootmuxOsc25m</a> = 0U, 
 <br/>
@@ -674,59 +816,59 @@ Enumerations</h2></td></tr>
 <tr class="memdesc:ga2a6f26e106533f065e3a6abdda6a3a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root clock select enumeration for NOC CLK.  <a href="a00008.html#ga2a6f26e106533f065e3a6abdda6a3a80">More...</a><br/></td></tr>
 <tr class="separator:ga2a6f26e106533f065e3a6abdda6a3a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga923caa97330169c94c2065eeef0c21b9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga923caa97330169c94c2065eeef0c21b9">clock_pll_gate_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9aefa4833d22b5bf8f315fa68c54e2b83e">kCLOCK_ArmPllGate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[12].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9aefa4833d22b5bf8f315fa68c54e2b83e">kCLOCK_ArmPllGate</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[12].PLL_CTRL), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a30192d78e2f176762373c6f1f2ff5351">kCLOCK_GpuPllGate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[13].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a30192d78e2f176762373c6f1f2ff5351">kCLOCK_GpuPllGate</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[13].PLL_CTRL), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a17bb6a818b73a642f3308dca2cb5afdd">kCLOCK_VpuPllGate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[14].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a17bb6a818b73a642f3308dca2cb5afdd">kCLOCK_VpuPllGate</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[14].PLL_CTRL), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a9b68c10a64ab099484627f86fc1a5191">kCLOCK_DramPllGate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[15].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a9b68c10a64ab099484627f86fc1a5191">kCLOCK_DramPllGate</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[15].PLL_CTRL), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9abab5b2058cbd7d3f71cfd6ff73e7d30e">kCLOCK_SysPll1Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[16].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9abab5b2058cbd7d3f71cfd6ff73e7d30e">kCLOCK_SysPll1Gate</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[16].PLL_CTRL), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a71663f29447493d39b2ae1f8671568af">kCLOCK_SysPll1Div2Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[17].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a71663f29447493d39b2ae1f8671568af">kCLOCK_SysPll1Div2Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9ae71b34835a251891531037af6809493b">kCLOCK_SysPll1Div3Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[18].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9ae71b34835a251891531037af6809493b">kCLOCK_SysPll1Div3Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a4ad6c509bff7f8522f1bc71139144fba">kCLOCK_SysPll1Div4Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[19].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a4ad6c509bff7f8522f1bc71139144fba">kCLOCK_SysPll1Div4Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a524afbb57011203befb892c95a2618e6">kCLOCK_SysPll1Div5Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[20].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a524afbb57011203befb892c95a2618e6">kCLOCK_SysPll1Div5Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9af637bf64e6d9649d1f94537b0e63c0a5">kCLOCK_SysPll1Div6Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[21].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9af637bf64e6d9649d1f94537b0e63c0a5">kCLOCK_SysPll1Div6Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9aebb5bd86a3e8bcb94dea241f94eb6ebe">kCLOCK_SysPll1Div8Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[22].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9aebb5bd86a3e8bcb94dea241f94eb6ebe">kCLOCK_SysPll1Div8Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9abd0796670547ea3070ac1ee8aa5c5c0f">kCLOCK_SysPll1Div10Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[23].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9abd0796670547ea3070ac1ee8aa5c5c0f">kCLOCK_SysPll1Div10Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a3b5c49d8407575df6d878188e1d2fd04">kCLOCK_SysPll1Div20Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[24].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a3b5c49d8407575df6d878188e1d2fd04">kCLOCK_SysPll1Div20Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a80a3853c457a998f8c6ee8f9af6b9475">kCLOCK_SysPll2Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[25].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a80a3853c457a998f8c6ee8f9af6b9475">kCLOCK_SysPll2Gate</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[25].PLL_CTRL), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a50599be6bc554293cedd22601766b631">kCLOCK_SysPll2Div2Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[26].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a50599be6bc554293cedd22601766b631">kCLOCK_SysPll2Div2Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a524f9c0ed4b42e852b047b6230c5cccf">kCLOCK_SysPll2Div3Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[27].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a524f9c0ed4b42e852b047b6230c5cccf">kCLOCK_SysPll2Div3Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9afa23fc19bcf949ab1cf41f59ba584569">kCLOCK_SysPll2Div4Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[28].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9afa23fc19bcf949ab1cf41f59ba584569">kCLOCK_SysPll2Div4Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a9165b7e920e14596d056e412e87128eb">kCLOCK_SysPll2Div5Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[29].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a9165b7e920e14596d056e412e87128eb">kCLOCK_SysPll2Div5Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a08d76048d9699d4bfc9d02190a31417f">kCLOCK_SysPll2Div6Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[30].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a08d76048d9699d4bfc9d02190a31417f">kCLOCK_SysPll2Div6Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a418679e4f18b7cbf5fed901126dd51ce">kCLOCK_SysPll2Div8Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[31].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a418679e4f18b7cbf5fed901126dd51ce">kCLOCK_SysPll2Div8Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a02f214d85410f87acf02af923a60adde">kCLOCK_SysPll2Div10Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[32].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a02f214d85410f87acf02af923a60adde">kCLOCK_SysPll2Div10Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9ae12eccacfd527b0dd1d808aa9db09c7e">kCLOCK_SysPll2Div20Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[33].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9ae12eccacfd527b0dd1d808aa9db09c7e">kCLOCK_SysPll2Div20Gate</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a8523cfeab32055dd657763ed6291f8df">kCLOCK_SysPll3Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[34].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a8523cfeab32055dd657763ed6291f8df">kCLOCK_SysPll3Gate</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[34].PLL_CTRL), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a1a1693ec72aff0cd3ba078878e7b5245">kCLOCK_AudioPll1Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[35].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a1a1693ec72aff0cd3ba078878e7b5245">kCLOCK_AudioPll1Gate</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[35].PLL_CTRL), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a9741561e2708e180212a7d84fc881a52">kCLOCK_AudioPll2Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[36].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a9741561e2708e180212a7d84fc881a52">kCLOCK_AudioPll2Gate</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[36].PLL_CTRL), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a8470b469ae0425f10028df0332f77f2d">kCLOCK_VideoPll1Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[37].PLL_CTRL), 
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a8470b469ae0425f10028df0332f77f2d">kCLOCK_VideoPll1Gate</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[37].PLL_CTRL), 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a83beff058c3dc86fdc753caa60f0e95c">kCLOCK_VideoPll2Gate</a> = (uint32_t)(&amp;(CCM)-&gt;PLL_CTRL[38].PLL_CTRL)
+&#160;&#160;<a class="el" href="a00008.html#gga923caa97330169c94c2065eeef0c21b9a83beff058c3dc86fdc753caa60f0e95c">kCLOCK_VideoPll2Gate</a> = (uint32_t)CCM_BASE + offsetof(CCM_Type, PLL_CTRL[38].PLL_CTRL)
 <br/>
  }</td></tr>
 <tr class="memdesc:ga923caa97330169c94c2065eeef0c21b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">CCM PLL gate control.  <a href="a00008.html#ga923caa97330169c94c2065eeef0c21b9">More...</a><br/></td></tr>
@@ -875,8 +1017,8 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
-<tr class="memitem:ga0c0cf401613f31feb4a9eb723ad51154"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga0c0cf401613f31feb4a9eb723ad51154">FSL_CLOCK_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00086.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 3, 3))</td></tr>
-<tr class="memdesc:ga0c0cf401613f31feb4a9eb723ad51154"><td class="mdescLeft">&#160;</td><td class="mdescRight">CLOCK driver version 2.3.3.  <a href="#ga0c0cf401613f31feb4a9eb723ad51154">More...</a><br/></td></tr>
+<tr class="memitem:ga0c0cf401613f31feb4a9eb723ad51154"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga0c0cf401613f31feb4a9eb723ad51154">FSL_CLOCK_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00085.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 4, 1))</td></tr>
+<tr class="memdesc:ga0c0cf401613f31feb4a9eb723ad51154"><td class="mdescLeft">&#160;</td><td class="mdescRight">CLOCK driver version 2.4.1.  <a href="#ga0c0cf401613f31feb4a9eb723ad51154">More...</a><br/></td></tr>
 <tr class="separator:ga0c0cf401613f31feb4a9eb723ad51154"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
@@ -911,13 +1053,13 @@ CCM Root Clock Setting</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 OSC setting</h2></td></tr>
-<tr class="memitem:ga139fbc27af6be5f5624ad6edc60ae92f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga139fbc27af6be5f5624ad6edc60ae92f">CLOCK_InitOSC25M</a> (const <a class="el" href="a00008.html#a00133">osc_config_t</a> *config)</td></tr>
+<tr class="memitem:ga139fbc27af6be5f5624ad6edc60ae92f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga139fbc27af6be5f5624ad6edc60ae92f">CLOCK_InitOSC25M</a> (const <a class="el" href="a00008.html#a00132">osc_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga139fbc27af6be5f5624ad6edc60ae92f"><td class="mdescLeft">&#160;</td><td class="mdescRight">OSC25M init.  <a href="#ga139fbc27af6be5f5624ad6edc60ae92f">More...</a><br/></td></tr>
 <tr class="separator:ga139fbc27af6be5f5624ad6edc60ae92f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga57f9f06f76e8d284dfd93a027a21f55e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga57f9f06f76e8d284dfd93a027a21f55e">CLOCK_DeinitOSC25M</a> (void)</td></tr>
 <tr class="memdesc:ga57f9f06f76e8d284dfd93a027a21f55e"><td class="mdescLeft">&#160;</td><td class="mdescRight">OSC25M deinit.  <a href="#ga57f9f06f76e8d284dfd93a027a21f55e">More...</a><br/></td></tr>
 <tr class="separator:ga57f9f06f76e8d284dfd93a027a21f55e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4e58643fdc62c1ef962db0ebd502e54d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga4e58643fdc62c1ef962db0ebd502e54d">CLOCK_InitOSC27M</a> (const <a class="el" href="a00008.html#a00133">osc_config_t</a> *config)</td></tr>
+<tr class="memitem:ga4e58643fdc62c1ef962db0ebd502e54d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga4e58643fdc62c1ef962db0ebd502e54d">CLOCK_InitOSC27M</a> (const <a class="el" href="a00008.html#a00132">osc_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga4e58643fdc62c1ef962db0ebd502e54d"><td class="mdescLeft">&#160;</td><td class="mdescRight">OSC27M init.  <a href="#ga4e58643fdc62c1ef962db0ebd502e54d">More...</a><br/></td></tr>
 <tr class="separator:ga4e58643fdc62c1ef962db0ebd502e54d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae627c9f25f0f47c334af2cf3506526c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gae627c9f25f0f47c334af2cf3506526c8">CLOCK_DeinitOSC27M</a> (void)</td></tr>
@@ -968,76 +1110,76 @@ CCM Analog PLL Operatoin Functions</h2></td></tr>
 <tr class="memitem:ga6e78fc95041f751815d826d33f69cca8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga6e78fc95041f751815d826d33f69cca8">CLOCK_OverridePllPd</a> (CCM_ANALOG_Type *base, <a class="el" href="a00008.html#gac245b59566ac685395ff954a803d42ad">clock_pll_ctrl_t</a> pdClock, bool override)</td></tr>
 <tr class="memdesc:ga6e78fc95041f751815d826d33f69cca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override PLL power down.  <a href="#ga6e78fc95041f751815d826d33f69cca8">More...</a><br/></td></tr>
 <tr class="separator:ga6e78fc95041f751815d826d33f69cca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4780ba6f0bdb7d7337fed5acb1648d73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga4780ba6f0bdb7d7337fed5acb1648d73">CLOCK_InitArmPll</a> (const <a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:ga4780ba6f0bdb7d7337fed5acb1648d73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga4780ba6f0bdb7d7337fed5acb1648d73">CLOCK_InitArmPll</a> (const <a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga4780ba6f0bdb7d7337fed5acb1648d73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG ARM PLL.  <a href="#ga4780ba6f0bdb7d7337fed5acb1648d73">More...</a><br/></td></tr>
 <tr class="separator:ga4780ba6f0bdb7d7337fed5acb1648d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaeb1d262df13a1a00d4092c2d39c67691"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaeb1d262df13a1a00d4092c2d39c67691"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaeb1d262df13a1a00d4092c2d39c67691">CLOCK_DeinitArmPll</a> (void)</td></tr>
 <tr class="memdesc:gaeb1d262df13a1a00d4092c2d39c67691"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the ARM PLL. <br/></td></tr>
 <tr class="separator:gaeb1d262df13a1a00d4092c2d39c67691"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9bd0a9f9bb4a7fb27d1a5f4936288e8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga9bd0a9f9bb4a7fb27d1a5f4936288e8d">CLOCK_InitSysPll1</a> (const <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:ga9bd0a9f9bb4a7fb27d1a5f4936288e8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga9bd0a9f9bb4a7fb27d1a5f4936288e8d">CLOCK_InitSysPll1</a> (const <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga9bd0a9f9bb4a7fb27d1a5f4936288e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG SYS PLL1.  <a href="#ga9bd0a9f9bb4a7fb27d1a5f4936288e8d">More...</a><br/></td></tr>
 <tr class="separator:ga9bd0a9f9bb4a7fb27d1a5f4936288e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac4d5011b6ef9fff57629bf787986ca5b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac4d5011b6ef9fff57629bf787986ca5b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gac4d5011b6ef9fff57629bf787986ca5b">CLOCK_DeinitSysPll1</a> (void)</td></tr>
 <tr class="memdesc:gac4d5011b6ef9fff57629bf787986ca5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the System PLL1. <br/></td></tr>
 <tr class="separator:gac4d5011b6ef9fff57629bf787986ca5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9478243351462f9f804f9c7963a5ae7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga9478243351462f9f804f9c7963a5ae7d">CLOCK_InitSysPll2</a> (const <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:ga9478243351462f9f804f9c7963a5ae7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga9478243351462f9f804f9c7963a5ae7d">CLOCK_InitSysPll2</a> (const <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga9478243351462f9f804f9c7963a5ae7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG SYS PLL2.  <a href="#ga9478243351462f9f804f9c7963a5ae7d">More...</a><br/></td></tr>
 <tr class="separator:ga9478243351462f9f804f9c7963a5ae7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga91341902b5094241bcc413a88eb71039"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga91341902b5094241bcc413a88eb71039"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga91341902b5094241bcc413a88eb71039">CLOCK_DeinitSysPll2</a> (void)</td></tr>
 <tr class="memdesc:ga91341902b5094241bcc413a88eb71039"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the System PLL2. <br/></td></tr>
 <tr class="separator:ga91341902b5094241bcc413a88eb71039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf4391507508f6c9eed5302115d5fa279"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaf4391507508f6c9eed5302115d5fa279">CLOCK_InitSysPll3</a> (const <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:gaf4391507508f6c9eed5302115d5fa279"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaf4391507508f6c9eed5302115d5fa279">CLOCK_InitSysPll3</a> (const <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:gaf4391507508f6c9eed5302115d5fa279"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG SYS PLL3.  <a href="#gaf4391507508f6c9eed5302115d5fa279">More...</a><br/></td></tr>
 <tr class="separator:gaf4391507508f6c9eed5302115d5fa279"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa75846d1352b32a98c633e0358a3d12b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa75846d1352b32a98c633e0358a3d12b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaa75846d1352b32a98c633e0358a3d12b">CLOCK_DeinitSysPll3</a> (void)</td></tr>
 <tr class="memdesc:gaa75846d1352b32a98c633e0358a3d12b"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the System PLL3. <br/></td></tr>
 <tr class="separator:gaa75846d1352b32a98c633e0358a3d12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadc259227f9013c25f5dbf5a82e20f9d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gadc259227f9013c25f5dbf5a82e20f9d9">CLOCK_InitDramPll</a> (const <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:gadc259227f9013c25f5dbf5a82e20f9d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gadc259227f9013c25f5dbf5a82e20f9d9">CLOCK_InitDramPll</a> (const <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:gadc259227f9013c25f5dbf5a82e20f9d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG DDR PLL.  <a href="#gadc259227f9013c25f5dbf5a82e20f9d9">More...</a><br/></td></tr>
 <tr class="separator:gadc259227f9013c25f5dbf5a82e20f9d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga97465c8e00f9786db34e19f80c4faca2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga97465c8e00f9786db34e19f80c4faca2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga97465c8e00f9786db34e19f80c4faca2">CLOCK_DeinitDramPll</a> (void)</td></tr>
 <tr class="memdesc:ga97465c8e00f9786db34e19f80c4faca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the Dram PLL. <br/></td></tr>
 <tr class="separator:ga97465c8e00f9786db34e19f80c4faca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6c510be280e6613c3025a00ceff8011c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga6c510be280e6613c3025a00ceff8011c">CLOCK_InitAudioPll1</a> (const <a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:ga6c510be280e6613c3025a00ceff8011c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga6c510be280e6613c3025a00ceff8011c">CLOCK_InitAudioPll1</a> (const <a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga6c510be280e6613c3025a00ceff8011c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG AUDIO PLL1.  <a href="#ga6c510be280e6613c3025a00ceff8011c">More...</a><br/></td></tr>
 <tr class="separator:ga6c510be280e6613c3025a00ceff8011c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0ff57fca3dcd0e6d08f38a6252e0482b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga0ff57fca3dcd0e6d08f38a6252e0482b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga0ff57fca3dcd0e6d08f38a6252e0482b">CLOCK_DeinitAudioPll1</a> (void)</td></tr>
 <tr class="memdesc:ga0ff57fca3dcd0e6d08f38a6252e0482b"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the Audio PLL1. <br/></td></tr>
 <tr class="separator:ga0ff57fca3dcd0e6d08f38a6252e0482b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae47750e3618103144f50b991ef687cde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gae47750e3618103144f50b991ef687cde">CLOCK_InitAudioPll2</a> (const <a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:gae47750e3618103144f50b991ef687cde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gae47750e3618103144f50b991ef687cde">CLOCK_InitAudioPll2</a> (const <a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:gae47750e3618103144f50b991ef687cde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG AUDIO PLL2.  <a href="#gae47750e3618103144f50b991ef687cde">More...</a><br/></td></tr>
 <tr class="separator:gae47750e3618103144f50b991ef687cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8c99b8678aaf4e88f62254013ed935e3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8c99b8678aaf4e88f62254013ed935e3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga8c99b8678aaf4e88f62254013ed935e3">CLOCK_DeinitAudioPll2</a> (void)</td></tr>
 <tr class="memdesc:ga8c99b8678aaf4e88f62254013ed935e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the Audio PLL2. <br/></td></tr>
 <tr class="separator:ga8c99b8678aaf4e88f62254013ed935e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad1c80c015dc05a79c712cea61c617640"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gad1c80c015dc05a79c712cea61c617640">CLOCK_InitVideoPll1</a> (const <a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:gad1c80c015dc05a79c712cea61c617640"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gad1c80c015dc05a79c712cea61c617640">CLOCK_InitVideoPll1</a> (const <a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:gad1c80c015dc05a79c712cea61c617640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG VIDEO PLL1.  <a href="#gad1c80c015dc05a79c712cea61c617640">More...</a><br/></td></tr>
 <tr class="separator:gad1c80c015dc05a79c712cea61c617640"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8ec45594f19f22a1faa6abb370fd435b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8ec45594f19f22a1faa6abb370fd435b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga8ec45594f19f22a1faa6abb370fd435b">CLOCK_DeinitVideoPll1</a> (void)</td></tr>
 <tr class="memdesc:ga8ec45594f19f22a1faa6abb370fd435b"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the Video PLL1. <br/></td></tr>
 <tr class="separator:ga8ec45594f19f22a1faa6abb370fd435b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf00b9c04b59a9b7449f18381acad2497"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaf00b9c04b59a9b7449f18381acad2497">CLOCK_InitVideoPll2</a> (const <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> *config)</td></tr>
+<tr class="memitem:gaf00b9c04b59a9b7449f18381acad2497"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaf00b9c04b59a9b7449f18381acad2497">CLOCK_InitVideoPll2</a> (const <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> *config)</td></tr>
 <tr class="memdesc:gaf00b9c04b59a9b7449f18381acad2497"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG VIDEO PLL2.  <a href="#gaf00b9c04b59a9b7449f18381acad2497">More...</a><br/></td></tr>
 <tr class="separator:gaf00b9c04b59a9b7449f18381acad2497"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa9ddab4ffe04ce379f6958fc39fda934"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa9ddab4ffe04ce379f6958fc39fda934"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaa9ddab4ffe04ce379f6958fc39fda934">CLOCK_DeinitVideoPll2</a> (void)</td></tr>
 <tr class="memdesc:gaa9ddab4ffe04ce379f6958fc39fda934"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the Video PLL2. <br/></td></tr>
 <tr class="separator:gaa9ddab4ffe04ce379f6958fc39fda934"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5c70c421befafacafc23e271eabd48ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga5c70c421befafacafc23e271eabd48ee">CLOCK_InitSSCGPll</a> (CCM_ANALOG_Type *base, const <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> *config, <a class="el" href="a00008.html#gac245b59566ac685395ff954a803d42ad">clock_pll_ctrl_t</a> type)</td></tr>
+<tr class="memitem:ga5c70c421befafacafc23e271eabd48ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga5c70c421befafacafc23e271eabd48ee">CLOCK_InitSSCGPll</a> (CCM_ANALOG_Type *base, const <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> *config, <a class="el" href="a00008.html#gac245b59566ac685395ff954a803d42ad">clock_pll_ctrl_t</a> type)</td></tr>
 <tr class="memdesc:ga5c70c421befafacafc23e271eabd48ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG SSCG PLL.  <a href="#ga5c70c421befafacafc23e271eabd48ee">More...</a><br/></td></tr>
 <tr class="separator:ga5c70c421befafacafc23e271eabd48ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1cd12733f64e81eafedc309b78146eaa"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga1cd12733f64e81eafedc309b78146eaa">CLOCK_GetSSCGPllFreq</a> (CCM_ANALOG_Type *base, <a class="el" href="a00008.html#gac245b59566ac685395ff954a803d42ad">clock_pll_ctrl_t</a> type, uint32_t refClkFreq, bool pll1Bypass)</td></tr>
 <tr class="memdesc:ga1cd12733f64e81eafedc309b78146eaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ANALOG SSCG PLL clock frequency.  <a href="#ga1cd12733f64e81eafedc309b78146eaa">More...</a><br/></td></tr>
 <tr class="separator:ga1cd12733f64e81eafedc309b78146eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7d751e578ca9667a9b94585df1cf343b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga7d751e578ca9667a9b94585df1cf343b">CLOCK_InitFracPll</a> (CCM_ANALOG_Type *base, const <a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a> *config, <a class="el" href="a00008.html#gac245b59566ac685395ff954a803d42ad">clock_pll_ctrl_t</a> type)</td></tr>
+<tr class="memitem:ga7d751e578ca9667a9b94585df1cf343b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga7d751e578ca9667a9b94585df1cf343b">CLOCK_InitFracPll</a> (CCM_ANALOG_Type *base, const <a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a> *config, <a class="el" href="a00008.html#gac245b59566ac685395ff954a803d42ad">clock_pll_ctrl_t</a> type)</td></tr>
 <tr class="memdesc:ga7d751e578ca9667a9b94585df1cf343b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ANALOG Fractional PLL.  <a href="#ga7d751e578ca9667a9b94585df1cf343b">More...</a><br/></td></tr>
 <tr class="separator:ga7d751e578ca9667a9b94585df1cf343b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacdcd18950c0578e18ddb905909eb724a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gacdcd18950c0578e18ddb905909eb724a">CLOCK_GetFracPllFreq</a> (CCM_ANALOG_Type *base, <a class="el" href="a00008.html#gac245b59566ac685395ff954a803d42ad">clock_pll_ctrl_t</a> type, uint32_t refClkFreq)</td></tr>
@@ -1055,6 +1197,9 @@ CCM Get frequency</h2></td></tr>
 <tr class="memitem:ga53acae220d651789bb505c53c73ecf2b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga53acae220d651789bb505c53c73ecf2b">CLOCK_GetFreq</a> (<a class="el" href="a00008.html#gaf74854e9bcee544d7646c5bafdc00bd3">clock_name_t</a> clockName)</td></tr>
 <tr class="memdesc:ga53acae220d651789bb505c53c73ecf2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the clock frequency for a specific clock name.  <a href="#ga53acae220d651789bb505c53c73ecf2b">More...</a><br/></td></tr>
 <tr class="separator:ga53acae220d651789bb505c53c73ecf2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e30d8a034f22ac00efd062c2e92a1c6"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga4e30d8a034f22ac00efd062c2e92a1c6">CLOCK_GetClockRootFreq</a> (<a class="el" href="a00008.html#ga34b61a432881891d16e812469e5376fa">clock_root_t</a> clockRoot)</td></tr>
+<tr class="memdesc:ga4e30d8a034f22ac00efd062c2e92a1c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the frequency of selected clock root.  <a href="#ga4e30d8a034f22ac00efd062c2e92a1c6">More...</a><br/></td></tr>
+<tr class="separator:ga4e30d8a034f22ac00efd062c2e92a1c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga24c9c1404ffb0e88f4f58e5b79ae8df0"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga24c9c1404ffb0e88f4f58e5b79ae8df0">CLOCK_GetCoreM4Freq</a> (void)</td></tr>
 <tr class="memdesc:ga24c9c1404ffb0e88f4f58e5b79ae8df0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the CCM Cortex M4 core frequency.  <a href="#ga24c9c1404ffb0e88f4f58e5b79ae8df0">More...</a><br/></td></tr>
 <tr class="separator:ga24c9c1404ffb0e88f4f58e5b79ae8df0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1066,7 +1211,7 @@ CCM Get frequency</h2></td></tr>
 <tr class="separator:ga0ea673cf8969b18185d388e078d864c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="a00133" id="a00133"></a>
+<a name="a00132" id="a00132"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1089,7 +1234,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 
 </div>
 </div>
-<a name="a00118" id="a00118"></a>
+<a name="a00117" id="a00117"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1121,7 +1266,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 
 </div>
 </div>
-<a name="a00119" id="a00119"></a>
+<a name="a00118" id="a00118"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1167,7 +1312,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FSL_CLOCK_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00086.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 3, 3))</td>
+          <td class="memname">#define FSL_CLOCK_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00085.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 4, 1))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1186,9 +1331,9 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{                                                                  \</div>
 <div class="line">        kCLOCK_IpInvalid, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da4d082f1f206d1e8209745eae2db7b6cc">kCLOCK_Ecspi1</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da047c81b202c4072be62021ccb4440412">kCLOCK_Ecspi2</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da0f746537ae86581958c81c9a1ce4325e">kCLOCK_Ecspi3</a>, \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da047c81b202c4072be62021ccb4440412"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da047c81b202c4072be62021ccb4440412">kCLOCK_Ecspi2</a></div><div class="ttdoc">ECSPI2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:229</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da4d082f1f206d1e8209745eae2db7b6cc"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da4d082f1f206d1e8209745eae2db7b6cc">kCLOCK_Ecspi1</a></div><div class="ttdoc">ECSPI1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:228</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da0f746537ae86581958c81c9a1ce4325e"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da0f746537ae86581958c81c9a1ce4325e">kCLOCK_Ecspi3</a></div><div class="ttdoc">ECSPI3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:230</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da047c81b202c4072be62021ccb4440412"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da047c81b202c4072be62021ccb4440412">kCLOCK_Ecspi2</a></div><div class="ttdoc">ECSPI2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:399</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da4d082f1f206d1e8209745eae2db7b6cc"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da4d082f1f206d1e8209745eae2db7b6cc">kCLOCK_Ecspi1</a></div><div class="ttdoc">ECSPI1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:398</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da0f746537ae86581958c81c9a1ce4325e"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da0f746537ae86581958c81c9a1ce4325e">kCLOCK_Ecspi3</a></div><div class="ttdoc">ECSPI3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:400</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1204,11 +1349,11 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{                                                                                           \</div>
 <div class="line">        kCLOCK_IpInvalid, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da72b9be69422d94586bf09e6bd3d2632a">kCLOCK_Gpio1</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da3126e41a402e4ae4d448f5c9f526e831">kCLOCK_Gpio2</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da73c05ec818a63c4de15e52ed4c6ff6b3">kCLOCK_Gpio3</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da412de8530bed6c0162955c2960108f2d">kCLOCK_Gpio4</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da6dc8a4689e77a82a8f17102f849fac03">kCLOCK_Gpio5</a>, \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da3126e41a402e4ae4d448f5c9f526e831"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da3126e41a402e4ae4d448f5c9f526e831">kCLOCK_Gpio2</a></div><div class="ttdoc">GPIO2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:233</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da73c05ec818a63c4de15e52ed4c6ff6b3"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da73c05ec818a63c4de15e52ed4c6ff6b3">kCLOCK_Gpio3</a></div><div class="ttdoc">GPIO3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:234</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da6dc8a4689e77a82a8f17102f849fac03"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da6dc8a4689e77a82a8f17102f849fac03">kCLOCK_Gpio5</a></div><div class="ttdoc">GPIO5 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:236</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da412de8530bed6c0162955c2960108f2d"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da412de8530bed6c0162955c2960108f2d">kCLOCK_Gpio4</a></div><div class="ttdoc">GPIO4 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:235</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da72b9be69422d94586bf09e6bd3d2632a"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da72b9be69422d94586bf09e6bd3d2632a">kCLOCK_Gpio1</a></div><div class="ttdoc">GPIO1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:232</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da3126e41a402e4ae4d448f5c9f526e831"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da3126e41a402e4ae4d448f5c9f526e831">kCLOCK_Gpio2</a></div><div class="ttdoc">GPIO2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:403</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da73c05ec818a63c4de15e52ed4c6ff6b3"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da73c05ec818a63c4de15e52ed4c6ff6b3">kCLOCK_Gpio3</a></div><div class="ttdoc">GPIO3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:404</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da6dc8a4689e77a82a8f17102f849fac03"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da6dc8a4689e77a82a8f17102f849fac03">kCLOCK_Gpio5</a></div><div class="ttdoc">GPIO5 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:406</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da412de8530bed6c0162955c2960108f2d"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da412de8530bed6c0162955c2960108f2d">kCLOCK_Gpio4</a></div><div class="ttdoc">GPIO4 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:405</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da72b9be69422d94586bf09e6bd3d2632a"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da72b9be69422d94586bf09e6bd3d2632a">kCLOCK_Gpio1</a></div><div class="ttdoc">GPIO1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:402</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1224,12 +1369,12 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{                                                                                                   \</div>
 <div class="line">        kCLOCK_IpInvalid, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da71bde14dedbaf3bb3de8fda8de6eac51">kCLOCK_Gpt1</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dab6ac8761ff28cf332af309ee188d8580">kCLOCK_Gpt2</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da4be630fd0b531c7bc1bb22c396c44103">kCLOCK_Gpt3</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da1341659b50e7076fa66d2618a31ebe15">kCLOCK_Gpt4</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da90880abd301784c485dc7b3d71ced9e4">kCLOCK_Gpt5</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da0017c635c527603fbbe09382d499f7df">kCLOCK_Gpt6</a>, \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da1341659b50e7076fa66d2618a31ebe15"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da1341659b50e7076fa66d2618a31ebe15">kCLOCK_Gpt4</a></div><div class="ttdoc">GPT4 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:241</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da0017c635c527603fbbe09382d499f7df"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da0017c635c527603fbbe09382d499f7df">kCLOCK_Gpt6</a></div><div class="ttdoc">GPT6 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:243</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da4be630fd0b531c7bc1bb22c396c44103"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da4be630fd0b531c7bc1bb22c396c44103">kCLOCK_Gpt3</a></div><div class="ttdoc">GPT3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:240</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da71bde14dedbaf3bb3de8fda8de6eac51"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da71bde14dedbaf3bb3de8fda8de6eac51">kCLOCK_Gpt1</a></div><div class="ttdoc">GPT1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:238</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da90880abd301784c485dc7b3d71ced9e4"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da90880abd301784c485dc7b3d71ced9e4">kCLOCK_Gpt5</a></div><div class="ttdoc">GPT5 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:242</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dab6ac8761ff28cf332af309ee188d8580"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dab6ac8761ff28cf332af309ee188d8580">kCLOCK_Gpt2</a></div><div class="ttdoc">GPT2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:239</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da1341659b50e7076fa66d2618a31ebe15"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da1341659b50e7076fa66d2618a31ebe15">kCLOCK_Gpt4</a></div><div class="ttdoc">GPT4 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:411</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da0017c635c527603fbbe09382d499f7df"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da0017c635c527603fbbe09382d499f7df">kCLOCK_Gpt6</a></div><div class="ttdoc">GPT6 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:413</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da4be630fd0b531c7bc1bb22c396c44103"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da4be630fd0b531c7bc1bb22c396c44103">kCLOCK_Gpt3</a></div><div class="ttdoc">GPT3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:410</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da71bde14dedbaf3bb3de8fda8de6eac51"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da71bde14dedbaf3bb3de8fda8de6eac51">kCLOCK_Gpt1</a></div><div class="ttdoc">GPT1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:408</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da90880abd301784c485dc7b3d71ced9e4"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da90880abd301784c485dc7b3d71ced9e4">kCLOCK_Gpt5</a></div><div class="ttdoc">GPT5 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:412</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dab6ac8761ff28cf332af309ee188d8580"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dab6ac8761ff28cf332af309ee188d8580">kCLOCK_Gpt2</a></div><div class="ttdoc">GPT2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:409</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1245,10 +1390,10 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{                                                                         \</div>
 <div class="line">        kCLOCK_IpInvalid, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da689e957d82ca723a1a0cc671ba216bf5">kCLOCK_I2c1</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da239422d8b3e53afadaf651015ffb5065">kCLOCK_I2c2</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da5f0100f89ed9f83b8eb76dc0de0d08fd">kCLOCK_I2c3</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da39b85efdf49f6a041c2c03835c3f9078">kCLOCK_I2c4</a>, \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da239422d8b3e53afadaf651015ffb5065"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da239422d8b3e53afadaf651015ffb5065">kCLOCK_I2c2</a></div><div class="ttdoc">I2C2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:246</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da689e957d82ca723a1a0cc671ba216bf5"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da689e957d82ca723a1a0cc671ba216bf5">kCLOCK_I2c1</a></div><div class="ttdoc">I2C1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:245</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da39b85efdf49f6a041c2c03835c3f9078"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da39b85efdf49f6a041c2c03835c3f9078">kCLOCK_I2c4</a></div><div class="ttdoc">I2C4 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:248</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da5f0100f89ed9f83b8eb76dc0de0d08fd"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da5f0100f89ed9f83b8eb76dc0de0d08fd">kCLOCK_I2c3</a></div><div class="ttdoc">I2C3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:247</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da239422d8b3e53afadaf651015ffb5065"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da239422d8b3e53afadaf651015ffb5065">kCLOCK_I2c2</a></div><div class="ttdoc">I2C2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:416</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da689e957d82ca723a1a0cc671ba216bf5"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da689e957d82ca723a1a0cc671ba216bf5">kCLOCK_I2c1</a></div><div class="ttdoc">I2C1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:415</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da39b85efdf49f6a041c2c03835c3f9078"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da39b85efdf49f6a041c2c03835c3f9078">kCLOCK_I2c4</a></div><div class="ttdoc">I2C4 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:418</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da5f0100f89ed9f83b8eb76dc0de0d08fd"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da5f0100f89ed9f83b8eb76dc0de0d08fd">kCLOCK_I2c3</a></div><div class="ttdoc">I2C3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:417</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1264,7 +1409,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{                 <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da7841b617bc290e157b010ce0316e25ae">\</a></div>
 <div class="line"><a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da7841b617bc290e157b010ce0316e25ae">        kCLOCK_Iomux</a>, \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da7841b617bc290e157b010ce0316e25ae"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da7841b617bc290e157b010ce0316e25ae">kCLOCK_Iomux</a></div><div class="ttdoc">IOMUX Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:250</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da7841b617bc290e157b010ce0316e25ae"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da7841b617bc290e157b010ce0316e25ae">kCLOCK_Iomux</a></div><div class="ttdoc">IOMUX Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:420</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1280,10 +1425,10 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{                                                               <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dabb7450a1854fc5f4046ace1b9a331d14">\</a></div>
 <div class="line"><a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dabb7450a1854fc5f4046ace1b9a331d14">        kCLOCK_Ipmux1</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da694837a16640df3dfe5b08f4bc77520f">kCLOCK_Ipmux2</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dacf542762d4a6862b06099363b92dc98f">kCLOCK_Ipmux3</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da41b98f665854ec4fa08401ee4acc0a5b">kCLOCK_Ipmux4</a>, \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dacf542762d4a6862b06099363b92dc98f"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dacf542762d4a6862b06099363b92dc98f">kCLOCK_Ipmux3</a></div><div class="ttdoc">IPMUX3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:253</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da694837a16640df3dfe5b08f4bc77520f"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da694837a16640df3dfe5b08f4bc77520f">kCLOCK_Ipmux2</a></div><div class="ttdoc">IPMUX2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:252</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da41b98f665854ec4fa08401ee4acc0a5b"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da41b98f665854ec4fa08401ee4acc0a5b">kCLOCK_Ipmux4</a></div><div class="ttdoc">IPMUX4 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:254</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dabb7450a1854fc5f4046ace1b9a331d14"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dabb7450a1854fc5f4046ace1b9a331d14">kCLOCK_Ipmux1</a></div><div class="ttdoc">IPMUX1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:251</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dacf542762d4a6862b06099363b92dc98f"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dacf542762d4a6862b06099363b92dc98f">kCLOCK_Ipmux3</a></div><div class="ttdoc">IPMUX3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:423</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da694837a16640df3dfe5b08f4bc77520f"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da694837a16640df3dfe5b08f4bc77520f">kCLOCK_Ipmux2</a></div><div class="ttdoc">IPMUX2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:422</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da41b98f665854ec4fa08401ee4acc0a5b"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da41b98f665854ec4fa08401ee4acc0a5b">kCLOCK_Ipmux4</a></div><div class="ttdoc">IPMUX4 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:424</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dabb7450a1854fc5f4046ace1b9a331d14"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dabb7450a1854fc5f4046ace1b9a331d14">kCLOCK_Ipmux1</a></div><div class="ttdoc">IPMUX1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:421</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1299,10 +1444,10 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{                                                                         \</div>
 <div class="line">        kCLOCK_IpInvalid, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da6f857b30e36170dfd2b40e11f11faf73">kCLOCK_Pwm1</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da233ce1f7359d71fc39b531f5b2733498">kCLOCK_Pwm2</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da06982b095809edf8d41af2ea294945fc">kCLOCK_Pwm3</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da332e80f6b38b6b698c80655fb71be8e3">kCLOCK_Pwm4</a>, \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da332e80f6b38b6b698c80655fb71be8e3"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da332e80f6b38b6b698c80655fb71be8e3">kCLOCK_Pwm4</a></div><div class="ttdoc">PWM4 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:266</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da06982b095809edf8d41af2ea294945fc"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da06982b095809edf8d41af2ea294945fc">kCLOCK_Pwm3</a></div><div class="ttdoc">PWM3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:265</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da233ce1f7359d71fc39b531f5b2733498"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da233ce1f7359d71fc39b531f5b2733498">kCLOCK_Pwm2</a></div><div class="ttdoc">PWM2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:264</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da6f857b30e36170dfd2b40e11f11faf73"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da6f857b30e36170dfd2b40e11f11faf73">kCLOCK_Pwm1</a></div><div class="ttdoc">PWM1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:263</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da332e80f6b38b6b698c80655fb71be8e3"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da332e80f6b38b6b698c80655fb71be8e3">kCLOCK_Pwm4</a></div><div class="ttdoc">PWM4 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:436</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da06982b095809edf8d41af2ea294945fc"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da06982b095809edf8d41af2ea294945fc">kCLOCK_Pwm3</a></div><div class="ttdoc">PWM3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:435</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da233ce1f7359d71fc39b531f5b2733498"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da233ce1f7359d71fc39b531f5b2733498">kCLOCK_Pwm2</a></div><div class="ttdoc">PWM2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:434</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da6f857b30e36170dfd2b40e11f11faf73"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da6f857b30e36170dfd2b40e11f11faf73">kCLOCK_Pwm1</a></div><div class="ttdoc">PWM1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:433</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1318,7 +1463,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{               <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da854836d77425766402667fb7188a6705">\</a></div>
 <div class="line"><a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da854836d77425766402667fb7188a6705">        kCLOCK_Rdc</a>, \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da854836d77425766402667fb7188a6705"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da854836d77425766402667fb7188a6705">kCLOCK_Rdc</a></div><div class="ttdoc">RDC Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:270</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da854836d77425766402667fb7188a6705"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da854836d77425766402667fb7188a6705">kCLOCK_Rdc</a></div><div class="ttdoc">RDC Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:440</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1334,12 +1479,12 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{                                                                                                   \</div>
 <div class="line">        kCLOCK_IpInvalid, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da95d16d761b96348f75703c2d51685b7b">kCLOCK_Sai1</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dac9f7fdbd65774076eaaa2f711431be4e">kCLOCK_Sai2</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dad98d48967723d46689d712ecdb66ba83">kCLOCK_Sai3</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da263d11257eaf59ad36f1400fca3fe40f">kCLOCK_Sai4</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da8dbcd5e4ae848a8939da8caff9e24d78">kCLOCK_Sai5</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946daa4440ab815171781bad5680e653634b3">kCLOCK_Sai6</a>, \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da263d11257eaf59ad36f1400fca3fe40f"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da263d11257eaf59ad36f1400fca3fe40f">kCLOCK_Sai4</a></div><div class="ttdoc">SAI4 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:275</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dac9f7fdbd65774076eaaa2f711431be4e"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dac9f7fdbd65774076eaaa2f711431be4e">kCLOCK_Sai2</a></div><div class="ttdoc">SAI2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:273</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946daa4440ab815171781bad5680e653634b3"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946daa4440ab815171781bad5680e653634b3">kCLOCK_Sai6</a></div><div class="ttdoc">SAI6 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:277</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da8dbcd5e4ae848a8939da8caff9e24d78"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da8dbcd5e4ae848a8939da8caff9e24d78">kCLOCK_Sai5</a></div><div class="ttdoc">SAI5 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:276</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da95d16d761b96348f75703c2d51685b7b"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da95d16d761b96348f75703c2d51685b7b">kCLOCK_Sai1</a></div><div class="ttdoc">SAI1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:272</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dad98d48967723d46689d712ecdb66ba83"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dad98d48967723d46689d712ecdb66ba83">kCLOCK_Sai3</a></div><div class="ttdoc">SAI3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:274</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da263d11257eaf59ad36f1400fca3fe40f"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da263d11257eaf59ad36f1400fca3fe40f">kCLOCK_Sai4</a></div><div class="ttdoc">SAI4 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:445</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dac9f7fdbd65774076eaaa2f711431be4e"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dac9f7fdbd65774076eaaa2f711431be4e">kCLOCK_Sai2</a></div><div class="ttdoc">SAI2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:443</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946daa4440ab815171781bad5680e653634b3"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946daa4440ab815171781bad5680e653634b3">kCLOCK_Sai6</a></div><div class="ttdoc">SAI6 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:447</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da8dbcd5e4ae848a8939da8caff9e24d78"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da8dbcd5e4ae848a8939da8caff9e24d78">kCLOCK_Sai5</a></div><div class="ttdoc">SAI5 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:446</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da95d16d761b96348f75703c2d51685b7b"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da95d16d761b96348f75703c2d51685b7b">kCLOCK_Sai1</a></div><div class="ttdoc">SAI1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:442</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dad98d48967723d46689d712ecdb66ba83"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dad98d48967723d46689d712ecdb66ba83">kCLOCK_Sai3</a></div><div class="ttdoc">SAI3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:444</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1355,8 +1500,8 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{                                                      \</div>
 <div class="line">        kCLOCK_IpInvalid, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946daa79906241482a78d05a9c1a64c162dc1">kCLOCK_Sema42_1</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da0b6ba7508588ecae9c28e3e6be507311">kCLOCK_Sema42_2</a> \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946daa79906241482a78d05a9c1a64c162dc1"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946daa79906241482a78d05a9c1a64c162dc1">kCLOCK_Sema42_1</a></div><div class="ttdoc">RDC SEMA42 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:284</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da0b6ba7508588ecae9c28e3e6be507311"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da0b6ba7508588ecae9c28e3e6be507311">kCLOCK_Sema42_2</a></div><div class="ttdoc">RDC SEMA42 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:285</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946daa79906241482a78d05a9c1a64c162dc1"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946daa79906241482a78d05a9c1a64c162dc1">kCLOCK_Sema42_1</a></div><div class="ttdoc">RDC SEMA42 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:454</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da0b6ba7508588ecae9c28e3e6be507311"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da0b6ba7508588ecae9c28e3e6be507311">kCLOCK_Sema42_2</a></div><div class="ttdoc">RDC SEMA42 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:455</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1372,10 +1517,10 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{                                                                             \</div>
 <div class="line">        kCLOCK_IpInvalid, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da1d4898f8634e2f18e6a154e2b1a4120e">kCLOCK_Uart1</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946daf079522d21082e83bd0192040a103e8b">kCLOCK_Uart2</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da2073aacb108d570b5cd4099d6294d74d">kCLOCK_Uart3</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da9e86fefe81e4318044e0f234b3df97b0">kCLOCK_Uart4</a>, \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da1d4898f8634e2f18e6a154e2b1a4120e"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da1d4898f8634e2f18e6a154e2b1a4120e">kCLOCK_Uart1</a></div><div class="ttdoc">UART1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:293</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da9e86fefe81e4318044e0f234b3df97b0"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da9e86fefe81e4318044e0f234b3df97b0">kCLOCK_Uart4</a></div><div class="ttdoc">UART4 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:296</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946daf079522d21082e83bd0192040a103e8b"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946daf079522d21082e83bd0192040a103e8b">kCLOCK_Uart2</a></div><div class="ttdoc">UART2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:294</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da2073aacb108d570b5cd4099d6294d74d"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da2073aacb108d570b5cd4099d6294d74d">kCLOCK_Uart3</a></div><div class="ttdoc">UART3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:295</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da1d4898f8634e2f18e6a154e2b1a4120e"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da1d4898f8634e2f18e6a154e2b1a4120e">kCLOCK_Uart1</a></div><div class="ttdoc">UART1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:463</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da9e86fefe81e4318044e0f234b3df97b0"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da9e86fefe81e4318044e0f234b3df97b0">kCLOCK_Uart4</a></div><div class="ttdoc">UART4 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:466</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946daf079522d21082e83bd0192040a103e8b"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946daf079522d21082e83bd0192040a103e8b">kCLOCK_Uart2</a></div><div class="ttdoc">UART2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:464</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da2073aacb108d570b5cd4099d6294d74d"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da2073aacb108d570b5cd4099d6294d74d">kCLOCK_Uart3</a></div><div class="ttdoc">UART3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:465</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1406,9 +1551,9 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{                                                              \</div>
 <div class="line">        kCLOCK_IpInvalid, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dadf8e9cc20fcf0603c601fe4f91ba9b41">kCLOCK_Wdog1</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dabbc79b15b5af7907a63a3df57a2f13dd">kCLOCK_Wdog2</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dabcfd078fc0e7c7d5c014f857f99591af">kCLOCK_Wdog3</a> \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dabcfd078fc0e7c7d5c014f857f99591af"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dabcfd078fc0e7c7d5c014f857f99591af">kCLOCK_Wdog3</a></div><div class="ttdoc">WDOG3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:300</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dabbc79b15b5af7907a63a3df57a2f13dd"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dabbc79b15b5af7907a63a3df57a2f13dd">kCLOCK_Wdog2</a></div><div class="ttdoc">WDOG2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:299</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dadf8e9cc20fcf0603c601fe4f91ba9b41"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dadf8e9cc20fcf0603c601fe4f91ba9b41">kCLOCK_Wdog1</a></div><div class="ttdoc">WDOG1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:298</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dabcfd078fc0e7c7d5c014f857f99591af"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dabcfd078fc0e7c7d5c014f857f99591af">kCLOCK_Wdog3</a></div><div class="ttdoc">WDOG3 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:470</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dabbc79b15b5af7907a63a3df57a2f13dd"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dabbc79b15b5af7907a63a3df57a2f13dd">kCLOCK_Wdog2</a></div><div class="ttdoc">WDOG2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:469</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dadf8e9cc20fcf0603c601fe4f91ba9b41"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dadf8e9cc20fcf0603c601fe4f91ba9b41">kCLOCK_Wdog1</a></div><div class="ttdoc">WDOG1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:468</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1424,7 +1569,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{                      <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da8bd4c58e0c6a3b6f2318af25c4b2f284">\</a></div>
 <div class="line"><a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da8bd4c58e0c6a3b6f2318af25c4b2f284">        kCLOCK_TempSensor</a>, \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da8bd4c58e0c6a3b6f2318af25c4b2f284"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da8bd4c58e0c6a3b6f2318af25c4b2f284">kCLOCK_TempSensor</a></div><div class="ttdoc">TempSensor Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:302</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da8bd4c58e0c6a3b6f2318af25c4b2f284"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da8bd4c58e0c6a3b6f2318af25c4b2f284">kCLOCK_TempSensor</a></div><div class="ttdoc">TempSensor Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:472</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1440,8 +1585,8 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{                              <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dacd20da1dbccd8a1ae1b833e43bc79f07">\</a></div>
 <div class="line"><a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dacd20da1dbccd8a1ae1b833e43bc79f07">        kCLOCK_Sdma1</a>, <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dae86a9f474601f89e756a260f36d2426e">kCLOCK_Sdma2</a> \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dacd20da1dbccd8a1ae1b833e43bc79f07"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dacd20da1dbccd8a1ae1b833e43bc79f07">kCLOCK_Sdma1</a></div><div class="ttdoc">SDMA1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:279</div></div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dae86a9f474601f89e756a260f36d2426e"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dae86a9f474601f89e756a260f36d2426e">kCLOCK_Sdma2</a></div><div class="ttdoc">SDMA2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:280</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dacd20da1dbccd8a1ae1b833e43bc79f07"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dacd20da1dbccd8a1ae1b833e43bc79f07">kCLOCK_Sdma1</a></div><div class="ttdoc">SDMA1 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:449</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946dae86a9f474601f89e756a260f36d2426e"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946dae86a9f474601f89e756a260f36d2426e">kCLOCK_Sdma2</a></div><div class="ttdoc">SDMA2 Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:450</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1457,7 +1602,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{             <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da2979f29635e3a33b40c1c8ab17cfb4a1">\</a></div>
 <div class="line"><a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da2979f29635e3a33b40c1c8ab17cfb4a1">        kCLOCK_Mu</a> \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da2979f29635e3a33b40c1c8ab17cfb4a1"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da2979f29635e3a33b40c1c8ab17cfb4a1">kCLOCK_Mu</a></div><div class="ttdoc">MU Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:258</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da2979f29635e3a33b40c1c8ab17cfb4a1"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da2979f29635e3a33b40c1c8ab17cfb4a1">kCLOCK_Mu</a></div><div class="ttdoc">MU Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:428</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1473,7 +1618,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <b>Value:</b><div class="fragment"><div class="line">{               <a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da4ab72b5d27f659b619dddbd15840ea97">\</a></div>
 <div class="line"><a class="code" href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da4ab72b5d27f659b619dddbd15840ea97">        kCLOCK_Qspi</a> \</div>
 <div class="line">    }</div>
-<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da4ab72b5d27f659b619dddbd15840ea97"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da4ab72b5d27f659b619dddbd15840ea97">kCLOCK_Qspi</a></div><div class="ttdoc">QSPI Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:268</div></div>
+<div class="ttc" id="a00008_html_gga23c8b3ae62f7865b2e228408be95946da4ab72b5d27f659b619dddbd15840ea97"><div class="ttname"><a href="a00008.html#gga23c8b3ae62f7865b2e228408be95946da4ab72b5d27f659b619dddbd15840ea97">kCLOCK_Qspi</a></div><div class="ttdoc">QSPI Clock Gate. </div><div class="ttdef"><b>Definition:</b> fsl_clock.h:438</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1523,6 +1668,102 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a27855f57a378c5f8e8d5cea16f366fc3"></a>kCLOCK_IpgClk</em>&nbsp;</td><td class="fielddoc">
 <p>IPG bus clock. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a8ec1a4155de2ca510d1183760e0c0571"></a>kCLOCK_Osc25MClk</em>&nbsp;</td><td class="fielddoc">
+<p>OSC 25M clock. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3afab4c1ca00a5085eb454c0b294404630"></a>kCLOCK_Osc27MClk</em>&nbsp;</td><td class="fielddoc">
+<p>OSC 27M clock. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a1100b7459c47a1b3417aafd790532d1d"></a>kCLOCK_ArmPllClk</em>&nbsp;</td><td class="fielddoc">
+<p>Arm PLL clock. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3abe52da72bee646d99e4380e21ac77290"></a>kCLOCK_VpuPllClk</em>&nbsp;</td><td class="fielddoc">
+<p>Vpu PLL clock. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3acd2034efc20ff92eedc0f8c45393d2a5"></a>kCLOCK_DramPllClk</em>&nbsp;</td><td class="fielddoc">
+<p>Dram PLL clock. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a8bde4da0d8115cefc3d068fb2cb4f559"></a>kCLOCK_SysPll1Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL1 clock. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a01da823a4b076ff3f9586698f7d754d5"></a>kCLOCK_SysPll1Div2Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL1 clock divided by 2. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3ac7b753471cf5e22cbfa8e1c4f31bb23f"></a>kCLOCK_SysPll1Div3Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL1 clock divided by 3. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a1cb24cb0a98614be9bb18b485c090f59"></a>kCLOCK_SysPll1Div4Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL1 clock divided by 4. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a7beacea43c82a814bb4c7f661cf804f7"></a>kCLOCK_SysPll1Div5Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL1 clock divided by 5. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a46bf373f516f561a0f6d861af5010181"></a>kCLOCK_SysPll1Div6Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL1 clock divided by 6. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3abaf82372db373e5418d9a40c475a4c1c"></a>kCLOCK_SysPll1Div8Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL1 clock divided by 8. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a7b3f956acffe2711a2de9b6217c00915"></a>kCLOCK_SysPll1Div10Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL1 clock divided by 10. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3adcb45418ee3836e0cbe33ce0618fba24"></a>kCLOCK_SysPll1Div20Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL1 clock divided by 20. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a58c5846224305363732b97d49f375e6e"></a>kCLOCK_SysPll2Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL2 clock. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a01b3fa3cbc0a32bdd482f7d48fef8139"></a>kCLOCK_SysPll2Div2Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL2 clock divided by 2. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3ac6278b5b0fa2d3a8fd4fa2524cf7f5e2"></a>kCLOCK_SysPll2Div3Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL2 clock divided by 3. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a7f5cbe6559106157ac966f541c2a2a66"></a>kCLOCK_SysPll2Div4Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL2 clock divided by 4. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3ab3c8a4b320699966f01ab00f66e0933c"></a>kCLOCK_SysPll2Div5Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL2 clock divided by 5. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a3609febccb076ef558c689c691e354da"></a>kCLOCK_SysPll2Div6Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL2 clock divided by 6. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a44984609b149a3b340ff421a1813c1ac"></a>kCLOCK_SysPll2Div8Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL2 clock divided by 8. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3aca89495853cd320ce054259ab8321ed1"></a>kCLOCK_SysPll2Div10Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL2 clock divided by 10. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3aff1bef676e879ff3b3630e0c23383803"></a>kCLOCK_SysPll2Div20Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL2 clock divided by 20. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a69480266b3d0259402162e1f49cdbc05"></a>kCLOCK_SysPll3Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Sys PLL3 clock. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a329ac043f56800d90b1ed5baddc5537f"></a>kCLOCK_AudioPll1Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Audio PLL1 clock. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3af21ff8a963af5061cebdf0f7bbc24155"></a>kCLOCK_AudioPll2Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Audio PLL2 clock. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a217ea8cb98ea4a85da5b70693092adb2"></a>kCLOCK_VideoPll1Clk</em>&nbsp;</td><td class="fielddoc">
+<p>Video PLL1 clock. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a9b5e7fff9a0941083a9f2ccf24b6591d"></a>kCLOCK_ExtClk1</em>&nbsp;</td><td class="fielddoc">
+<p>External clock1. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a571b5e28a814dfba0d9fee4e0cbb94fe"></a>kCLOCK_ExtClk2</em>&nbsp;</td><td class="fielddoc">
+<p>External clock2. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3ae2b44b6e10a6c655feb507501893455e"></a>kCLOCK_ExtClk3</em>&nbsp;</td><td class="fielddoc">
+<p>External clock3. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3a0e81155d69e10d57544a9d94d9eb8133"></a>kCLOCK_ExtClk4</em>&nbsp;</td><td class="fielddoc">
+<p>External clock4. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf74854e9bcee544d7646c5bafdc00bd3aaf713ef1c3dc5f108b834c1f73816c30"></a>kCLOCK_NoneName</em>&nbsp;</td><td class="fielddoc">
+<p>None Clock Name. </p>
 </td></tr>
 </table>
 
@@ -1832,6 +2073,125 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <p>GPT6 Clock control name. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="ggaa7b50225aaae5ae2c328987528fc46b0a3858fc3e2e239d79fccc33ca335c72a5"></a>kCLOCK_RootWdog</em>&nbsp;</td><td class="fielddoc">
+<p>WDOG Clock control name. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="ga34b61a432881891d16e812469e5376fa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00008.html#ga34b61a432881891d16e812469e5376fa">clock_root_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faaeaf2cf1120fc2d223ead0d4fb5ff2018"></a>kCLOCK_M4ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>ARM Cortex-M4 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faaf1b59e1900b53de71572c0865b5d6c41"></a>kCLOCK_AxiClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>AXI Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa28a55cc01c9434466bf15ecf03d422e6"></a>kCLOCK_NocClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>NOC Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faad3129db8d62e3c18958470f8bc3c1e0b"></a>kCLOCK_AhbClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>AHB Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faadcf601c5d16440ed1fea7dabfbcfad7c"></a>kCLOCK_IpgClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>IPG Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa55f73b79ce8d4ac543436aab2abba608"></a>kCLOCK_DramAltClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>DRAM ALT Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faab02e4682b1557a3f453ca9246c6d830b"></a>kCLOCK_Sai1ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>SAI1 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa3e2f49d77d28167f973157c958d94d84"></a>kCLOCK_Sai2ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>SAI2 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa66b65ff8113412f89815e952f9475077"></a>kCLOCK_Sai3ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>SAI3 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa5a56a2f6bc1e4e8f97e1834586477ab6"></a>kCLOCK_Sai4ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>SAI4 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa4f06eeb83dd347f778da1076cf5791de"></a>kCLOCK_Sai5ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>SAI5 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa2a50820f57bed86e25c28054c525d9a0"></a>kCLOCK_Sai6ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>SAI6 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa8b1dcf9f110b57839e651138b82b5647"></a>kCLOCK_QspiClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>QSPI Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa044b3f12f7c74c8c60f6a0e74c09dc29"></a>kCLOCK_I2c1ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>I2C1 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa02289538887bafcfb4542cb933c907b1"></a>kCLOCK_I2c2ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>I2C2 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faaab060d361eeb70848772951273fb6bfa"></a>kCLOCK_I2c3ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>I2C3 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faad308ff519fb13ee8f0790ebb8c9b2472"></a>kCLOCK_I2c4ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>I2C4 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa20747371e8f038dfd337a3259f386893"></a>kCLOCK_Uart1ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>UART1 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa19b5bbb4b4204cf60da25c50bb3cf75b"></a>kCLOCK_Uart2ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>UART2 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa957900a54c1a2975113b17f94a4b7b53"></a>kCLOCK_Uart3ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>UART3 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faafcb4543e48e82b29fabdf2ea93918147"></a>kCLOCK_Uart4ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>UART4 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faaad1bf888889a8227abeb722fde4a8f91"></a>kCLOCK_Ecspi1ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>ECSPI1 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faaebbf58e7b2e78961620317505dc337c3"></a>kCLOCK_Ecspi2ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>ECSPI2 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa4fbc596d2af6ba1e69770ec7c4e7eda1"></a>kCLOCK_Ecspi3ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>ECSPI3 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa45983b57d77a213404e6ef387e77b84d"></a>kCLOCK_Pwm1ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>PWM1 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faab2356c36e8ef5ab56ec7091feaba3123"></a>kCLOCK_Pwm2ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>PWM2 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faac50c448337324a72c4e621d730ae8e8c"></a>kCLOCK_Pwm3ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>PWM3 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa53d6c00f293ecf38c9829167ce8177e1"></a>kCLOCK_Pwm4ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>PWM4 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa8c16f1218facfd97cc4a970941e46a16"></a>kCLOCK_Gpt1ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>GPT1 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa10473f979252847bedaccb8e0baa113e"></a>kCLOCK_Gpt2ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>GPT2 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa516c5906d3ed79076226313977652c97"></a>kCLOCK_Gpt3ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>GPT3 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa1547c2d4fba045f83eaf19abfe369079"></a>kCLOCK_Gpt4ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>GPT4 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faa99c57aa58d1f84623caa7207dab6d357"></a>kCLOCK_Gpt5ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>GPT5 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faadeae6d87dae06c067be8988c3cef2ad2"></a>kCLOCK_Gpt6ClkRoot</em>&nbsp;</td><td class="fielddoc">
+<p>GPT6 Clock control name. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga34b61a432881891d16e812469e5376faaf46752774723ccbe0437a5346154ca33"></a>kCLOCK_WdogClkRoot</em>&nbsp;</td><td class="fielddoc">
 <p>WDOG Clock control name. </p>
 </td></tr>
 </table>
@@ -2984,7 +3344,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitOSC25M </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00008.html#a00133">osc_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00008.html#a00132">osc_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -3022,7 +3382,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitOSC27M </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00008.html#a00133">osc_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00008.html#a00132">osc_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -3589,7 +3949,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitArmPll </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -3597,7 +3957,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a> enumeration).</td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a> enumeration).</td></tr>
   </table>
   </dd>
 </dl>
@@ -3612,7 +3972,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitSysPll1 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -3620,7 +3980,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> enumeration).</td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> enumeration).</td></tr>
   </table>
   </dd>
 </dl>
@@ -3635,7 +3995,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitSysPll2 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -3643,7 +4003,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> enumeration).</td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> enumeration).</td></tr>
   </table>
   </dd>
 </dl>
@@ -3658,7 +4018,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitSysPll3 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -3666,7 +4026,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> enumeration).</td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> enumeration).</td></tr>
   </table>
   </dd>
 </dl>
@@ -3681,7 +4041,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitDramPll </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -3689,7 +4049,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> enumeration).</td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> enumeration).</td></tr>
   </table>
   </dd>
 </dl>
@@ -3704,7 +4064,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitAudioPll1 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -3712,7 +4072,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a> enumeration).</td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a> enumeration).</td></tr>
   </table>
   </dd>
 </dl>
@@ -3727,7 +4087,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitAudioPll2 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -3735,7 +4095,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a> enumeration).</td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a> enumeration).</td></tr>
   </table>
   </dd>
 </dl>
@@ -3750,7 +4110,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitVideoPll1 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -3758,7 +4118,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a> enumeration). </td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a> enumeration). </td></tr>
   </table>
   </dd>
 </dl>
@@ -3772,7 +4132,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="memname">void CLOCK_InitVideoPll2 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -3780,7 +4140,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> enumeration).</td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> enumeration).</td></tr>
   </table>
   </dd>
 </dl>
@@ -3801,7 +4161,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>, </td>
         </tr>
         <tr>
@@ -3820,7 +4180,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>CCM ANALOG base address </td></tr>
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00119">ccm_analog_sscg_pll_config_t</a> enumeration). </td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00118">ccm_analog_sscg_pll_config_t</a> enumeration). </td></tr>
     <tr><td class="paramname">type</td><td>sscg pll type </td></tr>
   </table>
   </dd>
@@ -3889,7 +4249,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>, </td>
         </tr>
         <tr>
@@ -3908,7 +4268,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>CCM ANALOG base address. </td></tr>
-    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00118">ccm_analog_frac_pll_config_t</a> enumeration). </td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure(see <a class="el" href="a00008.html#a00117">ccm_analog_frac_pll_config_t</a> enumeration). </td></tr>
     <tr><td class="paramname">type</td><td>fractional pll type. </td></tr>
   </table>
   </dd>
@@ -4024,6 +4384,29 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Clock frequency value in hertz </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga4e30d8a034f22ac00efd062c2e92a1c6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t CLOCK_GetClockRootFreq </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga34b61a432881891d16e812469e5376fa">clock_root_t</a>&#160;</td>
+          <td class="paramname"><em>clockRoot</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clockRoot</td><td>The clock root used to get the frequency, please refer to <a class="el" href="a00008.html#ga34b61a432881891d16e812469e5376fa">clock_root_t</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The frequency of selected clock root. </dd></dl>
 
 </div>
 </div>

@@ -9,7 +9,14 @@
 #ifndef __TIMERS_MANAGER_H__
 #define __TIMERS_MANAGER_H__
 
+#ifndef SDK_COMPONENT_DEPENDENCY_FSL_COMMON
+#define SDK_COMPONENT_DEPENDENCY_FSL_COMMON (1U)
+#endif
+#if (defined(SDK_COMPONENT_DEPENDENCY_FSL_COMMON) && (SDK_COMPONENT_DEPENDENCY_FSL_COMMON > 0U))
 #include "fsl_common.h"
+#else
+#endif
+
 #if (defined(COMMON_TASK_ENABLE) && (COMMON_TASK_ENABLE == 0U))
 #include "fsl_component_common_task.h"
 #endif /* COMMON_TASK_ENABLE */
@@ -59,14 +66,14 @@
  * @brief   Configures the timer task stack size.
  */
 #ifndef TM_TASK_STACK_SIZE
-#define TM_TASK_STACK_SIZE (600U)
+#define TM_TASK_STACK_SIZE (1024U)
 #endif
 
 /*
  * @brief   Configures the timer task priority.
  */
 #ifndef TM_TASK_PRIORITY
-#define TM_TASK_PRIORITY (4U)
+#define TM_TASK_PRIORITY (1U)
 #endif
 
 /*
@@ -74,7 +81,7 @@
  * VALID RANGE: TRUE/FALSE
  */
 #ifndef TM_ENABLE_LOW_POWER_TIMER
-#define TM_ENABLE_LOW_POWER_TIMER (1)
+#define TM_ENABLE_LOW_POWER_TIMER (0)
 #endif
 /*
  * @brief   Enable/Disable TimeStamp
@@ -110,6 +117,7 @@
 ******************************************************************************
 *****************************************************************************/
 /**@brief Timer status. */
+#if (defined(SDK_COMPONENT_DEPENDENCY_FSL_COMMON) && (SDK_COMPONENT_DEPENDENCY_FSL_COMMON > 0U))
 typedef enum _timer_status
 {
     kStatus_TimerSuccess    = kStatus_Success,                           /*!< Success */
@@ -118,6 +126,17 @@ typedef enum _timer_status
     kStatus_TimerOutOfRange = MAKE_STATUS(kStatusGroup_TIMERMANAGER, 3), /*!< Out Of Range */
     kStatus_TimerError      = MAKE_STATUS(kStatusGroup_TIMERMANAGER, 4), /*!< Fail */
 } timer_status_t;
+#else
+typedef enum _timer_status
+{
+    kStatus_TimerSuccess    = 0, /*!< Success */
+    kStatus_TimerInvalidId  = 1, /*!< Invalid Id */
+    kStatus_TimerNotSupport = 2, /*!< Not Support */
+    kStatus_TimerOutOfRange = 3, /*!< Out Of Range */
+    kStatus_TimerError      = 4, /*!< Fail */
+} timer_status_t;
+
+#endif
 
 /**@brief Timer modes. */
 typedef enum _timer_mode
@@ -127,6 +146,7 @@ typedef enum _timer_mode
     kTimerModeSetMinuteTimer = 0x04U, /**< The timer will one minute timer. */
     kTimerModeSetSecondTimer = 0x08U, /**< The timer will one second timer. */
     kTimerModeLowPowerTimer  = 0x10U, /**< The timer will low power mode timer. */
+    kTimerModeSetMicrosTimer = 0x20U, /**< The timer will low power mode timer with microsecond unit. */
 } timer_mode_t;
 
 /**@brief Timer config. */
@@ -227,6 +247,31 @@ void TM_ExitLowpower(void);
 void TM_EnterLowpower(void);
 
 /*!
+ * @brief Programs a timer needed for RTOS tickless low power period
+ *
+ * Starts a timer and sync all timer manager ressources before programming HW
+ * timer module. Everything is done by bypassing the timer manager task as this
+ * function is usually called under masked interrupts (no context switch).
+ *
+ * @param timerHandle    the handle of the timer
+ * @param timerTimeout   The timer timeout in microseconds unit
+ *
+ */
+void TM_EnterTickless(timer_handle_t timerHandle, uint64_t timerTimeout);
+
+/*!
+ * @brief Resyncs timer manager ressources after tickless low power period
+ *
+ * Makes sure to stop the tickless timer and resync all existing timers.
+ * Everything is done by bypassing the timer manager task as this
+ * function is usually called under masked interrupts (no context switch).
+ *
+ * @param timerHandle    the handle of the timer
+ *
+ */
+void TM_ExitTickless(timer_handle_t timerHandle);
+
+/*!
  * @brief Open a timer with user handle.
  *
  * @param timerHandle              Pointer to a memory space of size #TIMER_HANDLE_SIZE allocated by the caller.
@@ -253,6 +298,8 @@ timer_status_t TM_Close(timer_handle_t timerHandle);
 /*!
  * @brief  Install a specified timer callback
  *
+ * @note Application need call the function to install specified timer callback before start a timer .
+ *
  * @param timerHandle     the handle of the timer
  * @param callback        callback function
  * @param callbackParam   parameter to callback function
@@ -265,14 +312,22 @@ timer_status_t TM_InstallCallback(timer_handle_t timerHandle, timer_callback_t c
 /*!
  * @brief  Start a specified timer
  *
+ * TM_Start() starts a specified timer that was previously opened using the TM_Open() API function.
+ * The function is a non-blocking API, the funciton will return at once. And the callback function that was previously
+ * installed by using the TM_InstallCallback() API function will be called if timer is expired.
+ *
  * @param timerHandle    the handle of the timer
  * @param timerType       The mode of the timer, for example: kTimerModeSingleShot for the timer will expire
  *                       only once, kTimerModeIntervalTimer, the timer will restart each time it expires.
  *                       If low power mode is used at the same time. It should be set like this: kTimerModeSingleShot |
- * kTimerModeLowPowerTimer
+ *                       kTimerModeLowPowerTimer. kTimerModeSetMicosTimer is microsecond unit, and please note the timer
+ *                       Manager can't make sure the high resolution accuracy than 1ms with kTimerModeSetMicosTimer
+ *                       support, for example if timer manager use 32K OSC timer as clock source, actually the precision
+ *                       of timer is about 31us.
  * @param timerTimeout   The timer timeout in milliseconds unit for kTimerModeSingleShot, kTimerModeIntervalTimer
  *                       and kTimerModeLowPowerTimer,if kTimerModeSetMinuteTimer timeout for minutes unit, if
- *                       kTimerModeSetSecondTimer the timeout for seconds unit.
+ *                       kTimerModeSetSecondTimer the timeout for seconds unit. the timeout is in microseconds if
+ *                       kTimerModeSetMicrosTimer is used.
  *
  * @retval kStatus_TimerSuccess    Timer start succeed.
  * @retval kStatus_TimerError      An error occurred.
