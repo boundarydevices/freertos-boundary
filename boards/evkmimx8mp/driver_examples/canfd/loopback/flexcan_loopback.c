@@ -120,9 +120,9 @@ int main(void)
     CLOCK_SetRootMux(kCLOCK_RootFlexCan1, kCLOCK_FlexCanRootmuxSysPll1); /* Set FLEXCAN1 source to SYSTEM PLL1 800MHZ */
     CLOCK_SetRootDivider(kCLOCK_RootFlexCan1, 2U, 5U);                   /* Set root clock to 800MHZ / 10 = 80MHZ */
 
-    /* GPIO5_IO05 is used to control CAN1_STBY which is ebaled active high */
+    /* GPIO3_IO20 is used to control CAN1_STBY which is ebaled active high */
     gpio_pin_config_t config = {kGPIO_DigitalOutput, 1, kGPIO_NoIntmode};
-    GPIO_PinInit(GPIO5, 5U, &config);
+    GPIO_PinInit(GPIO3, 20U, &config);
 
     LOG_INFO("\r\n==FlexCAN loopback functional example -- Start.==\r\n\r\n");
 

@@ -58,13 +58,13 @@ BOARD_InitPins:
  *
  * END ****************************************************************************************************************/
 void BOARD_InitPins(void) {                                /*!< Function assigned for the core: Cortex-M7F[m7] */
-    IOMUXC_SetPinMux(IOMUXC_SPDIF_EXT_CLK_GPIO5_IO05, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_SPDIF_EXT_CLK_GPIO5_IO05, 
+    IOMUXC_SetPinMux(IOMUXC_SAI5_RXC_GPIO3_IO20, 0U);
+    IOMUXC_SetPinConfig(IOMUXC_SAI5_RXC_GPIO3_IO20, 
                         IOMUXC_SW_PAD_CTL_PAD_DSE(3U) |
                         IOMUXC_SW_PAD_CTL_PAD_PUE_MASK |
                         IOMUXC_SW_PAD_CTL_PAD_PE_MASK);
-    IOMUXC_SetPinMux(IOMUXC_SPDIF_RX_CAN1_RX, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_SPDIF_RX_CAN1_RX, 
+    IOMUXC_SetPinMux(IOMUXC_SAI5_RXD2_CAN1_RX, 0U);
+    IOMUXC_SetPinConfig(IOMUXC_SAI5_RXD2_CAN1_RX, 
                         IOMUXC_SW_PAD_CTL_PAD_DSE(1U) |
                         IOMUXC_SW_PAD_CTL_PAD_FSEL_MASK |
                         IOMUXC_SW_PAD_CTL_PAD_PUE_MASK |
