@@ -1,0 +1,179 @@
+Release Name: MCUXpresso Software Development Kit (SDK)
+Release Version: 2.14.1
+Package License: LA_OPT_NXP_Software_License.txt v45 May 2023- Additional Distribution License granted, license in Section 2.3 applies
+
+SDK_Peripheral_Driver      Name: SDK Peripheral Driver                       
+                           Version: 2.x.x                                    
+                           Outgoing License: BSD-3-Clause                    
+                           License File: COPYING-BSD-3                       
+                           Format: source code                               
+                           Description: Peripheral drivers are designed for  
+                           the most common use cases identified for the      
+                           underlying hardware block.                        
+                           Location: devices/<device>/drivers                
+                           Origin: NXP (BSD-3-Clause)                        
+
+SDK_Device                 Name: SDK SoC files                               
+                           Version: NA                                       
+                           Outgoing License: BSD-3-Clause                    
+                           License File: COPYING-BSD-3                       
+                           Format: source code, linker files                 
+                           Description: Device system files, template files, 
+                           IDE related startup and linker files.             
+                           Location: devices/<device>/                       
+                           Origin: NXP (BSD-3-Clause)                        
+
+SDK_Components             Name: SDK components and board peripheral drivers 
+                           Version: NA                                       
+                           Outgoing License: BSD-3-Clause                    
+                           License File: COPYING-BSD-3                       
+                           Format: source code                               
+                           Description: SDK components and board peripheral  
+                           drivers, for example, flash and codec drivers.    
+                           Location: components/                             
+                           Origin: NXP (BSD-3-Clause), ITE (BSD-3-Clause)    
+
+cmsis_drivers              Name: SDK CMSIS Peripheral Drivers                
+                           Version: 2.x.x                                    
+                           Outgoing License: Apache License 2.0              
+                           License File: CMSIS/LICENSE.txt                   
+                           Format: source code                               
+                           Description: CMSIS Peripheral drivers are designed
+                           to provide hardware independent APIs which make   
+                           application reusable across a wide range of       
+                           supported microcontroller devices.                
+                           Location: devices/<device>/cmsis_drivers          
+                           Origin: NXP (Apache-2.0) ARM (Apache-2.0) -       
+                           https://github.com/ARM-software/CMSIS_5/releases/t
+                           ag/5.8.0                                          
+
+CMSIS                      Name: CMSIS                                       
+                           Version: 5.8.0                                    
+                           Outgoing License: Apache License 2.0              
+                           License File: CMSIS/LICENSE.txt                   
+                           Format: source code                               
+                           Description: Vendor-independent hardware          
+                           abstraction layer for microcontrollers that are   
+                           based on Arm Cortex processors, distributed by    
+                           ARM. cores                                        
+                           Location: CMSIS/                                  
+                           Origin: ARM (Apache-2.0) -                        
+                           https://github.com/ARM-software/CMSIS_5/releases/t
+                           ag/5.8.0                                          
+
+freertos-kernel            Name: FreeRTOS kernel                             
+                           Version: 10.5.0                                   
+                           Outgoing License: MIT                             
+                           License File:                                     
+                           rtos/freertos/freertos-kernel/LICENSE.md          
+                           Format: source code                               
+                           Description: Open source RTOS kernel for small    
+                           devices                                           
+                           Location: rtos/freertos/freertos-kernel           
+                           Origin: Amazon (MIT)                              
+                           Url: https://github.com/FreeRTOS/FreeRTOS-Kernel  
+
+llhttp                     Name: llhttp                                      
+                           Version: 6.0.9                                    
+                           Outgoing License: MIT                             
+                           License File: middleware/llhttp/LICENSE-MIT       
+                           Format: source code                               
+                           Description: HTTP parser in LLVM IR               
+                           Location: middleware/llhttp                       
+                           Origin: Node.js (MIT)                             
+                           Url: https://github.com/nodejs/llhttp             
+
+mbedtls                    Name: Mbed TLS                                    
+                           Version: 2.28.3                                   
+                           Outgoing License: Apache-2.0                      
+                           License File: middleware/mbedtls/LICENSE          
+                           Format: source code                               
+                           Description: Cryptographic and SSL/TLS Library    
+                           Location: middleware/mbedtls                      
+                           Origin: ARM(Apache-2.0) -                         
+                           https://github.com/Mbed-TLS/mbedtls/releases/tag/v
+                           2.28.3                                            
+
+multicore                  Name: Multicore SDK                               
+                           Version: 2.14.0                                   
+                           Outgoing License: BSD-3-Clause                    
+                           License File: COPYING-BSD-3                       
+                           Format: source code                               
+                           Description: NXP Multicore Software Development   
+                           Kit.                                              
+                           Location: middleware/multicore                    
+                           Origin: NXP (BSD-3-Clause)                        
+
+multicore_rpmsg_lite       Name: RPMsg-Lite                                  
+                           Version: 5.1.0                                    
+                           Outgoing License: BSD-3-Clause                    
+                           License File: COPYING-BSD-3                       
+                           Format: source code                               
+                           Description: Open Asymmetric Multi Processing     
+                           (OpenAMP) framework project                       
+                           Location: middleware/multicore/rpmsg_lite         
+                           Origin: Mentor Graphics Corporation & community   
+                           contributors                                      
+                           Url: https://github.com/NXPmicro/rpmsg-lite       
+
+pkcs11                     Name: OASIS TC pkcs11                             
+                           Version: 2.40.1                                   
+                           Outgoing License: MIT                             
+                           License File: middleware/pkcs11/LICENSE.md        
+                           Format: source code                               
+                           Description: Public Key Cryptography Standard #11 
+                           defines generic cryptographic token interface.    
+                           Location: middleware/pkcs11                       
+                           Origin: OASIS TC, Amazon (MIT)                    
+                           Url: https://github.com/amazon-freertos/pkcs11    
+
+tinycbor                   Name: TinyCBOR                                    
+                           Version: 0.6.0                                    
+                           Outgoing License: MIT                             
+                           License File: middleware/tinycbor/LICENSE         
+                           Format: source code                               
+                           Description: TinyCBOR                             
+                           Location: middleware/tinycbor                     
+                           Origin: Intel Corporation (MIT)                   
+                           Url: https://github.com/intel/TinyCBOR            
+
+voice_spot                 Name: VoiceSpot library                           
+                           Outgoing License: LA_OPT_NXP_Software_License.txt 
+                           v45 May 2023- Additional Distribution License     
+                           granted, license in Section 2.3 applies           
+                           License File: LA_OPT_NXP_Software_License.txt     
+                           Format: Precompiled libraries, header files,      
+                           example application                               
+                           Description: VoiceSpot is a highly accurate, small
+                           memory and MIPS profile wake word engine          
+                           supporting custom voice trigger words and phrases 
+                           Location: middleware/voice_spot                   
+                           Origin: NXP (Proprietary) ARM (Apache-2.0)        
+                           Url:                                              
+                           https://www.nxp.com/design/software/embedded-softw
+                           are/voicespot-wake-word-engine:VOICESPOT          
+                           https://github.com/ARM-software/CMSIS_5           
+
+naturedsp_fusionf1         Name: naturedsp                                   
+                           Version: 1.2.0                                    
+                           Outgoing License: LA_OPT_NXP_Software_License.txt 
+                           v45 May 2023- No distribution permitted, license  
+                           in Section 2.2 applies.                           
+                           License File: LA_OPT_NXP_Software_License.txt     
+                           Format: source code, precompiled library          
+                           Description: Digital Signal Processing for Xtensa 
+                           Fusion Audio Engines                              
+                           Location: middleware/dsp/naturedsp/fusionf1       
+                           Origin: Cadence Design Systems (Proprietary)      
+
+SDK_Examples               Name: SDK examples                                
+                           Version: NA                                       
+                           Outgoing License: BSD-3-Clause                    
+                           License File: COPYING-BSD-3                       
+                           Format: source code, binary, project files, linker
+                           files                                             
+                           Description: SDK out of box examples to show how  
+                           to use peripheral drivers and integrate           
+                           middleware.                                       
+                           Location: boards/<board>/                         
+                           Origin: NXP (BSD-3-Clause)                        
