@@ -71,12 +71,12 @@ void BOARD_InitPins(void) {                                /*!< Function assigne
                         IOMUXC_SW_PAD_CTL_PAD_PUE_MASK |
                         IOMUXC_SW_PAD_CTL_PAD_HYS_MASK |
                         IOMUXC_SW_PAD_CTL_PAD_PE_MASK);
-    IOMUXC_SetPinMux(IOMUXC_UART4_RXD_UART4_RX, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_UART4_RXD_UART4_RX, 
+    IOMUXC_SetPinMux(IOMUXC_NAND_ALE_UART3_RX, 0U);
+    IOMUXC_SetPinConfig(IOMUXC_NAND_ALE_UART3_RX, 
                         IOMUXC_SW_PAD_CTL_PAD_PUE_MASK |
                         IOMUXC_SW_PAD_CTL_PAD_PE_MASK);
-    IOMUXC_SetPinMux(IOMUXC_UART4_TXD_UART4_TX, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_UART4_TXD_UART4_TX, 
+    IOMUXC_SetPinMux(IOMUXC_NAND_CE0_B_UART3_TX, 0U);
+    IOMUXC_SetPinConfig(IOMUXC_NAND_CE0_B_UART3_TX, 
                         IOMUXC_SW_PAD_CTL_PAD_PUE_MASK |
                         IOMUXC_SW_PAD_CTL_PAD_PE_MASK);
 }
