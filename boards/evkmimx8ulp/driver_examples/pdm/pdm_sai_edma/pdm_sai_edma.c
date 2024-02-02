@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2016, Freescale Semiconductor, Inc.
+ * Copyright 2023 NXP
  * All rights reserved.
- *
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -76,6 +76,12 @@
 #ifndef DEMO_CODEC_VOLUME
 #define DEMO_CODEC_VOLUME 100U
 #endif
+
+#if defined(DEMO_DMA)
+#define DEMO_PDM_DMA DEMO_DMA
+#define DEMO_SAI_DMA DEMO_DMA
+#endif
+
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
@@ -107,6 +113,9 @@ static volatile uint32_t s_bufferValidBlock = BUFFER_NUMBER;
 static volatile uint32_t s_readIndex        = 0U;
 static volatile uint32_t s_writeIndex       = 0U;
 static const pdm_config_t pdmConfig         = {
+#if defined(FSL_FEATURE_PDM_HAS_DECIMATION_FILTER_BYPASS) && FSL_FEATURE_PDM_HAS_DECIMATION_FILTER_BYPASS
+    .enableFilterBypass = false,
+#endif
     .enableDoze        = false,
     .fifoWatermark     = DEMO_PDM_FIFO_WATERMARK,
     .qualityMode       = DEMO_PDM_QUALITY_MODE,
@@ -217,7 +226,7 @@ static void saiCallback(I2S_Type *base, sai_edma_handle_t *handle, status_t stat
 void DEMO_SAI_IRQ_HANDLER(void)
 {
     SAI_TxClearStatusFlags(DEMO_SAI, kSAI_FIFOErrorFlag);
-    __DSB();
+    SDK_ISR_EXIT_BARRIER;
 }
 
 /*!
@@ -242,7 +251,7 @@ int main(void)
         BOARD_HandshakeWithUboot(); /* Must handshake with uboot, unless will get issues(such as: SoC reset all the
                                        time) */
     }
-    else /* low power boot type */
+    else                            /* low power boot type */
     {
         BOARD_SetTrdcGlobalConfig();
     }
@@ -273,12 +282,16 @@ int main(void)
      * dmaConfig.enableDebugMode = false;
      */
     EDMA_GetDefaultConfig(&dmaConfig);
-    EDMA_Init(DEMO_DMA, &dmaConfig);
-    EDMA_CreateHandle(&s_pdmDmaHandle, DEMO_DMA, DEMO_PDM_EDMA_CHANNEL);
-    EDMA_CreateHandle(&s_saiDmaHandle, DEMO_DMA, DEMO_SAI_EDMA_CHANNEL);
+    EDMA_Init(DEMO_PDM_DMA, &dmaConfig);
+    if (((void *)DEMO_PDM_DMA) != ((void *)DEMO_SAI_DMA))
+    {
+        EDMA_Init(DEMO_SAI_DMA, &dmaConfig);
+    }
+    EDMA_CreateHandle(&s_pdmDmaHandle, DEMO_PDM_DMA, DEMO_PDM_EDMA_CHANNEL);
+    EDMA_CreateHandle(&s_saiDmaHandle, DEMO_SAI_DMA, DEMO_SAI_EDMA_CHANNEL);
 #if defined(FSL_FEATURE_EDMA_HAS_CHANNEL_MUX) && FSL_FEATURE_EDMA_HAS_CHANNEL_MUX
-    EDMA_SetChannelMux(DEMO_DMA, DEMO_PDM_EDMA_CHANNEL, DEMO_PDM_EDMA_SOURCE);
-    EDMA_SetChannelMux(DEMO_DMA, DEMO_SAI_EDMA_CHANNEL, DEMO_SAI_EDMA_SOURCE);
+    EDMA_SetChannelMux(DEMO_PDM_DMA, DEMO_PDM_EDMA_CHANNEL, DEMO_PDM_EDMA_SOURCE);
+    EDMA_SetChannelMux(DEMO_SAI_DMA, DEMO_SAI_EDMA_CHANNEL, DEMO_SAI_EDMA_SOURCE);
 #endif
     /* SAI init */
     SAI_Init(DEMO_SAI);

@@ -188,7 +188,6 @@ int main(void)
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
 
-
     PRINTF("Hello from secure world!\r\n");
 
     testCaseNumber = TESTCASE_MODE;

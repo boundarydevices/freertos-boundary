@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.14.1</span>
+   &#160;<span id="projectnumber">Rev 2.15.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -100,6 +100,7 @@ $(document).ready(function(){initNavTree('a00195.html','');});
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -128,16 +129,22 @@ Macros</h2></td></tr>
 <tr class="memdesc:ga98e8cdcf011fa16580c634f652e716c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">AES CTR encrypt is mapped to the AES CTR generic operation. <br/></td></tr>
 <tr class="separator:ga98e8cdcf011fa16580c634f652e716c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga32883228bbe28bc8c432a2613db8a2a2"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00195.html#gad43a88cb0e49e087461cc22daf32bd77">_ltc_aes_key_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#ga32883228bbe28bc8c432a2613db8a2a2">ltc_aes_key_t</a></td></tr>
+<tr class="memdesc:ga32883228bbe28bc8c432a2613db8a2a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of AES key for ECB and CBC decrypt operations.  <a href="#ga32883228bbe28bc8c432a2613db8a2a2">More...</a><br/></td></tr>
+<tr class="separator:ga32883228bbe28bc8c432a2613db8a2a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ga27d8eb054f08682d9514d575e682eafb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#ga27d8eb054f08682d9514d575e682eafb">ltc_aes_key_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00195.html#gga27d8eb054f08682d9514d575e682eafbaafaf0e007874ad89f4c8dcc881f0a58c">kLTC_EncryptKey</a> = 0U, 
+<tr class="memitem:gad43a88cb0e49e087461cc22daf32bd77"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#gad43a88cb0e49e087461cc22daf32bd77">_ltc_aes_key_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00195.html#ggad43a88cb0e49e087461cc22daf32bd77aafaf0e007874ad89f4c8dcc881f0a58c">kLTC_EncryptKey</a> = 0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00195.html#gga27d8eb054f08682d9514d575e682eafba92c0c89db07bdd0b564802fcd76b5f9e">kLTC_DecryptKey</a> = 1U
+&#160;&#160;<a class="el" href="a00195.html#ggad43a88cb0e49e087461cc22daf32bd77a92c0c89db07bdd0b564802fcd76b5f9e">kLTC_DecryptKey</a> = 1U
 <br/>
  }</td></tr>
-<tr class="memdesc:ga27d8eb054f08682d9514d575e682eafb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of AES key for ECB and CBC decrypt operations.  <a href="a00195.html#ga27d8eb054f08682d9514d575e682eafb">More...</a><br/></td></tr>
-<tr class="separator:ga27d8eb054f08682d9514d575e682eafb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:gad43a88cb0e49e087461cc22daf32bd77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of AES key for ECB and CBC decrypt operations.  <a href="a00195.html#gad43a88cb0e49e087461cc22daf32bd77">More...</a><br/></td></tr>
+<tr class="separator:gad43a88cb0e49e087461cc22daf32bd77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -147,13 +154,13 @@ Functions</h2></td></tr>
 <tr class="memitem:gaab52cfd18b6a18b1270922d056021b5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#gaab52cfd18b6a18b1270922d056021b5c">LTC_AES_EncryptEcb</a> (LTC_Type *base, const uint8_t *plaintext, uint8_t *ciphertext, uint32_t size, const uint8_t *key, uint32_t keySize)</td></tr>
 <tr class="memdesc:gaab52cfd18b6a18b1270922d056021b5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encrypts AES using the ECB block mode.  <a href="#gaab52cfd18b6a18b1270922d056021b5c">More...</a><br/></td></tr>
 <tr class="separator:gaab52cfd18b6a18b1270922d056021b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga62d081e484c4e0eb7b98960afd031fc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#ga62d081e484c4e0eb7b98960afd031fc3">LTC_AES_DecryptEcb</a> (LTC_Type *base, const uint8_t *ciphertext, uint8_t *plaintext, uint32_t size, const uint8_t *key, uint32_t keySize, <a class="el" href="a00195.html#ga27d8eb054f08682d9514d575e682eafb">ltc_aes_key_t</a> keyType)</td></tr>
+<tr class="memitem:ga62d081e484c4e0eb7b98960afd031fc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#ga62d081e484c4e0eb7b98960afd031fc3">LTC_AES_DecryptEcb</a> (LTC_Type *base, const uint8_t *ciphertext, uint8_t *plaintext, uint32_t size, const uint8_t *key, uint32_t keySize, <a class="el" href="a00195.html#ga32883228bbe28bc8c432a2613db8a2a2">ltc_aes_key_t</a> keyType)</td></tr>
 <tr class="memdesc:ga62d081e484c4e0eb7b98960afd031fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrypts AES using ECB block mode.  <a href="#ga62d081e484c4e0eb7b98960afd031fc3">More...</a><br/></td></tr>
 <tr class="separator:ga62d081e484c4e0eb7b98960afd031fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9f95a64808ea51e9c7ecba4e58b18dc9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#ga9f95a64808ea51e9c7ecba4e58b18dc9">LTC_AES_EncryptCbc</a> (LTC_Type *base, const uint8_t *plaintext, uint8_t *ciphertext, uint32_t size, const uint8_t iv[<a class="el" href="a00195.html#ga5a2bfdc6fb7984ec4735fae9af33c637">LTC_AES_IV_SIZE</a>], const uint8_t *key, uint32_t keySize)</td></tr>
 <tr class="memdesc:ga9f95a64808ea51e9c7ecba4e58b18dc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encrypts AES using CBC block mode.  <a href="#ga9f95a64808ea51e9c7ecba4e58b18dc9">More...</a><br/></td></tr>
 <tr class="separator:ga9f95a64808ea51e9c7ecba4e58b18dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7b65c4bfd108efd02c63ba82add445a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#ga7b65c4bfd108efd02c63ba82add445a2">LTC_AES_DecryptCbc</a> (LTC_Type *base, const uint8_t *ciphertext, uint8_t *plaintext, uint32_t size, const uint8_t iv[<a class="el" href="a00195.html#ga5a2bfdc6fb7984ec4735fae9af33c637">LTC_AES_IV_SIZE</a>], const uint8_t *key, uint32_t keySize, <a class="el" href="a00195.html#ga27d8eb054f08682d9514d575e682eafb">ltc_aes_key_t</a> keyType)</td></tr>
+<tr class="memitem:ga7b65c4bfd108efd02c63ba82add445a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#ga7b65c4bfd108efd02c63ba82add445a2">LTC_AES_DecryptCbc</a> (LTC_Type *base, const uint8_t *ciphertext, uint8_t *plaintext, uint32_t size, const uint8_t iv[<a class="el" href="a00195.html#ga5a2bfdc6fb7984ec4735fae9af33c637">LTC_AES_IV_SIZE</a>], const uint8_t *key, uint32_t keySize, <a class="el" href="a00195.html#ga32883228bbe28bc8c432a2613db8a2a2">ltc_aes_key_t</a> keyType)</td></tr>
 <tr class="memdesc:ga7b65c4bfd108efd02c63ba82add445a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrypts AES using CBC block mode.  <a href="#ga7b65c4bfd108efd02c63ba82add445a2">More...</a><br/></td></tr>
 <tr class="separator:ga7b65c4bfd108efd02c63ba82add445a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga895db6523e09d71ae3a1c56d30e37662"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#ga895db6523e09d71ae3a1c56d30e37662">LTC_AES_CryptCtr</a> (LTC_Type *base, const uint8_t *input, uint8_t *output, uint32_t size, uint8_t counter[<a class="el" href="a00195.html#gacd3ad4fc9a5754f2c8eaee6ef5f93377">LTC_AES_BLOCK_SIZE</a>], const uint8_t *key, uint32_t keySize, uint8_t counterlast[<a class="el" href="a00195.html#gacd3ad4fc9a5754f2c8eaee6ef5f93377">LTC_AES_BLOCK_SIZE</a>], uint32_t *szLeft)</td></tr>
@@ -166,21 +173,34 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga5bc7a8f6dbcb2b6ff3d648149cdf208d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrypts AES and authenticates using CCM block mode.  <a href="#ga5bc7a8f6dbcb2b6ff3d648149cdf208d">More...</a><br/></td></tr>
 <tr class="separator:ga5bc7a8f6dbcb2b6ff3d648149cdf208d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="ga27d8eb054f08682d9514d575e682eafb"></a>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="ga32883228bbe28bc8c432a2613db8a2a2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00195.html#ga27d8eb054f08682d9514d575e682eafb">ltc_aes_key_t</a></td>
+          <td class="memname">typedef enum <a class="el" href="a00195.html#gad43a88cb0e49e087461cc22daf32bd77">_ltc_aes_key_t</a>  <a class="el" href="a00195.html#ga32883228bbe28bc8c432a2613db8a2a2">ltc_aes_key_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="gad43a88cb0e49e087461cc22daf32bd77"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00195.html#gad43a88cb0e49e087461cc22daf32bd77">_ltc_aes_key_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga27d8eb054f08682d9514d575e682eafbaafaf0e007874ad89f4c8dcc881f0a58c"></a>kLTC_EncryptKey</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggad43a88cb0e49e087461cc22daf32bd77aafaf0e007874ad89f4c8dcc881f0a58c"></a>kLTC_EncryptKey</em>&nbsp;</td><td class="fielddoc">
 <p>Input key is an encrypt key. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga27d8eb054f08682d9514d575e682eafba92c0c89db07bdd0b564802fcd76b5f9e"></a>kLTC_DecryptKey</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggad43a88cb0e49e087461cc22daf32bd77a92c0c89db07bdd0b564802fcd76b5f9e"></a>kLTC_DecryptKey</em>&nbsp;</td><td class="fielddoc">
 <p>Input key is a decrypt key. </p>
 </td></tr>
 </table>
@@ -343,7 +363,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00195.html#ga27d8eb054f08682d9514d575e682eafb">ltc_aes_key_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00195.html#ga32883228bbe28bc8c432a2613db8a2a2">ltc_aes_key_t</a>&#160;</td>
           <td class="paramname"><em>keyType</em>&#160;</td>
         </tr>
         <tr>
@@ -488,7 +508,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00195.html#ga27d8eb054f08682d9514d575e682eafb">ltc_aes_key_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00195.html#ga32883228bbe28bc8c432a2613db8a2a2">ltc_aes_key_t</a>&#160;</td>
           <td class="paramname"><em>keyType</em>&#160;</td>
         </tr>
         <tr>

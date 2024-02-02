@@ -1,7 +1,7 @@
 /*
 ** ###################################################################
-**     Processors:          MIMX8UD7DVK10_cm33
-**                          MIMX8UD7DVP10_cm33
+**     Processors:          MIMX8UD7DVK08_cm33
+**                          MIMX8UD7DVP08_cm33
 **
 **     Compiler:            GNU C Compiler
 **     Reference manual:    IMX8ULPRM, Rev. B, November. 2021

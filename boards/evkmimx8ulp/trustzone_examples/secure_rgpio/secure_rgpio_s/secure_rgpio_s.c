@@ -23,21 +23,19 @@
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define DEMO_SYSTICK_CLK_FREQ      (CLOCK_GetFreq(kCLOCK_RtcOscClk) * 6)
-#define TEST_SW7_GPIO GPIOB
-#define TEST_SW8_GPIO GPIOB
-#define TEST_NS_GPIOA GPIOA
+#define DEMO_SYSTICK_CLK_FREQ (CLOCK_GetFreq(kCLOCK_RtcOscClk) * 6)
+#define TEST_SW7_GPIO         GPIOB
+#define TEST_SW8_GPIO         GPIOB
+#define TEST_NS_GPIOA         GPIOA
 
+#define TEST_SW7_GPIO_PIN 13U
+#define TEST_SW8_GPIO_PIN 12U
 
-#define TEST_SW7_GPIO_PIN    13U
-#define TEST_SW8_GPIO_PIN    12U
-
-#define TEST_GPIOA_PIN15  15U
-#define TEST_GPIOA_PIN18  18U
-
+#define TEST_GPIOA_PIN15 15U
+#define TEST_GPIOA_PIN18 18U
 
 #define NON_SECURE_START DEMO_CODE_START_NS
-#define SW_PRESSED 0
+#define SW_PRESSED       0
 
 /*******************************************************************************
  * Prototypes
@@ -70,17 +68,17 @@ void SystemInitHook(void)
  */
 void SysTick_Handler(void)
 {
-    App_SetTrdcMBCNSE(0,3,0,false);
-    App_SetTrdcMBCNSE(0,3,1,false);
+    App_SetTrdcMBCNSE(0, 3, 0, false);
+    App_SetTrdcMBCNSE(0, 3, 1, false);
 
     TEST_SW7_GPIO->PCNS &= (~(1 << TEST_SW7_GPIO_PIN));
     if (RGPIO_PinRead(TEST_SW7_GPIO, TEST_SW7_GPIO_PIN) != SW_PRESSED)
     {
-        RGPIO_PinWrite(TEST_NS_GPIOA,TEST_GPIOA_PIN15,0);
+        RGPIO_PinWrite(TEST_NS_GPIOA, TEST_GPIOA_PIN15, 0);
     }
     else
     {
-        RGPIO_PinWrite(TEST_NS_GPIOA,TEST_GPIOA_PIN15,1);
+        RGPIO_PinWrite(TEST_NS_GPIOA, TEST_GPIOA_PIN15, 1);
     }
 
     /* Control GPIO MASK based on SW8 button press */
@@ -95,8 +93,8 @@ void SysTick_Handler(void)
         TEST_SW7_GPIO->PCNS |= (1 << TEST_SW7_GPIO_PIN);
     }
 
-    App_SetTrdcMBCNSE(0,3,0,true);
-    App_SetTrdcMBCNSE(0,3,1,true);
+    App_SetTrdcMBCNSE(0, 3, 0, true);
+    App_SetTrdcMBCNSE(0, 3, 1, true);
 }
 
 /*!
@@ -121,8 +119,8 @@ int main(void)
 
     CLOCK_EnableClock(kCLOCK_RgpioB);
     CLOCK_EnableClock(kCLOCK_RgpioA);
-    App_SetTrdcMBCNSE(0,3,0,false);
-    App_SetTrdcMBCNSE(0,3,1,false);
+    App_SetTrdcMBCNSE(0, 3, 0, false);
+    App_SetTrdcMBCNSE(0, 3, 1, false);
 
     RGPIO_PinInit(TEST_SW7_GPIO, TEST_SW7_GPIO_PIN, &sw_config);
     RGPIO_PinInit(TEST_SW8_GPIO, TEST_SW8_GPIO_PIN, &sw_config);
@@ -131,8 +129,8 @@ int main(void)
 
     TEST_NS_GPIOA->PCNS |= (1 << TEST_GPIOA_PIN18);
 
-    App_SetTrdcMBCNSE(0,3,0,true);
-    App_SetTrdcMBCNSE(0,3,1,true);
+    App_SetTrdcMBCNSE(0, 3, 0, true);
+    App_SetTrdcMBCNSE(0, 3, 1, true);
 
     /* Set systick reload value to generate 5ms interrupt */
     SysTick_Config(USEC_TO_COUNT(500000U, DEMO_SYSTICK_CLK_FREQ));

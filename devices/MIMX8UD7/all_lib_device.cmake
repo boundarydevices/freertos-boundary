@@ -3,6 +3,10 @@
 #  # description: Board_project_template evkmimx8ulp
 #  set(CONFIG_USE_BOARD_Project_Template_evkmimx8ulp true)
 
+#set.board.evk9mimx8ulp
+#  # description: Board_project_template evk9mimx8ulp
+#  set(CONFIG_USE_BOARD_Project_Template_evk9mimx8ulp true)
+
 #set.device.MIMX8UD7
 #  # description: Device MIMX8UD7_startup
 #  set(CONFIG_USE_device_MIMX8UD7_startup true)
@@ -24,18 +28,6 @@
 
 #  # description: Driver pf1550
 #  set(CONFIG_USE_driver_pf1550 true)
-
-#  # description: Component lpcrtc
-#  set(CONFIG_USE_component_lpcrtc true)
-
-#  # description: Component ecspi_adapter
-#  set(CONFIG_USE_component_ecspi_adapter true)
-
-#  # description: Component minispi_adapter
-#  set(CONFIG_USE_component_minispi_adapter true)
-
-#  # description: Component vspi_adapter
-#  set(CONFIG_USE_component_vspi_adapter true)
 
 #  # description: Driver srtm
 #  set(CONFIG_USE_driver_srtm true)
@@ -145,15 +137,6 @@
 #  # description: Driver dialog7212
 #  set(CONFIG_USE_driver_dialog7212 true)
 
-#  # description: Component eeprom_at45dbxxxx
-#  set(CONFIG_USE_component_eeprom_AT45DBxxxx true)
-
-#  # description: Component eeprom_internalflash
-#  set(CONFIG_USE_component_eeprom_InternalFlash true)
-
-#  # description: Component eeprom_at25fxxxx
-#  set(CONFIG_USE_component_eeprom_AT25Fxxxx true)
-
 #  # description: Driver nand_flash-controller-flexspi
 #  set(CONFIG_USE_driver_nand_flash-controller-flexspi true)
 
@@ -258,87 +241,6 @@
 
 #  # description: Driver video-common
 #  set(CONFIG_USE_driver_video-common true)
-
-#  # description: Driver video-i2c
-#  set(CONFIG_USE_driver_video-i2c true)
-
-#  # description: Driver camera-common
-#  set(CONFIG_USE_driver_camera-common true)
-
-#  # description: Driver camera-device-common
-#  set(CONFIG_USE_driver_camera-device-common true)
-
-#  # description: Driver camera-device-sccb
-#  set(CONFIG_USE_driver_camera-device-sccb true)
-
-#  # description: Driver camera-device-ov5640
-#  set(CONFIG_USE_driver_camera-device-ov5640 true)
-
-#  # description: Driver camera-device-mt9m114
-#  set(CONFIG_USE_driver_camera-device-mt9m114 true)
-
-#  # description: Driver camera-device-ov7670
-#  set(CONFIG_USE_driver_camera-device-ov7670 true)
-
-#  # description: Driver camera-device-ov7725
-#  set(CONFIG_USE_driver_camera-device-ov7725 true)
-
-#  # description: Driver camera-device-max9286
-#  set(CONFIG_USE_driver_camera-device-max9286 true)
-
-#  # description: Driver camera-receiver-common
-#  set(CONFIG_USE_driver_camera-receiver-common true)
-
-#  # description: Driver camera-receiver-flexio
-#  set(CONFIG_USE_driver_camera-receiver-flexio true)
-
-#  # description: Driver display-common
-#  set(CONFIG_USE_driver_display-common true)
-
-#  # description: Driver display-adv7535
-#  set(CONFIG_USE_driver_display-adv7535 true)
-
-#  # description: Driver display-hx8394
-#  set(CONFIG_USE_driver_display-hx8394 true)
-
-#  # description: Driver display-rm67191
-#  set(CONFIG_USE_driver_display-rm67191 true)
-
-#  # description: Driver display-rm67162
-#  set(CONFIG_USE_driver_display-rm67162 true)
-
-#  # description: Driver display-rm68191
-#  set(CONFIG_USE_driver_display-rm68191 true)
-
-#  # description: Driver display-rm68200
-#  set(CONFIG_USE_driver_display-rm68200 true)
-
-#  # description: Driver display-mipi-dsi-cmd
-#  set(CONFIG_USE_driver_display-mipi-dsi-cmd true)
-
-#  # description: Driver display-it6263
-#  set(CONFIG_USE_driver_display-it6263 true)
-
-#  # description: Driver display-it6161
-#  set(CONFIG_USE_driver_display-it6161 true)
-
-#  # description: Driver dc-fb-common
-#  set(CONFIG_USE_driver_dc-fb-common true)
-
-#  # description: Driver fbdev
-#  set(CONFIG_USE_driver_fbdev true)
-
-#  # description: Driver dc-fb-lcdif
-#  set(CONFIG_USE_driver_dc-fb-lcdif true)
-
-#  # description: Driver dc-fb-dsi-cmd
-#  set(CONFIG_USE_driver_dc-fb-dsi-cmd true)
-
-#  # description: Driver dbi
-#  set(CONFIG_USE_driver_dbi true)
-
-#  # description: Driver dbi_flexio_edma
-#  set(CONFIG_USE_driver_dbi_flexio_edma true)
 
 #  # description: Driver wm8960
 #  set(CONFIG_USE_driver_wm8960 true)
@@ -508,6 +410,30 @@
 #  # description: SOC MIPI DSI Driver
 #  set(CONFIG_USE_driver_soc_mipi_dsi true)
 
+#  # description: Driver display-rm68200
+#  set(CONFIG_USE_driver_display-rm68200 true)
+
+#  # description: Driver video-i2c
+#  set(CONFIG_USE_driver_video-i2c true)
+
+#  # description: Driver display-it6161
+#  set(CONFIG_USE_driver_display-it6161 true)
+
+#  # description: Driver display-mipi-dsi-cmd
+#  set(CONFIG_USE_driver_display-mipi-dsi-cmd true)
+
+#  # description: Driver display-hx8394
+#  set(CONFIG_USE_driver_display-hx8394 true)
+
+#  # description: Driver display-common
+#  set(CONFIG_USE_driver_display-common true)
+
+#  # description: Driver dc-fb-common
+#  set(CONFIG_USE_driver_dc-fb-common true)
+
+#  # description: Driver dc-fb-lcdif
+#  set(CONFIG_USE_driver_dc-fb-lcdif true)
+
 #set.CMSIS
 #  # description: CMSIS-CORE for Cortex-M, ARMv8-M, ARMv8.1-M
 #  set(CONFIG_USE_CMSIS_Include_core_cm true)
@@ -580,9 +506,6 @@
 #  # description: FreeRTOS NXP extension
 #  set(CONFIG_USE_middleware_freertos-kernel_extension true)
 
-#  # description: Template configuration file to be edited by user. Provides also memory allocator (heap_x), change variant if needed.
-#  set(CONFIG_USE_middleware_freertos-kernel_template true)
-
 #  # description: FreeRTOS kernel
 #  set(CONFIG_USE_middleware_freertos-kernel true)
 
@@ -616,10 +539,6 @@
 #  # description: FreeRTOS Secure Context
 #  set(CONFIG_USE_middleware_freertos-kernel_cm33_trustzone_secure true)
 
-#set.middleware.llhttp
-#  # description: HTTP parser in LLVM IR
-#  set(CONFIG_USE_middleware_llhttp true)
-
 #set.middleware.mbedtls
 #  # description: mbedTLS Template
 #  set(CONFIG_USE_middleware_mbedtls_template true)
@@ -642,6 +561,111 @@
 
 #  # description: RPMsg-Lite XOS environment layer sources
 #  set(CONFIG_USE_middleware_multicore_rpmsg_lite_xos true)
+
+#  # description: RPMsg-Lite Azure RTOS environment sources
+#  set(CONFIG_USE_middleware_multicore_rpmsg_lite_azurertos true)
+
+#  # description: eRPC
+#  set(CONFIG_USE_middleware_multicore_erpc_common true)
+
+#  # description: eRPC_arbitrator
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_arbitrator true)
+
+#  # description: eRPC_client
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_client true)
+
+#  # description: eRPC_server
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_server true)
+
+#  # description: eRPC_rpmsg_tty_rtos_remote_c_wrapper
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_rpmsg_tty_rtos_remote_c_wrapper true)
+
+#  # description: eRPC_mu_c_wrapper
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_mu_c_wrapper true)
+
+#  # description: eRPC_rpmsg_lite_master_c_wrapper
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_rpmsg_lite_master_c_wrapper true)
+
+#  # description: eRPC_rpmsg_lite_remote_c_wrapper
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_rpmsg_lite_remote_c_wrapper true)
+
+#  # description: eRPC_rpmsg_lite_rtos_master_c_wrapper
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_rpmsg_lite_rtos_master_c_wrapper true)
+
+#  # description: eRPC_rpmsg_lite_rtos_remote_c_wrapper
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_rpmsg_lite_rtos_remote_c_wrapper true)
+
+#  # description: eRPC_dspi_master_c_wrapper
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_dspi_master_c_wrapper true)
+
+#  # description: eRPC_dspi_slave_c_wrapper
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_dspi_slave_c_wrapper true)
+
+#  # description: eRPC_spi_master_c_wrapper
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_spi_master_c_wrapper true)
+
+#  # description: eRPC_spi_slave_c_wrapper
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_spi_slave_c_wrapper true)
+
+#  # description: eRPC_lpspi_slave_c_wrapper
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_lpspi_slave_c_wrapper true)
+
+#  # description: eRPC_i2c_slave_c_wrapper
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_i2c_slave_c_wrapper true)
+
+#  # description: eRPC_lpi2c_slave_c_wrapper
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_lpi2c_slave_c_wrapper true)
+
+#  # description: eRPC_mu_transport
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_mu_transport true)
+
+#  # description: eRPC_mu_rtos_transport
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_mu_rtos_transport true)
+
+#  # description: eRPC_rpmsg_lite_transport
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_rpmsg_lite_transport true)
+
+#  # description: eRPC_rpmsg_lite_rtos_transport
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_rpmsg_lite_rtos_transport true)
+
+#  # description: eRPC_rpmsg_tty_rtos_transport
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_rpmsg_tty_rtos_transport true)
+
+#  # description: eRPC_uart_cmsis_transport
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_uart_cmsis_transport true)
+
+#  # description: eRPC_dspi_master_transport
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_dspi_master_transport true)
+
+#  # description: eRPC_dspi_slave_transport
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_dspi_slave_transport true)
+
+#  # description: eRPC_spi_master_transport
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_spi_master_transport true)
+
+#  # description: eRPC_spi_slave_transport
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_spi_slave_transport true)
+
+#  # description: eRPC_lpspi_slave_transport
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_lpspi_slave_transport true)
+
+#  # description: eRPC_i2c_slave_transport
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_i2c_slave_transport true)
+
+#  # description: eRPC_lpi2c_slave_transport
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_lpi2c_slave_transport true)
+
+#  # description: eRPC_port_freertos
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_port_freertos true)
+
+#  # description: eRPC_port_stdlib
+#  set(CONFIG_USE_middleware_multicore_erpc_eRPC_port_stdlib true)
+
+#  # description: erpc_doc
+#  set(CONFIG_USE_middleware_multicore_erpc_doc true)
+
+#  # description: eRPC
+#  set(CONFIG_USE_middleware_multicore_erpc true)
 
 #  # description: RPMsg-Lite for evkmimx8ulp_m33 baremetal application
 #  set(CONFIG_USE_middleware_multicore_rpmsg_lite_imx8ulp_m33_bm true)
@@ -668,10 +692,18 @@
 #  set(CONFIG_USE_middleware_voice_spot_model true)
 
 #  # description: Voice Spot library for Cortex M33
-#  set(CONFIG_USE_middleware_voice_spot_cm33_iMX8ULP true)
+#  set(CONFIG_USE_middleware_voice_spot_cm33 true)
 
 #  # description: Voice Spot library
 #  set(CONFIG_USE_middleware_voice_spot_fusionf1_imx8ULP true)
+
+#set.middleware.corehttp
+#  # description: Client implementation of the HTTP/1.1 specification for embedded devices.
+#  set(CONFIG_USE_middleware_freertos_corehttp true)
+
+#set.middleware.llhttp
+#  # description: HTTP parser in LLVM IR
+#  set(CONFIG_USE_middleware_llhttp true)
 
 #set.middleware.naturedsp_fusionf1
 #  # description: NatureDSP
@@ -693,9 +725,6 @@
 #  # description: Component osa interface
 #  set(CONFIG_USE_component_osa_interface true)
 
-#  # description: Component osa thread
-#  set(CONFIG_USE_component_osa_thread true)
-
 list(APPEND CMAKE_MODULE_PATH
   ${CMAKE_CURRENT_LIST_DIR}/.
   ${CMAKE_CURRENT_LIST_DIR}/../../CMSIS/Core/Include
@@ -704,6 +733,7 @@ list(APPEND CMAKE_MODULE_PATH
   ${CMAKE_CURRENT_LIST_DIR}/../../CMSIS/NN
   ${CMAKE_CURRENT_LIST_DIR}/../../CMSIS/RTOS2
   ${CMAKE_CURRENT_LIST_DIR}/../../CMSIS/RTOS2/Include
+  ${CMAKE_CURRENT_LIST_DIR}/../../boards/evk9mimx8ulp/project_template
   ${CMAKE_CURRENT_LIST_DIR}/../../boards/evkmimx8ulp/project_template
   ${CMAKE_CURRENT_LIST_DIR}/../../components/audio
   ${CMAKE_CURRENT_LIST_DIR}/../../components/button
@@ -714,7 +744,6 @@ list(APPEND CMAKE_MODULE_PATH
   ${CMAKE_CURRENT_LIST_DIR}/../../components/codec/wm8960
   ${CMAKE_CURRENT_LIST_DIR}/../../components/common_task
   ${CMAKE_CURRENT_LIST_DIR}/../../components/crc
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/extern_flash
   ${CMAKE_CURRENT_LIST_DIR}/../../components/flash/nand
   ${CMAKE_CURRENT_LIST_DIR}/../../components/flash/nand/flexspi
   ${CMAKE_CURRENT_LIST_DIR}/../../components/flash/nor
@@ -743,31 +772,12 @@ list(APPEND CMAKE_MODULE_PATH
   ${CMAKE_CURRENT_LIST_DIR}/../../components/timer_manager
   ${CMAKE_CURRENT_LIST_DIR}/../../components/uart
   ${CMAKE_CURRENT_LIST_DIR}/../../components/video
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/camera
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/camera/device
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/camera/device/max9286
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/camera/device/mt9m114
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/camera/device/ov5640
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/camera/device/ov7670
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/camera/device/ov7725
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/camera/device/sccb
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/camera/receiver
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/camera/receiver/flexio
   ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display/adv7535
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display/dbi
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display/dbi/flexio
   ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display/dc
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display/dc/dsi_cmd
   ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display/dc/lcdif
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display/fbdev
   ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display/hx8394
   ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display/it6161
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display/it6263
   ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display/mipi_dsi_cmd
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display/rm67162
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display/rm67191
-  ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display/rm68191
   ${CMAKE_CURRENT_LIST_DIR}/../../components/video/display/rm68200
   ${CMAKE_CURRENT_LIST_DIR}/../../components/video/i2c
   ${CMAKE_CURRENT_LIST_DIR}/../../middleware/bm
@@ -778,6 +788,7 @@ list(APPEND CMAKE_MODULE_PATH
   ${CMAKE_CURRENT_LIST_DIR}/../../middleware/pkcs11
   ${CMAKE_CURRENT_LIST_DIR}/../../middleware/tinycbor
   ${CMAKE_CURRENT_LIST_DIR}/../../middleware/voice_spot
+  ${CMAKE_CURRENT_LIST_DIR}/../../rtos/freertos/corehttp
   ${CMAKE_CURRENT_LIST_DIR}/../../rtos/freertos/freertos-kernel
   ${CMAKE_CURRENT_LIST_DIR}/cmsis_drivers
   ${CMAKE_CURRENT_LIST_DIR}/drivers
@@ -785,8 +796,10 @@ list(APPEND CMAKE_MODULE_PATH
   ${CMAKE_CURRENT_LIST_DIR}/template
   ${CMAKE_CURRENT_LIST_DIR}/utilities
   ${CMAKE_CURRENT_LIST_DIR}/utilities/debug_console_lite
+  ${CMAKE_CURRENT_LIST_DIR}/utilities/shell
 )
 
+include_if_use(BOARD_Project_Template_evk9mimx8ulp)
 include_if_use(BOARD_Project_Template_evkmimx8ulp)
 include_if_use(CMSIS_DSP_Include)
 include_if_use(CMSIS_DSP_Source)
@@ -818,15 +831,10 @@ include_if_use(component_codec_adapters.MIMX8UD7)
 include_if_use(component_codec_i2c.MIMX8UD7)
 include_if_use(component_common_task)
 include_if_use(component_da7212_adapter.MIMX8UD7)
-include_if_use(component_ecspi_adapter.MIMX8UD7)
-include_if_use(component_eeprom_AT25Fxxxx.MIMX8UD7)
-include_if_use(component_eeprom_AT45DBxxxx.MIMX8UD7)
-include_if_use(component_eeprom_InternalFlash.MIMX8UD7)
 include_if_use(component_i3c_adapter.MIMX8UD7)
 include_if_use(component_i3c_bus.MIMX8UD7)
 include_if_use(component_i3c_bus_adapter.MIMX8UD7)
 include_if_use(component_lists.MIMX8UD7)
-include_if_use(component_lpcrtc.MIMX8UD7)
 include_if_use(component_lpi2c_adapter.MIMX8UD7)
 include_if_use(component_lpit_adapter.MIMX8UD7)
 include_if_use(component_lpspi_adapter.MIMX8UD7)
@@ -835,13 +843,11 @@ include_if_use(component_lpuart_adapter.MIMX8UD7)
 include_if_use(component_lpuart_dma_adapter.MIMX8UD7)
 include_if_use(component_mem_manager.MIMX8UD7)
 include_if_use(component_mem_manager_light.MIMX8UD7)
-include_if_use(component_minispi_adapter.MIMX8UD7)
 include_if_use(component_mrt_adapter.MIMX8UD7)
 include_if_use(component_osa)
 include_if_use(component_osa_bm)
 include_if_use(component_osa_free_rtos)
 include_if_use(component_osa_interface)
-include_if_use(component_osa_thread)
 include_if_use(component_panic.MIMX8UD7)
 include_if_use(component_pwm_tpm_adapter.MIMX8UD7)
 include_if_use(component_reset_adapter.MIMX8UD7)
@@ -857,7 +863,6 @@ include_if_use(component_software_crc_adapter.MIMX8UD7)
 include_if_use(component_software_rng_adapter.MIMX8UD7)
 include_if_use(component_timer_manager.MIMX8UD7)
 include_if_use(component_tpm_adapter.MIMX8UD7)
-include_if_use(component_vspi_adapter.MIMX8UD7)
 include_if_use(component_wm8960_adapter.MIMX8UD7)
 include_if_use(device_MIMX8UD7_CMSIS.MIMX8UD7)
 include_if_use(device_MIMX8UD7_DSP.MIMX8UD7)
@@ -866,16 +871,6 @@ include_if_use(driver_acmp.MIMX8UD7)
 include_if_use(driver_ad_dma3.MIMX8UD7)
 include_if_use(driver_bbnsm.MIMX8UD7)
 include_if_use(driver_cache_cache64.MIMX8UD7)
-include_if_use(driver_camera-common.MIMX8UD7)
-include_if_use(driver_camera-device-common.MIMX8UD7)
-include_if_use(driver_camera-device-max9286.MIMX8UD7)
-include_if_use(driver_camera-device-mt9m114.MIMX8UD7)
-include_if_use(driver_camera-device-ov5640.MIMX8UD7)
-include_if_use(driver_camera-device-ov7670.MIMX8UD7)
-include_if_use(driver_camera-device-ov7725.MIMX8UD7)
-include_if_use(driver_camera-device-sccb.MIMX8UD7)
-include_if_use(driver_camera-receiver-common.MIMX8UD7)
-include_if_use(driver_camera-receiver-flexio.MIMX8UD7)
 include_if_use(driver_casper.MIMX8UD7)
 include_if_use(driver_clock.MIMX8UD7)
 include_if_use(driver_cmsis_lpi2c.MIMX8UD7)
@@ -884,26 +879,17 @@ include_if_use(driver_cmsis_lpuart.MIMX8UD7)
 include_if_use(driver_codec.MIMX8UD7)
 include_if_use(driver_common.MIMX8UD7)
 include_if_use(driver_dac12.MIMX8UD7)
-include_if_use(driver_dbi.MIMX8UD7)
-include_if_use(driver_dbi_flexio_edma.MIMX8UD7)
 include_if_use(driver_dc-fb-common.MIMX8UD7)
-include_if_use(driver_dc-fb-dsi-cmd.MIMX8UD7)
 include_if_use(driver_dc-fb-lcdif.MIMX8UD7)
 include_if_use(driver_dialog7212.MIMX8UD7)
-include_if_use(driver_display-adv7535.MIMX8UD7)
 include_if_use(driver_display-common.MIMX8UD7)
 include_if_use(driver_display-hx8394.MIMX8UD7)
 include_if_use(driver_display-it6161.MIMX8UD7)
-include_if_use(driver_display-it6263.MIMX8UD7)
 include_if_use(driver_display-mipi-dsi-cmd.MIMX8UD7)
-include_if_use(driver_display-rm67162.MIMX8UD7)
-include_if_use(driver_display-rm67191.MIMX8UD7)
-include_if_use(driver_display-rm68191.MIMX8UD7)
 include_if_use(driver_display-rm68200.MIMX8UD7)
 include_if_use(driver_dma3.MIMX8UD7)
 include_if_use(driver_epdc.MIMX8UD7)
 include_if_use(driver_ewm.MIMX8UD7)
-include_if_use(driver_fbdev.MIMX8UD7)
 include_if_use(driver_flexcan.MIMX8UD7)
 include_if_use(driver_flexcan_edma.MIMX8UD7)
 include_if_use(driver_flexio.MIMX8UD7)
@@ -988,13 +974,48 @@ include_if_use(middleware_freertos-kernel_heap_3)
 include_if_use(middleware_freertos-kernel_heap_4)
 include_if_use(middleware_freertos-kernel_heap_5)
 include_if_use(middleware_freertos-kernel_mpu_wrappers)
-include_if_use(middleware_freertos-kernel_template)
+include_if_use(middleware_freertos_corehttp)
 include_if_use(middleware_llhttp)
 include_if_use(middleware_mbedtls_els_pkc_config)
 include_if_use(middleware_mbedtls_template)
 include_if_use(middleware_multicore)
+include_if_use(middleware_multicore_erpc)
+include_if_use(middleware_multicore_erpc_common)
+include_if_use(middleware_multicore_erpc_doc)
+include_if_use(middleware_multicore_erpc_eRPC_arbitrator)
+include_if_use(middleware_multicore_erpc_eRPC_client)
+include_if_use(middleware_multicore_erpc_eRPC_dspi_master_c_wrapper)
+include_if_use(middleware_multicore_erpc_eRPC_dspi_master_transport)
+include_if_use(middleware_multicore_erpc_eRPC_dspi_slave_c_wrapper)
+include_if_use(middleware_multicore_erpc_eRPC_dspi_slave_transport)
+include_if_use(middleware_multicore_erpc_eRPC_i2c_slave_c_wrapper)
+include_if_use(middleware_multicore_erpc_eRPC_i2c_slave_transport)
+include_if_use(middleware_multicore_erpc_eRPC_lpi2c_slave_c_wrapper)
+include_if_use(middleware_multicore_erpc_eRPC_lpi2c_slave_transport)
+include_if_use(middleware_multicore_erpc_eRPC_lpspi_slave_c_wrapper)
+include_if_use(middleware_multicore_erpc_eRPC_lpspi_slave_transport)
+include_if_use(middleware_multicore_erpc_eRPC_mu_c_wrapper)
+include_if_use(middleware_multicore_erpc_eRPC_mu_rtos_transport)
+include_if_use(middleware_multicore_erpc_eRPC_mu_transport)
+include_if_use(middleware_multicore_erpc_eRPC_port_freertos)
+include_if_use(middleware_multicore_erpc_eRPC_port_stdlib)
+include_if_use(middleware_multicore_erpc_eRPC_rpmsg_lite_master_c_wrapper)
+include_if_use(middleware_multicore_erpc_eRPC_rpmsg_lite_remote_c_wrapper)
+include_if_use(middleware_multicore_erpc_eRPC_rpmsg_lite_rtos_master_c_wrapper)
+include_if_use(middleware_multicore_erpc_eRPC_rpmsg_lite_rtos_remote_c_wrapper)
+include_if_use(middleware_multicore_erpc_eRPC_rpmsg_lite_rtos_transport)
+include_if_use(middleware_multicore_erpc_eRPC_rpmsg_lite_transport)
+include_if_use(middleware_multicore_erpc_eRPC_rpmsg_tty_rtos_remote_c_wrapper)
+include_if_use(middleware_multicore_erpc_eRPC_rpmsg_tty_rtos_transport)
+include_if_use(middleware_multicore_erpc_eRPC_server)
+include_if_use(middleware_multicore_erpc_eRPC_spi_master_c_wrapper)
+include_if_use(middleware_multicore_erpc_eRPC_spi_master_transport)
+include_if_use(middleware_multicore_erpc_eRPC_spi_slave_c_wrapper)
+include_if_use(middleware_multicore_erpc_eRPC_spi_slave_transport)
+include_if_use(middleware_multicore_erpc_eRPC_uart_cmsis_transport)
 include_if_use(middleware_multicore_remoteproc_loadscript)
 include_if_use(middleware_multicore_rpmsg_lite)
+include_if_use(middleware_multicore_rpmsg_lite_azurertos)
 include_if_use(middleware_multicore_rpmsg_lite_bm)
 include_if_use(middleware_multicore_rpmsg_lite_freertos)
 include_if_use(middleware_multicore_rpmsg_lite_imx8ulp_fusionf1_bm)
@@ -1004,7 +1025,7 @@ include_if_use(middleware_multicore_rpmsg_lite_xos)
 include_if_use(middleware_naturedsp_naturedsp_fusionf1)
 include_if_use(middleware_pkcs11)
 include_if_use(middleware_tinycbor)
-include_if_use(middleware_voice_spot_cm33_iMX8ULP)
+include_if_use(middleware_voice_spot_cm33)
 include_if_use(middleware_voice_spot_fusionf1_imx8ULP)
 include_if_use(middleware_voice_spot_model)
 include_if_use(utilities_misc_utilities.MIMX8UD7)

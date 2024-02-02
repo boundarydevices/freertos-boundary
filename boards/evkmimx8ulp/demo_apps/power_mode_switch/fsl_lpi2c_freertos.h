@@ -38,8 +38,8 @@ typedef struct _lpi2c_rtos_handle
     LPI2C_Type *base;                 /*!< LPI2C base address */
     lpi2c_master_handle_t drv_handle; /*!< Handle of the underlying driver, treated as opaque by the RTOS layer */
     status_t async_status;
-    SemaphoreHandle_t mutex;     /*!< Mutex to lock the handle during a trasfer */
-    SemaphoreHandle_t semaphore; /*!< Semaphore to notify and unblock task when transfer ends */
+    SemaphoreHandle_t mutex;          /*!< Mutex to lock the handle during a trasfer */
+    SemaphoreHandle_t semaphore;      /*!< Semaphore to notify and unblock task when transfer ends */
 } lpi2c_rtos_handle_t;
 /*! \endcond */
 

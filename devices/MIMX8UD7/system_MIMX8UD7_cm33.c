@@ -1,7 +1,8 @@
 /*
 ** ###################################################################
-**     Processors:          MIMX8UD7DVK10_cm33
-**                          MIMX8UD7DVP10_cm33
+**     Processors:          MIMX8UD7CVP08_cm33
+**                          MIMX8UD7DVK08_cm33
+**                          MIMX8UD7DVP08_cm33
 **
 **     Compilers:           GNU C Compiler
 **                          IAR ANSI C/C++ Compiler for ARM
@@ -9,7 +10,7 @@
 **
 **     Reference manual:    IMX8ULPRM, Rev. D, December. 2022
 **     Version:             rev. 5.0, 2023-04-27
-**     Build:               b230607
+**     Build:               b230927
 **
 **     Abstract:
 **         Provides a system configuration function and a global variable that
@@ -41,7 +42,7 @@
 /*!
  * @file MIMX8UD7_cm33
  * @version 1.0
- * @date 070623
+ * @date 270923
  * @brief Device specific configuration file for MIMX8UD7 (implementation file)
  *
  * Provides a system configuration function and a global variable that contains

@@ -1,5 +1,5 @@
 /*
- * Copyright 2021-2022 NXP
+ * Copyright 2021-2023 NXP
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -641,13 +641,29 @@ void TRDC_MrcRegionNseClear(TRDC_Type *base, uint8_t mrcIdx, uint16_t regionMask
  *
  * param base TRDC peripheral base address.
  * param mrcIdx MRC index.
- * param domianMask Bit mask of the domians whose NSE bits to clear.
+ * param domainMask Bit mask of the domians whose NSE bits to clear.
  */
-void TRDC_MrcDomainNseClear(TRDC_Type *base, uint8_t mrcIdx, uint16_t domianMask)
+void TRDC_MrcDomainNseClear(TRDC_Type *base, uint8_t mrcIdx, uint16_t domainMask)
 {
     assert(NULL != base);
 
-    base->MRC_INDEX[mrcIdx].MRC_NSE_RGN_CLR_ALL = ((uint32_t)domianMask);
+    uint8_t domainCount  = (uint8_t)((base->TRDC_HWCFG0 & TRDC_TRDC_HWCFG0_NDID_MASK) >> TRDC_TRDC_HWCFG0_NDID_SHIFT);
+    uint8_t maxDomainId = 0U;
+    uint16_t tmpDomainMask = domainMask;
+
+    while (tmpDomainMask != 0U)
+    {
+        tmpDomainMask >>= 1U;
+        maxDomainId++;
+    }
+
+    /* Check whether the domain mask contains invalid domain. */
+    if (maxDomainId > domainCount)
+    {
+        assert(false);
+    }
+
+    base->MRC_INDEX[mrcIdx].MRC_NSE_RGN_CLR_ALL = ((uint32_t)domainMask << 16U);
 }
 
 /*!
@@ -743,15 +759,16 @@ void TRDC_MbcNseClearAll(TRDC_Type *base, uint8_t mbcIdx, uint16_t domainMask, u
     assert(NULL != base);
 
     uint8_t dmainCount  = (uint8_t)((base->TRDC_HWCFG0 & TRDC_TRDC_HWCFG0_NDID_MASK) >> TRDC_TRDC_HWCFG0_NDID_SHIFT);
-    uint8_t maxDomianId = 0U;
+    uint8_t maxDomainId = 0U;
+    uint16_t tmpDomainMask = domainMask;
 
-    while (domainMask != 0U)
+    while (tmpDomainMask != 0U)
     {
-        domainMask >>= 1U;
-        maxDomianId++;
+        tmpDomainMask >>= 1U;
+        maxDomainId++;
     }
 
-    if ((maxDomianId - 1U) > dmainCount)
+    if (maxDomainId > dmainCount)
     {
         assert(false);
     }

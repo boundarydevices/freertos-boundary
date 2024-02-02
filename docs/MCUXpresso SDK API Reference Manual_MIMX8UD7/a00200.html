@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.14.1</span>
+   &#160;<span id="projectnumber">Rev 2.15.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -100,6 +100,7 @@ $(document).ready(function(){initNavTree('a00200.html','');});
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -125,6 +126,13 @@ Macros</h2></td></tr>
 <tr class="memdesc:ga530cd6b85fc81427b81eb16b837b7dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">SEMA42 gate n register address.  <a href="#ga530cd6b85fc81427b81eb16b837b7dfd">More...</a><br/></td></tr>
 <tr class="separator:ga530cd6b85fc81427b81eb16b837b7dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga361bb6f5bed9ff0d80465d85f6ce5a43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga361bb6f5bed9ff0d80465d85f6ce5a43"></a>
+typedef enum <a class="el" href="a00200.html#ga9debc9b8b1d7539cc7cdb606eed77cd0">_sema42_gate_status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#ga361bb6f5bed9ff0d80465d85f6ce5a43">sema42_gate_status_t</a></td></tr>
+<tr class="memdesc:ga361bb6f5bed9ff0d80465d85f6ce5a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">SEMA42 gate lock status. <br/></td></tr>
+<tr class="separator:ga361bb6f5bed9ff0d80465d85f6ce5a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:gaac34dfe6c6b73b43a4656c9dce041034"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
@@ -135,42 +143,42 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:gaac34dfe6c6b73b43a4656c9dce041034"><td class="mdescLeft">&#160;</td><td class="mdescRight">SEMA42 status return codes.  <a href="a00200.html#gaac34dfe6c6b73b43a4656c9dce041034">More...</a><br/></td></tr>
 <tr class="separator:gaac34dfe6c6b73b43a4656c9dce041034"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga84eaf8f6200932ad09d0a75ece6e463d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#ga84eaf8f6200932ad09d0a75ece6e463d">sema42_gate_status_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463daf9c45d68a643bac3a34b65a5cf1aade6">kSEMA42_Unlocked</a> = 0U, 
+<tr class="memitem:ga9debc9b8b1d7539cc7cdb606eed77cd0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#ga9debc9b8b1d7539cc7cdb606eed77cd0">_sema42_gate_status</a> { <br/>
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0af9c45d68a643bac3a34b65a5cf1aade6">kSEMA42_Unlocked</a> = 0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da3006dc26747f1eb2b8e1941660f7dc24">kSEMA42_LockedByProc0</a> = 1U, 
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a3006dc26747f1eb2b8e1941660f7dc24">kSEMA42_LockedByProc0</a> = 1U, 
 <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463daf4a285b99114632b0b00c85ea7bf1956">kSEMA42_LockedByProc1</a> = 2U, 
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0af4a285b99114632b0b00c85ea7bf1956">kSEMA42_LockedByProc1</a> = 2U, 
 <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da94c2081e5497a328126e879bf874fbc5">kSEMA42_LockedByProc2</a> = 3U, 
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a94c2081e5497a328126e879bf874fbc5">kSEMA42_LockedByProc2</a> = 3U, 
 <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463dad41b71c7142766ca69c0aade4c3bee53">kSEMA42_LockedByProc3</a> = 4U, 
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0ad41b71c7142766ca69c0aade4c3bee53">kSEMA42_LockedByProc3</a> = 4U, 
 <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da9e984cd6c8ea942d67614cbd8faa7799">kSEMA42_LockedByProc4</a> = 5U, 
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a9e984cd6c8ea942d67614cbd8faa7799">kSEMA42_LockedByProc4</a> = 5U, 
 <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463dad5f2f1cfd86ec744eb9c406baccdeeaf">kSEMA42_LockedByProc5</a> = 6U, 
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0ad5f2f1cfd86ec744eb9c406baccdeeaf">kSEMA42_LockedByProc5</a> = 6U, 
 <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da20694487b850dcb86cab5735686d9590">kSEMA42_LockedByProc6</a> = 7U, 
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a20694487b850dcb86cab5735686d9590">kSEMA42_LockedByProc6</a> = 7U, 
 <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da94c20f5d4e13f9ed07cf370b3bbe33cb">kSEMA42_LockedByProc7</a> = 8U, 
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a94c20f5d4e13f9ed07cf370b3bbe33cb">kSEMA42_LockedByProc7</a> = 8U, 
 <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463dad614e32d0b0814c1fe69c3e0c92f7f94">kSEMA42_LockedByProc8</a> = 9U, 
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0ad614e32d0b0814c1fe69c3e0c92f7f94">kSEMA42_LockedByProc8</a> = 9U, 
 <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da26fb2f4b8ceeae21a8e93fd069d9f2e4">kSEMA42_LockedByProc9</a> = 10U, 
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a26fb2f4b8ceeae21a8e93fd069d9f2e4">kSEMA42_LockedByProc9</a> = 10U, 
 <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463dad888ea149e3b30c04aec2e828f97deee">kSEMA42_LockedByProc10</a> = 11U, 
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0ad888ea149e3b30c04aec2e828f97deee">kSEMA42_LockedByProc10</a> = 11U, 
 <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da1923aba10a72c8729327a9c8e6a008f1">kSEMA42_LockedByProc11</a> = 12U, 
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a1923aba10a72c8729327a9c8e6a008f1">kSEMA42_LockedByProc11</a> = 12U, 
 <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463dac2129067e57645365d38996426d8197f">kSEMA42_LockedByProc12</a> = 13U, 
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0ac2129067e57645365d38996426d8197f">kSEMA42_LockedByProc12</a> = 13U, 
 <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da6e63d742de6625c789e49b0586f73c3e">kSEMA42_LockedByProc13</a> = 14U, 
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a6e63d742de6625c789e49b0586f73c3e">kSEMA42_LockedByProc13</a> = 14U, 
 <br/>
-&#160;&#160;<a class="el" href="a00200.html#gga84eaf8f6200932ad09d0a75ece6e463daed15def9132f383c674644194a699ef9">kSEMA42_LockedByProc14</a> = 15U
+&#160;&#160;<a class="el" href="a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0aed15def9132f383c674644194a699ef9">kSEMA42_LockedByProc14</a> = 15U
 <br/>
  }</td></tr>
-<tr class="memdesc:ga84eaf8f6200932ad09d0a75ece6e463d"><td class="mdescLeft">&#160;</td><td class="mdescRight">SEMA42 gate lock status.  <a href="a00200.html#ga84eaf8f6200932ad09d0a75ece6e463d">More...</a><br/></td></tr>
-<tr class="separator:ga84eaf8f6200932ad09d0a75ece6e463d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ga9debc9b8b1d7539cc7cdb606eed77cd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">SEMA42 gate lock status.  <a href="a00200.html#ga9debc9b8b1d7539cc7cdb606eed77cd0">More...</a><br/></td></tr>
+<tr class="separator:ga9debc9b8b1d7539cc7cdb606eed77cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -189,7 +197,7 @@ Functions</h2></td></tr>
 <tr class="memitem:gac19b80ba254697a9e22b54866226e879"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#gac19b80ba254697a9e22b54866226e879">SEMA42_Unlock</a> (SEMA42_Type *base, uint8_t gateNum)</td></tr>
 <tr class="memdesc:gac19b80ba254697a9e22b54866226e879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlocks the SEMA42 gate.  <a href="#gac19b80ba254697a9e22b54866226e879">More...</a><br/></td></tr>
 <tr class="separator:gac19b80ba254697a9e22b54866226e879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gace62f3aae17c5f6d75764f932f2a673f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00200.html#ga84eaf8f6200932ad09d0a75ece6e463d">sema42_gate_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#gace62f3aae17c5f6d75764f932f2a673f">SEMA42_GetGateStatus</a> (SEMA42_Type *base, uint8_t gateNum)</td></tr>
+<tr class="memitem:gace62f3aae17c5f6d75764f932f2a673f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00200.html#ga361bb6f5bed9ff0d80465d85f6ce5a43">sema42_gate_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#gace62f3aae17c5f6d75764f932f2a673f">SEMA42_GetGateStatus</a> (SEMA42_Type *base, uint8_t gateNum)</td></tr>
 <tr class="memdesc:gace62f3aae17c5f6d75764f932f2a673f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the status of the SEMA42 gate.  <a href="#gace62f3aae17c5f6d75764f932f2a673f">More...</a><br/></td></tr>
 <tr class="separator:gace62f3aae17c5f6d75764f932f2a673f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6fc8ecf853c6394511d55536d37c7d4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#ga6fc8ecf853c6394511d55536d37c7d4f">SEMA42_ResetGate</a> (SEMA42_Type *base, uint8_t gateNum)</td></tr>
@@ -202,7 +210,7 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
 <tr class="memitem:ga9d157e87f2444c405d2ebf7fe9a39508"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9d157e87f2444c405d2ebf7fe9a39508"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#ga9d157e87f2444c405d2ebf7fe9a39508">FSL_SEMA42_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 3))</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#ga9d157e87f2444c405d2ebf7fe9a39508">FSL_SEMA42_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 4))</td></tr>
 <tr class="memdesc:ga9d157e87f2444c405d2ebf7fe9a39508"><td class="mdescLeft">&#160;</td><td class="mdescRight">SEMA42 driver version. <br/></td></tr>
 <tr class="separator:ga9d157e87f2444c405d2ebf7fe9a39508"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -268,62 +276,62 @@ Driver version</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga84eaf8f6200932ad09d0a75ece6e463d"></a>
+<a class="anchor" id="ga9debc9b8b1d7539cc7cdb606eed77cd0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00200.html#ga84eaf8f6200932ad09d0a75ece6e463d">sema42_gate_status_t</a></td>
+          <td class="memname">enum <a class="el" href="a00200.html#ga9debc9b8b1d7539cc7cdb606eed77cd0">_sema42_gate_status</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463daf9c45d68a643bac3a34b65a5cf1aade6"></a>kSEMA42_Unlocked</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0af9c45d68a643bac3a34b65a5cf1aade6"></a>kSEMA42_Unlocked</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is unlocked. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da3006dc26747f1eb2b8e1941660f7dc24"></a>kSEMA42_LockedByProc0</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0a3006dc26747f1eb2b8e1941660f7dc24"></a>kSEMA42_LockedByProc0</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is locked by processor 0. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463daf4a285b99114632b0b00c85ea7bf1956"></a>kSEMA42_LockedByProc1</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0af4a285b99114632b0b00c85ea7bf1956"></a>kSEMA42_LockedByProc1</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is locked by processor 1. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da94c2081e5497a328126e879bf874fbc5"></a>kSEMA42_LockedByProc2</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0a94c2081e5497a328126e879bf874fbc5"></a>kSEMA42_LockedByProc2</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is locked by processor 2. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463dad41b71c7142766ca69c0aade4c3bee53"></a>kSEMA42_LockedByProc3</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0ad41b71c7142766ca69c0aade4c3bee53"></a>kSEMA42_LockedByProc3</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is locked by processor 3. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da9e984cd6c8ea942d67614cbd8faa7799"></a>kSEMA42_LockedByProc4</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0a9e984cd6c8ea942d67614cbd8faa7799"></a>kSEMA42_LockedByProc4</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is locked by processor 4. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463dad5f2f1cfd86ec744eb9c406baccdeeaf"></a>kSEMA42_LockedByProc5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0ad5f2f1cfd86ec744eb9c406baccdeeaf"></a>kSEMA42_LockedByProc5</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is locked by processor 5. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da20694487b850dcb86cab5735686d9590"></a>kSEMA42_LockedByProc6</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0a20694487b850dcb86cab5735686d9590"></a>kSEMA42_LockedByProc6</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is locked by processor 6. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da94c20f5d4e13f9ed07cf370b3bbe33cb"></a>kSEMA42_LockedByProc7</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0a94c20f5d4e13f9ed07cf370b3bbe33cb"></a>kSEMA42_LockedByProc7</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is locked by processor 7. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463dad614e32d0b0814c1fe69c3e0c92f7f94"></a>kSEMA42_LockedByProc8</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0ad614e32d0b0814c1fe69c3e0c92f7f94"></a>kSEMA42_LockedByProc8</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is locked by processor 8. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da26fb2f4b8ceeae21a8e93fd069d9f2e4"></a>kSEMA42_LockedByProc9</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0a26fb2f4b8ceeae21a8e93fd069d9f2e4"></a>kSEMA42_LockedByProc9</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is locked by processor 9. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463dad888ea149e3b30c04aec2e828f97deee"></a>kSEMA42_LockedByProc10</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0ad888ea149e3b30c04aec2e828f97deee"></a>kSEMA42_LockedByProc10</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is locked by processor 10. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da1923aba10a72c8729327a9c8e6a008f1"></a>kSEMA42_LockedByProc11</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0a1923aba10a72c8729327a9c8e6a008f1"></a>kSEMA42_LockedByProc11</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is locked by processor 11. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463dac2129067e57645365d38996426d8197f"></a>kSEMA42_LockedByProc12</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0ac2129067e57645365d38996426d8197f"></a>kSEMA42_LockedByProc12</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is locked by processor 12. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da6e63d742de6625c789e49b0586f73c3e"></a>kSEMA42_LockedByProc13</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0a6e63d742de6625c789e49b0586f73c3e"></a>kSEMA42_LockedByProc13</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is locked by processor 13. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463daed15def9132f383c674644194a699ef9"></a>kSEMA42_LockedByProc14</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga9debc9b8b1d7539cc7cdb606eed77cd0aed15def9132f383c674644194a699ef9"></a>kSEMA42_LockedByProc14</em>&nbsp;</td><td class="fielddoc">
 <p>The gate is locked by processor 14. </p>
 </td></tr>
 </table>
@@ -516,7 +524,7 @@ Driver version</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="a00200.html#ga84eaf8f6200932ad09d0a75ece6e463d">sema42_gate_status_t</a> SEMA42_GetGateStatus </td>
+          <td class="memname">static <a class="el" href="a00200.html#ga361bb6f5bed9ff0d80465d85f6ce5a43">sema42_gate_status_t</a> SEMA42_GetGateStatus </td>
           <td>(</td>
           <td class="paramtype">SEMA42_Type *&#160;</td>
           <td class="paramname"><em>base</em>, </td>

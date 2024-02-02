@@ -7,9 +7,16 @@
 
 #include "fsl_mu.h"
 
+/*******************************************************************************
+ * Definitions
+ ******************************************************************************/
 /* Component ID definition, used by tools. */
 #ifndef FSL_COMPONENT_ID
 #define FSL_COMPONENT_ID "platform.drivers.mu1"
+#endif
+
+#if defined(MU_RSTS)
+#define MU_RESETS_ARRAY MU_RSTS
 #endif
 
 /*******************************************************************************
@@ -22,6 +29,11 @@ static const clock_ip_name_t s_muClocks[] = MU_CLOCKS;
 /*! @brief Pointers to mu bases for each instance. */
 static MU_Type *const s_muBases[] = MU_BASE_PTRS;
 #endif /* FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL */
+
+#if defined(MU_RESETS_ARRAY)
+/* Reset array */
+static const reset_ip_name_t s_muResets[] = MU_RESETS_ARRAY;
+#endif
 
 /******************************************************************************
  * Code
@@ -58,6 +70,10 @@ void MU_Init(MU_Type *base)
 #if !(defined(FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL) && FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL)
     (void)CLOCK_EnableClock(s_muClocks[MU_GetInstance(base)]);
 #endif /* FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL */
+
+#if defined(MU_RESETS_ARRAY)
+    RESET_ReleasePeripheralReset(s_muResets[MU_GetInstance(base)]);
+#endif
 }
 
 /*!
@@ -274,7 +290,19 @@ void MU_BootOtherCore(MU_Type *base, mu_core_boot_mode_t mode)
 {
     uint32_t ccr0 = base->CCR0;
 
-    ccr0 = (ccr0 & ~(MU_CCR0_NMI_MASK | MU_CCR0_HR_MASK | MU_CCR0_RSTH_MASK | MU_CCR0_BOOT_MASK)) | MU_CCR0_BOOT(mode);
+#if !(defined(FSL_FEATURE_MU_NO_NMI) && (0 != FSL_FEATURE_MU_NO_NMI))
+    ccr0 &= ~MU_CCR0_NMI_MASK;
+#endif
+
+#if !(defined(FSL_FEATURE_MU_NO_HR) && (0 != FSL_FEATURE_MU_NO_HR))
+    ccr0 &= ~MU_CCR0_HR_MASK;
+#endif
+
+#if !(defined(FSL_FEATURE_MU_NO_RSTH) && (0 != FSL_FEATURE_MU_NO_RSTH))
+    ccr0 &= ~MU_CCR0_RSTH_MASK;
+#endif
+
+    ccr0 = (ccr0 & ~MU_CCR0_BOOT_MASK) | MU_CCR0_BOOT(mode);
 
     base->CCR0 = ccr0;
 }
@@ -292,12 +320,17 @@ void MU_HoldOtherCoreReset(MU_Type *base)
 {
     uint32_t ccr0 = base->CCR0;
 
-    ccr0 = (ccr0 & ~(MU_CCR0_NMI_MASK | MU_CCR0_HR_MASK)) | MU_CCR0_RSTH_MASK;
+#if !(defined(FSL_FEATURE_MU_NO_NMI) && (0 != FSL_FEATURE_MU_NO_NMI))
+    ccr0 &= ~MU_CCR0_NMI_MASK;
+#endif
+
+    ccr0 = (ccr0 & ~(MU_CCR0_HR_MASK)) | MU_CCR0_RSTH_MASK;
 
     base->CCR0 = ccr0;
 }
 #endif /* FSL_FEATURE_MU_NO_RSTH */
 
+#if !(defined(FSL_FEATURE_MU_NO_HR) && FSL_FEATURE_MU_NO_HR)
 /*!
  * brief Hardware reset the other core.
  *
@@ -371,8 +404,10 @@ void MU_HardwareResetOtherCore(MU_Type *base, bool waitReset, bool holdReset, mu
 #endif /* FSL_FEATURE_MU_NO_RSTH */
 
 #if !(defined(FSL_FEATURE_MU_NO_CORE_STATUS) && (0 != FSL_FEATURE_MU_NO_CORE_STATUS))
+#if !(defined(FSL_FEATURE_MU_HAS_RESET_ASSERT_INT) && (FSL_FEATURE_MU_HAS_RESET_ASSERT_INT == 0))
     /* Clean the reset assert pending flag. */
     base->CSSR0 = MU_CSSR0_RAIP_MASK;
+#endif
 #endif /* FSL_FEATURE_MU_NO_CORE_STATUS */
 
     /* Set CCR0[HR] to trigger hardware reset. */
@@ -382,11 +417,13 @@ void MU_HardwareResetOtherCore(MU_Type *base, bool waitReset, bool holdReset, mu
     if (waitReset)
     {
 #if !(defined(FSL_FEATURE_MU_NO_CORE_STATUS) && (0 != FSL_FEATURE_MU_NO_CORE_STATUS))
+#if !(defined(FSL_FEATURE_MU_HAS_RESET_ASSERT_INT) && (FSL_FEATURE_MU_HAS_RESET_ASSERT_INT == 0))
         /* Wait for the other core go to reset. */
         while (0U == (base->CSSR0 & MU_CSSR0_RAIP_MASK))
         {
             ; /* Intentional empty while*/
         }
+#endif /* FSL_FEATURE_MU_HAS_RESET_ASSERT_INT */
 #endif /* FSL_FEATURE_MU_NO_CORE_STATUS */
 
 #if !(defined(FSL_FEATURE_MU_NO_RSTH) && (0 != FSL_FEATURE_MU_NO_RSTH))
@@ -398,3 +435,4 @@ void MU_HardwareResetOtherCore(MU_Type *base, bool waitReset, bool holdReset, mu
 #endif /* FSL_FEATURE_MU_NO_RSTH */
     }
 }
+#endif /* FSL_FEATURE_MU_NO_HR */

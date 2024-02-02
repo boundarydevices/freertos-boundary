@@ -29,6 +29,32 @@
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
+#ifdef ENABLE_RAM_VECTOR_TABLE
+#include "fsl_lpspi.h"
+
+#if (defined(__ICCARM__))
+#pragma inline = forced 
+static inline uint32_t LPSPI_GetRxFifoCount(LPSPI_Type *base);
+#pragma inline = forced 
+static inline uint32_t LPSPI_ReadData(LPSPI_Type *base);
+#pragma inline = forced 
+static inline void LPSPI_DisableInterrupts(LPSPI_Type *base, uint32_t mask);
+#pragma inline = forced 
+static inline uint32_t LPSPI_GetTxFifoCount(LPSPI_Type *base);
+#pragma inline = forced 
+static inline void LPSPI_WriteData(LPSPI_Type *base, uint32_t data);
+#elif (defined(__GNUC__))
+static inline uint32_t LPSPI_GetRxFifoCount(LPSPI_Type *base) __attribute__((always_inline));
+static inline uint32_t LPSPI_ReadData(LPSPI_Type *base) __attribute__((always_inline));
+static inline void LPSPI_DisableInterrupts(LPSPI_Type *base, uint32_t mask) __attribute__((always_inline));
+static inline uint32_t LPSPI_GetTxFifoCount(LPSPI_Type *base) __attribute__((always_inline));
+static inline void LPSPI_WriteData(LPSPI_Type *base, uint32_t data) __attribute__((always_inline));
+#else
+#error Toolchain not supported.
+#endif
+/* Put the IRQ handler in RAM to reduce latency. */
+#endif
+AT_QUICKACCESS_SECTION_CODE(void EXAMPLE_LPSPI_SLAVE_IRQHandler(void));
 /* LPSPI user callback */
 void LPSPI_SlaveUserCallback(LPSPI_Type *base, lpspi_slave_handle_t *handle, status_t status, void *userData);
 
@@ -120,7 +146,7 @@ int main(void)
         BOARD_HandshakeWithUboot(); /* Must handshake with uboot, unless will get issues(such as: SoC reset all the
                                        time) */
     }
-    else /* low power boot type */
+    else                            /* low power boot type */
     {
         BOARD_SetTrdcGlobalConfig();
     }

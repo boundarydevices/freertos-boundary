@@ -15,7 +15,7 @@
  *
  * The CPU macro should be declared in the project or makefile.
  */
-#if (defined(CPU_MIMX8UD7DVK10_cm33) || defined(CPU_MIMX8UD7DVP10_cm33))
+#if (defined(CPU_MIMX8UD7CVP08_cm33) || defined(CPU_MIMX8UD7DVK08_cm33) || defined(CPU_MIMX8UD7DVP08_cm33))
 
 #define MIMX8UD7_cm33_SERIES
 
@@ -24,7 +24,7 @@
 /* CPU specific feature definitions */
 #include "MIMX8UD7_cm33_features.h"
 
-#elif (defined(CPU_MIMX8UD7DVK10_dsp0) || defined(CPU_MIMX8UD7DVP10_dsp0))
+#elif (defined(CPU_MIMX8UD7CVP08_dsp0) || defined(CPU_MIMX8UD7DVK08_dsp0) || defined(CPU_MIMX8UD7DVP08_dsp0))
 
 #define MIMX8UD7_dsp0_SERIES
 

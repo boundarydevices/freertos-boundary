@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef _FSL_EPDC_H_
-#define _FSL_EPDC_H_
+#ifndef FSL_EPDC_H_
+#define FSL_EPDC_H_
 
 #include "fsl_common.h"
 
@@ -20,9 +20,9 @@
  ******************************************************************************/
 
 /*! @name Driver version */
-/*@{*/
-#define FSL_EPDC_DRIVER_VERSION (MAKE_VERSION(2, 0, 1))
-/*@}*/
+/*! @{ */
+#define FSL_EPDC_DRIVER_VERSION (MAKE_VERSION(2, 0, 2))
+/*! @} */
 
 /* Definitions for interrupts and status. */
 
@@ -553,7 +553,7 @@ static inline void EPDC_ClearStatusFlags(EPDC_Type *base, uint16_t statusFlags)
 {
     base->IRQ.CLR = ((uint32_t)statusFlags << 12U);
 }
-/* @} */
+/*! @} */
 
 /*!
  * @name LUT complete Interrupt Sub-group
@@ -621,7 +621,7 @@ static inline void EPDC_ClearLutCompleteStatusFlags(EPDC_Type *base, uint64_t st
     base->IRQ1.CLR = (uint32_t)statusFlags;
     base->IRQ2.CLR = (uint32_t)(statusFlags >> 32U);
 }
-/* @} */
+/*! @} */
 
 /*!
  * @name Initialization and deinitialization
@@ -653,7 +653,7 @@ void EPDC_Init(EPDC_Type *base);
  * @param base EPDC base pointer
  */
 void EPDC_Deinit(EPDC_Type *base);
-/* @} */
+/*! @} */
 
 /*!
  * @name Display Parameters Initialization
@@ -668,7 +668,7 @@ void EPDC_Deinit(EPDC_Type *base);
  * @retval kStatus_InvalidArgument parameter(s) is(are) not valid
  */
 status_t EPDC_InitDisplay(EPDC_Type *base, const epdc_display_config_t *config);
-/* @} */
+/*! @} */
 
 /*!
  * @name FIFO control
@@ -701,7 +701,7 @@ static inline void EPDC_EnableFifoPanic(EPDC_Type *base, bool enable)
         base->FIFOCTRL.CLR = EPDC_FIFOCTRL_ENABLE_PRIORITY_MASK;
     }
 }
-/* @} */
+/*! @} */
 
 /*!
  * @name TCE(timing controller engine) configuration
@@ -718,7 +718,7 @@ static inline void EPDC_EnableFifoPanic(EPDC_Type *base, bool enable)
  * @retval kStatus_InvalidArgument parameter(s) is(are) not valid
  */
 status_t EPDC_ConfigTCE(EPDC_Type *base, const epdc_tce_config_t *config);
-/* @} */
+/*! @} */
 
 /*!
  * @name PIGEON mode configuration
@@ -746,7 +746,7 @@ void EPDC_ConfigPigeon(EPDC_Type *base, uint8_t signalNum, const epdc_pigeon_con
  * @param config Pointer to EPDC pigeon mode cycle configuration structure
  */
 void EPDC_ConfigPigeonCycle(EPDC_Type *base, const epdc_pigeon_cycle_config_t *config);
-/* @} */
+/*! @} */
 
 /*!
  * @name Panel Update
@@ -793,7 +793,7 @@ status_t EPDC_UpdateDisplay(EPDC_Type *base, epdc_update_config_t *config);
  * @param config Pointer to autowave configuration structure
  */
 void EPDC_SetAutowaveMap(EPDC_Type *base, const epdc_autowave_map_t *config);
-/* @} */
+/*! @} */
 
 /*!
  * @name Panel Update
@@ -806,7 +806,7 @@ void EPDC_SetAutowaveMap(EPDC_Type *base, const epdc_autowave_map_t *config);
  * @param config Pointer to GPIO configuration structure
  */
 void EPDC_SetGpioOutput(EPDC_Type *base, const epdc_gpio_config_t *config);
-/* @} */
+/*! @} */
 
 /*!
  * @name Update collision
@@ -819,7 +819,7 @@ void EPDC_SetGpioOutput(EPDC_Type *base, const epdc_gpio_config_t *config);
  * @param status Pointer to collision status structure
  */
 void EPDC_GetCollisionStatus(EPDC_Type *base, epdc_collision_status_t *status);
-/* @} */
+/*! @} */
 
 #if defined(__cplusplus)
 }
@@ -827,4 +827,4 @@ void EPDC_GetCollisionStatus(EPDC_Type *base, epdc_collision_status_t *status);
 
 /*! @}*/
 
-#endif /* _FSL_EPDC_H_ */
+#endif /* FSL_EPDC_H_ */

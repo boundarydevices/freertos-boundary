@@ -96,10 +96,10 @@ static ps_rtd_pwr_mode_cfgs_t rtd_pwr_mode_cfgs = {
     /* PD */
     [PD_RTD_PWR_MODE] =
         {
-            .in_reg_cfg     = IN_REG_CFG(0x00000000, 0x00000000),
-            .pmic_cfg       = PMIC_CFG(0x00000023, 0x00000000),
-            .pad_cfg        = PAD_CFG(0x00000003, 0x00000000, 0x00000000),
-            .mon_cfg        = MON_CFG(0x00000000, 0x0, 0x0),
+            .in_reg_cfg = IN_REG_CFG(0x00000000, 0x00000000),
+            .pmic_cfg   = PMIC_CFG(0x00000023, 0x00000000),
+            .pad_cfg    = PAD_CFG(0x00000003, 0x00000000, 0x00000000),
+            .mon_cfg    = MON_CFG(0x00000000, 0x0, 0x0),
             /*
              * bias mode: 0b00 - NBB, 0b01 - RBB, 0b10 - AFBB, 0b11 - ARBB
              * 0x0000 0001
@@ -801,7 +801,7 @@ bool LPM_Suspend()
         "loop:\n"
         "PUSH    {R4-R11, LR}\n" /* #1 Save core registers to current stack */
 
-        "MRS     R0, PSP\n" /* #2 Save PSP register to global variable s_psp */
+        "MRS     R0, PSP\n"      /* #2 Save PSP register to global variable s_psp */
         "LDR     R1, =s_psp\n"
         "STR     R0, [R1]\n"
 
@@ -854,9 +854,9 @@ AT_QUICKACCESS_SECTION_CODE(bool LPM_Resume(void))
     SIM_SEC->DGO_CTRL0 =
         (SIM_SEC->DGO_CTRL0 & ~(SIM_SEC_DGO_CTRL0_UPDATE_DGO_GP0_MASK)) | SIM_SEC_DGO_CTRL0_WR_ACK_DGO_GP0_MASK;
 
-    LPM_ModuleStateRestore(); /* #6 Restore peripheral setting */
-                              //__WFI(); //pass
-    LPM_NvicStateRestore();   /* #5 Restore NVIC setting */
+    LPM_ModuleStateRestore();           /* #6 Restore peripheral setting */
+                                        //__WFI(); //pass
+    LPM_NvicStateRestore();             /* #5 Restore NVIC setting */
 
     CACHE64_EnableCache(CACHE64_CTRL0); /* enable code bus cache(I-Cache) */
 
@@ -940,7 +940,7 @@ bool LPM_SystemPowerDown(void)
     status = LPM_Suspend();
 
     BOARD_ConfigMPU();
-    //BOARD_ResumeClockInit();
+    // BOARD_ResumeClockInit();
 
     return status;
 }

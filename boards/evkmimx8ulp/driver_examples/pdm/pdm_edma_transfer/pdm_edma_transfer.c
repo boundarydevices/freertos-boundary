@@ -61,6 +61,9 @@ static volatile bool s_fifoErrorFlag = false;
 static volatile bool s_pdmRxFinished = false;
 
 static const pdm_config_t pdmConfig = {
+#if defined(FSL_FEATURE_PDM_HAS_DECIMATION_FILTER_BYPASS) && FSL_FEATURE_PDM_HAS_DECIMATION_FILTER_BYPASS
+    .enableFilterBypass = false,
+#endif
     .enableDoze        = false,
     .fifoWatermark     = DEMO_PDM_FIFO_WATERMARK,
     .qualityMode       = DEMO_PDM_QUALITY_MODE,
@@ -117,7 +120,7 @@ void DEMO_PDM_ERROR_IRQHandler(void)
         PDM_ClearOutputStatus(DEMO_PDM, status);
     }
 #endif
-    __DSB();
+    SDK_ISR_EXIT_BARRIER;
 }
 
 /*!
@@ -139,7 +142,7 @@ int main(void)
         BOARD_HandshakeWithUboot(); /* Must handshake with uboot, unless will get issues(such as: SoC reset all the
                                        time) */
     }
-    else /* low power boot type */
+    else                            /* low power boot type */
     {
         BOARD_SetTrdcGlobalConfig();
     }

@@ -99,7 +99,7 @@ int main(void)
         BOARD_HandshakeWithUboot(); /* Must handshake with uboot, unless will get issues(such as: SoC reset all the
                                        time) */
     }
-    else /* low power boot type */
+    else                            /* low power boot type */
     {
         BOARD_SetTrdcGlobalConfig();
     }
@@ -118,6 +118,9 @@ int main(void)
     /* DMA Mux init and EDMA init */
     edma_config_t edmaConfig = {0};
     EDMA_GetDefaultConfig(&edmaConfig);
+#if defined(BOARD_GetEDMAConfig)
+    BOARD_GetEDMAConfig(edmaConfig);
+#endif
     EDMA_Init(EXAMPLE_LPSPI_MASTER_DMA_BASEADDR, &edmaConfig);
 
 #if (defined(FSL_FEATURE_SOC_DMAMUX_COUNT) && FSL_FEATURE_SOC_DMAMUX_COUNT)

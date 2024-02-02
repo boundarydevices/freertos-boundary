@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 NXP
+ * Copyright 2021,2023 NXP
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -35,6 +35,9 @@
 #define EXAMPLE_TRDC_MBC_ACCESS_CONTROL_POLICY_ALL_INDEX  0
 #define EXAMPLE_TRDC_MBC_ACCESS_CONTROL_POLICY_NONE_INDEX 1
 
+#define FSL_FEATURE_TRDC_HAS_MBC 1
+#define FSL_FEATURE_TRDC_HAS_MRC 1
+
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
@@ -45,6 +48,8 @@ void APP_TouchMrcMemory(void);
 void APP_TouchMbcMemory(void);
 void APP_CheckAndResolveMrcAccessError(trdc_domain_error_t *error);
 void APP_CheckAndResolveMbcAccessError(trdc_domain_error_t *error);
+void APP_ResolveMbcAccessError();
+void APP_ResolveMrcAccessError();
 
 /*******************************************************************************
  * Variables
@@ -304,8 +309,38 @@ void APP_CheckAndResolveMbcAccessError(trdc_domain_error_t *error)
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
     }
 }
+static int mrc_tested = 0;
+static int mbc_tested = 0;
+void APP_ResolveMrcAccessError()
+{
+    trdc_domain_error_t trdc_err;
+
+    if (mrc_tested != 0)
+        return;
+    if (kStatus_Success == TRDC_GetAndClearFirstDomainError(EXAMPLE_TRDC_INSTANCE, &trdc_err))
+    {
+        mrc_tested++;
+        APP_CheckAndResolveMrcAccessError(&trdc_err);
+    }
+
+
+}
+
+void APP_ResolveMbcAccessError()
+{
+    trdc_domain_error_t trdc_err;
+
+    if (mbc_tested != 0)
+        return;
+    if (kStatus_Success == TRDC_GetAndClearFirstDomainError(EXAMPLE_TRDC_INSTANCE, &trdc_err))
+    {
+        mbc_tested++;
+        APP_CheckAndResolveMbcAccessError(&trdc_err);
+    }
+}
 void Fault_handler()
 {
+#if defined(TRDC_DOMAIN_ERROR_OFFSET) && TRDC_DOMAIN_ERROR_OFFSET
     trdc_domain_error_t error;
     while (kStatus_Success == TRDC_GetAndClearFirstDomainError(EXAMPLE_TRDC_INSTANCE, &error))
     {
@@ -313,6 +348,15 @@ void Fault_handler()
         APP_CheckAndResolveMbcAccessError(&error);
         g_hardfaultFlag = true;
     }
+#else
+    g_hardfaultFlag = true;
+#if defined(FSL_FEATURE_TRDC_HAS_MRC) && FSL_FEATURE_TRDC_HAS_MRC
+    APP_ResolveMrcAccessError();
+#endif
+#if defined(FSL_FEATURE_TRDC_HAS_MBC) && FSL_FEATURE_TRDC_HAS_MBC
+    APP_ResolveMbcAccessError();
+#endif
+#endif
 }
 /*!
  * @brief BusFault_Handler
@@ -320,7 +364,7 @@ void Fault_handler()
 void BusFault_Handler(void)
 {
     Fault_handler();
-    __DSB();
+    SDK_ISR_EXIT_BARRIER;
 }
 
 /*!
@@ -329,7 +373,7 @@ void BusFault_Handler(void)
 void HardFault_Handler(void)
 {
     Fault_handler();
-    __DSB();
+    SDK_ISR_EXIT_BARRIER;
 }
 
 /*!
@@ -346,6 +390,7 @@ int main(void)
     PRINTF("TRDC example start\r\n");
 
     APP_SetTrdcGlobalConfig();
+#if defined(FSL_FEATURE_TRDC_HAS_MRC) && FSL_FEATURE_TRDC_HAS_MRC
 #ifdef CPU_KW45B41Z83AFTA
     /* For KW45B41Z83 soc, The memory 0x48800000-0x48A00000 controlled by MRC0 belongs to the NBU flash memory,
        and CM33 core can only be able to access it if the silicon is NXP Fab or NXP Provisioned.
@@ -368,7 +413,9 @@ int main(void)
         }
         PRINTF("The MRC selected region is accessiable now\r\n");
     }
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_MBC) && FSL_FEATURE_TRDC_HAS_MBC
     /* Set the MBC unaccessible. */
     PRINTF("Set the MBC selected memory block not accessiable\r\n");
     APP_SetMbcUnaccessible();
@@ -384,6 +431,7 @@ int main(void)
     }
 
     PRINTF("The MBC selected block is accessiable now\r\n");
+#endif
 
     PRINTF("TRDC example Success\r\n");
 

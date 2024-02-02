@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: Sgtl5000</title>
+<title>MCUXpresso SDK API Reference Manual: MSMC: Multicore System Mode Controller</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.14.1</span>
+   &#160;<span id="projectnumber">Rev 2.15.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -99,346 +99,368 @@ $(document).ready(function(){initNavTree('a00048.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#files">Files</a> &#124;
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">Sgtl5000<div class="ingroups"><a class="el" href="a00206.html">CODEC Driver</a></div></div>  </div>
+<div class="title">MSMC: Multicore System Mode Controller</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
+<p>The MCUXpresso SDK provides a peripheral driver for the Multicore System Mode Controller (MSMC) module of MCUXpresso SDK devices.</p>
+<h1><a class="anchor" id="MSMCTpyUC"></a>
+Typical use case</h1>
+<h2><a class="anchor" id="MSMCSetCore0RunToVlpr"></a>
+Set Core 0 from RUN to VLPR mode</h2>
+<p>Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/msmc </p>
+<h2><a class="anchor" id="MSMCSetCore0VlprOrHsrunToRun"></a>
+Set Core 0 from VLPR/HSRUN to RUN mode</h2>
+<p>Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/msmc </p>
+<h1><a class="anchor" id="MSMCTpyUC"></a>
+Typical use case</h1>
+<h2><a class="anchor" id="MSMCSetCore0RunToHsrun"></a>
+Set Core 0 from RUN to HSRUN mode</h2>
+<p>Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/msmc </p>
+<h2><a class="anchor" id="MSMCWaitStop"></a>
+Enter wait or stop modes</h2>
+<p>SMC driver provides APIs to set MCU to different wait modes and stop modes. At the same time, there are pre-function and post-function for the modes setting. The pre-function and post-function are used for:</p>
+<ol type="1">
+<li>Disable/enable the interrupt through PRIMASK. In practise, there is such scenario: the application sets the wakeup interrupt and calls SMC function <a class="el" href="a00048.html#gaa1e2666198ce75322be3280472a224ee">SMC_SetPowerModeStop</a> to set MCU to STOP mode, but the wakeup interrupt happens so quickly that the ISR completed before the function <a class="el" href="a00048.html#gaa1e2666198ce75322be3280472a224ee">SMC_SetPowerModeStop</a>, as a result, the MCU enters STOP mode and never be wakeup by the interrupt. In this case, application could first disable interrupt through PRIMASK, then set the wakeup interrupt and enter STOP mode. After wakeup, the first thing is enable the interrupt through PRIMASK. The MCU could still be wakeup when disable interrupt through PRIMASK. The pre- and post- functions handle the PRIMASK inside.</li>
+</ol>
+<div class="fragment"><div class="line"><a class="code" href="a00048.html#ga344da3e55dffa5d50fb4872e40f36ff0">SMC_PreEnterStopModes</a>();</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* Enable the wakeup interrupt here. */</span></div>
+<div class="line"></div>
+<div class="line"><a class="code" href="a00048.html#gaa1e2666198ce75322be3280472a224ee">SMC_SetPowerModeStop</a>(SMC0, <a class="code" href="a00048.html#ggaa8d9e56e87c773e0c77995ba8f7fbef1a04f63da1ef433f2240cc42337c55e1b0">kSMC_PartialStop</a>);</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="a00048.html#gaee8b556d6a459c2a69b8178ee4279df6">SMC_PostExitStopModes</a>();</div>
+</div><!-- fragment --><p>For other use cases, please refer to the comments of the MSMC driver header file. Some example codes are also provided. </p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:a00140"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html">fsl_msmc.h</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:a00340"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a00340">sgtl_audio_format_t</a></td></tr>
-<tr class="memdesc:a00340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio format configuration.  <a href="a00048.html#a00340">More...</a><br/></td></tr>
-<tr class="separator:a00340"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00341"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a00341">sgtl_config_t</a></td></tr>
-<tr class="memdesc:a00341"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initailize structure of sgtl5000.  <a href="a00048.html#a00341">More...</a><br/></td></tr>
-<tr class="separator:a00341"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00342"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a></td></tr>
-<tr class="memdesc:a00342"><td class="mdescLeft">&#160;</td><td class="mdescRight">SGTL codec handler.  <a href="a00048.html#a00342">More...</a><br/></td></tr>
-<tr class="separator:a00342"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00332"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a00332">_smc_reset_pin_filter_config</a></td></tr>
+<tr class="memdesc:a00332"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset pin filter configuration.  <a href="a00048.html#a00332">More...</a><br/></td></tr>
+<tr class="separator:a00332"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:gab0aa3e54cd2934b67b9882957456c391"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gab0aa3e54cd2934b67b9882957456c391">CHIP_ID</a>&#160;&#160;&#160;0x0000U</td></tr>
-<tr class="memdesc:gab0aa3e54cd2934b67b9882957456c391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define the register address of sgtl5000.  <a href="#gab0aa3e54cd2934b67b9882957456c391">More...</a><br/></td></tr>
-<tr class="separator:gab0aa3e54cd2934b67b9882957456c391"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5b4c16e15a52d1a940e4d47bf3574752"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5b4c16e15a52d1a940e4d47bf3574752"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga5b4c16e15a52d1a940e4d47bf3574752">SGTL5000_HEADPHONE_MAX_VOLUME_VALUE</a>&#160;&#160;&#160;0x7FU</td></tr>
-<tr class="memdesc:ga5b4c16e15a52d1a940e4d47bf3574752"><td class="mdescLeft">&#160;</td><td class="mdescRight">SGTL5000 volume setting range. <br/></td></tr>
-<tr class="separator:ga5b4c16e15a52d1a940e4d47bf3574752"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga58ceb20f920b2b006c74eeeae992830a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga58ceb20f920b2b006c74eeeae992830a">SGTL5000_I2C_ADDR</a>&#160;&#160;&#160;0x0A</td></tr>
-<tr class="memdesc:ga58ceb20f920b2b006c74eeeae992830a"><td class="mdescLeft">&#160;</td><td class="mdescRight">SGTL5000 I2C address.  <a href="#ga58ceb20f920b2b006c74eeeae992830a">More...</a><br/></td></tr>
-<tr class="separator:ga58ceb20f920b2b006c74eeeae992830a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5a006451f9e990a4d3255ed7265ff1ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5a006451f9e990a4d3255ed7265ff1ad"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga5a006451f9e990a4d3255ed7265ff1ad">SGTL_I2C_HANDLER_SIZE</a>&#160;&#160;&#160;<a class="el" href="a00011.html#ga708be0fda3516367fe0461a5f054118c">CODEC_I2C_MASTER_HANDLER_SIZE</a></td></tr>
-<tr class="memdesc:ga5a006451f9e990a4d3255ed7265ff1ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">sgtl handle size <br/></td></tr>
-<tr class="separator:ga5a006451f9e990a4d3255ed7265ff1ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7bf82c8b0e6415457b6f42f50af4230d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga7bf82c8b0e6415457b6f42f50af4230d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga7bf82c8b0e6415457b6f42f50af4230d">SGTL_I2C_BITRATE</a>&#160;&#160;&#160;100000U</td></tr>
-<tr class="memdesc:ga7bf82c8b0e6415457b6f42f50af4230d"><td class="mdescLeft">&#160;</td><td class="mdescRight">sgtl i2c baudrate <br/></td></tr>
-<tr class="separator:ga7bf82c8b0e6415457b6f42f50af4230d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:gae7c2937e0ea1e285d082aa300f98b13c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae7c2937e0ea1e285d082aa300f98b13c"></a>
+typedef enum <br class="typebreak"/>
+<a class="el" href="a00048.html#ga53fe305f7c8245eb9faac439fc4d5051">_smc_power_mode_protection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gae7c2937e0ea1e285d082aa300f98b13c">smc_power_mode_protection_t</a></td></tr>
+<tr class="memdesc:gae7c2937e0ea1e285d082aa300f98b13c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power Modes Protection. <br/></td></tr>
+<tr class="separator:gae7c2937e0ea1e285d082aa300f98b13c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a2eebdb1e5516b543c27e68d61f8b85"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga1a2eebdb1e5516b543c27e68d61f8b85"></a>
+typedef enum <a class="el" href="a00048.html#gac5330d1b90932ef578e4e0d06b2f5ae5">_smc_power_state</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga1a2eebdb1e5516b543c27e68d61f8b85">smc_power_state_t</a></td></tr>
+<tr class="memdesc:ga1a2eebdb1e5516b543c27e68d61f8b85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power Modes in PMSTAT. <br/></td></tr>
+<tr class="separator:ga1a2eebdb1e5516b543c27e68d61f8b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2180dd71484f6570fa3cb2334222732e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2180dd71484f6570fa3cb2334222732e"></a>
+typedef enum <br class="typebreak"/>
+<a class="el" href="a00048.html#ga91db71f81555360a72a84b3ca9899b12">_smc_power_stop_entry_status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga2180dd71484f6570fa3cb2334222732e">smc_power_stop_entry_status_t</a></td></tr>
+<tr class="memdesc:ga2180dd71484f6570fa3cb2334222732e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power Stop Entry Status in PMSTAT. <br/></td></tr>
+<tr class="separator:ga2180dd71484f6570fa3cb2334222732e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga861334db15972df1faebfec3992bf211"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga861334db15972df1faebfec3992bf211"></a>
+typedef enum <a class="el" href="a00048.html#gac2c182287ebbb6119d8bcbb6ead71e53">_smc_run_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga861334db15972df1faebfec3992bf211">smc_run_mode_t</a></td></tr>
+<tr class="memdesc:ga861334db15972df1faebfec3992bf211"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run mode definition. <br/></td></tr>
+<tr class="separator:ga861334db15972df1faebfec3992bf211"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2fdba7a72fb477e8b4515b3a52055291"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2fdba7a72fb477e8b4515b3a52055291"></a>
+typedef enum <a class="el" href="a00048.html#ga107d1c64902b4a1a0270a51008b854d5">_smc_stop_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga2fdba7a72fb477e8b4515b3a52055291">smc_stop_mode_t</a></td></tr>
+<tr class="memdesc:ga2fdba7a72fb477e8b4515b3a52055291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop mode definition. <br/></td></tr>
+<tr class="separator:ga2fdba7a72fb477e8b4515b3a52055291"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf4ac8e3c162dfdfca1ab17fc2d78bf82"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf4ac8e3c162dfdfca1ab17fc2d78bf82"></a>
+typedef enum <a class="el" href="a00048.html#gaa8d9e56e87c773e0c77995ba8f7fbef1">_smc_partial_stop_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gaf4ac8e3c162dfdfca1ab17fc2d78bf82">smc_partial_stop_option_t</a></td></tr>
+<tr class="memdesc:gaf4ac8e3c162dfdfca1ab17fc2d78bf82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Partial STOP option. <br/></td></tr>
+<tr class="separator:gaf4ac8e3c162dfdfca1ab17fc2d78bf82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ce451f4a5c51e525e1ca4e12529ec26"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8ce451f4a5c51e525e1ca4e12529ec26"></a>
+typedef enum <a class="el" href="a00048.html#ga0119050aa21406db0f954e558d9fdd26">_smc_reset_source</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga8ce451f4a5c51e525e1ca4e12529ec26">smc_reset_source_t</a></td></tr>
+<tr class="memdesc:ga8ce451f4a5c51e525e1ca4e12529ec26"><td class="mdescLeft">&#160;</td><td class="mdescRight">System Reset Source Name definitions. <br/></td></tr>
+<tr class="separator:ga8ce451f4a5c51e525e1ca4e12529ec26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga13a0685e5b8f39b2f67cbdf4aca34ba9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga13a0685e5b8f39b2f67cbdf4aca34ba9"></a>
+typedef enum <a class="el" href="a00048.html#ga5293a8c05faaff1ac6b2ede7bf0efc76">_smc_interrupt_enable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga13a0685e5b8f39b2f67cbdf4aca34ba9">smc_interrupt_enable_t</a></td></tr>
+<tr class="memdesc:ga13a0685e5b8f39b2f67cbdf4aca34ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">System reset interrupt enable bit definitions. <br/></td></tr>
+<tr class="separator:ga13a0685e5b8f39b2f67cbdf4aca34ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabba72113393221f719c2e901175e3cdb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gabba72113393221f719c2e901175e3cdb"></a>
+typedef struct <br class="typebreak"/>
+<a class="el" href="a00048.html#a00332">_smc_reset_pin_filter_config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gabba72113393221f719c2e901175e3cdb">smc_reset_pin_filter_config_t</a></td></tr>
+<tr class="memdesc:gabba72113393221f719c2e901175e3cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset pin filter configuration. <br/></td></tr>
+<tr class="separator:gabba72113393221f719c2e901175e3cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:gaf78d5250d200a4cc76a60dcff249a4d3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gaf78d5250d200a4cc76a60dcff249a4d3">sgtl_module_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00048.html#ggaf78d5250d200a4cc76a60dcff249a4d3aeff780e31f47de5bd4ae4f7c2247a943">kSGTL_ModuleADC</a> = 0x0, 
+<tr class="memitem:ga53fe305f7c8245eb9faac439fc4d5051"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga53fe305f7c8245eb9faac439fc4d5051">_smc_power_mode_protection</a> { <br/>
+&#160;&#160;<a class="el" href="a00048.html#gga53fe305f7c8245eb9faac439fc4d5051a4f2f4907d44dbe20d528a4f21457f45c">kSMC_AllowPowerModeVlls</a> = SMC_PMPROT_AVLLS_MASK, 
 <br/>
-&#160;&#160;<a class="el" href="a00048.html#ggaf78d5250d200a4cc76a60dcff249a4d3ac97955a1a57467c8a7a93629468c0ae5">kSGTL_ModuleDAC</a>, 
+&#160;&#160;<a class="el" href="a00048.html#gga53fe305f7c8245eb9faac439fc4d5051ab43c79be60f1abf26f8342322d22e907">kSMC_AllowPowerModeLls</a> = SMC_PMPROT_ALLS_MASK, 
 <br/>
-&#160;&#160;<a class="el" href="a00048.html#ggaf78d5250d200a4cc76a60dcff249a4d3a6db304a2a1838b8733167b535efd1cc6">kSGTL_ModuleDAP</a>, 
+&#160;&#160;<a class="el" href="a00048.html#gga53fe305f7c8245eb9faac439fc4d5051a59c7889c43c88969558086058a70025c">kSMC_AllowPowerModeVlp</a> = SMC_PMPROT_AVLP_MASK, 
 <br/>
-&#160;&#160;<a class="el" href="a00048.html#ggaf78d5250d200a4cc76a60dcff249a4d3a7c3ca8ea568a0109f5858469734f1f22">kSGTL_ModuleHP</a>, 
+&#160;&#160;<a class="el" href="a00048.html#gga53fe305f7c8245eb9faac439fc4d5051a830612d22e0dc3662e6b2292601093b2">kSMC_AllowPowerModeHsrun</a> = SMC_PMPROT_AHSRUN_MASK, 
 <br/>
-&#160;&#160;<a class="el" href="a00048.html#ggaf78d5250d200a4cc76a60dcff249a4d3a5eec6607385362c2f1f67574f98bab7f">kSGTL_ModuleI2SIN</a>, 
-<br/>
-&#160;&#160;<a class="el" href="a00048.html#ggaf78d5250d200a4cc76a60dcff249a4d3ad549fbd25f776da2e48029e7defb136d">kSGTL_ModuleI2SOUT</a>, 
-<br/>
-&#160;&#160;<a class="el" href="a00048.html#ggaf78d5250d200a4cc76a60dcff249a4d3a3cf24e3ca184744b13ce10adb648afcd">kSGTL_ModuleLineIn</a>, 
-<br/>
-&#160;&#160;<a class="el" href="a00048.html#ggaf78d5250d200a4cc76a60dcff249a4d3a04e0f93df81aacf8114308d95703248f">kSGTL_ModuleLineOut</a>, 
-<br/>
-&#160;&#160;<a class="el" href="a00048.html#ggaf78d5250d200a4cc76a60dcff249a4d3a4d7e27445f7842c7d420a3621ac73e72">kSGTL_ModuleMicin</a>
+&#160;&#160;<a class="el" href="a00048.html#gga53fe305f7c8245eb9faac439fc4d5051a2d2790f7f2a43e4fc6f3816cc1693328">kSMC_AllowPowerModeAll</a>
 <br/>
  }</td></tr>
-<tr class="memdesc:gaf78d5250d200a4cc76a60dcff249a4d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modules in Sgtl5000 board.  <a href="a00048.html#gaf78d5250d200a4cc76a60dcff249a4d3">More...</a><br/></td></tr>
-<tr class="separator:gaf78d5250d200a4cc76a60dcff249a4d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga78ef5545b50946b6d168203283c20820"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga78ef5545b50946b6d168203283c20820">sgtl_route_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00048.html#gga78ef5545b50946b6d168203283c20820a1ea39c5bbafcc616613e8755b70573e9">kSGTL_RouteBypass</a> = 0x0, 
+<tr class="memdesc:ga53fe305f7c8245eb9faac439fc4d5051"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power Modes Protection.  <a href="a00048.html#ga53fe305f7c8245eb9faac439fc4d5051">More...</a><br/></td></tr>
+<tr class="separator:ga53fe305f7c8245eb9faac439fc4d5051"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac5330d1b90932ef578e4e0d06b2f5ae5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gac5330d1b90932ef578e4e0d06b2f5ae5">_smc_power_state</a> { <br/>
+&#160;&#160;<a class="el" href="a00048.html#ggac5330d1b90932ef578e4e0d06b2f5ae5a5b88bef81d70c5bd0d36b4dfbe48c1e5">kSMC_PowerStateRun</a> = 1U, 
 <br/>
-&#160;&#160;<a class="el" href="a00048.html#gga78ef5545b50946b6d168203283c20820ad379b8e67ddbbb27bc44c6d6f3cf7c0e">kSGTL_RoutePlayback</a>, 
+&#160;&#160;<a class="el" href="a00048.html#ggac5330d1b90932ef578e4e0d06b2f5ae5a4dfa7ded19a0d9fa1f56e7368cd70957">kSMC_PowerStateStop</a> = 1U &lt;&lt; 1U, 
 <br/>
-&#160;&#160;<a class="el" href="a00048.html#gga78ef5545b50946b6d168203283c20820ae11f7c67b7d1ab7e4dce3d927be7da00">kSGTL_RoutePlaybackandRecord</a>, 
+&#160;&#160;<a class="el" href="a00048.html#ggac5330d1b90932ef578e4e0d06b2f5ae5a2457fcbd1884818e017070eca5f0233c">kSMC_PowerStateVlpr</a> = 1U &lt;&lt; 2U, 
 <br/>
-&#160;&#160;<a class="el" href="a00048.html#gga78ef5545b50946b6d168203283c20820ae79c7286d52a67b618e4e23a1f1306b6">kSGTL_RoutePlaybackwithDAP</a>, 
-<br/>
-&#160;&#160;<a class="el" href="a00048.html#gga78ef5545b50946b6d168203283c20820a53052344996dc1f90cf6457e2b81eb18">kSGTL_RoutePlaybackwithDAPandRecord</a>, 
-<br/>
-&#160;&#160;<a class="el" href="a00048.html#gga78ef5545b50946b6d168203283c20820a0c28a072be0500106b9b32a16f05f000">kSGTL_RouteRecord</a>
+&#160;&#160;<a class="el" href="a00048.html#ggac5330d1b90932ef578e4e0d06b2f5ae5afc3dc2c53dd620cac2d37cf6c7f8ec73">kSMC_PowerStateHsrun</a> = 1U &lt;&lt; 7U
 <br/>
  }</td></tr>
-<tr class="memdesc:ga78ef5545b50946b6d168203283c20820"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sgtl5000 data route.  <a href="a00048.html#ga78ef5545b50946b6d168203283c20820">More...</a><br/></td></tr>
-<tr class="separator:ga78ef5545b50946b6d168203283c20820"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9bd346f7776a687fe345e336127e5426"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga9bd346f7776a687fe345e336127e5426">sgtl_protocol_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00048.html#gga9bd346f7776a687fe345e336127e5426ab56aded98ae08bb3dd4c431e036eb9b7">kSGTL_BusI2S</a> = 0x0, 
+<tr class="memdesc:gac5330d1b90932ef578e4e0d06b2f5ae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power Modes in PMSTAT.  <a href="a00048.html#gac5330d1b90932ef578e4e0d06b2f5ae5">More...</a><br/></td></tr>
+<tr class="separator:gac5330d1b90932ef578e4e0d06b2f5ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga91db71f81555360a72a84b3ca9899b12"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga91db71f81555360a72a84b3ca9899b12">_smc_power_stop_entry_status</a> { <br/>
+&#160;&#160;<a class="el" href="a00048.html#gga91db71f81555360a72a84b3ca9899b12a32f5c2dee75619501f20cdf7cd8c7d92">kSMC_PowerStopEntryAlt0</a> = 1U, 
 <br/>
-&#160;&#160;<a class="el" href="a00048.html#gga9bd346f7776a687fe345e336127e5426a99d80a1bbb2ca42f8d8b9ded7d0fe156">kSGTL_BusLeftJustified</a>, 
+&#160;&#160;<a class="el" href="a00048.html#gga91db71f81555360a72a84b3ca9899b12a4463e1a4c348e7ebef43915332d263ca">kSMC_PowerStopEntryAlt1</a> = 1U &lt;&lt; 1, 
 <br/>
-&#160;&#160;<a class="el" href="a00048.html#gga9bd346f7776a687fe345e336127e5426a742196d31e1ede4eb6d0b1bd6afcdc50">kSGTL_BusRightJustified</a>, 
+&#160;&#160;<a class="el" href="a00048.html#gga91db71f81555360a72a84b3ca9899b12a0376243e72de895cae43fd58faa092b1">kSMC_PowerStopEntryAlt2</a> = 1U &lt;&lt; 2, 
 <br/>
-&#160;&#160;<a class="el" href="a00048.html#gga9bd346f7776a687fe345e336127e5426aae65c2ae38164483661ce81683e2cf6d">kSGTL_BusPCMA</a>, 
+&#160;&#160;<a class="el" href="a00048.html#gga91db71f81555360a72a84b3ca9899b12a98969b3bcbe8bbcb36cfc2b850ce08b6">kSMC_PowerStopEntryAlt3</a> = 1U &lt;&lt; 3, 
 <br/>
-&#160;&#160;<a class="el" href="a00048.html#gga9bd346f7776a687fe345e336127e5426a165348d47026247f859a40813f449cfd">kSGTL_BusPCMB</a>
+&#160;&#160;<a class="el" href="a00048.html#gga91db71f81555360a72a84b3ca9899b12ac6931fa0ba0904aa6341e9f89023578b">kSMC_PowerStopEntryAlt4</a> = 1U &lt;&lt; 4, 
 <br/>
- }</td></tr>
-<tr class="memdesc:ga9bd346f7776a687fe345e336127e5426"><td class="mdescLeft">&#160;</td><td class="mdescRight">The audio data transfer protocol choice.  <a href="a00048.html#ga9bd346f7776a687fe345e336127e5426">More...</a><br/></td></tr>
-<tr class="separator:ga9bd346f7776a687fe345e336127e5426"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga394b3903fbf00ba2b6243f60689a5a5f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
-&#160;&#160;<a class="el" href="a00048.html#gga394b3903fbf00ba2b6243f60689a5a5fa4438d9d23b966a384697ac3959ec180c">kSGTL_HeadphoneLeft</a> = 0, 
-<br/>
-&#160;&#160;<a class="el" href="a00048.html#gga394b3903fbf00ba2b6243f60689a5a5fa7c3a64195b071d4d17957f2de39a45a7">kSGTL_HeadphoneRight</a> = 1, 
-<br/>
-&#160;&#160;<a class="el" href="a00048.html#gga394b3903fbf00ba2b6243f60689a5a5faea79ecce1f81bf12000fcf64671502ea">kSGTL_LineoutLeft</a> = 2, 
-<br/>
-&#160;&#160;<a class="el" href="a00048.html#gga394b3903fbf00ba2b6243f60689a5a5fabe25d4199f174f03f271a2ac335904bb">kSGTL_LineoutRight</a> = 3
+&#160;&#160;<a class="el" href="a00048.html#gga91db71f81555360a72a84b3ca9899b12afc033823f07378a8c4fd449d546db4f0">kSMC_PowerStopEntryAlt5</a> = 1U &lt;&lt; 5
 <br/>
  }</td></tr>
-<tr class="memdesc:ga394b3903fbf00ba2b6243f60689a5a5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">sgtl play channel  <a href="a00048.html#ga394b3903fbf00ba2b6243f60689a5a5f">More...</a><br/></td></tr>
-<tr class="separator:ga394b3903fbf00ba2b6243f60689a5a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac205be2172292384dd687b5471a87edd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
-&#160;&#160;<a class="el" href="a00048.html#ggac205be2172292384dd687b5471a87edda358889525fbd4a6d5998c17a2382ac16">kSGTL_RecordSourceLineIn</a> = 0U, 
+<tr class="memdesc:ga91db71f81555360a72a84b3ca9899b12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power Stop Entry Status in PMSTAT.  <a href="a00048.html#ga91db71f81555360a72a84b3ca9899b12">More...</a><br/></td></tr>
+<tr class="separator:ga91db71f81555360a72a84b3ca9899b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac2c182287ebbb6119d8bcbb6ead71e53"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gac2c182287ebbb6119d8bcbb6ead71e53">_smc_run_mode</a> { <br/>
+&#160;&#160;<a class="el" href="a00048.html#ggac2c182287ebbb6119d8bcbb6ead71e53abaeb1d66b5ab95289522985e831186de">kSMC_RunNormal</a> = 0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00048.html#ggac205be2172292384dd687b5471a87edda3c1289899ca6bdbe2ee24346890a19e2">kSGTL_RecordSourceMic</a> = 1U
+&#160;&#160;<a class="el" href="a00048.html#ggac2c182287ebbb6119d8bcbb6ead71e53ac1461903d002daab1af773d6d506fea3">kSMC_RunVlpr</a> = 2U, 
 <br/>
- }</td></tr>
-<tr class="memdesc:gac205be2172292384dd687b5471a87edd"><td class="mdescLeft">&#160;</td><td class="mdescRight">sgtl record source _sgtl_record_source  <a href="a00048.html#gac205be2172292384dd687b5471a87edd">More...</a><br/></td></tr>
-<tr class="separator:gac205be2172292384dd687b5471a87edd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga157d5577a5b2f5986037d0d09c7dc77d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
-&#160;&#160;<a class="el" href="a00048.html#gga157d5577a5b2f5986037d0d09c7dc77dad99308b50ee139be94b584a66d999caf">kSGTL_PlaySourceLineIn</a> = 0U, 
-<br/>
-&#160;&#160;<a class="el" href="a00048.html#gga157d5577a5b2f5986037d0d09c7dc77da9c7fa540632ee8e4c733fb4ccebc8601">kSGTL_PlaySourceDAC</a> = 1U
+&#160;&#160;<a class="el" href="a00048.html#ggac2c182287ebbb6119d8bcbb6ead71e53ac575a1829a745c18d19ab10744b44f47">kSMC_Hsrun</a> = 3U
 <br/>
  }</td></tr>
-<tr class="memdesc:ga157d5577a5b2f5986037d0d09c7dc77d"><td class="mdescLeft">&#160;</td><td class="mdescRight">sgtl play source _stgl_play_source  <a href="a00048.html#ga157d5577a5b2f5986037d0d09c7dc77d">More...</a><br/></td></tr>
-<tr class="separator:ga157d5577a5b2f5986037d0d09c7dc77d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1d2c82787cda907a0ac8646e11171db8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga1d2c82787cda907a0ac8646e11171db8">sgtl_sclk_edge_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00048.html#gga1d2c82787cda907a0ac8646e11171db8aa89baee03025ca12e2fd8eb03909724c">kSGTL_SclkValidEdgeRising</a> = 0U, 
+<tr class="memdesc:gac2c182287ebbb6119d8bcbb6ead71e53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run mode definition.  <a href="a00048.html#gac2c182287ebbb6119d8bcbb6ead71e53">More...</a><br/></td></tr>
+<tr class="separator:gac2c182287ebbb6119d8bcbb6ead71e53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga107d1c64902b4a1a0270a51008b854d5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga107d1c64902b4a1a0270a51008b854d5">_smc_stop_mode</a> { <br/>
+&#160;&#160;<a class="el" href="a00048.html#gga107d1c64902b4a1a0270a51008b854d5ac642d13640f334c1c509aa89568028dc">kSMC_StopNormal</a> = 0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00048.html#gga1d2c82787cda907a0ac8646e11171db8a0e8f446d380d7f3c859b68ffe5a64a08">kSGTL_SclkValidEdgeFailling</a> = 1U
+&#160;&#160;<a class="el" href="a00048.html#gga107d1c64902b4a1a0270a51008b854d5a0309375b2672e8c29eebd50bd80236c3">kSMC_StopVlps</a> = 2U, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga107d1c64902b4a1a0270a51008b854d5a49290f942a305169a63ca4ce30f3cd9a">kSMC_StopLls</a> = 3U, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga107d1c64902b4a1a0270a51008b854d5afae316de35cb50c1212bd172eb25037f">kSMC_StopVlls</a> = 4U
 <br/>
  }</td></tr>
-<tr class="memdesc:ga1d2c82787cda907a0ac8646e11171db8"><td class="mdescLeft">&#160;</td><td class="mdescRight">SGTL SCLK valid edge.  <a href="a00048.html#ga1d2c82787cda907a0ac8646e11171db8">More...</a><br/></td></tr>
-<tr class="separator:ga1d2c82787cda907a0ac8646e11171db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga5dd1b8225b23f6e47c4abed5bf74709f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga5dd1b8225b23f6e47c4abed5bf74709f">SGTL_Init</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle, <a class="el" href="a00048.html#a00341">sgtl_config_t</a> *config)</td></tr>
-<tr class="memdesc:ga5dd1b8225b23f6e47c4abed5bf74709f"><td class="mdescLeft">&#160;</td><td class="mdescRight">sgtl5000 initialize function.  <a href="#ga5dd1b8225b23f6e47c4abed5bf74709f">More...</a><br/></td></tr>
-<tr class="separator:ga5dd1b8225b23f6e47c4abed5bf74709f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1ef9c339bf1ac795d7e5f3c42cebafb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga1ef9c339bf1ac795d7e5f3c42cebafb7">SGTL_SetDataRoute</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle, <a class="el" href="a00048.html#ga78ef5545b50946b6d168203283c20820">sgtl_route_t</a> route)</td></tr>
-<tr class="memdesc:ga1ef9c339bf1ac795d7e5f3c42cebafb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set audio data route in sgtl5000.  <a href="#ga1ef9c339bf1ac795d7e5f3c42cebafb7">More...</a><br/></td></tr>
-<tr class="separator:ga1ef9c339bf1ac795d7e5f3c42cebafb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8087efbfa0ae9c2644d6191f441d9df0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga8087efbfa0ae9c2644d6191f441d9df0">SGTL_SetProtocol</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle, <a class="el" href="a00048.html#ga9bd346f7776a687fe345e336127e5426">sgtl_protocol_t</a> protocol)</td></tr>
-<tr class="memdesc:ga8087efbfa0ae9c2644d6191f441d9df0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the audio transfer protocol.  <a href="#ga8087efbfa0ae9c2644d6191f441d9df0">More...</a><br/></td></tr>
-<tr class="separator:ga8087efbfa0ae9c2644d6191f441d9df0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga872cb128c9d0445c60dee6dbc044c7b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga872cb128c9d0445c60dee6dbc044c7b3">SGTL_SetMasterSlave</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle, bool master)</td></tr>
-<tr class="memdesc:ga872cb128c9d0445c60dee6dbc044c7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set sgtl5000 as master or slave.  <a href="#ga872cb128c9d0445c60dee6dbc044c7b3">More...</a><br/></td></tr>
-<tr class="separator:ga872cb128c9d0445c60dee6dbc044c7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga88af855c5959f6d814bd8f8327e168d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga88af855c5959f6d814bd8f8327e168d5">SGTL_SetVolume</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle, <a class="el" href="a00048.html#gaf78d5250d200a4cc76a60dcff249a4d3">sgtl_module_t</a> module, uint32_t volume)</td></tr>
-<tr class="memdesc:ga88af855c5959f6d814bd8f8327e168d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the volume of different modules in sgtl5000.  <a href="#ga88af855c5959f6d814bd8f8327e168d5">More...</a><br/></td></tr>
-<tr class="separator:ga88af855c5959f6d814bd8f8327e168d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6d0af6998eff44ee5765988e05d68434"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga6d0af6998eff44ee5765988e05d68434">SGTL_GetVolume</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle, <a class="el" href="a00048.html#gaf78d5250d200a4cc76a60dcff249a4d3">sgtl_module_t</a> module)</td></tr>
-<tr class="memdesc:ga6d0af6998eff44ee5765988e05d68434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the volume of different modules in sgtl5000.  <a href="#ga6d0af6998eff44ee5765988e05d68434">More...</a><br/></td></tr>
-<tr class="separator:ga6d0af6998eff44ee5765988e05d68434"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4c3a087636393265417c9435b6fc57c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga4c3a087636393265417c9435b6fc57c2">SGTL_SetMute</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle, <a class="el" href="a00048.html#gaf78d5250d200a4cc76a60dcff249a4d3">sgtl_module_t</a> module, bool mute)</td></tr>
-<tr class="memdesc:ga4c3a087636393265417c9435b6fc57c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mute/unmute modules in sgtl5000.  <a href="#ga4c3a087636393265417c9435b6fc57c2">More...</a><br/></td></tr>
-<tr class="separator:ga4c3a087636393265417c9435b6fc57c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga51bf307e712104f5942d4cf64c60e624"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga51bf307e712104f5942d4cf64c60e624">SGTL_EnableModule</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle, <a class="el" href="a00048.html#gaf78d5250d200a4cc76a60dcff249a4d3">sgtl_module_t</a> module)</td></tr>
-<tr class="memdesc:ga51bf307e712104f5942d4cf64c60e624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable expected devices.  <a href="#ga51bf307e712104f5942d4cf64c60e624">More...</a><br/></td></tr>
-<tr class="separator:ga51bf307e712104f5942d4cf64c60e624"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga26a3dba16af7a79e072f71d179dc00e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga26a3dba16af7a79e072f71d179dc00e6">SGTL_DisableModule</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle, <a class="el" href="a00048.html#gaf78d5250d200a4cc76a60dcff249a4d3">sgtl_module_t</a> module)</td></tr>
-<tr class="memdesc:ga26a3dba16af7a79e072f71d179dc00e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable expected devices.  <a href="#ga26a3dba16af7a79e072f71d179dc00e6">More...</a><br/></td></tr>
-<tr class="separator:ga26a3dba16af7a79e072f71d179dc00e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga27221640262b10948a03f3178e379814"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga27221640262b10948a03f3178e379814">SGTL_Deinit</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle)</td></tr>
-<tr class="memdesc:ga27221640262b10948a03f3178e379814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinit the sgtl5000 codec.  <a href="#ga27221640262b10948a03f3178e379814">More...</a><br/></td></tr>
-<tr class="separator:ga27221640262b10948a03f3178e379814"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga120c853dc3a86f5c70c4fbef309b6ef5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga120c853dc3a86f5c70c4fbef309b6ef5">SGTL_ConfigDataFormat</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle, uint32_t mclk, uint32_t sample_rate, uint32_t bits)</td></tr>
-<tr class="memdesc:ga120c853dc3a86f5c70c4fbef309b6ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the data format of audio data.  <a href="#ga120c853dc3a86f5c70c4fbef309b6ef5">More...</a><br/></td></tr>
-<tr class="separator:ga120c853dc3a86f5c70c4fbef309b6ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3052a63c17bdfdfeac94d1011434af5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga3052a63c17bdfdfeac94d1011434af5d">SGTL_SetPlay</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle, uint32_t playSource)</td></tr>
-<tr class="memdesc:ga3052a63c17bdfdfeac94d1011434af5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">select SGTL codec play source.  <a href="#ga3052a63c17bdfdfeac94d1011434af5d">More...</a><br/></td></tr>
-<tr class="separator:ga3052a63c17bdfdfeac94d1011434af5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf929ad37a6dd584cd5f17d52560ef7df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gaf929ad37a6dd584cd5f17d52560ef7df">SGTL_SetRecord</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle, uint32_t recordSource)</td></tr>
-<tr class="memdesc:gaf929ad37a6dd584cd5f17d52560ef7df"><td class="mdescLeft">&#160;</td><td class="mdescRight">select SGTL codec record source.  <a href="#gaf929ad37a6dd584cd5f17d52560ef7df">More...</a><br/></td></tr>
-<tr class="separator:gaf929ad37a6dd584cd5f17d52560ef7df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1f0eb0cad0476f34f65811b99d58752f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga1f0eb0cad0476f34f65811b99d58752f">SGTL_WriteReg</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle, uint16_t reg, uint16_t val)</td></tr>
-<tr class="memdesc:ga1f0eb0cad0476f34f65811b99d58752f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write register to sgtl using I2C.  <a href="#ga1f0eb0cad0476f34f65811b99d58752f">More...</a><br/></td></tr>
-<tr class="separator:ga1f0eb0cad0476f34f65811b99d58752f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad044b5a578bac8480229730d610f22b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gad044b5a578bac8480229730d610f22b6">SGTL_ReadReg</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle, uint16_t reg, uint16_t *val)</td></tr>
-<tr class="memdesc:gad044b5a578bac8480229730d610f22b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read register from sgtl using I2C.  <a href="#gad044b5a578bac8480229730d610f22b6">More...</a><br/></td></tr>
-<tr class="separator:gad044b5a578bac8480229730d610f22b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga43f1ac7cec503ad6e6ea178b6fb691ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga43f1ac7cec503ad6e6ea178b6fb691ac">SGTL_ModifyReg</a> (<a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *handle, uint16_t reg, uint16_t clr_mask, uint16_t val)</td></tr>
-<tr class="memdesc:ga43f1ac7cec503ad6e6ea178b6fb691ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify some bits in the register using I2C.  <a href="#ga43f1ac7cec503ad6e6ea178b6fb691ac">More...</a><br/></td></tr>
-<tr class="separator:ga43f1ac7cec503ad6e6ea178b6fb691ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ga107d1c64902b4a1a0270a51008b854d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop mode definition.  <a href="a00048.html#ga107d1c64902b4a1a0270a51008b854d5">More...</a><br/></td></tr>
+<tr class="separator:ga107d1c64902b4a1a0270a51008b854d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa8d9e56e87c773e0c77995ba8f7fbef1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gaa8d9e56e87c773e0c77995ba8f7fbef1">_smc_partial_stop_mode</a> { <br/>
+&#160;&#160;<a class="el" href="a00048.html#ggaa8d9e56e87c773e0c77995ba8f7fbef1a04f63da1ef433f2240cc42337c55e1b0">kSMC_PartialStop</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#ggaa8d9e56e87c773e0c77995ba8f7fbef1a2ebc7dc8a6bd5f83dd842cddcc6483a3">kSMC_PartialStop1</a> = 1U, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#ggaa8d9e56e87c773e0c77995ba8f7fbef1afca17db21b7e59ecd2e271e566001b63">kSMC_PartialStop2</a> = 2U, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#ggaa8d9e56e87c773e0c77995ba8f7fbef1a0bd1cee626881c2fd3d716d8dd6a7eb7">kSMC_PartialStop3</a> = 3U
+<br/>
+ }</td></tr>
+<tr class="memdesc:gaa8d9e56e87c773e0c77995ba8f7fbef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Partial STOP option.  <a href="a00048.html#gaa8d9e56e87c773e0c77995ba8f7fbef1">More...</a><br/></td></tr>
+<tr class="separator:gaa8d9e56e87c773e0c77995ba8f7fbef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadb49720dc49f7d4e4cf9adbf2948e409"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a00048.html#ggadb49720dc49f7d4e4cf9adbf2948e409ac8b70e0e27736678bcb91340b06c011e">kStatus_SMC_StopAbort</a> = MAKE_STATUS(kStatusGroup_POWER, 0)
+ }</td></tr>
+<tr class="memdesc:gadb49720dc49f7d4e4cf9adbf2948e409"><td class="mdescLeft">&#160;</td><td class="mdescRight">SMC configuration status.  <a href="a00048.html#gadb49720dc49f7d4e4cf9adbf2948e409">More...</a><br/></td></tr>
+<tr class="separator:gadb49720dc49f7d4e4cf9adbf2948e409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0119050aa21406db0f954e558d9fdd26"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga0119050aa21406db0f954e558d9fdd26">_smc_reset_source</a> { <br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a2861f33b64fb9444171deadf1dec216a">kSMC_SourceWakeup</a> = SMC_SRS_WAKEUP_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a2ef41a99a849508f7bb01db67fadcef8">kSMC_SourcePor</a> = SMC_SRS_POR_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a51a7332d542bc09aa0c79504fc9501d5">kSMC_SourceLvd</a> = SMC_SRS_LVD_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26af7cada6555257956137e0413001f4e3b">kSMC_SourceHvd</a> = SMC_SRS_HVD_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26af9e28ded9c3e837abe58f331613392f8">kSMC_SourceWarm</a> = SMC_SRS_WARM_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26aa34a0fb061bc75ae3ccccdf79324ec77">kSMC_SourceFatal</a> = SMC_SRS_FATAL_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a0ee5d493438ca2ee939e21783b31b069">kSMC_SourceCore</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a0f1ed5951f9e463ef4ce4cf6c5f86142">kSMC_SourcePin</a> = SMC_SRS_PIN_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a62b56098a197c1779faf013d22ab34fc">kSMC_SourceMdm</a> = SMC_SRS_MDM_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a123f2986effc7841fe41fdfa0fd76fa6">kSMC_SourceRstAck</a> = SMC_SRS_RSTACK_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26af7e8b14f8ae7bbf13676147f420aa7d7">kSMC_SourceStopAck</a> = SMC_SRS_STOPACK_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a57d5033ab41e9d5e469ce081a51364ff">kSMC_SourceScg</a> = SMC_SRS_SCG_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a87c6299ffc176e18c84d546dcff33b4b">kSMC_SourceWdog</a> = SMC_SRS_WDOG_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a896f454b422037166d2d35a8108c705d">kSMC_SourceSoftware</a> = SMC_SRS_SW_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a629aa8ffd6366f2cef1030bf81758b9a">kSMC_SourceLockup</a> = SMC_SRS_LOCKUP_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a2a376f02a89f4701e4ee57a9937e3a8b">kSMC_SourceJtag</a> = SMC_SRS_JTAG_MASK
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga0119050aa21406db0f954e558d9fdd26"><td class="mdescLeft">&#160;</td><td class="mdescRight">System Reset Source Name definitions.  <a href="a00048.html#ga0119050aa21406db0f954e558d9fdd26">More...</a><br/></td></tr>
+<tr class="separator:ga0119050aa21406db0f954e558d9fdd26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5293a8c05faaff1ac6b2ede7bf0efc76"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga5293a8c05faaff1ac6b2ede7bf0efc76">_smc_interrupt_enable</a> { <br/>
+&#160;&#160;<a class="el" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a5451f680c83239aae0706ac269b970a0">kSMC_IntNone</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a7adbffee423e42df938866c56789e7d5">kSMC_IntPin</a> = SMC_SRIE_PIN_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a8dfbbf3b4a105ed134c206eb41c5f7eb">kSMC_IntMdm</a> = SMC_SRIE_MDM_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a8debbfe3c7875e3d8d38f230183da598">kSMC_IntStopAck</a> = SMC_SRIE_STOPACK_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a5082d6057025b59db3b3ed62e582cf22">kSMC_IntWdog</a> = SMC_SRIE_WDOG_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a2af6715629b3a405db96a9e48bc21573">kSMC_IntSoftware</a> = SMC_SRIE_SW_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a410c64e50113a8f6e9d45236c0d92ae2">kSMC_IntLockup</a> = SMC_SRIE_LOCKUP_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a99e443d5fa8cf148538747a562d80a22">kSMC_IntAll</a>
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga5293a8c05faaff1ac6b2ede7bf0efc76"><td class="mdescLeft">&#160;</td><td class="mdescRight">System reset interrupt enable bit definitions.  <a href="a00048.html#ga5293a8c05faaff1ac6b2ede7bf0efc76">More...</a><br/></td></tr>
+<tr class="separator:ga5293a8c05faaff1ac6b2ede7bf0efc76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
-<tr class="memitem:gacb25f9b960a10309cc4b9b2cb0f0c063"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gacb25f9b960a10309cc4b9b2cb0f0c063">FSL_SGTL5000_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 1))</td></tr>
-<tr class="memdesc:gacb25f9b960a10309cc4b9b2cb0f0c063"><td class="mdescLeft">&#160;</td><td class="mdescRight">CLOCK driver version 2.1.1.  <a href="#gacb25f9b960a10309cc4b9b2cb0f0c063">More...</a><br/></td></tr>
-<tr class="separator:gacb25f9b960a10309cc4b9b2cb0f0c063"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50b8faab80972aca20f7705925b23038"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga50b8faab80972aca20f7705925b23038">FSL_MSMC_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 2))</td></tr>
+<tr class="memdesc:ga50b8faab80972aca20f7705925b23038"><td class="mdescLeft">&#160;</td><td class="mdescRight">MSMC driver version.  <a href="#ga50b8faab80972aca20f7705925b23038">More...</a><br/></td></tr>
+<tr class="separator:ga50b8faab80972aca20f7705925b23038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+System mode controller APIs</h2></td></tr>
+<tr class="memitem:ga883084279eccf59d4594cc4fc6b07570"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga883084279eccf59d4594cc4fc6b07570">SMC_SetPowerModeProtection</a> (SMC_Type *base, uint8_t allowedModes)</td></tr>
+<tr class="memdesc:ga883084279eccf59d4594cc4fc6b07570"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures all power mode protection settings.  <a href="#ga883084279eccf59d4594cc4fc6b07570">More...</a><br/></td></tr>
+<tr class="separator:ga883084279eccf59d4594cc4fc6b07570"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8891a49d31b2f79a72d2b696c3c7d21a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00048.html#ga1a2eebdb1e5516b543c27e68d61f8b85">smc_power_state_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga8891a49d31b2f79a72d2b696c3c7d21a">SMC_GetPowerModeState</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:ga8891a49d31b2f79a72d2b696c3c7d21a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current power mode status.  <a href="#ga8891a49d31b2f79a72d2b696c3c7d21a">More...</a><br/></td></tr>
+<tr class="separator:ga8891a49d31b2f79a72d2b696c3c7d21a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga344da3e55dffa5d50fb4872e40f36ff0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga344da3e55dffa5d50fb4872e40f36ff0">SMC_PreEnterStopModes</a> (void)</td></tr>
+<tr class="memdesc:ga344da3e55dffa5d50fb4872e40f36ff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepare to enter stop modes.  <a href="#ga344da3e55dffa5d50fb4872e40f36ff0">More...</a><br/></td></tr>
+<tr class="separator:ga344da3e55dffa5d50fb4872e40f36ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee8b556d6a459c2a69b8178ee4279df6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gaee8b556d6a459c2a69b8178ee4279df6">SMC_PostExitStopModes</a> (void)</td></tr>
+<tr class="memdesc:gaee8b556d6a459c2a69b8178ee4279df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recovering after wake up from stop modes.  <a href="#gaee8b556d6a459c2a69b8178ee4279df6">More...</a><br/></td></tr>
+<tr class="separator:gaee8b556d6a459c2a69b8178ee4279df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab8f3b43e5a5af5698ed57297f0f9b8f3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gab8f3b43e5a5af5698ed57297f0f9b8f3">SMC_PreEnterWaitModes</a> (void)</td></tr>
+<tr class="memdesc:gab8f3b43e5a5af5698ed57297f0f9b8f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepare to enter wait modes.  <a href="#gab8f3b43e5a5af5698ed57297f0f9b8f3">More...</a><br/></td></tr>
+<tr class="separator:gab8f3b43e5a5af5698ed57297f0f9b8f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga667477c948aeeabf905969a37ab6fc70"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga667477c948aeeabf905969a37ab6fc70">SMC_PostExitWaitModes</a> (void)</td></tr>
+<tr class="memdesc:ga667477c948aeeabf905969a37ab6fc70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recovering after wake up from stop modes.  <a href="#ga667477c948aeeabf905969a37ab6fc70">More...</a><br/></td></tr>
+<tr class="separator:ga667477c948aeeabf905969a37ab6fc70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f141beaa4867a3d1606b714e63c30c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga8f141beaa4867a3d1606b714e63c30c3">SMC_SetPowerModeRun</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:ga8f141beaa4867a3d1606b714e63c30c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to RUN power mode.  <a href="#ga8f141beaa4867a3d1606b714e63c30c3">More...</a><br/></td></tr>
+<tr class="separator:ga8f141beaa4867a3d1606b714e63c30c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff75ec614c35b4f8f979b103ab159dcd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gaff75ec614c35b4f8f979b103ab159dcd">SMC_SetPowerModeHsrun</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:gaff75ec614c35b4f8f979b103ab159dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to HSRUN power mode.  <a href="#gaff75ec614c35b4f8f979b103ab159dcd">More...</a><br/></td></tr>
+<tr class="separator:gaff75ec614c35b4f8f979b103ab159dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf1664f2d4a78b756e5e30f5433af975"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gaaf1664f2d4a78b756e5e30f5433af975">SMC_SetPowerModeWait</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:gaaf1664f2d4a78b756e5e30f5433af975"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to WAIT power mode.  <a href="#gaaf1664f2d4a78b756e5e30f5433af975">More...</a><br/></td></tr>
+<tr class="separator:gaaf1664f2d4a78b756e5e30f5433af975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa1e2666198ce75322be3280472a224ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gaa1e2666198ce75322be3280472a224ee">SMC_SetPowerModeStop</a> (SMC_Type *base, <a class="el" href="a00048.html#gaf4ac8e3c162dfdfca1ab17fc2d78bf82">smc_partial_stop_option_t</a> option)</td></tr>
+<tr class="memdesc:gaa1e2666198ce75322be3280472a224ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to Stop power mode.  <a href="#gaa1e2666198ce75322be3280472a224ee">More...</a><br/></td></tr>
+<tr class="separator:gaa1e2666198ce75322be3280472a224ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa1439e98fb0d82099217f822e3329b14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gaa1439e98fb0d82099217f822e3329b14">SMC_SetPowerModeVlpr</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:gaa1439e98fb0d82099217f822e3329b14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to VLPR power mode.  <a href="#gaa1439e98fb0d82099217f822e3329b14">More...</a><br/></td></tr>
+<tr class="separator:gaa1439e98fb0d82099217f822e3329b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga69d0fb061423ef6ed718f3acee96ebf6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga69d0fb061423ef6ed718f3acee96ebf6">SMC_SetPowerModeVlpw</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:ga69d0fb061423ef6ed718f3acee96ebf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to VLPW power mode.  <a href="#ga69d0fb061423ef6ed718f3acee96ebf6">More...</a><br/></td></tr>
+<tr class="separator:ga69d0fb061423ef6ed718f3acee96ebf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f7303f155f36716cc68672e0a4027cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga7f7303f155f36716cc68672e0a4027cf">SMC_SetPowerModeVlps</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:ga7f7303f155f36716cc68672e0a4027cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to VLPS power mode.  <a href="#ga7f7303f155f36716cc68672e0a4027cf">More...</a><br/></td></tr>
+<tr class="separator:ga7f7303f155f36716cc68672e0a4027cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga998c58e17bdd9ef190c7bcc5dd9395e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga998c58e17bdd9ef190c7bcc5dd9395e7">SMC_SetPowerModeLls</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:ga998c58e17bdd9ef190c7bcc5dd9395e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to LLS power mode.  <a href="#ga998c58e17bdd9ef190c7bcc5dd9395e7">More...</a><br/></td></tr>
+<tr class="separator:ga998c58e17bdd9ef190c7bcc5dd9395e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacee93389ff12a7686d3567d9d3e582e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gacee93389ff12a7686d3567d9d3e582e9">SMC_SetPowerModeVlls</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:gacee93389ff12a7686d3567d9d3e582e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to VLLS power mode.  <a href="#gacee93389ff12a7686d3567d9d3e582e9">More...</a><br/></td></tr>
+<tr class="separator:gacee93389ff12a7686d3567d9d3e582e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf0845474594f3bd8413793de1e51c271"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gaf0845474594f3bd8413793de1e51c271">SMC_GetPreviousResetSources</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:gaf0845474594f3bd8413793de1e51c271"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the reset source status which caused a previous reset.  <a href="#gaf0845474594f3bd8413793de1e51c271">More...</a><br/></td></tr>
+<tr class="separator:gaf0845474594f3bd8413793de1e51c271"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8c7b8d725d5b9f354e53e94160323a8f"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga8c7b8d725d5b9f354e53e94160323a8f">SMC_GetStickyResetSources</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:ga8c7b8d725d5b9f354e53e94160323a8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the sticky reset source status.  <a href="#ga8c7b8d725d5b9f354e53e94160323a8f">More...</a><br/></td></tr>
+<tr class="separator:ga8c7b8d725d5b9f354e53e94160323a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9870b5d3a94b6385cf3c40ac5919caf2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga9870b5d3a94b6385cf3c40ac5919caf2">SMC_ClearStickyResetSources</a> (SMC_Type *base, uint32_t sourceMasks)</td></tr>
+<tr class="memdesc:ga9870b5d3a94b6385cf3c40ac5919caf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the sticky reset source status.  <a href="#ga9870b5d3a94b6385cf3c40ac5919caf2">More...</a><br/></td></tr>
+<tr class="separator:ga9870b5d3a94b6385cf3c40ac5919caf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga411662c3c2d7b96b350fb9d06bf61dd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga411662c3c2d7b96b350fb9d06bf61dd1">SMC_ConfigureResetPinFilter</a> (SMC_Type *base, const <a class="el" href="a00048.html#gabba72113393221f719c2e901175e3cdb">smc_reset_pin_filter_config_t</a> *config)</td></tr>
+<tr class="memdesc:ga411662c3c2d7b96b350fb9d06bf61dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the reset pin filter.  <a href="#ga411662c3c2d7b96b350fb9d06bf61dd1">More...</a><br/></td></tr>
+<tr class="separator:ga411662c3c2d7b96b350fb9d06bf61dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf7c01c2b4897682c13288abf93f7efe3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gaf7c01c2b4897682c13288abf93f7efe3">SMC_SetSystemResetInterruptConfig</a> (SMC_Type *base, uint32_t intMask)</td></tr>
+<tr class="memdesc:gaf7c01c2b4897682c13288abf93f7efe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the system reset interrupt configuration.  <a href="#gaf7c01c2b4897682c13288abf93f7efe3">More...</a><br/></td></tr>
+<tr class="separator:gaf7c01c2b4897682c13288abf93f7efe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaabe43cecbad4a671c0366666aee1f53b"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#gaabe43cecbad4a671c0366666aee1f53b">SMC_GetResetInterruptSourcesStatus</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:gaabe43cecbad4a671c0366666aee1f53b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the source status of the system reset interrupt.  <a href="#gaabe43cecbad4a671c0366666aee1f53b">More...</a><br/></td></tr>
+<tr class="separator:gaabe43cecbad4a671c0366666aee1f53b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a134260893f14762503324f06f586ff"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga5a134260893f14762503324f06f586ff">SMC_ClearResetInterruptSourcesStatus</a> (SMC_Type *base, uint32_t intMask)</td></tr>
+<tr class="memdesc:ga5a134260893f14762503324f06f586ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the source status of the system reset interrupt.  <a href="#ga5a134260893f14762503324f06f586ff">More...</a><br/></td></tr>
+<tr class="separator:ga5a134260893f14762503324f06f586ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b08a53f1afd002cff552265ee91a223"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ga5b08a53f1afd002cff552265ee91a223">SMC_GetBootOptionConfig</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:ga5b08a53f1afd002cff552265ee91a223"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the boot option configuration.  <a href="#ga5b08a53f1afd002cff552265ee91a223">More...</a><br/></td></tr>
+<tr class="separator:ga5b08a53f1afd002cff552265ee91a223"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="a00340" id="a00340"></a>
+<a name="a00332" id="a00332"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct sgtl_audio_format_t</td>
+          <td class="memname">struct _smc_reset_pin_filter_config</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:ae0edadf6baf0a743e4765421ad2abc3f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0edadf6baf0a743e4765421ad2abc3f"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ae0edadf6baf0a743e4765421ad2abc3f">mclk_HZ</a></td></tr>
-<tr class="memdesc:ae0edadf6baf0a743e4765421ad2abc3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">master clock <br/></td></tr>
-<tr class="separator:ae0edadf6baf0a743e4765421ad2abc3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47b2d7178ab3a15a56b8972b2d2eac29"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47b2d7178ab3a15a56b8972b2d2eac29"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a47b2d7178ab3a15a56b8972b2d2eac29">sampleRate</a></td></tr>
-<tr class="memdesc:a47b2d7178ab3a15a56b8972b2d2eac29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample rate. <br/></td></tr>
-<tr class="separator:a47b2d7178ab3a15a56b8972b2d2eac29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78334148115e196b31db9b1a302a4941"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78334148115e196b31db9b1a302a4941"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a78334148115e196b31db9b1a302a4941">bitWidth</a></td></tr>
-<tr class="memdesc:a78334148115e196b31db9b1a302a4941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit width. <br/></td></tr>
-<tr class="separator:a78334148115e196b31db9b1a302a4941"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cdfd73fb1b74ee97d94e2e183af5a00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9cdfd73fb1b74ee97d94e2e183af5a00"></a>
-<a class="el" href="a00048.html#ga1d2c82787cda907a0ac8646e11171db8">sgtl_sclk_edge_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a9cdfd73fb1b74ee97d94e2e183af5a00">sclkEdge</a></td></tr>
-<tr class="memdesc:a9cdfd73fb1b74ee97d94e2e183af5a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">sclk valid edge <br/></td></tr>
-<tr class="separator:a9cdfd73fb1b74ee97d94e2e183af5a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-
-</div>
-</div>
-<a name="a00341" id="a00341"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct sgtl_config_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="textblock"></div><table class="memberdecls">
-<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a8c4ed2bb6162b218a0aa8077d9bab4aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00048.html#ga78ef5545b50946b6d168203283c20820">sgtl_route_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a8c4ed2bb6162b218a0aa8077d9bab4aa">route</a></td></tr>
-<tr class="memdesc:a8c4ed2bb6162b218a0aa8077d9bab4aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio data route.  <a href="#a8c4ed2bb6162b218a0aa8077d9bab4aa">More...</a><br/></td></tr>
-<tr class="separator:a8c4ed2bb6162b218a0aa8077d9bab4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1991cd986722d22c8964f08bc9d8c21d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1991cd986722d22c8964f08bc9d8c21d"></a>
-<a class="el" href="a00048.html#ga9bd346f7776a687fe345e336127e5426">sgtl_protocol_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a1991cd986722d22c8964f08bc9d8c21d">bus</a></td></tr>
-<tr class="memdesc:a1991cd986722d22c8964f08bc9d8c21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio transfer protocol. <br/></td></tr>
-<tr class="separator:a1991cd986722d22c8964f08bc9d8c21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4daf6a63ca5b405aac9332ca477c3501"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a4daf6a63ca5b405aac9332ca477c3501">master_slave</a></td></tr>
-<tr class="memdesc:a4daf6a63ca5b405aac9332ca477c3501"><td class="mdescLeft">&#160;</td><td class="mdescRight">Master or slave.  <a href="#a4daf6a63ca5b405aac9332ca477c3501">More...</a><br/></td></tr>
-<tr class="separator:a4daf6a63ca5b405aac9332ca477c3501"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af41c4ad8e8dfb29b4fde75d76f9f43c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af41c4ad8e8dfb29b4fde75d76f9f43c8"></a>
-<a class="el" href="a00048.html#a00340">sgtl_audio_format_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#af41c4ad8e8dfb29b4fde75d76f9f43c8">format</a></td></tr>
-<tr class="memdesc:af41c4ad8e8dfb29b4fde75d76f9f43c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">audio format <br/></td></tr>
-<tr class="separator:af41c4ad8e8dfb29b4fde75d76f9f43c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdee01c708fa6a6beaf93e371347c590"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abdee01c708fa6a6beaf93e371347c590"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#abdee01c708fa6a6beaf93e371347c590">slaveAddress</a></td></tr>
-<tr class="memdesc:abdee01c708fa6a6beaf93e371347c590"><td class="mdescLeft">&#160;</td><td class="mdescRight">code device slave address <br/></td></tr>
-<tr class="separator:abdee01c708fa6a6beaf93e371347c590"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0552d0239f157964cdc500d73350d11d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0552d0239f157964cdc500d73350d11d"></a>
-<a class="el" href="a00011.html#a00258">codec_i2c_config_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a0552d0239f157964cdc500d73350d11d">i2cConfig</a></td></tr>
-<tr class="memdesc:a0552d0239f157964cdc500d73350d11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">i2c bus configuration <br/></td></tr>
-<tr class="separator:a0552d0239f157964cdc500d73350d11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94275870457948377bb1058fb82835f8"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a94275870457948377bb1058fb82835f8">slowClockFilterCount</a></td></tr>
+<tr class="memdesc:a94275870457948377bb1058fb82835f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset pin bus clock filter width from 1 to 32 slow clock cycles.  <a href="#a94275870457948377bb1058fb82835f8">More...</a><br/></td></tr>
+<tr class="separator:a94275870457948377bb1058fb82835f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41a0aa9a293a59886ea1c2b8def28094"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a41a0aa9a293a59886ea1c2b8def28094">enableFilter</a></td></tr>
+<tr class="memdesc:a41a0aa9a293a59886ea1c2b8def28094"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset pin filter enable/disable.  <a href="#a41a0aa9a293a59886ea1c2b8def28094">More...</a><br/></td></tr>
+<tr class="separator:a41a0aa9a293a59886ea1c2b8def28094"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h4 class="groupheader">Field Documentation</h4>
-<a class="anchor" id="a8c4ed2bb6162b218a0aa8077d9bab4aa"></a>
+<a class="anchor" id="a94275870457948377bb1058fb82835f8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00048.html#ga78ef5545b50946b6d168203283c20820">sgtl_route_t</a> sgtl_config_t::route</td>
+          <td class="memname">uint8_t _smc_reset_pin_filter_config::slowClockFilterCount</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a4daf6a63ca5b405aac9332ca477c3501"></a>
+<a class="anchor" id="a41a0aa9a293a59886ea1c2b8def28094"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool sgtl_config_t::master_slave</td>
+          <td class="memname">bool _smc_reset_pin_filter_config::enableFilter</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>True means master, false means slave. </p>
 
 </div>
 </div>
-
-</div>
-</div>
-<a name="a00342" id="a00342"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct sgtl_handle_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="textblock"></div><table class="memberdecls">
-<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a2187719e2579f70c815eff00bd8d7b98"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2187719e2579f70c815eff00bd8d7b98"></a>
-<a class="el" href="a00048.html#a00341">sgtl_config_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a2187719e2579f70c815eff00bd8d7b98">config</a></td></tr>
-<tr class="memdesc:a2187719e2579f70c815eff00bd8d7b98"><td class="mdescLeft">&#160;</td><td class="mdescRight">sgtl config pointer <br/></td></tr>
-<tr class="separator:a2187719e2579f70c815eff00bd8d7b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee64ef7e3a76d06780a73c63d68d2a98"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee64ef7e3a76d06780a73c63d68d2a98"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#aee64ef7e3a76d06780a73c63d68d2a98">i2cHandle</a> [<a class="el" href="a00048.html#ga5a006451f9e990a4d3255ed7265ff1ad">SGTL_I2C_HANDLER_SIZE</a>]</td></tr>
-<tr class="memdesc:aee64ef7e3a76d06780a73c63d68d2a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">i2c handle <br/></td></tr>
-<tr class="separator:aee64ef7e3a76d06780a73c63d68d2a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 
 </div>
 </div>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="gacb25f9b960a10309cc4b9b2cb0f0c063"></a>
+<a class="anchor" id="ga50b8faab80972aca20f7705925b23038"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FSL_SGTL5000_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 1))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="gab0aa3e54cd2934b67b9882957456c391"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CHIP_ID&#160;&#160;&#160;0x0000U</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ga58ceb20f920b2b006c74eeeae992830a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SGTL5000_I2C_ADDR&#160;&#160;&#160;0x0A</td>
+          <td class="memname">#define FSL_MSMC_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 2))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -446,111 +468,169 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="gaf78d5250d200a4cc76a60dcff249a4d3"></a>
+<a class="anchor" id="ga53fe305f7c8245eb9faac439fc4d5051"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00048.html#gaf78d5250d200a4cc76a60dcff249a4d3">sgtl_module_t</a></td>
+          <td class="memname">enum <a class="el" href="a00048.html#ga53fe305f7c8245eb9faac439fc4d5051">_smc_power_mode_protection</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaf78d5250d200a4cc76a60dcff249a4d3aeff780e31f47de5bd4ae4f7c2247a943"></a>kSGTL_ModuleADC</em>&nbsp;</td><td class="fielddoc">
-<p>ADC module in SGTL5000. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga53fe305f7c8245eb9faac439fc4d5051a4f2f4907d44dbe20d528a4f21457f45c"></a>kSMC_AllowPowerModeVlls</em>&nbsp;</td><td class="fielddoc">
+<p>Allow Very-Low-Leakage Stop Mode. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf78d5250d200a4cc76a60dcff249a4d3ac97955a1a57467c8a7a93629468c0ae5"></a>kSGTL_ModuleDAC</em>&nbsp;</td><td class="fielddoc">
-<p>DAC module in SGTL5000. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga53fe305f7c8245eb9faac439fc4d5051ab43c79be60f1abf26f8342322d22e907"></a>kSMC_AllowPowerModeLls</em>&nbsp;</td><td class="fielddoc">
+<p>Allow Low-Leakage Stop Mode. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf78d5250d200a4cc76a60dcff249a4d3a6db304a2a1838b8733167b535efd1cc6"></a>kSGTL_ModuleDAP</em>&nbsp;</td><td class="fielddoc">
-<p>DAP module in SGTL5000. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga53fe305f7c8245eb9faac439fc4d5051a59c7889c43c88969558086058a70025c"></a>kSMC_AllowPowerModeVlp</em>&nbsp;</td><td class="fielddoc">
+<p>Allow Very-Low-Power Mode. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf78d5250d200a4cc76a60dcff249a4d3a7c3ca8ea568a0109f5858469734f1f22"></a>kSGTL_ModuleHP</em>&nbsp;</td><td class="fielddoc">
-<p>Headphone module in SGTL5000. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga53fe305f7c8245eb9faac439fc4d5051a830612d22e0dc3662e6b2292601093b2"></a>kSMC_AllowPowerModeHsrun</em>&nbsp;</td><td class="fielddoc">
+<p>Allow High Speed Run mode. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf78d5250d200a4cc76a60dcff249a4d3a5eec6607385362c2f1f67574f98bab7f"></a>kSGTL_ModuleI2SIN</em>&nbsp;</td><td class="fielddoc">
-<p>I2S-IN module in SGTL5000. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf78d5250d200a4cc76a60dcff249a4d3ad549fbd25f776da2e48029e7defb136d"></a>kSGTL_ModuleI2SOUT</em>&nbsp;</td><td class="fielddoc">
-<p>I2S-OUT module in SGTL5000. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf78d5250d200a4cc76a60dcff249a4d3a3cf24e3ca184744b13ce10adb648afcd"></a>kSGTL_ModuleLineIn</em>&nbsp;</td><td class="fielddoc">
-<p>Line-in moudle in SGTL5000. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf78d5250d200a4cc76a60dcff249a4d3a04e0f93df81aacf8114308d95703248f"></a>kSGTL_ModuleLineOut</em>&nbsp;</td><td class="fielddoc">
-<p>Line-out module in SGTL5000. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf78d5250d200a4cc76a60dcff249a4d3a4d7e27445f7842c7d420a3621ac73e72"></a>kSGTL_ModuleMicin</em>&nbsp;</td><td class="fielddoc">
-<p>Micphone module in SGTL5000. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga53fe305f7c8245eb9faac439fc4d5051a2d2790f7f2a43e4fc6f3816cc1693328"></a>kSMC_AllowPowerModeAll</em>&nbsp;</td><td class="fielddoc">
+<p>Allow all power mode. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="ga78ef5545b50946b6d168203283c20820"></a>
+<a class="anchor" id="gac5330d1b90932ef578e4e0d06b2f5ae5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00048.html#ga78ef5545b50946b6d168203283c20820">sgtl_route_t</a></td>
+          <td class="memname">enum <a class="el" href="a00048.html#gac5330d1b90932ef578e4e0d06b2f5ae5">_smc_power_state</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>Only provide some typical data route, not all route listed. Users cannot combine any routes, once a new route is set, the precios one would be replaced. </dd></dl>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga78ef5545b50946b6d168203283c20820a1ea39c5bbafcc616613e8755b70573e9"></a>kSGTL_RouteBypass</em>&nbsp;</td><td class="fielddoc">
-<p>LINEIN-&gt;Headphone. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggac5330d1b90932ef578e4e0d06b2f5ae5a5b88bef81d70c5bd0d36b4dfbe48c1e5"></a>kSMC_PowerStateRun</em>&nbsp;</td><td class="fielddoc">
+<p>0000_0001 - Current power mode is RUN </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga78ef5545b50946b6d168203283c20820ad379b8e67ddbbb27bc44c6d6f3cf7c0e"></a>kSGTL_RoutePlayback</em>&nbsp;</td><td class="fielddoc">
-<p>I2SIN-&gt;DAC-&gt;Headphone. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="ggac5330d1b90932ef578e4e0d06b2f5ae5a4dfa7ded19a0d9fa1f56e7368cd70957"></a>kSMC_PowerStateStop</em>&nbsp;</td><td class="fielddoc">
+<p>0000_0010 - Current power mode is any STOP mode </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga78ef5545b50946b6d168203283c20820ae11f7c67b7d1ab7e4dce3d927be7da00"></a>kSGTL_RoutePlaybackandRecord</em>&nbsp;</td><td class="fielddoc">
-<p>I2SIN-&gt;DAC-&gt;Headphone, LINEIN-&gt;ADC-&gt;I2SOUT. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="ggac5330d1b90932ef578e4e0d06b2f5ae5a2457fcbd1884818e017070eca5f0233c"></a>kSMC_PowerStateVlpr</em>&nbsp;</td><td class="fielddoc">
+<p>0000_0100 - Current power mode is VLPR </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga78ef5545b50946b6d168203283c20820ae79c7286d52a67b618e4e23a1f1306b6"></a>kSGTL_RoutePlaybackwithDAP</em>&nbsp;</td><td class="fielddoc">
-<p>I2SIN-&gt;DAP-&gt;DAC-&gt;Headphone. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga78ef5545b50946b6d168203283c20820a53052344996dc1f90cf6457e2b81eb18"></a>kSGTL_RoutePlaybackwithDAPandRecord</em>&nbsp;</td><td class="fielddoc">
-<p>I2SIN-&gt;DAP-&gt;DAC-&gt;HP, LINEIN-&gt;ADC-&gt;I2SOUT. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga78ef5545b50946b6d168203283c20820a0c28a072be0500106b9b32a16f05f000"></a>kSGTL_RouteRecord</em>&nbsp;</td><td class="fielddoc">
-<p>LINEIN-&gt;ADC-&gt;I2SOUT. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="ggac5330d1b90932ef578e4e0d06b2f5ae5afc3dc2c53dd620cac2d37cf6c7f8ec73"></a>kSMC_PowerStateHsrun</em>&nbsp;</td><td class="fielddoc">
+<p>1000_0000 - Current power mode is HSRUN </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="ga9bd346f7776a687fe345e336127e5426"></a>
+<a class="anchor" id="ga91db71f81555360a72a84b3ca9899b12"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00048.html#ga9bd346f7776a687fe345e336127e5426">sgtl_protocol_t</a></td>
+          <td class="memname">enum <a class="el" href="a00048.html#ga91db71f81555360a72a84b3ca9899b12">_smc_power_stop_entry_status</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sgtl5000 only supports I2S format and PCM format. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga9bd346f7776a687fe345e336127e5426ab56aded98ae08bb3dd4c431e036eb9b7"></a>kSGTL_BusI2S</em>&nbsp;</td><td class="fielddoc">
-<p>I2S Type. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga91db71f81555360a72a84b3ca9899b12a32f5c2dee75619501f20cdf7cd8c7d92"></a>kSMC_PowerStopEntryAlt0</em>&nbsp;</td><td class="fielddoc">
+<p>Indicates a Stop mode entry since this field was last cleared. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga9bd346f7776a687fe345e336127e5426a99d80a1bbb2ca42f8d8b9ded7d0fe156"></a>kSGTL_BusLeftJustified</em>&nbsp;</td><td class="fielddoc">
-<p>Left justified. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga91db71f81555360a72a84b3ca9899b12a4463e1a4c348e7ebef43915332d263ca"></a>kSMC_PowerStopEntryAlt1</em>&nbsp;</td><td class="fielddoc">
+<p>Indicates the system bus masters acknowledged the Stop mode entry. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga9bd346f7776a687fe345e336127e5426a742196d31e1ede4eb6d0b1bd6afcdc50"></a>kSGTL_BusRightJustified</em>&nbsp;</td><td class="fielddoc">
-<p>Right Justified. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga91db71f81555360a72a84b3ca9899b12a0376243e72de895cae43fd58faa092b1"></a>kSMC_PowerStopEntryAlt2</em>&nbsp;</td><td class="fielddoc">
+<p>Indicates the system clock peripherals acknowledged the Stop mode entry. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga9bd346f7776a687fe345e336127e5426aae65c2ae38164483661ce81683e2cf6d"></a>kSGTL_BusPCMA</em>&nbsp;</td><td class="fielddoc">
-<p>PCMA. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga91db71f81555360a72a84b3ca9899b12a98969b3bcbe8bbcb36cfc2b850ce08b6"></a>kSMC_PowerStopEntryAlt3</em>&nbsp;</td><td class="fielddoc">
+<p>Indicates the bus clock peripherals acknowledged the Stop mode entry. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga9bd346f7776a687fe345e336127e5426a165348d47026247f859a40813f449cfd"></a>kSGTL_BusPCMB</em>&nbsp;</td><td class="fielddoc">
-<p>PCMB. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga91db71f81555360a72a84b3ca9899b12ac6931fa0ba0904aa6341e9f89023578b"></a>kSMC_PowerStopEntryAlt4</em>&nbsp;</td><td class="fielddoc">
+<p>Indicates the slow clock peripherals acknowledged the Stop mode entry. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga91db71f81555360a72a84b3ca9899b12afc033823f07378a8c4fd449d546db4f0"></a>kSMC_PowerStopEntryAlt5</em>&nbsp;</td><td class="fielddoc">
+<p>Indicates Stop mode entry completed. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="ga394b3903fbf00ba2b6243f60689a5a5f"></a>
+<a class="anchor" id="gac2c182287ebbb6119d8bcbb6ead71e53"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00048.html#gac2c182287ebbb6119d8bcbb6ead71e53">_smc_run_mode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggac2c182287ebbb6119d8bcbb6ead71e53abaeb1d66b5ab95289522985e831186de"></a>kSMC_RunNormal</em>&nbsp;</td><td class="fielddoc">
+<p>normal RUN mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggac2c182287ebbb6119d8bcbb6ead71e53ac1461903d002daab1af773d6d506fea3"></a>kSMC_RunVlpr</em>&nbsp;</td><td class="fielddoc">
+<p>Very-Low-Power RUN mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggac2c182287ebbb6119d8bcbb6ead71e53ac575a1829a745c18d19ab10744b44f47"></a>kSMC_Hsrun</em>&nbsp;</td><td class="fielddoc">
+<p>High Speed Run mode (HSRUN). </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="ga107d1c64902b4a1a0270a51008b854d5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00048.html#ga107d1c64902b4a1a0270a51008b854d5">_smc_stop_mode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga107d1c64902b4a1a0270a51008b854d5ac642d13640f334c1c509aa89568028dc"></a>kSMC_StopNormal</em>&nbsp;</td><td class="fielddoc">
+<p>Normal STOP mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga107d1c64902b4a1a0270a51008b854d5a0309375b2672e8c29eebd50bd80236c3"></a>kSMC_StopVlps</em>&nbsp;</td><td class="fielddoc">
+<p>Very-Low-Power STOP mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga107d1c64902b4a1a0270a51008b854d5a49290f942a305169a63ca4ce30f3cd9a"></a>kSMC_StopLls</em>&nbsp;</td><td class="fielddoc">
+<p>Low-Leakage Stop mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga107d1c64902b4a1a0270a51008b854d5afae316de35cb50c1212bd172eb25037f"></a>kSMC_StopVlls</em>&nbsp;</td><td class="fielddoc">
+<p>Very-Low-Leakage Stop mode. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="gaa8d9e56e87c773e0c77995ba8f7fbef1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00048.html#gaa8d9e56e87c773e0c77995ba8f7fbef1">_smc_partial_stop_mode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaa8d9e56e87c773e0c77995ba8f7fbef1a04f63da1ef433f2240cc42337c55e1b0"></a>kSMC_PartialStop</em>&nbsp;</td><td class="fielddoc">
+<p>STOP - Normal Stop mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaa8d9e56e87c773e0c77995ba8f7fbef1a2ebc7dc8a6bd5f83dd842cddcc6483a3"></a>kSMC_PartialStop1</em>&nbsp;</td><td class="fielddoc">
+<p>Partial Stop with both system and bus clocks disabled. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaa8d9e56e87c773e0c77995ba8f7fbef1afca17db21b7e59ecd2e271e566001b63"></a>kSMC_PartialStop2</em>&nbsp;</td><td class="fielddoc">
+<p>Partial Stop with system clock disabled and bus clock enabled. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaa8d9e56e87c773e0c77995ba8f7fbef1a0bd1cee626881c2fd3d716d8dd6a7eb7"></a>kSMC_PartialStop3</em>&nbsp;</td><td class="fielddoc">
+<p>Partial Stop with system clock enabled and bus clock disabled. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="gadb49720dc49f7d4e4cf9adbf2948e409"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -559,99 +639,654 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="anchor" id="_sgtl_play_channel"></a></p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga394b3903fbf00ba2b6243f60689a5a5fa4438d9d23b966a384697ac3959ec180c"></a>kSGTL_HeadphoneLeft</em>&nbsp;</td><td class="fielddoc">
-<p>headphone left channel </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga394b3903fbf00ba2b6243f60689a5a5fa7c3a64195b071d4d17957f2de39a45a7"></a>kSGTL_HeadphoneRight</em>&nbsp;</td><td class="fielddoc">
-<p>headphone right channel </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga394b3903fbf00ba2b6243f60689a5a5faea79ecce1f81bf12000fcf64671502ea"></a>kSGTL_LineoutLeft</em>&nbsp;</td><td class="fielddoc">
-<p>lineout left channel </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga394b3903fbf00ba2b6243f60689a5a5fabe25d4199f174f03f271a2ac335904bb"></a>kSGTL_LineoutRight</em>&nbsp;</td><td class="fielddoc">
-<p>lineout right channel </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggadb49720dc49f7d4e4cf9adbf2948e409ac8b70e0e27736678bcb91340b06c011e"></a>kStatus_SMC_StopAbort</em>&nbsp;</td><td class="fielddoc">
+<p>Entering Stop mode is abort. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="gac205be2172292384dd687b5471a87edd"></a>
+<a class="anchor" id="ga0119050aa21406db0f954e558d9fdd26"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">anonymous enum</td>
+          <td class="memname">enum <a class="el" href="a00048.html#ga0119050aa21406db0f954e558d9fdd26">_smc_reset_source</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggac205be2172292384dd687b5471a87edda358889525fbd4a6d5998c17a2382ac16"></a>kSGTL_RecordSourceLineIn</em>&nbsp;</td><td class="fielddoc">
-<p>record source line in </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26a2861f33b64fb9444171deadf1dec216a"></a>kSMC_SourceWakeup</em>&nbsp;</td><td class="fielddoc">
+<p>Very low-leakage wakeup reset. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggac205be2172292384dd687b5471a87edda3c1289899ca6bdbe2ee24346890a19e2"></a>kSGTL_RecordSourceMic</em>&nbsp;</td><td class="fielddoc">
-<p>record source single end </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26a2ef41a99a849508f7bb01db67fadcef8"></a>kSMC_SourcePor</em>&nbsp;</td><td class="fielddoc">
+<p>Power on reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26a51a7332d542bc09aa0c79504fc9501d5"></a>kSMC_SourceLvd</em>&nbsp;</td><td class="fielddoc">
+<p>Low-voltage detect reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26af7cada6555257956137e0413001f4e3b"></a>kSMC_SourceHvd</em>&nbsp;</td><td class="fielddoc">
+<p>High-voltage detect reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26af9e28ded9c3e837abe58f331613392f8"></a>kSMC_SourceWarm</em>&nbsp;</td><td class="fielddoc">
+<p>Warm reset. </p>
+<p>Warm Reset flag will assert if any of the system reset sources in this register assert (SRS[31:8]) </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26aa34a0fb061bc75ae3ccccdf79324ec77"></a>kSMC_SourceFatal</em>&nbsp;</td><td class="fielddoc">
+<p>Fatal reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26a0ee5d493438ca2ee939e21783b31b069"></a>kSMC_SourceCore</em>&nbsp;</td><td class="fielddoc">
+<p>Software reset that only reset the core, NOT a sticky system reset source. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26a0f1ed5951f9e463ef4ce4cf6c5f86142"></a>kSMC_SourcePin</em>&nbsp;</td><td class="fielddoc">
+<p>RESET_B pin reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26a62b56098a197c1779faf013d22ab34fc"></a>kSMC_SourceMdm</em>&nbsp;</td><td class="fielddoc">
+<p>MDM reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26a123f2986effc7841fe41fdfa0fd76fa6"></a>kSMC_SourceRstAck</em>&nbsp;</td><td class="fielddoc">
+<p>Reset Controller timeout reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26af7e8b14f8ae7bbf13676147f420aa7d7"></a>kSMC_SourceStopAck</em>&nbsp;</td><td class="fielddoc">
+<p>Stop timeout reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26a57d5033ab41e9d5e469ce081a51364ff"></a>kSMC_SourceScg</em>&nbsp;</td><td class="fielddoc">
+<p>SCG loss of lock or loss of clock. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26a87c6299ffc176e18c84d546dcff33b4b"></a>kSMC_SourceWdog</em>&nbsp;</td><td class="fielddoc">
+<p>Watchdog reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26a896f454b422037166d2d35a8108c705d"></a>kSMC_SourceSoftware</em>&nbsp;</td><td class="fielddoc">
+<p>Software reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26a629aa8ffd6366f2cef1030bf81758b9a"></a>kSMC_SourceLockup</em>&nbsp;</td><td class="fielddoc">
+<p>Lockup reset. </p>
+<p>Core lockup or exception. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0119050aa21406db0f954e558d9fdd26a2a376f02a89f4701e4ee57a9937e3a8b"></a>kSMC_SourceJtag</em>&nbsp;</td><td class="fielddoc">
+<p>JTAG system reset. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="ga157d5577a5b2f5986037d0d09c7dc77d"></a>
+<a class="anchor" id="ga5293a8c05faaff1ac6b2ede7bf0efc76"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">anonymous enum</td>
+          <td class="memname">enum <a class="el" href="a00048.html#ga5293a8c05faaff1ac6b2ede7bf0efc76">_smc_interrupt_enable</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga157d5577a5b2f5986037d0d09c7dc77dad99308b50ee139be94b584a66d999caf"></a>kSGTL_PlaySourceLineIn</em>&nbsp;</td><td class="fielddoc">
-<p>play source line in </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga5293a8c05faaff1ac6b2ede7bf0efc76a5451f680c83239aae0706ac269b970a0"></a>kSMC_IntNone</em>&nbsp;</td><td class="fielddoc">
+<p>No interrupt enabled. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga157d5577a5b2f5986037d0d09c7dc77da9c7fa540632ee8e4c733fb4ccebc8601"></a>kSGTL_PlaySourceDAC</em>&nbsp;</td><td class="fielddoc">
-<p>play source line in </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5293a8c05faaff1ac6b2ede7bf0efc76a7adbffee423e42df938866c56789e7d5"></a>kSMC_IntPin</em>&nbsp;</td><td class="fielddoc">
+<p>Pin reset interrupt. </p>
 </td></tr>
-</table>
-
-</div>
-</div>
-<a class="anchor" id="ga1d2c82787cda907a0ac8646e11171db8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00048.html#ga1d2c82787cda907a0ac8646e11171db8">sgtl_sclk_edge_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga1d2c82787cda907a0ac8646e11171db8aa89baee03025ca12e2fd8eb03909724c"></a>kSGTL_SclkValidEdgeRising</em>&nbsp;</td><td class="fielddoc">
-<p>SCLK valid edge. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5293a8c05faaff1ac6b2ede7bf0efc76a8dfbbf3b4a105ed134c206eb41c5f7eb"></a>kSMC_IntMdm</em>&nbsp;</td><td class="fielddoc">
+<p>MDM reset interrupt. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga1d2c82787cda907a0ac8646e11171db8a0e8f446d380d7f3c859b68ffe5a64a08"></a>kSGTL_SclkValidEdgeFailling</em>&nbsp;</td><td class="fielddoc">
-<p>SCLK failling edge. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5293a8c05faaff1ac6b2ede7bf0efc76a8debbfe3c7875e3d8d38f230183da598"></a>kSMC_IntStopAck</em>&nbsp;</td><td class="fielddoc">
+<p>Stop timeout reset interrupt. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5293a8c05faaff1ac6b2ede7bf0efc76a5082d6057025b59db3b3ed62e582cf22"></a>kSMC_IntWdog</em>&nbsp;</td><td class="fielddoc">
+<p>Watchdog interrupt. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5293a8c05faaff1ac6b2ede7bf0efc76a2af6715629b3a405db96a9e48bc21573"></a>kSMC_IntSoftware</em>&nbsp;</td><td class="fielddoc">
+<p>Software reset interrupts. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5293a8c05faaff1ac6b2ede7bf0efc76a410c64e50113a8f6e9d45236c0d92ae2"></a>kSMC_IntLockup</em>&nbsp;</td><td class="fielddoc">
+<p>Lock up interrupt. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5293a8c05faaff1ac6b2ede7bf0efc76a99e443d5fa8cf148538747a562d80a22"></a>kSMC_IntAll</em>&nbsp;</td><td class="fielddoc">
+<p>All system reset interrupts. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga5dd1b8225b23f6e47c4abed5bf74709f"></a>
+<a class="anchor" id="ga883084279eccf59d4594cc4fc6b07570"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SGTL_Init </td>
+          <td class="memname">static void SMC_SetPowerModeProtection </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00341">sgtl_config_t</a> *&#160;</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>allowedModes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function configures the power mode protection settings for supported power modes in the specified chip family. The available power modes are defined in the smc_power_mode_protection_t. This should be done at an early system level initialization stage. See the reference manual for details. This register can only write once after the power reset.</p>
+<p>The allowed modes are passed as bit map, for example, to allow LLS and VLLS, use SMC_SetPowerModeProtection(kSMC_AllowPowerModeLls | kSMC_AllowPowerModeVlls). To allow all modes, use SMC_SetPowerModeProtection(kSMC_AllowPowerModeAll).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+    <tr><td class="paramname">allowedModes</td><td>Bitmap of the allowed power modes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga8891a49d31b2f79a72d2b696c3c7d21a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00048.html#ga1a2eebdb1e5516b543c27e68d61f8b85">smc_power_state_t</a> SMC_GetPowerModeState </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function returns the current power mode stat. Once application switches the power mode, it should always check the stat to check whether it runs into the specified mode or not. An application should check this mode before switching to a different mode. The system requires that only certain modes can switch to other specific modes. See the reference manual for details and the smc_power_state_t for information about the power stat.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Current power mode status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga344da3e55dffa5d50fb4872e40f36ff0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SMC_PreEnterStopModes </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function should be called before entering STOP/VLPS/LLS/VLLS modes. </p>
+
+</div>
+</div>
+<a class="anchor" id="gaee8b556d6a459c2a69b8178ee4279df6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SMC_PostExitStopModes </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function should be called after wake up from STOP/VLPS/LLS/VLLS modes. It is used together with <a class="el" href="a00048.html#ga344da3e55dffa5d50fb4872e40f36ff0">SMC_PreEnterStopModes</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="gab8f3b43e5a5af5698ed57297f0f9b8f3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SMC_PreEnterWaitModes </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function should be called before entering WAIT/VLPW modes.. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga667477c948aeeabf905969a37ab6fc70"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SMC_PostExitWaitModes </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function should be called after wake up from WAIT/VLPW modes. It is used together with <a class="el" href="a00048.html#gab8f3b43e5a5af5698ed57297f0f9b8f3">SMC_PreEnterWaitModes</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga8f141beaa4867a3d1606b714e63c30c3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeRun </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaff75ec614c35b4f8f979b103ab159dcd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeHsrun </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaaf1664f2d4a78b756e5e30f5433af975"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeWait </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa1e2666198ce75322be3280472a224ee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeStop </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00048.html#gaf4ac8e3c162dfdfca1ab17fc2d78bf82">smc_partial_stop_option_t</a>&#160;</td>
+          <td class="paramname"><em>option</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+    <tr><td class="paramname">option</td><td>Partial Stop mode option. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa1439e98fb0d82099217f822e3329b14"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeVlpr </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga69d0fb061423ef6ed718f3acee96ebf6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeVlpw </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga7f7303f155f36716cc68672e0a4027cf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeVlps </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga998c58e17bdd9ef190c7bcc5dd9395e7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeLls </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gacee93389ff12a7686d3567d9d3e582e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeVlls </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaf0845474594f3bd8413793de1e51c271"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint32_t SMC_GetPreviousResetSources </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function gets the current reset source status. Use source masks defined in the smc_reset_source_t to get the desired source status.</p>
+<p>Example: To get all reset source statuses. </p>
+<div class="fragment"><div class="line">resetStatus = <a class="code" href="a00048.html#gaf0845474594f3bd8413793de1e51c271">SMC_GetPreviousResetSources</a>(SMC0) &amp; kSMC_SourceAll;</div>
+</div><!-- fragment --><p>Example: To test whether the MCU is reset using Watchdog. </p>
+<div class="fragment"><div class="line">uint32_t resetStatus;</div>
+<div class="line"></div>
+<div class="line">resetStatus = <a class="code" href="a00048.html#gaf0845474594f3bd8413793de1e51c271">SMC_GetPreviousResetSources</a>(SMC0) &amp; <a class="code" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a87c6299ffc176e18c84d546dcff33b4b">kSMC_SourceWdog</a>;</div>
+</div><!-- fragment --><p>Example: To test multiple reset sources. </p>
+<div class="fragment"><div class="line">uint32_t resetStatus;</div>
+<div class="line"></div>
+<div class="line">resetStatus = <a class="code" href="a00048.html#gaf0845474594f3bd8413793de1e51c271">SMC_GetPreviousResetSources</a>(SMC0) &amp; (<a class="code" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a87c6299ffc176e18c84d546dcff33b4b">kSMC_SourceWdog</a> | <a class="code" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a0f1ed5951f9e463ef4ce4cf6c5f86142">kSMC_SourcePin</a>);</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>All reset source status bit map. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga8c7b8d725d5b9f354e53e94160323a8f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint32_t SMC_GetStickyResetSources </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function gets the current reset source status that has not been cleared by software for some specific source.</p>
+<p>Example: To get all reset source statuses. </p>
+<div class="fragment"><div class="line">uint32_t resetStatus;</div>
+<div class="line"></div>
+<div class="line">resetStatus = <a class="code" href="a00048.html#ga8c7b8d725d5b9f354e53e94160323a8f">SMC_GetStickyResetSources</a>(SMC0) &amp; kSMC_SourceAll;</div>
+</div><!-- fragment --><p>Example, To test whether the MCU is reset using Watchdog. </p>
+<div class="fragment"><div class="line">uint32_t resetStatus;</div>
+<div class="line"></div>
+<div class="line">resetStatus = <a class="code" href="a00048.html#ga8c7b8d725d5b9f354e53e94160323a8f">SMC_GetStickyResetSources</a>(SMC0) &amp; <a class="code" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a87c6299ffc176e18c84d546dcff33b4b">kSMC_SourceWdog</a>;</div>
+</div><!-- fragment --><p>Example To test multiple reset sources. </p>
+<div class="fragment"><div class="line">uint32_t resetStatus;</div>
+<div class="line"></div>
+<div class="line">resetStatus = <a class="code" href="a00048.html#ga8c7b8d725d5b9f354e53e94160323a8f">SMC_GetStickyResetSources</a>(SMC0) &amp; (<a class="code" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a87c6299ffc176e18c84d546dcff33b4b">kSMC_SourceWdog</a> | <a class="code" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a0f1ed5951f9e463ef4ce4cf6c5f86142">kSMC_SourcePin</a>);</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>All reset source status bit map. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga9870b5d3a94b6385cf3c40ac5919caf2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SMC_ClearStickyResetSources </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>sourceMasks</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function clears the sticky system reset flags indicated by source masks.</p>
+<p>Example: Clears multiple reset sources. </p>
+<div class="fragment"><div class="line"><a class="code" href="a00048.html#ga9870b5d3a94b6385cf3c40ac5919caf2">SMC_ClearStickyResetSources</a>(SMC0, (<a class="code" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a87c6299ffc176e18c84d546dcff33b4b">kSMC_SourceWdog</a> | <a class="code" href="a00048.html#gga0119050aa21406db0f954e558d9fdd26a0f1ed5951f9e463ef4ce4cf6c5f86142">kSMC_SourcePin</a>));</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+    <tr><td class="paramname">sourceMasks</td><td>reset source status bit map </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga411662c3c2d7b96b350fb9d06bf61dd1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SMC_ConfigureResetPinFilter </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00048.html#gabba72113393221f719c2e901175e3cdb">smc_reset_pin_filter_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>&#160;</td>
         </tr>
         <tr>
@@ -661,147 +1296,35 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function calls SGTL_I2CInit(), and in this function, some configurations are fixed. The second parameter can be NULL. If users want to change the SGTL5000 settings, a configure structure should be prepared. </p>
-<dl class="section note"><dt>Note</dt><dd>If the codec_config is NULL, it would initialize sgtl5000 using default settings. The default setting: <div class="fragment"><div class="line">* sgtl_init_t codec_config</div>
-<div class="line">* codec_config.route = <a class="code" href="a00048.html#gga78ef5545b50946b6d168203283c20820ae11f7c67b7d1ab7e4dce3d927be7da00">kSGTL_RoutePlaybackandRecord</a></div>
-<div class="line">* codec_config.bus = <a class="code" href="a00048.html#gga9bd346f7776a687fe345e336127e5426ab56aded98ae08bb3dd4c431e036eb9b7">kSGTL_BusI2S</a></div>
-<div class="line">* codec_config.master = slave</div>
-<div class="line">* </div>
-</div><!-- fragment --></dd></dl>
+<p>This function sets the reset pin filter including the enablement/disablement and filter width.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure. </td></tr>
-    <tr><td class="paramname">config</td><td>sgtl5000 configuration structure. If this pointer equals to NULL, it means using the default configuration. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Initialization status </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga1ef9c339bf1ac795d7e5f3c42cebafb7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SGTL_SetDataRoute </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00048.html#ga78ef5545b50946b6d168203283c20820">sgtl_route_t</a>&#160;</td>
-          <td class="paramname"><em>route</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function would set the data route according to route. The route cannot be combined, as all route would enable different modules.</p>
-<dl class="section note"><dt>Note</dt><dd>If a new route is set, the previous route would not work. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure. </td></tr>
-    <tr><td class="paramname">route</td><td>Audio data route in sgtl5000. </td></tr>
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="ga8087efbfa0ae9c2644d6191f441d9df0"></a>
+<a class="anchor" id="gaf7c01c2b4897682c13288abf93f7efe3"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SGTL_SetProtocol </td>
+          <td class="memname">static void SMC_SetSystemResetInterruptConfig </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00048.html#ga9bd346f7776a687fe345e336127e5426">sgtl_protocol_t</a>&#160;</td>
-          <td class="paramname"><em>protocol</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Sgtl5000 only supports I2S, I2S left, I2S right, PCM A, PCM B format. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure. </td></tr>
-    <tr><td class="paramname">protocol</td><td>Audio data transfer protocol. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga872cb128c9d0445c60dee6dbc044c7b3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SGTL_SetMasterSlave </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>master</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure. </td></tr>
-    <tr><td class="paramname">master</td><td>1 represent master, 0 represent slave. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga88af855c5959f6d814bd8f8327e168d5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SGTL_SetVolume </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00048.html#gaf78d5250d200a4cc76a60dcff249a4d3">sgtl_module_t</a>&#160;</td>
-          <td class="paramname"><em>module</em>, </td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>volume</em>&#160;</td>
+          <td class="paramname"><em>intMask</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -809,211 +1332,85 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>This function would set the volume of sgtl5000 modules. This interface set module volume. The function assume that left channel and right channel has the same volume.</p>
-<p>kSGTL_ModuleADC volume range: 0 - 0xF, 0dB - 22.5dB kSGTL_ModuleDAC volume range: 0x3C - 0xF0, 0dB - -90dB kSGTL_ModuleHP volume range: 0 - 0x7F, 12dB - -51.5dB kSGTL_ModuleLineOut volume range: 0 - 0x1F, 0.5dB steps</p>
+<p>For a graceful shut down, the MSMC supports delaying the assertion of the system reset for a period of time when the reset interrupt is generated. This function can be used to enable the interrupt. The interrupts are passed in as bit mask. See smc_interrupt_enable_t for details. For example, to delay a reset after the WDOG timeout or PIN reset occurs, configure as follows: SMC_SetSystemResetInterruptConfig(SMC0, (kSMC_IntWdog | kSMC_IntPin));</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure. </td></tr>
-    <tr><td class="paramname">module</td><td>Sgtl5000 module, such as DAC, ADC and etc. </td></tr>
-    <tr><td class="paramname">volume</td><td>Volume value need to be set. The value is the exact value in register. </td></tr>
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+    <tr><td class="paramname">intMask</td><td>Bit mask of the system reset interrupts to enable. See smc_interrupt_enable_t for details. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="ga6d0af6998eff44ee5765988e05d68434"></a>
+<a class="anchor" id="gaabe43cecbad4a671c0366666aee1f53b"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t SGTL_GetVolume </td>
+          <td class="memname">static uint32_t SMC_GetResetInterruptSourcesStatus </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00048.html#gaf78d5250d200a4cc76a60dcff249a4d3">sgtl_module_t</a>&#160;</td>
-          <td class="paramname"><em>module</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function gets the volume of sgtl5000 modules. This interface get DAC module volume. The function assume that left channel and right channel has the same volume. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure. </td></tr>
-    <tr><td class="paramname">module</td><td>Sgtl5000 module, such as DAC, ADC and etc. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Module value, the value is exact value in register. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga4c3a087636393265417c9435b6fc57c2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SGTL_SetMute </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00048.html#gaf78d5250d200a4cc76a60dcff249a4d3">sgtl_module_t</a>&#160;</td>
-          <td class="paramname"><em>module</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>mute</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure. </td></tr>
-    <tr><td class="paramname">module</td><td>Sgtl5000 module, such as DAC, ADC and etc. </td></tr>
-    <tr><td class="paramname">mute</td><td>True means mute, and false means unmute. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga51bf307e712104f5942d4cf64c60e624"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SGTL_EnableModule </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00048.html#gaf78d5250d200a4cc76a60dcff249a4d3">sgtl_module_t</a>&#160;</td>
-          <td class="paramname"><em>module</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure. </td></tr>
-    <tr><td class="paramname">module</td><td>Module expected to enable. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga26a3dba16af7a79e072f71d179dc00e6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SGTL_DisableModule </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00048.html#gaf78d5250d200a4cc76a60dcff249a4d3">sgtl_module_t</a>&#160;</td>
-          <td class="paramname"><em>module</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure. </td></tr>
-    <tr><td class="paramname">module</td><td>Module expected to enable. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga27221640262b10948a03f3178e379814"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SGTL_Deinit </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em></td><td>)</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>Shut down Sgtl5000 modules. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>This function gets the source status of the reset interrupt. Use source masks defined in the smc_interrupt_enable_t to get the desired source status.</p>
+<p>Example: To get all reset interrupt source statuses. </p>
+<div class="fragment"><div class="line">uint32_t interruptStatus;</div>
+<div class="line"></div>
+<div class="line">interruptStatus = <a class="code" href="a00048.html#gaabe43cecbad4a671c0366666aee1f53b">SMC_GetResetInterruptSourcesStatus</a>(SMC0) &amp; <a class="code" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a99e443d5fa8cf148538747a562d80a22">kSMC_IntAll</a>;</div>
+</div><!-- fragment --><p>Example: To test whether the reset interrupt of Watchdog is pending. </p>
+<div class="fragment"><div class="line">uint32_t interruptStatus;</div>
+<div class="line"></div>
+<div class="line">interruptStatus = <a class="code" href="a00048.html#gaabe43cecbad4a671c0366666aee1f53b">SMC_GetResetInterruptSourcesStatus</a>(SMC0) &amp; <a class="code" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a5082d6057025b59db3b3ed62e582cf22">kSMC_IntWdog</a>;</div>
+</div><!-- fragment --><p>Example: To test multiple reset interrupt sources. </p>
+<div class="fragment"><div class="line">uint32_t interruptStatus;</div>
+<div class="line"></div>
+<div class="line">interruptStatus = <a class="code" href="a00048.html#gaabe43cecbad4a671c0366666aee1f53b">SMC_GetResetInterruptSourcesStatus</a>(SMC0) &amp; (<a class="code" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a5082d6057025b59db3b3ed62e582cf22">kSMC_IntWdog</a> | <a class="code" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a7adbffee423e42df938866c56789e7d5">kSMC_IntPin</a>);</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure pointer. </td></tr>
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>All reset interrupt source status bit map. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga120c853dc3a86f5c70c4fbef309b6ef5"></a>
+<a class="anchor" id="ga5a134260893f14762503324f06f586ff"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SGTL_ConfigDataFormat </td>
+          <td class="memname">static void SMC_ClearResetInterruptSourcesStatus </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>mclk</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>sample_rate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>bits</em>&#160;</td>
+          <td class="paramname"><em>intMask</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1021,212 +1418,64 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>This function would configure the registers about the sample rate, bit depths. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>This function clears the source status of the reset interrupt. Use source masks defined in the smc_interrupt_enable_t to get the desired source status.</p>
+<p>Example: To clear all reset interrupt source statuses. </p>
+<div class="fragment"><div class="line">uint32_t interruptStatus;</div>
+<div class="line"></div>
+<div class="line">MMC_ClearResetInterruptSourcesStatus(SMC0, <a class="code" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a99e443d5fa8cf148538747a562d80a22">kSMC_IntAll</a>);</div>
+</div><!-- fragment --><p>Example, To clear the reset interrupt of Watchdog. </p>
+<div class="fragment"><div class="line">uint32_t interruptStatus;</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="a00048.html#ga5a134260893f14762503324f06f586ff">SMC_ClearResetInterruptSourcesStatus</a>(SMC0, <a class="code" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a5082d6057025b59db3b3ed62e582cf22">kSMC_IntWdog</a>);</div>
+</div><!-- fragment --><p>Example, To clear multiple reset interrupt sources status. </p>
+<div class="fragment"><div class="line">uint32_t interruptStatus;</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="a00048.html#ga5a134260893f14762503324f06f586ff">SMC_ClearResetInterruptSourcesStatus</a>(SMC0, (<a class="code" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a5082d6057025b59db3b3ed62e582cf22">kSMC_IntWdog</a> | <a class="code" href="a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a7adbffee423e42df938866c56789e7d5">kSMC_IntPin</a>));</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure pointer. </td></tr>
-    <tr><td class="paramname">mclk</td><td>Master clock frequency of I2S. </td></tr>
-    <tr><td class="paramname">sample_rate</td><td>Sample rate of audio file running in sgtl5000. Sgtl5000 now supports 8k, 11.025k, 12k, 16k, 22.05k, 24k, 32k, 44.1k, 48k and 96k sample rate. </td></tr>
-    <tr><td class="paramname">bits</td><td>Bit depth of audio file (Sgtl5000 only supports 16bit, 20bit, 24bit and 32 bit in HW). </td></tr>
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+    <tr><td class="paramname">intMask</td><td>All reset interrupt source status bit map to clear. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="ga3052a63c17bdfdfeac94d1011434af5d"></a>
+<a class="anchor" id="ga5b08a53f1afd002cff552265ee91a223"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SGTL_SetPlay </td>
+          <td class="memname">static uint32_t SMC_GetBootOptionConfig </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>playSource</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+<p>This function gets the boot option configuration of MSMC.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure pointer. </td></tr>
-    <tr><td class="paramname">playSource</td><td>play source value, reference _sgtl_play_source.</td></tr>
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>kStatus_Success, else failed. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gaf929ad37a6dd584cd5f17d52560ef7df"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SGTL_SetRecord </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>recordSource</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure pointer. </td></tr>
-    <tr><td class="paramname">recordSource</td><td>record source value, reference _sgtl_record_source.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>kStatus_Success, else failed. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga1f0eb0cad0476f34f65811b99d58752f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SGTL_WriteReg </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>reg</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>val</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure. </td></tr>
-    <tr><td class="paramname">reg</td><td>The register address in sgtl. </td></tr>
-    <tr><td class="paramname">val</td><td>Value needs to write into the register. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gad044b5a578bac8480229730d610f22b6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SGTL_ReadReg </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>reg</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t *&#160;</td>
-          <td class="paramname"><em>val</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure. </td></tr>
-    <tr><td class="paramname">reg</td><td>The register address in sgtl. </td></tr>
-    <tr><td class="paramname">val</td><td>Value written to. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga43f1ac7cec503ad6e6ea178b6fb691ac"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SGTL_ModifyReg </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00048.html#a00342">sgtl_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>reg</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>clr_mask</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>val</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>Sgtl5000 handle structure. </td></tr>
-    <tr><td class="paramname">reg</td><td>The register address in sgtl. </td></tr>
-    <tr><td class="paramname">clr_mask</td><td>The mask code for the bits want to write. The bit you want to write should be 0. </td></tr>
-    <tr><td class="paramname">val</td><td>Value needs to write into the register. </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>The boot option configuration. 1 means boot option enabled. 0 means not. </dd></dl>
 
 </div>
 </div>

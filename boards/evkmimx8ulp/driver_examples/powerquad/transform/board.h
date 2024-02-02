@@ -20,9 +20,9 @@
  ******************************************************************************/
 #define PFD_VALID_MASK (0x40404040U)
 #ifndef BIT
-#define BIT(n)         (1U << (n))
+#define BIT(n) (1U << (n))
 #endif
-#define MHZ(X)         ((X)*1000000UL)
+#define MHZ(X) ((X)*1000000UL)
 
 /* SoC variable type */
 #define MPU_SOC_IMX8ULP   0xA1 /* dummy ID, full feature, iMX8ULP Dual core 7D/7C */

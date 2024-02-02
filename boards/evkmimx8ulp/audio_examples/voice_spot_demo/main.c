@@ -65,6 +65,13 @@
 #define BUFFER_SIZE       (VOICESPOT_NUM_SAMPLES_PER_FRAME * BYTE_WIDTH * DMA_TRANSFER_MULT)
 #define BUFFER_NUMBER     2U
 
+
+#if defined(MIMX8UD7_cm33_SERIES)
+#define DEVICE_ID Device_IMX8ULP_CM33
+#else
+#error "Incompatible device"
+#endif
+
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
@@ -191,7 +198,7 @@ static int32_t VoiceSpotInit(void)
     int32_t voicespot_status = -1;
 
     /* Create VOICE_SPOT control structure */
-    voicespot_status = rdspVoiceSpot_CreateControl(&voicespot_control, data_type);
+    voicespot_status = rdspVoiceSpot_CreateControl(&voicespot_control, data_type, DEVICE_ID);
     PRINTF("rdspVoiceSpot_CreateControl: voicespot_status = %d\r\n", (int)voicespot_status);
 
     int32_t enable_highpass_filter = 1;
@@ -387,7 +394,7 @@ int main(void)
     BOARD_UpdateM33CoreFreq(&g_sysClkConfigRun);
 
     CLOCK_DeinitPll1();
-   
+
     BOARD_InitDebugConsole();
 
     Fusion_Init();
@@ -396,7 +403,7 @@ int main(void)
         BOARD_HandshakeWithUboot(); /* Must handshake with uboot, unless will get issues(such as: SoC reset all the
                                        time) */
     }
-    else /* low power boot type */
+    else                            /* low power boot type */
     {
         BOARD_SetTrdcGlobalConfig();
     }

@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.14.1</span>
+   &#160;<span id="projectnumber">Rev 2.15.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -99,6 +99,7 @@ $(document).ready(function(){initNavTree('a00201.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">TRGMUX: Trigger Mux Driver</div>  </div>
@@ -110,24 +111,31 @@ $(document).ready(function(){initNavTree('a00201.html','');});
 Typical use case</h1>
 <p>Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/trgmux </p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:gaeef47e1e298b511bc6523da61f35c836"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaeef47e1e298b511bc6523da61f35c836"></a>
+typedef enum <a class="el" href="a00201.html#ga991d95ad8496e98872ec082077fdb9d5">_trgmux_trigger_input</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#gaeef47e1e298b511bc6523da61f35c836">trgmux_trigger_input_t</a></td></tr>
+<tr class="memdesc:gaeef47e1e298b511bc6523da61f35c836"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the MUX select for peripheral trigger input. <br/></td></tr>
+<tr class="separator:gaeef47e1e298b511bc6523da61f35c836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:ga0ed680fdb405e7195d9f14032851eebb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a00201.html#gga0ed680fdb405e7195d9f14032851eebba7923504849a10689e4cdcb1e62c1558b">kStatus_TRGMUX_Locked</a> = MAKE_STATUS(kStatusGroup_TRGMUX, 0)
  }</td></tr>
 <tr class="memdesc:ga0ed680fdb405e7195d9f14032851eebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">TRGMUX configure status.  <a href="a00201.html#ga0ed680fdb405e7195d9f14032851eebb">More...</a><br/></td></tr>
 <tr class="separator:ga0ed680fdb405e7195d9f14032851eebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf2f023de74f52a7af5a915a0c5ac37af"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#gaf2f023de74f52a7af5a915a0c5ac37af">trgmux_trigger_input_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00201.html#ggaf2f023de74f52a7af5a915a0c5ac37afa3aff19ab48d4a58f19a23a37ab41693e">kTRGMUX_TriggerInput0</a> = TRGMUX_TRGCFG_SEL0_SHIFT, 
+<tr class="memitem:ga991d95ad8496e98872ec082077fdb9d5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#ga991d95ad8496e98872ec082077fdb9d5">_trgmux_trigger_input</a> { <br/>
+&#160;&#160;<a class="el" href="a00201.html#gga991d95ad8496e98872ec082077fdb9d5a3aff19ab48d4a58f19a23a37ab41693e">kTRGMUX_TriggerInput0</a> = TRGMUX_TRGCFG_SEL0_SHIFT, 
 <br/>
-&#160;&#160;<a class="el" href="a00201.html#ggaf2f023de74f52a7af5a915a0c5ac37afa44d5bfde0ab0466928fd788848a8798c">kTRGMUX_TriggerInput1</a> = TRGMUX_TRGCFG_SEL1_SHIFT, 
+&#160;&#160;<a class="el" href="a00201.html#gga991d95ad8496e98872ec082077fdb9d5a44d5bfde0ab0466928fd788848a8798c">kTRGMUX_TriggerInput1</a> = TRGMUX_TRGCFG_SEL1_SHIFT, 
 <br/>
-&#160;&#160;<a class="el" href="a00201.html#ggaf2f023de74f52a7af5a915a0c5ac37afa0a7d331cc7437f034145829495b60130">kTRGMUX_TriggerInput2</a> = TRGMUX_TRGCFG_SEL2_SHIFT, 
+&#160;&#160;<a class="el" href="a00201.html#gga991d95ad8496e98872ec082077fdb9d5a0a7d331cc7437f034145829495b60130">kTRGMUX_TriggerInput2</a> = TRGMUX_TRGCFG_SEL2_SHIFT, 
 <br/>
-&#160;&#160;<a class="el" href="a00201.html#ggaf2f023de74f52a7af5a915a0c5ac37afafb347bd2cc7fa3a396edd5d2b81ec327">kTRGMUX_TriggerInput3</a> = TRGMUX_TRGCFG_SEL3_SHIFT
+&#160;&#160;<a class="el" href="a00201.html#gga991d95ad8496e98872ec082077fdb9d5afb347bd2cc7fa3a396edd5d2b81ec327">kTRGMUX_TriggerInput3</a> = TRGMUX_TRGCFG_SEL3_SHIFT
 <br/>
  }</td></tr>
-<tr class="memdesc:gaf2f023de74f52a7af5a915a0c5ac37af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the MUX select for peripheral trigger input.  <a href="a00201.html#gaf2f023de74f52a7af5a915a0c5ac37af">More...</a><br/></td></tr>
-<tr class="separator:gaf2f023de74f52a7af5a915a0c5ac37af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ga991d95ad8496e98872ec082077fdb9d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the MUX select for peripheral trigger input.  <a href="a00201.html#ga991d95ad8496e98872ec082077fdb9d5">More...</a><br/></td></tr>
+<tr class="separator:ga991d95ad8496e98872ec082077fdb9d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
@@ -140,7 +148,7 @@ TRGMUX Functional Operation</h2></td></tr>
 <tr class="memitem:ga5053e8af1807c2b125d3521936801587"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#ga5053e8af1807c2b125d3521936801587">TRGMUX_LockRegister</a> (TRGMUX_Type *base, uint32_t index)</td></tr>
 <tr class="memdesc:ga5053e8af1807c2b125d3521936801587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the flag of the register which is used to mark writeable.  <a href="#ga5053e8af1807c2b125d3521936801587">More...</a><br/></td></tr>
 <tr class="separator:ga5053e8af1807c2b125d3521936801587"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga000c2133f34743a2738943b3e8359916"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#ga000c2133f34743a2738943b3e8359916">TRGMUX_SetTriggerSource</a> (TRGMUX_Type *base, uint32_t index, <a class="el" href="a00201.html#gaf2f023de74f52a7af5a915a0c5ac37af">trgmux_trigger_input_t</a> input, uint32_t trigger_src)</td></tr>
+<tr class="memitem:ga000c2133f34743a2738943b3e8359916"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#ga000c2133f34743a2738943b3e8359916">TRGMUX_SetTriggerSource</a> (TRGMUX_Type *base, uint32_t index, <a class="el" href="a00201.html#gaeef47e1e298b511bc6523da61f35c836">trgmux_trigger_input_t</a> input, uint32_t trigger_src)</td></tr>
 <tr class="memdesc:ga000c2133f34743a2738943b3e8359916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the trigger source of the appointed peripheral.  <a href="#ga000c2133f34743a2738943b3e8359916">More...</a><br/></td></tr>
 <tr class="separator:ga000c2133f34743a2738943b3e8359916"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -175,26 +183,26 @@ TRGMUX Functional Operation</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="gaf2f023de74f52a7af5a915a0c5ac37af"></a>
+<a class="anchor" id="ga991d95ad8496e98872ec082077fdb9d5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00201.html#gaf2f023de74f52a7af5a915a0c5ac37af">trgmux_trigger_input_t</a></td>
+          <td class="memname">enum <a class="el" href="a00201.html#ga991d95ad8496e98872ec082077fdb9d5">_trgmux_trigger_input</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaf2f023de74f52a7af5a915a0c5ac37afa3aff19ab48d4a58f19a23a37ab41693e"></a>kTRGMUX_TriggerInput0</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga991d95ad8496e98872ec082077fdb9d5a3aff19ab48d4a58f19a23a37ab41693e"></a>kTRGMUX_TriggerInput0</em>&nbsp;</td><td class="fielddoc">
 <p>The MUX select for peripheral trigger input 0. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf2f023de74f52a7af5a915a0c5ac37afa44d5bfde0ab0466928fd788848a8798c"></a>kTRGMUX_TriggerInput1</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga991d95ad8496e98872ec082077fdb9d5a44d5bfde0ab0466928fd788848a8798c"></a>kTRGMUX_TriggerInput1</em>&nbsp;</td><td class="fielddoc">
 <p>The MUX select for peripheral trigger input 1. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf2f023de74f52a7af5a915a0c5ac37afa0a7d331cc7437f034145829495b60130"></a>kTRGMUX_TriggerInput2</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga991d95ad8496e98872ec082077fdb9d5a0a7d331cc7437f034145829495b60130"></a>kTRGMUX_TriggerInput2</em>&nbsp;</td><td class="fielddoc">
 <p>The MUX select for peripheral trigger input 2. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf2f023de74f52a7af5a915a0c5ac37afafb347bd2cc7fa3a396edd5d2b81ec327"></a>kTRGMUX_TriggerInput3</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga991d95ad8496e98872ec082077fdb9d5afb347bd2cc7fa3a396edd5d2b81ec327"></a>kTRGMUX_TriggerInput3</em>&nbsp;</td><td class="fielddoc">
 <p>The MUX select for peripheral trigger input 3. </p>
 </td></tr>
 </table>
@@ -264,7 +272,7 @@ TRGMUX Functional Operation</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00201.html#gaf2f023de74f52a7af5a915a0c5ac37af">trgmux_trigger_input_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00201.html#gaeef47e1e298b511bc6523da61f35c836">trgmux_trigger_input_t</a>&#160;</td>
           <td class="paramname"><em>input</em>, </td>
         </tr>
         <tr>
@@ -281,7 +289,7 @@ TRGMUX Functional Operation</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The function configures the trigger source of the appointed peripheral. Example: </p>
-<div class="fragment"><div class="line"><a class="code" href="a00201.html#ga000c2133f34743a2738943b3e8359916">TRGMUX_SetTriggerSource</a>(TRGMUX0, kTRGMUX_Trgmux0Dmamux0, <a class="code" href="a00201.html#ggaf2f023de74f52a7af5a915a0c5ac37afa3aff19ab48d4a58f19a23a37ab41693e">kTRGMUX_TriggerInput0</a>, kTRGMUX_SourcePortPin);</div>
+<div class="fragment"><div class="line"><a class="code" href="a00201.html#ga000c2133f34743a2738943b3e8359916">TRGMUX_SetTriggerSource</a>(TRGMUX0, kTRGMUX_Trgmux0Dmamux0, <a class="code" href="a00201.html#gga991d95ad8496e98872ec082077fdb9d5a3aff19ab48d4a58f19a23a37ab41693e">kTRGMUX_TriggerInput0</a>, kTRGMUX_SourcePortPin);</div>
 </div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>TRGMUX peripheral base address. </td></tr>

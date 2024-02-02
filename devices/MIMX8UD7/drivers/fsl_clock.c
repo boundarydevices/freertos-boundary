@@ -1,5 +1,5 @@
 /*
- * Copyright 2020, NXP
+ * Copyright 2020, 2023 NXP
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -647,9 +647,11 @@ uint32_t CLOCK_GetXbarBusClkFreq(void)
 uint32_t CLOCK_GetHifiDspSysClkFreq(cgc_sys_clk_t type)
 {
     uint32_t freq;
-    uint32_t sysClkConfig              = CGC_LPAV->HIFICLK;
-    cgc_hifi_sys_clk_config_t *pConfig = (cgc_hifi_sys_clk_config_t *)(uint32_t)&sysClkConfig;
+    uint32_t sysClkConfig              = 0U;
+    cgc_hifi_sys_clk_config_t *pConfig = NULL;
 
+    (void)memcpy((void *)&sysClkConfig, (void *)(uint8_t *)(uint32_t)(&CGC_LPAV->HIFICLK), sizeof(sysClkConfig));
+    pConfig = (cgc_hifi_sys_clk_config_t *)(uint32_t)&sysClkConfig;
     switch (pConfig->src)
     {
         case (uint32_t)kCGC_HifiSysClkSrcFro:
@@ -698,8 +700,11 @@ uint32_t CLOCK_GetHifiDspSysClkFreq(cgc_sys_clk_t type)
 uint32_t CLOCK_GetLpavSysClkFreq(cgc_sys_clk_t type)
 {
     uint32_t freq;
-    uint32_t sysClkConfig              = CGC_LPAV->NICLPAVCLK;
-    cgc_lpav_sys_clk_config_t *pConfig = (cgc_lpav_sys_clk_config_t *)(uint32_t)&sysClkConfig;
+    uint32_t sysClkConfig              = 0U;
+    cgc_lpav_sys_clk_config_t *pConfig = NULL;
+
+    (void)memcpy((void *)&sysClkConfig, (void *)(uint8_t *)(uint32_t)(&CGC_LPAV->NICLPAVCLK), sizeof(sysClkConfig));
+    pConfig = (cgc_lpav_sys_clk_config_t *)(uint32_t)&sysClkConfig;
 
     switch (pConfig->src)
     {
@@ -748,8 +753,11 @@ uint32_t CLOCK_GetLpavSysClkFreq(cgc_sys_clk_t type)
 uint32_t CLOCK_GetDdrClkFreq(void)
 {
     uint32_t freq;
-    uint32_t sysClkConfig             = CGC_LPAV->DDRCLK;
-    cgc_ddr_sys_clk_config_t *pConfig = (cgc_ddr_sys_clk_config_t *)(uint32_t)&sysClkConfig;
+    uint32_t sysClkConfig             = 0U;
+    cgc_ddr_sys_clk_config_t *pConfig = NULL;
+
+    (void)memcpy((void *)&sysClkConfig, (void *)(uint8_t *)(uint32_t)(&CGC_LPAV->DDRCLK), sizeof(sysClkConfig));
+    pConfig = (cgc_ddr_sys_clk_config_t *)(uint32_t)&sysClkConfig;
 
     /* TODO: 2 cascaded switches */
     switch (pConfig->src)
@@ -1611,8 +1619,11 @@ uint32_t CLOCK_GetIpFreq(clock_ip_name_t name)
 uint32_t CLOCK_GetRtdSysClkFreq(uint32_t config, cgc_sys_clk_t type)
 {
     uint32_t freq;
-    uint32_t sysClkConfig             = config;
-    cgc_rtd_sys_clk_config_t *pConfig = (cgc_rtd_sys_clk_config_t *)(uint32_t)&sysClkConfig;
+    cgc_rtd_sys_clk_config_t *pConfig = NULL;
+    uint32_t sysClkConfig = 0U;
+
+    (void)memcpy((void *)&sysClkConfig, (void *)&config, sizeof(config));
+    pConfig = (cgc_rtd_sys_clk_config_t *)(uint32_t)&sysClkConfig;
 
     switch (pConfig->src)
     {

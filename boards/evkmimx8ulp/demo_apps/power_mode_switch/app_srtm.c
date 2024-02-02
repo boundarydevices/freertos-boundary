@@ -38,7 +38,6 @@
 #include "rsc_table.h"
 #include "fsl_bbnsm.h"
 #include "fsl_sentinel.h"
-#include "fsl_lsm.h"
 
 /*******************************************************************************
  * Definitions
@@ -234,9 +233,9 @@ static struct _srtm_sensor_adapter sensorAdapter = {.enableStateDetector = APP_S
                                                     .enableDataReport    = APP_SRTM_Sensor_EnableDataReport,
                                                     .setPollDelay        = APP_SRTM_Sensor_SetPollDelay};
 static app_sensor_t sensor                       = {.stateEnabled  = false,
-                              .dataEnabled   = false,
-                              .pollDelay     = 1000, /* 1 sec by default. */
-                              .pedometer.cnt = 0};
+                                                    .dataEnabled   = false,
+                                                    .pollDelay     = 1000, /* 1 sec by default. */
+                                                    .pedometer.cnt = 0};
 
 static srtm_dispatcher_t disp;
 static srtm_peercore_t core;
@@ -259,7 +258,8 @@ static TimerHandle_t rtcAlarmEventTimer; /* It is used to send alarm event to ac
 static TimerHandle_t restoreRegValOfMuTimer; /* use the timer to restore register's value of mu(To make sure that
                                                 register's value of mu is restored if cmc1 interrupt is not comming) */
 
-static TimerHandle_t chngModeFromActToDslForApdTimer; /* use the timer to change mode of APD from active mode to Deep Sleep Mode */
+static TimerHandle_t
+    chngModeFromActToDslForApdTimer; /* use the timer to change mode of APD from active mode to Deep Sleep Mode */
 
 static lsm_handle_t lsmHandle;
 static srtm_service_t sensorService;
@@ -569,11 +569,12 @@ static void APP_SRTM_SetLPAV(srtm_dispatcher_t dispatcher, void *param1, void *p
         case AD_DPD:
             if (BOARD_IsLPAVOwnedByRTD())
             {
-                upower_ps_mask_t ps_mask = (upower_ps_mask_t)(kUPOWER_PS_HIFI4 | kUPOWER_PS_DDRC | kUPOWER_PS_MIPI_DSI |
-                                           kUPOWER_PS_MIPI_CSI | kUPOWER_PS_AV_NIC | kUPOWER_PS_FUSION_AO);
-                uint32_t mp0_mask = (uint32_t)(kUPOWER_MP0_DCNANO_A | kUPOWER_MP0_DCNANO_B | kUPOWER_MP0_DMA2 |
-                                               kUPOWER_MP0_HIFI4 | kUPOWER_MP0_ISI | kUPOWER_MP0_MIPI_CSI |
-                                               kUPOWER_MP0_MIPI_DSI | kUPOWER_MP0_AV_SYSTEM);
+                upower_ps_mask_t ps_mask =
+                    (upower_ps_mask_t)(kUPOWER_PS_HIFI4 | kUPOWER_PS_DDRC | kUPOWER_PS_MIPI_DSI | kUPOWER_PS_MIPI_CSI |
+                                       kUPOWER_PS_AV_NIC | kUPOWER_PS_FUSION_AO);
+                uint32_t mp0_mask =
+                    (uint32_t)(kUPOWER_MP0_DCNANO_A | kUPOWER_MP0_DCNANO_B | kUPOWER_MP0_DMA2 | kUPOWER_MP0_HIFI4 |
+                               kUPOWER_MP0_ISI | kUPOWER_MP0_MIPI_CSI | kUPOWER_MP0_MIPI_DSI | kUPOWER_MP0_AV_SYSTEM);
 
                 if (BOARD_IsIpDisabled(IP_GPU) == false)
                 {
@@ -618,10 +619,10 @@ static void APP_SRTM_SetLPAV(srtm_dispatcher_t dispatcher, void *param1, void *p
                 buck3_ctrl.reg.B3_LPMODE = 0x3; /* Normal mode (default) */
                 buck3_ctrl.reg.B3_RAMP   = 0x1; /* 25 mV (default) */
 
-                ldo1_cfg.reg.L1_ENMODE = 0x0; /* 00-OFF */
-                ldo1_cfg.reg.L1_LPMODE = 0x3; /* Normal mode (default) */
-                ldo1_cfg.reg.L1_LLSEL  = 0x1; /* 15 mw (default) */
-                ldo1_cfg.reg.L1_CSEL   = 0x2; /* Auto Cout detection (default) */
+                ldo1_cfg.reg.L1_ENMODE = 0x0;   /* 00-OFF */
+                ldo1_cfg.reg.L1_LPMODE = 0x3;   /* Normal mode (default) */
+                ldo1_cfg.reg.L1_LLSEL  = 0x1;   /* 15 mw (default) */
+                ldo1_cfg.reg.L1_CSEL   = 0x2;   /* Auto Cout detection (default) */
 
                 /* Poweroff BUCK3 */
                 UPOWER_SetPmicReg(PCA9460_BUCK3CTRL_ADDR, buck3_ctrl.val);
@@ -743,7 +744,8 @@ static void APP_HandleGPIOHander(uint8_t gpioIdx)
         /* Ignore the interrrupt of gpio(set interrupt trigger type of gpio after A35 send command to set interrupt
          * trigger type) */
         APP_IO_ConfIEvent(NULL, NULL, APP_PIN_IT6161_INT, SRTM_IoEventNone, false);
-        if ((AD_CurrentMode == AD_PD || (support_dsl_for_apd == true && AD_CurrentMode == AD_DSL)) && suspendContext.io.data[APP_INPUT_IT6161_INT].wakeup)
+        if ((AD_CurrentMode == AD_PD || (support_dsl_for_apd == true && AD_CurrentMode == AD_DSL)) &&
+            suspendContext.io.data[APP_INPUT_IT6161_INT].wakeup)
         {
             /* Wakeup A Core(CA35) when A Core is in Power Down Mode */
             APP_WakeupACore();
@@ -758,7 +760,8 @@ static void APP_HandleGPIOHander(uint8_t gpioIdx)
         /* Ignore the interrrupt of gpio(set interrupt trigger type of gpio after A35 send command to set interrupt
          * trigger type) */
         APP_IO_ConfIEvent(NULL, NULL, APP_PIN_TOUCH_INT, SRTM_IoEventNone, false);
-        if ((AD_CurrentMode == AD_PD || (support_dsl_for_apd == true && AD_CurrentMode == AD_DSL)) && suspendContext.io.data[APP_INPUT_TOUCH_INT].wakeup)
+        if ((AD_CurrentMode == AD_PD || (support_dsl_for_apd == true && AD_CurrentMode == AD_DSL)) &&
+            suspendContext.io.data[APP_INPUT_TOUCH_INT].wakeup)
         {
             /* Wakeup A Core(CA35) when A Core is in Power Down Mode */
             APP_WakeupACore();
@@ -781,7 +784,8 @@ static void APP_HandleGPIOHander(uint8_t gpioIdx)
         RGPIO_SetPinInterruptConfig(gpio, APP_PIN_IDX(APP_PIN_RTD_BTN1), APP_GPIO_INT_SEL,
                                     kRGPIO_InterruptOrDMADisabled);
         suspendContext.io.data[APP_INPUT_RTD_BTN1].value = RGPIO_PinRead(gpio, APP_PIN_IDX(APP_PIN_RTD_BTN1));
-        if ((AD_CurrentMode == AD_PD || (support_dsl_for_apd == true && AD_CurrentMode == AD_DSL)) && suspendContext.io.data[APP_INPUT_RTD_BTN1].wakeup)
+        if ((AD_CurrentMode == AD_PD || (support_dsl_for_apd == true && AD_CurrentMode == AD_DSL)) &&
+            suspendContext.io.data[APP_INPUT_RTD_BTN1].wakeup)
         {
             /* Wakeup A Core(CA35) when A Core is in Power Down Mode */
             APP_WakeupACore();
@@ -796,7 +800,8 @@ static void APP_HandleGPIOHander(uint8_t gpioIdx)
         RGPIO_SetPinInterruptConfig(gpio, APP_PIN_IDX(APP_PIN_RTD_BTN2), APP_GPIO_INT_SEL,
                                     kRGPIO_InterruptOrDMADisabled);
         suspendContext.io.data[APP_INPUT_RTD_BTN2].value = RGPIO_PinRead(gpio, APP_PIN_IDX(APP_PIN_RTD_BTN2));
-        if ((AD_CurrentMode == AD_PD || (support_dsl_for_apd == true && AD_CurrentMode == AD_DSL)) && suspendContext.io.data[APP_INPUT_RTD_BTN2].wakeup)
+        if ((AD_CurrentMode == AD_PD || (support_dsl_for_apd == true && AD_CurrentMode == AD_DSL)) &&
+            suspendContext.io.data[APP_INPUT_RTD_BTN2].wakeup)
         {
             /* Wakeup A Core(CA35) when A Core is in Power Down Mode */
             APP_WakeupACore();
@@ -885,7 +890,9 @@ void BBNSM_IRQHandler(void)
      */
     if (status & kBBNSM_RTC_AlarmInterruptFlag)
     {
-        if (AD_CurrentMode == AD_PD || (support_dsl_for_apd == true && AD_CurrentMode == AD_DSL)) /* Application Domain is in Power Down Mode or Deep Sleep Mode */
+        if (AD_CurrentMode == AD_PD ||
+            (support_dsl_for_apd == true &&
+             AD_CurrentMode == AD_DSL)) /* Application Domain is in Power Down Mode or Deep Sleep Mode */
         {
             /* disable rtc alarm interrupt(when will clear rtc alarm interrupt flag? it will be cleared in
              * rtcAlarmEventTimer) */
@@ -1048,7 +1055,7 @@ static srtm_status_t APP_IO_ConfInput(uint8_t inputIdx, srtm_io_event_t event, b
     uint8_t wuuIdx  = APP_IO_GetWUUPin(ioId);
     wuu_external_wakeup_pin_config_t config;
 
-    assert(gpioIdx < 2U); /* Only support GPIOA, GPIOB */
+    assert(gpioIdx < 2U);                  /* Only support GPIOA, GPIOB */
     assert(pinIdx < 32U);
     assert(wuuIdx <= ARRAY_SIZE(wuuPins)); /* When wuuIdx == ARRAY_SIZE(wuuPins),
                                               it means there's no WUU pin for ioId. */
@@ -1182,7 +1189,7 @@ static void APP_ChngModeFromActToDslForApdTimerCallback(TimerHandle_t xTimer)
 {
     if (core != NULL && support_dsl_for_apd == true && AD_WillEnterMode == AD_DSL)
     {
-        AD_CurrentMode = AD_DSL;
+        AD_CurrentMode   = AD_DSL;
         AD_WillEnterMode = AD_ACT;
         SRTM_PeerCore_SetState(core, SRTM_PeerCore_State_Deactivated);
         PRINTF("AD entered Deep Sleep Mode\r\n");
@@ -1577,9 +1584,9 @@ void APP_SRTM_EnableLPAV()
                                                       kUPOWER_PS_MIPI_CSI | kUPOWER_PS_AV_NIC | kUPOWER_PS_FUSION_AO);
         upower_ps_mask_t ps_mask_workaround =
             (upower_ps_mask_t)(kUPOWER_PS_HIFI4 | kUPOWER_PS_AV_NIC | kUPOWER_PS_FUSION_AO);
-        uint32_t mp0_mask = (uint32_t)(kUPOWER_MP0_DCNANO_A | kUPOWER_MP0_DCNANO_B | kUPOWER_MP0_DMA2 | kUPOWER_MP0_HIFI4 |
-                              kUPOWER_MP0_ISI | kUPOWER_MP0_MIPI_CSI | kUPOWER_MP0_MIPI_DSI |
-                              kUPOWER_MP0_AV_SYSTEM);
+        uint32_t mp0_mask =
+            (uint32_t)(kUPOWER_MP0_DCNANO_A | kUPOWER_MP0_DCNANO_B | kUPOWER_MP0_DMA2 | kUPOWER_MP0_HIFI4 |
+                       kUPOWER_MP0_ISI | kUPOWER_MP0_MIPI_CSI | kUPOWER_MP0_MIPI_DSI | kUPOWER_MP0_AV_SYSTEM);
 
         if (BOARD_IsIpDisabled(IP_GPU) == false)
         {
@@ -1658,11 +1665,11 @@ void APP_SRTM_DisableLPAV()
 
     if (ldo1_cfg.reg.L1_ENMODE)
     {
-        upower_ps_mask_t ps_mask = (upower_ps_mask_t)(kUPOWER_PS_HIFI4 | kUPOWER_PS_DDRC | kUPOWER_PS_MIPI_DSI | kUPOWER_PS_MIPI_CSI |
-                                   kUPOWER_PS_AV_NIC | kUPOWER_PS_FUSION_AO);
-        uint32_t mp0_mask = (uint32_t)(kUPOWER_MP0_DCNANO_A | kUPOWER_MP0_DCNANO_B | kUPOWER_MP0_DMA2 |
-                                       kUPOWER_MP0_HIFI4 | kUPOWER_MP0_ISI | kUPOWER_MP0_MIPI_CSI |
-                                       kUPOWER_MP0_MIPI_DSI | kUPOWER_MP0_AV_SYSTEM);
+        upower_ps_mask_t ps_mask = (upower_ps_mask_t)(kUPOWER_PS_HIFI4 | kUPOWER_PS_DDRC | kUPOWER_PS_MIPI_DSI |
+                                                      kUPOWER_PS_MIPI_CSI | kUPOWER_PS_AV_NIC | kUPOWER_PS_FUSION_AO);
+        uint32_t mp0_mask =
+            (uint32_t)(kUPOWER_MP0_DCNANO_A | kUPOWER_MP0_DCNANO_B | kUPOWER_MP0_DMA2 | kUPOWER_MP0_HIFI4 |
+                       kUPOWER_MP0_ISI | kUPOWER_MP0_MIPI_CSI | kUPOWER_MP0_MIPI_DSI | kUPOWER_MP0_AV_SYSTEM);
 
         if (BOARD_IsIpDisabled(IP_GPU) == false)
         {
@@ -1901,6 +1908,7 @@ static status_t APP_SRTM_InitSensorDevice(void)
 
     config.I2C_SendFunc    = BOARD_Accel_I2C_Send;
     config.I2C_ReceiveFunc = BOARD_Accel_I2C_Receive;
+    config.int_active_level = APP_LSM6DSO_INT_ACTIVE_LEVEL;
 
     array_addr_size = sizeof(g_sensor_address) / sizeof(g_sensor_address[0]);
     for (i = 0; i < array_addr_size; i++)
@@ -1912,7 +1920,7 @@ static status_t APP_SRTM_InitSensorDevice(void)
             /* Setup gpio interrupt trigger type */
             RGPIO_SetPinInterruptConfig(gpios[APP_GPIO_IDX(APP_LSM6DSO_INT1_B_PIN)],
                                         APP_PIN_IDX(APP_LSM6DSO_INT1_B_PIN), APP_GPIO_INT_SEL,
-                                        kRGPIO_InterruptRisingEdge);
+                                        APP_LSM6DSO_INT_TRIGGER_TYPE);
             break;
         }
     }
@@ -2174,7 +2182,9 @@ static srtm_status_t APP_SRTM_LfclEventHandler(
             else
             {
                 AD_WillEnterMode = AD_DSL;
-                xTimerStart(chngModeFromActToDslForApdTimer, portMAX_DELAY); /* No way to check whether apd entered deep sleep mode, so start a timer to change mode from active mode to deep sleep mode for AD */
+                xTimerStart(chngModeFromActToDslForApdTimer,
+                            portMAX_DELAY); /* No way to check whether apd entered deep sleep mode, so start a timer to
+                                               change mode from active mode to deep sleep mode for AD */
                 PRINTF("\r\nAD Will enter Deep Sleep Mode\r\n");
             }
 
@@ -2459,8 +2469,8 @@ void APP_SRTM_Init(void)
     assert(restoreRegValOfMuTimer);
     xTimerStart(restoreRegValOfMuTimer, portMAX_DELAY);
 
-    chngModeFromActToDslForApdTimer =
-        xTimerCreate("chngModeFromActToDslForApdTimer", APP_MS2TICK(300), pdFALSE, NULL, APP_ChngModeFromActToDslForApdTimerCallback);
+    chngModeFromActToDslForApdTimer = xTimerCreate("chngModeFromActToDslForApdTimer", APP_MS2TICK(300), pdFALSE, NULL,
+                                                   APP_ChngModeFromActToDslForApdTimerCallback);
     assert(chngModeFromActToDslForApdTimer);
 
     linkupTimer =

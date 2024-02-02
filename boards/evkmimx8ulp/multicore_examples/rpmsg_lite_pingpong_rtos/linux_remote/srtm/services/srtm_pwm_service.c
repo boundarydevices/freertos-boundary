@@ -36,7 +36,7 @@ typedef struct _srtm_pwm_service
 {
     struct _srtm_service service;
     srtm_pwm_adapter_t adapter;
-} * srtm_pwm_service_t;
+} *srtm_pwm_service_t;
 
 /*******************************************************************************
  * Code
@@ -95,7 +95,7 @@ static srtm_status_t SRTM_PwmService_Request(srtm_service_t service, srtm_reques
             case SRTM_PWM_CMD_GET:
                 assert(adapter->getPwm);
                 status             = adapter->getPwm(adapter, pwmResp->chipId, pwmResp->channelId, &period, &duty,
-                                         &pwmResp->polarity, &pwmResp->enable);
+                                                     &pwmResp->polarity, &pwmResp->enable);
                 pwmResp->period    = period;
                 pwmResp->dutyCycle = duty;
                 pwmResp->retCode =

@@ -99,7 +99,7 @@ void BOARD_InitLcdifClock(void)
      * For 60Hz frame rate, the RK055AHD091 pixel clock should be 62MHz, set the
      * clock to 66MHz.
      */
-    //set clock to 39.5Mhz to reduce data volume
+    // set clock to 39.5Mhz to reduce data volume
     CLOCK_SetIpSrcDiv(kCLOCK_Dcnano, kCLOCK_Pcc5PlatIpSrcPll4Pfd1Div2, 7, 0U);
 
     /* Enable DCNano/LCDIF */

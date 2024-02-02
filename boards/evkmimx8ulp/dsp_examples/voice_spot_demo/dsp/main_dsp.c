@@ -69,6 +69,12 @@
 #endif
 #define BUFFER_SIZE (VOICESPOT_NUM_SAMPLES_PER_FRAME * IN_BUFFER_NUM_FRAMES)
 
+#if defined(MIMX8UD7_dsp0_SERIES)
+#define DEVICE_ID Device_IMX8ULP_FUSIONF1
+#else
+#error "Incompatible device"
+#endif
+
 /*******************************************************************************
  * Variables
  ******************************************************************************/
@@ -241,7 +247,7 @@ static int32_t VoiceSpotInit(void)
     int32_t voicespot_status = -1;
 
     /* Create VOICE_SPOT control structure */
-    voicespot_status = rdspVoiceSpot_CreateControl(&voicespot_control, data_type);
+    voicespot_status = rdspVoiceSpot_CreateControl(&voicespot_control, data_type, DEVICE_ID);
     PRINTF("rdspVoiceSpot_CreateControl: voicespot_status = %d\r\n", (int)voicespot_status);
 
     int32_t enable_highpass_filter = 1;

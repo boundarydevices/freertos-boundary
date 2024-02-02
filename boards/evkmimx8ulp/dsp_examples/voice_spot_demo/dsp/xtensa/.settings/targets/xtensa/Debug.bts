@@ -12,9 +12,9 @@
               <ListEntry>${xt_project_loc}/../../../../../../devices/MIMX8UD7/drivers</ListEntry>
               <ListEntry>${xt_project_loc}/../../../../../../devices/MIMX8UD7/utilities/str</ListEntry>
               <ListEntry>${xt_project_loc}/../../../../../../devices/MIMX8UD7/utilities/debug_console_lite</ListEntry>
-              <ListEntry>${xt_project_loc}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/Lib/include</ListEntry>
-              <ListEntry>${xt_project_loc}/../../../../../../middleware/voice_spot/rdsp_utilities_public/rdsp_memory_utils_public</ListEntry>
-              <ListEntry>${xt_project_loc}/../../../../../../middleware/voice_spot/rdsp_utilities_public/include</ListEntry>
+              <ListEntry>${xt_project_loc}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/lib/include</ListEntry>
+              <ListEntry>${xt_project_loc}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/include</ListEntry>
+              <ListEntry>${xt_project_loc}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public</ListEntry>
               <ListEntry>${xt_project_loc}/../../../../../../components/lists</ListEntry>
               <ListEntry>${xt_project_loc}/../../../../../../devices/MIMX8UD7</ListEntry>
               <ListEntry>${xt_project_loc}/../../../../../../CMSIS/Core/Include</ListEntry>
@@ -31,7 +31,7 @@
               <ListEntry key="USE_PDM_EDMA" value=""/>
               <ListEntry key="VOICE_SPOT_DEMO_REDUCED_MEMORY_FOOTPRINT" value=""/>
               <ListEntry key="SDK_DEBUGCONSOLE" value="1"/>
-              <ListEntry key="CPU_MIMX8UD7DVP10_dsp0" value=""/>
+              <ListEntry key="CPU_MIMX8UD7DVP08_dsp0" value=""/>
               <ListEntry key="MCUXPRESSO_SDK" value=""/>
               <ListEntry key="VOICE_SPOT" value=""/>
               <ListEntry key="FUSIONF1" value=""/>
@@ -103,8 +103,9 @@
 -Wl,-emain&#13;
 -Wl,--gc-sections&#13;
 --defsym=__stack=0x840000&#13;
+-Wl,--orphan-handling=place&#13;
 -Wl,--start-group&#13;
-${xt_project_loc}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/Lib/librdsp_libvoicespot.a&#13;
+${xt_project_loc}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/lib/libvoicespot.a&#13;
 ${xt_project_loc}/../../../../../../middleware/dsp/naturedsp/fusionf1/libnaturedsp.a&#13;
 -Wl,--end-group&#13;
 </ListEntry>

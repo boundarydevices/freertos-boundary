@@ -273,7 +273,7 @@ void BOARD_InitLcdifClock(void)
 
     PRINTF("LCDIF pixel clock is: %dHz\r\n", mipiDsiDpiClkFreq_Hz);
 
-    SIM_SEC->SYSCTRL0 &= ~SIM_SEC_SYSCTRL0_LPAV_MASTER_CTRL(1); /* Allocate LPAV to RTD */
+    SIM_SEC->SYSCTRL0 &= ~SIM_SEC_SYSCTRL0_LPAV_MASTER_CTRL(1);                   /* Allocate LPAV to RTD */
     SIM_SEC->LPAV_MASTER_ALLOC_CTRL &= ~SIM_SEC_LPAV_MASTER_ALLOC_CTRL_DCNANO(1); /* Allocate LCDIF(DCNANO) to RTD */
 }
 
@@ -503,7 +503,8 @@ static void BOARD_InitMipiPins(void)
 
 status_t BOARD_InitDisplayInterface(void)
 {
-    SIM_SEC->LPAV_MASTER_ALLOC_CTRL &= ~SIM_SEC_LPAV_MASTER_ALLOC_CTRL_MIPI_DSI(1); /* Allocate MIPI_DSI to Real Time Domain(RTD) */
+    SIM_SEC->LPAV_MASTER_ALLOC_CTRL &=
+        ~SIM_SEC_LPAV_MASTER_ALLOC_CTRL_MIPI_DSI(1); /* Allocate MIPI_DSI to Real Time Domain(RTD) */
 
     /* 1. Switch DPI MUX to DCNano/LCDIF. */
     SIM_LPAV->SYSCTRL0 &= ~SIM_LPAV_SYSCTRL0_DSI_DPI2_EPDC_DCNANO_MUX_SEL_MASK;

@@ -35,7 +35,7 @@ SET(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -DVOICE_SPOT_DEMO_REDUCED_ME
 
 SET(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -DSDK_DEBUGCONSOLE=1")
 
-SET(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -DCPU_MIMX8UD7DVP10_dsp0")
+SET(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -DCPU_MIMX8UD7DVP08_dsp0")
 
 SET(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -DMCUXPRESSO_SDK")
 
@@ -81,6 +81,8 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} --xtensa-c
 
 SET(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} --xtensa-system=${XTENSA_SYSTEM}")
 
+SET(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} -Wl,--orphan-handling=place")
+
 include_directories(${ProjDirPath}/..)
 
 include_directories(${ProjDirPath}/../../../../../../components/uart)
@@ -91,11 +93,11 @@ include_directories(${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/
 
 include_directories(${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/debug_console_lite)
 
-include_directories(${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/Lib/include)
+include_directories(${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/lib/include)
 
-include_directories(${ProjDirPath}/../../../../../../middleware/voice_spot/rdsp_utilities_public/rdsp_memory_utils_public)
+include_directories(${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/include)
 
-include_directories(${ProjDirPath}/../../../../../../middleware/voice_spot/rdsp_utilities_public/include)
+include_directories(${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public)
 
 include_directories(${ProjDirPath}/../../../../../../components/lists)
 
@@ -123,6 +125,7 @@ add_executable(dsp_voice_spot_demo_fusionf1.elf
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/debug_console_lite/fsl_debug_console.c"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/debug_console_lite/fsl_debug_console.h"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/debug_console_lite/fsl_assert.c"
+"${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/debug_console_lite/fsl_assert.h"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/drivers/fsl_edma.h"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/drivers/fsl_edma.c"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/drivers/fsl_pdm_edma.h"
@@ -131,19 +134,20 @@ add_executable(dsp_voice_spot_demo_fusionf1.elf
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/drivers/fsl_sai_edma.c"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/drivers/fsl_reset.h"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/drivers/fsl_reset.c"
-"${ProjDirPath}/../../../../../../middleware/voice_spot/rdsp_utilities_public/rdsp_memory_utils_public/RdspMemoryUtilsPublic.c"
-"${ProjDirPath}/../../../../../../middleware/voice_spot/rdsp_utilities_public/rdsp_memory_utils_public/memcheck.c"
-"${ProjDirPath}/../../../../../../middleware/voice_spot/rdsp_utilities_public/rdsp_memory_utils_public/RdspMemoryUtilsPublic.h"
-"${ProjDirPath}/../../../../../../middleware/voice_spot/rdsp_utilities_public/rdsp_memory_utils_public/memcheck.h"
-"${ProjDirPath}/../../../../../../middleware/voice_spot/rdsp_utilities_public/include/RdspDeviceConfig.h"
-"${ProjDirPath}/../../../../../../middleware/voice_spot/rdsp_utilities_public/include/RdspPlatforms.h"
-"${ProjDirPath}/../../../../../../middleware/voice_spot/rdsp_utilities_public/include/RdspTypes.h"
-"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_model.h"
-"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_model_defines.h"
-"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_voicespot.h"
-"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_voicespot_defines.h"
-"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_voicespot_sleep_cbuffer.h"
-"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_voicespot_utils.h"
+"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_model.h"
+"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_model_defines.h"
+"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_voicespot.h"
+"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_voicespot_defines.h"
+"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_voicespot_sleep_cbuffer.h"
+"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_voicespot_utils.h"
+"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/include/RdspDeviceConfig.h"
+"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/include/RdspPlatforms.h"
+"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/include/RdspTypes.h"
+"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public/RdspMemoryUtilsPublic.c"
+"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public/memcheck.c"
+"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public/RdspMemoryUtilsPublic.h"
+"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public/RdspStackCheck.h"
+"${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public/memcheck.h"
 "${ProjDirPath}/../../../../../../components/lists/fsl_component_generic_list.h"
 "${ProjDirPath}/../../../../../../components/lists/fsl_component_generic_list.c"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/MIMX8UD7_dsp0.h"
@@ -173,7 +177,7 @@ TARGET_LINK_LIBRARIES(dsp_voice_spot_demo_fusionf1.elf -Wl,--start-group)
 target_link_libraries(dsp_voice_spot_demo_fusionf1.elf optimized xos)
 
 
-target_link_libraries(dsp_voice_spot_demo_fusionf1.elf optimized ${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/Lib/librdsp_libvoicespot.a)
+target_link_libraries(dsp_voice_spot_demo_fusionf1.elf optimized ${ProjDirPath}/../../../../../../middleware/voice_spot/iMX8ULP_FusionF1/lib/libvoicespot.a)
 
 
 target_link_libraries(dsp_voice_spot_demo_fusionf1.elf optimized ${ProjDirPath}/../../../../../../middleware/dsp/naturedsp/fusionf1/libnaturedsp.a)

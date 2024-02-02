@@ -1,6 +1,7 @@
 var a00196 =
 [
     [ "FSL_MU_DRIVER_VERSION", "a00196.html#gac08525378e7d8aaa3e0e6b16e9f76ad3", null ],
+    [ "mu_msg_reg_index_t", "a00196.html#gaa25bd5e99e58a228062020d6bc6f0f64", null ],
     [ "_mu_status_flags", "a00196.html#gae0771a3d173c2b3bf358aff30664f8bf", [
       [ "kMU_Tx0EmptyFlag", "a00196.html#ggae0771a3d173c2b3bf358aff30664f8bfa8c78ea862685cbf3168dd556137f481b", null ],
       [ "kMU_Tx1EmptyFlag", "a00196.html#ggae0771a3d173c2b3bf358aff30664f8bfa02c68cfbe97c75fcc1a84d931f5d2e3d", null ],
@@ -67,7 +68,12 @@ var a00196 =
       [ "kMU_OtherSideEnterResetFlag", "a00196.html#gga3d70799c9e8c0d5ada80b11ec6286ad3a6a76aca4a5d5f30bffac615715f2f9c9", null ],
       [ "kMU_HardwareResetFlag", "a00196.html#gga3d70799c9e8c0d5ada80b11ec6286ad3aebb5da468565c8063c90f864ba73d8e6", null ]
     ] ],
-    [ "mu_msg_reg_index_t", "a00196.html#ga6d1c262f5437e331a33c12cf26fbc90e", null ],
+    [ "_mu_msg_reg_index", "a00196.html#ga8609846a236f63d7fffe934fde076af1", [
+      [ "kMU_MsgReg0", "a00196.html#gga8609846a236f63d7fffe934fde076af1a823be21685f741a69787ba81efec2470", null ],
+      [ "kMU_MsgReg1", "a00196.html#gga8609846a236f63d7fffe934fde076af1aae3f93c18ab7e47517a5500049f3b5cd", null ],
+      [ "kMU_MsgReg2", "a00196.html#gga8609846a236f63d7fffe934fde076af1a54f109a6897f6911b3ea1b48e9dfa54c", null ],
+      [ "kMU_MsgReg3", "a00196.html#gga8609846a236f63d7fffe934fde076af1ad620a7c1917c83b70940bd8f2dfa1bae", null ]
+    ] ],
     [ "MU_Init", "a00196.html#ga59dde6d6ef6bd1016eafe1e6faf7a6d9", null ],
     [ "MU_Deinit", "a00196.html#ga956ac92cddf9794a9155b346f4db2044", null ],
     [ "MU_SendMsgNonBlocking", "a00196.html#gae4e41714bd6cf6e3de866e1aaf5b85a2", null ],
@@ -89,6 +95,5 @@ var a00196 =
     [ "MU_HoldOtherCoreReset", "a00196.html#gac9aaf56b44ed4f25e140308117c1e7f4", null ],
     [ "MU_ResetBothSides", "a00196.html#gaa13d5ba37ff0be6dd645ed9b28431cb5", null ],
     [ "MU_SetClockOnOtherCoreEnable", "a00196.html#gaf134175fc2e3adc976bd8e8999124949", null ],
-    [ "MU_HardwareResetOtherCore", "a00196.html#ga16044dabe953e6a7deecadbcdb0ba255", null ],
-    [ "MU_MaskHardwareReset", "a00196.html#gac6dd57592c5d5fa10e7354adc1cad37d", null ]
+    [ "MU_HardwareResetOtherCore", "a00196.html#ga16044dabe953e6a7deecadbcdb0ba255", null ]
 ];

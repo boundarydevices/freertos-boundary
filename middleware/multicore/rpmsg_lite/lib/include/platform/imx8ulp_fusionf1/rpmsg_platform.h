@@ -1,7 +1,5 @@
 /*
- * Copyright 2021-2022 NXP
- * All rights reserved.
- *
+ * Copyright 2021-2023 NXP
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -23,6 +21,7 @@ typedef struct rpmsg_platform_shmem_config
 /* RPMSG MU channel index */
 #define RPMSG_MU_CHANNEL (1U)
 
+#if !(defined(RL_ALLOW_CUSTOM_SHMEM_CONFIG) && (RL_ALLOW_CUSTOM_SHMEM_CONFIG == 1))
 /*
  * No need to align the VRING as defined in Linux because the FUSION DSP is not intended
  * to communicate with Linux.
@@ -47,6 +46,7 @@ typedef struct rpmsg_platform_shmem_config
 
 /* define shared memory space for VRINGS per one channel */
 #define RL_VRING_OVERHEAD (2UL * VRING_SIZE)
+#endif
 
 /* VQ_ID in 8ULP is defined as follows:
  *   com_id:   [4:3] communication ID, used to identify the MU instance.
@@ -93,6 +93,10 @@ uintptr_t platform_vatopa(void *addr);
 void *platform_patova(uintptr_t addr);
 
 #if defined(RL_ALLOW_CUSTOM_SHMEM_CONFIG) && (RL_ALLOW_CUSTOM_SHMEM_CONFIG == 1)
+#define RL_VRING_SIZE_M33_FUSION_DSP_COM (0x400UL)
+
+#define RL_VRING_ALIGN_M33_FUSION_DSP_COM (0x10U)
+
 int32_t platform_get_custom_shmem_config(uint32_t link_id, rpmsg_platform_shmem_config_t *cfg);
 #endif /* defined(RL_ALLOW_CUSTOM_SHMEM_CONFIG) && (RL_ALLOW_CUSTOM_SHMEM_CONFIG == 1) */
 

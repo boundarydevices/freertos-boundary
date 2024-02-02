@@ -135,9 +135,9 @@ static void it6161_MIPIRX_CONF(display_handle_t *handle)
             MIPI_RX_LANE_MERGE_PACKET_DECODER_REG20_RegIgnrBlk((uint32_t)it6161.mipi_rx.ignore_blank_packet) |
             MIPI_RX_LANE_MERGE_PACKET_DECODER_REG20_RegEnDummyECC((uint32_t)it6161.mipi_rx.enable_dummy_ecc_error) |
             MIPI_RX_LANE_MERGE_PACKET_DECODER_REG20_RegSelEOTP((uint32_t)it6161.mipi_rx.sel_eotp));
-    MIPIRX_SetI2C_Byte(handle, MIPI_RX_LANE_MERGE_PACKET_DECODER_REG21,
-                       MIPI_RX_LANE_MERGE_PACKET_DECODER_REG21_RegSelLMDbg_MASK,
-                       MIPI_RX_LANE_MERGE_PACKET_DECODER_REG21_RegSelLMDbg((uint32_t)it6161.mipi_rx.lm_debug_selection));
+    MIPIRX_SetI2C_Byte(
+        handle, MIPI_RX_LANE_MERGE_PACKET_DECODER_REG21, MIPI_RX_LANE_MERGE_PACKET_DECODER_REG21_RegSelLMDbg_MASK,
+        MIPI_RX_LANE_MERGE_PACKET_DECODER_REG21_RegSelLMDbg((uint32_t)it6161.mipi_rx.lm_debug_selection));
     /* Setup packed pixel stream, timing generator and pattern generation(auto sync falling, interlaced mode, user
      * define timming register, prec and mrec update) */
     MIPIRX_SetI2C_Byte(

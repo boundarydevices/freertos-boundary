@@ -4,8 +4,8 @@
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-#ifndef _FSL_RTD_CMC_H_
-#define _FSL_RTD_CMC_H_
+#ifndef FSL_RTD_CMC_H_
+#define FSL_RTD_CMC_H_
 
 #include "fsl_common.h"
 
@@ -17,10 +17,10 @@
  * Definitions
  ******************************************************************************/
 /*! @name Driver version */
-/*@{*/
+/*! @{ */
 /*! @brief RTD_CMC driver version 2.0.2. */
 #define FSL_RTD_CMC_DRIVER_VERSION (MAKE_VERSION(2, 0, 2))
-/* @} */
+/*! @} */
 
 /*!
  * @brief RTD_CMC power mode Protection enumeration.
@@ -229,7 +229,7 @@ static inline void RTDCMC_LockClockModeSetting(CMC_Type *base)
     base->CKCTRL |= CMC_CKCTRL_LOCK_MASK;
 }
 
-/* @} */
+/*! @} */
 
 /*!
  * @name Gets/Clears the Clock Mode, the wake up source, the Reset source
@@ -330,7 +330,7 @@ static inline void RTDCMC_ClearStickySystemResetStatus(CMC_Type *base, uint32_t 
     base->SSRS = mask;
 }
 
-/* @} */
+/*! @} */
 
 /*!
  * @name Power Mode Configuration
@@ -376,7 +376,7 @@ static inline void RTDCMC_LockPowerModeProtectionSetting(CMC_Type *base)
  */
 void RTDCMC_EnterLowPowerMode(CMC_Type *base, cmc_low_power_mode_t lowPowerMode);
 
-/* @} */
+/*! @} */
 
 /*!
  * @name System Reset Interrupts
@@ -443,7 +443,7 @@ static inline void RTDCMC_ClearSystemResetInterruptFlags(CMC_Type *base, uint32_
     base->SRIF = mask;
 }
 
-/* @} */
+/*! @} */
 
 /*!
  * @name Power Switch Domain Interrupt
@@ -498,7 +498,7 @@ static inline void RTDCMC_ClearPowerSwitchDomainOutOfResetInterruptFlags(CMC_Typ
     base->RTD_PSDORF = mask;
 }
 
-/* @} */
+/*! @} */
 
 /*!
  * @name Real Time Domain Power Switch Domain Status API
@@ -519,7 +519,7 @@ static inline bool RTDCMC_CheckRealTimeDomainPowerSwitchDomainStatus(CMC_Type *b
     return ((base->RTD_PSDS & (uint32_t)domainName) == 0UL);
 }
 
-/* @} */
+/*! @} */
 
 /*!
  * @name Boot Configuration
@@ -574,7 +574,7 @@ static inline void RTDCMC_ForceBootConfiguration(CMC_Type *base, bool assert, ui
     }
 }
 
-/* @} */
+/*! @} */
 
 /*!
  * @name Non Maskable Pin interrupt
@@ -601,7 +601,7 @@ static inline void RTDCMC_EnableNonMaskablePinInterrupt(CMC_Type *base, bool ena
     }
 }
 
-/* @} */
+/*! @} */
 
 /*!
  * @name Debug Configuration
@@ -630,11 +630,11 @@ static inline void RTDCMC_EnableDebugOperation(CMC_Type *base, bool enable)
     }
 }
 
-/* @} */
+/*! @} */
 
 #if defined(__cplusplus)
 extern "C" {
 #endif /* __cplusplus */
 
 /*! @}*/
-#endif /* _FSL_RTD_CMC_H_ */
+#endif /* FSL_RTD_CMC_H_ */

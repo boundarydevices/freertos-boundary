@@ -535,7 +535,8 @@ void main()
      * Need to add API in SIM module for this operation.
      */
     SIM_SEC->SYSCTRL0 &= ~SIM_SEC_SYSCTRL0_LPAV_MASTER_CTRL(1); /* Allocate LPAV to RTD */
-    SIM_SEC->LPAV_MASTER_ALLOC_CTRL = 0; /* Allocate all of masters(HIFI4, EPDC, MIPI DSI, DCNANO, GPU3D, GPU2D, PXP) of LPAV to RTD */
+    SIM_SEC->LPAV_MASTER_ALLOC_CTRL =
+        0; /* Allocate all of masters(HIFI4, EPDC, MIPI DSI, DCNANO, GPU3D, GPU2D, PXP) of LPAV to RTD */
 
     BOARD_InitBootPins();
 

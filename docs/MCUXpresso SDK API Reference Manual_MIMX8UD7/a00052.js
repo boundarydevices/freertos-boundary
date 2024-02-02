@@ -1,62 +1,199 @@
 var a00052 =
 [
-    [ "wdog32_work_mode_t", "a00052.html#a00350", [
-      [ "enableWait", "a00052.html#a4eafd57a0902efab66232ab33de3c73d", null ],
-      [ "enableStop", "a00052.html#a89722846e36fbd9aaed4f45cf03fbe00", null ],
-      [ "enableDebug", "a00052.html#ae39601802486455524ca8f7f877ec0dc", null ]
+    [ "lpadc_config_t", "a00052.html#a00344", [
+      [ "enableInDozeMode", "a00052.html#ac47a5a50ba40ca3b021b4be239a048f3", null ],
+      [ "enableAnalogPreliminary", "a00052.html#ab62dd78747ca5df971c30ad59d0127ba", null ],
+      [ "powerUpDelay", "a00052.html#a05885e7359e788bfee8bee8b1b7e17ac", null ],
+      [ "referenceVoltageSource", "a00052.html#af2a2e2e253efb0a783435fe171091b3f", null ],
+      [ "powerLevelMode", "a00052.html#aa95f676c2ce209a53e411045a118b7d7", null ],
+      [ "triggerPriorityPolicy", "a00052.html#a6790dea9cdf41dbe47a312f46d046d39", null ],
+      [ "enableConvPause", "a00052.html#a54cc3c1d27305b3916a0ce2fc1f86af0", null ],
+      [ "convPauseDelay", "a00052.html#a95cd7bea05bf46e0f5444762aba38fbe", null ],
+      [ "FIFOWatermark", "a00052.html#aeb5cae2223bf1d49e13332308ceae79b", null ]
     ] ],
-    [ "wdog32_config_t", "a00052.html#a00349", [
-      [ "enableWdog32", "a00052.html#ab80dd2f0e5475395f0e031e0811c127f", null ],
-      [ "clockSource", "a00052.html#a55ee4dcaa7322068ae52fef6150f24a6", null ],
-      [ "prescaler", "a00052.html#a7df5183ec267667a9e4c88e627da6cd8", null ],
-      [ "workMode", "a00052.html#af0bac2121a846c18f1abd7180c0bef96", null ],
-      [ "testMode", "a00052.html#a064f2be7cd3eb75072823c7fa55641fd", null ],
-      [ "enableUpdate", "a00052.html#a40e63e94a31c56d510835d6071a1df85", null ],
-      [ "enableInterrupt", "a00052.html#a17256555c7dc9048a7a1ab68c467ca63", null ],
-      [ "enableWindowMode", "a00052.html#a3399d73ca4291a5883b578fccc95c091", null ],
-      [ "windowValue", "a00052.html#aa60ca9f1ffe17c99d0178332497d2af5", null ],
-      [ "timeoutValue", "a00052.html#a6ca6f4314b188418dcc82e9a8a6eb4c4", null ]
+    [ "lpadc_conv_command_config_t", "a00052.html#a00345", [
+      [ "sampleScaleMode", "a00052.html#aa8a989a84f3f494e8a222a14e4fa2740", null ],
+      [ "sampleChannelMode", "a00052.html#ad83d6cc054bd648551aa7a875e5e8a58", null ],
+      [ "channelNumber", "a00052.html#a34b3392e374a496930b09d8c5a410d7b", null ],
+      [ "chainedNextCommandNumber", "a00052.html#adcf04257bab0b975b7667a25bf4cbcdf", null ],
+      [ "enableAutoChannelIncrement", "a00052.html#a66e3347e2c2f96cadd5805bca6409646", null ],
+      [ "loopCount", "a00052.html#a7ce69c5cf297a804b5510d779036c867", null ],
+      [ "hardwareAverageMode", "a00052.html#a1c44cc7c4a60d180e6a9aae0501e8752", null ],
+      [ "sampleTimeMode", "a00052.html#a24deb3ab5d573ce3b17ed48987350b65", null ],
+      [ "hardwareCompareMode", "a00052.html#a5bb19c6af0abf963655462a350c53ce4", null ],
+      [ "hardwareCompareValueHigh", "a00052.html#a4bc748a87503d1d30fce8652296a21a1", null ],
+      [ "hardwareCompareValueLow", "a00052.html#aded6fd827d36d7f20693cf5f361ec57e", null ],
+      [ "enableWaitTrigger", "a00052.html#aaebaf295fa7a725ae26273e4a79735a8", null ]
     ] ],
-    [ "WDOG_FIRST_WORD_OF_UNLOCK", "a00052.html#ga8825b35bd62726165737f5dc0f5f61e4", null ],
-    [ "WDOG_SECOND_WORD_OF_UNLOCK", "a00052.html#gae2018a4151df654f86822786500cf2d3", null ],
-    [ "WDOG_FIRST_WORD_OF_REFRESH", "a00052.html#ga10f1df824e5965d6413b2e892fd04659", null ],
-    [ "WDOG_SECOND_WORD_OF_REFRESH", "a00052.html#ga2a375c7e4d71e7f52e899bce0a9106ee", null ],
-    [ "FSL_WDOG32_DRIVER_VERSION", "a00052.html#ga3aed9b151ba2a936e1274fdacc3adc48", null ],
-    [ "wdog32_clock_source_t", "a00052.html#gaf2723218d3b5f72fe2078c79ae89e22b", [
-      [ "kWDOG32_ClockSource0", "a00052.html#ggaf2723218d3b5f72fe2078c79ae89e22ba29116f214e8508c4b2bb4ba7bcb5fac0", null ],
-      [ "kWDOG32_ClockSource1", "a00052.html#ggaf2723218d3b5f72fe2078c79ae89e22bae9745d6cb2fb57147140688d9e5d1857", null ],
-      [ "kWDOG32_ClockSource2", "a00052.html#ggaf2723218d3b5f72fe2078c79ae89e22ba3d49c034db28ff04c7f3bf00d7b61eb2", null ],
-      [ "kWDOG32_ClockSource3", "a00052.html#ggaf2723218d3b5f72fe2078c79ae89e22ba1bd8755307385dc989ed7eac9d07239b", null ]
+    [ "lpadc_conv_trigger_config_t", "a00052.html#a00347", [
+      [ "targetCommandId", "a00052.html#ae1c77e5afcb5c9d2b80ac92cc5de597e", null ],
+      [ "delayPower", "a00052.html#a33fd3b422ca9c26c1eb915ef8fdc3c3e", null ],
+      [ "priority", "a00052.html#a2e4d3a907597cd2c8c712ae967c5ac2f", null ],
+      [ "enableHardwareTrigger", "a00052.html#a32a44ab0d65a0666b659027b93738c95", null ]
     ] ],
-    [ "wdog32_clock_prescaler_t", "a00052.html#ga647d4707383f8a5c5b94531e04f9cfeb", [
-      [ "kWDOG32_ClockPrescalerDivide1", "a00052.html#gga647d4707383f8a5c5b94531e04f9cfebaddc9f46aa2fe0154abb987f98151de1f", null ],
-      [ "kWDOG32_ClockPrescalerDivide256", "a00052.html#gga647d4707383f8a5c5b94531e04f9cfeba138c782b99d7a3f6fc43d46833e4c451", null ]
+    [ "lpadc_conv_result_t", "a00052.html#a00346", [
+      [ "commandIdSource", "a00052.html#a7ed6dcbf44ad017014525335013c817b", null ],
+      [ "loopCountIndex", "a00052.html#a87e1ee666c960928797ca574f1bcae1b", null ],
+      [ "triggerIdSource", "a00052.html#ad3b63c03e1c136e4293dd82a443f1de2", null ],
+      [ "convValue", "a00052.html#a4add4f13e761e8048d4434eb195f44d5", null ]
     ] ],
-    [ "wdog32_test_mode_t", "a00052.html#ga963073f1cb4719d64f4d491bebdde9d9", [
-      [ "kWDOG32_TestModeDisabled", "a00052.html#gga963073f1cb4719d64f4d491bebdde9d9a10dd0cd97f64cdcbb846ac489ec5bc99", null ],
-      [ "kWDOG32_UserModeEnabled", "a00052.html#gga963073f1cb4719d64f4d491bebdde9d9a9e08cae085e373ad7a215ec8ee7b2bc3", null ],
-      [ "kWDOG32_LowByteTest", "a00052.html#gga963073f1cb4719d64f4d491bebdde9d9a48ae5f6b0527dbcf54c460e2cbc4f260", null ],
-      [ "kWDOG32_HighByteTest", "a00052.html#gga963073f1cb4719d64f4d491bebdde9d9a7a27a5128ac2a2bb1a1af3a8afadc3fa", null ]
+    [ "FSL_LPADC_DRIVER_VERSION", "a00052.html#gab8a795637177dc9973e0fd2f5b29b6c3", null ],
+    [ "LPADC_GET_ACTIVE_COMMAND_STATUS", "a00052.html#gae305eca1c95975e49ea88d0d39aeb3e0", null ],
+    [ "LPADC_GET_ACTIVE_TRIGGER_STATUE", "a00052.html#ga48a0c8b6bac1e45cc7bdc93ccc288786", null ],
+    [ "lpadc_sample_scale_mode_t", "a00052.html#ga6e079f1e1ac3e1e05be59c1537deaccc", null ],
+    [ "lpadc_sample_channel_mode_t", "a00052.html#ga2a016da64e36075cc5627b867ec622fb", null ],
+    [ "lpadc_hardware_average_mode_t", "a00052.html#gadca70a0ed9c6266555ad732462ea16bd", null ],
+    [ "lpadc_sample_time_mode_t", "a00052.html#ga23447c7f5c4e9a106715484fd93a8f95", null ],
+    [ "lpadc_hardware_compare_mode_t", "a00052.html#gaa631af36a82f2b04bf818918ad86bbc4", null ],
+    [ "lpadc_reference_voltage_source_t", "a00052.html#ga8af78c5368037ad9c657f3317566717a", null ],
+    [ "lpadc_power_level_mode_t", "a00052.html#ga9e768f8b368e2e90d0d0c740392d14cd", null ],
+    [ "lpadc_trigger_priority_policy_t", "a00052.html#gae9504b206b2965d084eaa4caa0661e84", null ],
+    [ "_lpadc_status_flags", "a00052.html#gaf40ddd93026be88551f23b9428e98e22", [
+      [ "kLPADC_ResultFIFO0OverflowFlag", "a00052.html#ggaf40ddd93026be88551f23b9428e98e22a0bc43d455f0c92b0455d392b02a4581e", null ],
+      [ "kLPADC_ResultFIFO0ReadyFlag", "a00052.html#ggaf40ddd93026be88551f23b9428e98e22a16e8001de19be822847a36c2d6e6146c", null ],
+      [ "kLPADC_TriggerExceptionFlag", "a00052.html#ggaf40ddd93026be88551f23b9428e98e22a6a40aec8bdd3cdc78918cb2009f758b2", null ],
+      [ "kLPADC_TriggerCompletionFlag", "a00052.html#ggaf40ddd93026be88551f23b9428e98e22a0229aa75f054d6a51e141f65f1f9fce4", null ],
+      [ "kLPADC_ActiveFlag", "a00052.html#ggaf40ddd93026be88551f23b9428e98e22a7b716de0304a1f486bde149e456b763c", null ],
+      [ "kLPADC_ResultFIFOOverflowFlag", "a00052.html#ggaf40ddd93026be88551f23b9428e98e22aa52211bffea2def3062daff07532cb28", null ],
+      [ "kLPADC_ResultFIFOReadyFlag", "a00052.html#ggaf40ddd93026be88551f23b9428e98e22a7bd75ce7f5f38970c10f03c77075fc5d", null ]
     ] ],
-    [ "_wdog32_interrupt_enable_t", "a00052.html#gabf259a6d842f0d6f4a5a24618e6b6ed4", [
-      [ "kWDOG32_InterruptEnable", "a00052.html#ggabf259a6d842f0d6f4a5a24618e6b6ed4ae2a2e7d4a8c554ecad8fbcab0b787c1d", null ]
+    [ "_lpadc_interrupt_enable", "a00052.html#gaeba33be014c52b093d5e7815dcf8e6b3", [
+      [ "kLPADC_ResultFIFO0OverflowInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a8591fb75b5c63ceab76e5766ef49363e", null ],
+      [ "kLPADC_FIFO0WatermarkInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a2bab7f05a3af09e6f8b90a6ca39fc2b6", null ],
+      [ "kLPADC_ResultFIFOOverflowInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a487f293b5443e2b9c39412f4476f7638", null ],
+      [ "kLPADC_FIFOWatermarkInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a90f6e2b2819d89b685281a440b10b8b5", null ],
+      [ "kLPADC_TriggerExceptionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a44634c3c716d13b185141828c08de107", null ],
+      [ "kLPADC_Trigger0CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3af3817d8c784f82f52234681679cc0242", null ],
+      [ "kLPADC_Trigger1CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3af2c28a896a38941ac2dee25b1b2f56f4", null ],
+      [ "kLPADC_Trigger2CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a2f5f56533594d5281daa83e25b8dae1b", null ],
+      [ "kLPADC_Trigger3CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a1d90c2cb90a0de8f886a0c59d7f56ae2", null ],
+      [ "kLPADC_Trigger4CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a304e6c97e5d613407c56ce4bd27ffd64", null ],
+      [ "kLPADC_Trigger5CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a96ab38327b0b521b4b1e2ea1a16e8b8d", null ],
+      [ "kLPADC_Trigger6CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a6eec16c422d21126b2edc853891fa9ac", null ],
+      [ "kLPADC_Trigger7CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a1a410a4df0c58e0e73ee8ff10fa60319", null ],
+      [ "kLPADC_Trigger8CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3aa2f726102af5a51d5889a7be9eb7ac73", null ],
+      [ "kLPADC_Trigger9CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a09b512b492d130bde7aedadaafb6fb80", null ],
+      [ "kLPADC_Trigger10CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a151ae70c7004c0a5d0aa4bb929f9bc31", null ],
+      [ "kLPADC_Trigger11CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a531e5f27aaef1aa119193353b3f3871c", null ],
+      [ "kLPADC_Trigger12CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a22617e50ab9b45b37b1493758d06da7d", null ],
+      [ "kLPADC_Trigger13CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a1e72cb6ddb88431df77ecaec6e69caad", null ],
+      [ "kLPADC_Trigger14CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a655fcdeb9151b98c9d6906006434c604", null ],
+      [ "kLPADC_Trigger15CompletionInterruptEnable", "a00052.html#ggaeba33be014c52b093d5e7815dcf8e6b3a94b6a20d290c6ec4e322d1fae5a21721", null ]
     ] ],
-    [ "_wdog32_status_flags_t", "a00052.html#gaa02da70d359406657bcf92b4040eeeda", [
-      [ "kWDOG32_RunningFlag", "a00052.html#ggaa02da70d359406657bcf92b4040eeedaac711f02ae4bc6b2421e4f1b46b171585", null ],
-      [ "kWDOG32_InterruptFlag", "a00052.html#ggaa02da70d359406657bcf92b4040eeedaae0eb7ffaae9ae933dc700fd78d556d32", null ]
+    [ "_lpadc_trigger_status_flags", "a00052.html#gac3fe3e596f7a7924e1fce461fd96a611", [
+      [ "kLPADC_Trigger0InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a26491ba89ebb1ad60f6fd44a11d8ea54", null ],
+      [ "kLPADC_Trigger1InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a4a91896af6d99ecfede5a31b81cb0336", null ],
+      [ "kLPADC_Trigger2InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611ac9ac778fd249f5037a3a754525334c43", null ],
+      [ "kLPADC_Trigger3InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a9a9b0d9be393c75f95623a80251e274e", null ],
+      [ "kLPADC_Trigger4InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a2061f533e105d53cf1c431c158cc93de", null ],
+      [ "kLPADC_Trigger5InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a0ceaa10eee5a9b5bf6ba16e6b1b7b8ad", null ],
+      [ "kLPADC_Trigger6InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611ac14940a1814641330932e9ed78685050", null ],
+      [ "kLPADC_Trigger7InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611ad723b905e2ab7acf02676881d442b833", null ],
+      [ "kLPADC_Trigger8InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a5446ee58dde9a6c6801396d7c534d803", null ],
+      [ "kLPADC_Trigger9InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a7e5c6955be0262220084b52adaf7269e", null ],
+      [ "kLPADC_Trigger10InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a67b255b70601be687c0aa11a533fd7d4", null ],
+      [ "kLPADC_Trigger11InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a11c9be98dcd12947c54d61d94c5b75a7", null ],
+      [ "kLPADC_Trigger12InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611adb62e01b0bd9d710195265f6590c479e", null ],
+      [ "kLPADC_Trigger13InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a3b1c449654033a208db8ccd0ec0d9722", null ],
+      [ "kLPADC_Trigger14InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611af4576da1ca778c3581cad4ffa1603e73", null ],
+      [ "kLPADC_Trigger15InterruptedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a9c04b4ef40873a9a193a38ea64c85e9b", null ],
+      [ "kLPADC_Trigger0CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a0ecf009b68b07a7308a0b054201e9ed6", null ],
+      [ "kLPADC_Trigger1CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a748da43f4f8a712b464e0cf29dd71e15", null ],
+      [ "kLPADC_Trigger2CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611aaf6637ab969caabc345b1a20e1915345", null ],
+      [ "kLPADC_Trigger3CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a972b9eac59d21431efbafdbf008724e2", null ],
+      [ "kLPADC_Trigger4CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611ab5763c082a5357a63e9b6711e65db4bf", null ],
+      [ "kLPADC_Trigger5CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611adb9fb811e58e838fcd88f05a374fa760", null ],
+      [ "kLPADC_Trigger6CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a562f846afdea2abbb5c6d071fffdf3f8", null ],
+      [ "kLPADC_Trigger7CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a7b7b41bfa4649873a08f500ae6e83d89", null ],
+      [ "kLPADC_Trigger8CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a860eb4e7825af6de5381d68928d8d8c8", null ],
+      [ "kLPADC_Trigger9CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a5e936631a2c975d714c954204adb0f93", null ],
+      [ "kLPADC_Trigger10CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a7e41368c6b02bb47040d2f51ce9f1484", null ],
+      [ "kLPADC_Trigger11CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a5c3383c79eb0dfc2f19b6517dd58e6c2", null ],
+      [ "kLPADC_Trigger12CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a015785a2c2aff4ba910f8b7074af31c1", null ],
+      [ "kLPADC_Trigger13CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a490b951264592c3ab908d7ddde3d1e39", null ],
+      [ "kLPADC_Trigger14CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611aa3cabce01591af3b7fabfb059401b833", null ],
+      [ "kLPADC_Trigger15CompletedFlag", "a00052.html#ggac3fe3e596f7a7924e1fce461fd96a611a0d7775efcab8cf5d38628eae1f597e75", null ]
     ] ],
-    [ "WDOG32_GetDefaultConfig", "a00052.html#ga2a600d8293c406750156e0555e9f977f", null ],
-    [ "WDOG32_Init", "a00052.html#ga837e5f59db9b58e0f66a947193b30545", null ],
-    [ "WDOG32_Deinit", "a00052.html#ga711412b5690c1af272b7f2268c195bcf", null ],
-    [ "WDOG32_Unlock", "a00052.html#ga0511570e5f8456cfa6b1b2ce00a0ae4a", null ],
-    [ "WDOG32_Enable", "a00052.html#ga3bb5f971199e1a21ae57884a299792e1", null ],
-    [ "WDOG32_Disable", "a00052.html#ga0a23104c81ade515394874175ab7ddc4", null ],
-    [ "WDOG32_EnableInterrupts", "a00052.html#gabaa2126e704d23f59313a431585bbf41", null ],
-    [ "WDOG32_DisableInterrupts", "a00052.html#gabc727be6482297a308e2e3f18db8b6c4", null ],
-    [ "WDOG32_GetStatusFlags", "a00052.html#ga1f7011053adb37b71d3ac2b8dba918a7", null ],
-    [ "WDOG32_ClearStatusFlags", "a00052.html#ga03293e4e343c1575b0fc268495826df0", null ],
-    [ "WDOG32_SetTimeoutValue", "a00052.html#gac13fb90315dd17a7f7624717fa94bb68", null ],
-    [ "WDOG32_SetWindowValue", "a00052.html#ga0bda44be56c7db9b1988b87962c4b269", null ],
-    [ "WDOG32_Refresh", "a00052.html#ga8cd48b61083e47080be856ae46a27374", null ],
-    [ "WDOG32_GetCounterValue", "a00052.html#gac51b0779cc8980812f1e81d993135c1a", null ]
+    [ "_lpadc_sample_scale_mode", "a00052.html#ga1d4e7fc7a4a9a94f460d113d367f5e89", [
+      [ "kLPADC_SamplePartScale", "a00052.html#gga1d4e7fc7a4a9a94f460d113d367f5e89a2d5ef37dc371402d7b50992f6724f2fd", null ],
+      [ "kLPADC_SampleFullScale", "a00052.html#gga1d4e7fc7a4a9a94f460d113d367f5e89acf9a7acbde288c4de0a60d0018457721", null ]
+    ] ],
+    [ "_lpadc_sample_channel_mode", "a00052.html#ga76e229daed6a76105f60bb569038c54d", [
+      [ "kLPADC_SampleChannelSingleEndSideA", "a00052.html#gga76e229daed6a76105f60bb569038c54dae511411bd331e3049a5c9583163e4fe2", null ],
+      [ "kLPADC_SampleChannelSingleEndSideB", "a00052.html#gga76e229daed6a76105f60bb569038c54dab477a25f4b1cef6b47115b7bb4b9583c", null ],
+      [ "kLPADC_SampleChannelDiffBothSideAB", "a00052.html#gga76e229daed6a76105f60bb569038c54da44153790e20e1d99c9ab49165b27db98", null ],
+      [ "kLPADC_SampleChannelDiffBothSideBA", "a00052.html#gga76e229daed6a76105f60bb569038c54da29943cdedc87ec9e31f6e4f5b08452c8", null ]
+    ] ],
+    [ "_lpadc_hardware_average_mode", "a00052.html#gad0ca387797936463d0d86cda97d17438", [
+      [ "kLPADC_HardwareAverageCount1", "a00052.html#ggad0ca387797936463d0d86cda97d17438adeae8ae097545482c1942926119d968c", null ],
+      [ "kLPADC_HardwareAverageCount2", "a00052.html#ggad0ca387797936463d0d86cda97d17438a03e731d3d2e024623fd22145c484b797", null ],
+      [ "kLPADC_HardwareAverageCount4", "a00052.html#ggad0ca387797936463d0d86cda97d17438a0eda65451db63f4a0c1d154f851f9353", null ],
+      [ "kLPADC_HardwareAverageCount8", "a00052.html#ggad0ca387797936463d0d86cda97d17438a3cc487e2f5720a5c45318f69028c32cc", null ],
+      [ "kLPADC_HardwareAverageCount16", "a00052.html#ggad0ca387797936463d0d86cda97d17438ad5fece9b31b47f741c413fe7445df855", null ],
+      [ "kLPADC_HardwareAverageCount32", "a00052.html#ggad0ca387797936463d0d86cda97d17438a4cfb338bc49982bc7e58a7f0949bf425", null ],
+      [ "kLPADC_HardwareAverageCount64", "a00052.html#ggad0ca387797936463d0d86cda97d17438a081530884310024c8d2750735b6295ea", null ],
+      [ "kLPADC_HardwareAverageCount128", "a00052.html#ggad0ca387797936463d0d86cda97d17438a4f86910a33fa9874108753b6de1947ce", null ]
+    ] ],
+    [ "_lpadc_sample_time_mode", "a00052.html#ga1ee59a08c5a28f7c3b75c530d1cccc65", [
+      [ "kLPADC_SampleTimeADCK3", "a00052.html#gga1ee59a08c5a28f7c3b75c530d1cccc65abfd94e19de3d57b94fae9baded5804db", null ],
+      [ "kLPADC_SampleTimeADCK5", "a00052.html#gga1ee59a08c5a28f7c3b75c530d1cccc65a441c59d3df7a1ad5b64416e6a08dd246", null ],
+      [ "kLPADC_SampleTimeADCK7", "a00052.html#gga1ee59a08c5a28f7c3b75c530d1cccc65aa2a17502f50e36de117b337994c21dc2", null ],
+      [ "kLPADC_SampleTimeADCK11", "a00052.html#gga1ee59a08c5a28f7c3b75c530d1cccc65a4a980813baf6845d528db2a265475905", null ],
+      [ "kLPADC_SampleTimeADCK19", "a00052.html#gga1ee59a08c5a28f7c3b75c530d1cccc65a7f5bb84adb8783fd6fa8d3ce5ed31f3a", null ],
+      [ "kLPADC_SampleTimeADCK35", "a00052.html#gga1ee59a08c5a28f7c3b75c530d1cccc65a9d59f3e6e9335223746533051f83a20b", null ],
+      [ "kLPADC_SampleTimeADCK67", "a00052.html#gga1ee59a08c5a28f7c3b75c530d1cccc65a653e653b0ee479f6b42ff4b8ffea49ac", null ],
+      [ "kLPADC_SampleTimeADCK131", "a00052.html#gga1ee59a08c5a28f7c3b75c530d1cccc65ae327cbad1ded4882cbcd53ad5e6c2262", null ]
+    ] ],
+    [ "_lpadc_hardware_compare_mode", "a00052.html#gaedf69fcc744298a489b12df83b4aff83", [
+      [ "kLPADC_HardwareCompareDisabled", "a00052.html#ggaedf69fcc744298a489b12df83b4aff83ab205c4a4aa1cd79f38be81e6469f2fd2", null ],
+      [ "kLPADC_HardwareCompareStoreOnTrue", "a00052.html#ggaedf69fcc744298a489b12df83b4aff83a0e30824c70217e386a1dfbaaecbd7b67", null ],
+      [ "kLPADC_HardwareCompareRepeatUntilTrue", "a00052.html#ggaedf69fcc744298a489b12df83b4aff83a11bc71ef00c5e95a18431947fe0362e1", null ]
+    ] ],
+    [ "_lpadc_reference_voltage_mode", "a00052.html#gaf8c74a8d5d1dc7f3918cf35513e51596", [
+      [ "kLPADC_ReferenceVoltageAlt1", "a00052.html#ggaf8c74a8d5d1dc7f3918cf35513e51596a8d40316bc847f29e588ff1a50775ab11", null ],
+      [ "kLPADC_ReferenceVoltageAlt2", "a00052.html#ggaf8c74a8d5d1dc7f3918cf35513e51596a7f45d8cf9f4a252f22d52b8a82db304a", null ],
+      [ "kLPADC_ReferenceVoltageAlt3", "a00052.html#ggaf8c74a8d5d1dc7f3918cf35513e51596a8c41f94955b5b1141956d61fc2feb44c", null ]
+    ] ],
+    [ "_lpadc_power_level_mode", "a00052.html#gae5cd887aaa7f385bf70b6ff4066d4f7d", [
+      [ "kLPADC_PowerLevelAlt1", "a00052.html#ggae5cd887aaa7f385bf70b6ff4066d4f7dac88970640320826c36101d8e7fa5a9c9", null ],
+      [ "kLPADC_PowerLevelAlt2", "a00052.html#ggae5cd887aaa7f385bf70b6ff4066d4f7daca71931306fe195df044d6a889639919", null ],
+      [ "kLPADC_PowerLevelAlt3", "a00052.html#ggae5cd887aaa7f385bf70b6ff4066d4f7daed7771e49eeec9fee65726c600956d6d", null ],
+      [ "kLPADC_PowerLevelAlt4", "a00052.html#ggae5cd887aaa7f385bf70b6ff4066d4f7da2f34a351174cf34ee124ccfc7f2bf9d2", null ]
+    ] ],
+    [ "_lpadc_trigger_priority_policy", "a00052.html#gad93a64db4c5264aa880ea61ec2fb3729", [
+      [ "kLPADC_ConvPreemptImmediatelyNotAutoResumed", "a00052.html#ggad93a64db4c5264aa880ea61ec2fb3729a8952cef1b3169656cb213b1269f19e8a", null ],
+      [ "kLPADC_ConvPreemptSoftlyNotAutoResumed", "a00052.html#ggad93a64db4c5264aa880ea61ec2fb3729a50acd884fdcaa0297e0a5597172418fe", null ],
+      [ "kLPADC_ConvPreemptImmediatelyAutoRestarted", "a00052.html#ggad93a64db4c5264aa880ea61ec2fb3729af58f8549de400f1136ae0fa6d1efe2fe", null ],
+      [ "kLPADC_ConvPreemptSoftlyAutoRestarted", "a00052.html#ggad93a64db4c5264aa880ea61ec2fb3729af9448fa2ab6fc356e42491337289b534", null ],
+      [ "kLPADC_ConvPreemptImmediatelyAutoResumed", "a00052.html#ggad93a64db4c5264aa880ea61ec2fb3729a354450a30da2217ed1a33cf8768096a8", null ],
+      [ "kLPADC_ConvPreemptSoftlyAutoResumed", "a00052.html#ggad93a64db4c5264aa880ea61ec2fb3729a0a52f4b1eb8d4fc8b65f2e7232accf2f", null ],
+      [ "kLPADC_TriggerPriorityPreemptImmediately", "a00052.html#ggad93a64db4c5264aa880ea61ec2fb3729a0fec3ebd14c77fc5a1711cb3ed7a2ab5", null ],
+      [ "kLPADC_TriggerPriorityPreemptSoftly", "a00052.html#ggad93a64db4c5264aa880ea61ec2fb3729a406eb5620e19a0cad27c10211c548a46", null ],
+      [ "kLPADC_ConvPreemptSubsequentlyNotAutoResumed", "a00052.html#ggad93a64db4c5264aa880ea61ec2fb3729ac46c549b6ad3e9301b2761e2d31a2c71", null ],
+      [ "kLPADC_ConvPreemptSubsequentlyAutoRestarted", "a00052.html#ggad93a64db4c5264aa880ea61ec2fb3729afd603545c9d31ddd94f13c43c765150e", null ],
+      [ "kLPADC_ConvPreemptSubsequentlyAutoResumed", "a00052.html#ggad93a64db4c5264aa880ea61ec2fb3729a9e513a8958f894522b50da6b945381cb", null ],
+      [ "kLPADC_TriggerPriorityPreemptSubsequently", "a00052.html#ggad93a64db4c5264aa880ea61ec2fb3729a216e6ba47136231c657b2c0353558fb0", null ],
+      [ "kLPADC_TriggerPriorityExceptionDisabled", "a00052.html#ggad93a64db4c5264aa880ea61ec2fb3729a1b8cbf1540d2daf192599ab16549b20e", null ]
+    ] ],
+    [ "LPADC_Init", "a00052.html#gaf13dbab92e7a26afb07b3bb2cbaab793", null ],
+    [ "LPADC_GetDefaultConfig", "a00052.html#ga94c79af85a28c45bc642226292b14d1c", null ],
+    [ "LPADC_Deinit", "a00052.html#gabc10ae5663788ea5c7f77e2f3517a677", null ],
+    [ "LPADC_Enable", "a00052.html#gaf76592d9f392cd30b738f599b2e71344", null ],
+    [ "LPADC_DoResetFIFO", "a00052.html#gab6e4218842365ee6c620cfc59db213c4", null ],
+    [ "LPADC_DoResetConfig", "a00052.html#ga3d6911f2f9ad7fd2fdf93c3b5d1e80f7", null ],
+    [ "LPADC_GetStatusFlags", "a00052.html#gaa2793911f11091179bfcd8e9b1860300", null ],
+    [ "LPADC_ClearStatusFlags", "a00052.html#ga77ba72fad1e0f84b42809da6918e6532", null ],
+    [ "LPADC_GetTriggerStatusFlags", "a00052.html#ga8791fc554a8cae9fbce50c14083c87db", null ],
+    [ "LPADC_ClearTriggerStatusFlags", "a00052.html#ga89b958c27ad08445b6c2564904e82ede", null ],
+    [ "LPADC_EnableInterrupts", "a00052.html#ga2c147558843514556795fd52f86aca56", null ],
+    [ "LPADC_DisableInterrupts", "a00052.html#ga5c633af2aeab39c215d3b5aa6172ccb7", null ],
+    [ "LPADC_EnableFIFOWatermarkDMA", "a00052.html#gacaaa33bc4d9cfd8fad4fac8f1475d97c", null ],
+    [ "LPADC_GetConvResultCount", "a00052.html#ga51b39db4ab530f900aa3a88a3047daf3", null ],
+    [ "LPADC_GetConvResult", "a00052.html#ga1862883b3c4ce8365ad1f1a6c64043cc", null ],
+    [ "LPADC_GetConvResultBlocking", "a00052.html#gaebbcb9d28f962d7f12512a0e99aa09d2", null ],
+    [ "LPADC_SetConvTriggerConfig", "a00052.html#ga67927722ab525eda9e31d1f7554f02a4", null ],
+    [ "LPADC_GetDefaultConvTriggerConfig", "a00052.html#ga44e286bc27b1e8fee3f4796ca9196a27", null ],
+    [ "LPADC_DoSoftwareTrigger", "a00052.html#gacaef94ac48a3e0a34f9235f88767b7a3", null ],
+    [ "LPADC_SetConvCommandConfig", "a00052.html#ga500d8b7b0323136353e10fdfad2e40c7", null ],
+    [ "LPADC_GetDefaultConvCommandConfig", "a00052.html#gaa3f7fd90bdbd65fbc4e5b88e904173f9", null ]
 ];

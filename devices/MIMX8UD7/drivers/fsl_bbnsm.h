@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef _FSL_BBNSM_H_
-#define _FSL_BBNSM_H_
+#ifndef FSL_BBNSM_H_
+#define FSL_BBNSM_H_
 
 #include "fsl_common.h"
 
@@ -20,9 +20,9 @@
  ******************************************************************************/
 
 /*! @name Driver version */
-/*@{*/
+/*! @{ */
 #define FSL_BBNSM_DRIVER_VERSION (MAKE_VERSION(2, 0, 0)) /*!< Version 2.0.0 */
-/*@}*/
+/*! @} */
 
 /*! @brief List of BBNSM interrupts */
 typedef enum _bbnsm_interrupts
@@ -310,4 +310,4 @@ uint32_t BBNSM_RTC_GetSeconds(BBNSM_Type *base);
 }
 #endif
 
-#endif /* _FSL_BBNSM_H_ */
+#endif /* FSL_BBNSM_H_ */

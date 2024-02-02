@@ -200,10 +200,10 @@ static void APP_Suspend(void)
 
         GPIOA->ICR[i] = 0; /* Disable interrupts */
 
-        /*
-         * Skip PTA20 ~ 23(JTAG pins)[define SKIP_JTAG_PINS as 1] if want to debug code with JTAG before entering power
-         * down/deep sleep mode
-         */
+                           /*
+                            * Skip PTA20 ~ 23(JTAG pins)[define SKIP_JTAG_PINS as 1] if want to debug code with JTAG before entering power
+                            * down/deep sleep mode
+                            */
 #if SKIP_JTAG_PINS
         if ((i >= 20) && (i <= 23))
 #endif
@@ -367,10 +367,10 @@ void APP_DisableGPIO(void)
     {
         GPIOA->ICR[i] = 0; /* Disable interrupts */
 
-        /*
-         * Skip PTA20 ~ 23(JTAG pins)[define SKIP_JTAG_PINS as 1] if want to debug code with JTAG before entering deep
-         * power down mode
-         */
+                           /*
+                            * Skip PTA20 ~ 23(JTAG pins)[define SKIP_JTAG_PINS as 1] if want to debug code with JTAG before entering deep
+                            * power down mode
+                            */
 #if SKIP_JTAG_PINS
         if ((i >= 20) && (i <= 23))
 #endif
@@ -382,7 +382,7 @@ void APP_DisableGPIO(void)
     /* Disable PTB and set PTB to Analog/HiZ state to save power */
     for (i = 0; i <= 15; i++)
     {
-        if ((i != 10) && (i != 11)) /* PTB10 and PTB11 is used as i2c function by upower */
+        if ((i != 10) && (i != 11))            /* PTB10 and PTB11 is used as i2c function by upower */
         {
             GPIOB->ICR[i]                 = 0; /* Disable interrupts */
             IOMUXC0->PCR0_IOMUXCARRAY1[i] = 0; /* Set to Analog/HiZ state */
@@ -902,7 +902,7 @@ void PowerModeSwitchTask(void *pvParameters)
 
     /* Setup LPTMR. */
     LPTMR_GetDefaultConfig(&lptmrConfig);
-    lptmrConfig.prescalerClockSource = kLPTMR_PrescalerClock_1; /* Use RTC 1KHz as clock source. */
+    lptmrConfig.prescalerClockSource = kLPTMR_PrescalerClock_1;  /* Use RTC 1KHz as clock source. */
     lptmrConfig.bypassPrescaler      = false;
     lptmrConfig.value                = kLPTMR_Prescale_Glitch_3; /* Divide clock source by 16. */
     LPTMR_Init(LPTMR1, &lptmrConfig);
@@ -969,7 +969,10 @@ void PowerModeSwitchTask(void *pvParameters)
          */
         // clang-format on
         PRINTF("Press  M for switch Voltage Drive Mode between OD/ND/UD.\r\n");
-        PRINTF("Press  N for supporting Deep Sleep Mode(Pls set it when the option IMX8ULP_DSL_SUPPORT of TF-A is enabled) of Linux. support_dsl_for_apd = %d\r\n", APP_SRTM_GetSupportDSLForApd());
+        PRINTF(
+            "Press  N for supporting Deep Sleep Mode(Pls set it when the option IMX8ULP_DSL_SUPPORT of TF-A is "
+            "enabled) of Linux. support_dsl_for_apd = %d\r\n",
+            APP_SRTM_GetSupportDSLForApd());
         PRINTF("\r\nWaiting for power mode select..\r\n\r\n");
 
         /* Wait for user response */

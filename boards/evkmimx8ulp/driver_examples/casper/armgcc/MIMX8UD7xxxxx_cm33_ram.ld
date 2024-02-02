@@ -1,20 +1,19 @@
 /*
 ** ###################################################################
-**     Processors:          MIMX8UD7DVK10_cm33
-**                          MIMX8UD7DVP10_cm33
+**     Processors:          MIMX8UD7CVP08_cm33
+**                          MIMX8UD7DVK08_cm33
+**                          MIMX8UD7DVP08_cm33
 **
 **     Compiler:            GNU C Compiler
-**     Reference manual:    IMX8ULPRM, Rev. B, November. 2021
-**     Version:             rev. 4.0, 2021-07-05
-**     Build:               b211124
+**     Reference manual:    IMX8ULPRM, Rev. D, December. 2022
+**     Version:             rev. 5.0, 2023-04-27
+**     Build:               b230927
 **
 **     Abstract:
 **         Linker file for the GNU C Compiler
 **
 **     Copyright 2016 Freescale Semiconductor, Inc.
-**     Copyright 2016-2021 NXP
-**     All rights reserved.
-**
+**     Copyright 2016-2023 NXP
 **     SPDX-License-Identifier: BSD-3-Clause
 **
 **     http:                 www.nxp.com

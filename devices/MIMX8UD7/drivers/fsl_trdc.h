@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef _FSL_TRDC_H_
-#define _FSL_TRDC_H_
+#ifndef FSL_TRDC_H_
+#define FSL_TRDC_H_
 
 #include "fsl_common.h"
 
@@ -478,7 +478,7 @@ void TRDC_Init(TRDC_Type *base);
  * @param base TRDC peripheral base address.
  */
 void TRDC_Deinit(TRDC_Type *base);
-/* @} */
+/*! @} */
 
 /*!
  * @name Hardware configuration
@@ -505,7 +505,7 @@ static inline uint8_t TRDC_GetCurrentMasterDomainId(TRDC_Type *base)
  * @param config Pointer to the structure to get the configuration.
  */
 void TRDC_GetHardwareConfig(TRDC_Type *base, trdc_hardware_config_t *config);
-/* @} */
+/*! @} */
 
 /*!
  * @name Master domain assignment
@@ -845,7 +845,7 @@ void TRDC_SetNonProcessorDomainAssignment(TRDC_Type *base,
                                           uint8_t master,
                                           const trdc_non_processor_domain_assignment_t *domainAssignment);
 
-/* @} */
+/*! @} */
 
 /*!
  * @name TZ-M congiguration
@@ -885,7 +885,7 @@ void TRDC_GetDefaultIDAUConfig(trdc_idau_config_t *idauConfiguration);
  * @param domainAssignment Pointer to the configuration structure.
  */
 void TRDC_SetIDAU(TRDC_Type *base, const trdc_idau_config_t *idauConfiguration);
-/* @} */
+/*! @} */
 
 /*!
  * @name FLW(Flash Logical Window) configuration
@@ -972,7 +972,7 @@ void TRDC_GetDefaultFlashLogicalWindowConfig(trdc_flw_config_t *flwConfiguration
  * @param flwConfiguration Pointer to the configuration structure.
  */
 void TRDC_SetFlashLogicalWindow(TRDC_Type *base, const trdc_flw_config_t *flwConfiguration);
-/* @} */
+/*! @} */
 
 /*!
  * @name Domain error check and clear
@@ -1008,7 +1008,7 @@ status_t TRDC_GetAndClearFirstDomainError(TRDC_Type *base, trdc_domain_error_t *
  *         access violation is captured, this function returns the kStatus_NoData.
  */
 status_t TRDC_GetAndClearFirstSpecificDomainError(TRDC_Type *base, trdc_domain_error_t *error, uint8_t domainId);
-/* @} */
+/*! @} */
 
 /*!
  * @name MRC configuration
@@ -1103,9 +1103,9 @@ void TRDC_MrcRegionNseClear(TRDC_Type *base, uint8_t mrcIdx, uint16_t regionMask
  *
  * @param base TRDC peripheral base address.
  * @param mrcIdx MRC index.
- * @param domianMask Bit mask of the domians whose NSE bits to clear.
+ * @param domainMask Bit mask of the domians whose NSE bits to clear.
  */
-void TRDC_MrcDomainNseClear(TRDC_Type *base, uint8_t mrcIdx, uint16_t domianMask);
+void TRDC_MrcDomainNseClear(TRDC_Type *base, uint8_t mrcIdx, uint16_t domainMask);
 
 /*!
  * @brief Sets the configuration for one of the region descriptor per domain per MRC instnce.
@@ -1117,7 +1117,7 @@ void TRDC_MrcDomainNseClear(TRDC_Type *base, uint8_t mrcIdx, uint16_t domianMask
  * @param config Pointer to region descriptor configuration structure.
  */
 void TRDC_MrcSetRegionDescriptorConfig(TRDC_Type *base, const trdc_mrc_region_descriptor_config_t *config);
-/* @} */
+/*! @} */
 
 /*!
  * @name MBC configuration
@@ -1226,7 +1226,7 @@ void TRDC_MbcSetMemoryAccessConfig(TRDC_Type *base,
  * @param config Pointer to memory block configuration structure.
  */
 void TRDC_MbcSetMemoryBlockConfig(TRDC_Type *base, const trdc_mbc_memory_block_config_t *config);
-/* @} */
+/*! @} */
 
 #if defined(__cplusplus)
 }
@@ -1236,4 +1236,4 @@ void TRDC_MbcSetMemoryBlockConfig(TRDC_Type *base, const trdc_mbc_memory_block_c
  * @}
  */
 
-#endif /* _FSL_TRDC_H_ */
+#endif /* FSL_TRDC_H_ */

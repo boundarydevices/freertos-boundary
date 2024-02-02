@@ -31,7 +31,7 @@ SET(CMAKE_ASM_FLAGS_RELEASE " \
 SET(CMAKE_C_FLAGS_DEBUG " \
     ${CMAKE_C_FLAGS_DEBUG} \
     -DDEBUG \
-    -DCPU_MIMX8UD7DVP10_cm33 \
+    -DCPU_MIMX8UD7DVP08_cm33 \
     -DPRINTF_ADVANCED_ENABLE=1 \
     -DMCUXPRESSO_SDK \
     -g \
@@ -54,7 +54,7 @@ SET(CMAKE_C_FLAGS_DEBUG " \
 SET(CMAKE_C_FLAGS_RELEASE " \
     ${CMAKE_C_FLAGS_RELEASE} \
     -DNDEBUG \
-    -DCPU_MIMX8UD7DVP10_cm33 \
+    -DCPU_MIMX8UD7DVP08_cm33 \
     -DPRINTF_ADVANCED_ENABLE=1 \
     -DMCUXPRESSO_SDK \
     -Os \
@@ -141,7 +141,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     -Wl,--print-memory-usage \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8UD7xxxxx_cm33_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8UD7xxxxx_cm33_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     ${CMAKE_EXE_LINKER_FLAGS_RELEASE} \
@@ -167,5 +167,5 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     -Wl,--print-memory-usage \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8UD7xxxxx_cm33_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8UD7xxxxx_cm33_ram.ld\" -static \
 ")

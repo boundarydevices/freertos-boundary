@@ -4,7 +4,8 @@ var a00195 =
     [ "LTC_AES_IV_SIZE", "a00195.html#ga5a2bfdc6fb7984ec4735fae9af33c637", null ],
     [ "LTC_AES_DecryptCtr", "a00195.html#gaf7b4300245af853393ee56194133069d", null ],
     [ "LTC_AES_EncryptCtr", "a00195.html#ga98e8cdcf011fa16580c634f652e716c5", null ],
-    [ "ltc_aes_key_t", "a00195.html#ga27d8eb054f08682d9514d575e682eafb", [
+    [ "ltc_aes_key_t", "a00195.html#ga32883228bbe28bc8c432a2613db8a2a2", null ],
+    [ "_ltc_aes_key_t", "a00195.html#gad43a88cb0e49e087461cc22daf32bd77", [
       [ "kCODEC_WM8904", "a00212.html#ggafa231099d07583c3ed0981e0bb665f55acb2ee31cd4ee06712e3cf445e12cb389", null ],
       [ "kCODEC_WM8960", "a00212.html#ggafa231099d07583c3ed0981e0bb665f55aa15237d33f0b971a6596458ef7aa8d99", null ],
       [ "kCODEC_WM8524", "a00212.html#ggafa231099d07583c3ed0981e0bb665f55a57b2941cff245c37272e1ea4598c3ab0", null ],
@@ -17,8 +18,10 @@ var a00195 =
       [ "kCODEC_TFA9XXX", "a00212.html#ggafa231099d07583c3ed0981e0bb665f55a448b697ab0cc0c28740e77484faad04f", null ],
       [ "kCODEC_TFA9896", "a00212.html#ggafa231099d07583c3ed0981e0bb665f55a899f42fede26bf5fd37ea863fb4e5624", null ],
       [ "kCODEC_WM8962", "a00212.html#ggafa231099d07583c3ed0981e0bb665f55a018d6b6d07eab64fe414983199950dc8", null ],
-      [ "kLTC_EncryptKey", "a00195.html#gga27d8eb054f08682d9514d575e682eafbaafaf0e007874ad89f4c8dcc881f0a58c", null ],
-      [ "kLTC_DecryptKey", "a00195.html#gga27d8eb054f08682d9514d575e682eafba92c0c89db07bdd0b564802fcd76b5f9e", null ]
+      [ "kCODEC_PCM512X", "a00212.html#ggafa231099d07583c3ed0981e0bb665f55a317f6511304608e3a32df3bf009f4181", null ],
+      [ "kCODEC_PCM186X", "a00212.html#ggafa231099d07583c3ed0981e0bb665f55aa765592ccbbe2fb41ab0df45bc6ab9ed", null ],
+      [ "kLTC_EncryptKey", "a00195.html#ggad43a88cb0e49e087461cc22daf32bd77aafaf0e007874ad89f4c8dcc881f0a58c", null ],
+      [ "kLTC_DecryptKey", "a00195.html#ggad43a88cb0e49e087461cc22daf32bd77a92c0c89db07bdd0b564802fcd76b5f9e", null ]
     ] ],
     [ "LTC_AES_GenerateDecryptKey", "a00195.html#ga9d343f750a93c0772e0fca8802b13246", null ],
     [ "LTC_AES_EncryptEcb", "a00195.html#gaab52cfd18b6a18b1270922d056021b5c", null ],

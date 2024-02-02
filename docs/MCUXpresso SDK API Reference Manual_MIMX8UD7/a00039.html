@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: LTC HASH driver</title>
+<title>MCUXpresso SDK API Reference Manual: LTC PKHA driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.14.1</span>
+   &#160;<span id="projectnumber">Rev 2.15.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -100,74 +100,121 @@ $(document).ready(function(){initNavTree('a00039.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">LTC HASH driver<div class="ingroups"><a class="el" href="a00193.html">LTC Blocking APIs</a></div></div>  </div>
+<div class="title">LTC PKHA driver<div class="ingroups"><a class="el" href="a00193.html">LTC Blocking APIs</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
-<p>This section describes the programming interface of the LTC HASH driver. </p>
+<p>This section describes the programming interface of the LTC PKHA driver. </p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:a00310"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#a00310">ltc_hash_ctx_t</a></td></tr>
-<tr class="memdesc:a00310"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storage type used to save hash context.  <a href="a00039.html#a00310">More...</a><br/></td></tr>
-<tr class="separator:a00310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00301"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#a00301">_ltc_pkha_ecc_point_t</a></td></tr>
+<tr class="memdesc:a00301"><td class="mdescLeft">&#160;</td><td class="mdescRight">PKHA ECC point structure.  <a href="a00039.html#a00301">More...</a><br/></td></tr>
+<tr class="separator:a00301"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ga9aceecc22574b68589c34fa797bb38e8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#ga9aceecc22574b68589c34fa797bb38e8">LTC_HASH_CTX_SIZE</a>&#160;&#160;&#160;29</td></tr>
-<tr class="memdesc:ga9aceecc22574b68589c34fa797bb38e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">LTC HASH Context size.  <a href="#ga9aceecc22574b68589c34fa797bb38e8">More...</a><br/></td></tr>
-<tr class="separator:ga9aceecc22574b68589c34fa797bb38e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:gaf712abcdfef5ed5ea816e1b5bfda3ebf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf712abcdfef5ed5ea816e1b5bfda3ebf"></a>
+typedef struct <br class="typebreak"/>
+<a class="el" href="a00039.html#a00301">_ltc_pkha_ecc_point_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#gaf712abcdfef5ed5ea816e1b5bfda3ebf">ltc_pkha_ecc_point_t</a></td></tr>
+<tr class="memdesc:gaf712abcdfef5ed5ea816e1b5bfda3ebf"><td class="mdescLeft">&#160;</td><td class="mdescRight">PKHA ECC point structure. <br/></td></tr>
+<tr class="separator:gaf712abcdfef5ed5ea816e1b5bfda3ebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga753db56525d6e4cef4270f118f7a8836"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00039.html#ga9e2459ee14bd3dcecd016d36b9c708e9">_ltc_pkha_timing_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#ga753db56525d6e4cef4270f118f7a8836">ltc_pkha_timing_t</a></td></tr>
+<tr class="memdesc:ga753db56525d6e4cef4270f118f7a8836"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use of timing equalized version of a PKHA function.  <a href="#ga753db56525d6e4cef4270f118f7a8836">More...</a><br/></td></tr>
+<tr class="separator:ga753db56525d6e4cef4270f118f7a8836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga545fafd2f014e4d26713b6c2e662010f"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00039.html#ga144cf074ab20c85145d6b8dab096425c">_ltc_pkha_f2m_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#ga545fafd2f014e4d26713b6c2e662010f">ltc_pkha_f2m_t</a></td></tr>
+<tr class="memdesc:ga545fafd2f014e4d26713b6c2e662010f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer vs binary polynomial arithmetic selection.  <a href="#ga545fafd2f014e4d26713b6c2e662010f">More...</a><br/></td></tr>
+<tr class="separator:ga545fafd2f014e4d26713b6c2e662010f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac6fc56a85c6f8d41a6c952b9cb05b93b"><td class="memItemLeft" align="right" valign="top">typedef enum <br class="typebreak"/>
+<a class="el" href="a00039.html#gabb38e1d8e839945654204a68ee921077">_ltc_pkha_montgomery_form_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#gac6fc56a85c6f8d41a6c952b9cb05b93b">ltc_pkha_montgomery_form_t</a></td></tr>
+<tr class="memdesc:gac6fc56a85c6f8d41a6c952b9cb05b93b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Montgomery or normal PKHA input format.  <a href="#gac6fc56a85c6f8d41a6c952b9cb05b93b">More...</a><br/></td></tr>
+<tr class="separator:gac6fc56a85c6f8d41a6c952b9cb05b93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:gad8e545023f6e9ab3c7c40de3b3b37106"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#gad8e545023f6e9ab3c7c40de3b3b37106">ltc_hash_algo_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00039.html#ggad8e545023f6e9ab3c7c40de3b3b37106a86c5216f472604a6ddbaf04b2765f7cb">kLTC_XcbcMac</a> = 0, 
+<tr class="memitem:ga9e2459ee14bd3dcecd016d36b9c708e9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#ga9e2459ee14bd3dcecd016d36b9c708e9">_ltc_pkha_timing_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00039.html#gga9e2459ee14bd3dcecd016d36b9c708e9a55f0ab9fb8115a106b576f6e216371b4">kLTC_PKHA_NoTimingEqualized</a> = 0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00039.html#ggad8e545023f6e9ab3c7c40de3b3b37106a7d3e5d87316147d834d91d1bf0e7398c">kLTC_Cmac</a>
+&#160;&#160;<a class="el" href="a00039.html#gga9e2459ee14bd3dcecd016d36b9c708e9afd8e23df7f97aa9a2b711dd7db88f709">kLTC_PKHA_TimingEqualized</a> = 1U
 <br/>
  }</td></tr>
-<tr class="memdesc:gad8e545023f6e9ab3c7c40de3b3b37106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supported cryptographic block cipher functions for HASH creation.  <a href="a00039.html#gad8e545023f6e9ab3c7c40de3b3b37106">More...</a><br/></td></tr>
-<tr class="separator:gad8e545023f6e9ab3c7c40de3b3b37106"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gacc8a9520ac6afc1df327e94f0aa72d4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#gacc8a9520ac6afc1df327e94f0aa72d4a">LTC_HASH_Init</a> (LTC_Type *base, <a class="el" href="a00039.html#a00310">ltc_hash_ctx_t</a> *ctx, <a class="el" href="a00039.html#gad8e545023f6e9ab3c7c40de3b3b37106">ltc_hash_algo_t</a> algo, const uint8_t *key, uint32_t keySize)</td></tr>
-<tr class="memdesc:gacc8a9520ac6afc1df327e94f0aa72d4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize HASH context.  <a href="#gacc8a9520ac6afc1df327e94f0aa72d4a">More...</a><br/></td></tr>
-<tr class="separator:gacc8a9520ac6afc1df327e94f0aa72d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa461e928e25788b08ee3f63761875385"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#gaa461e928e25788b08ee3f63761875385">LTC_HASH_Update</a> (<a class="el" href="a00039.html#a00310">ltc_hash_ctx_t</a> *ctx, const uint8_t *input, uint32_t inputSize)</td></tr>
-<tr class="memdesc:gaa461e928e25788b08ee3f63761875385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add data to current HASH.  <a href="#gaa461e928e25788b08ee3f63761875385">More...</a><br/></td></tr>
-<tr class="separator:gaa461e928e25788b08ee3f63761875385"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga984bc6357c0aaaf69ef33e3646d31e39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#ga984bc6357c0aaaf69ef33e3646d31e39">LTC_HASH_Finish</a> (<a class="el" href="a00039.html#a00310">ltc_hash_ctx_t</a> *ctx, uint8_t *output, uint32_t *outputSize)</td></tr>
-<tr class="memdesc:ga984bc6357c0aaaf69ef33e3646d31e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize hashing.  <a href="#ga984bc6357c0aaaf69ef33e3646d31e39">More...</a><br/></td></tr>
-<tr class="separator:ga984bc6357c0aaaf69ef33e3646d31e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga78a23fb22a91c573d844b4b27294f6dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#ga78a23fb22a91c573d844b4b27294f6dc">LTC_HASH</a> (LTC_Type *base, <a class="el" href="a00039.html#gad8e545023f6e9ab3c7c40de3b3b37106">ltc_hash_algo_t</a> algo, const uint8_t *input, uint32_t inputSize, const uint8_t *key, uint32_t keySize, uint8_t *output, uint32_t *outputSize)</td></tr>
-<tr class="memdesc:ga78a23fb22a91c573d844b4b27294f6dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create HASH on given data.  <a href="#ga78a23fb22a91c573d844b4b27294f6dc">More...</a><br/></td></tr>
-<tr class="separator:ga78a23fb22a91c573d844b4b27294f6dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ga9e2459ee14bd3dcecd016d36b9c708e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use of timing equalized version of a PKHA function.  <a href="a00039.html#ga9e2459ee14bd3dcecd016d36b9c708e9">More...</a><br/></td></tr>
+<tr class="separator:ga9e2459ee14bd3dcecd016d36b9c708e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga144cf074ab20c85145d6b8dab096425c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#ga144cf074ab20c85145d6b8dab096425c">_ltc_pkha_f2m_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00039.html#gga144cf074ab20c85145d6b8dab096425ca785f77826b6a2d1398ac75bab7dfa95c">kLTC_PKHA_IntegerArith</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00039.html#gga144cf074ab20c85145d6b8dab096425cafb3307389575323e97c9f2d8ed9d7599">kLTC_PKHA_F2mArith</a> = 1U
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga144cf074ab20c85145d6b8dab096425c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer vs binary polynomial arithmetic selection.  <a href="a00039.html#ga144cf074ab20c85145d6b8dab096425c">More...</a><br/></td></tr>
+<tr class="separator:ga144cf074ab20c85145d6b8dab096425c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabb38e1d8e839945654204a68ee921077"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#gabb38e1d8e839945654204a68ee921077">_ltc_pkha_montgomery_form_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00039.html#ggabb38e1d8e839945654204a68ee921077aff1fd74bccaa7123d4b1fa971d2817bb">kLTC_PKHA_NormalValue</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00039.html#ggabb38e1d8e839945654204a68ee921077a9e6e3f5ea330a200efdd988b6e798339">kLTC_PKHA_MontgomeryFormat</a> = 1U
+<br/>
+ }</td></tr>
+<tr class="memdesc:gabb38e1d8e839945654204a68ee921077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Montgomery or normal PKHA input format.  <a href="a00039.html#gabb38e1d8e839945654204a68ee921077">More...</a><br/></td></tr>
+<tr class="separator:gabb38e1d8e839945654204a68ee921077"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="a00310" id="a00310"></a>
+<a name="a00301" id="a00301"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct ltc_hash_ctx_t</td>
+          <td class="memname">struct _ltc_pkha_ecc_point_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div>
+<div class="textblock"></div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a1d033ba391afd59676d5cccee4fe1f6e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d033ba391afd59676d5cccee4fe1f6e"></a>
+uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#a1d033ba391afd59676d5cccee4fe1f6e">X</a></td></tr>
+<tr class="memdesc:a1d033ba391afd59676d5cccee4fe1f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">X coordinate (affine) <br/></td></tr>
+<tr class="separator:a1d033ba391afd59676d5cccee4fe1f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1d6c002730e6027647de01798559240"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1d6c002730e6027647de01798559240"></a>
+uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html#aa1d6c002730e6027647de01798559240">Y</a></td></tr>
+<tr class="memdesc:aa1d6c002730e6027647de01798559240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Y coordinate (affine) <br/></td></tr>
+<tr class="separator:aa1d6c002730e6027647de01798559240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
 </div>
 </div>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="ga9aceecc22574b68589c34fa797bb38e8"></a>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="ga753db56525d6e4cef4270f118f7a8836"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define LTC_HASH_CTX_SIZE&#160;&#160;&#160;29</td>
+          <td class="memname">typedef enum <a class="el" href="a00039.html#ga9e2459ee14bd3dcecd016d36b9c708e9">_ltc_pkha_timing_t</a>  <a class="el" href="a00039.html#ga753db56525d6e4cef4270f118f7a8836">ltc_pkha_timing_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ga545fafd2f014e4d26713b6c2e662010f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="a00039.html#ga144cf074ab20c85145d6b8dab096425c">_ltc_pkha_f2m_t</a>  <a class="el" href="a00039.html#ga545fafd2f014e4d26713b6c2e662010f">ltc_pkha_f2m_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="gac6fc56a85c6f8d41a6c952b9cb05b93b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="a00039.html#gabb38e1d8e839945654204a68ee921077">_ltc_pkha_montgomery_form_t</a>  <a class="el" href="a00039.html#gac6fc56a85c6f8d41a6c952b9cb05b93b">ltc_pkha_montgomery_form_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -175,242 +222,63 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="gad8e545023f6e9ab3c7c40de3b3b37106"></a>
+<a class="anchor" id="ga9e2459ee14bd3dcecd016d36b9c708e9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00039.html#gad8e545023f6e9ab3c7c40de3b3b37106">ltc_hash_algo_t</a></td>
+          <td class="memname">enum <a class="el" href="a00039.html#ga9e2459ee14bd3dcecd016d36b9c708e9">_ltc_pkha_timing_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggad8e545023f6e9ab3c7c40de3b3b37106a86c5216f472604a6ddbaf04b2765f7cb"></a>kLTC_XcbcMac</em>&nbsp;</td><td class="fielddoc">
-<p>XCBC-MAC (AES engine) </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga9e2459ee14bd3dcecd016d36b9c708e9a55f0ab9fb8115a106b576f6e216371b4"></a>kLTC_PKHA_NoTimingEqualized</em>&nbsp;</td><td class="fielddoc">
+<p>Normal version of a PKHA operation. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad8e545023f6e9ab3c7c40de3b3b37106a7d3e5d87316147d834d91d1bf0e7398c"></a>kLTC_Cmac</em>&nbsp;</td><td class="fielddoc">
-<p>CMAC (AES engine) </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga9e2459ee14bd3dcecd016d36b9c708e9afd8e23df7f97aa9a2b711dd7db88f709"></a>kLTC_PKHA_TimingEqualized</em>&nbsp;</td><td class="fielddoc">
+<p>Timing-equalized version of a PKHA operation. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="gacc8a9520ac6afc1df327e94f0aa72d4a"></a>
+<a class="anchor" id="ga144cf074ab20c85145d6b8dab096425c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> LTC_HASH_Init </td>
-          <td>(</td>
-          <td class="paramtype">LTC_Type *&#160;</td>
-          <td class="paramname"><em>base</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00039.html#a00310">ltc_hash_ctx_t</a> *&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00039.html#gad8e545023f6e9ab3c7c40de3b3b37106">ltc_hash_algo_t</a>&#160;</td>
-          <td class="paramname"><em>algo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint8_t *&#160;</td>
-          <td class="paramname"><em>key</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>keySize</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">enum <a class="el" href="a00039.html#ga144cf074ab20c85145d6b8dab096425c">_ltc_pkha_f2m_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function initialize the HASH. Key shall be supplied if the underlaying algoritm is AES XCBC-MAC or CMAC. Key shall be NULL if the underlaying algoritm is SHA.</p>
-<p>For XCBC-MAC, the key length must be 16. For CMAC, the key length can be the AES key lengths supported by AES engine. For MDHA the key length argument is ignored.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">base</td><td>LTC peripheral base address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ctx</td><td>Output hash context </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">algo</td><td>Underlaying algorithm to use for hash computation. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Input key (NULL if underlaying algorithm is SHA) </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">keySize</td><td>Size of input key in bytes </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Status of initialization </dd></dl>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga144cf074ab20c85145d6b8dab096425ca785f77826b6a2d1398ac75bab7dfa95c"></a>kLTC_PKHA_IntegerArith</em>&nbsp;</td><td class="fielddoc">
+<p>Use integer arithmetic. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga144cf074ab20c85145d6b8dab096425cafb3307389575323e97c9f2d8ed9d7599"></a>kLTC_PKHA_F2mArith</em>&nbsp;</td><td class="fielddoc">
+<p>Use binary polynomial arithmetic. </p>
+</td></tr>
+</table>
 
 </div>
 </div>
-<a class="anchor" id="gaa461e928e25788b08ee3f63761875385"></a>
+<a class="anchor" id="gabb38e1d8e839945654204a68ee921077"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> LTC_HASH_Update </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00039.html#a00310">ltc_hash_ctx_t</a> *&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint8_t *&#160;</td>
-          <td class="paramname"><em>input</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>inputSize</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">enum <a class="el" href="a00039.html#gabb38e1d8e839945654204a68ee921077">_ltc_pkha_montgomery_form_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Add data to current HASH. This can be called repeatedly with an arbitrary amount of data to be hashed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>HASH context </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">input</td><td>Input data </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">inputSize</td><td>Size of input data in bytes </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Status of the hash update operation </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga984bc6357c0aaaf69ef33e3646d31e39"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> LTC_HASH_Finish </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00039.html#a00310">ltc_hash_ctx_t</a> *&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t *&#160;</td>
-          <td class="paramname"><em>output</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *&#160;</td>
-          <td class="paramname"><em>outputSize</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Outputs the final hash and erases the context.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>Input hash context </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>Output hash data </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">outputSize</td><td>Output parameter storing the size of the output hash in bytes </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Status of the hash finish operation </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga78a23fb22a91c573d844b4b27294f6dc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00181.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> LTC_HASH </td>
-          <td>(</td>
-          <td class="paramtype">LTC_Type *&#160;</td>
-          <td class="paramname"><em>base</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00039.html#gad8e545023f6e9ab3c7c40de3b3b37106">ltc_hash_algo_t</a>&#160;</td>
-          <td class="paramname"><em>algo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint8_t *&#160;</td>
-          <td class="paramname"><em>input</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>inputSize</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint8_t *&#160;</td>
-          <td class="paramname"><em>key</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>keySize</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t *&#160;</td>
-          <td class="paramname"><em>output</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *&#160;</td>
-          <td class="paramname"><em>outputSize</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Perform the full keyed HASH in one function call.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">base</td><td>LTC peripheral base address </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">algo</td><td>Block cipher algorithm to use for CMAC creation </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">input</td><td>Input data </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">inputSize</td><td>Size of input data in bytes </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Input key </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">keySize</td><td>Size of input key in bytes </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>Output hash data </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">outputSize</td><td>Output parameter storing the size of the output hash in bytes </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Status of the one call hash operation. </dd></dl>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggabb38e1d8e839945654204a68ee921077aff1fd74bccaa7123d4b1fa971d2817bb"></a>kLTC_PKHA_NormalValue</em>&nbsp;</td><td class="fielddoc">
+<p>PKHA number is normal integer. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggabb38e1d8e839945654204a68ee921077a9e6e3f5ea330a200efdd988b6e798339"></a>kLTC_PKHA_MontgomeryFormat</em>&nbsp;</td><td class="fielddoc">
+<p>PKHA number is in montgomery format. </p>
+</td></tr>
+</table>
 
 </div>
 </div>

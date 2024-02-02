@@ -1,7 +1,5 @@
 /*
- * Copyright 2021 NXP
- * All rights reserved.
- *
+ * Copyright 2021-2023 NXP
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -54,90 +52,105 @@ static void platform_global_isr_enable(void)
 
 int32_t platform_init_interrupt(uint32_t vector_id, void *isr_data)
 {
-    /* Register ISR to environment layer */
-    env_register_isr(vector_id, isr_data);
-
-    /* Prepare the MU Hardware, enable channel 1 interrupt */
-    env_lock_mutex(platform_lock);
-
-    switch (RL_GET_COM_ID(vector_id))
+    if (platform_lock != ((void *)0))
     {
-        case RL_PLATFORM_IMX8ULP_M33_A35_COM_ID:
-            RL_ASSERT(0 <= isr_counter0);
-            if (isr_counter0 == 0)
-            {
-                MU_EnableInterrupts(APP_M33_A35_MU, (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
-            }
-            isr_counter0++;
-            break;
-        case RL_PLATFORM_IMX8ULP_M33_FUSION_DSP_COM_ID:
-            RL_ASSERT(0 <= isr_counter1);
-            if (isr_counter1 == 0)
-            {
-                MU_EnableInterrupts(APP_M33_FUSION_DSP_MU, (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
-            }
-            isr_counter1++;
-            break;
-        case RL_PLATFORM_IMX8ULP_M33_HIFI4_COM_ID:
-            RL_ASSERT(0 <= isr_counter2);
-            if (isr_counter2 == 0)
-            {
-                MU_EnableInterrupts(APP_M33_HIFI4_MU, (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
-            }
-            isr_counter2++;
-            break;
-        default:
-            /* All the cases have been listed above, the default clause should not be reached. */
-            break;
+        /* Register ISR to environment layer */
+        env_register_isr(vector_id, isr_data);
+
+        /* Prepare the MU Hardware, enable channel 1 interrupt */
+        env_lock_mutex(platform_lock);
+
+        switch (RL_GET_COM_ID(vector_id))
+        {
+            case RL_PLATFORM_IMX8ULP_M33_A35_COM_ID:
+                RL_ASSERT(0 <= isr_counter0);
+                if (isr_counter0 == 0)
+                {
+                    MU_EnableInterrupts(APP_M33_A35_MU, (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
+                }
+                isr_counter0++;
+                break;
+            case RL_PLATFORM_IMX8ULP_M33_FUSION_DSP_COM_ID:
+                RL_ASSERT(0 <= isr_counter1);
+                if (isr_counter1 == 0)
+                {
+                    MU_EnableInterrupts(APP_M33_FUSION_DSP_MU,
+                                        (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
+                }
+                isr_counter1++;
+                break;
+            case RL_PLATFORM_IMX8ULP_M33_HIFI4_COM_ID:
+                RL_ASSERT(0 <= isr_counter2);
+                if (isr_counter2 == 0)
+                {
+                    MU_EnableInterrupts(APP_M33_HIFI4_MU, (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
+                }
+                isr_counter2++;
+                break;
+            default:
+                /* All the cases have been listed above, the default clause should not be reached. */
+                break;
+        }
+
+        env_unlock_mutex(platform_lock);
+        return 0;
     }
-
-    env_unlock_mutex(platform_lock);
-
-    return 0;
+    else
+    {
+        return -1;
+    }
 }
 
 int32_t platform_deinit_interrupt(uint32_t vector_id)
 {
-    /* Prepare the MU Hardware */
-    env_lock_mutex(platform_lock);
-
-    switch (RL_GET_COM_ID(vector_id))
+    if (platform_lock != ((void *)0))
     {
-        case RL_PLATFORM_IMX8ULP_M33_A35_COM_ID:
-            RL_ASSERT(0 < isr_counter0);
-            isr_counter0--;
-            if (isr_counter0 == 0)
-            {
-                MU_DisableInterrupts(APP_M33_A35_MU, (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
-            }
-            break;
-        case RL_PLATFORM_IMX8ULP_M33_FUSION_DSP_COM_ID:
-            RL_ASSERT(0 < isr_counter1);
-            isr_counter1--;
-            if (isr_counter1 == 0)
-            {
-                MU_DisableInterrupts(APP_M33_FUSION_DSP_MU, (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
-            }
-            break;
-        case RL_PLATFORM_IMX8ULP_M33_HIFI4_COM_ID:
-            RL_ASSERT(0 < isr_counter2);
-            isr_counter2--;
-            if (isr_counter2 == 0)
-            {
-                MU_DisableInterrupts(APP_M33_HIFI4_MU, (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
-            }
-            break;
-        default:
-            /* All the cases have been listed above, the default clause should not be reached. */
-            break;
+        /* Prepare the MU Hardware */
+        env_lock_mutex(platform_lock);
+
+        switch (RL_GET_COM_ID(vector_id))
+        {
+            case RL_PLATFORM_IMX8ULP_M33_A35_COM_ID:
+                RL_ASSERT(0 < isr_counter0);
+                isr_counter0--;
+                if (isr_counter0 == 0)
+                {
+                    MU_DisableInterrupts(APP_M33_A35_MU, (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
+                }
+                break;
+            case RL_PLATFORM_IMX8ULP_M33_FUSION_DSP_COM_ID:
+                RL_ASSERT(0 < isr_counter1);
+                isr_counter1--;
+                if (isr_counter1 == 0)
+                {
+                    MU_DisableInterrupts(APP_M33_FUSION_DSP_MU,
+                                         (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
+                }
+                break;
+            case RL_PLATFORM_IMX8ULP_M33_HIFI4_COM_ID:
+                RL_ASSERT(0 < isr_counter2);
+                isr_counter2--;
+                if (isr_counter2 == 0)
+                {
+                    MU_DisableInterrupts(APP_M33_HIFI4_MU, (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
+                }
+                break;
+            default:
+                /* All the cases have been listed above, the default clause should not be reached. */
+                break;
+        }
+
+        /* Unregister ISR from environment layer */
+        env_unregister_isr(vector_id);
+
+        env_unlock_mutex(platform_lock);
+
+        return 0;
     }
-
-    /* Unregister ISR from environment layer */
-    env_unregister_isr(vector_id);
-
-    env_unlock_mutex(platform_lock);
-
-    return 0;
+    else
+    {
+        return -1;
+    }
 }
 
 void platform_notify(uint32_t vector_id)

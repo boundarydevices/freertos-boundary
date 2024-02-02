@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['g_5flpspidummydata',['g_lpspiDummyData',['../a00032.html#ga95e4847cd333277614975d46280df9dd',1,'fsl_lpspi.h']]],
+  ['g_5flpspidummydata',['g_lpspiDummyData',['../a00031.html#ga95e4847cd333277614975d46280df9dd',1,'fsl_lpspi.h']]],
   ['g_5flvdsfreq',['g_lvdsFreq',['../a00009.html#ga89db330ebb2632438c95a8c30d24c3f1',1,'fsl_clock.h']]],
   ['g_5fmclkfreq',['g_mclkFreq',['../a00009.html#gae2ca5687392ca0b78b37b5e050f5a195',1,'fsl_clock.h']]],
   ['g_5frxbclkfreq',['g_rxBclkFreq',['../a00009.html#ga616a034620e7ea70e0a68876f548c16f',1,'fsl_clock.h']]],
@@ -14,9 +14,9 @@ var searchData=
   ['gpio_5fgetpinsdmarequestflags',['GPIO_GetPinsDMARequestFlags',['../a00184.html#ga9d2981db2bb5124995e29c6a92df8b5a',1,'fsl_gpio.h']]],
   ['gpio_5fgpioclearinterruptflags',['GPIO_GpioClearInterruptFlags',['../a00184.html#gafd738c868447c88d9f010a7c04a0c551',1,'fsl_gpio.h']]],
   ['gpio_5fgpiogetinterruptflags',['GPIO_GpioGetInterruptFlags',['../a00184.html#ga9f0b75348e79199f81b75d4969b3867e',1,'fsl_gpio.h']]],
-  ['gpio_5finterrupt_5fconfig_5ft',['gpio_interrupt_config_t',['../a00025.html#ga7645095190ed1ef50026bd2d3de5d9e0',1,'fsl_gpio.h']]],
-  ['gpio_5fpin_5fconfig_5ft',['gpio_pin_config_t',['../a00025.html#a00291',1,'']]],
-  ['gpio_5fpin_5fdirection_5ft',['gpio_pin_direction_t',['../a00025.html#gada41ca0a2ce239fe125ee96833e715c0',1,'fsl_gpio.h']]],
+  ['gpio_5finterrupt_5fconfig_5ft',['gpio_interrupt_config_t',['../a00025.html#ga42677c82eb346d4e5b887ee443b1544e',1,'fsl_gpio.h']]],
+  ['gpio_5fpin_5fconfig_5ft',['gpio_pin_config_t',['../a00025.html#ga9279df0a87f2432dc3c5d596028223b7',1,'fsl_gpio.h']]],
+  ['gpio_5fpin_5fdirection_5ft',['gpio_pin_direction_t',['../a00025.html#gaf7d75755774a0f20385fbdda546f1f1d',1,'fsl_gpio.h']]],
   ['gpio_5fpinclearinterruptflag',['GPIO_PinClearInterruptFlag',['../a00184.html#gab3c667b58e2fb90d0f998f66d9bdea7b',1,'fsl_gpio.h']]],
   ['gpio_5fpingetinterruptflag',['GPIO_PinGetInterruptFlag',['../a00184.html#ga9769a667a796bcd93cf28304870d3257',1,'fsl_gpio.h']]],
   ['gpio_5fpininit',['GPIO_PinInit',['../a00184.html#ga0793a4e8cb6e746485012da3e487db53',1,'fsl_gpio.h']]],

@@ -31,14 +31,14 @@ typedef struct _srtm_hal_pwm_setup_config
     hal_pwm_setup_config_t pwmConfig;
     uint64_t period;
     uint64_t dutyCycle;
-} * srtm_hal_pwm_setup_config_t;
+} *srtm_hal_pwm_setup_config_t;
 
 typedef struct _srtm_hal_pwm_adapter
 {
     struct _srtm_pwm_adapter adapter;
     hal_pwm_handle_t halPwmHandle[SRTM_PWM_MAX_CHIP_NUM];
     struct _srtm_hal_pwm_setup_config halPwmConfig[SRTM_PWM_MAX_CHIP_NUM][SRTM_PWM_MAX_CHANNEL];
-} * srtm_hal_pwm_adapter_t;
+} *srtm_hal_pwm_adapter_t;
 
 /*******************************************************************************
  * Code

@@ -1,7 +1,5 @@
 /*
- * Copyright 2021 NXP
- * All rights reserved.
- *
+ * Copyright 2021-2023 NXP
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -50,44 +48,58 @@ void MU1_B_IRQHandler(void *arg)
 
 int32_t platform_init_interrupt(uint32_t vector_id, void *isr_data)
 {
-    /* Register ISR to environment layer */
-    env_register_isr(vector_id, isr_data);
-
-    env_lock_mutex(platform_lock);
-
-    RL_ASSERT(0 <= isr_counter);
-
-    if (isr_counter < 2)
+    if (platform_lock != ((void *)0))
     {
-        MU_EnableInterrupts(APP_FUSION_M33_MU, (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
+        /* Register ISR to environment layer */
+        env_register_isr(vector_id, isr_data);
+
+        env_lock_mutex(platform_lock);
+
+        RL_ASSERT(0 <= isr_counter);
+
+        if (isr_counter < 2)
+        {
+            MU_EnableInterrupts(APP_FUSION_M33_MU, (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
+        }
+
+        isr_counter++;
+
+        env_unlock_mutex(platform_lock);
+
+        return 0;
     }
-
-    isr_counter++;
-
-    env_unlock_mutex(platform_lock);
-
-    return 0;
+    else
+    {
+        return -1;
+    }
 }
 
 int32_t platform_deinit_interrupt(uint32_t vector_id)
 {
-    /* Prepare the MU Hardware */
-    env_lock_mutex(platform_lock);
-
-    RL_ASSERT(0 < isr_counter);
-    isr_counter--;
-
-    if (isr_counter < 2)
+    if (platform_lock != ((void *)0))
     {
-        MU_DisableInterrupts(APP_FUSION_M33_MU, (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
+        /* Prepare the MU Hardware */
+        env_lock_mutex(platform_lock);
+
+        RL_ASSERT(0 < isr_counter);
+        isr_counter--;
+
+        if (isr_counter < 2)
+        {
+            MU_DisableInterrupts(APP_FUSION_M33_MU, (uint32_t)kMU_Rx0FullInterruptEnable << RPMSG_MU_CHANNEL);
+        }
+
+        /* Unregister ISR from environment layer */
+        env_unregister_isr(vector_id);
+
+        env_unlock_mutex(platform_lock);
+
+        return 0;
     }
-
-    /* Unregister ISR from environment layer */
-    env_unregister_isr(vector_id);
-
-    env_unlock_mutex(platform_lock);
-
-    return 0;
+    else
+    {
+        return -1;
+    }
 }
 
 void platform_notify(uint32_t vector_id)
@@ -276,9 +288,18 @@ int32_t platform_get_custom_shmem_config(uint32_t link_id, rpmsg_platform_shmem_
     /* Only MU instance. */
     cfg->buffer_payload_size = RL_BUFFER_PAYLOAD_SIZE(link_id);
     cfg->buffer_count        = RL_BUFFER_COUNT(link_id);
-    cfg->vring_size          = VRING_SIZE;
-    cfg->vring_align         = VRING_ALIGN;
 
+    switch (link_id)
+    {
+        case RL_PLATFORM_IMX8ULP_M33_FUSION_DSP_SRTM_LINK_ID:
+        case RL_PLATFORM_IMX8ULP_M33_FUSION_DSP_USER_LINK_ID:
+            cfg->vring_size  = RL_VRING_SIZE_M33_FUSION_DSP_COM;
+            cfg->vring_align = RL_VRING_ALIGN_M33_FUSION_DSP_COM;
+            break;
+        default:
+            /* All the cases have been listed above, the default clause should not be reached. */
+            break;
+    }
     return 0;
 }
 #endif /* defined(RL_ALLOW_CUSTOM_SHMEM_CONFIG) && (RL_ALLOW_CUSTOM_SHMEM_CONFIG == 1) */

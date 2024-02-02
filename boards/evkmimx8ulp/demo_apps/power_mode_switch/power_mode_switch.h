@@ -14,7 +14,8 @@
  ******************************************************************************/
 #ifndef GEN_CASE_ENUM_NAME
 #define GEN_CASE_ENUM_NAME(e) \
-        case(e): return (char*)#e
+    case (e):                 \
+        return (char *)#e
 #endif
 
 /* Power mode definition used in application. */

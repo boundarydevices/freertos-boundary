@@ -12,7 +12,6 @@ var searchData=
   ['mu_5fhardwareresetothercore',['MU_HardwareResetOtherCore',['../a00196.html#ga16044dabe953e6a7deecadbcdb0ba255',1,'fsl_mu.h']]],
   ['mu_5fholdothercorereset',['MU_HoldOtherCoreReset',['../a00196.html#gac9aaf56b44ed4f25e140308117c1e7f4',1,'fsl_mu.h']]],
   ['mu_5finit',['MU_Init',['../a00196.html#ga59dde6d6ef6bd1016eafe1e6faf7a6d9',1,'fsl_mu.h']]],
-  ['mu_5fmaskhardwarereset',['MU_MaskHardwareReset',['../a00196.html#gac6dd57592c5d5fa10e7354adc1cad37d',1,'fsl_mu.h']]],
   ['mu_5freceivemsg',['MU_ReceiveMsg',['../a00196.html#ga36b003e10632eed908184ddbfc48df25',1,'fsl_mu.h']]],
   ['mu_5freceivemsgnonblocking',['MU_ReceiveMsgNonBlocking',['../a00196.html#gabeb32b60cedae555c659126d75bda806',1,'fsl_mu.h']]],
   ['mu_5fresetbothsides',['MU_ResetBothSides',['../a00196.html#gaa13d5ba37ff0be6dd645ed9b28431cb5',1,'fsl_mu.h']]],

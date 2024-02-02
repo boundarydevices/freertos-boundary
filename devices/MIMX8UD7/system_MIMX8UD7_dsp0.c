@@ -1,12 +1,13 @@
 /*
 ** ###################################################################
-**     Processors:          MIMX8UD7DVK10_dsp0
-**                          MIMX8UD7DVP10_dsp0
+**     Processors:          MIMX8UD7CVP08_dsp0
+**                          MIMX8UD7DVK08_dsp0
+**                          MIMX8UD7DVP08_dsp0
 **
 **     Compiler:            Xtensa Compiler
 **     Reference manual:    IMX8ULPRM, Rev. D, December. 2022
 **     Version:             rev. 5.0, 2023-04-27
-**     Build:               b230607
+**     Build:               b230927
 **
 **     Abstract:
 **         Provides a system configuration function and a global variable that
@@ -38,7 +39,7 @@
 /*!
  * @file MIMX8UD7_dsp0
  * @version 1.0
- * @date 070623
+ * @date 270923
  * @brief Device specific configuration file for MIMX8UD7 (implementation file)
  *
  * Provides a system configuration function and a global variable that contains

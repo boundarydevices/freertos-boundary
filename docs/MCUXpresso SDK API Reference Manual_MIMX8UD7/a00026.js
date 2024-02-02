@@ -1,75 +1,87 @@
 var a00026 =
 [
-    [ "qspi_dqs_config_t", "a00026.html#a00324", [
-      [ "portADelayTapNum", "a00026.html#ab166711d9c9ea0accacffbd9463ba91a", null ],
-      [ "shift", "a00026.html#a41a08deef01859490a87688da1a2f166", null ],
-      [ "rxSampleClock", "a00026.html#ad1f0bd234f0c3fb83147c25819949729", null ],
-      [ "enableDQSClkInverse", "a00026.html#a501b65137e9c19834a56df7812708328", null ]
+    [ "QspiDQSConfig", "a00026.html#a00349", [
+      [ "portADelayTapNum", "a00026.html#abd9a79b859dc37c31d9f410b5fe899b8", null ],
+      [ "shift", "a00026.html#afb7ce46d43fba3e50c488d8bd46ed6fc", null ],
+      [ "rxSampleClock", "a00026.html#a836e03b6f4402d028dbc2cfcea1c4a5b", null ],
+      [ "enableDQSClkInverse", "a00026.html#a9acfd6e953daa64b6c9bc1955543f7ee", null ]
     ] ],
-    [ "qspi_flash_timing_t", "a00026.html#a00326", [
-      [ "dataHoldTime", "a00026.html#a1c4812527eaebb35bab982a6635b4106", null ],
-      [ "CSHoldTime", "a00026.html#a46b400bc95b18888574e5d20ae4c2c1e", null ],
-      [ "CSSetupTime", "a00026.html#a94b7c0ea1ba1f3dbf06b11062d0e8e85", null ]
+    [ "QspiFlashTiming", "a00026.html#a00350", [
+      [ "dataHoldTime", "a00026.html#a824c00226572b79d32aba4a3330a4bc0", null ],
+      [ "CSHoldTime", "a00026.html#a24209fc155fbb5dd661cfb2ca2a51941", null ],
+      [ "CSSetupTime", "a00026.html#a1aa10652aec3bc8926048615da548c43", null ]
     ] ],
-    [ "qspi_config_t", "a00026.html#a00323", [
-      [ "clockSource", "a00026.html#a4636154d339f8a457267a51d17c6028f", null ],
-      [ "baudRate", "a00026.html#ab90e8b90f6ac0da5ce3102ec2104e6f7", null ],
-      [ "txWatermark", "a00026.html#aacef56c9b3a210643d8d3de452dbf1b5", null ],
-      [ "rxWatermark", "a00026.html#aab860bcdf2dd6e4cfc708484330334c1", null ],
-      [ "AHBbufferSize", "a00026.html#ac4a1f15dc587c01444fc506b32d82b1f", null ],
-      [ "AHBbufferMaster", "a00026.html#a0b223821f4f9a57e61244b66da926113", null ],
-      [ "enableAHBbuffer3AllMaster", "a00026.html#a8d0e52b14b97ed123ff72a7878e4bb67", null ],
-      [ "area", "a00026.html#a29b0ae614176264f9d58d2152e80cd70", null ],
-      [ "enableQspi", "a00026.html#ad280dc96ddc5397ce1cde0d8b1104098", null ]
+    [ "QspiConfig", "a00026.html#a00348", [
+      [ "clockSource", "a00026.html#a2f298d2111ffba837dcf3dff48b5f0cf", null ],
+      [ "baudRate", "a00026.html#afadd97f169c90fc2f5e181982cba8cc8", null ],
+      [ "txWatermark", "a00026.html#afd8ed504f0988d821fa2e02a891c5c01", null ],
+      [ "rxWatermark", "a00026.html#afea2faac12474e82d8067d573d67b728", null ],
+      [ "AHBbufferSize", "a00026.html#ab30ef315448ee1e327cfbee59e1133b0", null ],
+      [ "AHBbufferMaster", "a00026.html#a41edf51bea73e109220a120a427a1aab", null ],
+      [ "enableAHBbuffer3AllMaster", "a00026.html#a1361c52dd88863843e88c21ca46b1ebf", null ],
+      [ "area", "a00026.html#a349bf97f83e0ddaf2acc7705c4bc03af", null ],
+      [ "enableQspi", "a00026.html#aa910c619adb984fff534530276a47d83", null ]
     ] ],
-    [ "qspi_flash_config_t", "a00026.html#a00325", [
-      [ "flashA1Size", "a00026.html#adb2a4c29ddc58b85de0d82f75b0f045b", null ],
-      [ "flashA2Size", "a00026.html#acace5b5a54558a7c1cbe9e3ab4948a82", null ],
-      [ "lookuptable", "a00026.html#a6a0feb5d24a33026c8f539004ba60ce3", null ],
-      [ "dataHoldTime", "a00026.html#a501bbea532124de66dc04a1c387bfbf8", null ],
-      [ "CSHoldTime", "a00026.html#a362347a0f5e9899540f58e9d2826c868", null ],
-      [ "CSSetupTime", "a00026.html#a411afc45b9fabb624cad4bb0cd2e16f5", null ],
-      [ "cloumnspace", "a00026.html#a6b77c14127052ae12253deec016c9dbc", null ],
-      [ "dataLearnValue", "a00026.html#a0722287c779f056eda14e0e1be68de04", null ],
-      [ "endian", "a00026.html#a83ac59682812f8f55a5be71c2ff9e579", null ],
-      [ "enableWordAddress", "a00026.html#add68d248634adee8b831a50bada4c37d", null ]
+    [ "_qspi_flash_config", "a00026.html#a00314", [
+      [ "flashA1Size", "a00026.html#a669da2b529b22fc56e9e5f258e5249ce", null ],
+      [ "flashA2Size", "a00026.html#a0d083f2b57141afe78e77ec62a1e44e9", null ],
+      [ "lookuptable", "a00026.html#a3cf56fe42107586eed08546eae444d20", null ],
+      [ "dataHoldTime", "a00026.html#a1c6ddbf88a832fc7586fedc7800baca5", null ],
+      [ "CSHoldTime", "a00026.html#ab463596d23e3a9fa85e0c0176e02f3fe", null ],
+      [ "CSSetupTime", "a00026.html#af6120803e7e5eca86092728d9707745c", null ],
+      [ "cloumnspace", "a00026.html#a4b28216eebdc61a04c5a9289eaf6470b", null ],
+      [ "dataLearnValue", "a00026.html#a77218ce435de73afe104810db0ac4c98", null ],
+      [ "endian", "a00026.html#afa26f57cc7ad9b26306a97b08dd47e24", null ],
+      [ "enableWordAddress", "a00026.html#acef16fa2b61d4d15d31a8c89fc783c13", null ]
     ] ],
-    [ "qspi_transfer_t", "a00026.html#a00327", [
-      [ "data", "a00026.html#aa543a15bba26a35f1ea6bc8a1d6bac3f", null ],
-      [ "dataSize", "a00026.html#a0570176d8c8dac4e5a64f52505d07138", null ]
+    [ "_qspi_transfer", "a00026.html#a00315", [
+      [ "data", "a00026.html#a0bc275e945db9501fdf713331c4514de", null ],
+      [ "dataSize", "a00026.html#a2ebb2501b2644769db57a3875c739ed1", null ]
     ] ],
-    [ "ip_command_config_t", "a00026.html#a00292", [
-      [ "IPCR", "a00026.html#a7d420ffb60e25fae42040f263b135ef8", null ],
-      [ "IDATZ", "a00026.html#a1d385262c3e1abd8d79e5a30109acbd4", null ],
-      [ "RESERVED_0", "a00026.html#af65d7730ff79bd3239f8c7b3f48f58d0", null ],
-      [ "SEQID", "a00026.html#a2061f83a8f881a66a0d4fac0b4a3cf10", null ]
+    [ "_ip_command_config", "a00026.html#a00275", [
+      [ "IPCR", "a00026.html#a1e06cfc6f008d18b4919a324c72b9eef", null ],
+      [ "IDATZ", "a00026.html#aa8da21754588920964ae0e6dd30a2d5c", null ],
+      [ "RESERVED_0", "a00026.html#a0794214c767f692b962bff82351b6257", null ],
+      [ "SEQID", "a00026.html#a1adeb6c315a63649f9c310e4624509e5", null ]
     ] ],
     [ "FSL_QSPI_DRIVER_VERSION", "a00026.html#gab20dd936fe00a3df5289d4f66e5d8e69", null ],
     [ "QSPI_LUT_SEQ", "a00026.html#ga6bfca51c0942f0910fc73019f35a9b90", null ],
     [ "QSPI_CMD", "a00026.html#ga25a69200802c0573901a61e4f942c2fb", null ],
-    [ "QSPI_PAD_1", "a00026.html#gae30d16840c705584ef8ee3a63fc2ecbc", [
+    [ "QSPI_PAD_1", "a00026.html#gae30d16840c705584ef8ee3a63fc2ecbc", null ],
+    [ "qspi_read_area_t", "a00026.html#ga03de1cc4e54e0031a478db481afd7e21", null ],
+    [ "qspi_command_seq_t", "a00026.html#ga3c05b2d7ffb96305a674033f32ad81e6", null ],
+    [ "qspi_fifo_t", "a00026.html#gac2f601cd6d9964054f4a27b6a2a6b4b2", null ],
+    [ "qspi_endianness_t", "a00026.html#gad9247e1b4735f4e600c25eb27e6cf41d", null ],
+    [ "qspi_dqs_phrase_shift_t", "a00026.html#ga41e93b65d603c16799e973184acb5d4a", null ],
+    [ "qspi_dqs_read_sample_clock_t", "a00026.html#gaafbd27e97d8709d94b97df5ceeba9513", null ],
+    [ "qspi_dqs_config_t", "a00026.html#gaf4bc7a17804dd1403e87a3ff119131b2", null ],
+    [ "qspi_flash_timing_t", "a00026.html#gaffb4841340f6336e9d3816bba06b5087", null ],
+    [ "qspi_config_t", "a00026.html#gaa0293d5a5aafbf18f50d0508446ff2cf", null ],
+    [ "qspi_flash_config_t", "a00026.html#ga0e40b1b67b101d63cbc8ab6105f6906c", null ],
+    [ "qspi_transfer_t", "a00026.html#ga2e9bf4b6af7ab23479bc4bdce6ec6ba6", null ],
+    [ "ip_command_config_t", "a00026.html#ga885882af2ffb594c3a18d38c5cb0d730", [
       [ "kStatus_QSPI_Idle", "a00026.html#ggaae05225933a42f81e7c4a9fb286596f9a650abd7e718c3d31a1b1c31628223255", null ],
       [ "kStatus_QSPI_Busy", "a00026.html#ggaae05225933a42f81e7c4a9fb286596f9adc835d439498f87c2f72a4b0681d64a9", null ],
       [ "kStatus_QSPI_Error", "a00026.html#ggaae05225933a42f81e7c4a9fb286596f9af658051f373360010b0c962e513c18f7", null ]
     ] ],
-    [ "qspi_read_area_t", "a00026.html#ga0381ee0bc3439d26a1189e292e44e6b6", [
-      [ "kQSPI_ReadAHB", "a00026.html#gga0381ee0bc3439d26a1189e292e44e6b6ae47d046fafe2f36a71f54ee103df7a2c", null ],
-      [ "kQSPI_ReadIP", "a00026.html#gga0381ee0bc3439d26a1189e292e44e6b6a84c74f3313d795034c7af6be1a933d57", null ]
+    [ "_qspi_read_area", "a00026.html#ga7f1d433051510384d38eadccdbf7df2e", [
+      [ "kQSPI_ReadAHB", "a00026.html#gga7f1d433051510384d38eadccdbf7df2eae47d046fafe2f36a71f54ee103df7a2c", null ],
+      [ "kQSPI_ReadIP", "a00026.html#gga7f1d433051510384d38eadccdbf7df2ea84c74f3313d795034c7af6be1a933d57", null ]
     ] ],
-    [ "qspi_command_seq_t", "a00026.html#gaa2acaac73027bbcb126d98e0ea4373de", [
-      [ "kQSPI_IPSeq", "a00026.html#ggaa2acaac73027bbcb126d98e0ea4373dea08eb5e396b6f69e58343b4d342075c84", null ],
-      [ "kQSPI_BufferSeq", "a00026.html#ggaa2acaac73027bbcb126d98e0ea4373deaaada5445077b4e683eb30513686bbd79", null ]
+    [ "_qspi_command_seq", "a00026.html#ga868766e6c9a296d243e973d1845dbb05", [
+      [ "kQSPI_IPSeq", "a00026.html#gga868766e6c9a296d243e973d1845dbb05a08eb5e396b6f69e58343b4d342075c84", null ],
+      [ "kQSPI_BufferSeq", "a00026.html#gga868766e6c9a296d243e973d1845dbb05aaada5445077b4e683eb30513686bbd79", null ]
     ] ],
-    [ "qspi_fifo_t", "a00026.html#ga8832e709c9e9dfda7d14e55813019bd6", [
-      [ "kQSPI_TxFifo", "a00026.html#gga8832e709c9e9dfda7d14e55813019bd6a871de46c2cffb988e01e2ad489022fd1", null ],
-      [ "kQSPI_RxFifo", "a00026.html#gga8832e709c9e9dfda7d14e55813019bd6a1b9d0be39e4238aae341742d0569615e", null ],
-      [ "kQSPI_AllFifo", "a00026.html#gga8832e709c9e9dfda7d14e55813019bd6af764de596574813acb3cc6e17c3427fa", null ]
+    [ "_qspi_fifo", "a00026.html#ga8f625fec320954e848427c767bb614df", [
+      [ "kQSPI_TxFifo", "a00026.html#gga8f625fec320954e848427c767bb614dfa871de46c2cffb988e01e2ad489022fd1", null ],
+      [ "kQSPI_RxFifo", "a00026.html#gga8f625fec320954e848427c767bb614dfa1b9d0be39e4238aae341742d0569615e", null ],
+      [ "kQSPI_AllFifo", "a00026.html#gga8f625fec320954e848427c767bb614dfaf764de596574813acb3cc6e17c3427fa", null ]
     ] ],
-    [ "qspi_endianness_t", "a00026.html#gad5667033853bf78f23328a479a17eaa2", [
-      [ "kQSPI_64BigEndian", "a00026.html#ggad5667033853bf78f23328a479a17eaa2a3fe7fc21c848ff6f539bda069633d86d", null ],
-      [ "kQSPI_32LittleEndian", "a00026.html#ggad5667033853bf78f23328a479a17eaa2ae0be29f1fded1d7138d7be191b7015bd", null ],
-      [ "kQSPI_32BigEndian", "a00026.html#ggad5667033853bf78f23328a479a17eaa2a6c1315ef947f64f0e49b8386c2509dab", null ],
-      [ "kQSPI_64LittleEndian", "a00026.html#ggad5667033853bf78f23328a479a17eaa2a6c29c130d5df807189c316219c19e9b9", null ]
+    [ "_qspi_endianness", "a00026.html#ga1c698e38e0be36065c5683880e8a58ba", [
+      [ "kQSPI_64BigEndian", "a00026.html#gga1c698e38e0be36065c5683880e8a58baa3fe7fc21c848ff6f539bda069633d86d", null ],
+      [ "kQSPI_32LittleEndian", "a00026.html#gga1c698e38e0be36065c5683880e8a58baae0be29f1fded1d7138d7be191b7015bd", null ],
+      [ "kQSPI_32BigEndian", "a00026.html#gga1c698e38e0be36065c5683880e8a58baa6c1315ef947f64f0e49b8386c2509dab", null ],
+      [ "kQSPI_64LittleEndian", "a00026.html#gga1c698e38e0be36065c5683880e8a58baa6c29c130d5df807189c316219c19e9b9", null ]
     ] ],
     [ "_qspi_error_flags", "a00026.html#gaa2e47ba48984567f2e839abd7532ab75", [
       [ "kQSPI_DataLearningFail", "a00026.html#ggaa2e47ba48984567f2e839abd7532ab75a82ebf1886216b4ecec09af6a6cc914af", null ],
@@ -134,16 +146,16 @@ var a00026 =
       [ "kQSPI_RxBufferDrainDMAEnable", "a00026.html#gga91267f891f702b8e11cd604f0d153933acd40d4e277c00c44a2baeaef30c314ff", null ],
       [ "kQSPI_AllDDMAEnable", "a00026.html#gga91267f891f702b8e11cd604f0d153933aaf62025f117f43ba6559de44864f93ca", null ]
     ] ],
-    [ "qspi_dqs_phrase_shift_t", "a00026.html#ga4c5e6599ed955646d4d62a2adee8d002", [
-      [ "kQSPI_DQSNoPhraseShift", "a00026.html#gga4c5e6599ed955646d4d62a2adee8d002a94dd1a3609d8de61cdd20d05dc80f251", null ],
-      [ "kQSPI_DQSPhraseShift45Degree", "a00026.html#gga4c5e6599ed955646d4d62a2adee8d002a3972d55777dc0e768c835db39c0066a8", null ],
-      [ "kQSPI_DQSPhraseShift90Degree", "a00026.html#gga4c5e6599ed955646d4d62a2adee8d002a66c02aabf568579a8c896c10c489d325", null ],
-      [ "kQSPI_DQSPhraseShift135Degree", "a00026.html#gga4c5e6599ed955646d4d62a2adee8d002addf9b4efca420cfeca813ffeb2354d55", null ]
+    [ "_qspi_dqs_phrase_shift", "a00026.html#gaa3a774850f1f9ba09afa44a69402bea7", [
+      [ "kQSPI_DQSNoPhraseShift", "a00026.html#ggaa3a774850f1f9ba09afa44a69402bea7a94dd1a3609d8de61cdd20d05dc80f251", null ],
+      [ "kQSPI_DQSPhraseShift45Degree", "a00026.html#ggaa3a774850f1f9ba09afa44a69402bea7a3972d55777dc0e768c835db39c0066a8", null ],
+      [ "kQSPI_DQSPhraseShift90Degree", "a00026.html#ggaa3a774850f1f9ba09afa44a69402bea7a66c02aabf568579a8c896c10c489d325", null ],
+      [ "kQSPI_DQSPhraseShift135Degree", "a00026.html#ggaa3a774850f1f9ba09afa44a69402bea7addf9b4efca420cfeca813ffeb2354d55", null ]
     ] ],
-    [ "qspi_dqs_read_sample_clock_t", "a00026.html#ga94a91e3efce50f631d18a8b3897f507d", [
-      [ "kQSPI_ReadSampleClkInternalLoopback", "a00026.html#gga94a91e3efce50f631d18a8b3897f507dac5b9d4da4913ed7ec2a1d528ec9b16dd", null ],
-      [ "kQSPI_ReadSampleClkLoopbackFromDqsPad", "a00026.html#gga94a91e3efce50f631d18a8b3897f507daf77ffce80d40f5ca7347c5bee2018334", null ],
-      [ "kQSPI_ReadSampleClkExternalInputFromDqsPad", "a00026.html#gga94a91e3efce50f631d18a8b3897f507da770d6108cb697aee2e0689da67e9fe4d", null ]
+    [ "_qspi_dqs_read_sample_clock", "a00026.html#gaae6978b30890a3b08fea5cb9650a1f19", [
+      [ "kQSPI_ReadSampleClkInternalLoopback", "a00026.html#ggaae6978b30890a3b08fea5cb9650a1f19ac5b9d4da4913ed7ec2a1d528ec9b16dd", null ],
+      [ "kQSPI_ReadSampleClkLoopbackFromDqsPad", "a00026.html#ggaae6978b30890a3b08fea5cb9650a1f19af77ffce80d40f5ca7347c5bee2018334", null ],
+      [ "kQSPI_ReadSampleClkExternalInputFromDqsPad", "a00026.html#ggaae6978b30890a3b08fea5cb9650a1f19a770d6108cb697aee2e0689da67e9fe4d", null ]
     ] ],
     [ "QSPI_GetInstance", "a00026.html#ga30c1c4afba456124d3da2e9032d2ec8d", null ],
     [ "QSPI_Init", "a00026.html#ga0e7472a25e28d1c09bcd4051b9b6818c", null ],

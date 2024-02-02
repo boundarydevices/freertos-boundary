@@ -20,7 +20,7 @@ typedef struct _srtm_hal_rtc_adapter
 {
     struct _srtm_rtc_adapter adapter;
     hal_rtc_handle_t halRtcHandle;
-} * srtm_hal_rtc_adapter_t;
+} *srtm_hal_rtc_adapter_t;
 
 /*******************************************************************************
  * Prototypes

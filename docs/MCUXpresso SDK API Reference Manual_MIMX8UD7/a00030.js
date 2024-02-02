@@ -1,94 +1,86 @@
 var a00030 =
 [
-    [ "lpi2c_slave_config_t", "a00030.html#a00299", [
-      [ "enableSlave", "a00030.html#ad220cfa81b4117fd1d952b43ff0d5511", null ],
-      [ "address0", "a00030.html#a16f171990f815872142d3fe73eb74ff4", null ],
-      [ "address1", "a00030.html#afb3035cd87a9746bdbe5c6618a492034", null ],
-      [ "addressMatchMode", "a00030.html#a1dc82ff6416b69128c0d6d78d533b093", null ],
-      [ "filterDozeEnable", "a00030.html#a4cbbafe55351cb52d25b3de1a71e2231", null ],
-      [ "filterEnable", "a00030.html#a6fcca02d50a48b5a3a2923ea449316ce", null ],
-      [ "enableGeneralCall", "a00030.html#a061ed35a72d6e8ffe9a02be00f633f87", null ],
-      [ "enableAck", "a00030.html#ab2cd4a19f68523031122851dd0ab1386", null ],
-      [ "enableTx", "a00030.html#ad0fea92e29e7afff3d7072ab3c722bc8", null ],
-      [ "enableRx", "a00030.html#aff856d2084ff0ede49f0ff25e6cf5529", null ],
-      [ "enableAddress", "a00030.html#a6ec794389bd9fb5e51c802bb0b9ee26b", null ],
-      [ "ignoreAck", "a00030.html#ae68493537f90f7bff4a421ff534fb7a1", null ],
-      [ "enableReceivedAddressRead", "a00030.html#ac273a825233fe937aa16d98e38664812", null ],
-      [ "sdaGlitchFilterWidth_ns", "a00030.html#a7c28ef56af23d2e059942e8d80e5cd15", null ],
-      [ "sclGlitchFilterWidth_ns", "a00030.html#a793ea7dd26bfb1f68daae2523e70d5a5", null ],
-      [ "dataValidDelay_ns", "a00030.html#a920288e7667b3b363f019384ebc58606", null ],
-      [ "clockHoldTime_ns", "a00030.html#a2e672f5446e7d86eb9d74bdc785df0fb", null ]
+    [ "_lpit_chnl_params", "a00030.html#a00284", [
+      [ "chainChannel", "a00030.html#a0b46dcfb470773858e06ed3cd29f72c5", null ],
+      [ "timerMode", "a00030.html#aff87fed91db5fd371e6641a8dfe6fb8b", null ],
+      [ "triggerSelect", "a00030.html#a691312099dd304d97149aa4a3dbbe33b", null ],
+      [ "triggerSource", "a00030.html#acbc5ab5c62c7ce38368894b247a76b16", null ],
+      [ "enableReloadOnTrigger", "a00030.html#ac74b506ce7e01775f387a7679a89971c", null ],
+      [ "enableStopOnTimeout", "a00030.html#afddc0e9f8cfdd862ff3cc5a8b485e4f5", null ],
+      [ "enableStartOnTrigger", "a00030.html#a7084783131d8cce20ffd1592b2e27828", null ]
     ] ],
-    [ "lpi2c_slave_transfer_t", "a00030.html#a00300", [
-      [ "event", "a00030.html#a19df3bc5c35ed8ae03a927dcc89daa48", null ],
-      [ "receivedAddress", "a00030.html#a336e15a483043ed7ace990517fff6686", null ],
-      [ "data", "a00030.html#a54436075594000b4d56471b29dd6734f", null ],
-      [ "dataSize", "a00030.html#afcd4de20f8efd725bd93d72180b32f2d", null ],
-      [ "completionStatus", "a00030.html#aafd14bc835c1c23de6bf06834d1a0b3c", null ],
-      [ "transferredCount", "a00030.html#a67e03ab90367cb1d48d42b718e6438f5", null ]
+    [ "_lpit_config", "a00030.html#a00285", [
+      [ "enableRunInDebug", "a00030.html#a072131be578b13eac32246832dbcd361", null ],
+      [ "enableRunInDoze", "a00030.html#ab50822380bf6197337a1552b5c939873", null ]
     ] ],
-    [ "lpi2c_slave_handle_t", "a00030.html#a00229", [
-      [ "transfer", "a00030.html#aed2dec763e40c6caa129c082603852d5", null ],
-      [ "isBusy", "a00030.html#a8f0662c2c78df7b8e8b5ed4c1119823d", null ],
-      [ "wasTransmit", "a00030.html#af0a187d43f251bc67fb9c34dedbf9253", null ],
-      [ "eventMask", "a00030.html#a5bceee16dd6f07c8cb6918580e45e540", null ],
-      [ "transferredCount", "a00030.html#ac9f4d0665e8ec4c56eb89e816c4b5324", null ],
-      [ "callback", "a00030.html#a0e16ba71a57adfe84058af632a604e40", null ],
-      [ "userData", "a00030.html#aa394f46d8677c977aa39b64fb0c353ce", null ]
+    [ "FSL_LPIT_DRIVER_VERSION", "a00030.html#ga005bae9cb8b7af561e2f859df8b22cb6", null ],
+    [ "lpit_chnl_t", "a00030.html#ga35ad1be05eaf61f8cb80c0a9351c8d55", null ],
+    [ "lpit_timer_modes_t", "a00030.html#ga2a4b68797d8c901ded67ee44e2e79749", null ],
+    [ "lpit_trigger_select_t", "a00030.html#ga5d15f359c1eb5814d9cf645336132c27", null ],
+    [ "lpit_trigger_source_t", "a00030.html#ga722a877c7e32d5b25e80e1b331331c93", null ],
+    [ "lpit_interrupt_enable_t", "a00030.html#ga0f21295983fce2720fb439e94e1b533d", null ],
+    [ "lpit_status_flags_t", "a00030.html#gaf67eead3d10b7730a036ce93c17680c8", null ],
+    [ "lpit_chnl_params_t", "a00030.html#ga75cb32ca0ab3676b823b97996decb7cf", null ],
+    [ "lpit_config_t", "a00030.html#gae9bc9cf9aa40fe08f3eef8b8f0c11509", null ],
+    [ "_lpit_chnl", "a00030.html#gab2e896ac50e082718b374c80885d7466", [
+      [ "kLPIT_Chnl_0", "a00030.html#ggab2e896ac50e082718b374c80885d7466a723c20ed00b0aa52fa13678bdb4fbd51", null ],
+      [ "kLPIT_Chnl_1", "a00030.html#ggab2e896ac50e082718b374c80885d7466ae91e8c23c8ae8bac26a6a805670c8f8f", null ],
+      [ "kLPIT_Chnl_2", "a00030.html#ggab2e896ac50e082718b374c80885d7466ac7f6b0fe5af8ad8f33517d19f4f28d7f", null ],
+      [ "kLPIT_Chnl_3", "a00030.html#ggab2e896ac50e082718b374c80885d7466a44655f9df2dac770875c4a752b5f9263", null ]
     ] ],
-    [ "lpi2c_slave_transfer_callback_t", "a00030.html#ga2640285a708842a5e0e7c4c0090a2f58", null ],
-    [ "_lpi2c_slave_flags", "a00030.html#gabd50effc706692c03b42faa72c34269b", [
-      [ "kLPI2C_SlaveTxReadyFlag", "a00030.html#ggabd50effc706692c03b42faa72c34269ba80486f66e12276c945b8813269b90c0e", null ],
-      [ "kLPI2C_SlaveRxReadyFlag", "a00030.html#ggabd50effc706692c03b42faa72c34269ba01265ce6645e4a978b823b1f130a419f", null ],
-      [ "kLPI2C_SlaveAddressValidFlag", "a00030.html#ggabd50effc706692c03b42faa72c34269baf34a60fee419e0b3d387b353a38b4772", null ],
-      [ "kLPI2C_SlaveTransmitAckFlag", "a00030.html#ggabd50effc706692c03b42faa72c34269ba37386d33a28e37352a8e3151f027fdff", null ],
-      [ "kLPI2C_SlaveRepeatedStartDetectFlag", "a00030.html#ggabd50effc706692c03b42faa72c34269ba5c5dcad526309c44aa390c13ae53ca3e", null ],
-      [ "kLPI2C_SlaveStopDetectFlag", "a00030.html#ggabd50effc706692c03b42faa72c34269baaaa1d719607915d0b1251727900018a7", null ],
-      [ "kLPI2C_SlaveBitErrFlag", "a00030.html#ggabd50effc706692c03b42faa72c34269ba41375eeb82c399aff15daba1e8bbff03", null ],
-      [ "kLPI2C_SlaveFifoErrFlag", "a00030.html#ggabd50effc706692c03b42faa72c34269ba6eb9dd96bad287dcb7e2f23f73d961a8", null ],
-      [ "kLPI2C_SlaveAddressMatch0Flag", "a00030.html#ggabd50effc706692c03b42faa72c34269ba9fb3f57d810e280effee1dae37d062bb", null ],
-      [ "kLPI2C_SlaveAddressMatch1Flag", "a00030.html#ggabd50effc706692c03b42faa72c34269ba62cc9694d6891b21af074122eeedca85", null ],
-      [ "kLPI2C_SlaveGeneralCallFlag", "a00030.html#ggabd50effc706692c03b42faa72c34269ba6a0fa821b530336ea8d1f19aadcbe1dc", null ],
-      [ "kLPI2C_SlaveBusyFlag", "a00030.html#ggabd50effc706692c03b42faa72c34269baffa3195deae58fc6ea15d062b465ac5d", null ],
-      [ "kLPI2C_SlaveBusBusyFlag", "a00030.html#ggabd50effc706692c03b42faa72c34269ba2531ffa96faa3086714e8a069508867b", null ],
-      [ "kLPI2C_SlaveClearFlags", "a00030.html#ggabd50effc706692c03b42faa72c34269ba67a26ff8ddd90c39e772518636f4e832", null ],
-      [ "kLPI2C_SlaveIrqFlags", "a00030.html#ggabd50effc706692c03b42faa72c34269baaf5e40570c34c37fd532dad21b1dca1f", null ],
-      [ "kLPI2C_SlaveErrorFlags", "a00030.html#ggabd50effc706692c03b42faa72c34269bacb3e0258d950773e55c13829e787de36", null ]
+    [ "_lpit_timer_modes", "a00030.html#ga5b3b051f01ab3bf555eefd6b97902021", [
+      [ "kLPIT_PeriodicCounter", "a00030.html#gga5b3b051f01ab3bf555eefd6b97902021a56cecdceacfb5fb78dc97efd2e073357", null ],
+      [ "kLPIT_DualPeriodicCounter", "a00030.html#gga5b3b051f01ab3bf555eefd6b97902021a8ce0e390b706ca8212b5c642e87abf81", null ],
+      [ "kLPIT_TriggerAccumulator", "a00030.html#gga5b3b051f01ab3bf555eefd6b97902021a5077630044bb327d19c44a4903a77071", null ],
+      [ "kLPIT_InputCapture", "a00030.html#gga5b3b051f01ab3bf555eefd6b97902021ab34cd4d1a13f6aedc9972335a8ab92e0", null ]
     ] ],
-    [ "lpi2c_slave_address_match_t", "a00030.html#gac3564395ccab19eb1ce6ab46b36bb5bb", [
-      [ "kLPI2C_MatchAddress0", "a00030.html#ggac3564395ccab19eb1ce6ab46b36bb5bbaaa16a731881882d10f48ebde416f54c5", null ],
-      [ "kLPI2C_MatchAddress0OrAddress1", "a00030.html#ggac3564395ccab19eb1ce6ab46b36bb5bba2941f8a06a17205294e7d0fa5f305675", null ],
-      [ "kLPI2C_MatchAddress0ThroughAddress1", "a00030.html#ggac3564395ccab19eb1ce6ab46b36bb5bba59e460fdd7075191f69e047ef35557eb", null ]
+    [ "_lpit_trigger_select", "a00030.html#ga5af0e93cbea6d30c3ccd1fa8c1152c2f", [
+      [ "kLPIT_Trigger_TimerChn0", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2fa9782e9bd00bd7e057ad1290bc914e31f", null ],
+      [ "kLPIT_Trigger_TimerChn1", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2facfb906826dc3802c7ee7bec341ff026e", null ],
+      [ "kLPIT_Trigger_TimerChn2", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2fa9fd4936cf1fa20a3241c95b9fa152c3e", null ],
+      [ "kLPIT_Trigger_TimerChn3", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2fad2404a97b628a35a45dcddbb37c4d8ab", null ],
+      [ "kLPIT_Trigger_TimerChn4", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2fa5584a93786891df80d816251d2394023", null ],
+      [ "kLPIT_Trigger_TimerChn5", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2fa6341f6ea7dc7048397073bbe47e13ce0", null ],
+      [ "kLPIT_Trigger_TimerChn6", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2fa683fff33709c0414e440bcf490887c79", null ],
+      [ "kLPIT_Trigger_TimerChn7", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2fa471550148142d87b1996656fdc3569cd", null ],
+      [ "kLPIT_Trigger_TimerChn8", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2fa3ddfbcb43e135d8c7bef1ac2d737d978", null ],
+      [ "kLPIT_Trigger_TimerChn9", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2fab2cc206a9b6765d0acd8e66074a46960", null ],
+      [ "kLPIT_Trigger_TimerChn10", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2fa0fccc115e7e8a2f793cf5ef205dd7151", null ],
+      [ "kLPIT_Trigger_TimerChn11", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2fabae8622031d0cbf1e0ac8e1227c065b7", null ],
+      [ "kLPIT_Trigger_TimerChn12", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2fa72c4f3c843b6644e07530d7a8415617a", null ],
+      [ "kLPIT_Trigger_TimerChn13", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2fa14f8c61df0dcca34e513db107d2a3791", null ],
+      [ "kLPIT_Trigger_TimerChn14", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2fa49ba85f25113e8d25390e193bb429c5a", null ],
+      [ "kLPIT_Trigger_TimerChn15", "a00030.html#gga5af0e93cbea6d30c3ccd1fa8c1152c2fa80bf01c4d22b1f8d34635fd73dd9c162", null ]
     ] ],
-    [ "lpi2c_slave_transfer_event_t", "a00030.html#ga0d99b4dba3841a4e02f7c431a59006c8", [
-      [ "kLPI2C_SlaveAddressMatchEvent", "a00030.html#gga0d99b4dba3841a4e02f7c431a59006c8a10fb8d9bb6ba9cd44fde85466e6eabef", null ],
-      [ "kLPI2C_SlaveTransmitEvent", "a00030.html#gga0d99b4dba3841a4e02f7c431a59006c8a976c8c9aa85026224a46cf5ec742eb49", null ],
-      [ "kLPI2C_SlaveReceiveEvent", "a00030.html#gga0d99b4dba3841a4e02f7c431a59006c8ac737ba9e4e62880a6e2d8aac98ae8f18", null ],
-      [ "kLPI2C_SlaveTransmitAckEvent", "a00030.html#gga0d99b4dba3841a4e02f7c431a59006c8a112af4cf8f8a374407d7c784f024b8e0", null ],
-      [ "kLPI2C_SlaveRepeatedStartEvent", "a00030.html#gga0d99b4dba3841a4e02f7c431a59006c8ae0995aac6808b3726b7577c2d283e4c4", null ],
-      [ "kLPI2C_SlaveCompletionEvent", "a00030.html#gga0d99b4dba3841a4e02f7c431a59006c8a06ef7422d9edf9b914864a2d689f042c", null ],
-      [ "kLPI2C_SlaveAllEvents", "a00030.html#gga0d99b4dba3841a4e02f7c431a59006c8aeed0927f4e909cb161b44434b6f01aec", null ]
+    [ "_lpit_trigger_source", "a00030.html#gaf4c075e2af69df9a1536a96a5a6f1659", [
+      [ "kLPIT_TriggerSource_External", "a00030.html#ggaf4c075e2af69df9a1536a96a5a6f1659a03a4e2be3df24a2de9a4304cdf3d57fc", null ],
+      [ "kLPIT_TriggerSource_Internal", "a00030.html#ggaf4c075e2af69df9a1536a96a5a6f1659a36fe6bfc76528aaac5ce2ed28516b2cd", null ]
     ] ],
-    [ "LPI2C_SlaveGetDefaultConfig", "a00030.html#gadf34085d4557ceb3081fff9fe0e3189a", null ],
-    [ "LPI2C_SlaveInit", "a00030.html#gae5cc8a03c784a99bb58b69852dfda5a5", null ],
-    [ "LPI2C_SlaveDeinit", "a00030.html#gaa1a5cfe78acec0e1f8dd4af63a0f87f8", null ],
-    [ "LPI2C_SlaveReset", "a00030.html#gaf58f9ebf437d62936c45c201a68fb5d7", null ],
-    [ "LPI2C_SlaveEnable", "a00030.html#gae83a936eb8303218278cd704d8238a08", null ],
-    [ "LPI2C_SlaveGetStatusFlags", "a00030.html#ga18055724e510f601f35cc00940e9155c", null ],
-    [ "LPI2C_SlaveClearStatusFlags", "a00030.html#ga3b5306231d96d7fa38ef26d9ca6526b1", null ],
-    [ "LPI2C_SlaveEnableInterrupts", "a00030.html#gaf5b7a33a341fd95ca77dcb6fe7f1bf3c", null ],
-    [ "LPI2C_SlaveDisableInterrupts", "a00030.html#ga9422103623a9866f350dd03aea984741", null ],
-    [ "LPI2C_SlaveGetEnabledInterrupts", "a00030.html#ga3d1fb84d337b8eb5cc19cbeced06c2a1", null ],
-    [ "LPI2C_SlaveEnableDMA", "a00030.html#gaa13d0c04083818cf91af19a6add0e08f", null ],
-    [ "LPI2C_SlaveGetBusIdleState", "a00030.html#ga155ee1b5bc8c621b60b349b191c078fc", null ],
-    [ "LPI2C_SlaveTransmitAck", "a00030.html#ga417e07e45369a955f7fecaa26e13b335", null ],
-    [ "LPI2C_SlaveEnableAckStall", "a00030.html#ga417e42a46e81c8e95225df9424099243", null ],
-    [ "LPI2C_SlaveGetReceivedAddress", "a00030.html#ga8219a79b748dc59c982c7c3a8470c3a6", null ],
-    [ "LPI2C_SlaveSend", "a00030.html#gacb2d085904e83ee63ee84f7c8402024c", null ],
-    [ "LPI2C_SlaveReceive", "a00030.html#ga36dd1b211a7fe488bfc062a1d8e74fc8", null ],
-    [ "LPI2C_SlaveTransferCreateHandle", "a00030.html#ga6afdc286db9c700bc057038518a19285", null ],
-    [ "LPI2C_SlaveTransferNonBlocking", "a00030.html#ga1ba7c9d0c254de8fe8c04091c007edff", null ],
-    [ "LPI2C_SlaveTransferGetCount", "a00030.html#ga755b38638cbade1b05587146e9f7267d", null ],
-    [ "LPI2C_SlaveTransferAbort", "a00030.html#ga7d46d488aa043ab93bfa1574277a3985", null ],
-    [ "LPI2C_SlaveTransferHandleIRQ", "a00030.html#ga712654857bc4490644b46220c0c460bf", null ]
+    [ "_lpit_interrupt_enable", "a00030.html#ga274f13761bc04c253d4b5c16b1d9fdec", [
+      [ "kLPIT_Channel0TimerInterruptEnable", "a00030.html#gga274f13761bc04c253d4b5c16b1d9fdeca677edded1951d2334de83ffb178a5aea", null ],
+      [ "kLPIT_Channel1TimerInterruptEnable", "a00030.html#gga274f13761bc04c253d4b5c16b1d9fdecad0ff84c048f8ec998cc1cd0e828cfaf2", null ],
+      [ "kLPIT_Channel2TimerInterruptEnable", "a00030.html#gga274f13761bc04c253d4b5c16b1d9fdeca481782680bbf257e0fb9173e1eedef0d", null ],
+      [ "kLPIT_Channel3TimerInterruptEnable", "a00030.html#gga274f13761bc04c253d4b5c16b1d9fdeca9ed33b373e22cf03e8806d63da7bfa88", null ]
+    ] ],
+    [ "_lpit_status_flags", "a00030.html#ga8d25b13cba25db806ada299c68558a18", [
+      [ "kLPIT_Channel0TimerFlag", "a00030.html#gga8d25b13cba25db806ada299c68558a18a27e792ba71556036c36f4e45650fd77e", null ],
+      [ "kLPIT_Channel1TimerFlag", "a00030.html#gga8d25b13cba25db806ada299c68558a18a073d063005208df1be6090f89339635c", null ],
+      [ "kLPIT_Channel2TimerFlag", "a00030.html#gga8d25b13cba25db806ada299c68558a18adfa82de31efce2974a0d9aec1061d24f", null ],
+      [ "kLPIT_Channel3TimerFlag", "a00030.html#gga8d25b13cba25db806ada299c68558a18af803e33996af34bbcc20601602609b4a", null ]
+    ] ],
+    [ "LPIT_Init", "a00030.html#ga2496e8e1575a2542a4e00b097263bba9", null ],
+    [ "LPIT_Deinit", "a00030.html#ga6995a2b1cb4225b1923c048734e8c98b", null ],
+    [ "LPIT_GetDefaultConfig", "a00030.html#gab32b9400f5cbcd4c8d7cfa92b3ca9c05", null ],
+    [ "LPIT_SetupChannel", "a00030.html#ga5402d455a5faa4194adf38fe9189e7d5", null ],
+    [ "LPIT_EnableInterrupts", "a00030.html#ga0500d278c6ed2b6980fbe73956437e0d", null ],
+    [ "LPIT_DisableInterrupts", "a00030.html#ga4d8a9acb8e5a929c501aaa5aa78a133b", null ],
+    [ "LPIT_GetEnabledInterrupts", "a00030.html#ga9431cb664b61f9bd948628c219fc6ba4", null ],
+    [ "LPIT_GetStatusFlags", "a00030.html#ga7e106fd01b194de3b5a59171423e7c6c", null ],
+    [ "LPIT_ClearStatusFlags", "a00030.html#ga64de3c0b508075b100ee5bce4c98c6d4", null ],
+    [ "LPIT_SetTimerPeriod", "a00030.html#gaff6d881102f8bd65b3a05dbe67755e0e", null ],
+    [ "LPIT_SetTimerValue", "a00030.html#ga62212bd36b2b73c9fd29a2a3bc4505f0", null ],
+    [ "LPIT_GetCurrentTimerCount", "a00030.html#gaaca80fac9200f162d85cfb350343191c", null ],
+    [ "LPIT_StartTimer", "a00030.html#ga3566d199be5dbb4aa58f8ac5608e3a17", null ],
+    [ "LPIT_StopTimer", "a00030.html#ga9407e1a42eabdce1bb647f30705a7b51", null ],
+    [ "LPIT_Reset", "a00030.html#gaee0634acafe380a70b951642d73ce3f7", null ]
 ];

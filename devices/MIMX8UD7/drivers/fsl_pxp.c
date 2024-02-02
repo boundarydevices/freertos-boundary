@@ -72,6 +72,10 @@
 #define PORTER_DUFF_ENABLE_MASK PXP_ALPHA_A_CTRL_PORTER_DUFF_ENABLE_MASK
 #endif /* FSL_FEATURE_PXP_V3 */
 
+#if defined(PXP_RSTS)
+#define PXP_RESETS_ARRAY PXP_RSTS
+#endif
+
 typedef union _u32_f32
 {
     float f32;
@@ -159,6 +163,11 @@ static PXP_Type *const s_pxpBases[] = PXP_BASE_PTRS;
 /*! @brief Pointers to PXP clocks for each PXP submodule. */
 static const clock_ip_name_t s_pxpClocks[] = PXP_CLOCKS;
 #endif /* FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL */
+
+#if defined(PXP_RESETS_ARRAY)
+/* Reset array */
+static const reset_ip_name_t s_pxpResets[] = PXP_RESETS_ARRAY;
+#endif
 
 /*******************************************************************************
  * Code
@@ -304,6 +313,10 @@ void PXP_Init(PXP_Type *base)
 #if !(defined(FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL) && FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL)
     uint32_t instance = PXP_GetInstance(base);
     CLOCK_EnableClock(s_pxpClocks[instance]);
+#endif
+
+#if defined(PXP_RESETS_ARRAY)
+    RESET_ReleasePeripheralReset(s_pxpResets[PXP_GetInstance(base)]);
 #endif
 
     PXP_ResetControl(base);

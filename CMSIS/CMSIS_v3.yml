@@ -2153,8 +2153,13 @@ set.CMSIS_DSP_Lib:
       scr:
         - scr.CMSIS
       cmsis_pack:
+        external_pack: true
         vendor: ARM
-        supported: false
+        pack_root:
+          pack_type: SWP
+          pack_name: CMSIS_DSP
+          pack_version: 1.0.0
+          pack_url: http://www.keil.com/pack/
       kex_package:
         kex_web_ui:
           ui_category: CMSIS DSP Lib

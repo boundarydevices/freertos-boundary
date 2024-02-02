@@ -93,6 +93,9 @@ static volatile bool s_dataReadFinishedFlag = false;
 static volatile uint32_t s_readIndex        = 0U;
 static volatile uint32_t s_writeIndex       = 0U;
 static const pdm_config_t pdmConfig         = {
+#if defined(FSL_FEATURE_PDM_HAS_DECIMATION_FILTER_BYPASS) && FSL_FEATURE_PDM_HAS_DECIMATION_FILTER_BYPASS
+    .enableFilterBypass = false,
+#endif
     .enableDoze        = false,
     .fifoWatermark     = DEMO_PDM_FIFO_WATERMARK,
     .qualityMode       = DEMO_PDM_QUALITY_MODE,
@@ -220,7 +223,7 @@ static void pdm_error_irqHandler(void)
 void PDM_ERROR_IRQHandler(void)
 {
     pdm_error_irqHandler();
-    __DSB();
+    SDK_ISR_EXIT_BARRIER;
 }
 #endif
 
@@ -248,7 +251,7 @@ void PDM_EVENT_IRQHandler(void)
     }
 
     PDM_ClearStatus(DEMO_PDM, status);
-    __DSB();
+    SDK_ISR_EXIT_BARRIER;
 }
 
 /*!
@@ -271,7 +274,7 @@ int main(void)
         BOARD_HandshakeWithUboot(); /* Must handshake with uboot, unless will get issues(such as: SoC reset all the
                                        time) */
     }
-    else /* low power boot type */
+    else                            /* low power boot type */
     {
         BOARD_SetTrdcGlobalConfig();
     }
@@ -322,7 +325,7 @@ int main(void)
         assert(false);
     }
     if (CODEC_SetVolume(&codecHandle, kCODEC_PlayChannelHeadphoneLeft | kCODEC_PlayChannelHeadphoneRight,
-                        DEMO_CODEC_VOLUME) != kStatus_Success)
+                              DEMO_CODEC_VOLUME) != kStatus_Success)
     {
         assert(false);
     }

@@ -1792,9 +1792,7 @@ void EDMA1_0_15_DriverIRQHandler(void)
 /* Add for ARM errata 838869, affects Cortex-M4, Cortex-M4F Store immediate
   overlapping
   exception return operation might vector to incorrect interrupt */
-#if defined __CORTEX_M && (__CORTEX_M == 4U)
-    __DSB();
-#endif
+    SDK_ISR_EXIT_BARRIER
 }
 
 void EDMA1_16_31_DriverIRQHandler(void);
@@ -1824,9 +1822,7 @@ void EDMA1_16_31_DriverIRQHandler(void)
 /* Add for ARM errata 838869, affects Cortex-M4, Cortex-M4F Store immediate
   overlapping
   exception return operation might vector to incorrect interrupt */
-#if defined __CORTEX_M && (__CORTEX_M == 4U)
-    __DSB();
-#endif
+    SDK_ISR_EXIT_BARRIER;
 }
 #endif
 #endif

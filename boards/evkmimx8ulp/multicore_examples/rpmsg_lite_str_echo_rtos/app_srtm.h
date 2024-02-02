@@ -9,6 +9,7 @@
 #define _APP_SRTM_H_
 
 #include "rpmsg_lite.h"
+#include "fsl_lsm.h"
 
 /*******************************************************************************
  * Definitions
@@ -29,8 +30,8 @@ typedef enum
 {
     AD_UNKOWN,
     AD_ACT, /* Note: linux is in idle state(Switch between Active mode and Sleep Mode of APD) */
-    AD_DSL,  /* Application Domain enter Deep Sleep Mode when linux execute suspend command(echo mem > /sys/power/state,
-                 suspend to ram) */
+    AD_DSL, /* Application Domain enter Deep Sleep Mode when linux execute suspend command(echo mem > /sys/power/state,
+                suspend to ram) */
     AD_PD,  /* Application Domain enter Power Down Mode when linux execute suspend command(echo mem > /sys/power/state,
                  suspend to ram) */
     AD_DPD, /* Application Domian enter Deep Power Down Mode when linux execute poweroff command */
@@ -149,15 +150,26 @@ enum
 #define APP_GPIO_IDX(ioId) ((uint8_t)(((uint16_t)ioId) >> 8U))
 #define APP_PIN_IDX(ioId)  ((uint8_t)ioId)
 #define APP_GPIO_INT_SEL   (kRGPIO_InterruptOutput2)
-#define APP_PIN_PTA19      (0x0013U) /* PTA19 use for it6161(mipi to hdmi converter ic) interrupt */
+#define APP_PIN_PTA19      (0x0013U)          /* PTA19 use for it6161(mipi to hdmi converter ic) interrupt */
 #define APP_PIN_IT6161_INT (APP_PIN_PTA19)
-#define APP_PIN_PTB5       (0x0105U) /* PTB5, use for touch interrupt */
+#define APP_PIN_PTB5       (0x0105U)          /* PTB5, use for touch interrupt */
 #define APP_PIN_TOUCH_INT  (APP_PIN_PTB5)
-#define APP_PIN_PTB4       (0x0104U) /* PTB4 */
-#define APP_PIN_RTD_BTN1   (0x010DU) /* PTB13 */
-#define APP_PIN_RTD_BTN2   (0x010CU) /* PTB12 */
+#define APP_PIN_PTB4       (0x0104U)          /* PTB4 */
+#define APP_PIN_RTD_BTN1   (0x010DU)          /* PTB13 */
+#define APP_PIN_RTD_BTN2   (0x010CU)          /* PTB12 */
 
+/*
+ * BOARD Relative Settings:
+ * LSM6DSO INT PIN(INT1_B) --> SOC(PTB4)
+ * Note: Choose the falling edge trigger type to fix the issue that soc cannot get the interrupt from multiple sensors
+ */
 #define APP_LSM6DSO_INT1_B_PIN (APP_PIN_PTB4) /* Interrupt pin connected to LSM6DSO(sensor) */
+#define APP_LSM6DSO_INT_ACTIVE_LEVEL (LSM_INT_ACTIVE_HIGH)
+#if (APP_LSM6DSO_INT_ACTIVE_LEVEL == LSM_INT_ACTIVE_HIGH)
+#define APP_LSM6DSO_INT_TRIGGER_TYPE (kRGPIO_InterruptFallingEdge)
+#else
+#define APP_LSM6DSO_INT_TRIGGER_TYPE (kRGPIO_InterruptRisingEdge)
+#endif
 
 extern int32_t RPMsg_MU0_A_IRQHandler(void);
 

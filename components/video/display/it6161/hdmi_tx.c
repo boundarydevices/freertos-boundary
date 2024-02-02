@@ -186,8 +186,8 @@ static void HDMITX_AbortDDC(display_handle_t *handle)
                 break; // success
             }
             if ((uc & (HDMI_TX_SYS_DDC_CTRL_REG16_RDDC_Status_NoACK_MASK |
-                      HDMI_TX_SYS_DDC_CTRL_REG16_RDDC_Status_WaitBus_MASK |
-                      HDMI_TX_SYS_DDC_CTRL_REG16_RDDC_Status_ArbiLose_MASK)) != 0U)
+                       HDMI_TX_SYS_DDC_CTRL_REG16_RDDC_Status_WaitBus_MASK |
+                       HDMI_TX_SYS_DDC_CTRL_REG16_RDDC_Status_ArbiLose_MASK)) != 0U)
             {
                 break;
             }
@@ -196,7 +196,8 @@ static void HDMITX_AbortDDC(display_handle_t *handle)
     }
 }
 
-static bool getHDMITX_EDIDBytes(display_handle_t *handle, uint8_t *pData, uint8_t bSegment, uint8_t offset, uint16_t Count)
+static bool getHDMITX_EDIDBytes(
+    display_handle_t *handle, uint8_t *pData, uint8_t bSegment, uint8_t offset, uint16_t Count)
 {
     uint16_t RemainedCount = 0U, ReqCount = 0U;
     uint8_t bCurrOffset = 0U;
@@ -268,8 +269,8 @@ static bool getHDMITX_EDIDBytes(display_handle_t *handle, uint8_t *pData, uint8_
                 break;
             }
             if ((ucdata & (HDMI_TX_SYS_DDC_CTRL_REG16_RDDC_Status_NoACK_MASK |
-                          HDMI_TX_SYS_DDC_CTRL_REG16_RDDC_Status_WaitBus_MASK |
-                          HDMI_TX_SYS_DDC_CTRL_REG16_RDDC_Status_ArbiLose_MASK)) != 0U)
+                           HDMI_TX_SYS_DDC_CTRL_REG16_RDDC_Status_WaitBus_MASK |
+                           HDMI_TX_SYS_DDC_CTRL_REG16_RDDC_Status_ArbiLose_MASK)) != 0U)
             {
                 HDMITX_DEBUG_PRINTF("getHDMITX_EDIDBytes(): DDC_STATUS = %02X,fail.\n", (int)ucdata);
                 return false;
@@ -351,7 +352,7 @@ static bool ParseCEAEDID(uint8_t *pCEAEDID)
                 offset++;
                 for (i = 0U; i < count; i++)
                 {
-                    uint8_t VIC = 0U;
+                    uint8_t VIC                = 0U;
                     RxCapability.NativeVDOMode = 0xff;
 
                     VIC = (uint8_t)(pCEAEDID[offset + i] & (~0x80U));
@@ -427,7 +428,7 @@ static bool ParseCEAEDID(uint8_t *pCEAEDID)
             case 0x05: // VESA Data Block ;
                 offset += count + 1U;
                 break;
-            case 0x07:               // Extended Data Block ;
+            case 0x07:                // Extended Data Block ;
                 offset += count + 1U; // ignore
                 break;
             default:
@@ -486,7 +487,7 @@ static uint8_t ParseEDID(display_handle_t *handle)
     // read all segment for test
     for (i = 1; i <= BlockCount; i++)
     {
-        err = (uint8_t) getHDMITX_EDIDBlock(handle, (int32_t)i, EDID_Buf);
+        err = (uint8_t)getHDMITX_EDIDBlock(handle, (int32_t)i, EDID_Buf);
 
         HDMITX_DEBUG_PRINTF("\r\n");
         for (j = 0; j < 128U; j++)
@@ -502,7 +503,7 @@ static uint8_t ParseEDID(display_handle_t *handle)
         {
             if ((RxCapability.ValidHDMI == 0U) && EDID_Buf[0] == 0x2U && EDID_Buf[1] == 0x3U)
             {
-                err = (uint8_t) ParseCEAEDID(EDID_Buf);
+                err = (uint8_t)ParseCEAEDID(EDID_Buf);
                 HDMITX_DEBUG_PRINTF("err = %s\n", err ? "SUCCESS" : "FAIL");
                 if (err != 0U)
                 {
@@ -525,7 +526,7 @@ static bool HDMITX_GetVideoState(display_handle_t *handle)
 
 static int32_t HDMITX_CalcRclk(display_handle_t *handle)
 {
-    uint32_t i = 0;
+    uint32_t i   = 0;
     uint32_t sum = 0, RCLKCNT = 0, TimeLoMax = 0, retry = 5;
     uint8_t value = 0U;
 
@@ -651,8 +652,8 @@ static void HDMITX_GetDisplayMode(display_handle_t *handle)
     uint32_t htotal = 0, hdes = 0, hdee = 0, hsyncw = 0, H2ndVRRise = 0;
     uint32_t vtotal = 0, vdes = 0, vdee = 0, vdes2nd = 0, vdee2nd = 0;
     uint32_t VRS2nd = 0;
-    uint8_t rega9  = 0;
-    uint8_t value  = 0U;
+    uint8_t rega9   = 0;
+    uint8_t value   = 0U;
 
     HDMITX_CalcRclk(handle);
     HDMITX_CalcPclk(handle);
@@ -818,7 +819,7 @@ int32_t HDMI_AviInfoframePack(struct hdmi_avi_infoframe *frame, void *buffer, in
     }
 
     /* Bit 3 and 2 indicate if we transmit horizontal/vertical bar data */
-    if ((bool) frame->top_bar || (bool) frame->bottom_bar)
+    if ((bool)frame->top_bar || (bool)frame->bottom_bar)
     {
         ptr[0] |= BIT(3);
     }
@@ -828,13 +829,11 @@ int32_t HDMI_AviInfoframePack(struct hdmi_avi_infoframe *frame, void *buffer, in
         ptr[0] |= BIT(2);
     }
 
-    ptr[1] = (((uint8_t)frame->colorimetry & 0x3U) << 6U) |
-             (((uint8_t)frame->picture_aspect & 0x3U) << 4U) |
+    ptr[1] = (((uint8_t)frame->colorimetry & 0x3U) << 6U) | (((uint8_t)frame->picture_aspect & 0x3U) << 4U) |
              ((uint8_t)frame->active_aspect & 0xFU);
 
     ptr[2] = (((uint8_t)frame->extended_colorimetry & 0x7U) << 4U) |
-             (((uint8_t)frame->quantization_range & 0x3U) << 2U) |
-             ((uint8_t)frame->nups & 0x3U);
+             (((uint8_t)frame->quantization_range & 0x3U) << 2U) | ((uint8_t)frame->nups & 0x3U);
 
     if (frame->itc)
     {
@@ -843,8 +842,7 @@ int32_t HDMI_AviInfoframePack(struct hdmi_avi_infoframe *frame, void *buffer, in
 
     ptr[3] = frame->video_code & 0x7FU;
 
-    ptr[4] = (((uint8_t)frame->ycc_quantization_range & 0x3U) << 6U) |
-             (((uint8_t)frame->content_type & 0x3U) << 2U) |
+    ptr[4] = (((uint8_t)frame->ycc_quantization_range & 0x3U) << 6U) | (((uint8_t)frame->content_type & 0x3U) << 2U) |
              ((uint8_t)frame->pixel_repeat & 0xFU);
 
     ptr[5]  = (uint8_t)(frame->top_bar & 0xFFU);
@@ -927,7 +925,7 @@ int32_t HDMI_AudioInfoframePack(struct hdmi_audio_infoframe *frame, void *buffer
         return -1;
     }
 
-    memset(buffer, 0, (uint32_t) size);
+    memset(buffer, 0, (uint32_t)size);
 
     if (frame->channels >= 2U)
     {
@@ -1031,7 +1029,7 @@ static void setHDMITX_LPCMAudio(display_handle_t *handle, uint8_t AudioSrcNum, u
     }
     if (bAudInterface == (uint8_t)AUDIO_IF_SPDIF)
     {
-        AudioFormat &= (uint8_t) ~0x40U; /* not full packet mode */
+        AudioFormat &= (uint8_t)~0x40U; /* not full packet mode */
         AudioEnable |=
             HDMI_TX_AUDIO_CHANNEL_REGE0_REGAudSel_SPDIF | HDMI_TX_AUDIO_CHANNEL_REGE0_REGAudioEn_Enable_Audio_Source_0;
     }
@@ -1058,7 +1056,7 @@ static void setHDMITX_LPCMAudio(display_handle_t *handle, uint8_t AudioSrcNum, u
 
             case 1:
             default:
-                AudioFormat &= (uint8_t) ~0x40U;
+                AudioFormat &= (uint8_t)~0x40U;
                 AudioEnable |= 0U;
                 break;
         }
@@ -1153,7 +1151,7 @@ static void setHDMITX_NLPCMAudio(display_handle_t *handle, uint8_t bAudInterface
     else
     {
         HDMITX_ReadI2C_Byte(handle, HDMI_TX_AUDIO_CHANNEL_REGE5, &value);
-        value &= (uint8_t) ~HDMI_TX_AUDIO_CHANNEL_REGE5_RegEnTDM_MASK;
+        value &= (uint8_t)~HDMI_TX_AUDIO_CHANNEL_REGE5_RegEnTDM_MASK;
         /* 2 channel NLPCM, no TDM mode. */
         HDMITX_WriteI2C_Byte(handle, HDMI_TX_AUDIO_CHANNEL_REGE5, value);
     }
@@ -1706,8 +1704,8 @@ static void HDMITX_AbortDdc(display_handle_t *handle)
             }
 
             if ((uc & (HDMI_TX_SYS_DDC_CTRL_REG16_RDDC_Status_NoACK_MASK |
-                      HDMI_TX_SYS_DDC_CTRL_REG16_RDDC_Status_WaitBus_MASK |
-                      HDMI_TX_SYS_DDC_CTRL_REG16_RDDC_Status_ArbiLose_MASK)) != 0U)
+                       HDMI_TX_SYS_DDC_CTRL_REG16_RDDC_Status_WaitBus_MASK |
+                       HDMI_TX_SYS_DDC_CTRL_REG16_RDDC_Status_ArbiLose_MASK)) != 0U)
             {
                 HDMITX_DEBUG_PRINTF("HDMITX_AbortDdc Fail by reg16=%02X\n", (int)uc);
                 break;

@@ -178,6 +178,16 @@
       <locationURI>PARENT-6-PROJECT_LOC/devices/MIMX8UD7/utilities/debug_console_lite/fsl_assert.c</locationURI>
     </link>
     <link>
+      <name>utilities</name>
+      <type>2</type>
+      <locationURI>virtual:/virtual</locationURI>
+    </link>
+    <link>
+      <name>utilities/fsl_assert.h</name>
+      <type>1</type>
+      <locationURI>PARENT-6-PROJECT_LOC/devices/MIMX8UD7/utilities/debug_console_lite/fsl_assert.h</locationURI>
+    </link>
+    <link>
       <name>drivers</name>
       <type>2</type>
       <locationURI>virtual:/virtual</locationURI>
@@ -258,134 +268,144 @@
       <locationURI>PARENT-6-PROJECT_LOC/devices/MIMX8UD7/drivers/fsl_reset.c</locationURI>
     </link>
     <link>
-      <name>voice_spot/rdsp_utilities_public/rdsp_memory_utils_public</name>
+      <name>voice_spot/iMX8ULP_FusionF1/lib/include/public</name>
       <type>2</type>
       <locationURI>virtual:/virtual</locationURI>
     </link>
     <link>
-      <name>voice_spot/rdsp_utilities_public/rdsp_memory_utils_public/RdspMemoryUtilsPublic.c</name>
+      <name>voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_model.h</name>
       <type>1</type>
-      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/rdsp_utilities_public/rdsp_memory_utils_public/RdspMemoryUtilsPublic.c</locationURI>
+      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_model.h</locationURI>
     </link>
     <link>
-      <name>voice_spot/rdsp_utilities_public/rdsp_memory_utils_public</name>
+      <name>voice_spot/iMX8ULP_FusionF1/lib/include/public</name>
       <type>2</type>
       <locationURI>virtual:/virtual</locationURI>
     </link>
     <link>
-      <name>voice_spot/rdsp_utilities_public/rdsp_memory_utils_public/memcheck.c</name>
+      <name>voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_model_defines.h</name>
       <type>1</type>
-      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/rdsp_utilities_public/rdsp_memory_utils_public/memcheck.c</locationURI>
+      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_model_defines.h</locationURI>
     </link>
     <link>
-      <name>voice_spot/rdsp_utilities_public/rdsp_memory_utils_public</name>
+      <name>voice_spot/iMX8ULP_FusionF1/lib/include/public</name>
       <type>2</type>
       <locationURI>virtual:/virtual</locationURI>
     </link>
     <link>
-      <name>voice_spot/rdsp_utilities_public/rdsp_memory_utils_public/RdspMemoryUtilsPublic.h</name>
+      <name>voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_voicespot.h</name>
       <type>1</type>
-      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/rdsp_utilities_public/rdsp_memory_utils_public/RdspMemoryUtilsPublic.h</locationURI>
+      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_voicespot.h</locationURI>
     </link>
     <link>
-      <name>voice_spot/rdsp_utilities_public/rdsp_memory_utils_public</name>
+      <name>voice_spot/iMX8ULP_FusionF1/lib/include/public</name>
       <type>2</type>
       <locationURI>virtual:/virtual</locationURI>
     </link>
     <link>
-      <name>voice_spot/rdsp_utilities_public/rdsp_memory_utils_public/memcheck.h</name>
+      <name>voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_voicespot_defines.h</name>
       <type>1</type>
-      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/rdsp_utilities_public/rdsp_memory_utils_public/memcheck.h</locationURI>
+      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_voicespot_defines.h</locationURI>
     </link>
     <link>
-      <name>voice_spot/rdsp_utilities_public/include</name>
+      <name>voice_spot/iMX8ULP_FusionF1/lib/include/public</name>
       <type>2</type>
       <locationURI>virtual:/virtual</locationURI>
     </link>
     <link>
-      <name>voice_spot/rdsp_utilities_public/include/RdspDeviceConfig.h</name>
+      <name>voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_voicespot_sleep_cbuffer.h</name>
       <type>1</type>
-      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/rdsp_utilities_public/include/RdspDeviceConfig.h</locationURI>
+      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_voicespot_sleep_cbuffer.h</locationURI>
     </link>
     <link>
-      <name>voice_spot/rdsp_utilities_public/include</name>
+      <name>voice_spot/iMX8ULP_FusionF1/lib/include/public</name>
       <type>2</type>
       <locationURI>virtual:/virtual</locationURI>
     </link>
     <link>
-      <name>voice_spot/rdsp_utilities_public/include/RdspPlatforms.h</name>
+      <name>voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_voicespot_utils.h</name>
       <type>1</type>
-      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/rdsp_utilities_public/include/RdspPlatforms.h</locationURI>
+      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/lib/include/public/rdsp_voicespot_utils.h</locationURI>
     </link>
     <link>
-      <name>voice_spot/rdsp_utilities_public/include</name>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/include</name>
       <type>2</type>
       <locationURI>virtual:/virtual</locationURI>
     </link>
     <link>
-      <name>voice_spot/rdsp_utilities_public/include/RdspTypes.h</name>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/include/RdspDeviceConfig.h</name>
       <type>1</type>
-      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/rdsp_utilities_public/include/RdspTypes.h</locationURI>
+      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/include/RdspDeviceConfig.h</locationURI>
     </link>
     <link>
-      <name>voice_spot/iMX8ULP_FusionF1/Lib/include/public</name>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/include</name>
       <type>2</type>
       <locationURI>virtual:/virtual</locationURI>
     </link>
     <link>
-      <name>voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_model.h</name>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/include/RdspPlatforms.h</name>
       <type>1</type>
-      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_model.h</locationURI>
+      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/include/RdspPlatforms.h</locationURI>
     </link>
     <link>
-      <name>voice_spot/iMX8ULP_FusionF1/Lib/include/public</name>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/include</name>
       <type>2</type>
       <locationURI>virtual:/virtual</locationURI>
     </link>
     <link>
-      <name>voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_model_defines.h</name>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/include/RdspTypes.h</name>
       <type>1</type>
-      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_model_defines.h</locationURI>
+      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/include/RdspTypes.h</locationURI>
     </link>
     <link>
-      <name>voice_spot/iMX8ULP_FusionF1/Lib/include/public</name>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public</name>
       <type>2</type>
       <locationURI>virtual:/virtual</locationURI>
     </link>
     <link>
-      <name>voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_voicespot.h</name>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public/RdspMemoryUtilsPublic.c</name>
       <type>1</type>
-      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_voicespot.h</locationURI>
+      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public/RdspMemoryUtilsPublic.c</locationURI>
     </link>
     <link>
-      <name>voice_spot/iMX8ULP_FusionF1/Lib/include/public</name>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public</name>
       <type>2</type>
       <locationURI>virtual:/virtual</locationURI>
     </link>
     <link>
-      <name>voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_voicespot_defines.h</name>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public/memcheck.c</name>
       <type>1</type>
-      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_voicespot_defines.h</locationURI>
+      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public/memcheck.c</locationURI>
     </link>
     <link>
-      <name>voice_spot/iMX8ULP_FusionF1/Lib/include/public</name>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public</name>
       <type>2</type>
       <locationURI>virtual:/virtual</locationURI>
     </link>
     <link>
-      <name>voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_voicespot_sleep_cbuffer.h</name>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public/RdspMemoryUtilsPublic.h</name>
       <type>1</type>
-      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_voicespot_sleep_cbuffer.h</locationURI>
+      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public/RdspMemoryUtilsPublic.h</locationURI>
     </link>
     <link>
-      <name>voice_spot/iMX8ULP_FusionF1/Lib/include/public</name>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public</name>
       <type>2</type>
       <locationURI>virtual:/virtual</locationURI>
     </link>
     <link>
-      <name>voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_voicespot_utils.h</name>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public/RdspStackCheck.h</name>
       <type>1</type>
-      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/Lib/include/public/rdsp_voicespot_utils.h</locationURI>
+      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public/RdspStackCheck.h</locationURI>
+    </link>
+    <link>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public</name>
+      <type>2</type>
+      <locationURI>virtual:/virtual</locationURI>
+    </link>
+    <link>
+      <name>voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public/memcheck.h</name>
+      <type>1</type>
+      <locationURI>PARENT-6-PROJECT_LOC/middleware/voice_spot/iMX8ULP_FusionF1/rdsp_utilities_public/rdsp_memory_utils_public/memcheck.h</locationURI>
     </link>
     <link>
       <name>component/lists</name>

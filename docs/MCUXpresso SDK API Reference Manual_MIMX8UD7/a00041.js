@@ -1,47 +1,215 @@
 var a00041 =
 [
-    [ "notifier_notification_block_t", "a00041.html#a00314", [
-      [ "targetConfig", "a00041.html#a2e0b1d4d7e3ebf8f454b55af953e3ffa", null ],
-      [ "policy", "a00041.html#a26aef2519eb2f9990e04f2ce961dfc9b", null ],
-      [ "notifyType", "a00041.html#a2ca3b1a52e315e072a8ab48fcc1dd62a", null ]
+    [ "_pmc0_hsrun_mode_config", "a00041.html#a00306", [
+      [ "__pad0__", "a00041.html#a6e17de206ce7baf24081f0a2e7ca398b", null ],
+      [ "coreRegulatorVoltLevel", "a00041.html#aa8e97d605a0d043c2b659ffca7eeea68", null ],
+      [ "__pad1__", "a00041.html#a9731279cbe7dcb64038820d0d387bd8f", null ],
+      [ "enableForwardBias", "a00041.html#a84b3e43fc5a96c1fba8faea8c5514318", null ],
+      [ "__pad2__", "a00041.html#ac338ff036fe2df59df56995bc1753f06", null ]
     ] ],
-    [ "notifier_callback_config_t", "a00041.html#a00312", [
-      [ "callback", "a00041.html#a116c9dd621ffc21178e769edbd9192e4", null ],
-      [ "callbackType", "a00041.html#ad9e6ec8e23a48ef8d97b2f6d16fb68ec", null ],
-      [ "callbackData", "a00041.html#a4e7db701bbf36647da1e6d0f0efe2ebf", null ]
+    [ "_pmc0_run_mode_config", "a00041.html#a00308", [
+      [ "__pad0__", "a00041.html#ac0b8ccc0d4badc6cc931a30a8a6f1feb", null ],
+      [ "coreRegulatorVoltLevel", "a00041.html#a0157884e677bed129d86d9b64cded764", null ],
+      [ "__pad1__", "a00041.html#aa9143a297b2c6f92c804005ad2458621", null ]
     ] ],
-    [ "notifier_handle_t", "a00041.html#a00313", [
-      [ "configsTable", "a00041.html#a8fd95d668f17b8a7705e2a4ff49f2e16", null ],
-      [ "configsNumber", "a00041.html#a59bdd44c33254cfd4626f5906d3c0a7a", null ],
-      [ "callbacksTable", "a00041.html#a423480d080ea2580628222dc6c492735", null ],
-      [ "callbacksNumber", "a00041.html#acd4e9338f2cd47c46fc0c02886daafbb", null ],
-      [ "errorCallbackIndex", "a00041.html#a6a8447a4b6045219363883663f40d300", null ],
-      [ "currentConfigIndex", "a00041.html#aae9d6d2cc9c47485863c098c0284a021", null ],
-      [ "userFunction", "a00041.html#a4f6589fa386e93c40c52ed292da4f47f", null ],
-      [ "userData", "a00041.html#a5e90e1dafbe97f2ea5187530ee04af0a", null ]
+    [ "_pmc0_vlpr_mode_config", "a00041.html#a00311", [
+      [ "arrayRegulatorSelect", "a00041.html#a9b860a3ae13ab183d859a4164dc54563", null ],
+      [ "__pad0__", "a00041.html#a0602551d0ceff7f33910b37b9f25cdd5", null ],
+      [ "coreRegulatorSelect", "a00041.html#aa2c72cdcb97b396602a1395ab7a203d6", null ],
+      [ "__pad1__", "a00041.html#a92ba0fd61de5c667102354c303c04ee3", null ],
+      [ "lvdMonitorSelect", "a00041.html#af779b99177bd7680a8c8dd6bf0e146af", null ],
+      [ "hvdMonitorSelect", "a00041.html#a0c6e513642cba38369517d104596775e", null ],
+      [ "__pad2__", "a00041.html#ac688c79df24f44201a62b25f685264f7", null ],
+      [ "enableForceHpBandgap", "a00041.html#aab4114aaa86d31e83060d55fe7cd8af6", null ],
+      [ "__pad3__", "a00041.html#a645ab76bf47364c0a9b9c277b8ddd803", null ],
+      [ "coreRegulatorVoltLevel", "a00041.html#a34fb956381b43d9b48730f074989ca7f", null ],
+      [ "__pad4__", "a00041.html#a6736a05ab20d142e30acd8cbcc4c8135", null ],
+      [ "enableReverseBackBias", "a00041.html#afadda14f81c511b288c5959c18b112bf", null ],
+      [ "__pad5__", "a00041.html#a053a4b87853274e01f53f29c41a6ccd3", null ]
     ] ],
-    [ "notifier_user_config_t", "a00041.html#gad0b6e919f3ff69992b36a2734a650ec7", null ],
-    [ "notifier_user_function_t", "a00041.html#gacb6a6d6f99e6ddfbb96dae53382949b2", null ],
-    [ "notifier_callback_t", "a00041.html#gafd1d8cc01c496de8b4cd3990ff85415c", null ],
-    [ "_notifier_status", "a00041.html#gacac871f1b98f53906b07b2663943c784", [
-      [ "kStatus_NOTIFIER_ErrorNotificationBefore", "a00041.html#ggacac871f1b98f53906b07b2663943c784a23344b22d4d82fea2f17f4979d515c5c", null ],
-      [ "kStatus_NOTIFIER_ErrorNotificationAfter", "a00041.html#ggacac871f1b98f53906b07b2663943c784a7b48bf0cf849b07c6131a0abb65d2d58", null ]
+    [ "_pmc0_stop_mode_config", "a00041.html#a00309", [
+      [ "__pad0__", "a00041.html#a4bb3fc9cc48e1597b724860bccfa91bd", null ],
+      [ "coreRegulatorVoltLevel", "a00041.html#af43885e6159a2020c3c5927874345291", null ],
+      [ "__pad1__", "a00041.html#ada1eb60d456aa0ec13b3a467beb0ffa0", null ]
     ] ],
-    [ "notifier_policy_t", "a00041.html#ga62e961564dc31b8155d128a3f6566409", [
-      [ "kNOTIFIER_PolicyAgreement", "a00041.html#gga62e961564dc31b8155d128a3f6566409a4513243b3cacd0aec289531dfb53e964", null ],
-      [ "kNOTIFIER_PolicyForcible", "a00041.html#gga62e961564dc31b8155d128a3f6566409a97a2587e9e4c523dc028778ba1f72dc8", null ]
+    [ "_pmc0_vlps_mode_config", "a00041.html#a00312", [
+      [ "arrayRegulatorSelect", "a00041.html#aad6d3bf09295eecd94694ec4f418bf7c", null ],
+      [ "__pad0__", "a00041.html#afeacdf5a98a1a49494074097c0390032", null ],
+      [ "coreRegulatorSelect", "a00041.html#a09af4b1c39c9e2eba441ab31790d80a2", null ],
+      [ "__pad1__", "a00041.html#ae4a618c8049f8596c338abf5e5afb7df", null ],
+      [ "lvdMonitorSelect", "a00041.html#a368f1b33c54b3f794be0f9550f178c1e", null ],
+      [ "hvdMonitorSelect", "a00041.html#a69e35fd5dcb04cd587f67eb6ba3440e7", null ],
+      [ "__pad2__", "a00041.html#a031c35ff25328c9e46fe063ac84d159c", null ],
+      [ "enableForceHpBandgap", "a00041.html#ab5ac1de0416049bbd26b60eb4e2a6cb8", null ],
+      [ "__pad3__", "a00041.html#af74a976d04d752c1fb2f061612207985", null ],
+      [ "coreRegulatorVoltLevel", "a00041.html#aa16073d1f89406033e38f7703b561517", null ],
+      [ "__pad4__", "a00041.html#afeafed14cc5b43ca58edef25b88d9529", null ],
+      [ "enableReverseBackBias", "a00041.html#a7e91e4d87025097f21e5db43b31a5985", null ],
+      [ "__pad5__", "a00041.html#a8e5975f153a084312840cae1e4d90140", null ]
     ] ],
-    [ "notifier_notification_type_t", "a00041.html#ga5ee4314c2a52ee0af61985e7163a1be9", [
-      [ "kNOTIFIER_NotifyRecover", "a00041.html#gga5ee4314c2a52ee0af61985e7163a1be9a49e6ad28b9d351a051035c8065de5d94", null ],
-      [ "kNOTIFIER_NotifyBefore", "a00041.html#gga5ee4314c2a52ee0af61985e7163a1be9a91707ed2be51db6da2a9d6cc6eaee39c", null ],
-      [ "kNOTIFIER_NotifyAfter", "a00041.html#gga5ee4314c2a52ee0af61985e7163a1be9a6e89a377b2890077646fc6af6b5c2e00", null ]
+    [ "_pmc0_lls_mode_config", "a00041.html#a00307", [
+      [ "arrayRegulatorSelect", "a00041.html#a01867b901f0612ab10ae2a70a66a8b4f", null ],
+      [ "__pad0__", "a00041.html#a04e2696e4e8e7e52d7c35b3a08f782dd", null ],
+      [ "coreRegulatorSelect", "a00041.html#ab7cb25ac8c0c78a4eae60346d063d798", null ],
+      [ "__pad1__", "a00041.html#aa65b9c5ba9419440b217b835c76c66b8", null ],
+      [ "lvdMonitorSelect", "a00041.html#a46bd87e8001295e717ad97e1a175687f", null ],
+      [ "hvdMonitorSelect", "a00041.html#a7977c36c54e2009a7f3ef327026a498c", null ],
+      [ "__pad2__", "a00041.html#a3c6db05224328e8a1e083a61d493bb6f", null ],
+      [ "enableForceHpBandgap", "a00041.html#a0b33a06e771f26b233761a98f48452bf", null ],
+      [ "__pad3__", "a00041.html#ab51762ca397a900c1959840787872776", null ],
+      [ "coreRegulatorVoltLevel", "a00041.html#ad0a24108f02db20e1063262ef2b58b6a", null ],
+      [ "__pad4__", "a00041.html#aa24b4d046c6830eb2e654bac8c967c8b", null ],
+      [ "enableReverseBackBias", "a00041.html#a64101b316fcc4d9da02f91d5dd2362fd", null ],
+      [ "__pad5__", "a00041.html#abec373673dad9066c001db5395bed8be", null ]
     ] ],
-    [ "notifier_callback_type_t", "a00041.html#gaad75237e3cea51f8315cf6577b35db91", [
-      [ "kNOTIFIER_CallbackBefore", "a00041.html#ggaad75237e3cea51f8315cf6577b35db91ab9c117f1eccd38f914d0e4d05015d6a1", null ],
-      [ "kNOTIFIER_CallbackAfter", "a00041.html#ggaad75237e3cea51f8315cf6577b35db91a8d5832eddd0d8cf976413aea02f3bfdc", null ],
-      [ "kNOTIFIER_CallbackBeforeAfter", "a00041.html#ggaad75237e3cea51f8315cf6577b35db91ada6451efe227571a1442e70ddf36e005", null ]
+    [ "_pmc0_vlls_mode_config", "a00041.html#a00310", [
+      [ "arrayRegulatorSelect", "a00041.html#a2cb4b1a0dce7f8c713651032f299f929", null ],
+      [ "__pad0__", "a00041.html#a4303136e20e854e4d8a795844021f231", null ],
+      [ "lvdMonitorSelect", "a00041.html#a4ad8daac152a12cca50ad79a0181908e", null ],
+      [ "hvdMonitorSelect", "a00041.html#a925757d74003d0de6f692d1e2b4bbfde", null ],
+      [ "__pad1__", "a00041.html#aa41beee0c6f2ca6233d8cfe84ce1de80", null ],
+      [ "enableForceHpBandgap", "a00041.html#a22e7a92a8c6ed6234223cc7003f56dfa", null ],
+      [ "__pad2__", "a00041.html#a706a1bcc7c7750bbe1f46f5d5470400d", null ]
     ] ],
-    [ "NOTIFIER_CreateHandle", "a00041.html#gaa2dfe33b4724d9c1025acdde1b1b3c31", null ],
-    [ "NOTIFIER_SwitchConfig", "a00041.html#ga9ca08c8f6fa9a7bafa9ecbe08603cd97", null ],
-    [ "NOTIFIER_GetErrorCallbackIndex", "a00041.html#ga9736632c3beca486ec3f8dab504b839c", null ]
+    [ "_pmc0_bias_config", "a00041.html#a00305", [
+      [ "__pad0__", "a00041.html#aba67ecbb905946afcde4d3a15638f65c", null ],
+      [ "RBBPWellVoltageLevelSelect", "a00041.html#aabf4f63e702206ac149121fb20d3197a", null ],
+      [ "__pad1__", "a00041.html#abc7452d23455de684037782600fc1e70", null ],
+      [ "DisableRBBPullDown", "a00041.html#a57dbf8664849c7c4779c734cb53e0a8f", null ],
+      [ "FBBNWellVoltageLevelSelect", "a00041.html#a7bc5b204f538aec8a5a629a3ea657af1", null ],
+      [ "__pad2__", "a00041.html#a35300ca671f0ae69550cc47e837f8b19", null ],
+      [ "FBBPWellVoltageLevelSelect", "a00041.html#a2d172913b8cd54c85218052c5b9f7beb", null ],
+      [ "__pad3__", "a00041.html#ae96c3a236333740eb1dc9bf519088519", null ]
+    ] ],
+    [ "FSL_PMC0_DRIVER_VERSION", "a00041.html#ga5c31f60199dbf50af3a745973d06ce73", null ],
+    [ "CORE_REGULATOR_VOLT_LEVEL_MAX", "a00041.html#ga360acabfcf8a4bc2f1a870f74675fbb1", null ],
+    [ "pmc0_high_volt_detect_monitor_select_t", "a00041.html#gaf6108f15e10f41700f5dc53f7eee7f91", null ],
+    [ "pmc0_low_volt_detect_monitor_select_t", "a00041.html#ga14580172b31d7b7359028fc66032f687", null ],
+    [ "pmc0_core_regulator_select_t", "a00041.html#ga289dda4307006157f78f89bd8f7fce55", null ],
+    [ "pmc0_array_regulator_select_t", "a00041.html#gaa8c73fc50fd21b55403ed08c18689df1", null ],
+    [ "pmc0_vlls_array_regulator_select_t", "a00041.html#gaf6534f8b746df74960a6deb07cc58048", null ],
+    [ "pmc0_fbb_p_well_voltage_level_select_t", "a00041.html#gabe3456f6dd7141cbec078d6c8b8cbb7c", null ],
+    [ "pmc0_fbb_n_well_voltage_level_select_t", "a00041.html#gafcf2fa6145281660510925cb9061b6dd", null ],
+    [ "pmc0_rbb_p_well_voltage_level_select_t", "a00041.html#gabd07cb97b9f6f6603e2d898e24765bae", null ],
+    [ "pmc0_rbb_n_well_voltage_level_select_t", "a00041.html#ga803dcab2b6223e5625cf3c894eca57f0", null ],
+    [ "pmc0_hsrun_mode_config_t", "a00041.html#ga0f3853cc7ddbb14bd93b4d5130f8fded", null ],
+    [ "pmc0_run_mode_config_t", "a00041.html#ga6db9f14af537ac337e8a483417b61e74", null ],
+    [ "pmc0_vlpr_mode_config_t", "a00041.html#gaaa800001317172941a931fb59a8ca1aa", null ],
+    [ "pmc0_stop_mode_config_t", "a00041.html#ga9f7330d46311addf2fa8a5ebd91967cc", null ],
+    [ "pmc0_vlps_mode_config_t", "a00041.html#gab5fd1e7059b749aae3652608e8fcb7f7", null ],
+    [ "pmc0_lls_mode_config_t", "a00041.html#ga73f16990c28795a5672f737b3111d0d2", null ],
+    [ "pmc0_vlls_mode_config_t", "a00041.html#gaa0c4082d1d8d979c671817f507a5b90e", null ],
+    [ "pmc0_bias_config_t", "a00041.html#ga6c80fe91281dd1397b27f763f4f4b69d", null ],
+    [ "_pmc0_high_volt_detect_monitor_select", "a00041.html#gad1b32251ea6899a024569978d5ebbde7", [
+      [ "kPMC0_HighVoltDetectLowPowerMonitor", "a00041.html#ggad1b32251ea6899a024569978d5ebbde7a579729246972bcb9884598d02263ddd4", null ],
+      [ "kPMC0_HighVoltDetectHighPowerMonitor", "a00041.html#ggad1b32251ea6899a024569978d5ebbde7aeb789badda8c9503e09a7cd7084a80be", null ]
+    ] ],
+    [ "_pmc0_low_volt_detect_monitor_select", "a00041.html#ga4b1395fc7a4e002e24baf4ad2283d270", [
+      [ "kPMC0_LowVoltDetectLowPowerMonitor", "a00041.html#gga4b1395fc7a4e002e24baf4ad2283d270a43a4662354b43350b81ef24f3e26b732", null ],
+      [ "kPMC0_LowVoltDetectHighPowerMonitor", "a00041.html#gga4b1395fc7a4e002e24baf4ad2283d270ad57e69ebf7cd3826def3af3a7df7d648", null ]
+    ] ],
+    [ "_pmc0_core_regulator_select", "a00041.html#gafb1ff4d12eff0bd1ce1ac0cfb78cd681", [
+      [ "kPMC0_CoreLowPowerRegulator", "a00041.html#ggafb1ff4d12eff0bd1ce1ac0cfb78cd681a6b717fedd0e764cb411427026c8ffaf4", null ],
+      [ "kPMC0_CoreHighPowerRegulator", "a00041.html#ggafb1ff4d12eff0bd1ce1ac0cfb78cd681a22da85af648e1fab3acfabcf00fa7d28", null ]
+    ] ],
+    [ "_pmc0_array_regulator_select", "a00041.html#gad9945da9b72f38fbdde55205144198df", [
+      [ "kPMC0_ArrayLowPowerRegulator", "a00041.html#ggad9945da9b72f38fbdde55205144198dfa27fb19db431b764047a964fdf9f3b98a", null ],
+      [ "kPMC0_ArrayHighPowerRegulator", "a00041.html#ggad9945da9b72f38fbdde55205144198dfa945636394a4ca23acf77234f20e50f58", null ]
+    ] ],
+    [ "_pmc0_vlls_array_regulator_select", "a00041.html#ga475c7353a7ae77eee5c6c8dea020f340", [
+      [ "kPMC0_VllsArrayRegulatorOff", "a00041.html#gga475c7353a7ae77eee5c6c8dea020f340aa2e64f2cfbc5c407ae710260e94b84e5", null ],
+      [ "kPMC0_VllsArrayLowPowerRegulator", "a00041.html#gga475c7353a7ae77eee5c6c8dea020f340a9ce7d795a84ce45c379dc006d5da5f3b", null ],
+      [ "kPMC0_VllsArrayHighPowerRegulator", "a00041.html#gga475c7353a7ae77eee5c6c8dea020f340a257fb922afec15944e070286e4e59884", null ]
+    ] ],
+    [ "_pmc0_fbb_p_well_voltage_level_select", "a00041.html#ga5b3fe9fc150e53c19a5d8ef7ce7222ca", [
+      [ "kPMC0_FbbPWellNoBiasCondition", "a00041.html#gga5b3fe9fc150e53c19a5d8ef7ce7222caac8481010113160dcd8bd3b1acdac786b", null ],
+      [ "kPMC0_FbbPWellVoltageLevelAt50Mv", "a00041.html#gga5b3fe9fc150e53c19a5d8ef7ce7222caa684e7a4e6c6b8008f85c23fe98b4b22a", null ],
+      [ "kPMC0_FbbPWellVoltageLevelAt150Mv", "a00041.html#gga5b3fe9fc150e53c19a5d8ef7ce7222caafb6da5190ceeb6f8f1ee3a669d656a35", null ],
+      [ "kPMC0_FbbPWellVoltageLevelAt100Mv", "a00041.html#gga5b3fe9fc150e53c19a5d8ef7ce7222caafe9901fa2661e424e37d7e1798753cd7", null ],
+      [ "kPMC0_FbbPWellVoltageLevelAt350Mv", "a00041.html#gga5b3fe9fc150e53c19a5d8ef7ce7222caa834c90273bdf365d431bc222ba3d632e", null ],
+      [ "kPMC0_FbbPWellVoltageLevelAt300Mv", "a00041.html#gga5b3fe9fc150e53c19a5d8ef7ce7222caa857ebfca3e8ec47dce652da1bb73f05e", null ],
+      [ "kPMC0_FbbPWellVoltageLevelAt200Mv", "a00041.html#gga5b3fe9fc150e53c19a5d8ef7ce7222caa1f657b2c7ecfbba06e0d99cdfc01d623", null ],
+      [ "kPMC0_FbbPWellVoltageLevelAt250Mv", "a00041.html#gga5b3fe9fc150e53c19a5d8ef7ce7222caa91e3a11ecaf58f3fd976bd363762b90b", null ]
+    ] ],
+    [ "_pmc0_fbb_n_well_voltage_level_select", "a00041.html#ga676e80c5a9c6ecd6929830b7956fd1fe", [
+      [ "kPMC0_FbbNWellNoBiasCondition", "a00041.html#gga676e80c5a9c6ecd6929830b7956fd1fea18a8bab2497c1a36f6120f8fd0a9ec29", null ],
+      [ "kPMC0_FbbNWellVoltageLevelAtMinus50Mv", "a00041.html#gga676e80c5a9c6ecd6929830b7956fd1fea3e8f5e051d6ca50408bb03cdcba5aa28", null ],
+      [ "kPMC0_FbbNWellVoltageLevelAtMinus150Mv", "a00041.html#gga676e80c5a9c6ecd6929830b7956fd1fea78b5e01e5ca9974f41977b3f08d5f550", null ],
+      [ "kPMC0_FbbNWellVoltageLevelAtMinus100Mv", "a00041.html#gga676e80c5a9c6ecd6929830b7956fd1feae47dbc896e8f9fe568da6a46867ae232", null ],
+      [ "kPMC0_FbbNWellVoltageLevelAtMinus350Mv", "a00041.html#gga676e80c5a9c6ecd6929830b7956fd1fea17d8e602ac04a73e9f4e258276fcf53a", null ],
+      [ "kPMC0_FbbNWellVoltageLevelAtMinus300Mv", "a00041.html#gga676e80c5a9c6ecd6929830b7956fd1fea43ac672aa58cc64a49cb845224056445", null ],
+      [ "kPMC0_FbbNWellVoltageLevelAtMinus200Mv", "a00041.html#gga676e80c5a9c6ecd6929830b7956fd1fea0a6a138b58459b1e592a105a229176b6", null ],
+      [ "kPMC0_FbbNWellVoltageLevelAtMinus250Mv", "a00041.html#gga676e80c5a9c6ecd6929830b7956fd1fea9a61d0597f04e1b1f2839636018daafa", null ]
+    ] ],
+    [ "_pmc0_rbb_p_well_voltage_level_select", "a00041.html#ga4a58200a60bafff6a188b6b9d7a68f54", [
+      [ "kPMC0_RBBPWellVoltageLevelAtMinus0_5V", "a00041.html#gga4a58200a60bafff6a188b6b9d7a68f54a02f24f39cf365c471ba0f1b6a147eaa4", null ],
+      [ "kPMC0_RBBPWellVoltageLevelAtMinus0_6V", "a00041.html#gga4a58200a60bafff6a188b6b9d7a68f54aaebe81e981139280423a4e12fde9f8d8", null ],
+      [ "kPMC0_RBBPWellVoltageLevelAtMinus0_7V", "a00041.html#gga4a58200a60bafff6a188b6b9d7a68f54aee92cb66f564150da35f3e078ca2aec8", null ],
+      [ "kPMC0_RBBPWellVoltageLevelAtMinus0_8V", "a00041.html#gga4a58200a60bafff6a188b6b9d7a68f54a72f2a40e9a62379549d392656e9d2e12", null ],
+      [ "kPMC0_RBBPWellVoltageLevelAtMinus0_9V", "a00041.html#gga4a58200a60bafff6a188b6b9d7a68f54aaa2c9e50871c9ecafd688dcd465354c7", null ],
+      [ "kPMC0_RBBPWellVoltageLevelAtMinus1_0V", "a00041.html#gga4a58200a60bafff6a188b6b9d7a68f54aeb5ea9c98f49520641a284caa1891754", null ],
+      [ "kPMC0_RBBPWellVoltageLevelAtMinus1_1V", "a00041.html#gga4a58200a60bafff6a188b6b9d7a68f54ab2a42c2004e6d71b510a9aac07dbd532", null ],
+      [ "kPMC0_RBBPWellVoltageLevelAtMinus1_2V", "a00041.html#gga4a58200a60bafff6a188b6b9d7a68f54a35f018b215d82f61c0b364cab7f1d060", null ],
+      [ "kPMC0_RBBPWellVoltageLevelAtMinus1_3V", "a00041.html#gga4a58200a60bafff6a188b6b9d7a68f54a173cb74b2eba0b6a01d4fe95893a8c0a", null ]
+    ] ],
+    [ "_pmc0_rbb_n_well_voltage_level_select", "a00041.html#ga124f238638b97845150f7f08845e15c3", [
+      [ "kPMC0_RBBNWellVoltageLevelAt0_5V", "a00041.html#gga124f238638b97845150f7f08845e15c3abd1a6174512628aa3f2611fe339264d3", null ],
+      [ "kPMC0_RBBNWellVoltageLevelAt0_6V", "a00041.html#gga124f238638b97845150f7f08845e15c3ac6c19896e01fbdf2c2e453487106e200", null ],
+      [ "kPMC0_RBBNWellVoltageLevelAt0_7V", "a00041.html#gga124f238638b97845150f7f08845e15c3aabce7ab4b9265d742417a29ecbb65c94", null ],
+      [ "kPMC0_RBBNWellVoltageLevelAt0_8V", "a00041.html#gga124f238638b97845150f7f08845e15c3a5ea44d67520748319779e74874c7f4a2", null ],
+      [ "kPMC0_RBBNWellVoltageLevelAt0_9V", "a00041.html#gga124f238638b97845150f7f08845e15c3a0d11c19437c1797ff27b32aa5d9db63b", null ],
+      [ "kPMC0_RBBNWellVoltageLevelAt1_0V", "a00041.html#gga124f238638b97845150f7f08845e15c3a008a5345bb56224c5941751624ae8dc4", null ],
+      [ "kPMC0_RBBNWellVoltageLevelAt1_1V", "a00041.html#gga124f238638b97845150f7f08845e15c3ac788bbeef350372988de91d4a7c91b81", null ],
+      [ "kPMC0_RBBNWellVoltageLevelAt1_2V", "a00041.html#gga124f238638b97845150f7f08845e15c3a9801a46567e247f6ac097448cec04c29", null ],
+      [ "kPMC0_RBBNWellVoltageLevelAt1_3V", "a00041.html#gga124f238638b97845150f7f08845e15c3a3f58f43849b7110b724ffd23ec5abc7a", null ]
+    ] ],
+    [ "_pmc0_status_flags", "a00041.html#gacd622a9b0e1c320efd54b89abf31120c", [
+      [ "kPMC0_LowVoltDetectEventFlag", "a00041.html#ggacd622a9b0e1c320efd54b89abf31120cad7f263dc1290755d83e4da2f634b9358", null ],
+      [ "kPMC0_LowVoltDetectValueFlag", "a00041.html#ggacd622a9b0e1c320efd54b89abf31120ca8edb46826a0af8b662b36fe1bcee9f1f", null ],
+      [ "kPMC0_HighVoltDetectEventFlag", "a00041.html#ggacd622a9b0e1c320efd54b89abf31120ca1ae54ecc0d8e955efa0ff385167062ec", null ],
+      [ "kPMC0_HighVoltDetectValueFlag", "a00041.html#ggacd622a9b0e1c320efd54b89abf31120cae2a73d149940ddaad9ec3a681b6ec66c", null ],
+      [ "kPMC0_CoreRegulatorVoltLevelFlag", "a00041.html#ggacd622a9b0e1c320efd54b89abf31120ca12d6037de2573599de48e8c38044b79d", null ],
+      [ "kPMC0_SramFlag", "a00041.html#ggacd622a9b0e1c320efd54b89abf31120ca5b92a8b5bdc6896020f017c7f2e339fb", null ],
+      [ "kPMC0_PMC1VoltageSourceFlag", "a00041.html#ggacd622a9b0e1c320efd54b89abf31120ca12ea4657587335c6141dae05810fe7f1", null ]
+    ] ],
+    [ "_pmc0_power_mode_status_flags", "a00041.html#ga633b55a180c0567be102c84426e5ecd1", [
+      [ "kPMC0_HSRUNModeStatusFlags", "a00041.html#gga633b55a180c0567be102c84426e5ecd1a9374fca086e519a12475b9d707762fbd", null ],
+      [ "kPMC0_RUNModeStatusFlags", "a00041.html#gga633b55a180c0567be102c84426e5ecd1a3934e80472c4bd319f7d7495eb8a4bf6", null ],
+      [ "kPMC0_STOPModeStatusFlags", "a00041.html#gga633b55a180c0567be102c84426e5ecd1a18e29ccae26afb21793c1894a7a071f4", null ],
+      [ "kPMC0_VLPRModeStatusFlags", "a00041.html#gga633b55a180c0567be102c84426e5ecd1abf9e4f44919b65e2e85730cac0736675", null ],
+      [ "kPMC0_VLPSModeStatusFlags", "a00041.html#gga633b55a180c0567be102c84426e5ecd1a492c4ae12044c2e349f8ca71a8bbdc95", null ],
+      [ "kPMC0_LLSModeStatusFlags", "a00041.html#gga633b55a180c0567be102c84426e5ecd1a9a43e97bb9012eb06c4d1c2127416c44", null ],
+      [ "kPMC0_VLLSModeStatusFlags", "a00041.html#gga633b55a180c0567be102c84426e5ecd1a08b45c11a8a0f8d7254428a78d931292", null ]
+    ] ],
+    [ "PMC0_ConfigureHsrunMode", "a00041.html#gaeea8b11a04b60d3b1da4b2851e889975", null ],
+    [ "PMC0_ConfigureRunMode", "a00041.html#ga92125f6504346bcd7e3e5dd7b18a865e", null ],
+    [ "PMC0_ConfigureVlprMode", "a00041.html#ga32fc52bd7d372217a95c698562e31a6d", null ],
+    [ "PMC0_ConfigureStopMode", "a00041.html#gae052d734ffa8bf9f6bc9cb45af58967b", null ],
+    [ "PMC0_ConfigureVlpsMode", "a00041.html#ga6b0609f31c29cb91ce4cd191cfccfcf7", null ],
+    [ "PMC0_ConfigureLlsMode", "a00041.html#ga824f61b32e80514a923abf9020594942", null ],
+    [ "PMC0_ConfigureVllsMode", "a00041.html#ga7b2ee8577b287ad086f34d8e660884cb", null ],
+    [ "PMC0_GetPMC0PowerModeStatusFlags", "a00041.html#ga4bb980f1c78325974f7b7e5178129af6", null ],
+    [ "PMC0_GetPMC0PowerTransitionStatus", "a00041.html#gaea866859737e35eca5bd271c8e537240", null ],
+    [ "PMC0_GetPMC1PowerModeStatusFlags", "a00041.html#gaacc2d5b15c993d7f831731eef4d63ab2", null ],
+    [ "PMC0_GetPMC1PowerTransitionStatus", "a00041.html#gaa47524001cec0a7a9e8100655be9f965", null ],
+    [ "PMC0_GetStatusFlags", "a00041.html#ga1456961706d45194c81b5128176bbc84", null ],
+    [ "PMC0_EnableLowVoltDetectInterrupt", "a00041.html#ga7bc35304be3854e106a89a6c4a440457", null ],
+    [ "PMC0_DisableLowVoltDetectInterrupt", "a00041.html#ga87e5976ef92e110b4ce029317d65af35", null ],
+    [ "PMC0_ClearLowVoltDetectFlag", "a00041.html#gab0b52c126bf4f53fc2e6a913f0d1165b", null ],
+    [ "PMC0_EnableHighVoltDetectInterrupt", "a00041.html#ga708601f97ec4a99e82776bbff468ba3b", null ],
+    [ "PMC0_DisableHighVoltDetectInterrupt", "a00041.html#ga9a68ad403237ef9e38294131bdc1e2e0", null ],
+    [ "PMC0_ClearHighVoltDetectFlag", "a00041.html#gac6a9909b4ab2d0634a005a534afe8ad8", null ],
+    [ "PMC0_EnableLowVoltDetectReset", "a00041.html#ga5f6a9b184eaf43f9e9ee1397d251bd11", null ],
+    [ "PMC0_EnableHighVoltDetectReset", "a00041.html#gad7e7299140aff5f68e44efe81e66d6db", null ],
+    [ "PMC0_ClearPadsIsolation", "a00041.html#gae50eacab12057cf910df36548eb953da", null ],
+    [ "PMC0_PowerOnPmc1", "a00041.html#gab71f34921148c265c86a77a137fd6233", null ],
+    [ "PMC0_EnableWaitLdoOkSignal", "a00041.html#ga47f886fb81024b84bd63716e037c5e1c", null ],
+    [ "PMC0_EnablePmc1LdoRegulator", "a00041.html#gab018d9345012a2739335ed6c8efb3f36", null ],
+    [ "PMC0_EnablePmc1RBBMode", "a00041.html#ga1e7522c6528bf5184a1269fb0c6d2e5c", null ],
+    [ "PMC0_SetBiasConfig", "a00041.html#ga4660ec0a1f44ffc28376e980bf7aeb1b", null ],
+    [ "PMC0_ConfigureSramBankPowerDown", "a00041.html#gae46f3c3fc8f307fea4ec99d45082a27d", null ],
+    [ "PMC0_ConfigureSramBankPowerDownStopMode", "a00041.html#ga00de31afb54362c87741cfb2b9a98c9d", null ],
+    [ "PMC0_ConfigureSramBankPowerDownStandbyMode", "a00041.html#ga2f64db146b522417bd0326930a559597", null ],
+    [ "PMC0_EnableTemperatureSensor", "a00041.html#gab4e9a7b2477fcc716b8a508df7887cf2", null ],
+    [ "PMC0_SetTemperatureSensorMode", "a00041.html#ga8b63c66ae03641ae56faeb3ce87c1e1c", null ]
 ];

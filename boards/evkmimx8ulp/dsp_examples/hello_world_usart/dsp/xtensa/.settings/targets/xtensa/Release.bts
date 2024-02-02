@@ -23,7 +23,7 @@
             <key>Defines</key>
             <value flag="-D">
               <ListEntry key="NDEBUG" value=""/>
-              <ListEntry key="CPU_MIMX8UD7DVP10_dsp0" value=""/>
+              <ListEntry key="CPU_MIMX8UD7DVP08_dsp0" value=""/>
               <ListEntry key="MCUXPRESSO_SDK" value=""/>
             </value>
           </KeyValueListMapEntry>
@@ -64,6 +64,15 @@
           </BooleanMapEntry>
         </BooleanMapOptions>
         <LinkerSupport custom="true" key="-mlsp" value="${xt_project_loc}/../../../../../../devices/MIMX8UD7/xtensa/min-rt"/>
+        <StringListMapOptions>
+          <StringListMapEntry>
+            <key>LinkerAdditionalOptions</key>
+            <value inheritance="append">
+              <ListEntry>-Wl,--orphan-handling=place&#13;
+</ListEntry>
+            </value>
+          </StringListMapEntry>
+        </StringListMapOptions>
       </LinkerOptions>
     </BaseSettings>
     <OverriddenSettings/>

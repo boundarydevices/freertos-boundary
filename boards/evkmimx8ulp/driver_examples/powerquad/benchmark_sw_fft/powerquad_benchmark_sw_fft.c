@@ -34,7 +34,7 @@
 #define MATRIX_TEST_LOOP 10000
 #define MATH_TEST_LOOP   100000
 #define FIR_TEST_LOOP    100000
-#define FFT_TEST_LOOP    10000
+#define FFT_TEST_LOOP    200
 #define VECTOR_TEST_LOOP 10000
 #define BIQUAD_TEST_LOOP 10000
 
@@ -117,7 +117,7 @@ int main(void)
         BOARD_HandshakeWithUboot(); /* Must handshake with uboot, unless will get issues(such as: SoC reset all the
                                        time) */
     }
-    else /* low power boot type */
+    else                            /* low power boot type */
     {
         BOARD_SetTrdcGlobalConfig();
     }

@@ -35,7 +35,7 @@ SET(CMAKE_C_FLAGS_FLASH_DEBUG " \
     -DDEBUG \
     -DFSL_SDK_DRIVER_QUICK_ACCESS_ENABLE=1 \
     -DENABLE_RAM_VECTOR_TABLE \
-    -DCPU_MIMX8UD7DVP10_cm33 \
+    -DCPU_MIMX8UD7DVP08_cm33 \
     -DDSP_IMAGE_COPY_TO_RAM=1 \
     -DMCUXPRESSO_SDK \
     -g \
@@ -60,7 +60,7 @@ SET(CMAKE_C_FLAGS_FLASH_RELEASE " \
     -DNDEBUG \
     -DFSL_SDK_DRIVER_QUICK_ACCESS_ENABLE=1 \
     -DENABLE_RAM_VECTOR_TABLE \
-    -DCPU_MIMX8UD7DVP10_cm33 \
+    -DCPU_MIMX8UD7DVP08_cm33 \
     -DDSP_IMAGE_COPY_TO_RAM=1 \
     -DMCUXPRESSO_SDK \
     -Os \
@@ -147,7 +147,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_FLASH_DEBUG " \
     -Wl,--print-memory-usage \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8UD7xxxxx_cm33_flash.ld -static \
+    -T\"${ProjDirPath}/MIMX8UD7xxxxx_cm33_flash.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_FLASH_RELEASE " \
     ${CMAKE_EXE_LINKER_FLAGS_FLASH_RELEASE} \
@@ -173,5 +173,5 @@ SET(CMAKE_EXE_LINKER_FLAGS_FLASH_RELEASE " \
     -Wl,--print-memory-usage \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8UD7xxxxx_cm33_flash.ld -static \
+    -T\"${ProjDirPath}/MIMX8UD7xxxxx_cm33_flash.ld\" -static \
 ")

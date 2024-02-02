@@ -15,7 +15,7 @@
 /* Whether use external convertor such as MIPI2HDMI convertor (IT6161) */
 #ifndef APP_DISPLAY_EXTERNAL_CONVERTOR
 #define APP_DISPLAY_EXTERNAL_CONVERTOR 0
-//#define APP_DISPLAY_EXTERNAL_CONVERTOR 1
+// #define APP_DISPLAY_EXTERNAL_CONVERTOR 1
 #endif
 
 #define DEMO_PANEL_RK055AHD091 0 /* NXP "RK055AHD091(rm68200) MIPI Rectangular Display  */

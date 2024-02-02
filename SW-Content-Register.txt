@@ -1,6 +1,6 @@
 Release Name: MCUXpresso Software Development Kit (SDK)
-Release Version: 2.14.1
-Package License: LA_OPT_NXP_Software_License.txt v45 May 2023- Additional Distribution License granted, license in Section 2.3 applies
+Release Version: 2.15.000
+Package License: LA_OPT_NXP_Software_License.txt v49 September 2023- Additional Distribution License granted, license in Section 2.3 applies
 
 SDK_Peripheral_Driver      Name: SDK Peripheral Driver                       
                            Version: 2.x.x                                    
@@ -62,7 +62,7 @@ CMSIS                      Name: CMSIS
                            ag/5.8.0                                          
 
 freertos-kernel            Name: FreeRTOS kernel                             
-                           Version: 10.5.0                                   
+                           Version: 10.5.1                                   
                            Outgoing License: MIT                             
                            License File:                                     
                            rtos/freertos/freertos-kernel/LICENSE.md          
@@ -72,6 +72,17 @@ freertos-kernel            Name: FreeRTOS kernel
                            Location: rtos/freertos/freertos-kernel           
                            Origin: Amazon (MIT)                              
                            Url: https://github.com/FreeRTOS/FreeRTOS-Kernel  
+
+corehttp                   Name: FreeRTOS coreHTTP                           
+                           Version: 3.0.0                                    
+                           Outgoing License: MIT                             
+                           License File: rtos/freertos/corehttp/LICENSE      
+                           Format: source code, header files                 
+                           Description: C language HTTP client library       
+                           designed for embedded platforms                   
+                           Location: rtos/freertos/corehttp                  
+                           Origin: Amazon (MIT)                              
+                           Url: https://github.com/FreeRTOS/coreHTTP         
 
 llhttp                     Name: llhttp                                      
                            Version: 6.0.9                                    
@@ -84,7 +95,7 @@ llhttp                     Name: llhttp
                            Url: https://github.com/nodejs/llhttp             
 
 mbedtls                    Name: Mbed TLS                                    
-                           Version: 2.28.3                                   
+                           Version: 2.28.5                                   
                            Outgoing License: Apache-2.0                      
                            License File: middleware/mbedtls/LICENSE          
                            Format: source code                               
@@ -95,7 +106,7 @@ mbedtls                    Name: Mbed TLS
                            2.28.3                                            
 
 multicore                  Name: Multicore SDK                               
-                           Version: 2.14.0                                   
+                           Version: 2.15.0                                   
                            Outgoing License: BSD-3-Clause                    
                            License File: COPYING-BSD-3                       
                            Format: source code                               
@@ -115,6 +126,59 @@ multicore_rpmsg_lite       Name: RPMsg-Lite
                            Origin: Mentor Graphics Corporation & community   
                            contributors                                      
                            Url: https://github.com/NXPmicro/rpmsg-lite       
+
+multicore_erpc             Name: eRPC                                        
+                           Version: 1.12.0                                   
+                           Outgoing License: BSD-3-Clause                    
+                           License File: middleware/multicore/erpc/LICENSE   
+                           Format: source code                               
+                           Description: Embedded Remote Procedure Call       
+                           Location: middleware/multicore/erpc               
+                           Origin: NXP & community contributors              
+                           Url: https://github.com/EmbeddedRPC/erpc          
+
+multicore_erpc_the_bus_piraName: The Bus Pirate                              
+te                         Version: NA                                       
+                           Outgoing License: Open Source - CC0 (Public Domain
+                           Dedication License)                               
+                           License File:                                     
+                           http://code.google.com/p/the-bus-pirate/          
+                           Format: source code                               
+                           Description: OS independent serial interface      
+                           Location:                                         
+                           middleware/multicore/erpc/erpc_c/port/erpc_serial.
+                           h,                                                
+                           middleware/multicore/erpc/erpc_c/port/erpc_serial.
+                           cpp                                               
+                           Origin: Community                                 
+                           Url: http://code.google.com/p/the-bus-pirate/     
+
+multicore_erpc_cpp_templateName: CPP Template                                
+                           Version: NA                                       
+                           Outgoing License: Open Source - MIT               
+                           License File:                                     
+                           middleware/multicore/erpc/erpcgen/src/cpptemplate/
+                           LICENSE.txt                                       
+                           Format: source code                               
+                           Description: CPP Template                         
+                           Location:                                         
+                           middleware/multicore/erpc/erpcgen/src/cpptemplate 
+                           Origin: Ryan Ginstrom & Martinho Fernandes        
+
+multicore_erpc_cpp_option_pName: C++ option-parser                           
+arser                      Version: NA                                       
+                           Outgoing License: Brad Appleton's license         
+                           License File:                                     
+                           http://www.bradapp.com/ftp/src/libs/C++/Options.ta
+                           r.gz , see README file                            
+                           Format: Plain Text                                
+                           Description: C++ option-parser                    
+                           Location:                                         
+                           middleware/multicore/erpc/erpcgen/src/options.cpp 
+                           Origin: Brad Appleton bradapp@enteract.com        
+                           Url:                                              
+                           http://www.bradapp.com/ftp/src/libs/C++/Options.ht
+                           ml                                                
 
 pkcs11                     Name: OASIS TC pkcs11                             
                            Version: 2.40.1                                   
@@ -139,8 +203,8 @@ tinycbor                   Name: TinyCBOR
 
 voice_spot                 Name: VoiceSpot library                           
                            Outgoing License: LA_OPT_NXP_Software_License.txt 
-                           v45 May 2023- Additional Distribution License     
-                           granted, license in Section 2.3 applies           
+                           v49 September 2023- Additional Distribution       
+                           License granted, license in Section 2.3 applies   
                            License File: LA_OPT_NXP_Software_License.txt     
                            Format: Precompiled libraries, header files,      
                            example application                               
@@ -157,14 +221,25 @@ voice_spot                 Name: VoiceSpot library
 naturedsp_fusionf1         Name: naturedsp                                   
                            Version: 1.2.0                                    
                            Outgoing License: LA_OPT_NXP_Software_License.txt 
-                           v45 May 2023- No distribution permitted, license  
-                           in Section 2.2 applies.                           
+                           v49 September 2023- No distribution permitted,    
+                           license in Section 2.2 applies.                   
                            License File: LA_OPT_NXP_Software_License.txt     
                            Format: source code, precompiled library          
                            Description: Digital Signal Processing for Xtensa 
                            Fusion Audio Engines                              
                            Location: middleware/dsp/naturedsp/fusionf1       
                            Origin: Cadence Design Systems (Proprietary)      
+
+osa                        Name: OSA                                         
+                           Version: 1.0.0                                    
+                           Outgoing License: BSD-3-Clause                    
+                           License File: COPYING-BSD-3                       
+                           Format: source code                               
+                           Description: NXP USB stack. This is a version of  
+                           the USB stack that has been integrated with the   
+                           MCUXpresso SDK.                                   
+                           Origin: NXP (BSD-3-Clause)                        
+                           Location: components/osa                          
 
 SDK_Examples               Name: SDK examples                                
                            Version: NA                                       

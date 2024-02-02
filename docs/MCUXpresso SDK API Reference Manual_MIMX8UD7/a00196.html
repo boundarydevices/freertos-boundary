@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.14.1</span>
+   &#160;<span id="projectnumber">Rev 2.15.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -99,6 +99,7 @@ $(document).ready(function(){initNavTree('a00196.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">MU: Messaging Unit</div>  </div>
@@ -144,6 +145,13 @@ MU misc functions</h2>
  If a core enters stop mode, the platform clock of this core is disabled by default. The function <a class="el" href="a00196.html#gaf134175fc2e3adc976bd8e8999124949" title="Enables or disables the clock on the other core. ">MU_SetClockOnOtherCoreEnable()</a> forces the other core's platform clock to remain enabled even after that core has entered a stop mode. In this case, the other core's platform clock keeps running until the current core enters stop mode too.<br/>
 </p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:gaa25bd5e99e58a228062020d6bc6f0f64"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa25bd5e99e58a228062020d6bc6f0f64"></a>
+typedef enum <a class="el" href="a00196.html#ga8609846a236f63d7fffe934fde076af1">_mu_msg_reg_index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00196.html#gaa25bd5e99e58a228062020d6bc6f0f64">mu_msg_reg_index_t</a></td></tr>
+<tr class="memdesc:gaa25bd5e99e58a228062020d6bc6f0f64"><td class="mdescLeft">&#160;</td><td class="mdescRight">MU message register index. <br/></td></tr>
+<tr class="separator:gaa25bd5e99e58a228062020d6bc6f0f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:gae0771a3d173c2b3bf358aff30664f8bf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00196.html#gae0771a3d173c2b3bf358aff30664f8bf">_mu_status_flags</a> { <br/>
@@ -278,13 +286,22 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga3d70799c9e8c0d5ada80b11ec6286ad3"><td class="mdescLeft">&#160;</td><td class="mdescRight">MU core status flags.  <a href="a00196.html#ga3d70799c9e8c0d5ada80b11ec6286ad3">More...</a><br/></td></tr>
 <tr class="separator:ga3d70799c9e8c0d5ada80b11ec6286ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6d1c262f5437e331a33c12cf26fbc90e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00196.html#ga6d1c262f5437e331a33c12cf26fbc90e">mu_msg_reg_index_t</a> </td></tr>
-<tr class="memdesc:ga6d1c262f5437e331a33c12cf26fbc90e"><td class="mdescLeft">&#160;</td><td class="mdescRight">MU message register index. <br/></td></tr>
-<tr class="separator:ga6d1c262f5437e331a33c12cf26fbc90e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8609846a236f63d7fffe934fde076af1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00196.html#ga8609846a236f63d7fffe934fde076af1">_mu_msg_reg_index</a> { <br/>
+&#160;&#160;<a class="el" href="a00196.html#gga8609846a236f63d7fffe934fde076af1a823be21685f741a69787ba81efec2470">kMU_MsgReg0</a> = 0, 
+<br/>
+&#160;&#160;<a class="el" href="a00196.html#gga8609846a236f63d7fffe934fde076af1aae3f93c18ab7e47517a5500049f3b5cd">kMU_MsgReg1</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00196.html#gga8609846a236f63d7fffe934fde076af1a54f109a6897f6911b3ea1b48e9dfa54c">kMU_MsgReg2</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00196.html#gga8609846a236f63d7fffe934fde076af1ad620a7c1917c83b70940bd8f2dfa1bae">kMU_MsgReg3</a>
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga8609846a236f63d7fffe934fde076af1"><td class="mdescLeft">&#160;</td><td class="mdescRight">MU message register index.  <a href="a00196.html#ga8609846a236f63d7fffe934fde076af1">More...</a><br/></td></tr>
+<tr class="separator:ga8609846a236f63d7fffe934fde076af1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
-<tr class="memitem:gac08525378e7d8aaa3e0e6b16e9f76ad3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00196.html#gac08525378e7d8aaa3e0e6b16e9f76ad3">FSL_MU_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 2, 1))</td></tr>
+<tr class="memitem:gac08525378e7d8aaa3e0e6b16e9f76ad3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00196.html#gac08525378e7d8aaa3e0e6b16e9f76ad3">FSL_MU_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 3, 3))</td></tr>
 <tr class="memdesc:gac08525378e7d8aaa3e0e6b16e9f76ad3"><td class="mdescLeft">&#160;</td><td class="mdescRight">MU driver version.  <a href="#gac08525378e7d8aaa3e0e6b16e9f76ad3">More...</a><br/></td></tr>
 <tr class="separator:gac08525378e7d8aaa3e0e6b16e9f76ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -368,9 +385,6 @@ MU misc functions</h2></td></tr>
 <tr class="memitem:ga16044dabe953e6a7deecadbcdb0ba255"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00196.html#ga16044dabe953e6a7deecadbcdb0ba255">MU_HardwareResetOtherCore</a> (MU_Type *base, bool waitReset, bool holdReset, mu_core_boot_mode_t bootMode)</td></tr>
 <tr class="memdesc:ga16044dabe953e6a7deecadbcdb0ba255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware reset the other core.  <a href="#ga16044dabe953e6a7deecadbcdb0ba255">More...</a><br/></td></tr>
 <tr class="separator:ga16044dabe953e6a7deecadbcdb0ba255"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac6dd57592c5d5fa10e7354adc1cad37d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00196.html#gac6dd57592c5d5fa10e7354adc1cad37d">MU_MaskHardwareReset</a> (MU_Type *base, bool mask)</td></tr>
-<tr class="memdesc:gac6dd57592c5d5fa10e7354adc1cad37d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask hardware reset by the other core.  <a href="#gac6dd57592c5d5fa10e7354adc1cad37d">More...</a><br/></td></tr>
-<tr class="separator:gac6dd57592c5d5fa10e7354adc1cad37d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="gac08525378e7d8aaa3e0e6b16e9f76ad3"></a>
@@ -378,7 +392,7 @@ MU misc functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FSL_MU_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 2, 1))</td>
+          <td class="memname">#define FSL_MU_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 3, 3))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -616,6 +630,32 @@ MU misc functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ga8609846a236f63d7fffe934fde076af1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00196.html#ga8609846a236f63d7fffe934fde076af1">_mu_msg_reg_index</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga8609846a236f63d7fffe934fde076af1a823be21685f741a69787ba81efec2470"></a>kMU_MsgReg0</em>&nbsp;</td><td class="fielddoc">
+<p>Message register 0. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga8609846a236f63d7fffe934fde076af1aae3f93c18ab7e47517a5500049f3b5cd"></a>kMU_MsgReg1</em>&nbsp;</td><td class="fielddoc">
+<p>Message register 1. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga8609846a236f63d7fffe934fde076af1a54f109a6897f6911b3ea1b48e9dfa54c"></a>kMU_MsgReg2</em>&nbsp;</td><td class="fielddoc">
+<p>Message register 2. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga8609846a236f63d7fffe934fde076af1ad620a7c1917c83b70940bd8f2dfa1bae"></a>kMU_MsgReg3</em>&nbsp;</td><td class="fielddoc">
+<p>Message register 3. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="ga59dde6d6ef6bd1016eafe1e6faf7a6d9"></a>
 <div class="memitem">
@@ -702,12 +742,12 @@ MU misc functions</h2></td></tr>
 </div><div class="memdoc">
 <p>This function writes a message to the specific TX register. It does not check whether the TX register is empty or not. The upper layer should make sure the TX register is empty before calling this function. This function can be used in ISR for better performance.</p>
 <div class="fragment"><div class="line">* <span class="keywordflow">while</span> (!(<a class="code" href="a00196.html#ggae0771a3d173c2b3bf358aff30664f8bfa8c78ea862685cbf3168dd556137f481b">kMU_Tx0EmptyFlag</a> &amp; <a class="code" href="a00196.html#gaf890a19f44f8fb1a64fa1e2323d05749">MU_GetStatusFlags</a>(base))) { }  Wait <span class="keywordflow">for</span> TX0 <span class="keyword">register</span> empty.</div>
-<div class="line">* <a class="code" href="a00196.html#gae4e41714bd6cf6e3de866e1aaf5b85a2">MU_SendMsgNonBlocking</a>(base, kMU_MsgReg0, MSG_VAL);  Write message to the TX0 <span class="keyword">register</span>.</div>
+<div class="line">* <a class="code" href="a00196.html#gae4e41714bd6cf6e3de866e1aaf5b85a2">MU_SendMsgNonBlocking</a>(base, <a class="code" href="a00196.html#gga8609846a236f63d7fffe934fde076af1a823be21685f741a69787ba81efec2470">kMU_MsgReg0</a>, MSG_VAL);  Write message to the TX0 <span class="keyword">register</span>.</div>
 <div class="line">* </div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>MU peripheral base address. </td></tr>
-    <tr><td class="paramname">regIndex</td><td>TX register index, see <a class="el" href="a00196.html#ga6d1c262f5437e331a33c12cf26fbc90e">mu_msg_reg_index_t</a>. </td></tr>
+    <tr><td class="paramname">regIndex</td><td>TX register index, see <a class="el" href="a00196.html#gaa25bd5e99e58a228062020d6bc6f0f64">mu_msg_reg_index_t</a>. </td></tr>
     <tr><td class="paramname">msg</td><td>Message to send. </td></tr>
   </table>
   </dd>
@@ -748,7 +788,7 @@ MU misc functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>MU peripheral base address. </td></tr>
-    <tr><td class="paramname">regIndex</td><td>MU message register, see <a class="el" href="a00196.html#ga6d1c262f5437e331a33c12cf26fbc90e">mu_msg_reg_index_t</a> </td></tr>
+    <tr><td class="paramname">regIndex</td><td>MU message register, see <a class="el" href="a00196.html#gaa25bd5e99e58a228062020d6bc6f0f64">mu_msg_reg_index_t</a>. </td></tr>
     <tr><td class="paramname">msg</td><td>Message to send. </td></tr>
   </table>
   </dd>
@@ -793,12 +833,12 @@ MU misc functions</h2></td></tr>
 <div class="line">* {</div>
 <div class="line">* }  Wait <span class="keywordflow">for</span> the RX0 <span class="keyword">register</span> full.</div>
 <div class="line">*</div>
-<div class="line">* msg = <a class="code" href="a00196.html#gabeb32b60cedae555c659126d75bda806">MU_ReceiveMsgNonBlocking</a>(base, kMU_MsgReg0);  Read message from RX0 <span class="keyword">register</span>.</div>
+<div class="line">* msg = <a class="code" href="a00196.html#gabeb32b60cedae555c659126d75bda806">MU_ReceiveMsgNonBlocking</a>(base, <a class="code" href="a00196.html#gga8609846a236f63d7fffe934fde076af1a823be21685f741a69787ba81efec2470">kMU_MsgReg0</a>);  Read message from RX0 <span class="keyword">register</span>.</div>
 <div class="line">* </div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>MU peripheral base address. </td></tr>
-    <tr><td class="paramname">regIndex</td><td>RX register index, see <a class="el" href="a00196.html#ga6d1c262f5437e331a33c12cf26fbc90e">mu_msg_reg_index_t</a>. </td></tr>
+    <tr><td class="paramname">regIndex</td><td>RX register index, see <a class="el" href="a00196.html#gaa25bd5e99e58a228062020d6bc6f0f64">mu_msg_reg_index_t</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -833,7 +873,7 @@ MU misc functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>MU peripheral base address. </td></tr>
-    <tr><td class="paramname">regIndex</td><td>MU message register, see <a class="el" href="a00196.html#ga6d1c262f5437e331a33c12cf26fbc90e">mu_msg_reg_index_t</a> </td></tr>
+    <tr><td class="paramname">regIndex</td><td>MU message register, see <a class="el" href="a00196.html#gaa25bd5e99e58a228062020d6bc6f0f64">mu_msg_reg_index_t</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -1005,12 +1045,12 @@ MU misc functions</h2></td></tr>
 <div class="line">* <span class="keywordflow">if</span> (<a class="code" href="a00196.html#ggae0771a3d173c2b3bf358aff30664f8bfa8c78ea862685cbf3168dd556137f481b">kMU_Tx0EmptyFlag</a> &amp; flags)</div>
 <div class="line">* {</div>
 <div class="line">*     The TX0 <span class="keyword">register</span> is empty. Message can be sent.</div>
-<div class="line">*     <a class="code" href="a00196.html#gae4e41714bd6cf6e3de866e1aaf5b85a2">MU_SendMsgNonBlocking</a>(base, kMU_MsgReg0, MSG0_VAL);</div>
+<div class="line">*     <a class="code" href="a00196.html#gae4e41714bd6cf6e3de866e1aaf5b85a2">MU_SendMsgNonBlocking</a>(base, <a class="code" href="a00196.html#gga8609846a236f63d7fffe934fde076af1a823be21685f741a69787ba81efec2470">kMU_MsgReg0</a>, MSG0_VAL);</div>
 <div class="line">* }</div>
 <div class="line">* <span class="keywordflow">if</span> (<a class="code" href="a00196.html#ggae0771a3d173c2b3bf358aff30664f8bfa02c68cfbe97c75fcc1a84d931f5d2e3d">kMU_Tx1EmptyFlag</a> &amp; flags)</div>
 <div class="line">* {</div>
 <div class="line">*     The TX1 <span class="keyword">register</span> is empty. Message can be sent.</div>
-<div class="line">*     <a class="code" href="a00196.html#gae4e41714bd6cf6e3de866e1aaf5b85a2">MU_SendMsgNonBlocking</a>(base, kMU_MsgReg1, MSG1_VAL);</div>
+<div class="line">*     <a class="code" href="a00196.html#gae4e41714bd6cf6e3de866e1aaf5b85a2">MU_SendMsgNonBlocking</a>(base, <a class="code" href="a00196.html#gga8609846a236f63d7fffe934fde076af1aae3f93c18ab7e47517a5500049f3b5cd">kMU_MsgReg1</a>, MSG1_VAL);</div>
 <div class="line">* }</div>
 <div class="line">* </div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
@@ -1456,63 +1496,21 @@ MU misc functions</h2></td></tr>
 <div class="line">*  Current core boot the other core when necessary.</div>
 <div class="line">* <a class="code" href="a00196.html#ga7e679937d4ed822e84f8b2f16feb9415">MU_BootOtherCore</a>(MU_A, bootMode);</div>
 <div class="line">* </div>
-</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The feature waitReset, holdReset, and bootMode might be not supported for some platforms. waitReset is only available for platforms that FSL_FEATURE_MU_NO_CORE_STATUS not defined as 1. holdReset is only available for platforms that FSL_FEATURE_MU_NO_RSTH not defined as 1. bootMode is only available for platforms that FSL_FEATURE_MU_NO_BOOT not defined as 1.</dd></dl>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The feature waitReset, holdReset, and bootMode might be not supported for some platforms. waitReset is only available for platforms that FSL_FEATURE_MU_NO_CORE_STATUS not defined as 1 and FSL_FEATURE_MU_HAS_RESET_ASSERT_INT not defined as 0. holdReset is only available for platforms that FSL_FEATURE_MU_NO_RSTH not defined as 1. bootMode is only available for platforms that FSL_FEATURE_MU_NO_BOOT not defined as 1.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>MU peripheral base address. </td></tr>
-    <tr><td class="paramname">waitReset</td><td>Wait the other core enters reset.<ul>
+    <tr><td class="paramname">waitReset</td><td>Wait the other core enters reset. Only work when there is CSSR0[RAIP]<ul>
 <li>true: Wait until the other core enters reset, if the other core has masked the hardware reset, then this function will be blocked.</li>
 <li>false: Don't wait the reset. </li>
 </ul>
 </td></tr>
-    <tr><td class="paramname">holdReset</td><td>Hold the other core reset or not.<ul>
+    <tr><td class="paramname">holdReset</td><td>Hold the other core reset or not. Only work when there is CCR0[RSTH]<ul>
 <li>true: Hold the other core in reset, this function returns directly when the other core enters reset.</li>
 <li>false: Don't hold the other core in reset, this function waits until the other core out of reset. </li>
 </ul>
 </td></tr>
     <tr><td class="paramname">bootMode</td><td>Boot mode of the other core, if <code>holdReset</code> is true, this parameter is useless. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gac6dd57592c5d5fa10e7354adc1cad37d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void MU_MaskHardwareReset </td>
-          <td>(</td>
-          <td class="paramtype">MU_Type *&#160;</td>
-          <td class="paramname"><em>base</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>mask</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>The other core could call <a class="el" href="a00196.html#ga16044dabe953e6a7deecadbcdb0ba255" title="Hardware reset the other core. ">MU_HardwareResetOtherCore()</a> to reset current core. To mask the reset, call this function and pass in true.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">base</td><td>MU peripheral base address. </td></tr>
-    <tr><td class="paramname">mask</td><td>Pass true to mask the hardware reset, pass false to unmask it. </td></tr>
   </table>
   </dd>
 </dl>

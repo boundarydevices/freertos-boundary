@@ -11,8 +11,8 @@
 #include "fsl_debug_console.h"
 
 static uint32_t RxRCLK = 0U;
-uint32_t MCLK   = 0U;
-uint32_t RxPCLK = 0U;
+uint32_t MCLK          = 0U;
+uint32_t RxPCLK        = 0U;
 static uint32_t MHFP, MHSW, MHBP, MHDEW, MHVR2nd;
 static uint32_t MVFP, MVSW, MVBP, MVDEW, MVFP2nd;
 static uint32_t PHFP, PHSW, PHBP, PHDEW, PHVR2nd;
@@ -63,10 +63,10 @@ void MIPIRX_DumpRegs(display_handle_t *handle)
 
 void MIPIRX_CalRclk(display_handle_t *handle)
 {
-    uint8_t i        = 0U;
+    uint8_t i         = 0U;
     uint32_t t10usint = 0U;
-    uint32_t sum = 0U;
-    uint8_t retry    = 5U;
+    uint32_t sum      = 0U;
+    uint8_t retry     = 5U;
 
     for (i = 0U; i < retry; i++)
     {
@@ -125,7 +125,7 @@ void MIPIRX_CalMclk(display_handle_t *handle)
     uint8_t i;
     uint32_t rddata = 0U;
     uint32_t sum    = 0U;
-    uint8_t retry       = 3U;
+    uint8_t retry   = 3U;
     uint8_t value   = 0U;
 
     for (i = 0U; i < retry; i++)
@@ -153,7 +153,7 @@ void MIPIRX_CalPclk(display_handle_t *handle)
     uint8_t i;
     uint32_t rddata = 0U;
     uint32_t sum    = 0U;
-    uint8_t retry       = 3U;
+    uint8_t retry   = 3U;
     uint8_t value   = 0U;
 
     MIPIRX_SetI2C_Byte(handle, 0x99, 0x80, 0x00);
@@ -267,8 +267,8 @@ void HDMITX_GenerateBlankTiming(display_handle_t *handle)
     uint32_t hsync_start, hsync_end, vsync_start, vsync_end, htotal, hde_start, vtotal;
     uint32_t vsync_start_2nd = 0x00U, vsync_end_2nd = 0x00U, vsync_rising_at_h_2nd;
 
-    hsync_start           = (uint32_t)it6161.hdmi_tx.mode.hsync_start - (uint32_t)it6161.hdmi_tx.mode.hdisplay - 0x01U;
-    hsync_end             = hsync_start + ((uint32_t)it6161.hdmi_tx.mode.hsync_end - (uint32_t)it6161.hdmi_tx.mode.hsync_start);
+    hsync_start = (uint32_t)it6161.hdmi_tx.mode.hsync_start - (uint32_t)it6161.hdmi_tx.mode.hdisplay - 0x01U;
+    hsync_end   = hsync_start + ((uint32_t)it6161.hdmi_tx.mode.hsync_end - (uint32_t)it6161.hdmi_tx.mode.hsync_start);
     vsync_rising_at_h_2nd = hsync_start + ((uint32_t)it6161.hdmi_tx.mode.htotal / 0x02U);
     hde_start             = (uint32_t)it6161.hdmi_tx.mode.htotal - (uint32_t)it6161.hdmi_tx.mode.hsync_start;
     htotal                = (uint32_t)it6161.hdmi_tx.mode.htotal - 0x01U;
@@ -276,17 +276,18 @@ void HDMITX_GenerateBlankTiming(display_handle_t *handle)
     vsync_start = (uint32_t)it6161.hdmi_tx.mode.vsync_start - (uint32_t)it6161.hdmi_tx.mode.vdisplay;
     vsync_end   = (uint32_t)it6161.hdmi_tx.mode.vsync_end - (uint32_t)it6161.hdmi_tx.mode.vdisplay;
     /* Force tx clk/vid stable */
-    HDMITX_SetI2C_Byte(handle, HDMI_TX_HDMI_CONTROL_REGD1,
-                       HDMI_TX_HDMI_CONTROL_REGD1_RegStableDbgMd_TxCLKStable_MASK |
-                           HDMI_TX_HDMI_CONTROL_REGD1_RegStableDbgMd_TxVidStable_MASK,
-                       HDMI_TX_HDMI_CONTROL_REGD1_RegStableDbgMd_TxCLKStable((uint32_t)it6161.hdmi_tx.tx_clk_stable) |
-                           HDMI_TX_HDMI_CONTROL_REGD1_RegStableDbgMd_TxVidStable((uint32_t)it6161.hdmi_tx.tx_vid_stable));
+    HDMITX_SetI2C_Byte(
+        handle, HDMI_TX_HDMI_CONTROL_REGD1,
+        HDMI_TX_HDMI_CONTROL_REGD1_RegStableDbgMd_TxCLKStable_MASK |
+            HDMI_TX_HDMI_CONTROL_REGD1_RegStableDbgMd_TxVidStable_MASK,
+        HDMI_TX_HDMI_CONTROL_REGD1_RegStableDbgMd_TxCLKStable((uint32_t)it6161.hdmi_tx.tx_clk_stable) |
+            HDMI_TX_HDMI_CONTROL_REGD1_RegStableDbgMd_TxVidStable((uint32_t)it6161.hdmi_tx.tx_vid_stable));
 
     HDMITX_SetI2C_Byte(handle, HDMI_TX_PATTERN_GENERATOR_REGA9, HDMI_TX_PATTERN_GENERATOR_REGA9_RegHBPM_MASK,
                        HDMI_TX_PATTERN_GENERATOR_REGA9_RegHBPM((uint32_t)it6161.hdmi_tx.hdmitx_bypass_mode));
-    HDMITX_SetI2C_Byte(handle, HDMI_TX_PATTERN_SYNC_DE_GENERATION_REG90,
-                       HDMI_TX_PATTERN_SYNC_DE_GENERATION_REG90_Reg_GenDE_MASK,
-                       HDMI_TX_PATTERN_SYNC_DE_GENERATION_REG90_Reg_GenDE((uint32_t)it6161.hdmi_tx.de_generation_enable));
+    HDMITX_SetI2C_Byte(
+        handle, HDMI_TX_PATTERN_SYNC_DE_GENERATION_REG90, HDMI_TX_PATTERN_SYNC_DE_GENERATION_REG90_Reg_GenDE_MASK,
+        HDMI_TX_PATTERN_SYNC_DE_GENERATION_REG90_Reg_GenDE((uint32_t)it6161.hdmi_tx.de_generation_enable));
 
     /* Setup pattern generation horizontal total */
     HDMITX_SetI2C_Byte(
@@ -325,9 +326,10 @@ void HDMITX_GenerateBlankTiming(display_handle_t *handle)
         vtotal = (uint32_t)it6161.hdmi_tx.mode.vtotal * 2U;
     }
 
-    HDMITX_SetI2C_Byte(handle, HDMI_TX_PATTERN_SYNC_DE_GENERATION_REGA5,
-                       HDMI_TX_PATTERN_SYNC_DE_GENERATION_REGA5_Reg_PGInterlaced_MASK,
-                       HDMI_TX_PATTERN_SYNC_DE_GENERATION_REGA5_Reg_PGInterlaced((uint32_t)it6161.mipi_rx.interlaced_mode));
+    HDMITX_SetI2C_Byte(
+        handle, HDMI_TX_PATTERN_SYNC_DE_GENERATION_REGA5,
+        HDMI_TX_PATTERN_SYNC_DE_GENERATION_REGA5_Reg_PGInterlaced_MASK,
+        HDMI_TX_PATTERN_SYNC_DE_GENERATION_REGA5_Reg_PGInterlaced((uint32_t)it6161.mipi_rx.interlaced_mode));
     HDMITX_SetI2C_Byte(handle, HDMI_TX_PATTERN_SYNC_DE_GENERATION_REGA0,
                        HDMI_TX_PATTERN_SYNC_DE_GENERATION_REGA0_Reg_PGVRS_MASK,
                        HDMI_TX_PATTERN_SYNC_DE_GENERATION_REGA0_Reg_PGVRS((uint32_t)vsync_start));
@@ -495,7 +497,7 @@ void MIPIRX_Reg06_Process(display_handle_t *handle, uint8_t Reg06)
         MIPIRX_WriteI2C_Byte(handle, 0x06, 0x04);
         MIPIRX_DEBUG_PRINTF("PPS MHDE Error Interrupt !!!\r\n");
     }
-#endif //#if (EnMBPM == false)
+#endif // #if (EnMBPM == false)
 
     if ((Reg06 & 0x08U) != 0x0U)
     {
@@ -520,9 +522,9 @@ void MIPIRX_Reg06_Process(display_handle_t *handle, uint8_t Reg06)
             MIPIRX_SetI2C_Byte(handle, 0x0b, 0x40, 0x40);
             if (it6161.hdmi_tx.hdmitx_bypass_mode != 0x0U)
             {
-                HDMITX_SetI2C_Byte(handle, HDMI_TX_PATTERN_GENERATOR_REGA9,
-                                   HDMI_TX_PATTERN_GENERATOR_REGA9_RegHBPM_MASK,
-                                   HDMI_TX_PATTERN_GENERATOR_REGA9_RegHBPM((uint32_t)it6161.hdmi_tx.hdmitx_bypass_mode));
+                HDMITX_SetI2C_Byte(
+                    handle, HDMI_TX_PATTERN_GENERATOR_REGA9, HDMI_TX_PATTERN_GENERATOR_REGA9_RegHBPM_MASK,
+                    HDMI_TX_PATTERN_GENERATOR_REGA9_RegHBPM((uint32_t)it6161.hdmi_tx.hdmitx_bypass_mode));
             }
             else
             {
@@ -540,8 +542,8 @@ void MIPIRX_Reg06_Process(display_handle_t *handle, uint8_t Reg06)
     {
         MIPIRX_WriteI2C_Byte(handle, 0x06, 0x20);
 #if (!DisPHSyncErr)
-            MIPIRX_DEBUG_PRINTF("PPS PHSync Error Interrupt !!!\r\n");
-#endif //#if (DisPHSyncErr == false)
+        MIPIRX_DEBUG_PRINTF("PPS PHSync Error Interrupt !!!\r\n");
+#endif // #if (DisPHSyncErr == false)
     }
 
 #if (!EnMBPM)
@@ -556,7 +558,7 @@ void MIPIRX_Reg06_Process(display_handle_t *handle, uint8_t Reg06)
         MIPIRX_WriteI2C_Byte(handle, 0x06, 0x80);
         MIPIRX_DEBUG_PRINTF("PPS MVDE Error Interrupt !!!\r\n");
     }
-#endif //#if (EnMBPM == false)
+#endif // #if (EnMBPM == false)
 }
 
 void MIPIRX_Reg07_Process(display_handle_t *handle, uint8_t Reg07)
@@ -622,16 +624,16 @@ void MIPIRX_Reg08_Process(display_handle_t *handle, uint8_t Reg08)
     {
         MIPIRX_WriteI2C_Byte(handle, 0x08, 0x01);
 #if (!DisECCErr)
-    MIPIRX_DEBUG_PRINTF("ECC 1-bit Error Interrupt !!!\r\n");
-#endif //#if (DisECCErr == false)
+        MIPIRX_DEBUG_PRINTF("ECC 1-bit Error Interrupt !!!\r\n");
+#endif // #if (DisECCErr == false)
     }
 
     if ((Reg08 & 0x02U) != 0x0U)
     {
         MIPIRX_WriteI2C_Byte(handle, 0x08, 0x02);
 #if (!DisECCErr)
-    MIPIRX_DEBUG_PRINTF("ECC 2-bit Error Interrupt !!!\r\n");
-#endif //#if (DisECCErr == false)
+        MIPIRX_DEBUG_PRINTF("ECC 2-bit Error Interrupt !!!\r\n");
+#endif // #if (DisECCErr == false)
     }
 
     if ((Reg08 & 0x04U) != 0x0U)
@@ -658,7 +660,7 @@ void MIPIRX_Reg08_Process(display_handle_t *handle, uint8_t Reg08)
         MIPIRX_DEBUG_PRINTF("PPI FIFO OverWrite Interrupt !!!\r\n");
     }
 
-    if ((Reg08 & 0x40U) != 0x0U) 
+    if ((Reg08 & 0x40U) != 0x0U)
     {
         MIPIRX_WriteI2C_Byte(handle, 0x08, 0x40);
 

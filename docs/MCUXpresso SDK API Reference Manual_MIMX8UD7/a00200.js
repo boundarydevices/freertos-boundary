@@ -2,27 +2,28 @@ var a00200 =
 [
     [ "FSL_SEMA42_DRIVER_VERSION", "a00200.html#ga9d157e87f2444c405d2ebf7fe9a39508", null ],
     [ "SEMA42_GATE_NUM_RESET_ALL", "a00200.html#gaa2a42c2ffaa2a3b57c39a5e46988d7f3", null ],
-    [ "SEMA42_GATEn", "a00200.html#ga530cd6b85fc81427b81eb16b837b7dfd", [
+    [ "SEMA42_GATEn", "a00200.html#ga530cd6b85fc81427b81eb16b837b7dfd", null ],
+    [ "sema42_gate_status_t", "a00200.html#ga361bb6f5bed9ff0d80465d85f6ce5a43", [
       [ "kStatus_SEMA42_Busy", "a00200.html#ggaac34dfe6c6b73b43a4656c9dce041034ad5619ab112a016977ca65fb758bf6c17", null ],
       [ "kStatus_SEMA42_Reseting", "a00200.html#ggaac34dfe6c6b73b43a4656c9dce041034ab405b2900737aa815ebc18ea68df56b1", null ]
     ] ],
-    [ "sema42_gate_status_t", "a00200.html#ga84eaf8f6200932ad09d0a75ece6e463d", [
-      [ "kSEMA42_Unlocked", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463daf9c45d68a643bac3a34b65a5cf1aade6", null ],
-      [ "kSEMA42_LockedByProc0", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da3006dc26747f1eb2b8e1941660f7dc24", null ],
-      [ "kSEMA42_LockedByProc1", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463daf4a285b99114632b0b00c85ea7bf1956", null ],
-      [ "kSEMA42_LockedByProc2", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da94c2081e5497a328126e879bf874fbc5", null ],
-      [ "kSEMA42_LockedByProc3", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463dad41b71c7142766ca69c0aade4c3bee53", null ],
-      [ "kSEMA42_LockedByProc4", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da9e984cd6c8ea942d67614cbd8faa7799", null ],
-      [ "kSEMA42_LockedByProc5", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463dad5f2f1cfd86ec744eb9c406baccdeeaf", null ],
-      [ "kSEMA42_LockedByProc6", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da20694487b850dcb86cab5735686d9590", null ],
-      [ "kSEMA42_LockedByProc7", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da94c20f5d4e13f9ed07cf370b3bbe33cb", null ],
-      [ "kSEMA42_LockedByProc8", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463dad614e32d0b0814c1fe69c3e0c92f7f94", null ],
-      [ "kSEMA42_LockedByProc9", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da26fb2f4b8ceeae21a8e93fd069d9f2e4", null ],
-      [ "kSEMA42_LockedByProc10", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463dad888ea149e3b30c04aec2e828f97deee", null ],
-      [ "kSEMA42_LockedByProc11", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da1923aba10a72c8729327a9c8e6a008f1", null ],
-      [ "kSEMA42_LockedByProc12", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463dac2129067e57645365d38996426d8197f", null ],
-      [ "kSEMA42_LockedByProc13", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463da6e63d742de6625c789e49b0586f73c3e", null ],
-      [ "kSEMA42_LockedByProc14", "a00200.html#gga84eaf8f6200932ad09d0a75ece6e463daed15def9132f383c674644194a699ef9", null ]
+    [ "_sema42_gate_status", "a00200.html#ga9debc9b8b1d7539cc7cdb606eed77cd0", [
+      [ "kSEMA42_Unlocked", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0af9c45d68a643bac3a34b65a5cf1aade6", null ],
+      [ "kSEMA42_LockedByProc0", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a3006dc26747f1eb2b8e1941660f7dc24", null ],
+      [ "kSEMA42_LockedByProc1", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0af4a285b99114632b0b00c85ea7bf1956", null ],
+      [ "kSEMA42_LockedByProc2", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a94c2081e5497a328126e879bf874fbc5", null ],
+      [ "kSEMA42_LockedByProc3", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0ad41b71c7142766ca69c0aade4c3bee53", null ],
+      [ "kSEMA42_LockedByProc4", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a9e984cd6c8ea942d67614cbd8faa7799", null ],
+      [ "kSEMA42_LockedByProc5", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0ad5f2f1cfd86ec744eb9c406baccdeeaf", null ],
+      [ "kSEMA42_LockedByProc6", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a20694487b850dcb86cab5735686d9590", null ],
+      [ "kSEMA42_LockedByProc7", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a94c20f5d4e13f9ed07cf370b3bbe33cb", null ],
+      [ "kSEMA42_LockedByProc8", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0ad614e32d0b0814c1fe69c3e0c92f7f94", null ],
+      [ "kSEMA42_LockedByProc9", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a26fb2f4b8ceeae21a8e93fd069d9f2e4", null ],
+      [ "kSEMA42_LockedByProc10", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0ad888ea149e3b30c04aec2e828f97deee", null ],
+      [ "kSEMA42_LockedByProc11", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a1923aba10a72c8729327a9c8e6a008f1", null ],
+      [ "kSEMA42_LockedByProc12", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0ac2129067e57645365d38996426d8197f", null ],
+      [ "kSEMA42_LockedByProc13", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0a6e63d742de6625c789e49b0586f73c3e", null ],
+      [ "kSEMA42_LockedByProc14", "a00200.html#gga9debc9b8b1d7539cc7cdb606eed77cd0aed15def9132f383c674644194a699ef9", null ]
     ] ],
     [ "SEMA42_Init", "a00200.html#ga13685f70a38ed1f8368581b475e963cf", null ],
     [ "SEMA42_Deinit", "a00200.html#gae646085e5d791b895d478e9ef161c3b3", null ],

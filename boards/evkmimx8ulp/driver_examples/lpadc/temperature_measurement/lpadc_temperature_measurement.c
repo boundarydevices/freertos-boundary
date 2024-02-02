@@ -55,7 +55,7 @@ float DEMO_MeasureTemperature(ADC_Type *base, uint32_t commandId, uint32_t index
     lpadc_conv_result_t convResultStruct;
 
     float Vtemp              = 0.0f;
-    uint32_t convResultShift = 3U;
+    uint32_t convResultShift = 0U;
     float temperature        = -273.15f; /* Absolute zero degree as the incorrect return value. */
 
     if (true == LPADC_GetConvResult(base, &convResultStruct))
@@ -91,7 +91,7 @@ int main(void)
         BOARD_HandshakeWithUboot(); /* Must handshake with uboot, unless will get issues(such as: SoC reset all the
                                        time) */
     }
-    else /* low power boot type */
+    else                            /* low power boot type */
     {
         BOARD_SetTrdcGlobalConfig();
     }

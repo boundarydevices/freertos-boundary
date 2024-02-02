@@ -106,7 +106,7 @@ int main(void)
         BOARD_HandshakeWithUboot(); /* Must handshake with uboot, unless will get issues(such as: SoC reset all the
                                        time) */
     }
-    else /* low power boot type */
+    else                            /* low power boot type */
     {
         PRINTF("Pls run the demo with A Core(the demo depend on resource of A core)\r\n");
         assert(false);

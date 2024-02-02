@@ -60,8 +60,8 @@
 #define DEMO_COLOR_GREEN DEMO_MAKE_COLOR(0, 255, 0)
 #define DEMO_COLOR_BLUE  DEMO_MAKE_COLOR(0, 0, 255)
 
-#define EXAMPLE_FLEXSPI                    BOARD_FLEXSPI_PSRAM
-#define EXAMPLE_FLEXSPI_AMBA_BASE0         FlexSPI1_AMBA_BASE
+#define EXAMPLE_FLEXSPI            BOARD_FLEXSPI_PSRAM
+#define EXAMPLE_FLEXSPI_AMBA_BASE0 FlexSPI1_AMBA_BASE
 
 typedef enum _app_wakeup_source
 {
@@ -97,7 +97,8 @@ extern pca9460_buck3ctrl_t buck3_ctrl;
 extern pca9460_ldo1_cfg_t ldo1_cfg;
 extern bool wake_acore_flag;
 rtd_mode_and_irq_allow_t current_state = {LPM_PowerModeActive, LPM_PowerModeActive, NotAvail_IRQn, RTD_GIVE_SIG_YES};
-static uint32_t s_frameBufferAddr[3] = {EXAMPLE_FLEXSPI_AMBA_BASE0, EXAMPLE_FLEXSPI_AMBA_BASE0 + 0x200000U, EXAMPLE_FLEXSPI_AMBA_BASE0 + 0x400000U};
+static uint32_t s_frameBufferAddr[3]   = {EXAMPLE_FLEXSPI_AMBA_BASE0, EXAMPLE_FLEXSPI_AMBA_BASE0 + 0x200000U,
+                                          EXAMPLE_FLEXSPI_AMBA_BASE0 + 0x400000U};
 // clang-format off
 /*
  * For some system low power combine, such as APD->PD, RTD->PD, use GPIO as RTD wakeup source, it will trigger WUU + GPIO irq handler in RTD side, release twice Semaphore Sig.
@@ -206,7 +207,7 @@ static void APP_Suspend(void)
 
         GPIOA->ICR[i] = 0; /* Disable interrupts */
 
-	/* Skip PTA3 for MIPI DSI backlight */
+                           /* Skip PTA3 for MIPI DSI backlight */
         if (3 != i)
         {
             IOMUXC0->PCR0_IOMUXCARRAY0[i] = 0;
@@ -270,7 +271,7 @@ static void APP_Suspend(void)
 
         GPIOC->ICR[i] = 0; /* disable interrupts */
 
-	/* Skip PTC12 ~ 23 for MIPI DSI and FlexSPI1 pinmux */
+                           /* Skip PTC12 ~ 23 for MIPI DSI and FlexSPI1 pinmux */
         if (i < 12)
         {
             IOMUXC0->PCR0_IOMUXCARRAY2[i] = 0;
@@ -335,7 +336,7 @@ void APP_DisableGPIO(void)
     /* Disable PTB and set PTB to Analog/HiZ state to save power */
     for (i = 0; i <= 15; i++)
     {
-        if ((i != 10) && (i != 11)) /* PTB10 and PTB11 is used as i2c function by upower */
+        if ((i != 10) && (i != 11))            /* PTB10 and PTB11 is used as i2c function by upower */
         {
             GPIOB->ICR[i]                 = 0; /* Disable interrupts */
             IOMUXC0->PCR0_IOMUXCARRAY1[i] = 0; /* Set to Analog/HiZ state */
@@ -347,7 +348,7 @@ void APP_DisableGPIO(void)
     {
         GPIOC->ICR[i] = 0; /* Disable interrupts */
 
-	/* Skip PTC12 ~ 23 for MIPI DSI and PSRAM */
+                           /* Skip PTC12 ~ 23 for MIPI DSI and PSRAM */
         if (i < 12)
         {
             IOMUXC0->PCR0_IOMUXCARRAY2[i] = 0; /* Set to Analog/HiZ state */
@@ -377,7 +378,7 @@ void APP_PowerPreSwitchHook(lpm_rtd_power_mode_e targetMode)
         IOMUXC_SetPinConfig(IOMUXC_PTA11_LPUART1_RX, 0);
 
         if (LPM_PowerModePowerDown == targetMode || LPM_PowerModeDeepSleep == targetMode ||
-			LPM_PowerModeSleep == targetMode)
+            LPM_PowerModeSleep == targetMode)
         {
             APP_Suspend();
         }
@@ -409,7 +410,7 @@ void APP_PowerPostSwitchHook(lpm_rtd_power_mode_e targetMode, bool result)
     if (LPM_PowerModeActive != targetMode)
     {
         if (LPM_PowerModePowerDown == targetMode || LPM_PowerModeDeepSleep == targetMode ||
-			LPM_PowerModeSleep == targetMode)
+            LPM_PowerModeSleep == targetMode)
         {
             APP_Resume(result);
         }
@@ -518,7 +519,7 @@ status_t BOARD_InitPsRam_Fro(void)
     flexspi_device_config_t deviceconfig = {
         .flexspiRootClk       = 192000000, /* 192MHZ SPI serial clock, DDR serial clock 96M */
         .isSck2Enabled        = false,
-        .flashSize            = 0x2000, /* 64Mb/KByte */
+        .flashSize            = 0x2000,    /* 64Mb/KByte */
         .CSIntervalUnit       = kFLEXSPI_CsIntervalUnit1SckCycle,
         .CSInterval           = 5,
         .CSHoldTime           = 3,
@@ -600,7 +601,7 @@ status_t BOARD_InitPsRam_Fro(void)
     config.ahbConfig.buffer[0].masterIndex    = 2;    /* DMA0 */
     config.ahbConfig.buffer[0].bufferSize     = 1024; /* Allocate 1KB bytes for DMA0 */
     config.ahbConfig.buffer[0].enablePrefetch = true;
-    config.ahbConfig.buffer[0].priority       = 7; /* Set DMA0 to highest priority. */
+    config.ahbConfig.buffer[0].priority       = 7;    /* Set DMA0 to highest priority. */
     /* All other masters use last buffer with 1KB bytes. */
     config.ahbConfig.buffer[FSL_FEATURE_FLEXSPI_AHB_BUFFER_COUNT - 1].bufferSize = 1024;
     config.enableCombination                                                     = true;
@@ -1090,7 +1091,7 @@ static void DEMO_EnterSleep()
     else /* Idle task will handle the low power state. */
     {
         /* Wakeup source is LPTMR, set wakeup timeout to 1s, actually depends on lcdif irq */
-        s_wakeupSource = kAPP_WakeupSourceLptmr;
+        s_wakeupSource  = kAPP_WakeupSourceLptmr;
         s_wakeupTimeout = 1;
 
         APP_SetWakeupConfig(targetPowerMode);
@@ -1105,7 +1106,7 @@ static void DEMO_EnableLPAV()
     /* Restore BUCK3 voltage to 1.0V, please refer to PCA9460 for the specific data */
     UPOWER_SetPmicReg(PCA9460_BUCK3OUT_DVS0_ADDR, 0x20);
 
-    SIM_SEC->SYSCTRL0 &= ~0x00000080; /* LPAV alloc to RTD */
+    SIM_SEC->SYSCTRL0 &= ~0x00000080;               /* LPAV alloc to RTD */
     SIM_SEC->LPAV_MASTER_ALLOC_CTRL &= ~0x00000018; /* DSI/LCDIF alloc to RTD */
 
     /* Power on LPAV domain */
@@ -1221,7 +1222,7 @@ void LowPowerDisplayTask(void *pvParameters)
 
     /* Setup LPTMR. */
     LPTMR_GetDefaultConfig(&lptmrConfig);
-    lptmrConfig.prescalerClockSource = kLPTMR_PrescalerClock_1; /* Use RTC 1KHz as clock source. */
+    lptmrConfig.prescalerClockSource = kLPTMR_PrescalerClock_1;  /* Use RTC 1KHz as clock source. */
     lptmrConfig.bypassPrescaler      = false;
     lptmrConfig.value                = kLPTMR_Prescale_Glitch_3; /* Divide clock source by 16. */
     LPTMR_Init(LPTMR1, &lptmrConfig);
@@ -1253,7 +1254,7 @@ void LowPowerDisplayTask(void *pvParameters)
 
     for (;;)
     {
-        freq = CLOCK_GetFreq(kCLOCK_Cm33CorePlatClk);
+        freq  = CLOCK_GetFreq(kCLOCK_Cm33CorePlatClk);
         freq1 = CLOCK_GetFreq(kCLOCK_Cm33BusClk);
         freq2 = CLOCK_GetFreq(kCLOCK_Cm33SlowClk);
         PRINTF("\r\n####################  Power Mode Switch Task ####################\n\r\n");
@@ -1435,7 +1436,7 @@ void vPortSuppressTicksAndSleep(TickType_t xExpectedIdleTime)
     }
     EnableGlobalIRQ(irqMask);
     /* Recovery clock(switch clock source from FRO to PLL0/1) after interrupt is enabled */
-    //BOARD_ResumeClockInit();
+    // BOARD_ResumeClockInit();
 }
 
 /* Called in LowPowerDisplayTask */

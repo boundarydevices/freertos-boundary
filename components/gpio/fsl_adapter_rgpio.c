@@ -47,8 +47,12 @@ typedef struct _hal_gpio_state
  ******************************************************************************/
 static hal_gpio_state_t *s_GpioHead;
 static RGPIO_Type *const s_rgpioBases[] = RGPIO_BASE_PTRS;
-static IRQn_Type Rgpio_IRQn[]           = {NotAvail_IRQn, GPIO1_0_IRQn, GPIO2_0_IRQn, GPIO3_0_IRQn,
-                                 GPIO4_0_IRQn,  GPIO5_0_IRQn, GPIO6_0_IRQn};
+#ifdef RGPIO_IRQS
+static IRQn_Type Rgpio_IRQn[] = RGPIO_IRQS;
+#else
+static IRQn_Type Rgpio_IRQn[] = {NotAvail_IRQn, GPIO1_0_IRQn, GPIO2_0_IRQn, GPIO3_0_IRQn,
+                                 GPIO4_IRQn,    GPIO5_IRQn,   GPIO6_IRQn};
+#endif
 /*******************************************************************************
  * Code
  ******************************************************************************/
@@ -99,21 +103,21 @@ void GPIO3_0_IRQHandler(void)
     SDK_ISR_EXIT_BARRIER;
 }
 
-void GPIO4_0_IRQHandler(void);
-void GPIO4_0_IRQHandler(void)
+void GPIO4_IRQHandler(void);
+void GPIO4_IRQHandler(void)
 {
     HAL_GpioInterruptHandle(4);
     SDK_ISR_EXIT_BARRIER;
 }
-void GPIO5_0_IRQHandler(void);
-void GPIO5_0_IRQHandler(void)
+void GPIO5_IRQHandler(void);
+void GPIO5_IRQHandler(void)
 {
     HAL_GpioInterruptHandle(5);
     SDK_ISR_EXIT_BARRIER;
 }
 
-void GPIO6_0_IRQHandler(void);
-void GPIO6_0_IRQHandler(void)
+void GPIO6_IRQHandler(void);
+void GPIO6_IRQHandler(void)
 {
     HAL_GpioInterruptHandle(6);
     SDK_ISR_EXIT_BARRIER;
@@ -351,7 +355,8 @@ hal_gpio_status_t HAL_GpioSetTriggerMode(hal_gpio_handle_t gpioHandle, hal_gpio_
                                 kRGPIO_InterruptOutput0, triggerConfig);
     if (kRGPIO_InterruptOrDMADisabled != triggerConfig)
     {
-        NVIC_EnableIRQ(Rgpio_IRQn[gpioStateHandle->pin.port]);
+    	NVIC_SetPriority(Rgpio_IRQn[gpioStateHandle->pin.port], HAL_GPIO_ISR_PRIORITY);
+    	NVIC_EnableIRQ(Rgpio_IRQn[gpioStateHandle->pin.port]);
     }
 
     return kStatus_HAL_GpioSuccess;

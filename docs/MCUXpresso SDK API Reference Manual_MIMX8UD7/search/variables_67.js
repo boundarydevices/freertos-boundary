@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['g_5flpspidummydata',['g_lpspiDummyData',['../a00032.html#ga95e4847cd333277614975d46280df9dd',1,'fsl_lpspi.h']]],
+  ['g_5flpspidummydata',['g_lpspiDummyData',['../a00031.html#ga95e4847cd333277614975d46280df9dd',1,'fsl_lpspi.h']]],
   ['g_5flvdsfreq',['g_lvdsFreq',['../a00009.html#ga89db330ebb2632438c95a8c30d24c3f1',1,'fsl_clock.h']]],
   ['g_5fmclkfreq',['g_mclkFreq',['../a00009.html#gae2ca5687392ca0b78b37b5e050f5a195',1,'fsl_clock.h']]],
   ['g_5frxbclkfreq',['g_rxBclkFreq',['../a00009.html#ga616a034620e7ea70e0a68876f548c16f',1,'fsl_clock.h']]],

@@ -16,6 +16,10 @@
 #define FSL_COMPONENT_ID "platform.drivers.epdc"
 #endif
 
+#if defined(EPDC_RSTS)
+#define EPDC_RESETS_ARRAY EPDC_RSTS
+#endif
+
 typedef union
 {
     epdc_fifo_config_t _fifo_config;                 /* 32-bit */
@@ -43,6 +47,11 @@ static EPDC_Type *const s_epdcBases[] = EPDC_BASE_PTRS;
 /*! brief Pointers to EPDC clocks for each EPDC submodule. */
 static const clock_ip_name_t s_epdcClocks[] = EPDC_CLOCKS;
 #endif /* FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL */
+
+#if defined(EPDC_RESETS_ARRAY)
+/* Reset array */
+static const reset_ip_name_t s_epdcResets[] = EPDC_RESETS_ARRAY;
+#endif
 
 /*******************************************************************************
  * Code
@@ -98,6 +107,10 @@ void EPDC_Init(EPDC_Type *base)
 {
 #if !(defined(FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL) && FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL)
     CLOCK_EnableClock(s_epdcClocks[EPDC_GetInstance(base)]);
+#endif
+
+#if defined(EPDC_RESETS_ARRAY)
+    RESET_ReleasePeripheralReset(s_epdcResets[EPDC_GetInstance(base)]);
 #endif
 
     EPDC_ResetToInit(base);

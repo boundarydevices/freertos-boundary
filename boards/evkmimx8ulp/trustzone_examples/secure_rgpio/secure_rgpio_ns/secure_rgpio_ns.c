@@ -16,8 +16,8 @@
 #define TEST_SW8_GPIO GPIOB
 #define TEST_NS_GPIOA GPIOA
 
-#define TEST_SW8_GPIO_PIN    12U
-#define TEST_SW7_GPIO_PIN    13U
+#define TEST_SW8_GPIO_PIN 12U
+#define TEST_SW7_GPIO_PIN 13U
 #define TEST_GPIOA_PIN15  15U
 #define TEST_GPIOA_PIN18  18U
 
@@ -44,10 +44,11 @@ int main(void)
     {
         if (RGPIO_PinRead(TEST_SW7_GPIO, TEST_SW7_GPIO_PIN))
         {
-            RGPIO_PinWrite(TEST_NS_GPIOA,TEST_GPIOA_PIN18,1);
-        }else
+            RGPIO_PinWrite(TEST_NS_GPIOA, TEST_GPIOA_PIN18, 1);
+        }
+        else
         {
-            RGPIO_PinWrite(TEST_NS_GPIOA,TEST_GPIOA_PIN18,0);
+            RGPIO_PinWrite(TEST_NS_GPIOA, TEST_GPIOA_PIN18, 0);
         }
 
         SDK_DelayAtLeastUs(1000, SystemCoreClock);

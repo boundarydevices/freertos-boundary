@@ -372,7 +372,7 @@ bool BOARD_IsIpDisabled(ip_type_e type)
             {
                 result = true; /* epdc is disabled */
             }
-        break;
+            break;
         case IP_GPU:
             if (soc_type == MPU_SOC_IMX8ULPD3 && soc_type == MPU_SOC_IMX8ULPS3)
             {
@@ -620,7 +620,7 @@ void BOARD_SetTrdcGlobalConfig(void)
         mbcBlockConfig.slaveMemoryIdx            = 0U;   /* MBC2_DOM7_MEM0 */
         mbcBlockConfig.memoryBlockIdx            = 47U;  /* MBC2_DOM7_MEM0_BLK_CFG_W47 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
-        mbcBlockConfig.memoryBlockIdx = 48U; /* MBC2_DOM7_MEM0_BLK_CFG_W48 */
+        mbcBlockConfig.memoryBlockIdx = 48U;             /* MBC2_DOM7_MEM0_BLK_CFG_W48 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
 
         /* non secure state can access PCC1(PBridge1 slot 17) and ADC1(PBridge1 slot 34) for cortex-A35 */
@@ -631,7 +631,7 @@ void BOARD_SetTrdcGlobalConfig(void)
         mbcBlockConfig.slaveMemoryIdx            = 1U;   /* MBC2_DOM7_MEM1 */
         mbcBlockConfig.memoryBlockIdx            = 17U;  /* MBC2_DOM7_MEM1_BLK_CFG_W17 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
-        mbcBlockConfig.memoryBlockIdx = 34U; /* MBC2_DOM7_MEM1_BLK_CFG_W34 */
+        mbcBlockConfig.memoryBlockIdx = 34U;             /* MBC2_DOM7_MEM1_BLK_CFG_W34 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
 
         /* non secure state can access iomuxc0(PBridge1 slot 33) for cortex-A35 */
@@ -708,7 +708,7 @@ void BOARD_SetTrdcGlobalConfig(void)
         mbcBlockConfig.slaveMemoryIdx            = 3U;   /* MBC2_DOM7_MEM3, slave memoty is sentinel */
         mbcBlockConfig.memoryBlockIdx            = 1U;   /* MBC2_DOM7_MEM3_BLK_CFG_W1 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
-        mbcBlockConfig.memoryBlockIdx = 2U; /* MBC2_DOM7_MEM3_BLK_CFG_W2 */
+        mbcBlockConfig.memoryBlockIdx = 2U;              /* MBC2_DOM7_MEM3_BLK_CFG_W2 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
 
         /* non secure state can access RTD_SIM_SEC(PBridge0 slot 43, T-MBC2) for cortex-A35 */
@@ -896,11 +896,11 @@ void BOARD_SetTrdcGlobalConfig(void)
         mbcBlockConfig.slaveMemoryIdx            = 1U;                  /* MBC2_DOM0_MEM1 */
         mbcBlockConfig.memoryBlockIdx            = 40U;                 /* MBC2_DOM0_MEM1_BLK_CFG_W40 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
-        mbcBlockConfig.memoryBlockIdx = 41U; /* MBC2_DOM0_MEM1_BLK_CFG_W41 */
+        mbcBlockConfig.memoryBlockIdx = 41U;                            /* MBC2_DOM0_MEM1_BLK_CFG_W41 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
-        mbcBlockConfig.memoryBlockIdx = 42U; /* MBC2_DOM0_MEM1_BLK_CFG_W42 */
+        mbcBlockConfig.memoryBlockIdx = 42U;                            /* MBC2_DOM0_MEM1_BLK_CFG_W42 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
-        mbcBlockConfig.memoryBlockIdx = 43U; /* MBC2_DOM0_MEM1_BLK_CFG_W43 */
+        mbcBlockConfig.memoryBlockIdx = 43U;                            /* MBC2_DOM0_MEM1_BLK_CFG_W43 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
 
         /* non secure state can access ssram(T-MBC0) for eDMA0 */
@@ -1045,7 +1045,7 @@ void BOARD_SetTrdcAfterApdReset(void)
         mbcBlockConfig.slaveMemoryIdx            = 3U;    /* MBC2_DOM7_MEM3, slave memoty is sentinel */
         mbcBlockConfig.memoryBlockIdx            = 1U;    /* MBC2_DOM7_MEM3_BLK_CFG_W1 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
-        mbcBlockConfig.memoryBlockIdx = 2U; /* MBC2_DOM7_MEM3_BLK_CFG_W2 */
+        mbcBlockConfig.memoryBlockIdx = 2U;               /* MBC2_DOM7_MEM3_BLK_CFG_W2 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
 
         /* secure state can access RTD_SIM_SEC(PBridge0 slot 43, T-MBC2) for cortex-A35 */
@@ -1065,7 +1065,7 @@ void BOARD_SetTrdcAfterApdReset(void)
         mbcBlockConfig.slaveMemoryIdx            = 0U;    /* MBC2_DOM7_MEM0 */
         mbcBlockConfig.memoryBlockIdx            = 47U;   /* MBC2_DOM7_MEM0_BLK_CFG_W47 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
-        mbcBlockConfig.memoryBlockIdx = 48U; /* MBC2_DOM7_MEM0_BLK_CFG_W48 */
+        mbcBlockConfig.memoryBlockIdx = 48U;              /* MBC2_DOM7_MEM0_BLK_CFG_W48 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
     }
 }
@@ -1345,7 +1345,7 @@ status_t BOARD_InitPsRam(void)
     flexspi_device_config_t deviceconfig = {
         .flexspiRootClk       = 392000000, /* 392MHZ SPI serial clock, DDR serial clock 196M */
         .isSck2Enabled        = false,
-        .flashSize            = 0x2000, /* 64Mb/KByte */
+        .flashSize            = 0x2000,    /* 64Mb/KByte */
         .CSIntervalUnit       = kFLEXSPI_CsIntervalUnit1SckCycle,
         .CSInterval           = 5,
         .CSHoldTime           = 3,
@@ -1427,7 +1427,7 @@ status_t BOARD_InitPsRam(void)
     config.ahbConfig.buffer[0].masterIndex    = 2;    /* DMA0 */
     config.ahbConfig.buffer[0].bufferSize     = 1024; /* Allocate 1KB bytes for DMA0 */
     config.ahbConfig.buffer[0].enablePrefetch = true;
-    config.ahbConfig.buffer[0].priority       = 7; /* Set DMA0 to highest priority. */
+    config.ahbConfig.buffer[0].priority       = 7;    /* Set DMA0 to highest priority. */
     /* All other masters use last buffer with 1KB bytes. */
     config.ahbConfig.buffer[FSL_FEATURE_FLEXSPI_AHB_BUFFER_COUNT - 1].bufferSize = 1024;
     config.enableCombination                                                     = true;
@@ -2009,7 +2009,7 @@ void BOARD_LpavSave(void)
 
     for (i = 0; i < ARRAY_SIZE(pcc5_0); i++)
     {
-        val = R32(pcc5_0[i][0]);
+        val          = R32(pcc5_0[i][0]);
         pcc5_0[i][1] = 0U;
         if (val & PCC_CLKCFG_PR_MASK)
         {
@@ -2019,7 +2019,7 @@ void BOARD_LpavSave(void)
 
     for (i = 0; i < ARRAY_SIZE(pcc5_1); i++)
     {
-        val = R32(pcc5_1[i][0]);
+        val          = R32(pcc5_1[i][0]);
         pcc5_1[i][1] = 0U;
         if (val & PCC_CLKCFG_PR_MASK)
         {
@@ -2170,10 +2170,10 @@ void BOARD_DramExitRetention(uint32_t dram_class, struct dram_cfg *dram_timing_c
          */
         /* e. PI_PWRUP_SREFRESH_EXIT_CS=0xF */
         /* f. PI_DLL_RESET=0x1 */
-        SETBIT32(LPDDR_BASE + DENALI_PI_137, 0x1);                    /* PI_DLL_RESET=1 */
-        SETBIT32(LPDDR_BASE + DENALI_PI_132, 0x01000000);             /* PI_PWRUP_SELF_REF_EXIT = 1 */
-        CLRBIT32(LPDDR_BASE + DENALI_PI_132, BIT(16));                /* PI_MC_PWRUP_SELF_REF_EXIT = 0 */
-        LPDDR->DENALI_PI_4 &= ~LPDDR_DENALI_PI_4_PI_INIT_LVL_EN_MASK; /* PI_INT_LVL_EN = 0 */
+        SETBIT32(LPDDR_BASE + DENALI_PI_137, 0x1);                       /* PI_DLL_RESET=1 */
+        SETBIT32(LPDDR_BASE + DENALI_PI_132, 0x01000000);                /* PI_PWRUP_SELF_REF_EXIT = 1 */
+        CLRBIT32(LPDDR_BASE + DENALI_PI_132, BIT(16));                   /* PI_MC_PWRUP_SELF_REF_EXIT = 0 */
+        LPDDR->DENALI_PI_4 &= ~LPDDR_DENALI_PI_4_PI_INIT_LVL_EN_MASK;    /* PI_INT_LVL_EN = 0 */
         LPDDR->DENALI_PI_174 |= (LPDDR_DENALI_PI_174_PI_WRLVL_EN_F0(3) |
                                  LPDDR_DENALI_PI_174_PI_WRLVL_EN_F1(3)); /* PI_WRLVL_EN_F0 = 3, PI_WRLVL_EN_F1 = 3 */
         LPDDR->DENALI_PI_175 |= LPDDR_DENALI_PI_175_PI_WRLVL_EN_F2(3);   /* PI_WRLVL_EN_F2 = 3 */

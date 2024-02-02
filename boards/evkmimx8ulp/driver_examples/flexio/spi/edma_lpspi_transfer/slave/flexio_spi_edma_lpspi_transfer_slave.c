@@ -126,7 +126,7 @@ int main(void)
         BOARD_HandshakeWithUboot(); /* Must handshake with uboot, unless will get issues(such as: SoC reset all the
                                        time) */
     }
-    else /* low power boot type */
+    else                            /* low power boot type */
     {
         BOARD_SetTrdcGlobalConfig();
     }
@@ -150,6 +150,7 @@ int main(void)
     edma_config_t config;
 
     /*Master config*/
+    LPSPI_MasterGetDefaultConfig(&masterConfig);
     masterConfig.baudRate     = TRANSFER_BAUDRATE;
     masterConfig.bitsPerFrame = 8;
     masterConfig.cpol         = kLPSPI_ClockPolarityActiveHigh;

@@ -199,7 +199,7 @@ status_t PCA6416A_ClearPins(pca6416a_handle_t *handle, uint16_t pins);
  */
 status_t PCA6416A_TogglePins(pca6416a_handle_t *handle, uint16_t pins);
 
-/* @} */
+/*! @} */
 
 #if defined(__cplusplus)
 }

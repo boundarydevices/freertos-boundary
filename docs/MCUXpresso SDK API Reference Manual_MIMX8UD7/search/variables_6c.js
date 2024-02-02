@@ -1,15 +1,15 @@
 var searchData=
 [
-  ['lastscktopcsdelayinnanosec',['lastSckToPcsDelayInNanoSec',['../a00032.html#a351819436a1a3ac8703d68929dd37bcf',1,'lpspi_master_config_t']]],
-  ['lastsize',['lastSize',['../a00038.html#ab3e69da5e17f984fda7cf6a9b81a7eb1',1,'_ltc_edma_handle']]],
-  ['leftinputsource',['leftInputSource',['../a00053.html#a775a0be4401bb4e3bfabc2cf30bc62c6',1,'wm8960_config_t']]],
-  ['length',['length',['../a00046.html#a5eb02d4cb2745ea57f5f78e764f80893',1,'serial_manager_callback_message_t']]],
-  ['level',['level',['../a00051.html#a5b49674b66d63f0c21ba27c41a4a2eaf',1,'tpm_chnl_pwm_signal_param_t']]],
-  ['link',['link',['../a00049.html#a8178558fd61934e49498c79f2e47792e',1,'shell_command_t']]],
-  ['locked',['locked',['../a00009.html#a9a9467e1cf34d7eb37e77a9d0943519f',1,'cgc_rtd_sys_clk_config_t::locked()'],['../a00009.html#a80fc79f8c47b860128a6b6e607eeaaeb',1,'cgc_hifi_sys_clk_config_t::locked()'],['../a00009.html#ad8bd891049820610fc36e0edde58b739',1,'cgc_lpav_sys_clk_config_t::locked()'],['../a00009.html#a84dfd36064fe7e4e1c726fb171335d71',1,'cgc_ddr_sys_clk_config_t::locked()']]],
-  ['lookuptable',['lookuptable',['../a00026.html#a6a0feb5d24a33026c8f539004ba60ce3',1,'qspi_flash_config_t']]],
-  ['loopcount',['loopCount',['../a00027.html#a7ce69c5cf297a804b5510d779036c867',1,'lpadc_conv_command_config_t']]],
-  ['loopcountindex',['loopCountIndex',['../a00027.html#a87e1ee666c960928797ca574f1bcae1b',1,'lpadc_conv_result_t']]],
-  ['lpspisoftwaretcd',['lpspiSoftwareTCD',['../a00033.html#a1610cd02da7febac3e0cb624bd5f54af',1,'_lpspi_master_edma_handle::lpspiSoftwareTCD()'],['../a00033.html#a1aa47d8c4f4d937202d9e5407500d918',1,'_lpspi_slave_edma_handle::lpspiSoftwareTCD()']]],
-  ['lvdmonitorselect',['lvdMonitorSelect',['../a00042.html#aec621de85fe5b3f8d34a64a88d32e80c',1,'pmc0_vlpr_mode_config_t::lvdMonitorSelect()'],['../a00042.html#a4b2683e89e1c248837ad0f7ab0826b84',1,'pmc0_vlps_mode_config_t::lvdMonitorSelect()'],['../a00042.html#a29a118a9f8188687b072b8b4f0b1060c',1,'pmc0_lls_mode_config_t::lvdMonitorSelect()'],['../a00042.html#a420f371dea6466c08b3f533907ad17cf',1,'pmc0_vlls_mode_config_t::lvdMonitorSelect()']]]
+  ['lastscktopcsdelayinnanosec',['lastSckToPcsDelayInNanoSec',['../a00031.html#abcd52e97b8e950f8f451f89c3423949e',1,'_lpspi_master_config']]],
+  ['lastsize',['lastSize',['../a00037.html#a1cfd063f45ca4209af5ac971e40c3c50',1,'_ltc_edma_handle']]],
+  ['leftinputsource',['leftInputSource',['../a00051.html#ad19b3b32dfa610eb689406c8567526ee',1,'wm8960_config']]],
+  ['length',['length',['../a00044.html#a18eb3f893e218b84d4d8d0a16627421b',1,'_serial_manager_callback_message']]],
+  ['level',['level',['../a00049.html#a75fc8877b97eee16cba5b5828127044d',1,'_tpm_chnl_pwm_signal_param']]],
+  ['link',['link',['../a00047.html#ab656143c38d8fc0338aa2e58e76d73a2',1,'_shell_command']]],
+  ['locked',['locked',['../a00009.html#a5f98d52158d5e01e3c0e33f0f968bf70',1,'_cgc_rtd_sys_clk_config::locked()'],['../a00009.html#a3fc197c7085bfc7633edc44a16f214a3',1,'_cgc_hifi_sys_clk_config::locked()'],['../a00009.html#abd33047f442b2fe69e7210e426be2753',1,'_cgc_lpav_sys_clk_config::locked()'],['../a00009.html#a2730065885cdabc57392b047fd36a369',1,'_cgc_ddr_sys_clk_config::locked()']]],
+  ['lookuptable',['lookuptable',['../a00026.html#a3cf56fe42107586eed08546eae444d20',1,'_qspi_flash_config']]],
+  ['loopcount',['loopCount',['../a00052.html#a7ce69c5cf297a804b5510d779036c867',1,'lpadc_conv_command_config_t']]],
+  ['loopcountindex',['loopCountIndex',['../a00052.html#a87e1ee666c960928797ca574f1bcae1b',1,'lpadc_conv_result_t']]],
+  ['lpspisoftwaretcd',['lpspiSoftwareTCD',['../a00032.html#a02c5f5413fb96f62919456e66f5056ff',1,'_lpspi_master_edma_handle::lpspiSoftwareTCD()'],['../a00032.html#a3c1424903ecaad4939aa568c694a83c7',1,'_lpspi_slave_edma_handle::lpspiSoftwareTCD()']]],
+  ['lvdmonitorselect',['lvdMonitorSelect',['../a00041.html#af779b99177bd7680a8c8dd6bf0e146af',1,'_pmc0_vlpr_mode_config::lvdMonitorSelect()'],['../a00041.html#a368f1b33c54b3f794be0f9550f178c1e',1,'_pmc0_vlps_mode_config::lvdMonitorSelect()'],['../a00041.html#a46bd87e8001295e717ad97e1a175687f',1,'_pmc0_lls_mode_config::lvdMonitorSelect()'],['../a00041.html#a4ad8daac152a12cca50ad79a0181908e',1,'_pmc0_vlls_mode_config::lvdMonitorSelect()']]]
 ];

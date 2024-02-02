@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.14.1</span>
+   &#160;<span id="projectnumber">Rev 2.15.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -101,6 +101,7 @@ $(document).ready(function(){initNavTree('a00012.html','');});
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -135,9 +136,9 @@ Comments about API usage in RTOS</h1>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:a00259"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a00259">crc_config_t</a></td></tr>
-<tr class="memdesc:a00259"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC protocol configuration.  <a href="a00012.html#a00259">More...</a><br/></td></tr>
-<tr class="separator:a00259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00237"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a00237">_crc_config</a></td></tr>
+<tr class="memdesc:a00237"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC protocol configuration.  <a href="a00012.html#a00237">More...</a><br/></td></tr>
+<tr class="separator:a00237"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
@@ -145,34 +146,48 @@ Macros</h2></td></tr>
 <tr class="memdesc:ga7b85f8fbf89014348c22e800f6a33f50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default configuration structure filled by <a class="el" href="a00012.html#gab681cd7c82fbafd927d6b22f23a81804" title="Loads default values to the CRC protocol configuration structure. ">CRC_GetDefaultConfig()</a>.  <a href="#ga7b85f8fbf89014348c22e800f6a33f50">More...</a><br/></td></tr>
 <tr class="separator:ga7b85f8fbf89014348c22e800f6a33f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga618e8fa17400f73ccc01c3d508ec56f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga618e8fa17400f73ccc01c3d508ec56f5"></a>
+typedef enum <a class="el" href="a00012.html#ga0e6bff99b489b52fbd284e7bf29e04f7">_crc_bits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ga618e8fa17400f73ccc01c3d508ec56f5">crc_bits_t</a></td></tr>
+<tr class="memdesc:ga618e8fa17400f73ccc01c3d508ec56f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC bit width. <br/></td></tr>
+<tr class="separator:ga618e8fa17400f73ccc01c3d508ec56f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1007c88a06dd19c52923691a9079bf26"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga1007c88a06dd19c52923691a9079bf26"></a>
+typedef enum <a class="el" href="a00012.html#ga88d8b6225455a4e31034d39939ed4af7">_crc_result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ga1007c88a06dd19c52923691a9079bf26">crc_result_t</a></td></tr>
+<tr class="memdesc:ga1007c88a06dd19c52923691a9079bf26"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC result type. <br/></td></tr>
+<tr class="separator:ga1007c88a06dd19c52923691a9079bf26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8d7443c594312c4c8a5418fd12aa8881"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00012.html#a00237">_crc_config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ga8d7443c594312c4c8a5418fd12aa8881">crc_config_t</a></td></tr>
+<tr class="memdesc:ga8d7443c594312c4c8a5418fd12aa8881"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC protocol configuration.  <a href="#ga8d7443c594312c4c8a5418fd12aa8881">More...</a><br/></td></tr>
+<tr class="separator:ga8d7443c594312c4c8a5418fd12aa8881"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ga27bb6a5dfedbecde067e8312600acc48"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ga27bb6a5dfedbecde067e8312600acc48">crc_bits_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00012.html#gga27bb6a5dfedbecde067e8312600acc48acbd145dee5634d51d1d1332652b79c23">kCrcBits16</a> = 0U, 
+<tr class="memitem:ga0e6bff99b489b52fbd284e7bf29e04f7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ga0e6bff99b489b52fbd284e7bf29e04f7">_crc_bits</a> { <br/>
+&#160;&#160;<a class="el" href="a00012.html#gga0e6bff99b489b52fbd284e7bf29e04f7acbd145dee5634d51d1d1332652b79c23">kCrcBits16</a> = 0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00012.html#gga27bb6a5dfedbecde067e8312600acc48ae8b84560a29f3070992ffde7d45eabeb">kCrcBits32</a> = 1U
-<br/>
- }</td></tr>
-<tr class="memdesc:ga27bb6a5dfedbecde067e8312600acc48"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC bit width.  <a href="a00012.html#ga27bb6a5dfedbecde067e8312600acc48">More...</a><br/></td></tr>
-<tr class="separator:ga27bb6a5dfedbecde067e8312600acc48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab245947cd140d75c90d2e185f3ae22f5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#gab245947cd140d75c90d2e185f3ae22f5">crc_result_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00012.html#ggab245947cd140d75c90d2e185f3ae22f5ab846895753974991a10417dc67fdc0cf">kCrcFinalChecksum</a> = 0U, 
-<br/>
-&#160;&#160;<a class="el" href="a00012.html#ggab245947cd140d75c90d2e185f3ae22f5ad008037099aa6038d87976c8c29bf489">kCrcIntermediateChecksum</a> = 1U
+&#160;&#160;<a class="el" href="a00012.html#gga0e6bff99b489b52fbd284e7bf29e04f7ae8b84560a29f3070992ffde7d45eabeb">kCrcBits32</a> = 1U
 <br/>
  }</td></tr>
-<tr class="memdesc:gab245947cd140d75c90d2e185f3ae22f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC result type.  <a href="a00012.html#gab245947cd140d75c90d2e185f3ae22f5">More...</a><br/></td></tr>
-<tr class="separator:gab245947cd140d75c90d2e185f3ae22f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ga0e6bff99b489b52fbd284e7bf29e04f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC bit width.  <a href="a00012.html#ga0e6bff99b489b52fbd284e7bf29e04f7">More...</a><br/></td></tr>
+<tr class="separator:ga0e6bff99b489b52fbd284e7bf29e04f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga88d8b6225455a4e31034d39939ed4af7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ga88d8b6225455a4e31034d39939ed4af7">_crc_result</a> { <br/>
+&#160;&#160;<a class="el" href="a00012.html#gga88d8b6225455a4e31034d39939ed4af7ab846895753974991a10417dc67fdc0cf">kCrcFinalChecksum</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00012.html#gga88d8b6225455a4e31034d39939ed4af7ad008037099aa6038d87976c8c29bf489">kCrcIntermediateChecksum</a> = 1U
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga88d8b6225455a4e31034d39939ed4af7"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC result type.  <a href="a00012.html#ga88d8b6225455a4e31034d39939ed4af7">More...</a><br/></td></tr>
+<tr class="separator:ga88d8b6225455a4e31034d39939ed4af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga7114311534a33b6688f35ceaaa3f7832"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ga7114311534a33b6688f35ceaaa3f7832">CRC_Init</a> (CRC_Type *base, const <a class="el" href="a00012.html#a00259">crc_config_t</a> *config)</td></tr>
+<tr class="memitem:ga7114311534a33b6688f35ceaaa3f7832"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ga7114311534a33b6688f35ceaaa3f7832">CRC_Init</a> (CRC_Type *base, const <a class="el" href="a00012.html#ga8d7443c594312c4c8a5418fd12aa8881">crc_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga7114311534a33b6688f35ceaaa3f7832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables and configures the CRC peripheral module.  <a href="#ga7114311534a33b6688f35ceaaa3f7832">More...</a><br/></td></tr>
 <tr class="separator:ga7114311534a33b6688f35ceaaa3f7832"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7a4d725b011a98efb29a26bcca04c35b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ga7a4d725b011a98efb29a26bcca04c35b">CRC_Deinit</a> (CRC_Type *base)</td></tr>
 <tr class="memdesc:ga7a4d725b011a98efb29a26bcca04c35b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the CRC peripheral module.  <a href="#ga7a4d725b011a98efb29a26bcca04c35b">More...</a><br/></td></tr>
 <tr class="separator:ga7a4d725b011a98efb29a26bcca04c35b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab681cd7c82fbafd927d6b22f23a81804"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#gab681cd7c82fbafd927d6b22f23a81804">CRC_GetDefaultConfig</a> (<a class="el" href="a00012.html#a00259">crc_config_t</a> *config)</td></tr>
+<tr class="memitem:gab681cd7c82fbafd927d6b22f23a81804"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#gab681cd7c82fbafd927d6b22f23a81804">CRC_GetDefaultConfig</a> (<a class="el" href="a00012.html#ga8d7443c594312c4c8a5418fd12aa8881">crc_config_t</a> *config)</td></tr>
 <tr class="memdesc:gab681cd7c82fbafd927d6b22f23a81804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads default values to the CRC protocol configuration structure.  <a href="#gab681cd7c82fbafd927d6b22f23a81804">More...</a><br/></td></tr>
 <tr class="separator:gab681cd7c82fbafd927d6b22f23a81804"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga33f99b0cb581e677dbc009a695adf5d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ga33f99b0cb581e677dbc009a695adf5d5">CRC_WriteData</a> (CRC_Type *base, const uint8_t *data, size_t dataSize)</td></tr>
@@ -187,54 +202,54 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
-<tr class="memitem:gac70c03eacdde850267d7fe0d7dca9591"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#gac70c03eacdde850267d7fe0d7dca9591">FSL_CRC_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 3))</td></tr>
+<tr class="memitem:gac70c03eacdde850267d7fe0d7dca9591"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#gac70c03eacdde850267d7fe0d7dca9591">FSL_CRC_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 4))</td></tr>
 <tr class="memdesc:gac70c03eacdde850267d7fe0d7dca9591"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC driver version.  <a href="#gac70c03eacdde850267d7fe0d7dca9591">More...</a><br/></td></tr>
 <tr class="separator:gac70c03eacdde850267d7fe0d7dca9591"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="a00259" id="a00259"></a>
+<a name="a00237" id="a00237"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct crc_config_t</td>
+          <td class="memname">struct _crc_config</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"><p>This structure holds the configuration for the CRC protocol. </p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a126d11f63dcace03f44cebe1846bfd7b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a126d11f63dcace03f44cebe1846bfd7b">polynomial</a></td></tr>
-<tr class="memdesc:a126d11f63dcace03f44cebe1846bfd7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC Polynomial, MSBit first.  <a href="#a126d11f63dcace03f44cebe1846bfd7b">More...</a><br/></td></tr>
-<tr class="separator:a126d11f63dcace03f44cebe1846bfd7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88920b83ff1317f511c1e9f4916b3b30"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a88920b83ff1317f511c1e9f4916b3b30"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a88920b83ff1317f511c1e9f4916b3b30">seed</a></td></tr>
-<tr class="memdesc:a88920b83ff1317f511c1e9f4916b3b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starting checksum value. <br/></td></tr>
-<tr class="separator:a88920b83ff1317f511c1e9f4916b3b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e04a9e7bc6ee66cdd777d0502cad920"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a3e04a9e7bc6ee66cdd777d0502cad920">reflectIn</a></td></tr>
-<tr class="memdesc:a3e04a9e7bc6ee66cdd777d0502cad920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reflect bits on input.  <a href="#a3e04a9e7bc6ee66cdd777d0502cad920">More...</a><br/></td></tr>
-<tr class="separator:a3e04a9e7bc6ee66cdd777d0502cad920"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a132d09d54944bf131840cae74590f07e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a132d09d54944bf131840cae74590f07e">reflectOut</a></td></tr>
-<tr class="memdesc:a132d09d54944bf131840cae74590f07e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reflect bits on output.  <a href="#a132d09d54944bf131840cae74590f07e">More...</a><br/></td></tr>
-<tr class="separator:a132d09d54944bf131840cae74590f07e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a587eed3c0e64134c6f5ec712760089b8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a587eed3c0e64134c6f5ec712760089b8">complementChecksum</a></td></tr>
-<tr class="memdesc:a587eed3c0e64134c6f5ec712760089b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the result shall be complement of the actual checksum.  <a href="#a587eed3c0e64134c6f5ec712760089b8">More...</a><br/></td></tr>
-<tr class="separator:a587eed3c0e64134c6f5ec712760089b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bb7e0c30ceddc06522402a1df0cbe5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00012.html#ga27bb6a5dfedbecde067e8312600acc48">crc_bits_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a5bb7e0c30ceddc06522402a1df0cbe5d">crcBits</a></td></tr>
-<tr class="memdesc:a5bb7e0c30ceddc06522402a1df0cbe5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects 16- or 32- bit CRC protocol.  <a href="#a5bb7e0c30ceddc06522402a1df0cbe5d">More...</a><br/></td></tr>
-<tr class="separator:a5bb7e0c30ceddc06522402a1df0cbe5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a561aace41f92c1bc8ba1501de42ac9e3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a561aace41f92c1bc8ba1501de42ac9e3"></a>
-<a class="el" href="a00012.html#gab245947cd140d75c90d2e185f3ae22f5">crc_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a561aace41f92c1bc8ba1501de42ac9e3">crcResult</a></td></tr>
-<tr class="memdesc:a561aace41f92c1bc8ba1501de42ac9e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects final or intermediate checksum return from <a class="el" href="a00012.html#ga446972c25252d95d42f573553d32091f" title="Reads a 16-bit checksum from the CRC module. ">CRC_Get16bitResult()</a> or <a class="el" href="a00012.html#gac34102a9fb2c3d1f67bb5e5f7eb7de32" title="Reads the 32-bit checksum from the CRC module. ">CRC_Get32bitResult()</a> <br/></td></tr>
-<tr class="separator:a561aace41f92c1bc8ba1501de42ac9e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae18c72ef2b261ef4b216df0c70b22f58"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ae18c72ef2b261ef4b216df0c70b22f58">polynomial</a></td></tr>
+<tr class="memdesc:ae18c72ef2b261ef4b216df0c70b22f58"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC Polynomial, MSBit first.  <a href="#ae18c72ef2b261ef4b216df0c70b22f58">More...</a><br/></td></tr>
+<tr class="separator:ae18c72ef2b261ef4b216df0c70b22f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5db17f3b1bf658ca8c44531a370c447d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5db17f3b1bf658ca8c44531a370c447d"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a5db17f3b1bf658ca8c44531a370c447d">seed</a></td></tr>
+<tr class="memdesc:a5db17f3b1bf658ca8c44531a370c447d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starting checksum value. <br/></td></tr>
+<tr class="separator:a5db17f3b1bf658ca8c44531a370c447d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7c52cb95682df89f01ca53612e0da80"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ab7c52cb95682df89f01ca53612e0da80">reflectIn</a></td></tr>
+<tr class="memdesc:ab7c52cb95682df89f01ca53612e0da80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reflect bits on input.  <a href="#ab7c52cb95682df89f01ca53612e0da80">More...</a><br/></td></tr>
+<tr class="separator:ab7c52cb95682df89f01ca53612e0da80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33f2ccab8f4f3869d35acfd70e295d37"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a33f2ccab8f4f3869d35acfd70e295d37">reflectOut</a></td></tr>
+<tr class="memdesc:a33f2ccab8f4f3869d35acfd70e295d37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reflect bits on output.  <a href="#a33f2ccab8f4f3869d35acfd70e295d37">More...</a><br/></td></tr>
+<tr class="separator:a33f2ccab8f4f3869d35acfd70e295d37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7832e7fa2dc8b57c618c70c09b4b3ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#af7832e7fa2dc8b57c618c70c09b4b3ac">complementChecksum</a></td></tr>
+<tr class="memdesc:af7832e7fa2dc8b57c618c70c09b4b3ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the result shall be complement of the actual checksum.  <a href="#af7832e7fa2dc8b57c618c70c09b4b3ac">More...</a><br/></td></tr>
+<tr class="separator:af7832e7fa2dc8b57c618c70c09b4b3ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a128ef90e287b3a48da2c7f6341b06082"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00012.html#ga618e8fa17400f73ccc01c3d508ec56f5">crc_bits_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a128ef90e287b3a48da2c7f6341b06082">crcBits</a></td></tr>
+<tr class="memdesc:a128ef90e287b3a48da2c7f6341b06082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects 16- or 32- bit CRC protocol.  <a href="#a128ef90e287b3a48da2c7f6341b06082">More...</a><br/></td></tr>
+<tr class="separator:a128ef90e287b3a48da2c7f6341b06082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad28f00f220d45889583cfb32f47ce227"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad28f00f220d45889583cfb32f47ce227"></a>
+<a class="el" href="a00012.html#ga1007c88a06dd19c52923691a9079bf26">crc_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ad28f00f220d45889583cfb32f47ce227">crcResult</a></td></tr>
+<tr class="memdesc:ad28f00f220d45889583cfb32f47ce227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects final or intermediate checksum return from <a class="el" href="a00012.html#ga446972c25252d95d42f573553d32091f" title="Reads a 16-bit checksum from the CRC module. ">CRC_Get16bitResult()</a> or <a class="el" href="a00012.html#gac34102a9fb2c3d1f67bb5e5f7eb7de32" title="Reads the 32-bit checksum from the CRC module. ">CRC_Get32bitResult()</a> <br/></td></tr>
+<tr class="separator:ad28f00f220d45889583cfb32f47ce227"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h4 class="groupheader">Field Documentation</h4>
-<a class="anchor" id="a126d11f63dcace03f44cebe1846bfd7b"></a>
+<a class="anchor" id="ae18c72ef2b261ef4b216df0c70b22f58"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t crc_config_t::polynomial</td>
+          <td class="memname">uint32_t _crc_config::polynomial</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -242,48 +257,48 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 </div>
 </div>
-<a class="anchor" id="a3e04a9e7bc6ee66cdd777d0502cad920"></a>
+<a class="anchor" id="ab7c52cb95682df89f01ca53612e0da80"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool crc_config_t::reflectIn</td>
+          <td class="memname">bool _crc_config::reflectIn</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a132d09d54944bf131840cae74590f07e"></a>
+<a class="anchor" id="a33f2ccab8f4f3869d35acfd70e295d37"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool crc_config_t::reflectOut</td>
+          <td class="memname">bool _crc_config::reflectOut</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a587eed3c0e64134c6f5ec712760089b8"></a>
+<a class="anchor" id="af7832e7fa2dc8b57c618c70c09b4b3ac"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool crc_config_t::complementChecksum</td>
+          <td class="memname">bool _crc_config::complementChecksum</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a5bb7e0c30ceddc06522402a1df0cbe5d"></a>
+<a class="anchor" id="a128ef90e287b3a48da2c7f6341b06082"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00012.html#ga27bb6a5dfedbecde067e8312600acc48">crc_bits_t</a> crc_config_t::crcBits</td>
+          <td class="memname"><a class="el" href="a00012.html#ga618e8fa17400f73ccc01c3d508ec56f5">crc_bits_t</a> _crc_config::crcBits</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -299,14 +314,18 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FSL_CRC_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 3))</td>
+          <td class="memname">#define FSL_CRC_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 4))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Version 2.0.3.</p>
-<p>Current version: 2.0.3</p>
+<p>Version 2.0.4.</p>
+<p>Current version: 2.0.4</p>
 <p>Change log:</p>
 <ul>
+<li>Version 2.0.4<ul>
+<li>Release peripheral from reset if necessary in init function.</li>
+</ul>
+</li>
 <li>Version 2.0.3<ul>
 <li>Fix MISRA issues</li>
 </ul>
@@ -336,42 +355,56 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 </div>
 </div>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="ga27bb6a5dfedbecde067e8312600acc48"></a>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="ga8d7443c594312c4c8a5418fd12aa8881"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00012.html#ga27bb6a5dfedbecde067e8312600acc48">crc_bits_t</a></td>
+          <td class="memname">typedef struct <a class="el" href="a00012.html#a00237">_crc_config</a>  <a class="el" href="a00012.html#ga8d7443c594312c4c8a5418fd12aa8881">crc_config_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This structure holds the configuration for the CRC protocol. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="ga0e6bff99b489b52fbd284e7bf29e04f7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00012.html#ga0e6bff99b489b52fbd284e7bf29e04f7">_crc_bits</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga27bb6a5dfedbecde067e8312600acc48acbd145dee5634d51d1d1332652b79c23"></a>kCrcBits16</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga0e6bff99b489b52fbd284e7bf29e04f7acbd145dee5634d51d1d1332652b79c23"></a>kCrcBits16</em>&nbsp;</td><td class="fielddoc">
 <p>Generate 16-bit CRC code. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga27bb6a5dfedbecde067e8312600acc48ae8b84560a29f3070992ffde7d45eabeb"></a>kCrcBits32</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga0e6bff99b489b52fbd284e7bf29e04f7ae8b84560a29f3070992ffde7d45eabeb"></a>kCrcBits32</em>&nbsp;</td><td class="fielddoc">
 <p>Generate 32-bit CRC code. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="gab245947cd140d75c90d2e185f3ae22f5"></a>
+<a class="anchor" id="ga88d8b6225455a4e31034d39939ed4af7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00012.html#gab245947cd140d75c90d2e185f3ae22f5">crc_result_t</a></td>
+          <td class="memname">enum <a class="el" href="a00012.html#ga88d8b6225455a4e31034d39939ed4af7">_crc_result</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggab245947cd140d75c90d2e185f3ae22f5ab846895753974991a10417dc67fdc0cf"></a>kCrcFinalChecksum</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga88d8b6225455a4e31034d39939ed4af7ab846895753974991a10417dc67fdc0cf"></a>kCrcFinalChecksum</em>&nbsp;</td><td class="fielddoc">
 <p>CRC data register read value is the final checksum. </p>
 <p>Reflect out and final xor protocol features are applied. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggab245947cd140d75c90d2e185f3ae22f5ad008037099aa6038d87976c8c29bf489"></a>kCrcIntermediateChecksum</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga88d8b6225455a4e31034d39939ed4af7ad008037099aa6038d87976c8c29bf489"></a>kCrcIntermediateChecksum</em>&nbsp;</td><td class="fielddoc">
 <p>CRC data register read value is intermediate checksum (raw value). </p>
 <p>Reflect out and final xor protocol feature are not applied. Intermediate checksum can be used as a seed for <a class="el" href="a00012.html#ga7114311534a33b6688f35ceaaa3f7832" title="Enables and configures the CRC peripheral module. ">CRC_Init()</a> to continue adding data to this checksum. </p>
 </td></tr>
@@ -393,7 +426,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00012.html#a00259">crc_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00012.html#ga8d7443c594312c4c8a5418fd12aa8881">crc_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>&#160;</td>
         </tr>
         <tr>
@@ -452,7 +485,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="memname">void CRC_GetDefaultConfig </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00012.html#a00259">crc_config_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00012.html#ga8d7443c594312c4c8a5418fd12aa8881">crc_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -464,8 +497,8 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <div class="line">*   config-&gt;reflectIn = <span class="keyword">false</span>;</div>
 <div class="line">*   config-&gt;reflectOut = <span class="keyword">false</span>;</div>
 <div class="line">*   config-&gt;complementChecksum = <span class="keyword">false</span>;</div>
-<div class="line">*   config-&gt;crcBits = <a class="code" href="a00012.html#gga27bb6a5dfedbecde067e8312600acc48acbd145dee5634d51d1d1332652b79c23">kCrcBits16</a>;</div>
-<div class="line">*   config-&gt;crcResult = <a class="code" href="a00012.html#ggab245947cd140d75c90d2e185f3ae22f5ab846895753974991a10417dc67fdc0cf">kCrcFinalChecksum</a>;</div>
+<div class="line">*   config-&gt;crcBits = <a class="code" href="a00012.html#gga0e6bff99b489b52fbd284e7bf29e04f7acbd145dee5634d51d1d1332652b79c23">kCrcBits16</a>;</div>
+<div class="line">*   config-&gt;crcResult = <a class="code" href="a00012.html#gga88d8b6225455a4e31034d39939ed4af7ab846895753974991a10417dc67fdc0cf">kCrcFinalChecksum</a>;</div>
 <div class="line">* </div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

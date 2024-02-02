@@ -13,8 +13,8 @@
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 !!GlobalInfo
 product: TEE v4.0
-processor: MIMX8UD7xxx10
-package_id: MIMX8UD7DVP10
+processor: MIMX8UD7xxx08
+package_id: MIMX8UD7DVP08
 mcu_data: ksdk2_0
 processor_version: 0.12.3
 toolOptions:

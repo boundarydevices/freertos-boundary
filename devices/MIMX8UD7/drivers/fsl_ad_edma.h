@@ -6,8 +6,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef _FSL_EDMA_H_
-#define _FSL_EDMA_H_
+#ifndef FSL_EDMA_H_
+#define FSL_EDMA_H_
 
 #include "fsl_common.h"
 
@@ -21,10 +21,10 @@
  ******************************************************************************/
 
 /*! @name Driver version */
-/*@{*/
+/*! @{ */
 /*! @brief eDMA driver version */
 #define FSL_EDMA_DRIVER_VERSION (MAKE_VERSION(2, 3, 0)) /*!< Version 2.3.0. */
-/*@}*/
+/*! @} */
 
 /*! @brief eDMA transfer configuration */
 typedef enum _edma_transfer_size
@@ -342,7 +342,7 @@ static inline void EDMA_AD_EnableAllChannelLink(DMA_AD_Type *base, bool enable)
     }
 }
 
-/* @} */
+/*! @} */
 /*!
  * @name eDMA Channel Operation
  * @{
@@ -576,7 +576,7 @@ static inline void EDMA_AD_SetChannelMux(DMA_AD_Type *base, uint32_t channel, ui
 }
 #endif
 
-/* @} */
+/*! @} */
 /*!
  * @name eDMA TCD Operation
  * @{
@@ -1008,12 +1008,12 @@ static inline uint32_t EDMA_AD_GetNextTCDAddress(edma_handle_t *handle)
  */
 void EDMA_AD_HandleIRQ(edma_handle_t *handle);
 
-/* @} */
+/*! @} */
 
 #if defined(__cplusplus)
 }
 #endif /* __cplusplus */
 
-/* @} */
+/*! @} */
 
-#endif /*_FSL_EDMA_H_*/
+#endif /*FSL_EDMA_H_*/

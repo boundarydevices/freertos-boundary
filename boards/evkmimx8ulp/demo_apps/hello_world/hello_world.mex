@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding= "UTF-8" ?>
-<configuration name="MIMX8UD7xxx10" xsi:schemaLocation="http://mcuxpresso.nxp.com/XSD/mex_configuration_14 http://mcuxpresso.nxp.com/XSD/mex_configuration_14.xsd" uuid="9b6fad8e-cdfa-4923-b804-ac5c34453de9" version="14" xmlns="http://mcuxpresso.nxp.com/XSD/mex_configuration_14" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<configuration name="MIMX8UD7xxx08" xsi:schemaLocation="http://mcuxpresso.nxp.com/XSD/mex_configuration_14 http://mcuxpresso.nxp.com/XSD/mex_configuration_14.xsd" uuid="9b6fad8e-cdfa-4923-b804-ac5c34453de9" version="14" xmlns="http://mcuxpresso.nxp.com/XSD/mex_configuration_14" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <common>
-      <processor>MIMX8UD7xxx10</processor>
-      <package>MIMX8UD7DVP10</package>
+      <processor>MIMX8UD7xxx08</processor>
+      <package>MIMX8UD7DVP08</package>
       <mcu_data>ksdk2_0</mcu_data>
       <cores selected="cm33">
          <core name="Cortex-A35" id="ca35" description=""/>

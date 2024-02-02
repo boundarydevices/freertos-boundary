@@ -33,7 +33,7 @@ SET(CMAKE_ASM_FLAGS_RELEASE " \
 SET(CMAKE_C_FLAGS_DEBUG " \
     ${CMAKE_C_FLAGS_DEBUG} \
     -DDEBUG \
-    -DCPU_MIMX8UD7DVP10_cm33 \
+    -DCPU_MIMX8UD7DVP08_cm33 \
     -DSDK_I2C_BASED_COMPONENT_USED=1 \
     -DBOARD_USE_PCA6416A=1 \
     -DBOARD_USE_TPM=1 \
@@ -61,7 +61,7 @@ SET(CMAKE_C_FLAGS_DEBUG " \
 SET(CMAKE_C_FLAGS_RELEASE " \
     ${CMAKE_C_FLAGS_RELEASE} \
     -DNDEBUG \
-    -DCPU_MIMX8UD7DVP10_cm33 \
+    -DCPU_MIMX8UD7DVP08_cm33 \
     -DSDK_I2C_BASED_COMPONENT_USED=1 \
     -DBOARD_USE_PCA6416A=1 \
     -DBOARD_USE_TPM=1 \
@@ -155,7 +155,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     -Wl,--print-memory-usage \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8UD7xxxxx_cm33_lpa_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8UD7xxxxx_cm33_lpa_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     ${CMAKE_EXE_LINKER_FLAGS_RELEASE} \
@@ -181,5 +181,5 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     -Wl,--print-memory-usage \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8UD7xxxxx_cm33_lpa_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8UD7xxxxx_cm33_lpa_ram.ld\" -static \
 ")

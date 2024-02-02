@@ -23,7 +23,7 @@
             <key>Defines</key>
             <value flag="-D">
               <ListEntry key="DEBUG" value=""/>
-              <ListEntry key="CPU_MIMX8UD7DVP10_dsp0" value=""/>
+              <ListEntry key="CPU_MIMX8UD7DVP08_dsp0" value=""/>
               <ListEntry key="MCUXPRESSO_SDK" value=""/>
             </value>
           </KeyValueListMapEntry>
@@ -79,6 +79,7 @@
             <key>LinkerAdditionalOptions</key>
             <value inheritance="append">
               <ListEntry>-g&#13;
+-Wl,--orphan-handling=place&#13;
 </ListEntry>
             </value>
           </StringListMapEntry>
