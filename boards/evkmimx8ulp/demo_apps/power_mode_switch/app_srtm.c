@@ -2228,12 +2228,14 @@ static void APP_SRTM_InitLfclService(void)
 
 static void APP_SRTM_InitServices(void)
 {
+#if 0
     APP_SRTM_InitI2CService();
     APP_SRTM_InitSensorService();
     APP_SRTM_InitAudioService();
     APP_SRTM_InitIoKeyService();
     APP_SRTM_InitPwmService();
     APP_SRTM_InitRtcService();
+#endif
     APP_SRTM_InitLfclService();
 }
 
@@ -2295,9 +2297,10 @@ static void SRTM_MonitorTask(void *pvParameters)
                         APP_PowerOnCA35();
                     }
                 }
+#if 0
                 BOARD_InitMipiDsiPins();
                 BOARD_EnableMipiDsiBacklight();
-
+#endif
                 /*
                  * Need handshake with uboot when SoC in all boot type(single boot type, dual boot type, low power boot
                  * type);
@@ -2361,11 +2364,11 @@ static void SRTM_MonitorTask(void *pvParameters)
                 SRTM_Dispatcher_Stop(disp);
                 /* Remove peer core from dispatcher */
                 APP_SRTM_DeinitPeerCore();
-
+#if 0
                 /* Initialize io and tpm for uboot */
                 BOARD_InitMipiDsiPins();
                 BOARD_EnableMipiDsiBacklight();
-
+#endif
                 /* enable clock of MU0_MUA before accessing registers of MU0_MUA */
                 MU_Init(MU0_MUA);
 
