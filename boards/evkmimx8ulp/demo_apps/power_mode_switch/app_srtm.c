@@ -12,8 +12,6 @@
 
 #include "srtm_dispatcher.h"
 #include "srtm_peercore.h"
-#include "srtm_pwm_adapter.h"
-#include "srtm_pwm_service.h"
 #include "srtm_message.h"
 #include "srtm_rpmsg_endpoint.h"
 #include "srtm_i2c_service.h"
@@ -186,7 +184,6 @@ static const srtm_io_event_t wuuPinModeEvents[] = {
 
 static srtm_dispatcher_t disp;
 static srtm_peercore_t core;
-static srtm_service_t pwmService;
 static srtm_service_t rtcService;
 static srtm_rtc_adapter_t rtcAdapter;
 static srtm_service_t i2cService;
@@ -209,16 +206,10 @@ static TimerHandle_t
 static app_irq_handler_t irqHandler;
 static void *irqHandlerParam;
 
-static HAL_PWM_HANDLE_DEFINE(pwmHandle0);
-
 static HAL_RTC_HANDLE_DEFINE(rtcHandle);
 
 lpm_ad_power_mode_e AD_CurrentMode   = AD_UNKOWN;
 lpm_ad_power_mode_e AD_WillEnterMode = AD_UNKOWN;
-
-/* pwmHandles must strictly follow TPM instances. If you don't provide service for some TPM instance,
- * set the corresponding handle to NULL. */
-static hal_pwm_handle_t pwmHandles[2] = {(hal_pwm_handle_t)pwmHandle0, NULL};
 
 static struct _i2c_bus platform_i2c_buses[] = {
     {.bus_id         = 0,
@@ -1125,11 +1116,6 @@ static void APP_SRTM_Linkup(void)
     chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
     SRTM_PeerCore_AddChannel(core, chan);
 
-    /* Create and add SRTM PWM channel to peer core */
-    rpmsgConfig.epName = APP_SRTM_PWM_CHANNEL_NAME;
-    chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
-    SRTM_PeerCore_AddChannel(core, chan);
-
     /* Create and add SRTM RTC channel to peer core */
     rpmsgConfig.epName = APP_SRTM_RTC_CHANNEL_NAME;
     chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
@@ -1390,24 +1376,6 @@ void APP_SRTM_DisableLPAV()
 
         UPOWER_SetRtdUseDdr(false);
     }
-}
-
-static void APP_SRTM_InitPwmDevice(void)
-{
-    HAL_PwmInit(pwmHandles[0], 0U, CLOCK_GetTpmClkFreq(0U));
-}
-
-static void APP_SRTM_InitPwmService(void)
-{
-    srtm_pwm_adapter_t pwmAdapter;
-
-    APP_SRTM_InitPwmDevice();
-    pwmAdapter = SRTM_PwmAdapter_Create(pwmHandles, ARRAY_SIZE(pwmHandles));
-    assert(pwmAdapter);
-
-    /* Create and register pwm service */
-    pwmService = SRTM_PwmService_Create(pwmAdapter);
-    SRTM_Dispatcher_RegisterService(disp, pwmService);
 }
 
 static void APP_SRTM_InitI2CDevice(void)
@@ -1708,12 +1676,9 @@ static void APP_SRTM_InitLfclService(void)
 
 static void APP_SRTM_InitServices(void)
 {
-#if 0
     APP_SRTM_InitI2CService();
     APP_SRTM_InitIoKeyService();
-    APP_SRTM_InitPwmService();
     APP_SRTM_InitRtcService();
-#endif
     APP_SRTM_InitLfclService();
 }
 
@@ -2008,7 +1973,6 @@ void APP_SRTM_Resume(bool resume)
      * initialize io with APP_SRTM_InitIoKeyDevice().
      */
     /* APP_SRTM_InitIoKeyDevice(); */
-    APP_SRTM_InitPwmDevice();
     HAL_RtcInit(rtcHandle, 0);
     if (resume)
     {
