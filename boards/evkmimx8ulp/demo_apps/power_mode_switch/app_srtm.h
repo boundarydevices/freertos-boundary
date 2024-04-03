@@ -91,9 +91,6 @@ enum
 /* Define the timeout ms to send rtc alarm event */
 #define APP_RTC_ALM_EVT_TIMER_PERIOD_MS (50U)
 
-/* Define the timeout ms to send sensor tilt wakeup event */
-#define APP_SENSOR_TILT_WAKEUP_EVT_TIMER_PERIOD_MS (50U)
-
 #define RPMSG_LITE_SRTM_SHMEM_BASE (VDEV0_VRING_BASE)
 #define RPMSG_LITE_SRTM_LINK_ID    (RL_PLATFORM_IMX8ULP_M33_A35_SRTM_LINK_ID)
 
@@ -103,7 +100,6 @@ enum
 #define APP_SRTM_PWM_CHANNEL_NAME    "rpmsg-pwm-channel"
 #define APP_SRTM_RTC_CHANNEL_NAME    "rpmsg-rtc-channel"
 #define APP_SRTM_LFCL_CHANNEL_NAME   "rpmsg-life-cycle-channel"
-#define APP_SRTM_SENSOR_CHANNEL_NAME "rpmsg-sensor-channel"
 
 #define PEER_CORE_ID (1U)
 
@@ -115,12 +111,6 @@ enum
 #define I2C_SOURCE_CLOCK_FREQ_LPI2C1 CLOCK_GetIpFreq(kCLOCK_Lpi2c1)
 
 #define I2C_SWITCH_NONE 1
-
-/* Sensor service */
-#define APP_PEDOMETER_POLL_DELAY_MIN (500U)                              /* Half second. */
-#define APP_PEDOMETER_POLL_DELAY_MAX (3600000U)                          /* 1 hour. */
-#define APP_PEDOMETER_SAMPLE_RATE    (50U)                               /* sample 50 times per second. */
-#define APP_PEDOMETER_SAMPLE_WINDOW  (1000U / APP_PEDOMETER_SAMPLE_RATE) /* sample every 20ms. */
 
 /* Keypad index */
 #define APP_KEYPAD_INDEX_VOL_MINUS (114U)
@@ -149,19 +139,6 @@ enum
 #define APP_PIN_PTB4       (0x0104U)          /* PTB4 */
 #define APP_PIN_RTD_BTN1   (0x010DU)          /* PTB13 */
 #define APP_PIN_RTD_BTN2   (0x010CU)          /* PTB12 */
-
-/*
- * BOARD Relative Settings:
- * LSM6DSO INT PIN(INT1_B) --> SOC(PTB4)
- * Note: Choose the falling edge trigger type to fix the issue that soc cannot get the interrupt from multiple sensors
- */
-#define APP_LSM6DSO_INT1_B_PIN (APP_PIN_PTB4) /* Interrupt pin connected to LSM6DSO(sensor) */
-#define APP_LSM6DSO_INT_ACTIVE_LEVEL (LSM_INT_ACTIVE_HIGH)
-#if (APP_LSM6DSO_INT_ACTIVE_LEVEL == LSM_INT_ACTIVE_HIGH)
-#define APP_LSM6DSO_INT_TRIGGER_TYPE (kRGPIO_InterruptFallingEdge)
-#else
-#define APP_LSM6DSO_INT_TRIGGER_TYPE (kRGPIO_InterruptRisingEdge)
-#endif
 
 extern int32_t RPMsg_MU0_A_IRQHandler(void);
 

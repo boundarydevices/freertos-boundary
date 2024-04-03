@@ -18,8 +18,6 @@
 #include "srtm_rpmsg_endpoint.h"
 #include "srtm_i2c_service.h"
 
-#include "srtm_sensor_service.h"
-
 #include "srtm_io_service.h"
 #include "srtm_keypad_service.h"
 #include "srtm_lfcl_service.h"
@@ -77,19 +75,6 @@ typedef enum
     CORE_STDB = CMC_AD_AD_A35CORE0_LPMODE_A35CORE0_LPMODE(0x1U),
     CORE_PD   = CMC_AD_AD_A35CORE0_LPMODE_A35CORE0_LPMODE(0x3U),
 } core_low_power_mode_t; /* A35 core0/1 low power mode */
-
-typedef struct
-{
-    uint32_t cnt; /* step counter now. */
-} app_pedometer_t;
-
-typedef struct
-{
-    bool stateEnabled;
-    bool dataEnabled;
-    uint32_t pollDelay;
-    app_pedometer_t pedometer;
-} app_sensor_t;
 
 /*******************************************************************************
  * Prototypes
@@ -199,27 +184,6 @@ static const srtm_io_event_t wuuPinModeEvents[] = {
     SRTM_IoEventEitherEdge   /* kWUU_ExternalPinAnyEdge */
 };
 
-static srtm_status_t APP_SRTM_Sensor_EnableStateDetector(srtm_sensor_adapter_t adapter,
-                                                         srtm_sensor_type_t type,
-                                                         uint8_t index,
-                                                         bool enable);
-static srtm_status_t APP_SRTM_Sensor_EnableDataReport(srtm_sensor_adapter_t adapter,
-                                                      srtm_sensor_type_t type,
-                                                      uint8_t index,
-                                                      bool enable);
-static srtm_status_t APP_SRTM_Sensor_SetPollDelay(srtm_sensor_adapter_t adapter,
-                                                  srtm_sensor_type_t type,
-                                                  uint8_t index,
-                                                  uint32_t millisec);
-
-static struct _srtm_sensor_adapter sensorAdapter = {.enableStateDetector = APP_SRTM_Sensor_EnableStateDetector,
-                                                    .enableDataReport    = APP_SRTM_Sensor_EnableDataReport,
-                                                    .setPollDelay        = APP_SRTM_Sensor_SetPollDelay};
-static app_sensor_t sensor                       = {.stateEnabled  = false,
-                                                    .dataEnabled   = false,
-                                                    .pollDelay     = 1000, /* 1 sec by default. */
-                                                    .pedometer.cnt = 0};
-
 static srtm_dispatcher_t disp;
 static srtm_peercore_t core;
 static srtm_service_t pwmService;
@@ -242,23 +206,12 @@ static TimerHandle_t restoreRegValOfMuTimer; /* use the timer to restore registe
 static TimerHandle_t
     chngModeFromActToDslForApdTimer; /* use the timer to change mode of APD from active mode to Deep Sleep Mode */
 
-static lsm_handle_t lsmHandle;
-static srtm_service_t sensorService;
-static bool sensorReady            = false;
-static srtm_procedure_t sensorProc = NULL;
-static TimerHandle_t
-    sensorTiltWakeupEventTimer; /* It is used to send sensor tilt wakeup event to acore after acore(acore entered power
-                           down mode) is waken by sensor(tilt interrupt)(Avoid losting a sensor tilt wakeup event) */
-
 static app_irq_handler_t irqHandler;
 static void *irqHandlerParam;
 
 static HAL_PWM_HANDLE_DEFINE(pwmHandle0);
 
 static HAL_RTC_HANDLE_DEFINE(rtcHandle);
-
-const uint8_t g_sensor_address[] = {LSM6DSO_SLAVE_ADDRESS_WHEN_SA0_PIN_IS_LOW,
-                                    LSM6DSO_SLAVE_ADDRESS_WHEN_SA0_PIN_IS_HIGH};
 
 lpm_ad_power_mode_e AD_CurrentMode   = AD_UNKOWN;
 lpm_ad_power_mode_e AD_WillEnterMode = AD_UNKOWN;
@@ -604,79 +557,6 @@ void WUU0_IRQHandler(void)
     }
 }
 
-static void sensorTiltWakeupEventTimer_Callback(TimerHandle_t xTimer)
-{
-    if (AD_CurrentMode == AD_ACT && sensorAdapter.updateState && sensorAdapter.service)
-    {
-        sensorAdapter.updateState(sensorAdapter.service, SRTM_SensorTypeTilt, 0);
-    }
-    xTimerStop(sensorTiltWakeupEventTimer, portMAX_DELAY);
-}
-
-static void APP_CheckSensorInterrupt(srtm_dispatcher_t dispatcher, void *param1, void *param2)
-{
-    status_t result;
-    lsm_emb_func_status_t val;
-    BaseType_t reschedule = pdFALSE;
-
-    result = LSM_GetVal(&lsmHandle, LSM_EMB_FUNC_STATUS_REG, (uint8_t *)&val, LSM_EMBEDDED_FUNC_BANK, LSM_USER_BANK);
-    if (result == kStatus_Success)
-    {
-        if (val.is_tilt && (AD_CurrentMode == AD_PD || (support_dsl_for_apd == true && AD_CurrentMode == AD_DSL)))
-        {
-            /* Wakeup A Core(CA35) when the tilt interrupt is comming */
-            APP_WakeupACore();
-
-            /* Send tilt wakeup event(notification) to A Core in timer */
-            xTimerStartFromISR(sensorTiltWakeupEventTimer, &reschedule);
-        }
-
-        if (val.is_step_det)
-        {
-            uint16_t stepCnt = 0;
-
-            LSM_GetPedometerCnt(&lsmHandle, &stepCnt);
-            sensor.pedometer.cnt = stepCnt;
-            if (sensor.stateEnabled)
-            {
-                /* Step detected, then update peer core. */
-                assert(sensorAdapter.updateState && sensorAdapter.service);
-
-                if (AD_CurrentMode == AD_ACT)
-                {
-                    sensorAdapter.updateState(sensorAdapter.service, SRTM_SensorTypePedometer, 0);
-                }
-            }
-
-            if (sensor.dataEnabled)
-            {
-                assert(sensorAdapter.reportData && sensorAdapter.service);
-
-                if (AD_CurrentMode == AD_ACT)
-                {
-                    sensorAdapter.reportData(sensorAdapter.service, SRTM_SensorTypePedometer, 0,
-                                             (uint8_t *)(&sensor.pedometer.cnt), sizeof(sensor.pedometer.cnt));
-                }
-            }
-        }
-    }
-
-    if (reschedule)
-    {
-        portYIELD_FROM_ISR(reschedule);
-    }
-}
-
-static void APP_CheckSensorInterruptCallback(void)
-{
-    /* Read and process sensor data in SRTM task context */
-    if (sensorProc)
-    {
-        SRTM_Dispatcher_PostProc(disp, sensorProc);
-        sensorProc = NULL;
-    }
-}
-
 static void APP_HandleGPIOHander(uint8_t gpioIdx)
 {
     BaseType_t reschedule = pdFALSE;
@@ -712,14 +592,6 @@ static void APP_HandleGPIOHander(uint8_t gpioIdx)
             APP_WakeupACore();
         }
         xTimerStartFromISR(suspendContext.io.data[APP_INPUT_TOUCH_INT].timer, &reschedule);
-    }
-
-    if (APP_GPIO_IDX(APP_LSM6DSO_INT1_B_PIN) == gpioIdx &&
-        (1U << APP_PIN_IDX(APP_LSM6DSO_INT1_B_PIN)) & RGPIO_GetPinsInterruptFlags(gpio, APP_GPIO_INT_SEL))
-    {
-        RGPIO_ClearPinsInterruptFlags(gpio, APP_GPIO_INT_SEL, 1U << APP_PIN_IDX(APP_LSM6DSO_INT1_B_PIN));
-        /* Read sensor data in dispatcher task context */
-        APP_CheckSensorInterruptCallback();
     }
 
     if (APP_GPIO_IDX(APP_PIN_RTD_BTN1) == gpioIdx &&
@@ -1268,14 +1140,6 @@ static void APP_SRTM_Linkup(void)
     chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
     SRTM_PeerCore_AddChannel(core, chan);
 
-    /* Create and add SRTM Sensor channel to peer core */
-    if (sensorReady)
-    {
-        rpmsgConfig.epName = APP_SRTM_SENSOR_CHANNEL_NAME;
-        chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
-        SRTM_PeerCore_AddChannel(core, chan);
-    }
-
     SRTM_Dispatcher_AddPeerCore(disp, core);
 }
 
@@ -1300,126 +1164,6 @@ static void APP_SRTM_InitPeerCore(void)
         /* Start timer to poll linkup status. */
         xTimerStart(linkupTimer, portMAX_DELAY);
     }
-}
-
-static srtm_status_t APP_SRTM_Sensor_Init(void)
-{
-    /*
-     * Create a timer to send sensor tilt wakeup event to A Core after A Core is waken by (avoid losting
-     * sensor tilt wakeup interrupt)
-     */
-    if (sensorTiltWakeupEventTimer == NULL)
-    {
-        sensorTiltWakeupEventTimer =
-            xTimerCreate("sensorTiltWakeupEventTimer", APP_MS2TICK(APP_SENSOR_TILT_WAKEUP_EVT_TIMER_PERIOD_MS), pdFALSE,
-                         NULL, sensorTiltWakeupEventTimer_Callback);
-        assert(sensorTiltWakeupEventTimer);
-    }
-
-    return SRTM_Status_Success;
-}
-
-static srtm_status_t APP_SRTM_Sensor_Deinit(void)
-{
-    return SRTM_Status_Success;
-}
-
-static srtm_status_t APP_SRTM_Sensor_EnableStateDetector(srtm_sensor_adapter_t adapter,
-                                                         srtm_sensor_type_t type,
-                                                         uint8_t index,
-                                                         bool enable)
-{
-    srtm_status_t status = SRTM_Status_Success;
-
-    if ((type != SRTM_SensorTypePedometer) && (type != SRTM_SensorTypeTilt))
-    {
-        /* Support pedometer and tilt wakeup A Core. */
-        return SRTM_Status_InvalidParameter;
-    }
-
-    if (enable)
-    {
-        if (!sensor.stateEnabled && !sensor.dataEnabled)
-        {
-            status = APP_SRTM_Sensor_Init();
-        }
-        if (status == SRTM_Status_Success)
-        {
-            sensor.stateEnabled = true;
-        }
-    }
-    else if (sensor.stateEnabled)
-    {
-        sensor.stateEnabled = false;
-        if (!sensor.dataEnabled)
-        {
-            status = APP_SRTM_Sensor_Deinit();
-        }
-    }
-
-    return status;
-}
-
-static srtm_status_t APP_SRTM_Sensor_EnableDataReport(srtm_sensor_adapter_t adapter,
-                                                      srtm_sensor_type_t type,
-                                                      uint8_t index,
-                                                      bool enable)
-{
-    srtm_status_t status = SRTM_Status_Success;
-
-    if (type != SRTM_SensorTypePedometer)
-    {
-        /* Only support pedometer now. */
-        return SRTM_Status_InvalidParameter;
-    }
-
-    if (enable && !sensor.dataEnabled)
-    {
-        if (!sensor.stateEnabled)
-        {
-            /* Initialize Pedometer. */
-            status = APP_SRTM_Sensor_Init();
-        }
-        if (status == SRTM_Status_Success)
-        {
-            uint16_t stepCnt;
-
-            LSM_GetPedometerCnt(&lsmHandle, &stepCnt);
-            sensor.dataEnabled   = true;
-            sensor.pedometer.cnt = stepCnt;
-        }
-    }
-    else if (!enable && sensor.dataEnabled)
-    {
-        sensor.dataEnabled = false;
-        if (!sensor.stateEnabled)
-        {
-            status = APP_SRTM_Sensor_Deinit();
-        }
-    }
-
-    return status;
-}
-
-static srtm_status_t APP_SRTM_Sensor_SetPollDelay(srtm_sensor_adapter_t adapter,
-                                                  srtm_sensor_type_t type,
-                                                  uint8_t index,
-                                                  uint32_t millisec)
-{
-    if (type != SRTM_SensorTypePedometer)
-    {
-        /* Only support pedometer now. */
-        return SRTM_Status_InvalidParameter;
-    }
-
-    if (millisec > APP_PEDOMETER_POLL_DELAY_MAX || millisec < APP_PEDOMETER_POLL_DELAY_MIN)
-    {
-        return SRTM_Status_InvalidParameter;
-    }
-
-    sensor.pollDelay = millisec;
-
-    return SRTM_Status_Success;
 }
 
 static void APP_SRTM_GpioReset(void)
@@ -1456,10 +1200,6 @@ static void APP_SRTM_ResetServices(void)
 {
     /* When CA35 resets, we need to avoid async event to send to CA35. IO services have async events. */
     SRTM_RtcService_Reset(rtcService, core);
-    if (sensorService != NULL)
-    {
-        SRTM_SensorService_Reset(sensorService, core);
-    }
     APP_SRTM_GpioReset();
 }
 
@@ -1686,62 +1426,6 @@ static void APP_SRTM_InitI2CService(void)
     APP_SRTM_InitI2CDevice();
     i2cService = SRTM_I2CService_Create(&i2c_adapter);
     SRTM_Dispatcher_RegisterService(disp, i2cService);
-}
-
-static void APP_CheckSensorInterrupt_RecycleMessage(srtm_message_t msg, void *param)
-{
-    assert(sensorProc == NULL);
-
-    sensorProc = msg;
-}
-
-static status_t APP_SRTM_InitSensorDevice(void)
-{
-    lsm_config_t config = {0};
-    status_t result;
-    uint8_t i               = 0;
-    uint8_t array_addr_size = 0;
-
-    config.I2C_SendFunc    = BOARD_Accel_I2C_Send;
-    config.I2C_ReceiveFunc = BOARD_Accel_I2C_Receive;
-    config.int_active_level = APP_LSM6DSO_INT_ACTIVE_LEVEL;
-
-    array_addr_size = sizeof(g_sensor_address) / sizeof(g_sensor_address[0]);
-    for (i = 0; i < array_addr_size; i++)
-    {
-        config.slaveAddress = g_sensor_address[i];
-        result              = LSM_Init(&lsmHandle, &config);
-        if (result == kStatus_Success)
-        {
-            /* Setup gpio interrupt trigger type */
-            RGPIO_SetPinInterruptConfig(gpios[APP_GPIO_IDX(APP_LSM6DSO_INT1_B_PIN)],
-                                        APP_PIN_IDX(APP_LSM6DSO_INT1_B_PIN), APP_GPIO_INT_SEL,
-                                        APP_LSM6DSO_INT_TRIGGER_TYPE);
-            break;
-        }
-    }
-    if (result != kStatus_Success)
-    {
-        PRINTF("\r\nSensor device initialize failed!\r\n");
-    }
-    else
-    {
-        sensorReady = true;
-        sensorProc  = SRTM_Procedure_Create(APP_CheckSensorInterrupt, NULL, NULL);
-        assert(sensorProc);
-        SRTM_Message_SetFreeFunc(sensorProc, APP_CheckSensorInterrupt_RecycleMessage, NULL);
-    }
-
-    return result;
-}
-
-static void APP_SRTM_InitSensorService(void)
-{
-    if (APP_SRTM_InitSensorDevice() == kStatus_Success)
-    {
-        sensorService = SRTM_SensorService_Create(&sensorAdapter);
-        SRTM_Dispatcher_RegisterService(disp, sensorService);
-    }
 }
 
 static void APP_SRTM_InitIoKeyDevice(void)
@@ -2026,7 +1710,6 @@ static void APP_SRTM_InitServices(void)
 {
 #if 0
     APP_SRTM_InitI2CService();
-    APP_SRTM_InitSensorService();
     APP_SRTM_InitIoKeyService();
     APP_SRTM_InitPwmService();
     APP_SRTM_InitRtcService();
