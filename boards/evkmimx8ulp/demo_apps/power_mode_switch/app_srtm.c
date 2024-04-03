@@ -20,7 +20,6 @@
 
 #include "srtm_sensor_service.h"
 
-#include "srtm_sai_edma_adapter.h"
 #include "srtm_io_service.h"
 #include "srtm_keypad_service.h"
 #include "srtm_lfcl_service.h"
@@ -91,22 +90,6 @@ typedef struct
     uint32_t pollDelay;
     app_pedometer_t pedometer;
 } app_sensor_t;
-
-#if SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-#define BUFFER_LEN (128 * 1024)
-#if (defined(__ICCARM__))
-static uint8_t g_buffer[BUFFER_LEN] @"AudioBuf";
-#else
-static uint8_t g_buffer[BUFFER_LEN] __attribute__((section("AudioBuf,\"w\",%nobits @")));
-#endif
-static srtm_sai_edma_local_buf_t g_local_buf = {
-    .buf       = (uint8_t *)&g_buffer,
-    .bufSize   = BUFFER_LEN,
-    .periods   = SRTM_SAI_EDMA_MAX_LOCAL_BUF_PERIODS,
-    .threshold = 1,
-
-};
-#endif
 
 /*******************************************************************************
  * Prototypes
@@ -239,8 +222,6 @@ static app_sensor_t sensor                       = {.stateEnabled  = false,
 
 static srtm_dispatcher_t disp;
 static srtm_peercore_t core;
-static srtm_sai_adapter_t saiAdapter;
-static srtm_service_t audioService;
 static srtm_service_t pwmService;
 static srtm_service_t rtcService;
 static srtm_rtc_adapter_t rtcAdapter;
@@ -450,32 +431,6 @@ void APP_WakeupACore(void)
         }
         else /* owner of lpav is AD */
         {
-            /* For RTD hold lpav, sai low power audio demo, we need enable lpav before wakeup APD */
-#if SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-            if (R32(DDR_IN_SELFREFRESH_BASE))
-            {
-                DisableIRQ(BBNSM_IRQn);
-                DisableIRQ(GPIOA_INT0_IRQn);
-                DisableIRQ(GPIOA_INT1_IRQn);
-                DisableIRQ(GPIOB_INT0_IRQn);
-                DisableIRQ(GPIOB_INT1_IRQn);
-                DisableIRQ(GPIOB_INT1_IRQn);
-                DisableIRQ(WUU0_IRQn);
-
-                PRINTF("Acore will enter avtive, Put ddr into active\r\n");
-                /* ddr in retention state, need put ddr exit retention */
-                APP_SRTM_EnableLPAV();
-
-                W32(DDR_IN_SELFREFRESH_BASE, 0);
-
-                EnableIRQ(GPIOA_INT0_IRQn);
-                EnableIRQ(GPIOA_INT1_IRQn);
-                EnableIRQ(GPIOB_INT0_IRQn);
-                EnableIRQ(GPIOB_INT1_IRQn);
-                EnableIRQ(BBNSM_IRQn);
-                EnableIRQ(WUU0_IRQn);
-            }
-#endif
         }
 
         if (support_dsl_for_apd == true && AD_CurrentMode == AD_DSL)
@@ -554,16 +509,6 @@ static void APP_SRTM_SetLPAV(srtm_dispatcher_t dispatcher, void *param1, void *p
             {
                 /* Power down lpav domain, put ddr into retention, poweroff LDO1, set BUCK3 to 0.73V */
                 APP_SRTM_DisableLPAV();
-#if SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-                W32(DDR_IN_SELFREFRESH_BASE, 1);
-                /* In dualboot mode, RTD hold LPAV domain, set LPAV ownership to APD let ddr into retention */
-                SIM_SEC->SYSCTRL0 |= SIM_SEC_SYSCTRL0_LPAV_MASTER_CTRL(1);
-                SIM_SEC->LPAV_MASTER_ALLOC_CTRL = 0x7f;
-                SIM_SEC->LPAV_SLAVE_ALLOC_CTRL |=
-                    (SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SAI6(0x1) | SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SAI7(0x1) |
-                     SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SEMA42(0x1) | SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_LPTPM8(0x1) |
-                     SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SPDIF(0x1));
-#endif
             }
             break;
         case AD_DPD:
@@ -1298,13 +1243,6 @@ static void APP_SRTM_Linkup(void)
     chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
     SRTM_PeerCore_AddChannel(core, chan);
 
-    /* Create and add SRTM AUDIO channel to peer core*/
-    rpmsgConfig.epName = APP_SRTM_AUDIO_CHANNEL_NAME;
-    chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
-    SRTM_PeerCore_AddChannel(core, chan);
-    assert((audioService != NULL) && (saiAdapter != NULL));
-    SRTM_AudioService_BindChannel(audioService, saiAdapter, chan);
-
     /* Create and add SRTM Keypad channel to peer core */
     rpmsgConfig.epName = APP_SRTM_KEYPAD_CHANNEL_NAME;
     chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
@@ -1516,8 +1454,7 @@ static void APP_SRTM_GpioReset(void)
 
 static void APP_SRTM_ResetServices(void)
 {
-    /* When CA35 resets, we need to avoid async event to send to CA35. Audio and IO services have async events. */
-    SRTM_AudioService_Reset(audioService, core);
+    /* When CA35 resets, we need to avoid async event to send to CA35. IO services have async events. */
     SRTM_RtcService_Reset(rtcService, core);
     if (sensorService != NULL)
     {
@@ -1552,19 +1489,6 @@ static void APP_SRTM_DeinitPeerCore(void)
 
     /* Inform upower that m33 is not using the ddr(it's ready to reset ddr of lpavd) */
     UPOWER_SetRtdUseDdr(false);
-}
-
-static void APP_SRTM_InitAudioDevice(void)
-{
-    edma_config_t dmaConfig;
-
-    /* Initialize DMA0 for SAI */
-    EDMA_GetDefaultConfig(&dmaConfig);
-    EDMA_Init(DMA0, &dmaConfig);
-
-    /* Initialize DMAMUX for SAI */
-    EDMA_SetChannelMux(DMA0, APP_SAI_TX_DMA_CHANNEL, kDmaRequestMux0SAI0Tx);
-    EDMA_SetChannelMux(DMA0, APP_SAI_RX_DMA_CHANNEL, kDmaRequestMux0SAI0Rx);
 }
 
 /*
@@ -1693,12 +1617,6 @@ void APP_SRTM_DisableLPAV()
         /* Poweroff LDO1 */
         UPOWER_SetPmicReg(PCA9460_LDO1_CFG_ADDR, ldo1_cfg.val);
 
-#ifndef SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-        /* For sai_low_power_audio, reduce buck3 power will impact fucntion */
-        /* Set BUCK3 voltage to 0.7375V, please refer to PCA9460 for the specific data */
-        UPOWER_SetPmicReg(PCA9460_BUCK3OUT_DVS0_ADDR, 0x0B);
-#endif
-
         if (!BOARD_IsLPAVOwnedByRTD())
         {
             /* Set LPAV ownership to RTD */
@@ -1732,128 +1650,6 @@ void APP_SRTM_DisableLPAV()
 
         UPOWER_SetRtdUseDdr(false);
     }
-}
-
-#if SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-/*
- * For sai low power audio demo, when Acore enter Power down mode, Mcore will
- * put ddr into self-refresh-->transfer data by dma and play audio-->put ddr exit self-refresh-->memcpy data from ddr to
- * ssram
- */
-void APP_SRTM_PreCopyCallback()
-{
-    if (R32(DDR_IN_SELFREFRESH_BASE) || (SRTM_PeerCore_GetState(core) == SRTM_PeerCore_State_Deactivated))
-    {
-        /* Disable GAIO BBNSM IRQ before operate LPAV */
-        DisableIRQ(BBNSM_IRQn);
-        DisableIRQ(GPIOA_INT0_IRQn);
-        DisableIRQ(GPIOA_INT1_IRQn);
-        DisableIRQ(GPIOB_INT0_IRQn);
-        DisableIRQ(GPIOB_INT1_IRQn);
-        DisableIRQ(WUU0_IRQn);
-
-        /* Poweron LPAV domain, ddr exit retention */
-        APP_SRTM_EnableLPAV();
-        W32(DDR_IN_SELFREFRESH_BASE, 0);
-
-        EnableIRQ(GPIOA_INT0_IRQn);
-        EnableIRQ(GPIOA_INT1_IRQn);
-        EnableIRQ(GPIOB_INT0_IRQn);
-        EnableIRQ(GPIOB_INT1_IRQn);
-        EnableIRQ(BBNSM_IRQn);
-        EnableIRQ(WUU0_IRQn);
-    }
-}
-
-void APP_SRTM_PostCopyCallback()
-{
-    if (SRTM_PeerCore_GetState(core) == SRTM_PeerCore_State_Deactivated)
-    {
-        /* Disable GAIO BBNSM IRQ before operate LPAV */
-        DisableIRQ(BBNSM_IRQn);
-        DisableIRQ(GPIOA_INT0_IRQn);
-        DisableIRQ(GPIOA_INT1_IRQn);
-        DisableIRQ(GPIOB_INT0_IRQn);
-        DisableIRQ(GPIOB_INT1_IRQn);
-        DisableIRQ(WUU0_IRQn);
-
-        /* Poweroff LPAV domain, put ddr into retention */
-        APP_SRTM_DisableLPAV();
-
-        /* In dualboot mode, RTD hold LPAV domain, set LPAV ownership to APD let ddr into retention */
-        SIM_SEC->SYSCTRL0 |= SIM_SEC_SYSCTRL0_LPAV_MASTER_CTRL(1);
-        SIM_SEC->LPAV_MASTER_ALLOC_CTRL = 0x7f;
-        SIM_SEC->LPAV_SLAVE_ALLOC_CTRL |=
-            (SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SAI6(0x1) | SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SAI7(0x1) |
-             SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SEMA42(0x1) | SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_LPTPM8(0x1) |
-             SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SPDIF(0x1));
-
-        W32(DDR_IN_SELFREFRESH_BASE, 1);
-
-        EnableIRQ(GPIOA_INT0_IRQn);
-        EnableIRQ(GPIOA_INT1_IRQn);
-        EnableIRQ(GPIOB_INT0_IRQn);
-        EnableIRQ(GPIOB_INT1_IRQn);
-        EnableIRQ(BBNSM_IRQn);
-        EnableIRQ(WUU0_IRQn);
-    }
-}
-#endif
-
-static void APP_SRTM_InitAudioService(void)
-{
-    srtm_sai_edma_config_t saiTxConfig;
-    srtm_sai_edma_config_t saiRxConfig;
-
-    APP_SRTM_InitAudioDevice();
-
-    memset(&saiTxConfig, 0, sizeof(saiTxConfig));
-    memset(&saiRxConfig, 0, sizeof(saiRxConfig));
-
-    /*  Set SAI DMA IRQ Priority. */
-    NVIC_SetPriority(APP_DMA_IRQN(APP_SAI_TX_DMA_CHANNEL), APP_SAI_TX_DMA_IRQ_PRIO);
-    NVIC_SetPriority(APP_DMA_IRQN(APP_SAI_RX_DMA_CHANNEL), APP_SAI_RX_DMA_IRQ_PRIO);
-    NVIC_SetPriority(APP_SRTM_SAI_IRQn, APP_SAI_IRQ_PRIO);
-
-    /* Create SAI EDMA adapter */
-    SAI_GetClassicI2SConfig(&saiTxConfig.config, kSAI_WordWidth16bits, kSAI_Stereo, kSAI_Channel0Mask);
-    saiTxConfig.config.syncMode           = kSAI_ModeSync; /* Tx in Sync mode */
-    saiTxConfig.config.fifo.fifoWatermark = FSL_FEATURE_SAI_FIFO_COUNTn(APP_SRTM_SAI) - 1;
-    saiTxConfig.mclk                      = CLOCK_GetIpFreq(kCLOCK_Sai0);
-#if SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-    saiTxConfig.stopOnSuspend = false; /* Keep playing audio on APD suspend. */
-#else
-    saiTxConfig.stopOnSuspend = true;
-#endif
-    saiTxConfig.threshold = 1U; /* Every period transmitted triggers periodDone message to A core. */
-    saiTxConfig.guardTime =
-        1000; /* Unit:ms. This is a lower limit that M core should reserve such time data to wakeup A core. */
-    saiTxConfig.dmaChannel = APP_SAI_TX_DMA_CHANNEL;
-
-    SAI_GetClassicI2SConfig(&saiRxConfig.config, kSAI_WordWidth16bits, kSAI_Stereo, kSAI_Channel0Mask);
-    saiRxConfig.config.syncMode           = kSAI_ModeAsync; /* Rx in async mode */
-    saiRxConfig.config.fifo.fifoWatermark = 1;
-    saiRxConfig.mclk                      = saiTxConfig.mclk;
-#if SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-    saiRxConfig.stopOnSuspend = false; /* Keep recording data on APD suspend. */
-#else
-    saiRxConfig.stopOnSuspend = true;
-#endif
-    saiRxConfig.threshold  = UINT32_MAX; /* Every period received triggers periodDone message to A core. */
-    saiRxConfig.dmaChannel = APP_SAI_RX_DMA_CHANNEL;
-
-    saiAdapter = SRTM_SaiEdmaAdapter_Create(SAI0, DMA0, &saiTxConfig, &saiRxConfig);
-    assert(saiAdapter);
-
-#if SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-    SRTM_SaiEdmaAdapter_SetTxLocalBuf(saiAdapter, &g_local_buf);
-    SRTM_SaiEdmaAdapter_SetTxPreCopyCallback(saiAdapter, APP_SRTM_PreCopyCallback);
-    SRTM_SaiEdmaAdapter_SetTxPostCopyCallback(saiAdapter, APP_SRTM_PostCopyCallback);
-#endif
-
-    /* Create and register audio service */
-    audioService = SRTM_AudioService_Create(saiAdapter, NULL);
-    SRTM_Dispatcher_RegisterService(disp, audioService);
 }
 
 static void APP_SRTM_InitPwmDevice(void)
@@ -2231,7 +2027,6 @@ static void APP_SRTM_InitServices(void)
 #if 0
     APP_SRTM_InitI2CService();
     APP_SRTM_InitSensorService();
-    APP_SRTM_InitAudioService();
     APP_SRTM_InitIoKeyService();
     APP_SRTM_InitPwmService();
     APP_SRTM_InitRtcService();
@@ -2523,7 +2318,6 @@ void APP_SRTM_Suspend(void)
 void APP_SRTM_Resume(bool resume)
 {
     APP_SRTM_InitI2CDevice();
-    APP_SRTM_InitAudioDevice();
     /*
      * IO has restored in APP_Resume(), so don't need init io again in here.
      * For RTD Power Down Mode(Wakeup through WUU), it's okay to initialize io again(use WUU to wakeup cortex-M33, the

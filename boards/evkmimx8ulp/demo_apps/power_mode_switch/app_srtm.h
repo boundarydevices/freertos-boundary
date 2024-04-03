@@ -77,9 +77,6 @@ enum
 
 /* IRQ handler priority definition, bigger number stands for lower priority */
 #define APP_LPI2C_IRQ_PRIO      (5U)
-#define APP_SAI_TX_DMA_IRQ_PRIO (5U)
-#define APP_SAI_RX_DMA_IRQ_PRIO (5U)
-#define APP_SAI_IRQ_PRIO        (5U)
 #define APP_GPIO_IRQ_PRIO       (5U)
 #define APP_WUU_IRQ_PRIO        (5U)
 #define APP_CMC1_IRQ_PRIO       (5U)
@@ -101,7 +98,6 @@ enum
 #define RPMSG_LITE_SRTM_LINK_ID    (RL_PLATFORM_IMX8ULP_M33_A35_SRTM_LINK_ID)
 
 #define APP_SRTM_I2C_CHANNEL_NAME    "rpmsg-i2c-channel"
-#define APP_SRTM_AUDIO_CHANNEL_NAME  "rpmsg-audio-channel"
 #define APP_SRTM_KEYPAD_CHANNEL_NAME "rpmsg-keypad-channel"
 #define APP_SRTM_IO_CHANNEL_NAME     "rpmsg-io-channel"
 #define APP_SRTM_PWM_CHANNEL_NAME    "rpmsg-pwm-channel"
@@ -119,10 +115,6 @@ enum
 #define I2C_SOURCE_CLOCK_FREQ_LPI2C1 CLOCK_GetIpFreq(kCLOCK_Lpi2c1)
 
 #define I2C_SWITCH_NONE 1
-
-/* Audio service */
-#define APP_SAI_TX_DMA_CHANNEL (16U)
-#define APP_SAI_RX_DMA_CHANNEL (17U)
 
 /* Sensor service */
 #define APP_PEDOMETER_POLL_DELAY_MIN (500U)                              /* Half second. */
