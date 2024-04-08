@@ -1,7 +1,5 @@
 /*
- * Copyright (c) 2016, Freescale Semiconductor, Inc.
- * Copyright 2016-2023 NXP
- * All rights reserved.
+ * Copyright 2022-2023 NXP
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -170,7 +168,6 @@ static void APP_SetWakeupConfig(lpm_power_mode_t targetMode)
     }
 }
 
-
 /* LPTMR2 interrupt handler. */
 void LPTMR2_IRQHandler(void)
 {
@@ -212,7 +209,6 @@ void LPUART2_IRQHandler(void)
 void PowerModeSwitchTask(void *pvParameters)
 {
     lptmr_config_t lptmrConfig;
-    lpuart_config_t config;
 
     lpm_power_mode_t targetPowerMode;
     uint32_t freq = 0U;
@@ -220,7 +216,7 @@ void PowerModeSwitchTask(void *pvParameters)
 
     /* Setup LPTMR. */
     LPTMR_GetDefaultConfig(&lptmrConfig);
-    lptmrConfig.prescalerClockSource = kLPTMR_PrescalerClock_1; /* Use RTC 32KHz as clock source. */
+    lptmrConfig.prescalerClockSource = kLPTMR_PrescalerClock_1;  /* Use RTC 32KHz as clock source. */
     lptmrConfig.bypassPrescaler      = true;
     lptmrConfig.value                = kLPTMR_Prescale_Glitch_0; /* Divide clock source by 2. */
     LPTMR_Init(LPTMR2, &lptmrConfig);
@@ -229,11 +225,6 @@ void PowerModeSwitchTask(void *pvParameters)
     EnableIRQ(LPTMR2_IRQn);
 
     /* Setup LPUART. */
-    LPUART_GetDefaultConfig(&config);
-    config.baudRate_Bps              = BOARD_DEBUG_UART_BAUDRATE;
-    config.enableTx                  = true;
-    config.enableRx                  = true;
-    LPUART_Init(LPUART2, &config, BOARD_DEBUG_UART_CLK_FREQ);
     NVIC_SetPriority(LPUART2_IRQn, APP_LPUART2_IRQ_PRIO);
 
     EnableIRQ(LPUART2_IRQn);
@@ -256,6 +247,7 @@ void PowerModeSwitchTask(void *pvParameters)
         PRINTF("Press  %c to enter: STOP mode\r\n", kAPP_PowerModeStop);
         PRINTF("Press  %c to enter: SUSPEND mode\r\n", kAPP_PowerModeSuspend);
         PRINTF("Press  W to wakeup A55 core\r\n");
+        PRINTF("Press  M for switch M33 Root Clock frequency between OD/ND.\r\n");
         PRINTF("\r\nWaiting for power mode select..\r\n\r\n");
 
         /* Wait for user response */
@@ -298,6 +290,40 @@ void PowerModeSwitchTask(void *pvParameters)
             /* GCR[GIR1] is used to wakeup A55. */
             MU1_MUA->GCR |= MU_GCR_GIR1_MASK;
             PRINTF("Set GCR[GIR1] Register to wakeup A55\r\n");
+        }
+        else if ('M' == ch)
+        {
+            PRINTF("Press O for OverDrive mode - choose M33 ROOT Clock freq as 250MHz\r\n");
+            PRINTF("Press N for Nominal   mode - choose M33 ROOT Clock freq as 200MHz\r\n");
+            PRINTF("\r\nWaiting for key press..\r\n\r\n");
+            ch = GETCHAR();
+
+            if ((ch >= 'a') && (ch <= 'z'))
+            {
+                ch -= 'a' - 'A';
+            }
+            if (ch == 'O')
+            {
+                const clock_root_config_t m33ClkCfg = {
+                    .clockOff = false,
+	            .mux = 1, // 500MHz oscillator source
+	            .div = 2  /* 250Mhz */
+                };
+                CLOCK_SetRootClock(kCLOCK_Root_M33, &m33ClkCfg);
+            }
+            else if (ch == 'N')
+            {
+                const clock_root_config_t m33ClkCfg = {
+                    .clockOff = false,
+	            .mux = 2, // 400MHz oscillator source
+	            .div = 2  /* 200MHz */
+                };
+                CLOCK_SetRootClock(kCLOCK_Root_M33, &m33ClkCfg);
+            }
+            else
+            {
+                PRINTF("%c\r\nWrong value!\r\n");
+            }
         }
         else
         {
@@ -399,11 +425,20 @@ int main(void)
 	.mux = 0, // 24MHz oscillator source
 	.div = 1
     };
+    const clock_root_config_t lptmrClkCfg = {
+        .clockOff = false,
+	.mux = 0, // 24MHz oscillator source
+	.div = 1
+    };
 
     BOARD_InitBootPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
 
+    CLOCK_SetRootClock(kCLOCK_Root_Lptmr1, &lptmrClkCfg);
+    CLOCK_EnableClock(kCLOCK_Lptmr1);
+    CLOCK_SetRootClock(kCLOCK_Root_Lptmr2, &lptmrClkCfg);
+    CLOCK_EnableClock(kCLOCK_Lptmr2);
     CLOCK_SetRootClock(kCLOCK_Root_Lpi2c1, &lpi2cClkCfg);
     CLOCK_EnableClock(kCLOCK_Lpi2c1);
     CLOCK_SetRootClock(BOARD_ADP5585_I2C_CLOCK_ROOT, &lpi2cClkCfg);

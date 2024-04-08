@@ -39,17 +39,14 @@
 
 void MainTask(void *pvParameters)
 {
-    PRINTF("********************************\r\n");
     PRINTF("Wait the Linux kernel boot up to create the link between M core and A core.\r\n");
     PRINTF("\r\n");
-    PRINTF("********************************\r\n");
 
     APP_SRTM_Init();
-#if defined(MIMX9352_cm33_SERIES)
+#if defined(MIMX9352_cm33_SERIES) || defined(MIMX9322_cm33_SERIES)
     APP_SRTM_StartCommunication();
 #endif
     PRINTF("The rpmsg channel between M core and A core created!\r\n");
-    PRINTF("********************************\r\n");
     PRINTF("\r\n");
 
     voice_engine_create();
@@ -59,7 +56,7 @@ void MainTask(void *pvParameters)
     while (true)
     {
         /* Use App task logic to replace vTaskDelay */
-        PRINTF("\r\nMain task is working now.\r\n");
+        PRINTF_VERBOSE("\r\nMain task is working now.\r\n");
         vTaskDelay(portMAX_DELAY);
     }
 }
@@ -104,6 +101,11 @@ int main(void)
     CLOCK_SetRootClock(kCLOCK_Root_Sai3, &saiClkCfg);
     CLOCK_SetRootClock(BOARD_ADP5585_I2C_CLOCK_ROOT, &lpi2cClkCfg);
 
+    CLOCK_EnableClock(kCLOCK_Lptmr1);
+    CLOCK_EnableClock(kCLOCK_Lpuart2);
+    CLOCK_EnableClock(kCLOCK_Lpi2c1);
+    CLOCK_EnableClock(kCLOCK_Sai3);
+
     /* Select PDM/SAI signals */
     adp5585_handle_t handle;
     BOARD_InitADP5585(&handle);
@@ -125,20 +127,8 @@ int main(void)
     /* Config OSCPLL LPM setting for M33 SUSPEND */
     for (unsigned int i = OSCPLL_LPM_START; i <= OSCPLL_LPM_END; i++)
     {
-        CCM_CTRL->OSCPLL[i].LPM0 |= CCM_OSCPLL_LPM0_LPM_SETTING_D2_MASK;
+        CCM_CTRL->OSCPLL[i].LPM0 |= CCM_OSCPLL_LPM0_LPM_SETTING_D2(3);
     }
-
-    //LPTMR1
-    CCM_CTRL->LPCG[42].LPM0 |= CCM_LPCG_LPM0_LPM_SETTING_D2(0x03);
-    CCM_CTRL->LPCG[42].AUTHEN = CCM_LPCG_AUTHEN_WHITE_LIST(0x4);
-
-    // UART2 setting
-    CCM_CTRL->LPCG[53].LPM0 |= CCM_LPCG_LPM0_LPM_SETTING_D2(0x03);
-    CCM_CTRL->LPCG[53].AUTHEN = CCM_LPCG_AUTHEN_WHITE_LIST(0x4);
-
-    // LPI2C1
-    CCM_CTRL->LPCG[60].LPM0 |= CCM_LPCG_LPM0_LPM_SETTING_D2(0x03);
-    CCM_CTRL->LPCG[60].AUTHEN = CCM_LPCG_AUTHEN_WHITE_LIST(0x4);
 
 #if APP_SRTM_CODEC_AK4497_USED
     APP_SRTM_I2C_ReleaseBus();
@@ -152,7 +142,7 @@ int main(void)
 
     if (xTaskCreate(MainTask, "Main Task", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1U, NULL) != pdPASS)
     {
-        PRINTF("Task creation failed!.\r\n");
+        PRINTF_VERBOSE("Task creation failed!.\r\n");
         while (1)
             ;
     }

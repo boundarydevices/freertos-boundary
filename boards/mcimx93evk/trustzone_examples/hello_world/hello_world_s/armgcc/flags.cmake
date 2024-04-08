@@ -52,7 +52,7 @@ SET(CMAKE_C_FLAGS_DEBUG " \
     ${CMAKE_C_FLAGS_DEBUG} \
     -DDEMO_CODE_START_NS=268369920 \
     -DDEBUG \
-    -DCPU_MIMX9352DVUXM_cm33 \
+    -DCPU_MIMX9352DVVXM_cm33 \
     -DMCUXPRESSO_SDK \
     -g \
     -O0 \
@@ -76,7 +76,7 @@ SET(CMAKE_C_FLAGS_RELEASE " \
     ${CMAKE_C_FLAGS_RELEASE} \
     -DDEMO_CODE_START_NS=268369920 \
     -DNDEBUG \
-    -DCPU_MIMX9352DVUXM_cm33 \
+    -DCPU_MIMX9352DVVXM_cm33 \
     -DMCUXPRESSO_SDK \
     -Os \
     -mcmse \
@@ -167,7 +167,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     -Wl,--print-memory-usage \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX9352_cm33_ram_s.ld -static \
+    -T\"${ProjDirPath}/MIMX9352_cm33_ram_s.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     ${CMAKE_EXE_LINKER_FLAGS_RELEASE} \
@@ -195,5 +195,5 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     -Wl,--print-memory-usage \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX9352_cm33_ram_s.ld -static \
+    -T\"${ProjDirPath}/MIMX9352_cm33_ram_s.ld\" -static \
 ")

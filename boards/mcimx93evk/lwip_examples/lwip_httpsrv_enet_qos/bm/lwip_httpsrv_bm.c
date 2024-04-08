@@ -91,7 +91,7 @@ extern phy_rtl8211f_resource_t g_phy_resource;
 
 /* ENET clock frequency. */
 #define ENET_QOS_CLOCK_ROOT        kCLOCK_Root_Enet
-#define ENET_QOS_CLOCK_GATE kCLOCK_Enet_Qos
+#define ENET_QOS_CLOCK_GATE        kCLOCK_Enet_Qos
 #define ENET_QOS_SYSTEM_CLOCK_ROOT kCLOCK_Root_WakeupAxi
 #define EXAMPLE_CLOCK_FREQ         CLOCK_GetIpFreq(ENET_QOS_SYSTEM_CLOCK_ROOT)
 
@@ -122,12 +122,12 @@ static phy_handle_t phyHandle;
  ******************************************************************************/
 void ENET_QOS_EnableClock(bool enable)
 {
-    BLK_CTRL_WAKEUPMIX1->GPR =
-        (BLK_CTRL_WAKEUPMIX1->GPR & (~BLK_CTRL_WAKEUPMIX_GPR_ENABLE_MASK)) | BLK_CTRL_WAKEUPMIX_GPR_ENABLE(enable);
+    BLK_CTRL_WAKEUPMIX->GPR =
+        (BLK_CTRL_WAKEUPMIX->GPR & (~BLK_CTRL_WAKEUPMIX_GPR_ENABLE_MASK)) | BLK_CTRL_WAKEUPMIX_GPR_ENABLE(enable);
 }
 void ENET_QOS_SetSYSControl(enet_qos_mii_mode_t miiMode)
 {
-    BLK_CTRL_WAKEUPMIX1->GPR |= BLK_CTRL_WAKEUPMIX_GPR_MODE(miiMode);
+    BLK_CTRL_WAKEUPMIX->GPR |= BLK_CTRL_WAKEUPMIX_GPR_MODE(miiMode);
 }
 
 static void MDIO_Init(void)
@@ -163,7 +163,7 @@ static void print_ipv6_addresses(struct netif *netif)
 }
 
 static void netif_ipv6_callback(struct netif *cb_netif)
-{    
+{
     PRINTF("IPv6 address update, valid addresses:\r\n");
     print_ipv6_addresses(cb_netif);
     PRINTF("\r\n");

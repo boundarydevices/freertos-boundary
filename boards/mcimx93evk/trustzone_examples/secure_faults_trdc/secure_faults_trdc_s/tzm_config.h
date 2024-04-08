@@ -1,6 +1,5 @@
 /*
  * Copyright 2022 NXP
- * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -23,8 +22,8 @@ extern "C" {
 #define EXAMPLE_TRDC_MBC_ACCESS_CONTROL_POLICY_NONE_INDEX 2
 
 /* SAU region boundaries */
-#define SAU_REGION_0_BASE 0x20012000U
-#define SAU_REGION_0_END  0x2001FFFFU
+#define SAU_REGION_0_BASE 0x20013000U
+#define SAU_REGION_0_END  0x2001DFFFU
 #define SAU_REGION_1_BASE 0x0FFF0000U
 #define SAU_REGION_1_END  0x0FFFFFFFU
 #define SAU_REGION_2_BASE 0x1FFEFE00U

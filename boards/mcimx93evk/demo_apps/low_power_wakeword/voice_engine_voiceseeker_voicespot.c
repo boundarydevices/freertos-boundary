@@ -35,16 +35,24 @@
 #define DEVICE_ID Device_IMX8M_CM7
 #elif defined(MIMX9352_cm33_SERIES)
 #define DEVICE_ID Device_IMX93_CM33
+#elif defined(MIMX9322_cm33_SERIES)
+#define DEVICE_ID Device_IMX93_CM33
 #else
 #error "Incompatible device"
 #endif
 
 /* VoiceSeeker 2 Mic + VoiceSpot config. */
 #include "libVoiceSeekerLight.h"
+#if defined(MIMX9352_cm33_SERIES) || defined(MIMX9322_cm33_SERIES)
+#define RX_BUFFER_LEN         (14 * 1024) /* 56ms * 4channels * 16KHz * 32bits*/
+#define RX_BUFFER_THR         (1)         /* nb of periods. */
+#define NB_FRAMES_PER_PERIOD  (9)         /* number of VoiceSeeker input frames per DMA period. */
+#else
 #define RX_BUFFER_LEN         (15 * 1024) /* 60ms * 4channels * 16KHz * 32bits*/
 #define RX_BUFFER_THR         (3)         /* nb of periods. */
-#define SAMPLES_PER_FRAME_IN  (32)        /* VoiceSeeker input. */
 #define NB_FRAMES_PER_PERIOD  (6)         /* number of VoiceSeeker input frames per DMA period. */
+#endif
+#define SAMPLES_PER_FRAME_IN  (32)        /* VoiceSeeker input. */
 #define SAMPLES_PER_FRAME_OUT (200)       /* Voiceseeker output = VoiceSpot input. */
 #define NUM_INPUT_MICS        (2)
 #else
@@ -109,8 +117,10 @@ static int32_t *scores;
 
 #if VOICE_ENGINE_CONFIG_VOICESEEKER_2MIC
 
-#if defined(MIMX9352_cm33_SERIES)
+#if defined(MIMX9352_cm33_SERIES) //iMX93 11x11 EVK
 static rdsp_xyz_t mics_coords[2] = {{-58.0f, 0.0f, 0.0f}, {58.0f, 0.0f, 0.0f}};
+#elif defined(MIMX9322_cm33_SERIES) //iMX93 9x9 QSB
+static rdsp_xyz_t mics_coords[2] = {{-30.5f, 0.0f, 0.0f}, {30.5f, 0.0f, 0.0f}};
 #else // imx8MM and imx8MP
 static rdsp_xyz_t mics_coords[2] = {{-17.5f, 0.0f, 0.0f}, {17.5f, 0.0f, 0.0f}};
 #endif
@@ -137,9 +147,11 @@ static void voiceseeker_2mic_init(void)
     vsl.mem.pPrivateDataNext    = (void *)vsl.mem.pPrivateDataBase;
 
     voiceseeker_status = VoiceSeekerLight_Create(&vsl, &vsl_config);
-    PRINTF("VoiceSeekerLight_Create status: 0x%x\r\n", voiceseeker_status);
+    PRINTF_VERBOSE("VoiceSeekerLight_Create status: 0x%x\r\n", voiceseeker_status);
 
-    VoiceSeekerLight_Init(&vsl);
+    if (voiceseeker_status == OK) {
+        VoiceSeekerLight_Init(&vsl);
+    }
 
     // VoiceSeekerLight_GetConfig(&vsl, &vsl_config);
     // VoiceSeekerLight_PrintConfig(&vsl);
@@ -213,7 +225,7 @@ static void voicespot_init(void)
 
     if (voicespot_status != RDSP_VOICESPOT_OK)
     {
-        PRINTF("VoiceSpot init error 0x%x\r\n", voicespot_status);
+        PRINTF_VERBOSE("VoiceSpot init error 0x%x\r\n", voicespot_status);
     }
 }
 
@@ -284,7 +296,7 @@ uint8_t voice_engine_algo_process(void *data)
                 }
                 break;
             default:
-                PRINTF("ERROR: unsupported audio format: %d\r\n", audio_format);
+                PRINTF_VERBOSE("ERROR: unsupported audio format: %d\r\n", audio_format);
                 return 0;
                 break;
         }
@@ -301,7 +313,7 @@ uint8_t voice_engine_algo_process(void *data)
         if (voiceseeker_status != OK)
         {
             voicespot_in_buf = NULL;
-            PRINTF("VoiceSeekerLight_Process error: 0x%x\r\n", voiceseeker_status);
+            PRINTF_VERBOSE("VoiceSeekerLight_Process error: 0x%x\r\n", voiceseeker_status);
         }
 #else
         voicespot_in_buf = input_buf;
@@ -321,6 +333,14 @@ uint8_t voice_engine_algo_process(void *data)
                     ww_detected = 1;
                     break; /* No need to continue processing next frames. */
                 }
+            }
+            else if (voicespot_status == RDSP_MODEL_LICENSE_EXPIRED)
+            {
+                PRINTF("VoiceSpot license has expired\r\n");
+            }
+            else if (voicespot_status != RDSP_MODEL_OK)
+            {
+                PRINTF_VERBOSE("VoiceSpot process error 0x%x\r\n", voicespot_status);
             }
         }
     }

@@ -1,13 +1,19 @@
 var a00054 =
 [
-    [ "ltc_hash_ctx_t", "a00054.html#a00429", null ],
-    [ "LTC_HASH_CTX_SIZE", "a00054.html#ga9aceecc22574b68589c34fa797bb38e8", null ],
-    [ "ltc_hash_algo_t", "a00054.html#gad8e545023f6e9ab3c7c40de3b3b37106", [
-      [ "kLTC_XcbcMac", "a00054.html#ggad8e545023f6e9ab3c7c40de3b3b37106a86c5216f472604a6ddbaf04b2765f7cb", null ],
-      [ "kLTC_Cmac", "a00054.html#ggad8e545023f6e9ab3c7c40de3b3b37106a7d3e5d87316147d834d91d1bf0e7398c", null ]
+    [ "ltc_pkha_ecc_point_t", "a00054.html#a00426", [
+      [ "X", "a00054.html#a3e548db41a957bbc94e2d60c629c7478", null ],
+      [ "Y", "a00054.html#aedfed521edb310ef0916b9a7898be500", null ]
     ] ],
-    [ "LTC_HASH_Init", "a00054.html#gacc8a9520ac6afc1df327e94f0aa72d4a", null ],
-    [ "LTC_HASH_Update", "a00054.html#gaa461e928e25788b08ee3f63761875385", null ],
-    [ "LTC_HASH_Finish", "a00054.html#ga984bc6357c0aaaf69ef33e3646d31e39", null ],
-    [ "LTC_HASH", "a00054.html#ga78a23fb22a91c573d844b4b27294f6dc", null ]
+    [ "ltc_pkha_timing_t", "a00054.html#ga1a1e15f2277e244b7e580d7ad7af413f", [
+      [ "kLTC_PKHA_NoTimingEqualized", "a00054.html#gga1a1e15f2277e244b7e580d7ad7af413fa55f0ab9fb8115a106b576f6e216371b4", null ],
+      [ "kLTC_PKHA_TimingEqualized", "a00054.html#gga1a1e15f2277e244b7e580d7ad7af413fafd8e23df7f97aa9a2b711dd7db88f709", null ]
+    ] ],
+    [ "ltc_pkha_f2m_t", "a00054.html#ga8508a97598439c72c545da28868be18e", [
+      [ "kLTC_PKHA_IntegerArith", "a00054.html#gga8508a97598439c72c545da28868be18ea785f77826b6a2d1398ac75bab7dfa95c", null ],
+      [ "kLTC_PKHA_F2mArith", "a00054.html#gga8508a97598439c72c545da28868be18eafb3307389575323e97c9f2d8ed9d7599", null ]
+    ] ],
+    [ "ltc_pkha_montgomery_form_t", "a00054.html#ga4d4f275b705ffe36b9d60f32d7d27cc6", [
+      [ "kLTC_PKHA_NormalValue", "a00054.html#gga4d4f275b705ffe36b9d60f32d7d27cc6aff1fd74bccaa7123d4b1fa971d2817bb", null ],
+      [ "kLTC_PKHA_MontgomeryFormat", "a00054.html#gga4d4f275b705ffe36b9d60f32d7d27cc6a9e6e3f5ea330a200efdd988b6e798339", null ]
+    ] ]
 ];

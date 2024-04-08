@@ -4,8 +4,8 @@
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-#ifndef _FSL_TRDC_CORE_H_
-#define _FSL_TRDC_CORE_H_
+#ifndef FSL_TRDC_CORE_H_
+#define FSL_TRDC_CORE_H_
 
 #include "fsl_trdc_soc.h"
 
@@ -17,55 +17,6 @@
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-
-#define TRDC_DACFG_NCM_MASK                     TRDC_MBC2_DACFG_NCM_MASK
-#define TRDC_MBC_MEM_GLBCFG_NBLKS_MASK          TRDC_MBC2_MBC_MEM_GLBCFG_NBLKS_MASK
-#define TRDC_MBC_MEM_GLBCFG_SIZE_LOG2_MASK      TRDC_MBC2_MBC_MEM_GLBCFG_SIZE_LOG2_MASK
-#define TRDC_MBC_MEM_GLBCFG_SIZE_LOG2_SHIFT     TRDC_MBC2_MBC_MEM_GLBCFG_SIZE_LOG2_SHIFT
-#define TRDC_MBC_NSE_BLK_CLR_ALL_DID_SEL0_SHIFT TRDC_MBC2_MBC_NSE_BLK_CLR_ALL_DID_SEL0_SHIFT
-#define TRDC_MDA_W_DFMT0_LK1_MASK               TRDC_MBC2_MDA_W_DFMT0_LK1_MASK
-#define TRDC_MDA_W_DFMT0_VLD_MASK               TRDC_MBC2_MDA_W_DFMT0_VLD_MASK
-#define TRDC_MDA_W_DFMT1_LK1_MASK               TRDC_MBC2_MDA_W_DFMT1_LK1_MASK
-#define TRDC_MDA_W_DFMT1_VLD_MASK               TRDC_MBC2_MDA_W_DFMT1_VLD_MASK
-#define TRDC_MRC_DOM0_RGD_W_MRACSEL_MASK        TRDC_MBC2_MRC_DOM0_RGD_W_MRACSEL_MASK
-#define TRDC_MRC_DOM0_RGD_W_NSE_MASK            TRDC_MBC2_MRC_DOM0_RGD_W_NSE_MASK
-#define TRDC_MRC_DOM0_RGD_W_VLD_MASK            TRDC_MBC2_MRC_DOM0_RGD_W_VLD_MASK
-#define TRDC_MRC_GLBCFG_NRGNS_MASK              TRDC_MBC2_MRC_GLBCFG_NRGNS_MASK
-#define TRDC_MRC_GLBCFG_NRGNS_SHIFT             TRDC_MBC2_MRC_GLBCFG_NRGNS_SHIFT
-#define TRDC_TRDC_CR_GVLDB_MASK                 TRDC_MBC2_TRDC_CR_GVLDB_MASK
-#define TRDC_TRDC_CR_GVLDM_MASK                 TRDC_MBC2_TRDC_CR_GVLDM_MASK
-#define TRDC_TRDC_CR_GVLDR_MASK                 TRDC_MBC2_TRDC_CR_GVLDR_MASK
-#define TRDC_TRDC_FLW_CTL_LK_MASK               TRDC_MBC2_TRDC_FLW_CTL_LK_MASK
-#define TRDC_TRDC_FLW_CTL_V_MASK                TRDC_MBC2_TRDC_FLW_CTL_V_MASK
-#define TRDC_TRDC_HWCFG0_NDID_MASK              TRDC_MBC2_TRDC_HWCFG0_NDID_MASK
-#define TRDC_TRDC_HWCFG0_NDID_SHIFT             TRDC_MBC2_TRDC_HWCFG0_NDID_SHIFT
-#define TRDC_TRDC_HWCFG0_NMBC_MASK              TRDC_MBC2_TRDC_HWCFG0_NMBC_MASK
-#define TRDC_TRDC_HWCFG0_NMBC_SHIFT             TRDC_MBC2_TRDC_HWCFG0_NMBC_SHIFT
-#define TRDC_TRDC_HWCFG0_NMRC_MASK              TRDC_MBC2_TRDC_HWCFG0_NMRC_MASK
-#define TRDC_TRDC_HWCFG0_NMRC_SHIFT             TRDC_MBC2_TRDC_HWCFG0_NMRC_SHIFT
-#define TRDC_TRDC_HWCFG0_NMSTR_MASK             TRDC_MBC2_TRDC_HWCFG0_NMSTR_MASK
-#define TRDC_TRDC_HWCFG0_NMSTR_SHIFT            TRDC_MBC2_TRDC_HWCFG0_NMSTR_SHIFT
-#define TRDC_TRDC_HWCFG1_DID_MASK               TRDC_MBC2_TRDC_HWCFG1_DID_MASK
-#define TRDC_TRDC_HWCFG1_DID_SHIFT              TRDC_MBC2_TRDC_HWCFG1_DID_SHIFT
-#define TRDC_TRDC_IDAU_CR_VLD_MASK              TRDC_MBC2_TRDC_IDAU_CR_VLD_MASK
-#define TRDC_W1_EATR_MASK                       TRDC_MBC2_W1_EATR_MASK
-#define TRDC_W1_EATR_SHIFT                      TRDC_MBC2_W1_EATR_SHIFT
-#define TRDC_W1_EDID_MASK                       TRDC_MBC2_W1_EDID_MASK
-#define TRDC_W1_EPORT_MASK                      TRDC_MBC2_W1_EPORT_MASK
-#define TRDC_W1_EPORT_SHIFT                     TRDC_MBC2_W1_EPORT_SHIFT
-#define TRDC_W1_ERW_MASK                        TRDC_MBC2_W1_ERW_MASK
-#define TRDC_W1_ERW_SHIFT                       TRDC_MBC2_W1_ERW_SHIFT
-#define TRDC_W1_EST_MASK                        TRDC_MBC2_W1_EST_MASK
-#define TRDC_W1_EST_SHIFT                       TRDC_MBC2_W1_EST_SHIFT
-#define TRDC_MBC_NSE_BLK_CLR_ALL_MEMSEL         TRDC_MBC2_MBC_NSE_BLK_CLR_ALL_MEMSEL
-#define TRDC_MRC_DOM0_RGD_W_MRACSEL             TRDC_MBC2_MRC_DOM0_RGD_W_MRACSEL
-#define TRDC_MRC_DOM0_RGD_W_NSE                 TRDC_MBC2_MRC_DOM0_RGD_W_NSE
-#define TRDC_MRC_DOM0_RGD_W_VLD                 TRDC_MBC2_MRC_DOM0_RGD_W_VLD
-#define TRDC_TRDC_FDID_FDID                     TRDC_MBC2_TRDC_FDID_FDID
-#define TRDC_TRDC_FLW_CTL_LK                    TRDC_MBC2_TRDC_FLW_CTL_LK
-#define TRDC_TRDC_FLW_CTL_V                     TRDC_MBC2_TRDC_FLW_CTL_V
-#define TRDC_W3_RECR                            TRDC_MBC2_W3_RECR
-
 /*!@brief TRDC general configuration register definition. */
 typedef struct _TRDC_General_Type
 {
@@ -512,9 +463,6 @@ typedef struct _TRDC_MRC_Type
         MRC_DOM15_RGD_NSE; /**< MRC Region Descriptor NonSecure Enable, array offset: 0x14FC0, array step: 0x1000 */
 } TRDC_MRC_Type;
 
-/*!@brief TRDC typedef */
-typedef void TRDC_Type;
-
 /*!@brief TRDC base address convert macro */
 #define TRDC_GENERAL_BASE(base)      ((TRDC_General_Type *)((uint32_t)(uint32_t *)(base)))
 #define TRDC_FLW_BASE(base)          ((TRDC_FLW_Type *)(((uint32_t)(uint32_t *)(base) + TRDC_FLW_OFFSET)))
@@ -538,4 +486,4 @@ extern "C" {
  * @}
  */
 
-#endif /* _FSL_TRDC_CORE_H_ */
+#endif /* FSL_TRDC_CORE_H_ */

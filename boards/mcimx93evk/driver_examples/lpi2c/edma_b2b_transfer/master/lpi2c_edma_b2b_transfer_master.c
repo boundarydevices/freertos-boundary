@@ -25,13 +25,13 @@
  ******************************************************************************/
 #define EXAMPLE_I2C_MASTER_BASE      (LPI2C1_BASE)
 #define LPI2C_MASTER_CLOCK_ROOT      kCLOCK_Root_Lpi2c1
-#define LPI2C_MASTER_CLOCK_GATE kCLOCK_Lpi2c1
+#define LPI2C_MASTER_CLOCK_GATE      kCLOCK_Lpi2c1
 #define LPI2C_MASTER_CLOCK_FREQUENCY CLOCK_GetIpFreq(LPI2C_MASTER_CLOCK_ROOT)
 #define EXAMPLE_LPI2C_MASTER_DMA     (DMA3)
 #define LPI2C_TRANSMIT_DMA_CHANNEL   kDma3RequestMuxLPI2C1Tx
 #define LPI2C_RECEIVE_DMA_CHANNEL    kDma3RequestMuxLPI2C1Rx
 #define EXAMPLE_DMA_CLOCK_ROOT       kCLOCK_Root_WakeupAxi
-#define EXAMPLE_DMA_CLOCK_GATE kCLOCK_Edma1
+#define EXAMPLE_DMA_CLOCK_GATE       kCLOCK_Edma1
 
 #define EXAMPLE_I2C_MASTER ((LPI2C_Type *)EXAMPLE_I2C_MASTER_BASE)
 
@@ -121,6 +121,9 @@ int main(void)
      * userConfig.enableDebugMode = false;
      */
     EDMA_GetDefaultConfig(&userConfig);
+#if defined(BOARD_GetEDMAConfig)
+    BOARD_GetEDMAConfig(userConfig);
+#endif
     EDMA_Init(EXAMPLE_LPI2C_MASTER_DMA, &userConfig);
 
     /* Set up i2c master to send data to slave*/

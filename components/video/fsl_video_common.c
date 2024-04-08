@@ -100,7 +100,7 @@ uint8_t VIDEO_GetPixelSizeBits(video_pixel_format_t pixelFormat)
 
 status_t VIDEO_RINGBUF_Init(video_ringbuf_t *ringbuf, void **buf, uint32_t size)
 {
-    assert(ringbuf);
+    assert(ringbuf != NULL);
 
     ringbuf->rear  = 0;
     ringbuf->front = 0;
@@ -267,7 +267,7 @@ status_t VIDEO_STACK_Init(video_stack_t *stack, void **buf, uint32_t size)
 {
     stack->buf      = buf;
     stack->maxCount = size;
-    stack->top      = -1;
+    stack->top      = 0U;
 
     return kStatus_Success;
 }
@@ -276,9 +276,9 @@ status_t VIDEO_STACK_Pop(video_stack_t *stack, void **item)
 {
     status_t status;
 
-    if (stack->top >= 0)
+    if (stack->top > 0U)
     {
-        *item  = stack->buf[stack->top--];
+        *item  = stack->buf[--stack->top];
         status = kStatus_Success;
     }
     else
@@ -294,9 +294,9 @@ status_t VIDEO_STACK_Push(video_stack_t *stack, void *item)
 {
     status_t status;
 
-    if (stack->top < (stack->maxCount - 1))
+    if (stack->top < (stack->maxCount))
     {
-        stack->buf[++stack->top] = item;
+        stack->buf[stack->top++] = item;
         status                   = kStatus_Success;
     }
     else

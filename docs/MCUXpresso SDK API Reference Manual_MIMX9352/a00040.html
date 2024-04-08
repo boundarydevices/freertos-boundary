@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: IOMUXC: IOMUX Controller</title>
+<title>MCUXpresso SDK API Reference Manual: LCDIF: LCD interface</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.14.0</span>
+   &#160;<span id="projectnumber">Rev 2.15.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -99,266 +99,378 @@ $(document).ready(function(){initNavTree('a00040.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">IOMUXC: IOMUX Controller</div>  </div>
+<div class="title">LCDIF: LCD interface</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
-<p>IOMUXC driver provides APIs for pin configuration. It also supports the miscellaneous functions integrated in IOMUXC.</p>
-<p>The MCUXpresso SDK provides a peripheral driver for the Input/Output Multiplexing Controller.<br/>
- <br/>
-The IOMUXC, working in conjunction with the IOMUX, enables the chip to share one pad for multiple signals from different peripheral interfaces. <br/>
-</p>
+<p>The MCUXpresso SDK provides a peripheral driver for the LCD interface (LCDIF) module of MCUXpresso SDK devices. </p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:a00148"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00148.html">fsl_iomuxc.h</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:a00405"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a00405">iomux_pin_config_t</a></td></tr>
-<tr class="memdesc:a00405"><td class="mdescLeft">&#160;</td><td class="mdescRight">IOMUXC pin configuration structure.  <a href="a00040.html#a00405">More...</a><br/></td></tr>
-<tr class="separator:a00405"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00407"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a00407">iomuxc_input_pin_config_t</a></td></tr>
-<tr class="memdesc:a00407"><td class="mdescLeft">&#160;</td><td class="mdescRight">IOMUXC pin configuration and mux for input function.  <a href="a00040.html#a00407">More...</a><br/></td></tr>
-<tr class="separator:a00407"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00406"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a00406">iomux_pin_reset_config_t</a></td></tr>
-<tr class="memdesc:a00406"><td class="mdescLeft">&#160;</td><td class="mdescRight">IOMUXC pin configuration reset value structure.  <a href="a00040.html#a00406">More...</a><br/></td></tr>
+<tr class="memitem:a00406"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a00406">lcdif_dpi_config_t</a></td></tr>
+<tr class="memdesc:a00406"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for LCDIF module to work in DBI mode.  <a href="a00040.html#a00406">More...</a><br/></td></tr>
 <tr class="separator:a00406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00407"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a00407">lcdif_fb_config_t</a></td></tr>
+<tr class="memdesc:a00407"><td class="mdescLeft">&#160;</td><td class="mdescRight">LCDIF frame buffer configuration.  <a href="a00040.html#a00407">More...</a><br/></td></tr>
+<tr class="separator:a00407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00404"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a00404">lcdif_cursor_config_t</a></td></tr>
+<tr class="memdesc:a00404"><td class="mdescLeft">&#160;</td><td class="mdescRight">LCDIF cursor configuration.  <a href="a00040.html#a00404">More...</a><br/></td></tr>
+<tr class="separator:a00404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00405"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a00405">lcdif_dither_config_t</a></td></tr>
+<tr class="memdesc:a00405"><td class="mdescLeft">&#160;</td><td class="mdescRight">LCDIF dither configuration.  <a href="a00040.html#a00405">More...</a><br/></td></tr>
+<tr class="separator:a00405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga59226e4d188d172b3df72f6976766dd6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga59226e4d188d172b3df72f6976766dd6">LCDIF_MAKE_CURSOR_COLOR</a>(r, g, b)&#160;&#160;&#160;(((r) &lt;&lt; 16U) | ((g) &lt;&lt; 8U) | ((b) &lt;&lt; 0U))</td></tr>
+<tr class="memdesc:ga59226e4d188d172b3df72f6976766dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the cursor color, every element should be in the range of 0 ~ 255.  <a href="#ga59226e4d188d172b3df72f6976766dd6">More...</a><br/></td></tr>
+<tr class="separator:ga59226e4d188d172b3df72f6976766dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1c8701d1bffcab393b254ffd9c64dc3c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga1c8701d1bffcab393b254ffd9c64dc3c">LCDIF_MAKE_GAMMA_VALUE</a>(r, g, b)&#160;&#160;&#160;(((r) &lt;&lt; 16U) | ((g) &lt;&lt; 8U) | ((b) &lt;&lt; 0U))</td></tr>
+<tr class="memdesc:ga1c8701d1bffcab393b254ffd9c64dc3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the gamma value set to LCDIF gamma table, every element should be in the range of 0~255.  <a href="#ga1c8701d1bffcab393b254ffd9c64dc3c">More...</a><br/></td></tr>
+<tr class="separator:ga1c8701d1bffcab393b254ffd9c64dc3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b3c1e1727697f2846397dee63ba51b4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga9b3c1e1727697f2846397dee63ba51b4">LCDIF_FB_ALIGN</a>&#160;&#160;&#160;128U</td></tr>
+<tr class="memdesc:ga9b3c1e1727697f2846397dee63ba51b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The frame buffer should be 128 byte aligned.  <a href="#ga9b3c1e1727697f2846397dee63ba51b4">More...</a><br/></td></tr>
+<tr class="separator:ga9b3c1e1727697f2846397dee63ba51b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35c38704589fb7e742a1d6462a77699f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga35c38704589fb7e742a1d6462a77699f">LCDIF_GAMMA_INDEX_MAX</a>&#160;&#160;&#160;256U</td></tr>
+<tr class="memdesc:ga35c38704589fb7e742a1d6462a77699f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gamma index max value.  <a href="#ga35c38704589fb7e742a1d6462a77699f">More...</a><br/></td></tr>
+<tr class="separator:ga35c38704589fb7e742a1d6462a77699f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga270843d0ec2b7d9346fefee2aac7fd71"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga270843d0ec2b7d9346fefee2aac7fd71"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga270843d0ec2b7d9346fefee2aac7fd71">LCDIF_CURSOR_SIZE</a>&#160;&#160;&#160;32U</td></tr>
+<tr class="memdesc:ga270843d0ec2b7d9346fefee2aac7fd71"><td class="mdescLeft">&#160;</td><td class="mdescRight">The cursor size is 32 x 32. <br/></td></tr>
+<tr class="separator:ga270843d0ec2b7d9346fefee2aac7fd71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ga4d99388185a141bdde3c8aa67f873cc3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga4d99388185a141bdde3c8aa67f873cc3">_iomuxc_pull</a> { <br/>
-&#160;&#160;<a class="el" href="a00040.html#gga4d99388185a141bdde3c8aa67f873cc3a4f292f9edaca5c6a77c736a14fe9c673">kIOMUXC_PullDisable</a> = 0U, 
+<tr class="memitem:gacbd1a1f016048fe79f77c89c43ab7d69"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gacbd1a1f016048fe79f77c89c43ab7d69">_lcdif_polarity_flags</a> { <br/>
+&#160;&#160;<a class="el" href="a00040.html#ggacbd1a1f016048fe79f77c89c43ab7d69ad43556a2480fab6e6a83dba2f43903ce">kLCDIF_VsyncActiveLow</a> = 0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00040.html#gga4d99388185a141bdde3c8aa67f873cc3a9e3739e270ac264017b42a6a9c7c87f6">kIOMUXC_PullDown</a> = 2U, 
+&#160;&#160;<a class="el" href="a00040.html#ggacbd1a1f016048fe79f77c89c43ab7d69acc9a4a9f81de243c2337c6c32ac9d28b">kLCDIF_VsyncActiveHigh</a> = (1U &lt;&lt; 0U), 
 <br/>
-&#160;&#160;<a class="el" href="a00040.html#gga4d99388185a141bdde3c8aa67f873cc3a7b78ae37a3e1438fcb94409407082c1f">kIOMUXC_PullUp</a> = 3U
+&#160;&#160;<a class="el" href="a00040.html#ggacbd1a1f016048fe79f77c89c43ab7d69ac1d9e497bb1e16d685a708ea4fd4ae1f">kLCDIF_HsyncActiveLow</a> = 0U, 
 <br/>
- }</td></tr>
-<tr class="memdesc:ga4d99388185a141bdde3c8aa67f873cc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal resistor pull feature selection.  <a href="a00040.html#ga4d99388185a141bdde3c8aa67f873cc3">More...</a><br/></td></tr>
-<tr class="separator:ga4d99388185a141bdde3c8aa67f873cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga44c35fc62f2b115b931aa7c2201c090e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga44c35fc62f2b115b931aa7c2201c090e">_iomuxc_slew_rate</a> { <br/>
-&#160;&#160;<a class="el" href="a00040.html#gga44c35fc62f2b115b931aa7c2201c090ea1953d4fae7ce2cbf68045fe558c79288">kIOMUXC_StandardSlewRate</a> = 0U, 
+&#160;&#160;<a class="el" href="a00040.html#ggacbd1a1f016048fe79f77c89c43ab7d69a8398f52fc2ec870e8c2efbea00773032">kLCDIF_HsyncActiveHigh</a> = (1U &lt;&lt; 1U), 
 <br/>
-&#160;&#160;<a class="el" href="a00040.html#gga44c35fc62f2b115b931aa7c2201c090eae36a3041bc67a1b17ab53f3e741bbd05">kIOMUXC_SlowSlewRate</a> = 1U
+&#160;&#160;<a class="el" href="a00040.html#ggacbd1a1f016048fe79f77c89c43ab7d69a34436f9dd3d168eec5a0b72ffe2d470e">kLCDIF_DataEnableActiveLow</a> = 0U, 
 <br/>
- }</td></tr>
-<tr class="memdesc:ga44c35fc62f2b115b931aa7c2201c090e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slew rate selection.  <a href="a00040.html#ga44c35fc62f2b115b931aa7c2201c090e">More...</a><br/></td></tr>
-<tr class="separator:ga44c35fc62f2b115b931aa7c2201c090e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf2a065b62174adea37aa3bd53a069576"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gaf2a065b62174adea37aa3bd53a069576">_iomuxc_open_drain_enable</a> { <br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaf2a065b62174adea37aa3bd53a069576ab33e3e92fd1c85f3c2120af265b4c105">kIOMUXC_OpenDrainDisable</a> = 0U, 
+&#160;&#160;<a class="el" href="a00040.html#ggacbd1a1f016048fe79f77c89c43ab7d69a6e41b6197d6dace5ce1160e6c1ff20cc">kLCDIF_DataEnableActiveHigh</a> = (1U &lt;&lt; 2U), 
 <br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaf2a065b62174adea37aa3bd53a069576abc0ddef8cd7158405aabe8daeee8cf40">kIOMUXC_OpenDrainEnable</a> = 1U
+&#160;&#160;<a class="el" href="a00040.html#ggacbd1a1f016048fe79f77c89c43ab7d69a1b40a65cb92d5045449659ea902297a6">kLCDIF_DriveDataOnFallingClkEdge</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00040.html#ggacbd1a1f016048fe79f77c89c43ab7d69a6c7313c291216e2c865e77a3d1b8a495">kLCDIF_DriveDataOnRisingClkEdge</a> = (1U &lt;&lt; 3U)
 <br/>
  }</td></tr>
-<tr class="memdesc:gaf2a065b62174adea37aa3bd53a069576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal resistor pull feature enable/disable.  <a href="a00040.html#gaf2a065b62174adea37aa3bd53a069576">More...</a><br/></td></tr>
-<tr class="separator:gaf2a065b62174adea37aa3bd53a069576"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga22933985edfa083072d768559d3c547a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga22933985edfa083072d768559d3c547a">_iomuxc_drive_strength</a> { <br/>
-&#160;&#160;<a class="el" href="a00040.html#gga22933985edfa083072d768559d3c547aa7c5bb00d8e639aed6dab875411f5b56c">kIOMUXC_StandardDriveStrength</a> = 0U, 
+<tr class="memdesc:gacbd1a1f016048fe79f77c89c43ab7d69"><td class="mdescLeft">&#160;</td><td class="mdescRight">LCDIF signal polarity flags.  <a href="a00040.html#gacbd1a1f016048fe79f77c89c43ab7d69">More...</a><br/></td></tr>
+<tr class="separator:gacbd1a1f016048fe79f77c89c43ab7d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabda3a49032546bf3f21cfd7d5855a7f4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gabda3a49032546bf3f21cfd7d5855a7f4">lcdif_output_format_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00040.html#ggabda3a49032546bf3f21cfd7d5855a7f4a3ae6b5d98a236cb4d9692ed59e1f0b80">kLCDIF_Output16BitConfig1</a> = 0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00040.html#gga22933985edfa083072d768559d3c547aad1fd3b0e89aa63006baa731960f17d2d">kIOMUXC_HighDriveStrength</a> = 1U
+&#160;&#160;<a class="el" href="a00040.html#ggabda3a49032546bf3f21cfd7d5855a7f4ad831e8aa1cd484c1c86a98e6707dfa38">kLCDIF_Output16BitConfig2</a> = 1U, 
 <br/>
- }</td></tr>
-<tr class="memdesc:ga22933985edfa083072d768559d3c547a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the drive strength.  <a href="a00040.html#ga22933985edfa083072d768559d3c547a">More...</a><br/></td></tr>
-<tr class="separator:ga22933985edfa083072d768559d3c547a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaacab0cbd06b841f89bd94df62395babe"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gaacab0cbd06b841f89bd94df62395babe">_iomuxc_mux</a> { <br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babea72c9b8e5caf85ef6ffba082de7f9cee0">kIOMUXC_MuxAlt0</a> = 0U, 
+&#160;&#160;<a class="el" href="a00040.html#ggabda3a49032546bf3f21cfd7d5855a7f4aa569045521e6c08f36a9d2f8cb866510">kLCDIF_Output16BitConfig3</a> = 2U, 
 <br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babeaa387407f74691c88670be85df21eb746">kIOMUXC_MuxAlt1</a> = 1U, 
+&#160;&#160;<a class="el" href="a00040.html#ggabda3a49032546bf3f21cfd7d5855a7f4a4c6286d64dbf3b63ac4ca50393879239">kLCDIF_Output18BitConfig1</a> = 3U, 
 <br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babeae8ac879acf57d91babe10ee251ebf17f">kIOMUXC_MuxAlt2</a> = 2U, 
+&#160;&#160;<a class="el" href="a00040.html#ggabda3a49032546bf3f21cfd7d5855a7f4ad91ae01b58fb8fe4694fc0fb1fc1850e">kLCDIF_Output18BitConfig2</a> = 4U, 
 <br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babeabc5b577484c9d3049af4416e6c24b082">kIOMUXC_MuxAlt3</a> = 3U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babea85d300193b5f06f217938e65d1298faf">kIOMUXC_MuxAlt4</a> = 4U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babea37d8c92b456d8952a7b89cf33a62df7c">kIOMUXC_MuxAlt5</a> = 5U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babea30343290be7ba273339d1f556de80464">kIOMUXC_MuxAlt6</a> = 6U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babea671c29cbe99838f243f1ca1b20b53539">kIOMUXC_MuxAlt7</a> = 7U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babeaf3466538c2a48cf131aceb752d290ee6">kIOMUXC_MuxAlt8</a> = 8U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babea4166581cac494ed6dce4d923c5476a5b">kIOMUXC_MuxAlt9</a> = 9U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babea90f10a2513ccb4d921d23767c798043f">kIOMUXC_MuxAlt10</a> = 10U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babea474d2039ebfa148cd04bf0eddae594c1">kIOMUXC_MuxAlt11</a> = 11U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babea8cf7c942d62631d93725a35f9a66c750">kIOMUXC_MuxAlt12</a> = 12U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babea196b3a88eecb18c841ed70f1934ef8bd">kIOMUXC_MuxAlt13</a> = 13U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babea8a37d8d1a2f3cd69ba6551a75125133d">kIOMUXC_MuxAlt14</a> = 14U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaacab0cbd06b841f89bd94df62395babea86d8dee7f9656f8f3429a0f843375599">kIOMUXC_MuxAlt15</a> = 15U
+&#160;&#160;<a class="el" href="a00040.html#ggabda3a49032546bf3f21cfd7d5855a7f4ada2fe0a90f6abfca86a5e05f1ecfbb57">kLCDIF_Output24Bit</a> = 5U
 <br/>
  }</td></tr>
-<tr class="memdesc:gaacab0cbd06b841f89bd94df62395babe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin mux selection.  <a href="a00040.html#gaacab0cbd06b841f89bd94df62395babe">More...</a><br/></td></tr>
-<tr class="separator:gaacab0cbd06b841f89bd94df62395babe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9664ce389138ed8cd1c12dc9e742b892"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga9664ce389138ed8cd1c12dc9e742b892">_iomuxc_lock_register</a> { <br/>
-&#160;&#160;<a class="el" href="a00040.html#gga9664ce389138ed8cd1c12dc9e742b892a89628004c4b69dd404b994ff2def6d27">kIOMUXC_UnlockRegister</a> = 0U, 
+<tr class="memdesc:gabda3a49032546bf3f21cfd7d5855a7f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">LCDIF DPI output format.  <a href="a00040.html#gabda3a49032546bf3f21cfd7d5855a7f4">More...</a><br/></td></tr>
+<tr class="separator:gabda3a49032546bf3f21cfd7d5855a7f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2fc79ebe789de2f5712d048d2f2d0b4b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga2fc79ebe789de2f5712d048d2f2d0b4b">lcdif_fb_format_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00040.html#gga2fc79ebe789de2f5712d048d2f2d0b4badc2d1b0b2b513de6d75a1bd99bebbf58">kLCDIF_PixelFormatXRGB444</a> = 1, 
 <br/>
-&#160;&#160;<a class="el" href="a00040.html#gga9664ce389138ed8cd1c12dc9e742b892a88d889a680ad9db388b4a16eec9fa94f">kIOMUXC_LockRegister</a> = 1U
+&#160;&#160;<a class="el" href="a00040.html#gga2fc79ebe789de2f5712d048d2f2d0b4ba47c83850d82cdecdbd7f6b614cb79f87">kLCDIF_PixelFormatXRGB4444</a> = 1, 
 <br/>
- }</td></tr>
-<tr class="memdesc:ga9664ce389138ed8cd1c12dc9e742b892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlock/lock the pin control register field[15:0].  <a href="a00040.html#ga9664ce389138ed8cd1c12dc9e742b892">More...</a><br/></td></tr>
-<tr class="separator:ga9664ce389138ed8cd1c12dc9e742b892"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga29ebcbf202807e8c5d3bfd680f25882d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga29ebcbf202807e8c5d3bfd680f25882d">_iomuxc_input_buffer_enable</a> { <br/>
-&#160;&#160;<a class="el" href="a00040.html#gga29ebcbf202807e8c5d3bfd680f25882daaca555f5e85a0ef7a6bb775d14d7412a">kIOMUXC_InputBufferDisable</a> = 0U, 
+&#160;&#160;<a class="el" href="a00040.html#gga2fc79ebe789de2f5712d048d2f2d0b4ba41c2dfedf8f9cdffd36ec25b30029280">kLCDIF_PixelFormatXRGB1555</a> = 2, 
 <br/>
-&#160;&#160;<a class="el" href="a00040.html#gga29ebcbf202807e8c5d3bfd680f25882da64a3091e03d44a731959bdae81c36da4">kIOMUXC_InputBufferEnable</a> = 1U
+&#160;&#160;<a class="el" href="a00040.html#gga2fc79ebe789de2f5712d048d2f2d0b4babb8af96612b1082431622dc50d10f1e7">kLCDIF_PixelFormatRGB565</a> = 3, 
+<br/>
+&#160;&#160;<a class="el" href="a00040.html#gga2fc79ebe789de2f5712d048d2f2d0b4baeeaaa6d79f8192c043e41fb8ee16b6e3">kLCDIF_PixelFormatXRGB8888</a> = 4
 <br/>
  }</td></tr>
-<tr class="memdesc:ga29ebcbf202807e8c5d3bfd680f25882d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input buffer feature enable/disable.  <a href="a00040.html#ga29ebcbf202807e8c5d3bfd680f25882d">More...</a><br/></td></tr>
-<tr class="separator:ga29ebcbf202807e8c5d3bfd680f25882d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3a1788e3215f4ded989b2677d00e82c2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga3a1788e3215f4ded989b2677d00e82c2">_iomuxc_output_buffer_enable</a> { <br/>
-&#160;&#160;<a class="el" href="a00040.html#gga3a1788e3215f4ded989b2677d00e82c2a4665c2e8842df303d354f2d88e6547ae">kIOMUXC_outputBufferDisable</a> = 0U, 
+<tr class="memdesc:ga2fc79ebe789de2f5712d048d2f2d0b4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">LCDIF frame buffer pixel format.  <a href="a00040.html#ga2fc79ebe789de2f5712d048d2f2d0b4b">More...</a><br/></td></tr>
+<tr class="separator:ga2fc79ebe789de2f5712d048d2f2d0b4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabb35141167dc39b20256742723a76fcd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gabb35141167dc39b20256742723a76fcd">_lcdif_interrupt</a> { <a class="el" href="a00040.html#ggabb35141167dc39b20256742723a76fcda6cecd0087b4f593a3cad12ed75a6efaa">kLCDIF_Display0FrameDoneInterrupt</a>
+ }</td></tr>
+<tr class="memdesc:gabb35141167dc39b20256742723a76fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">LCDIF interrupt and status.  <a href="a00040.html#gabb35141167dc39b20256742723a76fcd">More...</a><br/></td></tr>
+<tr class="separator:gabb35141167dc39b20256742723a76fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacd497b9f21eba04e9c35a626ad8f4be3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gacd497b9f21eba04e9c35a626ad8f4be3">lcdif_cursor_format_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00040.html#ggacd497b9f21eba04e9c35a626ad8f4be3a7e5a57926e5f87f35a453688e826c148">kLCDIF_CursorMasked</a> = 1, 
 <br/>
-&#160;&#160;<a class="el" href="a00040.html#gga3a1788e3215f4ded989b2677d00e82c2a96e121257feab3e3d5fbf7b9d248575d">kIOMUXC_outputBufferEnable</a> = 1U
+&#160;&#160;<a class="el" href="a00040.html#ggacd497b9f21eba04e9c35a626ad8f4be3adfc857aaf0b25ea58bbf95ee5430ef47">kLCDIF_CursorARGB8888</a> = 2
 <br/>
  }</td></tr>
-<tr class="memdesc:ga3a1788e3215f4ded989b2677d00e82c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">output buffer feature enable/disable  <a href="a00040.html#ga3a1788e3215f4ded989b2677d00e82c2">More...</a><br/></td></tr>
-<tr class="separator:ga3a1788e3215f4ded989b2677d00e82c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5f4b330c07ce6080b34fa5e2632b1fb7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga5f4b330c07ce6080b34fa5e2632b1fb7">iomux_digital_filter_clock_select_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00040.html#gga5f4b330c07ce6080b34fa5e2632b1fb7ab73bce721a91beaa62be0d2ed31ef190">kIOMUXC_IPGClock</a> = 0U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#gga5f4b330c07ce6080b34fa5e2632b1fb7abaa2a6ba1a209372b16a7f38d1338a79">kIOMUXC_1KhzClock</a> = 1U
-<br/>
- }</td></tr>
-<tr class="memdesc:ga5f4b330c07ce6080b34fa5e2632b1fb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digital filter clock selection.  <a href="a00040.html#ga5f4b330c07ce6080b34fa5e2632b1fb7">More...</a><br/></td></tr>
-<tr class="separator:ga5f4b330c07ce6080b34fa5e2632b1fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0558da6e64fcf957e9e7e6949c7cb73a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga0558da6e64fcf957e9e7e6949c7cb73a">_iomuxc_inputpin_mux</a> { <br/>
-&#160;&#160;<a class="el" href="a00040.html#gga0558da6e64fcf957e9e7e6949c7cb73aac33c6062cba930a988c5d11328ec1d6b">kIOMUXC_InputMuxAlt0</a> = 0u, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#gga0558da6e64fcf957e9e7e6949c7cb73aacbcf9c3cfd1306456ee4c16a37d26a1d">kIOMUXC_InputMuxAlt1</a> = 1U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#gga0558da6e64fcf957e9e7e6949c7cb73aa35fa71f36d18feac3a45c703024d3524">kIOMUXC_InputMuxAlt2</a> = 2U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#gga0558da6e64fcf957e9e7e6949c7cb73aa826c4dc92f15bf565785484190ef6ff7">kIOMUXC_InputMuxAlt3</a> = 3U
-<br/>
- }</td></tr>
-<tr class="memdesc:ga0558da6e64fcf957e9e7e6949c7cb73a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input pin mux selection(DAISY).  <a href="a00040.html#ga0558da6e64fcf957e9e7e6949c7cb73a">More...</a><br/></td></tr>
-<tr class="separator:ga0558da6e64fcf957e9e7e6949c7cb73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf32f2ea7a4753020d56a2384919016bb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gaf32f2ea7a4753020d56a2384919016bb">_iomuxc_input_inversion_enable</a> { <br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaf32f2ea7a4753020d56a2384919016bba6ecba0f55034101acf2d494910488820">kIOMUXC_InputInversionDisable</a> = 0U, 
-<br/>
-&#160;&#160;<a class="el" href="a00040.html#ggaf32f2ea7a4753020d56a2384919016bba08325def6110bf1d86b5b31309c5369b">kIOMUXC_InputInversionEnable</a> = 1U
-<br/>
- }</td></tr>
-<tr class="memdesc:gaf32f2ea7a4753020d56a2384919016bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input inversion feature enable/disable.  <a href="a00040.html#gaf32f2ea7a4753020d56a2384919016bb">More...</a><br/></td></tr>
-<tr class="separator:gaf32f2ea7a4753020d56a2384919016bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:gacd497b9f21eba04e9c35a626ad8f4be3"><td class="mdescLeft">&#160;</td><td class="mdescRight">LCDIF cursor format.  <a href="a00040.html#gacd497b9f21eba04e9c35a626ad8f4be3">More...</a><br/></td></tr>
+<tr class="separator:gacd497b9f21eba04e9c35a626ad8f4be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaee2f174428a5a63890934f9ecdaf08dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gaee2f174428a5a63890934f9ecdaf08dd">LCDIF_DpiModeGetDefaultConfig</a> (<a class="el" href="a00040.html#a00406">lcdif_dpi_config_t</a> *config)</td></tr>
+<tr class="memdesc:gaee2f174428a5a63890934f9ecdaf08dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default configuration for to initialize the LCDIF.  <a href="#gaee2f174428a5a63890934f9ecdaf08dd">More...</a><br/></td></tr>
+<tr class="separator:gaee2f174428a5a63890934f9ecdaf08dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3d990d2e41cd7a733f74e48ea949dbbd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga3d990d2e41cd7a733f74e48ea949dbbd">LCDIF_DpiModeSetConfig</a> (LCDIF_Type *base, uint8_t displayIndex, const <a class="el" href="a00040.html#a00406">lcdif_dpi_config_t</a> *config)</td></tr>
+<tr class="memdesc:ga3d990d2e41cd7a733f74e48ea949dbbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the LCDIF to work in DPI mode.  <a href="#ga3d990d2e41cd7a733f74e48ea949dbbd">More...</a><br/></td></tr>
+<tr class="separator:ga3d990d2e41cd7a733f74e48ea949dbbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
-<tr class="memitem:gaa82996f29b9fa7947fdc478b7a874757"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gaa82996f29b9fa7947fdc478b7a874757">FSL_IOMUXC_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00226.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 0))</td></tr>
-<tr class="memdesc:gaa82996f29b9fa7947fdc478b7a874757"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Version 2.0.0.  <a href="#gaa82996f29b9fa7947fdc478b7a874757">More...</a><br/></td></tr>
-<tr class="separator:gaa82996f29b9fa7947fdc478b7a874757"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d1ad4967f26c92e508b2031ddcb213d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5d1ad4967f26c92e508b2031ddcb213d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FSL_LCDIF_DRIVER_VERSION</b>&#160;&#160;&#160;(<a class="el" href="a00223.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 2))</td></tr>
+<tr class="separator:ga5d1ad4967f26c92e508b2031ddcb213d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-Configuration</h2></td></tr>
-<tr class="memitem:gad46f287661c73d0d2611363fadf207fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gad46f287661c73d0d2611363fadf207fa">IOMUXC_SET_MUX_CONTROL_PAD</a>(instance, iomuxc_port, pin, config)&#160;&#160;&#160;(instance)-&gt;SW_MUX_CTL_PAD[(iomuxc_port)*32U + (pin)] = *((const uint32_t *)(&amp;config));</td></tr>
-<tr class="memdesc:gad46f287661c73d0d2611363fadf207fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the IOMUXC SW MUX Control Register.  <a href="#gad46f287661c73d0d2611363fadf207fa">More...</a><br/></td></tr>
-<tr class="separator:gad46f287661c73d0d2611363fadf207fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga275f326284d041985a40687b80ec272b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga275f326284d041985a40687b80ec272b">IOMUXC_SET_INPUTPIN_CONFIG</a>(instance, index, config)&#160;&#160;&#160;(instance)-&gt;SELECT_INPUT[index] = *((const uint32_t *)(&amp;config));</td></tr>
-<tr class="memdesc:ga275f326284d041985a40687b80ec272b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the IOMUXC input function pin configuration: the N_SELECT_INPUT_DAISY_Register.  <a href="#ga275f326284d041985a40687b80ec272b">More...</a><br/></td></tr>
-<tr class="separator:ga275f326284d041985a40687b80ec272b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga84ed041f19ae06c13e9580c42eca39cc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga84ed041f19ae06c13e9580c42eca39cc">IOMUXC_SET_MUX_CONTROL_PAD_RESET</a>(instance, config)</td></tr>
-<tr class="memdesc:ga84ed041f19ae06c13e9580c42eca39cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the reset value for IOMUXC0 SW MUX Control Register.  <a href="#ga84ed041f19ae06c13e9580c42eca39cc">More...</a><br/></td></tr>
-<tr class="separator:ga84ed041f19ae06c13e9580c42eca39cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+Initialization and deinitialization</h2></td></tr>
+<tr class="memitem:gab0523d22a3a8d515aa2fb762efebb4bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gab0523d22a3a8d515aa2fb762efebb4bc">LCDIF_Init</a> (LCDIF_Type *base)</td></tr>
+<tr class="memdesc:gab0523d22a3a8d515aa2fb762efebb4bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the LCDIF.  <a href="#gab0523d22a3a8d515aa2fb762efebb4bc">More...</a><br/></td></tr>
+<tr class="separator:gab0523d22a3a8d515aa2fb762efebb4bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga818172091bd80e756a19c13b44544d4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga818172091bd80e756a19c13b44544d4c">LCDIF_Deinit</a> (LCDIF_Type *base)</td></tr>
+<tr class="memdesc:ga818172091bd80e756a19c13b44544d4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize the LCDIF.  <a href="#ga818172091bd80e756a19c13b44544d4c">More...</a><br/></td></tr>
+<tr class="separator:ga818172091bd80e756a19c13b44544d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Frame buffer</h2></td></tr>
+<tr class="memitem:ga3dd0dd8aaf355978ecafa7bfcb10542e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga3dd0dd8aaf355978ecafa7bfcb10542e">LCDIF_SetFrameBufferConfig</a> (LCDIF_Type *base, uint8_t fbIndex, const <a class="el" href="a00040.html#a00407">lcdif_fb_config_t</a> *config)</td></tr>
+<tr class="memdesc:ga3dd0dd8aaf355978ecafa7bfcb10542e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the LCDIF frame buffer.  <a href="#ga3dd0dd8aaf355978ecafa7bfcb10542e">More...</a><br/></td></tr>
+<tr class="separator:ga3dd0dd8aaf355978ecafa7bfcb10542e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga678c29005f0cacec1bde485425e0bf56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga678c29005f0cacec1bde485425e0bf56">LCDIF_FrameBufferGetDefaultConfig</a> (<a class="el" href="a00040.html#a00407">lcdif_fb_config_t</a> *config)</td></tr>
+<tr class="memdesc:ga678c29005f0cacec1bde485425e0bf56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get default frame buffer configuration.  <a href="#ga678c29005f0cacec1bde485425e0bf56">More...</a><br/></td></tr>
+<tr class="separator:ga678c29005f0cacec1bde485425e0bf56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c73e4bacf024dfe0bd6067dab787265"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga0c73e4bacf024dfe0bd6067dab787265">LCDIF_SetFrameBufferAddr</a> (LCDIF_Type *base, uint8_t fbIndex, uint32_t address)</td></tr>
+<tr class="memdesc:ga0c73e4bacf024dfe0bd6067dab787265"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the frame buffer to LCDIF.  <a href="#ga0c73e4bacf024dfe0bd6067dab787265">More...</a><br/></td></tr>
+<tr class="separator:ga0c73e4bacf024dfe0bd6067dab787265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga58f7e2933dd2ba24b1f92b07594b4141"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga58f7e2933dd2ba24b1f92b07594b4141">LCDIF_SetFrameBufferStride</a> (LCDIF_Type *base, uint8_t fbIndex, uint32_t strideBytes)</td></tr>
+<tr class="memdesc:ga58f7e2933dd2ba24b1f92b07594b4141"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the frame buffer stride.  <a href="#ga58f7e2933dd2ba24b1f92b07594b4141">More...</a><br/></td></tr>
+<tr class="separator:ga58f7e2933dd2ba24b1f92b07594b4141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Dither</h2></td></tr>
+<tr class="memitem:ga6bd634282f266a1f5abcad74cc01f065"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga6bd634282f266a1f5abcad74cc01f065">LCDIF_SetDitherConfig</a> (LCDIF_Type *base, uint8_t displayIndex, const <a class="el" href="a00040.html#a00405">lcdif_dither_config_t</a> *config)</td></tr>
+<tr class="memdesc:ga6bd634282f266a1f5abcad74cc01f065"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the dither configuration.  <a href="#ga6bd634282f266a1f5abcad74cc01f065">More...</a><br/></td></tr>
+<tr class="separator:ga6bd634282f266a1f5abcad74cc01f065"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Gamma correction</h2></td></tr>
+<tr class="memitem:ga87ce294f816311c7bfcb6cb98983da70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga87ce294f816311c7bfcb6cb98983da70">LCDIF_SetGammaData</a> (LCDIF_Type *base, uint8_t fbIndex, uint16_t startIndex, const uint32_t *gamma, uint16_t gammaLen)</td></tr>
+<tr class="memdesc:ga87ce294f816311c7bfcb6cb98983da70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the gamma translation values to the LCDIF gamma table.  <a href="#ga87ce294f816311c7bfcb6cb98983da70">More...</a><br/></td></tr>
+<tr class="separator:ga87ce294f816311c7bfcb6cb98983da70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Interrupts</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrpef93a3489be4eb6ab75dcc2de341337f"></a>The interrupt must be enabled, otherwise the interrupt flags will not assert. </p>
+</td></tr>
+<tr class="memitem:gac427bd0a2d8572de0ccc3736b5629f57"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gac427bd0a2d8572de0ccc3736b5629f57">LCDIF_EnableInterrupts</a> (LCDIF_Type *base, uint32_t mask)</td></tr>
+<tr class="memdesc:gac427bd0a2d8572de0ccc3736b5629f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables LCDIF interrupt requests.  <a href="#gac427bd0a2d8572de0ccc3736b5629f57">More...</a><br/></td></tr>
+<tr class="separator:gac427bd0a2d8572de0ccc3736b5629f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga28f933e4671bc5dfcca66e06b3256f0a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga28f933e4671bc5dfcca66e06b3256f0a">LCDIF_DisableInterrupts</a> (LCDIF_Type *base, uint32_t mask)</td></tr>
+<tr class="memdesc:ga28f933e4671bc5dfcca66e06b3256f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable LCDIF interrupt requests.  <a href="#ga28f933e4671bc5dfcca66e06b3256f0a">More...</a><br/></td></tr>
+<tr class="separator:ga28f933e4671bc5dfcca66e06b3256f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd7b321bbb9d21339ea69c2818cfaf8d"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gabd7b321bbb9d21339ea69c2818cfaf8d">LCDIF_GetAndClearInterruptPendingFlags</a> (LCDIF_Type *base)</td></tr>
+<tr class="memdesc:gabd7b321bbb9d21339ea69c2818cfaf8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get and clear LCDIF interrupt pending status.  <a href="#gabd7b321bbb9d21339ea69c2818cfaf8d">More...</a><br/></td></tr>
+<tr class="separator:gabd7b321bbb9d21339ea69c2818cfaf8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Cursor</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp9abdae4fa5d93330363a88ed8a5e7946"></a>Top-left point and Hot spot are two different cursor point.</p>
+<p>Top-left point is used as the base address for the cursor. Hot spot is used in a search for a corresponding screen coordinate when a selection is made, such as when the "Enter" key or left mouse button is pushed.</p>
+<pre class="fragment">  Top-left point
+       +-------------------------------+
+       |                               |
+       |   Hot spot                    |
+       |      +-------                 |
+       |      |    \                   |
+       |      | \   \                  |
+       |      |  \   \                 |
+       |          \   \                |
+       |           \   \               |
+       |            \   \              |
+       |             \   \             |
+       |              \                |
+       |                               |
+       +-------------------------------+</pre><p>For format masked, one cursor pixel is 2bits. 32x32 cursor pixels have 32 cursor color rows. Each cursor color row is 64bits.</p>
+<p>cursorColorRow_H[31:0] = colorRow[63:32] cursorColorRow_L[31:0] = colorRow[31:0] xorCursor = cursorColorRow_H[cursorXPos[4:0]] andCursor = cursorColorRow_L[cursorXPos[4:0]]</p>
+<p>The output cursor color is:</p>
+<p>andCursor xorCursor cursor color 0 0 Background register color 0 1 Foreground register color 1 0 Frame buffer pixel color 1 1 Invert frame buffer pixel color </p>
+</td></tr>
+<tr class="memitem:ga46518ea0bbcae6644f60b9e448b94dbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga46518ea0bbcae6644f60b9e448b94dbd">LCDIF_CursorGetDefaultConfig</a> (<a class="el" href="a00040.html#a00404">lcdif_cursor_config_t</a> *config)</td></tr>
+<tr class="memdesc:ga46518ea0bbcae6644f60b9e448b94dbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the hardware cursor default configuration.  <a href="#ga46518ea0bbcae6644f60b9e448b94dbd">More...</a><br/></td></tr>
+<tr class="separator:ga46518ea0bbcae6644f60b9e448b94dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad5e18f101ac53cd9ae4ab655075ec179"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gad5e18f101ac53cd9ae4ab655075ec179">LCDIF_SetCursorConfig</a> (LCDIF_Type *base, const <a class="el" href="a00040.html#a00404">lcdif_cursor_config_t</a> *config)</td></tr>
+<tr class="memdesc:gad5e18f101ac53cd9ae4ab655075ec179"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the cursor.  <a href="#gad5e18f101ac53cd9ae4ab655075ec179">More...</a><br/></td></tr>
+<tr class="separator:gad5e18f101ac53cd9ae4ab655075ec179"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0aed14a8feac14fcbc7f7da03585181d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ga0aed14a8feac14fcbc7f7da03585181d">LCDIF_SetCursorHotspotPosition</a> (LCDIF_Type *base, uint16_t x, uint16_t y)</td></tr>
+<tr class="memdesc:ga0aed14a8feac14fcbc7f7da03585181d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the cursor hotspot postion.  <a href="#ga0aed14a8feac14fcbc7f7da03585181d">More...</a><br/></td></tr>
+<tr class="separator:ga0aed14a8feac14fcbc7f7da03585181d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad872652fbbda43e1ed5a83463743d365"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gad872652fbbda43e1ed5a83463743d365">LCDIF_SetCursorBufferAddress</a> (LCDIF_Type *base, uint32_t address)</td></tr>
+<tr class="memdesc:gad872652fbbda43e1ed5a83463743d365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the cursor memory address.  <a href="#gad872652fbbda43e1ed5a83463743d365">More...</a><br/></td></tr>
+<tr class="separator:gad872652fbbda43e1ed5a83463743d365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada8ff5341c29870ef7bf65fa06e45a2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#gada8ff5341c29870ef7bf65fa06e45a2d">LCDIF_SetCursorColor</a> (LCDIF_Type *base, uint32_t background, uint32_t foreground)</td></tr>
+<tr class="memdesc:gada8ff5341c29870ef7bf65fa06e45a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the cursor color.  <a href="#gada8ff5341c29870ef7bf65fa06e45a2d">More...</a><br/></td></tr>
+<tr class="separator:gada8ff5341c29870ef7bf65fa06e45a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="a00405" id="a00405"></a>
+<a name="a00406" id="a00406"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct iomux_pin_config_t</td>
+          <td class="memname">struct lcdif_dpi_config_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"><dl class="section note"><dt>Note</dt><dd>for i.MX7ULP, the SW_MUX_CTL_PAD of IOMUXC0 and IOMUXC1 is a little different in the digital filter feature. The SW_MUX_CTL_PAD of IOMUXC1 has no digital filter feature. For this case, just ignore the digital filter fields. </dd></dl>
-</div><table class="memberdecls">
+<div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a0d4b696c02f5e18423ada42515f882b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d4b696c02f5e18423ada42515f882b1"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a0d4b696c02f5e18423ada42515f882b1">pullSelect</a>: 2</td></tr>
-<tr class="memdesc:a0d4b696c02f5e18423ada42515f882b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">No-pull/pull-down/pull-up select. <br/></td></tr>
-<tr class="separator:a0d4b696c02f5e18423ada42515f882b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6162d769fceb3934492aacf9e33d696e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6162d769fceb3934492aacf9e33d696e"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a6162d769fceb3934492aacf9e33d696e">slewRate</a>: 1</td></tr>
-<tr class="memdesc:a6162d769fceb3934492aacf9e33d696e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard/slow slew rate Configure. <br/></td></tr>
-<tr class="separator:a6162d769fceb3934492aacf9e33d696e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67580e5e579658f1fb1c088ce0e6dcd7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67580e5e579658f1fb1c088ce0e6dcd7"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a67580e5e579658f1fb1c088ce0e6dcd7">openDrainEnable</a>: 1</td></tr>
-<tr class="memdesc:a67580e5e579658f1fb1c088ce0e6dcd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open drain enable/disable. <br/></td></tr>
-<tr class="separator:a67580e5e579658f1fb1c088ce0e6dcd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a76f881bc02078371720836eabc7db5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a76f881bc02078371720836eabc7db5"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a1a76f881bc02078371720836eabc7db5">driveStrength</a>: 1</td></tr>
-<tr class="memdesc:a1a76f881bc02078371720836eabc7db5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard/slow drive strength configure. <br/></td></tr>
-<tr class="separator:a1a76f881bc02078371720836eabc7db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91cab3cffc36440d6d98871318800a34"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91cab3cffc36440d6d98871318800a34"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a91cab3cffc36440d6d98871318800a34">mux</a>: 4</td></tr>
-<tr class="memdesc:a91cab3cffc36440d6d98871318800a34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin mux Configure. <br/></td></tr>
-<tr class="separator:a91cab3cffc36440d6d98871318800a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf2857fd0a6b2e994f48ae509fbe8a88"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf2857fd0a6b2e994f48ae509fbe8a88"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#abf2857fd0a6b2e994f48ae509fbe8a88">lockRegister</a>: 1</td></tr>
-<tr class="memdesc:abf2857fd0a6b2e994f48ae509fbe8a88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lock/unlock the PCR field[15:0]. <br/></td></tr>
-<tr class="separator:abf2857fd0a6b2e994f48ae509fbe8a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98e722d7e142d337fb3449d9c7a2f7ac"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a98e722d7e142d337fb3449d9c7a2f7ac">inputBufferEnable</a>: 1</td></tr>
-<tr class="memdesc:a98e722d7e142d337fb3449d9c7a2f7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input buffer is enable/disable.  <a href="#a98e722d7e142d337fb3449d9c7a2f7ac">More...</a><br/></td></tr>
-<tr class="separator:a98e722d7e142d337fb3449d9c7a2f7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8337b24bb96abf5cc69ca82448478af"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ae8337b24bb96abf5cc69ca82448478af">outputBufferEnable</a>: 1</td></tr>
-<tr class="memdesc:ae8337b24bb96abf5cc69ca82448478af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output buffer is enable/disable.  <a href="#ae8337b24bb96abf5cc69ca82448478af">More...</a><br/></td></tr>
-<tr class="separator:ae8337b24bb96abf5cc69ca82448478af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2636105794024b51dbe5adf281566879"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a2636105794024b51dbe5adf281566879">digitalFilterEnable</a>: 1</td></tr>
-<tr class="memdesc:a2636105794024b51dbe5adf281566879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digital filters are enable/disable.  <a href="#a2636105794024b51dbe5adf281566879">More...</a><br/></td></tr>
-<tr class="separator:a2636105794024b51dbe5adf281566879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa95fe75d87f19c054b077bb757b2f5f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa95fe75d87f19c054b077bb757b2f5f4"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#aa95fe75d87f19c054b077bb757b2f5f4">digitalFilterSelect</a>: 1</td></tr>
-<tr class="memdesc:aa95fe75d87f19c054b077bb757b2f5f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set digital filter clockSource. <br/></td></tr>
-<tr class="separator:aa95fe75d87f19c054b077bb757b2f5f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88bbac648234610f17250cc9ead6526f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a88bbac648234610f17250cc9ead6526f"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a88bbac648234610f17250cc9ead6526f">digitalFilterDuration</a>: 5</td></tr>
-<tr class="memdesc:a88bbac648234610f17250cc9ead6526f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set digital filter duration. <br/></td></tr>
-<tr class="separator:a88bbac648234610f17250cc9ead6526f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5adf5a17120f754b47b89615be1bb50"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#aa5adf5a17120f754b47b89615be1bb50">panelWidth</a></td></tr>
+<tr class="memdesc:aa5adf5a17120f754b47b89615be1bb50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display panel width, pixels per line.  <a href="#aa5adf5a17120f754b47b89615be1bb50">More...</a><br/></td></tr>
+<tr class="separator:aa5adf5a17120f754b47b89615be1bb50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf772a144022f878d82cbd98fdbf9800"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#acf772a144022f878d82cbd98fdbf9800">panelHeight</a></td></tr>
+<tr class="memdesc:acf772a144022f878d82cbd98fdbf9800"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display panel height, how many lines per panel.  <a href="#acf772a144022f878d82cbd98fdbf9800">More...</a><br/></td></tr>
+<tr class="separator:acf772a144022f878d82cbd98fdbf9800"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97ced1f245e83c03a3d645ceac02022b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a97ced1f245e83c03a3d645ceac02022b">hsw</a></td></tr>
+<tr class="memdesc:a97ced1f245e83c03a3d645ceac02022b"><td class="mdescLeft">&#160;</td><td class="mdescRight">HSYNC pulse width.  <a href="#a97ced1f245e83c03a3d645ceac02022b">More...</a><br/></td></tr>
+<tr class="separator:a97ced1f245e83c03a3d645ceac02022b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad63de1a8b3087f2d8ec9b69bb6ad0f37"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ad63de1a8b3087f2d8ec9b69bb6ad0f37">hfp</a></td></tr>
+<tr class="memdesc:ad63de1a8b3087f2d8ec9b69bb6ad0f37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Horizontal front porch.  <a href="#ad63de1a8b3087f2d8ec9b69bb6ad0f37">More...</a><br/></td></tr>
+<tr class="separator:ad63de1a8b3087f2d8ec9b69bb6ad0f37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade166a710f6a3d72796ad75716c9140f"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ade166a710f6a3d72796ad75716c9140f">hbp</a></td></tr>
+<tr class="memdesc:ade166a710f6a3d72796ad75716c9140f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Horizontal back porch.  <a href="#ade166a710f6a3d72796ad75716c9140f">More...</a><br/></td></tr>
+<tr class="separator:ade166a710f6a3d72796ad75716c9140f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39eadabac0c953be5236e1d0aa446353"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a39eadabac0c953be5236e1d0aa446353">vsw</a></td></tr>
+<tr class="memdesc:a39eadabac0c953be5236e1d0aa446353"><td class="mdescLeft">&#160;</td><td class="mdescRight">VSYNC pulse width.  <a href="#a39eadabac0c953be5236e1d0aa446353">More...</a><br/></td></tr>
+<tr class="separator:a39eadabac0c953be5236e1d0aa446353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcf0973035b99a4d719d953f01cf8ec5"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#afcf0973035b99a4d719d953f01cf8ec5">vfp</a></td></tr>
+<tr class="memdesc:afcf0973035b99a4d719d953f01cf8ec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vrtical front porch.  <a href="#afcf0973035b99a4d719d953f01cf8ec5">More...</a><br/></td></tr>
+<tr class="separator:afcf0973035b99a4d719d953f01cf8ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8537a10d3cc0fef3431d32e5d5d5be55"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a8537a10d3cc0fef3431d32e5d5d5be55">vbp</a></td></tr>
+<tr class="memdesc:a8537a10d3cc0fef3431d32e5d5d5be55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vertical back porch.  <a href="#a8537a10d3cc0fef3431d32e5d5d5be55">More...</a><br/></td></tr>
+<tr class="separator:a8537a10d3cc0fef3431d32e5d5d5be55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66f577e75374fd4fc7c9cb45eafbb152"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a66f577e75374fd4fc7c9cb45eafbb152">polarityFlags</a></td></tr>
+<tr class="memdesc:a66f577e75374fd4fc7c9cb45eafbb152"><td class="mdescLeft">&#160;</td><td class="mdescRight">OR'ed value of <a class="el" href="a00040.html#gacbd1a1f016048fe79f77c89c43ab7d69">_lcdif_polarity_flags</a>, used to contol the signal polarity.  <a href="#a66f577e75374fd4fc7c9cb45eafbb152">More...</a><br/></td></tr>
+<tr class="separator:a66f577e75374fd4fc7c9cb45eafbb152"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25d673529c7f4080663d83ca606b8da5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00040.html#gabda3a49032546bf3f21cfd7d5855a7f4">lcdif_output_format_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a25d673529c7f4080663d83ca606b8da5">format</a></td></tr>
+<tr class="memdesc:a25d673529c7f4080663d83ca606b8da5"><td class="mdescLeft">&#160;</td><td class="mdescRight">DPI output format.  <a href="#a25d673529c7f4080663d83ca606b8da5">More...</a><br/></td></tr>
+<tr class="separator:a25d673529c7f4080663d83ca606b8da5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h4 class="groupheader">Field Documentation</h4>
-<a class="anchor" id="a98e722d7e142d337fb3449d9c7a2f7ac"></a>
+<a class="anchor" id="aa5adf5a17120f754b47b89615be1bb50"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t iomux_pin_config_t::inputBufferEnable</td>
+          <td class="memname">uint16_t lcdif_dpi_config_t::panelWidth</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="ae8337b24bb96abf5cc69ca82448478af"></a>
+<a class="anchor" id="acf772a144022f878d82cbd98fdbf9800"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t iomux_pin_config_t::outputBufferEnable</td>
+          <td class="memname">uint16_t lcdif_dpi_config_t::panelHeight</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a2636105794024b51dbe5adf281566879"></a>
+<a class="anchor" id="a97ced1f245e83c03a3d645ceac02022b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t iomux_pin_config_t::digitalFilterEnable</td>
+          <td class="memname">uint8_t lcdif_dpi_config_t::hsw</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad63de1a8b3087f2d8ec9b69bb6ad0f37"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t lcdif_dpi_config_t::hfp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ade166a710f6a3d72796ad75716c9140f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t lcdif_dpi_config_t::hbp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a39eadabac0c953be5236e1d0aa446353"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t lcdif_dpi_config_t::vsw</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afcf0973035b99a4d719d953f01cf8ec5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t lcdif_dpi_config_t::vfp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8537a10d3cc0fef3431d32e5d5d5be55"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t lcdif_dpi_config_t::vbp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a66f577e75374fd4fc7c9cb45eafbb152"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lcdif_dpi_config_t::polarityFlags</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a25d673529c7f4080663d83ca606b8da5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00040.html#gabda3a49032546bf3f21cfd7d5855a7f4">lcdif_output_format_t</a> lcdif_dpi_config_t::format</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -373,188 +485,568 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct iomuxc_input_pin_config_t</td>
+          <td class="memname">struct lcdif_fb_config_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:ace7e7b7a386392a2c3d424f5b34bc65b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ace7e7b7a386392a2c3d424f5b34bc65b">daisy</a>: 2</td></tr>
-<tr class="memdesc:ace7e7b7a386392a2c3d424f5b34bc65b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects source pad for Module Input Function.  <a href="#ace7e7b7a386392a2c3d424f5b34bc65b">More...</a><br/></td></tr>
-<tr class="separator:ace7e7b7a386392a2c3d424f5b34bc65b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af963c7a6feae468c437188416132e03d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af963c7a6feae468c437188416132e03d"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#af963c7a6feae468c437188416132e03d">inversion</a>: 1</td></tr>
-<tr class="memdesc:af963c7a6feae468c437188416132e03d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls the inversion of the pad-&gt;module input to instance. <br/></td></tr>
-<tr class="separator:af963c7a6feae468c437188416132e03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcbb66c7ddb8cbbce6174696e30b2861"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#adcbb66c7ddb8cbbce6174696e30b2861">enable</a></td></tr>
+<tr class="memdesc:adcbb66c7ddb8cbbce6174696e30b2861"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the frame buffer output.  <a href="#adcbb66c7ddb8cbbce6174696e30b2861">More...</a><br/></td></tr>
+<tr class="separator:adcbb66c7ddb8cbbce6174696e30b2861"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38a98b380b2cb0092b928819f6b04ef5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a38a98b380b2cb0092b928819f6b04ef5">enableGamma</a></td></tr>
+<tr class="memdesc:a38a98b380b2cb0092b928819f6b04ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the gamma correction.  <a href="#a38a98b380b2cb0092b928819f6b04ef5">More...</a><br/></td></tr>
+<tr class="separator:a38a98b380b2cb0092b928819f6b04ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac82ac825a47c5e4ddacda22e8154971f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00040.html#ga2fc79ebe789de2f5712d048d2f2d0b4b">lcdif_fb_format_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ac82ac825a47c5e4ddacda22e8154971f">format</a></td></tr>
+<tr class="memdesc:ac82ac825a47c5e4ddacda22e8154971f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frame buffer pixel format.  <a href="#ac82ac825a47c5e4ddacda22e8154971f">More...</a><br/></td></tr>
+<tr class="separator:ac82ac825a47c5e4ddacda22e8154971f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h4 class="groupheader">Field Documentation</h4>
-<a class="anchor" id="ace7e7b7a386392a2c3d424f5b34bc65b"></a>
+<a class="anchor" id="adcbb66c7ddb8cbbce6174696e30b2861"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t iomuxc_input_pin_config_t::daisy</td>
+          <td class="memname">bool lcdif_fb_config_t::enable</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Refer to "Input SSS" column from "Input Mux" IOMUX Sheet. </p>
 
 </div>
 </div>
-
-</div>
-</div>
-<a name="a00406" id="a00406"></a>
+<a class="anchor" id="a38a98b380b2cb0092b928819f6b04ef5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct iomux_pin_reset_config_t</td>
+          <td class="memname">bool lcdif_fb_config_t::enableGamma</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac82ac825a47c5e4ddacda22e8154971f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00040.html#ga2fc79ebe789de2f5712d048d2f2d0b4b">lcdif_fb_format_t</a> lcdif_fb_config_t::format</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="a00404" id="a00404"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct lcdif_cursor_config_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a5f109df680c5028582bbd07fc3cdd430"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f109df680c5028582bbd07fc3cdd430"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a5f109df680c5028582bbd07fc3cdd430">pullSelect</a>: 2</td></tr>
-<tr class="memdesc:a5f109df680c5028582bbd07fc3cdd430"><td class="mdescLeft">&#160;</td><td class="mdescRight">No-pull/pull-down/pull-up select. <br/></td></tr>
-<tr class="separator:a5f109df680c5028582bbd07fc3cdd430"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a128c21b742f8b8209bfec161e0141944"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a128c21b742f8b8209bfec161e0141944"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a128c21b742f8b8209bfec161e0141944">slewRate</a>: 1</td></tr>
-<tr class="memdesc:a128c21b742f8b8209bfec161e0141944"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard/slow slew rate Configure. <br/></td></tr>
-<tr class="separator:a128c21b742f8b8209bfec161e0141944"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a941e5fcfa5f3bf9134744147d86dac41"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a941e5fcfa5f3bf9134744147d86dac41"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a941e5fcfa5f3bf9134744147d86dac41">openDrainEnable</a>: 1</td></tr>
-<tr class="memdesc:a941e5fcfa5f3bf9134744147d86dac41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open drain enable/disable. <br/></td></tr>
-<tr class="separator:a941e5fcfa5f3bf9134744147d86dac41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54e7f56789293673be14f0a48c383ce3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54e7f56789293673be14f0a48c383ce3"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a54e7f56789293673be14f0a48c383ce3">driveStrength</a>: 1</td></tr>
-<tr class="memdesc:a54e7f56789293673be14f0a48c383ce3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard/slow drive strength configure. <br/></td></tr>
-<tr class="separator:a54e7f56789293673be14f0a48c383ce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0ea7608fc0633eed6af132a0c4989ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0ea7608fc0633eed6af132a0c4989ab"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ac0ea7608fc0633eed6af132a0c4989ab">lockRegister</a>: 1</td></tr>
-<tr class="memdesc:ac0ea7608fc0633eed6af132a0c4989ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lock/unlock the PCR field[15:0]. <br/></td></tr>
-<tr class="separator:ac0ea7608fc0633eed6af132a0c4989ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae59aa88354a6032097fa47bcfe6cf700"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ae59aa88354a6032097fa47bcfe6cf700">enable</a></td></tr>
+<tr class="memdesc:ae59aa88354a6032097fa47bcfe6cf700"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the cursor or not.  <a href="#ae59aa88354a6032097fa47bcfe6cf700">More...</a><br/></td></tr>
+<tr class="separator:ae59aa88354a6032097fa47bcfe6cf700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fb390a893539047f7cdcc9b53b8ac7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00040.html#gacd497b9f21eba04e9c35a626ad8f4be3">lcdif_cursor_format_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a5fb390a893539047f7cdcc9b53b8ac7b">format</a></td></tr>
+<tr class="memdesc:a5fb390a893539047f7cdcc9b53b8ac7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cursor format.  <a href="#a5fb390a893539047f7cdcc9b53b8ac7b">More...</a><br/></td></tr>
+<tr class="separator:a5fb390a893539047f7cdcc9b53b8ac7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ca15952547b206b974cc907452e4770"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ca15952547b206b974cc907452e4770"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a8ca15952547b206b974cc907452e4770">hotspotOffsetX</a></td></tr>
+<tr class="memdesc:a8ca15952547b206b974cc907452e4770"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset of the hotspot to top left point, range 0 ~ 31. <br/></td></tr>
+<tr class="separator:a8ca15952547b206b974cc907452e4770"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4657f486d2b7035df685983154ba9785"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4657f486d2b7035df685983154ba9785"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a4657f486d2b7035df685983154ba9785">hotspotOffsetY</a></td></tr>
+<tr class="memdesc:a4657f486d2b7035df685983154ba9785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset of the hotspot to top left point, range 0 ~ 31. <br/></td></tr>
+<tr class="separator:a4657f486d2b7035df685983154ba9785"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h4 class="groupheader">Field Documentation</h4>
+<a class="anchor" id="ae59aa88354a6032097fa47bcfe6cf700"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lcdif_cursor_config_t::enable</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5fb390a893539047f7cdcc9b53b8ac7b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00040.html#gacd497b9f21eba04e9c35a626ad8f4be3">lcdif_cursor_format_t</a> lcdif_cursor_config_t::format</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="a00405" id="a00405"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct lcdif_dither_config_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><ol type="1">
+<li>Decide which bit of pixel color to enhance. This is configured by the <a class="el" href="a00040.html#aaacc076b69f1472ad7e80bdaaef1e9ce">lcdif_dither_config_t::redSize</a>, <a class="el" href="a00040.html#a63a906dd0d687a960a7ec55d079d0574">lcdif_dither_config_t::greenSize</a>, and <a class="el" href="a00040.html#ab836c126e4929cc35b15d6f703de354d">lcdif_dither_config_t::blueSize</a>. For example, setting redSize=6 means it is the 6th bit starting from the MSB that we want to enhance, in other words, it is the RedColor[2]bit from RedColor[7:0]. greenSize and blueSize function in the same way.</li>
+<li>Create the look-up table. a. The Look-Up Table includes 16 entries, 4 bits for each. b. The Look-Up Table provides a value U[3:0] through the index X[1:0] and Y[1:0]. c. The color value RedColor[3:0] is used to compare with this U[3:0]. d. If RedColor[3:0] &gt; U[3:0], and RedColor[7:2] is not 6'b111111, then the final color value is: NewRedColor = RedColor[7:2] + 1'b1. e. If RedColor[3:0] &lt;= U[3:0], then NewRedColor = RedColor[7:2]. </li>
+</ol>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:aa8409dd2b05772d447c5682f8a0bfbf8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#aa8409dd2b05772d447c5682f8a0bfbf8">enable</a></td></tr>
+<tr class="memdesc:aa8409dd2b05772d447c5682f8a0bfbf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or not.  <a href="#aa8409dd2b05772d447c5682f8a0bfbf8">More...</a><br/></td></tr>
+<tr class="separator:aa8409dd2b05772d447c5682f8a0bfbf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaacc076b69f1472ad7e80bdaaef1e9ce"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#aaacc076b69f1472ad7e80bdaaef1e9ce">redSize</a></td></tr>
+<tr class="memdesc:aaacc076b69f1472ad7e80bdaaef1e9ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Red color size, valid region 4-8.  <a href="#aaacc076b69f1472ad7e80bdaaef1e9ce">More...</a><br/></td></tr>
+<tr class="separator:aaacc076b69f1472ad7e80bdaaef1e9ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63a906dd0d687a960a7ec55d079d0574"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a63a906dd0d687a960a7ec55d079d0574">greenSize</a></td></tr>
+<tr class="memdesc:a63a906dd0d687a960a7ec55d079d0574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Green color size, valid region 4-8.  <a href="#a63a906dd0d687a960a7ec55d079d0574">More...</a><br/></td></tr>
+<tr class="separator:a63a906dd0d687a960a7ec55d079d0574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab836c126e4929cc35b15d6f703de354d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#ab836c126e4929cc35b15d6f703de354d">blueSize</a></td></tr>
+<tr class="memdesc:ab836c126e4929cc35b15d6f703de354d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blue color size, valid region 4-8.  <a href="#ab836c126e4929cc35b15d6f703de354d">More...</a><br/></td></tr>
+<tr class="separator:ab836c126e4929cc35b15d6f703de354d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc64c8fbe20f053137eef6b64354e82f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#acc64c8fbe20f053137eef6b64354e82f">low</a></td></tr>
+<tr class="memdesc:acc64c8fbe20f053137eef6b64354e82f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low part of the look up table.  <a href="#acc64c8fbe20f053137eef6b64354e82f">More...</a><br/></td></tr>
+<tr class="separator:acc64c8fbe20f053137eef6b64354e82f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fda8cea54caeb477c21b9803bcfdcb0"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00040.html#a1fda8cea54caeb477c21b9803bcfdcb0">high</a></td></tr>
+<tr class="memdesc:a1fda8cea54caeb477c21b9803bcfdcb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">High part of the look up table.  <a href="#a1fda8cea54caeb477c21b9803bcfdcb0">More...</a><br/></td></tr>
+<tr class="separator:a1fda8cea54caeb477c21b9803bcfdcb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a class="anchor" id="aa8409dd2b05772d447c5682f8a0bfbf8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lcdif_dither_config_t::enable</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aaacc076b69f1472ad7e80bdaaef1e9ce"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t lcdif_dither_config_t::redSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a63a906dd0d687a960a7ec55d079d0574"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t lcdif_dither_config_t::greenSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab836c126e4929cc35b15d6f703de354d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t lcdif_dither_config_t::blueSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="acc64c8fbe20f053137eef6b64354e82f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lcdif_dither_config_t::low</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1fda8cea54caeb477c21b9803bcfdcb0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lcdif_dither_config_t::high</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 
 </div>
 </div>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="gaa82996f29b9fa7947fdc478b7a874757"></a>
+<a class="anchor" id="ga59226e4d188d172b3df72f6976766dd6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FSL_IOMUXC_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00226.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 0))</td>
+          <td class="memname">#define LCDIF_MAKE_CURSOR_COLOR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">r, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">g, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(((r) &lt;&lt; 16U) | ((g) &lt;&lt; 8U) | ((b) &lt;&lt; 0U))</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="gad46f287661c73d0d2611363fadf207fa"></a>
+<a class="anchor" id="ga1c8701d1bffcab393b254ffd9c64dc3c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define IOMUXC_SET_MUX_CONTROL_PAD</td>
+          <td class="memname">#define LCDIF_MAKE_GAMMA_VALUE</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">instance, </td>
+          <td class="paramname">r, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">iomuxc_port, </td>
+          <td class="paramname">g, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">pin, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">config&#160;</td>
+          <td class="paramname">b&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;(instance)-&gt;SW_MUX_CTL_PAD[(iomuxc_port)*32U + (pin)] = *((const uint32_t *)(&amp;config));</td>
+          <td></td><td>&#160;&#160;&#160;(((r) &lt;&lt; 16U) | ((g) &lt;&lt; 8U) | ((b) &lt;&lt; 0U))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>Uses macro instead of inline function is to avoid the parameter type check, because the IOMUXC0 and IOMUXC1 is differnt.</dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga9b3c1e1727697f2846397dee63ba51b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LCDIF_FB_ALIGN&#160;&#160;&#160;128U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ga35c38704589fb7e742a1d6462a77699f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LCDIF_GAMMA_INDEX_MAX&#160;&#160;&#160;256U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="gacbd1a1f016048fe79f77c89c43ab7d69"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00040.html#gacbd1a1f016048fe79f77c89c43ab7d69">_lcdif_polarity_flags</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggacbd1a1f016048fe79f77c89c43ab7d69ad43556a2480fab6e6a83dba2f43903ce"></a>kLCDIF_VsyncActiveLow</em>&nbsp;</td><td class="fielddoc">
+<p>VSYNC active low. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggacbd1a1f016048fe79f77c89c43ab7d69acc9a4a9f81de243c2337c6c32ac9d28b"></a>kLCDIF_VsyncActiveHigh</em>&nbsp;</td><td class="fielddoc">
+<p>VSYNC active high. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggacbd1a1f016048fe79f77c89c43ab7d69ac1d9e497bb1e16d685a708ea4fd4ae1f"></a>kLCDIF_HsyncActiveLow</em>&nbsp;</td><td class="fielddoc">
+<p>HSYNC active low. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggacbd1a1f016048fe79f77c89c43ab7d69a8398f52fc2ec870e8c2efbea00773032"></a>kLCDIF_HsyncActiveHigh</em>&nbsp;</td><td class="fielddoc">
+<p>HSYNC active high. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggacbd1a1f016048fe79f77c89c43ab7d69a34436f9dd3d168eec5a0b72ffe2d470e"></a>kLCDIF_DataEnableActiveLow</em>&nbsp;</td><td class="fielddoc">
+<p>Data enable line active low. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggacbd1a1f016048fe79f77c89c43ab7d69a6e41b6197d6dace5ce1160e6c1ff20cc"></a>kLCDIF_DataEnableActiveHigh</em>&nbsp;</td><td class="fielddoc">
+<p>Data enable line active high. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggacbd1a1f016048fe79f77c89c43ab7d69a1b40a65cb92d5045449659ea902297a6"></a>kLCDIF_DriveDataOnFallingClkEdge</em>&nbsp;</td><td class="fielddoc">
+<p>Drive data on falling clock edge, capture data on rising clock edge. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggacbd1a1f016048fe79f77c89c43ab7d69a6c7313c291216e2c865e77a3d1b8a495"></a>kLCDIF_DriveDataOnRisingClkEdge</em>&nbsp;</td><td class="fielddoc">
+<p>Drive data on falling clock edge, capture data on rising clock edge. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="gabda3a49032546bf3f21cfd7d5855a7f4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00040.html#gabda3a49032546bf3f21cfd7d5855a7f4">lcdif_output_format_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggabda3a49032546bf3f21cfd7d5855a7f4a3ae6b5d98a236cb4d9692ed59e1f0b80"></a>kLCDIF_Output16BitConfig1</em>&nbsp;</td><td class="fielddoc">
+<p>16-bit configuration 1. </p>
+<p>RGB565: XXXXXXXX_RRRRRGGG_GGGBBBBB. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggabda3a49032546bf3f21cfd7d5855a7f4ad831e8aa1cd484c1c86a98e6707dfa38"></a>kLCDIF_Output16BitConfig2</em>&nbsp;</td><td class="fielddoc">
+<p>16-bit configuration 2. </p>
+<p>RGB565: XXXRRRRR_XXGGGGGG_XXXBBBBB. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggabda3a49032546bf3f21cfd7d5855a7f4aa569045521e6c08f36a9d2f8cb866510"></a>kLCDIF_Output16BitConfig3</em>&nbsp;</td><td class="fielddoc">
+<p>16-bit configuration 3. </p>
+<p>RGB565: XXRRRRRX_XXGGGGGG_XXBBBBBX. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggabda3a49032546bf3f21cfd7d5855a7f4a4c6286d64dbf3b63ac4ca50393879239"></a>kLCDIF_Output18BitConfig1</em>&nbsp;</td><td class="fielddoc">
+<p>18-bit configuration 1. </p>
+<p>RGB666: XXXXXXRR_RRRRGGGG_GGBBBBBB. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggabda3a49032546bf3f21cfd7d5855a7f4ad91ae01b58fb8fe4694fc0fb1fc1850e"></a>kLCDIF_Output18BitConfig2</em>&nbsp;</td><td class="fielddoc">
+<p>18-bit configuration 2. </p>
+<p>RGB666: XXRRRRRR_XXGGGGGG_XXBBBBBB. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggabda3a49032546bf3f21cfd7d5855a7f4ada2fe0a90f6abfca86a5e05f1ecfbb57"></a>kLCDIF_Output24Bit</em>&nbsp;</td><td class="fielddoc">
+<p>24-bit. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="ga2fc79ebe789de2f5712d048d2f2d0b4b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00040.html#ga2fc79ebe789de2f5712d048d2f2d0b4b">lcdif_fb_format_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga2fc79ebe789de2f5712d048d2f2d0b4badc2d1b0b2b513de6d75a1bd99bebbf58"></a>kLCDIF_PixelFormatXRGB444</em>&nbsp;</td><td class="fielddoc">
+<p>XRGB4444, deprecated, use kLCDIF_PixelFormatXRGB4444 instead. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga2fc79ebe789de2f5712d048d2f2d0b4ba47c83850d82cdecdbd7f6b614cb79f87"></a>kLCDIF_PixelFormatXRGB4444</em>&nbsp;</td><td class="fielddoc">
+<p>XRGB4444, 16-bit each pixel, 4-bit each element. </p>
+<p>R4G4B4 in reference manual. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga2fc79ebe789de2f5712d048d2f2d0b4ba41c2dfedf8f9cdffd36ec25b30029280"></a>kLCDIF_PixelFormatXRGB1555</em>&nbsp;</td><td class="fielddoc">
+<p>XRGB1555, 16-bit each pixel, 5-bit each element. </p>
+<p>R5G5B5 in reference manual. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga2fc79ebe789de2f5712d048d2f2d0b4babb8af96612b1082431622dc50d10f1e7"></a>kLCDIF_PixelFormatRGB565</em>&nbsp;</td><td class="fielddoc">
+<p>RGB565, 16-bit each pixel. </p>
+<p>R5G6B5 in reference manual. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga2fc79ebe789de2f5712d048d2f2d0b4baeeaaa6d79f8192c043e41fb8ee16b6e3"></a>kLCDIF_PixelFormatXRGB8888</em>&nbsp;</td><td class="fielddoc">
+<p>XRGB8888, 32-bit each pixel, 8-bit each element. </p>
+<p>R8G8B8 in reference manual. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="gabb35141167dc39b20256742723a76fcd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00040.html#gabb35141167dc39b20256742723a76fcd">_lcdif_interrupt</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggabb35141167dc39b20256742723a76fcda6cecd0087b4f593a3cad12ed75a6efaa"></a>kLCDIF_Display0FrameDoneInterrupt</em>&nbsp;</td><td class="fielddoc">
+<p>The last pixel of visible area in frame is shown. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="gacd497b9f21eba04e9c35a626ad8f4be3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00040.html#gacd497b9f21eba04e9c35a626ad8f4be3">lcdif_cursor_format_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggacd497b9f21eba04e9c35a626ad8f4be3a7e5a57926e5f87f35a453688e826c148"></a>kLCDIF_CursorMasked</em>&nbsp;</td><td class="fielddoc">
+<p>Masked format. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggacd497b9f21eba04e9c35a626ad8f4be3adfc857aaf0b25ea58bbf95ee5430ef47"></a>kLCDIF_CursorARGB8888</em>&nbsp;</td><td class="fielddoc">
+<p>ARGB8888. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="gab0523d22a3a8d515aa2fb762efebb4bc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> LCDIF_Init </td>
+          <td>(</td>
+          <td class="paramtype">LCDIF_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function initializes the LCDIF to work.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">istance</td><td>IOMUXC istance. It's pointer to IOMUXC0_Type or IOMUXC1_Type in the soc head file. </td></tr>
-    <tr><td class="paramname">iomuxc_port</td><td>IOMUXC PORT name, please refer the enum iomuxc0_port_t and iomuxc1_port_t. </td></tr>
-    <tr><td class="paramname">pin</td><td>pin number. </td></tr>
-    <tr><td class="paramname">config</td><td>structure object of <a class="el" href="a00040.html#a00405" title="IOMUXC pin configuration structure. ">iomux_pin_config_t</a>, not a pointer. </td></tr>
+    <tr><td class="paramname">base</td><td>LCDIF peripheral base address.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">kStatus_Success</td><td>Initialize successfully. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="ga275f326284d041985a40687b80ec272b"></a>
+<a class="anchor" id="ga818172091bd80e756a19c13b44544d4c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define IOMUXC_SET_INPUTPIN_CONFIG</td>
+          <td class="memname">void LCDIF_Deinit </td>
           <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">instance, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">LCDIF_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">index, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">config&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;(instance)-&gt;SELECT_INPUT[index] = *((const uint32_t *)(&amp;config));</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This function disables the LCDIF peripheral clock.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">istance</td><td>IOMUXC istance. It's pointer to IOMUXC0_Type or IOMUXC1_Type in the soc head file. </td></tr>
-    <tr><td class="paramname">index</td><td>register index, please refer the iomuxc0_select_input_t and iomuxc1_select_input_t. </td></tr>
-    <tr><td class="paramname">config</td><td>structure object of <a class="el" href="a00040.html#a00407" title="IOMUXC pin configuration and mux for input function. ">iomuxc_input_pin_config_t</a>, not a pointer. </td></tr>
+    <tr><td class="paramname">base</td><td>LCDIF peripheral base address. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="ga84ed041f19ae06c13e9580c42eca39cc"></a>
+<a class="anchor" id="gaee2f174428a5a63890934f9ecdaf08dd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define IOMUXC_SET_MUX_CONTROL_PAD_RESET</td>
+          <td class="memname">void LCDIF_DpiModeGetDefaultConfig </td>
           <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">instance, </td>
+          <td class="paramtype"><a class="el" href="a00040.html#a00406">lcdif_dpi_config_t</a> *&#160;</td>
+          <td class="paramname"><em>config</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The default configuration value is:</p>
+<div class="fragment"><div class="line">   config-&gt;panelWidth = 0;</div>
+<div class="line">   config-&gt;panelHeight = 0;</div>
+<div class="line">   config-&gt;hsw = 0;</div>
+<div class="line">   config-&gt;hfp = 0;</div>
+<div class="line">   config-&gt;hbp = 0;</div>
+<div class="line">   config-&gt;vsw = 0;</div>
+<div class="line">   config-&gt;vfp = 0;</div>
+<div class="line">   config-&gt;vbp = 0;</div>
+<div class="line">   config-&gt;polarityFlags = <a class="code" href="a00040.html#ggacbd1a1f016048fe79f77c89c43ab7d69ad43556a2480fab6e6a83dba2f43903ce">kLCDIF_VsyncActiveLow</a> | <a class="code" href="a00040.html#ggacbd1a1f016048fe79f77c89c43ab7d69ac1d9e497bb1e16d685a708ea4fd4ae1f">kLCDIF_HsyncActiveLow</a> | <a class="code" href="a00040.html#ggacbd1a1f016048fe79f77c89c43ab7d69a6e41b6197d6dace5ce1160e6c1ff20cc">kLCDIF_DataEnableActiveHigh</a> |</div>
+<div class="line"><a class="code" href="a00040.html#ggacbd1a1f016048fe79f77c89c43ab7d69a1b40a65cb92d5045449659ea902297a6">kLCDIF_DriveDataOnFallingClkEdge</a>; config-&gt;format = <a class="code" href="a00040.html#ggabda3a49032546bf3f21cfd7d5855a7f4ada2fe0a90f6abfca86a5e05f1ecfbb57">kLCDIF_Output24Bit</a>;</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Pointer to the LCDIF configuration. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga3d990d2e41cd7a733f74e48ea949dbbd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> LCDIF_DpiModeSetConfig </td>
+          <td>(</td>
+          <td class="paramtype">LCDIF_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">config&#160;</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>displayIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00040.html#a00406">lcdif_dpi_config_t</a> *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -563,294 +1055,571 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">if</span> ((uint32_t)instance == IOMUXC0_BASE)                                                   \</div>
-<div class="line">    {                                                                                         \</div>
-<div class="line">        ((IOMUXC0_Type *)instance)-&gt;SW_MUX_CTL_PAD_RESET0_b = *((<span class="keyword">const</span> uint32_t *)(&amp;config)); \</div>
-<div class="line">    }                                                                                         \</div>
-<div class="line">    else                                                                                      \</div>
-<div class="line">    {                                                                                         \</div>
-<div class="line">        ((IOMUXC1_Type *)instance)-&gt;SW_MUX_CTL_PAD_RESET1_b = *((<span class="keyword">const</span> uint32_t *)(&amp;config)); \</div>
-<div class="line">    }</div>
-</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+<p>This function configures the LCDIF DPI display.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">istance</td><td>IOMUXC istance. It's pointer to IOMUXC0_Type or IOMUXC1_Type in the soc head file. </td></tr>
-    <tr><td class="paramname">config</td><td>structure object of <a class="el" href="a00040.html#a00405" title="IOMUXC pin configuration structure. ">iomux_pin_config_t</a>, not a pointer. </td></tr>
+    <tr><td class="paramname">base</td><td>LCDIF peripheral base address. </td></tr>
+    <tr><td class="paramname">displayIndex</td><td>Display index. </td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">kStatus_Success</td><td>Initialize successfully. </td></tr>
+    <tr><td class="paramname">kStatus_InvalidArgument</td><td>Initialize failed because of invalid argument. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="ga4d99388185a141bdde3c8aa67f873cc3"></a>
+<a class="anchor" id="ga3dd0dd8aaf355978ecafa7bfcb10542e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00040.html#ga4d99388185a141bdde3c8aa67f873cc3">_iomuxc_pull</a></td>
+          <td class="memname">void LCDIF_SetFrameBufferConfig </td>
+          <td>(</td>
+          <td class="paramtype">LCDIF_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>fbIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00040.html#a00407">lcdif_fb_config_t</a> *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga4d99388185a141bdde3c8aa67f873cc3a4f292f9edaca5c6a77c736a14fe9c673"></a>kIOMUXC_PullDisable</em>&nbsp;</td><td class="fielddoc">
-<p>Internal pull-up/down resistor is disabled. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga4d99388185a141bdde3c8aa67f873cc3a9e3739e270ac264017b42a6a9c7c87f6"></a>kIOMUXC_PullDown</em>&nbsp;</td><td class="fielddoc">
-<p>Internal pull-down resistor is enabled. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga4d99388185a141bdde3c8aa67f873cc3a7b78ae37a3e1438fcb94409407082c1f"></a>kIOMUXC_PullUp</em>&nbsp;</td><td class="fielddoc">
-<p>Internal pull-up resistor is enabled. </p>
-</td></tr>
-</table>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>LCDIF peripheral base address. </td></tr>
+    <tr><td class="paramname">fbIndex</td><td>Frame buffer index. </td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="ga44c35fc62f2b115b931aa7c2201c090e"></a>
+<a class="anchor" id="ga678c29005f0cacec1bde485425e0bf56"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00040.html#ga44c35fc62f2b115b931aa7c2201c090e">_iomuxc_slew_rate</a></td>
+          <td class="memname">void LCDIF_FrameBufferGetDefaultConfig </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00040.html#a00407">lcdif_fb_config_t</a> *&#160;</td>
+          <td class="paramname"><em>config</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga44c35fc62f2b115b931aa7c2201c090ea1953d4fae7ce2cbf68045fe558c79288"></a>kIOMUXC_StandardSlewRate</em>&nbsp;</td><td class="fielddoc">
-<p>Standard slew rate is configured. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga44c35fc62f2b115b931aa7c2201c090eae36a3041bc67a1b17ab53f3e741bbd05"></a>kIOMUXC_SlowSlewRate</em>&nbsp;</td><td class="fielddoc">
-<p>Slow slew rate is configured. </p>
-</td></tr>
-</table>
+<p>The default configuration is config-&gt;enable = true; config-&gt;enableGamma = false; config-&gt;format = kLCDIF_PixelFormatRGB565;</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="gaf2a065b62174adea37aa3bd53a069576"></a>
+<a class="anchor" id="ga0c73e4bacf024dfe0bd6067dab787265"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00040.html#gaf2a065b62174adea37aa3bd53a069576">_iomuxc_open_drain_enable</a></td>
+          <td class="memname">static void LCDIF_SetFrameBufferAddr </td>
+          <td>(</td>
+          <td class="paramtype">LCDIF_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>fbIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>address</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaf2a065b62174adea37aa3bd53a069576ab33e3e92fd1c85f3c2120af265b4c105"></a>kIOMUXC_OpenDrainDisable</em>&nbsp;</td><td class="fielddoc">
-<p>Internal pull-down resistor is disabled. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf2a065b62174adea37aa3bd53a069576abc0ddef8cd7158405aabe8daeee8cf40"></a>kIOMUXC_OpenDrainEnable</em>&nbsp;</td><td class="fielddoc">
-<p>Internal pull-up resistor is enabled. </p>
-</td></tr>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
 </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>LCDIF peripheral base address. </td></tr>
+    <tr><td class="paramname">fbIndex</td><td>Frame buffer index. </td></tr>
+    <tr><td class="paramname">address</td><td>Frame buffer address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The address must be 128 bytes aligned. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga22933985edfa083072d768559d3c547a"></a>
+<a class="anchor" id="ga58f7e2933dd2ba24b1f92b07594b4141"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00040.html#ga22933985edfa083072d768559d3c547a">_iomuxc_drive_strength</a></td>
+          <td class="memname">void LCDIF_SetFrameBufferStride </td>
+          <td>(</td>
+          <td class="paramtype">LCDIF_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>fbIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>strideBytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga22933985edfa083072d768559d3c547aa7c5bb00d8e639aed6dab875411f5b56c"></a>kIOMUXC_StandardDriveStrength</em>&nbsp;</td><td class="fielddoc">
-<p>Standard-drive strength is configured. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga22933985edfa083072d768559d3c547aad1fd3b0e89aa63006baa731960f17d2d"></a>kIOMUXC_HighDriveStrength</em>&nbsp;</td><td class="fielddoc">
-<p>High-drive strength is configured. </p>
-</td></tr>
-</table>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>LCDIF peripheral base address. </td></tr>
+    <tr><td class="paramname">fbIndex</td><td>Frame buffer index. </td></tr>
+    <tr><td class="paramname">strideBytes</td><td>The stride in byte. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="gaacab0cbd06b841f89bd94df62395babe"></a>
+<a class="anchor" id="ga6bd634282f266a1f5abcad74cc01f065"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00040.html#gaacab0cbd06b841f89bd94df62395babe">_iomuxc_mux</a></td>
+          <td class="memname">void LCDIF_SetDitherConfig </td>
+          <td>(</td>
+          <td class="paramtype">LCDIF_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>displayIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00040.html#a00405">lcdif_dither_config_t</a> *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babea72c9b8e5caf85ef6ffba082de7f9cee0"></a>kIOMUXC_MuxAlt0</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babeaa387407f74691c88670be85df21eb746"></a>kIOMUXC_MuxAlt1</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babeae8ac879acf57d91babe10ee251ebf17f"></a>kIOMUXC_MuxAlt2</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babeabc5b577484c9d3049af4416e6c24b082"></a>kIOMUXC_MuxAlt3</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babea85d300193b5f06f217938e65d1298faf"></a>kIOMUXC_MuxAlt4</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babea37d8c92b456d8952a7b89cf33a62df7c"></a>kIOMUXC_MuxAlt5</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babea30343290be7ba273339d1f556de80464"></a>kIOMUXC_MuxAlt6</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babea671c29cbe99838f243f1ca1b20b53539"></a>kIOMUXC_MuxAlt7</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babeaf3466538c2a48cf131aceb752d290ee6"></a>kIOMUXC_MuxAlt8</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babea4166581cac494ed6dce4d923c5476a5b"></a>kIOMUXC_MuxAlt9</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babea90f10a2513ccb4d921d23767c798043f"></a>kIOMUXC_MuxAlt10</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babea474d2039ebfa148cd04bf0eddae594c1"></a>kIOMUXC_MuxAlt11</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babea8cf7c942d62631d93725a35f9a66c750"></a>kIOMUXC_MuxAlt12</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babea196b3a88eecb18c841ed70f1934ef8bd"></a>kIOMUXC_MuxAlt13</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babea8a37d8d1a2f3cd69ba6551a75125133d"></a>kIOMUXC_MuxAlt14</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaacab0cbd06b841f89bd94df62395babea86d8dee7f9656f8f3429a0f843375599"></a>kIOMUXC_MuxAlt15</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-</table>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>LCDIF peripheral base address. </td></tr>
+    <tr><td class="paramname">displayIndex</td><td>Index to configure. </td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="ga9664ce389138ed8cd1c12dc9e742b892"></a>
+<a class="anchor" id="ga87ce294f816311c7bfcb6cb98983da70"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00040.html#ga9664ce389138ed8cd1c12dc9e742b892">_iomuxc_lock_register</a></td>
+          <td class="memname">void LCDIF_SetGammaData </td>
+          <td>(</td>
+          <td class="paramtype">LCDIF_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>fbIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>startIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t *&#160;</td>
+          <td class="paramname"><em>gamma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>gammaLen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga9664ce389138ed8cd1c12dc9e742b892a89628004c4b69dd404b994ff2def6d27"></a>kIOMUXC_UnlockRegister</em>&nbsp;</td><td class="fielddoc">
-<p>Pin Control Register fields [15:0] are not locked. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga9664ce389138ed8cd1c12dc9e742b892a88d889a680ad9db388b4a16eec9fa94f"></a>kIOMUXC_LockRegister</em>&nbsp;</td><td class="fielddoc">
-<p>Pin Control Register fields [15:0] are locked. </p>
-</td></tr>
-</table>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>LCDIF peripheral base address. </td></tr>
+    <tr><td class="paramname">fbIndex</td><td>The frame buffer index. </td></tr>
+    <tr><td class="paramname">startIndex</td><td>Start index in the gamma table that the value will be set to. </td></tr>
+    <tr><td class="paramname">gamma</td><td>The gamma values to set to the gamma table in LCDIF, could be defined using LCDIF_MAKE_GAMMA_VALUE. </td></tr>
+    <tr><td class="paramname">gammaLen</td><td>The length of the <code>gamma</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="ga29ebcbf202807e8c5d3bfd680f25882d"></a>
+<a class="anchor" id="gac427bd0a2d8572de0ccc3736b5629f57"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00040.html#ga29ebcbf202807e8c5d3bfd680f25882d">_iomuxc_input_buffer_enable</a></td>
+          <td class="memname">static void LCDIF_EnableInterrupts </td>
+          <td>(</td>
+          <td class="paramtype">LCDIF_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga29ebcbf202807e8c5d3bfd680f25882daaca555f5e85a0ef7a6bb775d14d7412a"></a>kIOMUXC_InputBufferDisable</em>&nbsp;</td><td class="fielddoc">
-<p>Input buffer is disabled. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga29ebcbf202807e8c5d3bfd680f25882da64a3091e03d44a731959bdae81c36da4"></a>kIOMUXC_InputBufferEnable</em>&nbsp;</td><td class="fielddoc">
-<p>Output buffer is enabled. </p>
-</td></tr>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
 </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>LCDIF peripheral base address. </td></tr>
+    <tr><td class="paramname">mask</td><td>The interrupts to enable, pass in as OR'ed value of <a class="el" href="a00040.html#gabb35141167dc39b20256742723a76fcd">_lcdif_interrupt</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="ga3a1788e3215f4ded989b2677d00e82c2"></a>
+<a class="anchor" id="ga28f933e4671bc5dfcca66e06b3256f0a"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00040.html#ga3a1788e3215f4ded989b2677d00e82c2">_iomuxc_output_buffer_enable</a></td>
+          <td class="memname">static void LCDIF_DisableInterrupts </td>
+          <td>(</td>
+          <td class="paramtype">LCDIF_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga3a1788e3215f4ded989b2677d00e82c2a4665c2e8842df303d354f2d88e6547ae"></a>kIOMUXC_outputBufferDisable</em>&nbsp;</td><td class="fielddoc">
-<p>Output buffer is disabled. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga3a1788e3215f4ded989b2677d00e82c2a96e121257feab3e3d5fbf7b9d248575d"></a>kIOMUXC_outputBufferEnable</em>&nbsp;</td><td class="fielddoc">
-<p>Output buffer is enabled. </p>
-</td></tr>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
 </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>LCDIF peripheral base address. </td></tr>
+    <tr><td class="paramname">mask</td><td>The interrupts to disable, pass in as OR'ed value of <a class="el" href="a00040.html#gabb35141167dc39b20256742723a76fcd">_lcdif_interrupt</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="ga5f4b330c07ce6080b34fa5e2632b1fb7"></a>
+<a class="anchor" id="gabd7b321bbb9d21339ea69c2818cfaf8d"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00040.html#ga5f4b330c07ce6080b34fa5e2632b1fb7">iomux_digital_filter_clock_select_t</a></td>
+          <td class="memname">static uint32_t LCDIF_GetAndClearInterruptPendingFlags </td>
+          <td>(</td>
+          <td class="paramtype">LCDIF_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga5f4b330c07ce6080b34fa5e2632b1fb7ab73bce721a91beaa62be0d2ed31ef190"></a>kIOMUXC_IPGClock</em>&nbsp;</td><td class="fielddoc">
-<p>Digital filters are clocked by the IPG clock. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga5f4b330c07ce6080b34fa5e2632b1fb7abaa2a6ba1a209372b16a7f38d1338a79"></a>kIOMUXC_1KhzClock</em>&nbsp;</td><td class="fielddoc">
-<p>Digital filters are clocked by the 1kHz clock. </p>
-</td></tr>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
 </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>LCDIF peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The interrupt pending status.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The interrupt must be enabled, otherwise the interrupt flags will not assert. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga0558da6e64fcf957e9e7e6949c7cb73a"></a>
+<a class="anchor" id="ga46518ea0bbcae6644f60b9e448b94dbd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00040.html#ga0558da6e64fcf957e9e7e6949c7cb73a">_iomuxc_inputpin_mux</a></td>
+          <td class="memname">void LCDIF_CursorGetDefaultConfig </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00040.html#a00404">lcdif_cursor_config_t</a> *&#160;</td>
+          <td class="paramname"><em>config</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Refer to "Input SSS" column from "Input Mux" IOMUX Sheet. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga0558da6e64fcf957e9e7e6949c7cb73aac33c6062cba930a988c5d11328ec1d6b"></a>kIOMUXC_InputMuxAlt0</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga0558da6e64fcf957e9e7e6949c7cb73aacbcf9c3cfd1306456ee4c16a37d26a1d"></a>kIOMUXC_InputMuxAlt1</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga0558da6e64fcf957e9e7e6949c7cb73aa35fa71f36d18feac3a45c703024d3524"></a>kIOMUXC_InputMuxAlt2</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga0558da6e64fcf957e9e7e6949c7cb73aa826c4dc92f15bf565785484190ef6ff7"></a>kIOMUXC_InputMuxAlt3</em>&nbsp;</td><td class="fielddoc">
-<p>Chip-specific. </p>
-</td></tr>
-</table>
+<p>The default configuration values are:</p>
+<div class="fragment"><div class="line">config-&gt;enable = <span class="keyword">true</span>;</div>
+<div class="line">config-&gt;format = <a class="code" href="a00040.html#ggacd497b9f21eba04e9c35a626ad8f4be3a7e5a57926e5f87f35a453688e826c148">kLCDIF_CursorMasked</a>;</div>
+<div class="line">config-&gt;hotspotOffsetX = 0;</div>
+<div class="line">config-&gt;hotspotOffsetY = 0;</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Pointer to the hardware cursor configuration structure. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="gaf32f2ea7a4753020d56a2384919016bb"></a>
+<a class="anchor" id="gad5e18f101ac53cd9ae4ab655075ec179"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00040.html#gaf32f2ea7a4753020d56a2384919016bb">_iomuxc_input_inversion_enable</a></td>
+          <td class="memname">void LCDIF_SetCursorConfig </td>
+          <td>(</td>
+          <td class="paramtype">LCDIF_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00040.html#a00404">lcdif_cursor_config_t</a> *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaf32f2ea7a4753020d56a2384919016bba6ecba0f55034101acf2d494910488820"></a>kIOMUXC_InputInversionDisable</em>&nbsp;</td><td class="fielddoc">
-<p>Input inversion is disabled. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf32f2ea7a4753020d56a2384919016bba08325def6110bf1d86b5b31309c5369b"></a>kIOMUXC_InputInversionEnable</em>&nbsp;</td><td class="fielddoc">
-<p>Output inversion is enabled. </p>
-</td></tr>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>LCDIF peripheral base address. </td></tr>
+    <tr><td class="paramname">config</td><td>Cursor configuration. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga0aed14a8feac14fcbc7f7da03585181d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void LCDIF_SetCursorHotspotPosition </td>
+          <td>(</td>
+          <td class="paramtype">LCDIF_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
 </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>LCDIF peripheral base address. </td></tr>
+    <tr><td class="paramname">x</td><td>X coordinate of the hotspot, range 0 ~ 8191. </td></tr>
+    <tr><td class="paramname">y</td><td>Y coordinate of the hotspot, range 0 ~ 8191. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gad872652fbbda43e1ed5a83463743d365"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void LCDIF_SetCursorBufferAddress </td>
+          <td>(</td>
+          <td class="paramtype">LCDIF_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>address</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>LCDIF peripheral base address. </td></tr>
+    <tr><td class="paramname">address</td><td>Memory address. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gada8ff5341c29870ef7bf65fa06e45a2d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCDIF_SetCursorColor </td>
+          <td>(</td>
+          <td class="paramtype">LCDIF_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>background</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>foreground</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>LCDIF peripheral base address. </td></tr>
+    <tr><td class="paramname">background</td><td>Background color, could be defined use <a class="el" href="a00040.html#ga59226e4d188d172b3df72f6976766dd6">LCDIF_MAKE_CURSOR_COLOR</a> </td></tr>
+    <tr><td class="paramname">foreground</td><td>Foreground color, could be defined use <a class="el" href="a00040.html#ga59226e4d188d172b3df72f6976766dd6">LCDIF_MAKE_CURSOR_COLOR</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

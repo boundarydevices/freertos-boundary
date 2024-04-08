@@ -1,6 +1,5 @@
 /*
  * Copyright 2022-2023, NXP
- * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -72,6 +71,32 @@ void LPM_RegisterPowerListener(lpm_power_mode_callback_t callback, void *data);
 
 /* Unregister power mode switch listener */
 void LPM_UnregisterPowerListener(lpm_power_mode_callback_t callback, void *data);
+
+#if defined(SRTM_DDR_RETENTION_USED) && SRTM_DDR_RETENTION_USED
+/*
+ * Hook to do what is needed before accessing DDR.
+ * E.g. restore DDR when in retention.
+ */
+void LPM_ddr_pre_access(void);
+
+/*
+ * Hook to insert code to save power when DDR access is not needed by application.
+ * Typically place DDR in retention.
+ */
+void LPM_ddr_post_access(void);
+#endif
+
+#if defined(SRTM_OCRAM_POWER_OPTIM_USED) && SRTM_OCRAM_POWER_OPTIM_USED
+/*
+ * to be called before ocram access when power optimizations prevents its access
+ */
+void LPM_ocram_pre_access(void);
+
+/*
+ * to be called after ocram access to save some power (e.g. reducing bus clocks)
+ */
+void LPM_ocram_post_access(void);
+#endif
 
 #if defined(__cplusplus)
 }

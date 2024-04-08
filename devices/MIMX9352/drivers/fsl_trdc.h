@@ -1,12 +1,12 @@
 /*
- * Copyright 2022.2023 NXP
+ * Copyright 2022,2023 NXP
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef _FSL_TRDC_H_
-#define _FSL_TRDC_H_
+#ifndef FSL_TRDC_H_
+#define FSL_TRDC_H_
 
 #include "fsl_common.h"
 #include "fsl_trdc_core.h"
@@ -19,8 +19,9 @@
 /******************************************************************************
  * Definitions
  *****************************************************************************/
-#define FSL_TRDC_DRIVER_VERSION (MAKE_VERSION(2, 1, 0))
+#define FSL_TRDC_DRIVER_VERSION (MAKE_VERSION(2, 2, 0))
 
+#if defined(FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG) && FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG
 /* Hardware configuration definitions */
 /*!
  * @brief TRDC hardware configuration.
@@ -32,7 +33,9 @@ typedef struct _trdc_hardware_config
     uint8_t mbcNumber;    /*!< Number of MBCs.        */
     uint8_t mrcNumber;    /*!< Number of MRCs.        */
 } trdc_hardware_config_t;
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_MBC) && FSL_FEATURE_TRDC_HAS_MBC
 /*!
  * @brief Hardware configuration of the two slave memories within each MBC(memory block checker).
  */
@@ -41,7 +44,9 @@ typedef struct _trdc_slave_memory_hardware_config
     uint32_t blockNum;  /*!< Number of blocks. */
     uint32_t blockSize; /*!< Block size. */
 } trdc_slave_memory_hardware_config_t;
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_DOMAIN_ASSIGNMENT) && FSL_FEATURE_TRDC_HAS_DOMAIN_ASSIGNMENT
 /* Master domain assignment definitions */
 /*!
  * @brief TRDC domain ID select method, the register bit TRDC_MDA_W0_0_DFMT0[DIDS], used for
@@ -145,7 +150,9 @@ typedef struct _trdc_pid_config
     uint32_t lock : 2U; /*!< How to lock the register, see @ref trdc_pid_lock_t. */
     uint32_t : 1U;      /*!< Reserved. */
 } trdc_pid_config_t;
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG) && FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG
 /* TZ-M congiguration definitions */
 /*!
  * @brief IDAU(Implementation-Defined Attribution Unit) configuration for TZ-M function control.
@@ -175,7 +182,9 @@ typedef struct _trdc_flw_config
     bool lock;              /*!< Disable writes to FLW registers. */
     bool enable;            /*!< Enable FLW function. */
 } trdc_flw_config_t;
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_DOMAIN_ERROR) && FSL_FEATURE_TRDC_HAS_DOMAIN_ERROR
 /* Domain error check and clear definitions */
 /*!
  * @brief TRDC controller definition for domain error check. Each TRDC instance may have different
@@ -245,7 +254,10 @@ typedef struct _trdc_domain_error
     uint8_t domainId;              /*!< Domain ID.                                      */
     uint8_t slaveMemoryIdx;        /*!< The slave memory index. Only apply when violation in MBC. */
 } trdc_domain_error_t;
+#endif
 
+#if (defined(FSL_FEATURE_TRDC_HAS_MBC) && FSL_FEATURE_TRDC_HAS_MBC) || \
+    (defined(FSL_FEATURE_TRDC_HAS_MRC) && FSL_FEATURE_TRDC_HAS_MRC)
 /* Common definitions for MBC/MRC configuration */
 /*!
  * @brief Memory access control configuration for MBC/MRC.
@@ -270,7 +282,9 @@ typedef struct _trdc_memory_access_control_config
     uint32_t : 16U;               /*!< Reserved. */
     uint32_t lock : 1U; /*!< Lock the configuration until next reset, only apply to access control register 0. */
 } trdc_memory_access_control_config_t;
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_MRC) && FSL_FEATURE_TRDC_HAS_MRC
 /*! @brief The region descriptor enumeration, used to form a mask to set/clear the NSE bits for one or several regions.
  */
 enum _trdc_region_descriptor
@@ -331,7 +345,9 @@ typedef struct _trdc_mrc_region_descriptor_config
     uint8_t domainIdx;                 /*!< The index of the domain for this configuration to take effect. */
     uint8_t regionIdx;                 /*!< The index of the region for this configuration to take effect. */
 } trdc_mrc_region_descriptor_config_t;
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_MBC) && FSL_FEATURE_TRDC_HAS_MBC
 /* MBC configuration definitions */
 /*!
  * @brief The configuration of MBC NSE update.
@@ -437,6 +453,7 @@ typedef struct _trdc_mbc_memory_block_config
     uint32_t slaveMemoryIdx : 8U; /*!< The index of the slave memory for this configuration to take effect. */
     uint32_t memoryBlockIdx : 8U; /*!< The index of the memory block for this configuration to take effect. */
 } trdc_mbc_memory_block_config_t;
+#endif
 
 /*******************************************************************************
  * API
@@ -467,8 +484,9 @@ void TRDC_Init(TRDC_Type *base);
  * @param base TRDC peripheral base address.
  */
 void TRDC_Deinit(TRDC_Type *base);
-/* @} */
+/*! @} */
 
+#if defined(FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG) && FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG
 /*!
  * @name Hardware configuration
  * @{
@@ -494,8 +512,10 @@ static inline uint8_t TRDC_GetCurrentMasterDomainId(TRDC_Type *base)
  * @param config Pointer to the structure to get the configuration.
  */
 void TRDC_GetHardwareConfig(TRDC_Type *base, trdc_hardware_config_t *config);
-/* @} */
+/*! @} */
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_DOMAIN_ASSIGNMENT) && FSL_FEATURE_TRDC_HAS_DOMAIN_ASSIGNMENT
 /*!
  * @name Master domain assignment
  * @{
@@ -521,7 +541,7 @@ static inline void TRDC_SetDacGlobalValid(TRDC_Type *base)
  * @param base TRDC peripheral base address.
  * @param master Which master to configure, refer to trdcx_master_t in processor header file, x is trdc instance.
  * @param regNum Which register to configure, processor master can have more than one register for the MDAC
- * configuration.
+   configuration.
  * @param assignIndex Which assignment register to lock.
  */
 static inline void TRDC_LockMasterDomainAssignment(TRDC_Type *base, uint8_t master, uint8_t regNum)
@@ -701,8 +721,10 @@ static inline uint64_t TRDC_GetActiveMasterPidMap(TRDC_Type *base)
  * @param pidConfig Pointer to the configuration structure.
  */
 void TRDC_SetPid(TRDC_Type *base, uint8_t master, const trdc_pid_config_t *pidConfig);
-/* @} */
+/*! @} */
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG) && FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG
 /*!
  * @name TZ-M congiguration
  * @{
@@ -741,8 +763,10 @@ void TRDC_GetDefaultIDAUConfig(trdc_idau_config_t *idauConfiguration);
  * @param domainAssignment Pointer to the configuration structure.
  */
 void TRDC_SetIDAU(TRDC_Type *base, const trdc_idau_config_t *idauConfiguration);
-/* @} */
+/*! @} */
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_FLW) && FSL_FEATURE_TRDC_HAS_FLW
 /*!
  * @name FLW(Flash Logical Window) configuration
  * @{
@@ -828,8 +852,10 @@ void TRDC_GetDefaultFlashLogicalWindowConfig(trdc_flw_config_t *flwConfiguration
  * @param flwConfiguration Pointer to the configuration structure.
  */
 void TRDC_SetFlashLogicalWindow(TRDC_Type *base, const trdc_flw_config_t *flwConfiguration);
-/* @} */
+/*! @} */
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_DOMAIN_ERROR) && FSL_FEATURE_TRDC_HAS_DOMAIN_ERROR
 /*!
  * @name Domain error check and clear
  * @{
@@ -864,12 +890,15 @@ status_t TRDC_GetAndClearFirstDomainError(TRDC_Type *base, trdc_domain_error_t *
  *         access violation is captured, this function returns the kStatus_NoData.
  */
 status_t TRDC_GetAndClearFirstSpecificDomainError(TRDC_Type *base, trdc_domain_error_t *error, uint8_t domainId);
-/* @} */
+/*! @} */
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_MRC) && FSL_FEATURE_TRDC_HAS_MRC
 /*!
  * @name MRC configuration
  * @{
  */
+#if defined(FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG) && FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG
 /*!
  * @brief Sets the TRDC MRC(Memory Region Checkers) global valid.
  *
@@ -881,6 +910,7 @@ static inline void TRDC_SetMrcGlobalValid(TRDC_Type *base)
 {
     TRDC_GENERAL_BASE(base)->TRDC_CR |= TRDC_TRDC_CR_GVLDR_MASK;
 }
+#endif
 
 /*!
  * @brief Gets the TRDC MRC(Memory Region Checkers) region number valid.
@@ -890,7 +920,8 @@ static inline void TRDC_SetMrcGlobalValid(TRDC_Type *base)
  */
 static inline uint8_t TRDC_GetMrcRegionNumber(TRDC_Type *base, uint8_t mrcIdx)
 {
-    return (uint8_t)((TRDC_MRC_BASE(base, mrcIdx)->MRC_GLBCFG & TRDC_MRC_GLBCFG_NRGNS_MASK) >> TRDC_MRC_GLBCFG_NRGNS_SHIFT);
+    return (uint8_t)((TRDC_MRC_BASE(base, mrcIdx)->MRC_GLBCFG & TRDC_MRC_GLBCFG_NRGNS_MASK) >>
+                     TRDC_MRC_GLBCFG_NRGNS_SHIFT);
 }
 
 /*!
@@ -959,9 +990,9 @@ void TRDC_MrcRegionNseClear(TRDC_Type *base, uint8_t mrcIdx, uint16_t regionMask
  *
  * @param base TRDC peripheral base address.
  * @param mrcIdx MRC index.
- * @param domianMask Bit mask of the domians whose NSE bits to clear.
+ * @param domainMask Bit mask of the domians whose NSE bits to clear.
  */
-void TRDC_MrcDomainNseClear(TRDC_Type *base, uint8_t mrcIdx, uint16_t domianMask);
+void TRDC_MrcDomainNseClear(TRDC_Type *base, uint8_t mrcIdx, uint16_t domainMask);
 
 /*!
  * @brief Sets the configuration for one of the region descriptor per domain per MRC instnce.
@@ -973,12 +1004,15 @@ void TRDC_MrcDomainNseClear(TRDC_Type *base, uint8_t mrcIdx, uint16_t domianMask
  * @param config Pointer to region descriptor configuration structure.
  */
 void TRDC_MrcSetRegionDescriptorConfig(TRDC_Type *base, const trdc_mrc_region_descriptor_config_t *config);
-/* @} */
+/*! @} */
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_MBC) && FSL_FEATURE_TRDC_HAS_MBC
 /*!
  * @name MBC configuration
  * @{
  */
+#if defined(FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG) && FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG
 /*!
  * @brief Sets the TRDC MBC(Memory Block Checkers) global valid.
  *
@@ -990,6 +1024,7 @@ static inline void TRDC_SetMbcGlobalValid(TRDC_Type *base)
 {
     TRDC_GENERAL_BASE(base)->TRDC_CR |= TRDC_TRDC_CR_GVLDB_MASK;
 }
+#endif
 
 /*!
  * @brief Gets the hardware configuration of the one of two slave memories within each MBC(memory block checker).
@@ -1082,7 +1117,8 @@ void TRDC_MbcSetMemoryAccessConfig(TRDC_Type *base,
  * @param config Pointer to memory block configuration structure.
  */
 void TRDC_MbcSetMemoryBlockConfig(TRDC_Type *base, const trdc_mbc_memory_block_config_t *config);
-/* @} */
+/*! @} */
+#endif
 
 #if defined(__cplusplus)
 }
@@ -1092,4 +1128,4 @@ void TRDC_MbcSetMemoryBlockConfig(TRDC_Type *base, const trdc_mbc_memory_block_c
  * @}
  */
 
-#endif /* _FSL_TRDC_H_ */
+#endif /* FSL_TRDC_H_ */

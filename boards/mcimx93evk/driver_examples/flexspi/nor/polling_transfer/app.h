@@ -1,6 +1,5 @@
 /*
  * Copyright 2023 NXP
- * All rights reserved.
  *
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -21,7 +20,6 @@
 #define EXAMPLE_FLEXSPI_CLOCK           kCLOCK_Root_Flexspi1
 #define FLASH_PORT                      kFLEXSPI_PortA1
 #define EXAMPLE_FLEXSPI_RX_SAMPLE_CLOCK kFLEXSPI_ReadSampleClkLoopbackInternally
-
 
 #define NOR_CMD_LUT_SEQ_IDX_READ             0
 #define NOR_CMD_LUT_SEQ_IDX_READSTATUSREG    1
@@ -45,7 +43,7 @@
  * If cache is enabled, this example should maintain the cache to make sure
  * CPU core accesses the memory, not cache only.
  */
-#define CACHE_MAINTAIN           1
+#define CACHE_MAINTAIN 1
 
 /*${macro:end}*/
 
@@ -68,11 +66,9 @@ void BOARD_InitHardware(void);
 static inline void flexspi_clock_init(void)
 {
     /*Clock setting for flexspi*/
-    const clock_root_config_t flexspiClkCfg = {
-        .clockOff = false,
-        .mux = 0, // 24MHz oscillator source
-        .div = 2
-    };
+    const clock_root_config_t flexspiClkCfg = {.clockOff = false,
+                                               .mux      = 0, // 24MHz oscillator source
+                                               .div      = 2};
     CLOCK_SetRootClock(kCLOCK_Root_Flexspi1, &flexspiClkCfg);
 }
 /*${prototype:end}*/

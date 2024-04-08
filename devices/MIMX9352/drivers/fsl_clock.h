@@ -1,6 +1,5 @@
 /*
- * Copyright 2022 NXP
- * All rights reserved.
+ * Copyright 2023 NXP
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -19,7 +18,7 @@
 /* Definition for delay API in clock driver, users can redefine it to the real application. */
 #ifndef SDK_DEVICE_MAXIMUM_CPU_CLOCK_FREQUENCY
 #define SDK_DEVICE_MAXIMUM_CPU_CLOCK_FREQUENCY \
-    (2500000000UL) /* When using Overdrive Voltage, the maximum frequency of cm33 is 250 MHz */
+    (250000000UL) /* When using Overdrive Voltage, the maximum frequency of cm33 is 250 MHz */
 #endif
 
 /*! LPM_SETTING
@@ -100,25 +99,25 @@ static inline void CLOCK_PllInit(PLL_Type *pll, const fracn_pll_init_t *pll_cfg)
 static inline void CLOCK_PllPfdInit(PLL_Type *pll, uint32_t pfd_n, const fracn_pll_pfd_init_t *pfd_cfg)
 {
     /* Bypass DFS*/
-    pll->NO_OF_DFS[pfd_n].DFS_CTRL.SET = PLL_NO_OF_DFS_BYPASS_EN_MASK;
+    pll->DFS[pfd_n].DFS_CTRL.SET = PLL_DFS_BYPASS_EN_MASK;
     /* Disable output and DFS */
-    pll->NO_OF_DFS[pfd_n].DFS_CTRL.CLR = PLL_NO_OF_DFS_CLKOUT_EN_MASK | PLL_NO_OF_DFS_ENABLE_MASK;
+    pll->DFS[pfd_n].DFS_CTRL.CLR = PLL_DFS_CLKOUT_EN_MASK | PLL_DFS_ENABLE_MASK;
     /* Set mfi and mfn */
-    pll->NO_OF_DFS[pfd_n].DFS_DIV.RW = PLL_NO_OF_DFS_MFI(pfd_cfg->mfi) | PLL_NO_OF_DFS_MFN(pfd_cfg->mfn);
+    pll->DFS[pfd_n].DFS_DIV.RW = PLL_DFS_MFI(pfd_cfg->mfi) | PLL_DFS_MFN(pfd_cfg->mfn);
     /* Enable output and DFS*/
-    pll->NO_OF_DFS[pfd_n].DFS_CTRL.SET = PLL_NO_OF_DFS_CLKOUT_EN_MASK;
+    pll->DFS[pfd_n].DFS_CTRL.SET = PLL_DFS_CLKOUT_EN_MASK;
     /* Enable div2 */
     if (pfd_cfg->div2_en)
     {
-        pll->NO_OF_DFS[pfd_n].DFS_CTRL.SET = PLL_NO_OF_DFS_CLKOUT_DIVBY2_EN_MASK;
+        pll->DFS[pfd_n].DFS_CTRL.SET = PLL_DFS_CLKOUT_DIVBY2_EN_MASK;
     }
     /* Enable DFS for locking*/
-    pll->NO_OF_DFS[pfd_n].DFS_CTRL.SET = PLL_NO_OF_DFS_ENABLE_MASK;
+    pll->DFS[pfd_n].DFS_CTRL.SET = PLL_DFS_ENABLE_MASK;
     while (((pll->DFS_STATUS & PLL_DFS_STATUS_DFS_OK_MASK) & (1UL << pfd_n)) == 0UL)
     {
     }
     /* Clean bypass */
-    pll->NO_OF_DFS[pfd_n].DFS_CTRL.CLR = PLL_NO_OF_DFS_BYPASS_EN_MASK;
+    pll->DFS[pfd_n].DFS_CTRL.CLR = PLL_DFS_BYPASS_EN_MASK;
     __DSB();
     __ISB();
 }
@@ -1103,6 +1102,12 @@ typedef enum _clock_lpcg
         kCLOCK_Mu_A, kCLOCK_Mu_A \
     }
 
+/*! @brief Clock ip name array for LCDIFV3. */
+#define LCDIFV3_CLOCKS                 \
+    {                                  \
+        kCLOCK_IpInvalid, kCLOCK_Lcdif \
+    }
+
 /*! @brief Clock ip name array for LPI2C. */
 #define LPI2C_CLOCKS                                                                                                \
     {                                                                                                               \
@@ -1188,6 +1193,12 @@ typedef enum _clock_lpcg
 #define I3C_CLOCKS                                 \
     {                                              \
         kCLOCK_IpInvalid, kCLOCK_I3c1, kCLOCK_I3c2 \
+    }
+
+/*! @brief Clock ip name array for SEMA42. */
+#define SEMA42_CLOCKS                                \
+    {                                                \
+        kCLOCK_IpInvalid, kCLOCK_Sema1, kCLOCK_Sema2 \
     }
 
 /*******************************************************************************

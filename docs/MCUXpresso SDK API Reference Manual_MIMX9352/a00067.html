@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: Shell</title>
+<title>MCUXpresso SDK API Reference Manual: MSMC: Multicore System Mode Controller</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.14.0</span>
+   &#160;<span id="projectnumber">Rev 2.15.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -99,231 +99,309 @@ $(document).ready(function(){initNavTree('a00067.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#files">Files</a> &#124;
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">Shell</div>  </div>
+<div class="title">MSMC: Multicore System Mode Controller</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
-<p>This section describes the programming interface of the Shell middleware.</p>
-<p>Shell controls MCUs by commands via the specified communication peripheral based on the debug console driver.</p>
-<h1><a class="anchor" id="ShellFunGrps"></a>
-Function groups</h1>
-<h2><a class="anchor" id="ShellInit"></a>
-Initialization</h2>
-<p>To initialize the Shell middleware, call the <span style="color:red"><a class="el" href="a00067.html#ga7961e946400cd244c315cfbbd36ae5d1" title="Initializes the shell module. ">SHELL_Init()</a></span> function with these parameters. This function automatically enables the middleware.</p>
-<div class="fragment"><div class="line"><a class="code" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a> <a class="code" href="a00067.html#ga7961e946400cd244c315cfbbd36ae5d1">SHELL_Init</a>(<a class="code" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a> shellHandle, <a class="code" href="a00064.html#gaba1cc3859c4f829ee0bc6091184d4b08">serial_handle_t</a> serialHandle, <span class="keywordtype">char</span> *prompt);</div>
-</div><!-- fragment --><p>Then, after the initialization was successful, call a command to control MCUs.</p>
-<p>This example shows how to call the <a class="el" href="a00067.html#ga7961e946400cd244c315cfbbd36ae5d1" title="Initializes the shell module. ">SHELL_Init()</a> given the user configuration structure.</p>
-<div class="fragment"><div class="line"><a class="code" href="a00067.html#ga7961e946400cd244c315cfbbd36ae5d1">SHELL_Init</a>(s_shellHandle, s_serialHandle, <span class="stringliteral">&quot;Test@SHELL&gt;&quot;</span>);</div>
-</div><!-- fragment --><h2><a class="anchor" id="ShellAdvFeature"></a>
-Advanced Feature</h2>
-<ul>
-<li>Support to get a character from standard input devices. <div class="fragment"><div class="line"><span class="keyword">static</span> <a class="code" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a> SHELL_GetChar(shell_context_handle_t *shellContextHandle, uint8_t *ch);</div>
-</div><!-- fragment --></li>
-</ul>
-<div style="width:800px;"> <table class="doxtable">
-<tr>
-<th>Commands  </th><th>Description  </th></tr>
-<tr>
-<td>help  </td><td>List all the registered commands.   </td></tr>
-<tr>
-<td>exit  </td><td>Exit program.   </td></tr>
-</table>
-</div><h2><a class="anchor" id="SHELLOper"></a>
-Shell Operation</h2>
-<div class="fragment"><div class="line"><a class="code" href="a00067.html#ga7961e946400cd244c315cfbbd36ae5d1">SHELL_Init</a>(s_shellHandle, s_serialHandle, <span class="stringliteral">&quot;Test@SHELL&gt;&quot;</span>);</div>
-<div class="line"><a class="code" href="a00067.html#ga44e3087a3cdea9b62f159e2585dfcd8d">SHELL_Task</a>((s_shellHandle);</div>
-</div><!-- fragment --> <table class="memberdecls">
+<p>The MCUXpresso SDK provides a peripheral driver for the Multicore System Mode Controller (MSMC) module of MCUXpresso SDK devices.</p>
+<h1><a class="anchor" id="MSMCTpyUC"></a>
+Typical use case</h1>
+<h2><a class="anchor" id="MSMCSetCore0RunToVlpr"></a>
+Set Core 0 from RUN to VLPR mode</h2>
+<p>Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/msmc </p>
+<h2><a class="anchor" id="MSMCSetCore0VlprOrHsrunToRun"></a>
+Set Core 0 from VLPR/HSRUN to RUN mode</h2>
+<p>Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/msmc </p>
+<h1><a class="anchor" id="MSMCTpyUC"></a>
+Typical use case</h1>
+<h2><a class="anchor" id="MSMCSetCore0RunToHsrun"></a>
+Set Core 0 from RUN to HSRUN mode</h2>
+<p>Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/msmc </p>
+<h2><a class="anchor" id="MSMCWaitStop"></a>
+Enter wait or stop modes</h2>
+<p>SMC driver provides APIs to set MCU to different wait modes and stop modes. At the same time, there are pre-function and post-function for the modes setting. The pre-function and post-function are used for:</p>
+<ol type="1">
+<li>Disable/enable the interrupt through PRIMASK. In practise, there is such scenario: the application sets the wakeup interrupt and calls SMC function <a class="el" href="a00067.html#gaa1e2666198ce75322be3280472a224ee">SMC_SetPowerModeStop</a> to set MCU to STOP mode, but the wakeup interrupt happens so quickly that the ISR completed before the function <a class="el" href="a00067.html#gaa1e2666198ce75322be3280472a224ee">SMC_SetPowerModeStop</a>, as a result, the MCU enters STOP mode and never be wakeup by the interrupt. In this case, application could first disable interrupt through PRIMASK, then set the wakeup interrupt and enter STOP mode. After wakeup, the first thing is enable the interrupt through PRIMASK. The MCU could still be wakeup when disable interrupt through PRIMASK. The pre- and post- functions handle the PRIMASK inside.</li>
+</ol>
+<div class="fragment"><div class="line"><a class="code" href="a00067.html#ga344da3e55dffa5d50fb4872e40f36ff0">SMC_PreEnterStopModes</a>();</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* Enable the wakeup interrupt here. */</span></div>
+<div class="line"></div>
+<div class="line"><a class="code" href="a00067.html#gaa1e2666198ce75322be3280472a224ee">SMC_SetPowerModeStop</a>(SMC0, <a class="code" href="a00067.html#ggad54e13a8299dd76ab1807137ca78e482a04f63da1ef433f2240cc42337c55e1b0">kSMC_PartialStop</a>);</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="a00067.html#gaee8b556d6a459c2a69b8178ee4279df6">SMC_PostExitStopModes</a>();</div>
+</div><!-- fragment --><p>For other use cases, please refer to the comments of the MSMC driver header file. Some example codes are also provided. </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:a00178"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00178.html">fsl_msmc.h</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:a00477"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a00477">shell_command_t</a></td></tr>
-<tr class="memdesc:a00477"><td class="mdescLeft">&#160;</td><td class="mdescRight">User command data configuration structure.  <a href="a00067.html#a00477">More...</a><br/></td></tr>
-<tr class="separator:a00477"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ga30f0f53e0fd0ab3f7f4696f8f8e3e8ab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga30f0f53e0fd0ab3f7f4696f8f8e3e8ab">SHELL_NON_BLOCKING_MODE</a>&#160;&#160;&#160;<a class="el" href="a00064.html#gabf238ccb327fd5316f765109d1235ae3">SERIAL_MANAGER_NON_BLOCKING_MODE</a></td></tr>
-<tr class="memdesc:ga30f0f53e0fd0ab3f7f4696f8f8e3e8ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether use non-blocking mode.  <a href="#ga30f0f53e0fd0ab3f7f4696f8f8e3e8ab">More...</a><br/></td></tr>
-<tr class="separator:ga30f0f53e0fd0ab3f7f4696f8f8e3e8ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga30882f4b5fc99cbc21459cc960ef9ffe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga30882f4b5fc99cbc21459cc960ef9ffe">SHELL_AUTO_COMPLETE</a>&#160;&#160;&#160;(1U)</td></tr>
-<tr class="memdesc:ga30882f4b5fc99cbc21459cc960ef9ffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to set on/off auto-complete feature.  <a href="#ga30882f4b5fc99cbc21459cc960ef9ffe">More...</a><br/></td></tr>
-<tr class="separator:ga30882f4b5fc99cbc21459cc960ef9ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf98219b0fb886040896b83966903a135"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gaf98219b0fb886040896b83966903a135">SHELL_BUFFER_SIZE</a>&#160;&#160;&#160;(64U)</td></tr>
-<tr class="memdesc:gaf98219b0fb886040896b83966903a135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to set console buffer size.  <a href="#gaf98219b0fb886040896b83966903a135">More...</a><br/></td></tr>
-<tr class="separator:gaf98219b0fb886040896b83966903a135"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0800d9fb741c785d0601f0c3d7125f40"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga0800d9fb741c785d0601f0c3d7125f40">SHELL_MAX_ARGS</a>&#160;&#160;&#160;(8U)</td></tr>
-<tr class="memdesc:ga0800d9fb741c785d0601f0c3d7125f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to set maximum arguments in command.  <a href="#ga0800d9fb741c785d0601f0c3d7125f40">More...</a><br/></td></tr>
-<tr class="separator:ga0800d9fb741c785d0601f0c3d7125f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4362aa35752c9abf77387a237faaaea5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga4362aa35752c9abf77387a237faaaea5">SHELL_HISTORY_COUNT</a>&#160;&#160;&#160;(3U)</td></tr>
-<tr class="memdesc:ga4362aa35752c9abf77387a237faaaea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to set maximum count of history commands.  <a href="#ga4362aa35752c9abf77387a237faaaea5">More...</a><br/></td></tr>
-<tr class="separator:ga4362aa35752c9abf77387a237faaaea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8c32b818330b7a6b62a5b819703e5e8f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8c32b818330b7a6b62a5b819703e5e8f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga8c32b818330b7a6b62a5b819703e5e8f">SHELL_IGNORE_PARAMETER_COUNT</a>&#160;&#160;&#160;(0xFF)</td></tr>
-<tr class="memdesc:ga8c32b818330b7a6b62a5b819703e5e8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to bypass arguments check. <br/></td></tr>
-<tr class="separator:ga8c32b818330b7a6b62a5b819703e5e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa4c15d7595f7cf7ee5f837a02cbdf574"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gaa4c15d7595f7cf7ee5f837a02cbdf574">SHELL_HANDLE_SIZE</a></td></tr>
-<tr class="memdesc:gaa4c15d7595f7cf7ee5f837a02cbdf574"><td class="mdescLeft">&#160;</td><td class="mdescRight">The handle size of the shell module.  <a href="#gaa4c15d7595f7cf7ee5f837a02cbdf574">More...</a><br/></td></tr>
-<tr class="separator:gaa4c15d7595f7cf7ee5f837a02cbdf574"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga100ef8e4a639c03682d84fb981ba235b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga100ef8e4a639c03682d84fb981ba235b">SHELL_USE_COMMON_TASK</a>&#160;&#160;&#160;(0U)</td></tr>
-<tr class="memdesc:ga100ef8e4a639c03682d84fb981ba235b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to determine whether use common task.  <a href="#ga100ef8e4a639c03682d84fb981ba235b">More...</a><br/></td></tr>
-<tr class="separator:ga100ef8e4a639c03682d84fb981ba235b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5b98f71ea7bd89ef344cac14aa79a1e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga5b98f71ea7bd89ef344cac14aa79a1e3">SHELL_TASK_PRIORITY</a>&#160;&#160;&#160;(2U)</td></tr>
-<tr class="memdesc:ga5b98f71ea7bd89ef344cac14aa79a1e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to set shell task priority.  <a href="#ga5b98f71ea7bd89ef344cac14aa79a1e3">More...</a><br/></td></tr>
-<tr class="separator:ga5b98f71ea7bd89ef344cac14aa79a1e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga416667c8e6b960d2c1ec518b41a06d62"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga416667c8e6b960d2c1ec518b41a06d62">SHELL_TASK_STACK_SIZE</a>&#160;&#160;&#160;(1000U)</td></tr>
-<tr class="memdesc:ga416667c8e6b960d2c1ec518b41a06d62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to set shell task stack size.  <a href="#ga416667c8e6b960d2c1ec518b41a06d62">More...</a><br/></td></tr>
-<tr class="separator:ga416667c8e6b960d2c1ec518b41a06d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafdb2c68b2d83d459fc196ab0f58d7ab3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gafdb2c68b2d83d459fc196ab0f58d7ab3">SHELL_HANDLE_DEFINE</a>(name)&#160;&#160;&#160;uint32_t name[((<a class="el" href="a00067.html#gaa4c15d7595f7cf7ee5f837a02cbdf574">SHELL_HANDLE_SIZE</a> + sizeof(uint32_t) - 1U) / sizeof(uint32_t))]</td></tr>
-<tr class="memdesc:gafdb2c68b2d83d459fc196ab0f58d7ab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the shell handle.  <a href="#gafdb2c68b2d83d459fc196ab0f58d7ab3">More...</a><br/></td></tr>
-<tr class="separator:gafdb2c68b2d83d459fc196ab0f58d7ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacd1f7ee25cd791efee6a45e753ec9824"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gacd1f7ee25cd791efee6a45e753ec9824">SHELL_COMMAND_DEFINE</a>(command, descriptor, callback, paramCount)</td></tr>
-<tr class="memdesc:gacd1f7ee25cd791efee6a45e753ec9824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the shell command structure.  <a href="#gacd1f7ee25cd791efee6a45e753ec9824">More...</a><br/></td></tr>
-<tr class="separator:gacd1f7ee25cd791efee6a45e753ec9824"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga16dd6cfbd9db7dafdaa802eda58564b5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga16dd6cfbd9db7dafdaa802eda58564b5">SHELL_COMMAND</a>(command)&#160;&#160;&#160;&amp;g_shellCommand##command</td></tr>
-<tr class="memdesc:ga16dd6cfbd9db7dafdaa802eda58564b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the shell command pointer.  <a href="#ga16dd6cfbd9db7dafdaa802eda58564b5">More...</a><br/></td></tr>
-<tr class="separator:ga16dd6cfbd9db7dafdaa802eda58564b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:ga818c3ca274bd83d1dc870a5618eb21f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga818c3ca274bd83d1dc870a5618eb21f2"></a>
-typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a></td></tr>
-<tr class="memdesc:ga818c3ca274bd83d1dc870a5618eb21f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The handle of the shell module. <br/></td></tr>
-<tr class="separator:ga818c3ca274bd83d1dc870a5618eb21f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7ace1ddfb1e83ac1516ac44be90cf822"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga7ace1ddfb1e83ac1516ac44be90cf822">cmd_function_t</a> )(<a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a> shellHandle, int32_t argc, char **argv)</td></tr>
-<tr class="memdesc:ga7ace1ddfb1e83ac1516ac44be90cf822"><td class="mdescLeft">&#160;</td><td class="mdescRight">User command function prototype.  <a href="#ga7ace1ddfb1e83ac1516ac44be90cf822">More...</a><br/></td></tr>
-<tr class="separator:ga7ace1ddfb1e83ac1516ac44be90cf822"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00474"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a00474">smc_reset_pin_filter_config_t</a></td></tr>
+<tr class="memdesc:a00474"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset pin filter configuration.  <a href="a00067.html#a00474">More...</a><br/></td></tr>
+<tr class="separator:a00474"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ga16424f17c6492c580e65adf9a4e1ac61"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00067.html#gga16424f17c6492c580e65adf9a4e1ac61aeb6cf57843c8b47b87ae07417d53df3e">kStatus_SHELL_Success</a> = kStatus_Success, 
+<tr class="memitem:gad735fff97d006821f8f10d82396b2801"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gad735fff97d006821f8f10d82396b2801">smc_power_mode_protection_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00067.html#ggad735fff97d006821f8f10d82396b2801a4f2f4907d44dbe20d528a4f21457f45c">kSMC_AllowPowerModeVlls</a> = SMC_PMPROT_AVLLS_MASK, 
 <br/>
-&#160;&#160;<a class="el" href="a00067.html#gga16424f17c6492c580e65adf9a4e1ac61ae1a9ae61e350888892f4cde21f8dd7f9">kStatus_SHELL_Error</a> = MAKE_STATUS(kStatusGroup_SHELL, 1), 
+&#160;&#160;<a class="el" href="a00067.html#ggad735fff97d006821f8f10d82396b2801ab43c79be60f1abf26f8342322d22e907">kSMC_AllowPowerModeLls</a> = SMC_PMPROT_ALLS_MASK, 
 <br/>
-&#160;&#160;<a class="el" href="a00067.html#gga16424f17c6492c580e65adf9a4e1ac61a25ff80ec847b1028041ae913beec2b5b">kStatus_SHELL_OpenWriteHandleFailed</a> = MAKE_STATUS(kStatusGroup_SHELL, 2), 
+&#160;&#160;<a class="el" href="a00067.html#ggad735fff97d006821f8f10d82396b2801a59c7889c43c88969558086058a70025c">kSMC_AllowPowerModeVlp</a> = SMC_PMPROT_AVLP_MASK, 
 <br/>
-&#160;&#160;<a class="el" href="a00067.html#gga16424f17c6492c580e65adf9a4e1ac61a14f89a732b5c11a35e8c9b91d4e22ad8">kStatus_SHELL_OpenReadHandleFailed</a> = MAKE_STATUS(kStatusGroup_SHELL, 3), 
+&#160;&#160;<a class="el" href="a00067.html#ggad735fff97d006821f8f10d82396b2801a830612d22e0dc3662e6b2292601093b2">kSMC_AllowPowerModeHsrun</a> = SMC_PMPROT_AHSRUN_MASK, 
 <br/>
-&#160;&#160;<a class="el" href="a00067.html#gga16424f17c6492c580e65adf9a4e1ac61ad139f389943f49d948bbff024d6c5a26">kStatus_SHELL_RetUsage</a> = MAKE_STATUS(kStatusGroup_SHELL, 4)
+&#160;&#160;<a class="el" href="a00067.html#ggad735fff97d006821f8f10d82396b2801a2d2790f7f2a43e4fc6f3816cc1693328">kSMC_AllowPowerModeAll</a>
 <br/>
  }</td></tr>
-<tr class="memdesc:ga16424f17c6492c580e65adf9a4e1ac61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shell status.  <a href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">More...</a><br/></td></tr>
-<tr class="separator:ga16424f17c6492c580e65adf9a4e1ac61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:gad735fff97d006821f8f10d82396b2801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power Modes Protection.  <a href="a00067.html#gad735fff97d006821f8f10d82396b2801">More...</a><br/></td></tr>
+<tr class="separator:gad735fff97d006821f8f10d82396b2801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3913e95033611ece1b80ef817dce2ca9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga3913e95033611ece1b80ef817dce2ca9">smc_power_state_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00067.html#gga3913e95033611ece1b80ef817dce2ca9a5b88bef81d70c5bd0d36b4dfbe48c1e5">kSMC_PowerStateRun</a> = 1U, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga3913e95033611ece1b80ef817dce2ca9a4dfa7ded19a0d9fa1f56e7368cd70957">kSMC_PowerStateStop</a> = 1U &lt;&lt; 1U, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga3913e95033611ece1b80ef817dce2ca9a2457fcbd1884818e017070eca5f0233c">kSMC_PowerStateVlpr</a> = 1U &lt;&lt; 2U, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga3913e95033611ece1b80ef817dce2ca9afc3dc2c53dd620cac2d37cf6c7f8ec73">kSMC_PowerStateHsrun</a> = 1U &lt;&lt; 7U
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga3913e95033611ece1b80ef817dce2ca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power Modes in PMSTAT.  <a href="a00067.html#ga3913e95033611ece1b80ef817dce2ca9">More...</a><br/></td></tr>
+<tr class="separator:ga3913e95033611ece1b80ef817dce2ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae21b0dd6c1a3c96f4b177395bca5622b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gae21b0dd6c1a3c96f4b177395bca5622b">smc_power_stop_entry_status_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00067.html#ggae21b0dd6c1a3c96f4b177395bca5622ba32f5c2dee75619501f20cdf7cd8c7d92">kSMC_PowerStopEntryAlt0</a> = 1U, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#ggae21b0dd6c1a3c96f4b177395bca5622ba4463e1a4c348e7ebef43915332d263ca">kSMC_PowerStopEntryAlt1</a> = 1U &lt;&lt; 1, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#ggae21b0dd6c1a3c96f4b177395bca5622ba0376243e72de895cae43fd58faa092b1">kSMC_PowerStopEntryAlt2</a> = 1U &lt;&lt; 2, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#ggae21b0dd6c1a3c96f4b177395bca5622ba98969b3bcbe8bbcb36cfc2b850ce08b6">kSMC_PowerStopEntryAlt3</a> = 1U &lt;&lt; 3, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#ggae21b0dd6c1a3c96f4b177395bca5622bac6931fa0ba0904aa6341e9f89023578b">kSMC_PowerStopEntryAlt4</a> = 1U &lt;&lt; 4, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#ggae21b0dd6c1a3c96f4b177395bca5622bafc033823f07378a8c4fd449d546db4f0">kSMC_PowerStopEntryAlt5</a> = 1U &lt;&lt; 5
+<br/>
+ }</td></tr>
+<tr class="memdesc:gae21b0dd6c1a3c96f4b177395bca5622b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power Stop Entry Status in PMSTAT.  <a href="a00067.html#gae21b0dd6c1a3c96f4b177395bca5622b">More...</a><br/></td></tr>
+<tr class="separator:gae21b0dd6c1a3c96f4b177395bca5622b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d6771fed6001bdf5e283360a23655f4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga0d6771fed6001bdf5e283360a23655f4">smc_run_mode_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00067.html#gga0d6771fed6001bdf5e283360a23655f4abaeb1d66b5ab95289522985e831186de">kSMC_RunNormal</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga0d6771fed6001bdf5e283360a23655f4ac1461903d002daab1af773d6d506fea3">kSMC_RunVlpr</a> = 2U, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga0d6771fed6001bdf5e283360a23655f4ac575a1829a745c18d19ab10744b44f47">kSMC_Hsrun</a> = 3U
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga0d6771fed6001bdf5e283360a23655f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run mode definition.  <a href="a00067.html#ga0d6771fed6001bdf5e283360a23655f4">More...</a><br/></td></tr>
+<tr class="separator:ga0d6771fed6001bdf5e283360a23655f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga249b51abbe6891665977c9e43d8e1cdc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga249b51abbe6891665977c9e43d8e1cdc">smc_stop_mode_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00067.html#gga249b51abbe6891665977c9e43d8e1cdcac642d13640f334c1c509aa89568028dc">kSMC_StopNormal</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga249b51abbe6891665977c9e43d8e1cdca0309375b2672e8c29eebd50bd80236c3">kSMC_StopVlps</a> = 2U, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga249b51abbe6891665977c9e43d8e1cdca49290f942a305169a63ca4ce30f3cd9a">kSMC_StopLls</a> = 3U, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga249b51abbe6891665977c9e43d8e1cdcafae316de35cb50c1212bd172eb25037f">kSMC_StopVlls</a> = 4U
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga249b51abbe6891665977c9e43d8e1cdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop mode definition.  <a href="a00067.html#ga249b51abbe6891665977c9e43d8e1cdc">More...</a><br/></td></tr>
+<tr class="separator:ga249b51abbe6891665977c9e43d8e1cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad54e13a8299dd76ab1807137ca78e482"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gad54e13a8299dd76ab1807137ca78e482">smc_partial_stop_option_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00067.html#ggad54e13a8299dd76ab1807137ca78e482a04f63da1ef433f2240cc42337c55e1b0">kSMC_PartialStop</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#ggad54e13a8299dd76ab1807137ca78e482a2ebc7dc8a6bd5f83dd842cddcc6483a3">kSMC_PartialStop1</a> = 1U, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#ggad54e13a8299dd76ab1807137ca78e482afca17db21b7e59ecd2e271e566001b63">kSMC_PartialStop2</a> = 2U, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#ggad54e13a8299dd76ab1807137ca78e482a0bd1cee626881c2fd3d716d8dd6a7eb7">kSMC_PartialStop3</a> = 3U
+<br/>
+ }</td></tr>
+<tr class="memdesc:gad54e13a8299dd76ab1807137ca78e482"><td class="mdescLeft">&#160;</td><td class="mdescRight">Partial STOP option.  <a href="a00067.html#gad54e13a8299dd76ab1807137ca78e482">More...</a><br/></td></tr>
+<tr class="separator:gad54e13a8299dd76ab1807137ca78e482"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae6dceca96ec2c7a1b4aa211264a87ef6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a00067.html#ggae6dceca96ec2c7a1b4aa211264a87ef6ac8b70e0e27736678bcb91340b06c011e">kStatus_SMC_StopAbort</a> = MAKE_STATUS(kStatusGroup_POWER, 0)
+ }</td></tr>
+<tr class="memdesc:gae6dceca96ec2c7a1b4aa211264a87ef6"><td class="mdescLeft">&#160;</td><td class="mdescRight">SMC configuration status.  <a href="a00067.html#gae6dceca96ec2c7a1b4aa211264a87ef6">More...</a><br/></td></tr>
+<tr class="separator:gae6dceca96ec2c7a1b4aa211264a87ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga41d9a9d5f157ac5985200f16228f1d0b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga41d9a9d5f157ac5985200f16228f1d0b">smc_reset_source_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba2861f33b64fb9444171deadf1dec216a">kSMC_SourceWakeup</a> = SMC_SRS_WAKEUP_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba2ef41a99a849508f7bb01db67fadcef8">kSMC_SourcePor</a> = SMC_SRS_POR_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba51a7332d542bc09aa0c79504fc9501d5">kSMC_SourceLvd</a> = SMC_SRS_LVD_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0baf7cada6555257956137e0413001f4e3b">kSMC_SourceHvd</a> = SMC_SRS_HVD_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0baf9e28ded9c3e837abe58f331613392f8">kSMC_SourceWarm</a> = SMC_SRS_WARM_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0baa34a0fb061bc75ae3ccccdf79324ec77">kSMC_SourceFatal</a> = SMC_SRS_FATAL_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba0ee5d493438ca2ee939e21783b31b069">kSMC_SourceCore</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba0f1ed5951f9e463ef4ce4cf6c5f86142">kSMC_SourcePin</a> = SMC_SRS_PIN_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba62b56098a197c1779faf013d22ab34fc">kSMC_SourceMdm</a> = SMC_SRS_MDM_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba123f2986effc7841fe41fdfa0fd76fa6">kSMC_SourceRstAck</a> = SMC_SRS_RSTACK_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0baf7e8b14f8ae7bbf13676147f420aa7d7">kSMC_SourceStopAck</a> = SMC_SRS_STOPACK_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba57d5033ab41e9d5e469ce081a51364ff">kSMC_SourceScg</a> = SMC_SRS_SCG_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba87c6299ffc176e18c84d546dcff33b4b">kSMC_SourceWdog</a> = SMC_SRS_WDOG_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba896f454b422037166d2d35a8108c705d">kSMC_SourceSoftware</a> = SMC_SRS_SW_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba629aa8ffd6366f2cef1030bf81758b9a">kSMC_SourceLockup</a> = SMC_SRS_LOCKUP_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba2a376f02a89f4701e4ee57a9937e3a8b">kSMC_SourceJtag</a> = SMC_SRS_JTAG_MASK
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga41d9a9d5f157ac5985200f16228f1d0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">System Reset Source Name definitions.  <a href="a00067.html#ga41d9a9d5f157ac5985200f16228f1d0b">More...</a><br/></td></tr>
+<tr class="separator:ga41d9a9d5f157ac5985200f16228f1d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga58af707cf7db2eb88f97d6cc61ecc582"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga58af707cf7db2eb88f97d6cc61ecc582">smc_interrupt_enable_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a5451f680c83239aae0706ac269b970a0">kSMC_IntNone</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a7adbffee423e42df938866c56789e7d5">kSMC_IntPin</a> = SMC_SRIE_PIN_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a8dfbbf3b4a105ed134c206eb41c5f7eb">kSMC_IntMdm</a> = SMC_SRIE_MDM_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a8debbfe3c7875e3d8d38f230183da598">kSMC_IntStopAck</a> = SMC_SRIE_STOPACK_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a5082d6057025b59db3b3ed62e582cf22">kSMC_IntWdog</a> = SMC_SRIE_WDOG_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a2af6715629b3a405db96a9e48bc21573">kSMC_IntSoftware</a> = SMC_SRIE_SW_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a410c64e50113a8f6e9d45236c0d92ae2">kSMC_IntLockup</a> = SMC_SRIE_LOCKUP_MASK, 
+<br/>
+&#160;&#160;<a class="el" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a99e443d5fa8cf148538747a562d80a22">kSMC_IntAll</a>
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga58af707cf7db2eb88f97d6cc61ecc582"><td class="mdescLeft">&#160;</td><td class="mdescRight">System reset interrupt enable bit definitions.  <a href="a00067.html#ga58af707cf7db2eb88f97d6cc61ecc582">More...</a><br/></td></tr>
+<tr class="separator:ga58af707cf7db2eb88f97d6cc61ecc582"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-Shell functional operation</h2></td></tr>
-<tr class="memitem:ga7961e946400cd244c315cfbbd36ae5d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga7961e946400cd244c315cfbbd36ae5d1">SHELL_Init</a> (<a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a> shellHandle, <a class="el" href="a00064.html#gaba1cc3859c4f829ee0bc6091184d4b08">serial_handle_t</a> serialHandle, char *prompt)</td></tr>
-<tr class="memdesc:ga7961e946400cd244c315cfbbd36ae5d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the shell module.  <a href="#ga7961e946400cd244c315cfbbd36ae5d1">More...</a><br/></td></tr>
-<tr class="separator:ga7961e946400cd244c315cfbbd36ae5d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab5f85f3ba2cc7dd58bc85076c19c5177"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gab5f85f3ba2cc7dd58bc85076c19c5177">SHELL_RegisterCommand</a> (<a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a> shellHandle, <a class="el" href="a00067.html#a00477">shell_command_t</a> *shellCommand)</td></tr>
-<tr class="memdesc:gab5f85f3ba2cc7dd58bc85076c19c5177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers the shell command.  <a href="#gab5f85f3ba2cc7dd58bc85076c19c5177">More...</a><br/></td></tr>
-<tr class="separator:gab5f85f3ba2cc7dd58bc85076c19c5177"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga53355638d856258b0bcb76e308803dab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga53355638d856258b0bcb76e308803dab">SHELL_UnregisterCommand</a> (<a class="el" href="a00067.html#a00477">shell_command_t</a> *shellCommand)</td></tr>
-<tr class="memdesc:ga53355638d856258b0bcb76e308803dab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregisters the shell command.  <a href="#ga53355638d856258b0bcb76e308803dab">More...</a><br/></td></tr>
-<tr class="separator:ga53355638d856258b0bcb76e308803dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9f182608b5a6107757be5bb8a90ad74c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga9f182608b5a6107757be5bb8a90ad74c">SHELL_Write</a> (<a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a> shellHandle, const char *buffer, uint32_t length)</td></tr>
-<tr class="memdesc:ga9f182608b5a6107757be5bb8a90ad74c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends data to the shell output stream.  <a href="#ga9f182608b5a6107757be5bb8a90ad74c">More...</a><br/></td></tr>
-<tr class="separator:ga9f182608b5a6107757be5bb8a90ad74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaade5449d8cbfc3cd026667b40c35d29f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gaade5449d8cbfc3cd026667b40c35d29f">SHELL_Printf</a> (<a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a> shellHandle, const char *formatString,...)</td></tr>
-<tr class="memdesc:gaade5449d8cbfc3cd026667b40c35d29f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes formatted output to the shell output stream.  <a href="#gaade5449d8cbfc3cd026667b40c35d29f">More...</a><br/></td></tr>
-<tr class="separator:gaade5449d8cbfc3cd026667b40c35d29f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6466b141fd4f94e78636e4a15c302dda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga6466b141fd4f94e78636e4a15c302dda">SHELL_WriteSynchronization</a> (<a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a> shellHandle, const char *buffer, uint32_t length)</td></tr>
-<tr class="memdesc:ga6466b141fd4f94e78636e4a15c302dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends data to the shell output stream with OS synchronization.  <a href="#ga6466b141fd4f94e78636e4a15c302dda">More...</a><br/></td></tr>
-<tr class="separator:ga6466b141fd4f94e78636e4a15c302dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga56c78f6217a822015a9369bf3e52e92a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga56c78f6217a822015a9369bf3e52e92a">SHELL_PrintfSynchronization</a> (<a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a> shellHandle, const char *formatString,...)</td></tr>
-<tr class="memdesc:ga56c78f6217a822015a9369bf3e52e92a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes formatted output to the shell output stream with OS synchronization.  <a href="#ga56c78f6217a822015a9369bf3e52e92a">More...</a><br/></td></tr>
-<tr class="separator:ga56c78f6217a822015a9369bf3e52e92a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaca4540dc42f8892cb276691644a247e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gaca4540dc42f8892cb276691644a247e2">SHELL_ChangePrompt</a> (<a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a> shellHandle, char *prompt)</td></tr>
-<tr class="memdesc:gaca4540dc42f8892cb276691644a247e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change shell prompt.  <a href="#gaca4540dc42f8892cb276691644a247e2">More...</a><br/></td></tr>
-<tr class="separator:gaca4540dc42f8892cb276691644a247e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad2a840776dee8490d482a0692fbf2d7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gad2a840776dee8490d482a0692fbf2d7e">SHELL_PrintPrompt</a> (<a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a> shellHandle)</td></tr>
-<tr class="memdesc:gad2a840776dee8490d482a0692fbf2d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print shell prompt.  <a href="#gad2a840776dee8490d482a0692fbf2d7e">More...</a><br/></td></tr>
-<tr class="separator:gad2a840776dee8490d482a0692fbf2d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga44e3087a3cdea9b62f159e2585dfcd8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga44e3087a3cdea9b62f159e2585dfcd8d">SHELL_Task</a> (<a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a> shellHandle)</td></tr>
-<tr class="memdesc:ga44e3087a3cdea9b62f159e2585dfcd8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The task function for Shell.  <a href="#ga44e3087a3cdea9b62f159e2585dfcd8d">More...</a><br/></td></tr>
-<tr class="separator:ga44e3087a3cdea9b62f159e2585dfcd8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4eeb17b16773359c132f1d40478938ec"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga4eeb17b16773359c132f1d40478938ec">SHELL_checkRunningInIsr</a> (void)</td></tr>
-<tr class="memdesc:ga4eeb17b16773359c132f1d40478938ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if code is running in ISR.  <a href="#ga4eeb17b16773359c132f1d40478938ec">More...</a><br/></td></tr>
-<tr class="separator:ga4eeb17b16773359c132f1d40478938ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+Driver version</h2></td></tr>
+<tr class="memitem:ga50b8faab80972aca20f7705925b23038"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga50b8faab80972aca20f7705925b23038">FSL_MSMC_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00223.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 2))</td></tr>
+<tr class="memdesc:ga50b8faab80972aca20f7705925b23038"><td class="mdescLeft">&#160;</td><td class="mdescRight">MSMC driver version.  <a href="#ga50b8faab80972aca20f7705925b23038">More...</a><br/></td></tr>
+<tr class="separator:ga50b8faab80972aca20f7705925b23038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+System mode controller APIs</h2></td></tr>
+<tr class="memitem:ga883084279eccf59d4594cc4fc6b07570"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga883084279eccf59d4594cc4fc6b07570">SMC_SetPowerModeProtection</a> (SMC_Type *base, uint8_t allowedModes)</td></tr>
+<tr class="memdesc:ga883084279eccf59d4594cc4fc6b07570"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures all power mode protection settings.  <a href="#ga883084279eccf59d4594cc4fc6b07570">More...</a><br/></td></tr>
+<tr class="separator:ga883084279eccf59d4594cc4fc6b07570"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8891a49d31b2f79a72d2b696c3c7d21a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00067.html#ga3913e95033611ece1b80ef817dce2ca9">smc_power_state_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga8891a49d31b2f79a72d2b696c3c7d21a">SMC_GetPowerModeState</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:ga8891a49d31b2f79a72d2b696c3c7d21a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current power mode status.  <a href="#ga8891a49d31b2f79a72d2b696c3c7d21a">More...</a><br/></td></tr>
+<tr class="separator:ga8891a49d31b2f79a72d2b696c3c7d21a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga344da3e55dffa5d50fb4872e40f36ff0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga344da3e55dffa5d50fb4872e40f36ff0">SMC_PreEnterStopModes</a> (void)</td></tr>
+<tr class="memdesc:ga344da3e55dffa5d50fb4872e40f36ff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepare to enter stop modes.  <a href="#ga344da3e55dffa5d50fb4872e40f36ff0">More...</a><br/></td></tr>
+<tr class="separator:ga344da3e55dffa5d50fb4872e40f36ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee8b556d6a459c2a69b8178ee4279df6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gaee8b556d6a459c2a69b8178ee4279df6">SMC_PostExitStopModes</a> (void)</td></tr>
+<tr class="memdesc:gaee8b556d6a459c2a69b8178ee4279df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recovering after wake up from stop modes.  <a href="#gaee8b556d6a459c2a69b8178ee4279df6">More...</a><br/></td></tr>
+<tr class="separator:gaee8b556d6a459c2a69b8178ee4279df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab8f3b43e5a5af5698ed57297f0f9b8f3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gab8f3b43e5a5af5698ed57297f0f9b8f3">SMC_PreEnterWaitModes</a> (void)</td></tr>
+<tr class="memdesc:gab8f3b43e5a5af5698ed57297f0f9b8f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepare to enter wait modes.  <a href="#gab8f3b43e5a5af5698ed57297f0f9b8f3">More...</a><br/></td></tr>
+<tr class="separator:gab8f3b43e5a5af5698ed57297f0f9b8f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga667477c948aeeabf905969a37ab6fc70"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga667477c948aeeabf905969a37ab6fc70">SMC_PostExitWaitModes</a> (void)</td></tr>
+<tr class="memdesc:ga667477c948aeeabf905969a37ab6fc70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recovering after wake up from stop modes.  <a href="#ga667477c948aeeabf905969a37ab6fc70">More...</a><br/></td></tr>
+<tr class="separator:ga667477c948aeeabf905969a37ab6fc70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f141beaa4867a3d1606b714e63c30c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga8f141beaa4867a3d1606b714e63c30c3">SMC_SetPowerModeRun</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:ga8f141beaa4867a3d1606b714e63c30c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to RUN power mode.  <a href="#ga8f141beaa4867a3d1606b714e63c30c3">More...</a><br/></td></tr>
+<tr class="separator:ga8f141beaa4867a3d1606b714e63c30c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff75ec614c35b4f8f979b103ab159dcd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gaff75ec614c35b4f8f979b103ab159dcd">SMC_SetPowerModeHsrun</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:gaff75ec614c35b4f8f979b103ab159dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to HSRUN power mode.  <a href="#gaff75ec614c35b4f8f979b103ab159dcd">More...</a><br/></td></tr>
+<tr class="separator:gaff75ec614c35b4f8f979b103ab159dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf1664f2d4a78b756e5e30f5433af975"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gaaf1664f2d4a78b756e5e30f5433af975">SMC_SetPowerModeWait</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:gaaf1664f2d4a78b756e5e30f5433af975"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to WAIT power mode.  <a href="#gaaf1664f2d4a78b756e5e30f5433af975">More...</a><br/></td></tr>
+<tr class="separator:gaaf1664f2d4a78b756e5e30f5433af975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa1e2666198ce75322be3280472a224ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gaa1e2666198ce75322be3280472a224ee">SMC_SetPowerModeStop</a> (SMC_Type *base, <a class="el" href="a00067.html#gad54e13a8299dd76ab1807137ca78e482">smc_partial_stop_option_t</a> option)</td></tr>
+<tr class="memdesc:gaa1e2666198ce75322be3280472a224ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to Stop power mode.  <a href="#gaa1e2666198ce75322be3280472a224ee">More...</a><br/></td></tr>
+<tr class="separator:gaa1e2666198ce75322be3280472a224ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa1439e98fb0d82099217f822e3329b14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gaa1439e98fb0d82099217f822e3329b14">SMC_SetPowerModeVlpr</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:gaa1439e98fb0d82099217f822e3329b14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to VLPR power mode.  <a href="#gaa1439e98fb0d82099217f822e3329b14">More...</a><br/></td></tr>
+<tr class="separator:gaa1439e98fb0d82099217f822e3329b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga69d0fb061423ef6ed718f3acee96ebf6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga69d0fb061423ef6ed718f3acee96ebf6">SMC_SetPowerModeVlpw</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:ga69d0fb061423ef6ed718f3acee96ebf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to VLPW power mode.  <a href="#ga69d0fb061423ef6ed718f3acee96ebf6">More...</a><br/></td></tr>
+<tr class="separator:ga69d0fb061423ef6ed718f3acee96ebf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f7303f155f36716cc68672e0a4027cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga7f7303f155f36716cc68672e0a4027cf">SMC_SetPowerModeVlps</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:ga7f7303f155f36716cc68672e0a4027cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to VLPS power mode.  <a href="#ga7f7303f155f36716cc68672e0a4027cf">More...</a><br/></td></tr>
+<tr class="separator:ga7f7303f155f36716cc68672e0a4027cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga998c58e17bdd9ef190c7bcc5dd9395e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga998c58e17bdd9ef190c7bcc5dd9395e7">SMC_SetPowerModeLls</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:ga998c58e17bdd9ef190c7bcc5dd9395e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to LLS power mode.  <a href="#ga998c58e17bdd9ef190c7bcc5dd9395e7">More...</a><br/></td></tr>
+<tr class="separator:ga998c58e17bdd9ef190c7bcc5dd9395e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacee93389ff12a7686d3567d9d3e582e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gacee93389ff12a7686d3567d9d3e582e9">SMC_SetPowerModeVlls</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:gacee93389ff12a7686d3567d9d3e582e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the system to VLLS power mode.  <a href="#gacee93389ff12a7686d3567d9d3e582e9">More...</a><br/></td></tr>
+<tr class="separator:gacee93389ff12a7686d3567d9d3e582e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf0845474594f3bd8413793de1e51c271"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gaf0845474594f3bd8413793de1e51c271">SMC_GetPreviousResetSources</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:gaf0845474594f3bd8413793de1e51c271"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the reset source status which caused a previous reset.  <a href="#gaf0845474594f3bd8413793de1e51c271">More...</a><br/></td></tr>
+<tr class="separator:gaf0845474594f3bd8413793de1e51c271"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8c7b8d725d5b9f354e53e94160323a8f"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga8c7b8d725d5b9f354e53e94160323a8f">SMC_GetStickyResetSources</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:ga8c7b8d725d5b9f354e53e94160323a8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the sticky reset source status.  <a href="#ga8c7b8d725d5b9f354e53e94160323a8f">More...</a><br/></td></tr>
+<tr class="separator:ga8c7b8d725d5b9f354e53e94160323a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9870b5d3a94b6385cf3c40ac5919caf2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga9870b5d3a94b6385cf3c40ac5919caf2">SMC_ClearStickyResetSources</a> (SMC_Type *base, uint32_t sourceMasks)</td></tr>
+<tr class="memdesc:ga9870b5d3a94b6385cf3c40ac5919caf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the sticky reset source status.  <a href="#ga9870b5d3a94b6385cf3c40ac5919caf2">More...</a><br/></td></tr>
+<tr class="separator:ga9870b5d3a94b6385cf3c40ac5919caf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga411662c3c2d7b96b350fb9d06bf61dd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga411662c3c2d7b96b350fb9d06bf61dd1">SMC_ConfigureResetPinFilter</a> (SMC_Type *base, const <a class="el" href="a00067.html#a00474">smc_reset_pin_filter_config_t</a> *config)</td></tr>
+<tr class="memdesc:ga411662c3c2d7b96b350fb9d06bf61dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the reset pin filter.  <a href="#ga411662c3c2d7b96b350fb9d06bf61dd1">More...</a><br/></td></tr>
+<tr class="separator:ga411662c3c2d7b96b350fb9d06bf61dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf7c01c2b4897682c13288abf93f7efe3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gaf7c01c2b4897682c13288abf93f7efe3">SMC_SetSystemResetInterruptConfig</a> (SMC_Type *base, uint32_t intMask)</td></tr>
+<tr class="memdesc:gaf7c01c2b4897682c13288abf93f7efe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the system reset interrupt configuration.  <a href="#gaf7c01c2b4897682c13288abf93f7efe3">More...</a><br/></td></tr>
+<tr class="separator:gaf7c01c2b4897682c13288abf93f7efe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaabe43cecbad4a671c0366666aee1f53b"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#gaabe43cecbad4a671c0366666aee1f53b">SMC_GetResetInterruptSourcesStatus</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:gaabe43cecbad4a671c0366666aee1f53b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the source status of the system reset interrupt.  <a href="#gaabe43cecbad4a671c0366666aee1f53b">More...</a><br/></td></tr>
+<tr class="separator:gaabe43cecbad4a671c0366666aee1f53b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a134260893f14762503324f06f586ff"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga5a134260893f14762503324f06f586ff">SMC_ClearResetInterruptSourcesStatus</a> (SMC_Type *base, uint32_t intMask)</td></tr>
+<tr class="memdesc:ga5a134260893f14762503324f06f586ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the source status of the system reset interrupt.  <a href="#ga5a134260893f14762503324f06f586ff">More...</a><br/></td></tr>
+<tr class="separator:ga5a134260893f14762503324f06f586ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b08a53f1afd002cff552265ee91a223"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ga5b08a53f1afd002cff552265ee91a223">SMC_GetBootOptionConfig</a> (SMC_Type *base)</td></tr>
+<tr class="memdesc:ga5b08a53f1afd002cff552265ee91a223"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the boot option configuration.  <a href="#ga5b08a53f1afd002cff552265ee91a223">More...</a><br/></td></tr>
+<tr class="separator:ga5b08a53f1afd002cff552265ee91a223"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="a00477" id="a00477"></a>
+<a name="a00474" id="a00474"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct shell_command_t</td>
+          <td class="memname">struct smc_reset_pin_filter_config_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a9bcf2ff85f63adcaa4c03f4ef85e8df9"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a9bcf2ff85f63adcaa4c03f4ef85e8df9">pcCommand</a></td></tr>
-<tr class="memdesc:a9bcf2ff85f63adcaa4c03f4ef85e8df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The command that is executed.  <a href="#a9bcf2ff85f63adcaa4c03f4ef85e8df9">More...</a><br/></td></tr>
-<tr class="separator:a9bcf2ff85f63adcaa4c03f4ef85e8df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6bfe76160c7aeeb3c32cc2fe117541b"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#af6bfe76160c7aeeb3c32cc2fe117541b">pcHelpString</a></td></tr>
-<tr class="memdesc:af6bfe76160c7aeeb3c32cc2fe117541b"><td class="mdescLeft">&#160;</td><td class="mdescRight">String that describes how to use the command.  <a href="#af6bfe76160c7aeeb3c32cc2fe117541b">More...</a><br/></td></tr>
-<tr class="separator:af6bfe76160c7aeeb3c32cc2fe117541b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5d55bf1f33b397949eb926c9ee48e6d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00067.html#ga7ace1ddfb1e83ac1516ac44be90cf822">cmd_function_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#aa5d55bf1f33b397949eb926c9ee48e6d">pFuncCallBack</a></td></tr>
-<tr class="memdesc:aa5d55bf1f33b397949eb926c9ee48e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pointer to the callback function that returns the output generated by the command.  <a href="#aa5d55bf1f33b397949eb926c9ee48e6d">More...</a><br/></td></tr>
-<tr class="separator:aa5d55bf1f33b397949eb926c9ee48e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a72da17de3b4a0af7b4072d726449c6"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a4a72da17de3b4a0af7b4072d726449c6">cExpectedNumberOfParameters</a></td></tr>
-<tr class="memdesc:a4a72da17de3b4a0af7b4072d726449c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Commands expect a fixed number of parameters, which may be zero.  <a href="#a4a72da17de3b4a0af7b4072d726449c6">More...</a><br/></td></tr>
-<tr class="separator:a4a72da17de3b4a0af7b4072d726449c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8178558fd61934e49498c79f2e47792e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8178558fd61934e49498c79f2e47792e"></a>
-list_element_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a8178558fd61934e49498c79f2e47792e">link</a></td></tr>
-<tr class="memdesc:a8178558fd61934e49498c79f2e47792e"><td class="mdescLeft">&#160;</td><td class="mdescRight">link of the element <br/></td></tr>
-<tr class="separator:a8178558fd61934e49498c79f2e47792e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9761c18f726162a0589ccc033fed1769"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a9761c18f726162a0589ccc033fed1769">slowClockFilterCount</a></td></tr>
+<tr class="memdesc:a9761c18f726162a0589ccc033fed1769"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset pin bus clock filter width from 1 to 32 slow clock cycles.  <a href="#a9761c18f726162a0589ccc033fed1769">More...</a><br/></td></tr>
+<tr class="separator:a9761c18f726162a0589ccc033fed1769"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d8d743fdd8fca276799807bc5fb9254"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a8d8d743fdd8fca276799807bc5fb9254">enableFilter</a></td></tr>
+<tr class="memdesc:a8d8d743fdd8fca276799807bc5fb9254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset pin filter enable/disable.  <a href="#a8d8d743fdd8fca276799807bc5fb9254">More...</a><br/></td></tr>
+<tr class="separator:a8d8d743fdd8fca276799807bc5fb9254"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h4 class="groupheader">Field Documentation</h4>
-<a class="anchor" id="a9bcf2ff85f63adcaa4c03f4ef85e8df9"></a>
+<a class="anchor" id="a9761c18f726162a0589ccc033fed1769"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* shell_command_t::pcCommand</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>For example "help". It must be all lower case. </p>
-
-</div>
-</div>
-<a class="anchor" id="af6bfe76160c7aeeb3c32cc2fe117541b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* shell_command_t::pcHelpString</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>It should start with the command itself, and end with "\r\n". For example "help: Returns a list of all the commands\r\n". </p>
-
-</div>
-</div>
-<a class="anchor" id="aa5d55bf1f33b397949eb926c9ee48e6d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00067.html#ga7ace1ddfb1e83ac1516ac44be90cf822">cmd_function_t</a> shell_command_t::pFuncCallBack</td>
+          <td class="memname">uint8_t smc_reset_pin_filter_config_t::slowClockFilterCount</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a4a72da17de3b4a0af7b4072d726449c6"></a>
+<a class="anchor" id="a8d8d743fdd8fca276799807bc5fb9254"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t shell_command_t::cExpectedNumberOfParameters</td>
+          <td class="memname">bool smc_reset_pin_filter_config_t::enableFilter</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -334,233 +412,12 @@ list_element_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 </div>
 </div>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="ga30f0f53e0fd0ab3f7f4696f8f8e3e8ab"></a>
+<a class="anchor" id="ga50b8faab80972aca20f7705925b23038"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SHELL_NON_BLOCKING_MODE&#160;&#160;&#160;<a class="el" href="a00064.html#gabf238ccb327fd5316f765109d1235ae3">SERIAL_MANAGER_NON_BLOCKING_MODE</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ga30882f4b5fc99cbc21459cc960ef9ffe"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SHELL_AUTO_COMPLETE&#160;&#160;&#160;(1U)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="gaf98219b0fb886040896b83966903a135"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SHELL_BUFFER_SIZE&#160;&#160;&#160;(64U)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ga0800d9fb741c785d0601f0c3d7125f40"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SHELL_MAX_ARGS&#160;&#160;&#160;(8U)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ga4362aa35752c9abf77387a237faaaea5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SHELL_HISTORY_COUNT&#160;&#160;&#160;(3U)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="gaa4c15d7595f7cf7ee5f837a02cbdf574"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SHELL_HANDLE_SIZE</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">(160U + <a class="code" href="a00067.html#ga4362aa35752c9abf77387a237faaaea5">SHELL_HISTORY_COUNT</a> * <a class="code" href="a00067.html#gaf98219b0fb886040896b83966903a135">SHELL_BUFFER_SIZE</a> + <a class="code" href="a00067.html#gaf98219b0fb886040896b83966903a135">SHELL_BUFFER_SIZE</a> + SERIAL_MANAGER_READ_HANDLE_SIZE + <a class="code" href="a00064.html#gac278be51c3508495c1be1a4cff566f3f">\</a></div>
-<div class="line"><a class="code" href="a00064.html#gac278be51c3508495c1be1a4cff566f3f">     SERIAL_MANAGER_WRITE_HANDLE_SIZE</a>)</div>
-<div class="ttc" id="a00064_html_gac278be51c3508495c1be1a4cff566f3f"><div class="ttname"><a href="a00064.html#gac278be51c3508495c1be1a4cff566f3f">SERIAL_MANAGER_WRITE_HANDLE_SIZE</a></div><div class="ttdeci">#define SERIAL_MANAGER_WRITE_HANDLE_SIZE</div><div class="ttdoc">Set serial manager write handle size. </div><div class="ttdef"><b>Definition:</b> fsl_component_serial_manager.h:124</div></div>
-<div class="ttc" id="a00067_html_ga4362aa35752c9abf77387a237faaaea5"><div class="ttname"><a href="a00067.html#ga4362aa35752c9abf77387a237faaaea5">SHELL_HISTORY_COUNT</a></div><div class="ttdeci">#define SHELL_HISTORY_COUNT</div><div class="ttdoc">Macro to set maximum count of history commands. </div><div class="ttdef"><b>Definition:</b> fsl_shell.h:43</div></div>
-<div class="ttc" id="a00067_html_gaf98219b0fb886040896b83966903a135"><div class="ttname"><a href="a00067.html#gaf98219b0fb886040896b83966903a135">SHELL_BUFFER_SIZE</a></div><div class="ttdeci">#define SHELL_BUFFER_SIZE</div><div class="ttdoc">Macro to set console buffer size. </div><div class="ttdef"><b>Definition:</b> fsl_shell.h:35</div></div>
-</div><!-- fragment --><p>It is the sum of the SHELL_HISTORY_COUNT * SHELL_BUFFER_SIZE + SHELL_BUFFER_SIZE + SERIAL_MANAGER_READ_HANDLE_SIZE + SERIAL_MANAGER_WRITE_HANDLE_SIZE </p>
-
-</div>
-</div>
-<a class="anchor" id="ga100ef8e4a639c03682d84fb981ba235b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SHELL_USE_COMMON_TASK&#160;&#160;&#160;(0U)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ga5b98f71ea7bd89ef344cac14aa79a1e3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SHELL_TASK_PRIORITY&#160;&#160;&#160;(2U)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ga416667c8e6b960d2c1ec518b41a06d62"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SHELL_TASK_STACK_SIZE&#160;&#160;&#160;(1000U)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="gafdb2c68b2d83d459fc196ab0f58d7ab3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SHELL_HANDLE_DEFINE</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">name</td><td>)</td>
-          <td>&#160;&#160;&#160;uint32_t name[((<a class="el" href="a00067.html#gaa4c15d7595f7cf7ee5f837a02cbdf574">SHELL_HANDLE_SIZE</a> + sizeof(uint32_t) - 1U) / sizeof(uint32_t))]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This macro is used to define a 4 byte aligned shell handle. Then use "(shell_handle_t)name" to get the shell handle.</p>
-<p>The macro should be global and could be optional. You could also define shell handle by yourself.</p>
-<p>This is an example, </p>
-<div class="fragment"><div class="line">* <a class="code" href="a00067.html#gafdb2c68b2d83d459fc196ab0f58d7ab3">SHELL_HANDLE_DEFINE</a>(shellHandle);</div>
-<div class="line">* </div>
-</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>The name string of the shell handle. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gacd1f7ee25cd791efee6a45e753ec9824"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SHELL_COMMAND_DEFINE</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">command, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">descriptor, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">callback, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">paramCount&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">\</div>
-<div class="line">    shell_command_t g_shellCommand##command = {                         \</div>
-<div class="line">        (#command), (descriptor), (callback), (paramCount), {0},        \</div>
-<div class="line">    }</div>
-</div><!-- fragment --><p>This macro is used to define the shell command structure <a class="el" href="a00067.html#a00477" title="User command data configuration structure. ">shell_command_t</a>. And then uses the macro SHELL_COMMAND to get the command structure pointer. The macro should not be used in any function.</p>
-<p>This is a example, </p>
-<div class="fragment"><div class="line">* <a class="code" href="a00067.html#gacd1f7ee25cd791efee6a45e753ec9824">SHELL_COMMAND_DEFINE</a>(exit, <span class="stringliteral">&quot;\r\n\&quot;exit\&quot;: Exit program\r\n&quot;</span>, SHELL_ExitCommand, 0);</div>
-<div class="line">* <a class="code" href="a00067.html#gab5f85f3ba2cc7dd58bc85076c19c5177">SHELL_RegisterCommand</a>(s_shellHandle, <a class="code" href="a00067.html#ga16dd6cfbd9db7dafdaa802eda58564b5">SHELL_COMMAND</a>(exit));</div>
-<div class="line">* </div>
-</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">command</td><td>The command string of the command. The double quotes do not need. Such as exit for "exit", help for "Help", read for "read". </td></tr>
-    <tr><td class="paramname">descriptor</td><td>The description of the command is used for showing the command usage when "help" is typing. </td></tr>
-    <tr><td class="paramname">callback</td><td>The callback of the command is used to handle the command line when the input command is matched. </td></tr>
-    <tr><td class="paramname">paramCount</td><td>The max parameter count of the current command. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga16dd6cfbd9db7dafdaa802eda58564b5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SHELL_COMMAND</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">command</td><td>)</td>
-          <td>&#160;&#160;&#160;&amp;g_shellCommand##command</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This macro is used to get the shell command pointer. The macro should not be used before the macro SHELL_COMMAND_DEFINE is used.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">command</td><td>The command string of the command. The double quotes do not need. Such as exit for "exit", help for "Help", read for "read". </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a class="anchor" id="ga7ace1ddfb1e83ac1516ac44be90cf822"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a>(* cmd_function_t)(<a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a> shellHandle, int32_t argc, char **argv)</td>
+          <td class="memname">#define FSL_MSMC_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00223.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 2))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -568,423 +425,289 @@ list_element_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="ga16424f17c6492c580e65adf9a4e1ac61"></a>
+<a class="anchor" id="gad735fff97d006821f8f10d82396b2801"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a></td>
+          <td class="memname">enum <a class="el" href="a00067.html#gad735fff97d006821f8f10d82396b2801">smc_power_mode_protection_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga16424f17c6492c580e65adf9a4e1ac61aeb6cf57843c8b47b87ae07417d53df3e"></a>kStatus_SHELL_Success</em>&nbsp;</td><td class="fielddoc">
-<p>Success. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggad735fff97d006821f8f10d82396b2801a4f2f4907d44dbe20d528a4f21457f45c"></a>kSMC_AllowPowerModeVlls</em>&nbsp;</td><td class="fielddoc">
+<p>Allow Very-Low-Leakage Stop Mode. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga16424f17c6492c580e65adf9a4e1ac61ae1a9ae61e350888892f4cde21f8dd7f9"></a>kStatus_SHELL_Error</em>&nbsp;</td><td class="fielddoc">
-<p>Failed. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad735fff97d006821f8f10d82396b2801ab43c79be60f1abf26f8342322d22e907"></a>kSMC_AllowPowerModeLls</em>&nbsp;</td><td class="fielddoc">
+<p>Allow Low-Leakage Stop Mode. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga16424f17c6492c580e65adf9a4e1ac61a25ff80ec847b1028041ae913beec2b5b"></a>kStatus_SHELL_OpenWriteHandleFailed</em>&nbsp;</td><td class="fielddoc">
-<p>Open write handle failed. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad735fff97d006821f8f10d82396b2801a59c7889c43c88969558086058a70025c"></a>kSMC_AllowPowerModeVlp</em>&nbsp;</td><td class="fielddoc">
+<p>Allow Very-Low-Power Mode. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga16424f17c6492c580e65adf9a4e1ac61a14f89a732b5c11a35e8c9b91d4e22ad8"></a>kStatus_SHELL_OpenReadHandleFailed</em>&nbsp;</td><td class="fielddoc">
-<p>Open read handle failed. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad735fff97d006821f8f10d82396b2801a830612d22e0dc3662e6b2292601093b2"></a>kSMC_AllowPowerModeHsrun</em>&nbsp;</td><td class="fielddoc">
+<p>Allow High Speed Run mode. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga16424f17c6492c580e65adf9a4e1ac61ad139f389943f49d948bbff024d6c5a26"></a>kStatus_SHELL_RetUsage</em>&nbsp;</td><td class="fielddoc">
-<p>RetUsage for print cmd usage. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad735fff97d006821f8f10d82396b2801a2d2790f7f2a43e4fc6f3816cc1693328"></a>kSMC_AllowPowerModeAll</em>&nbsp;</td><td class="fielddoc">
+<p>Allow all power mode. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="ga3913e95033611ece1b80ef817dce2ca9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00067.html#ga3913e95033611ece1b80ef817dce2ca9">smc_power_state_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga3913e95033611ece1b80ef817dce2ca9a5b88bef81d70c5bd0d36b4dfbe48c1e5"></a>kSMC_PowerStateRun</em>&nbsp;</td><td class="fielddoc">
+<p>0000_0001 - Current power mode is RUN </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga3913e95033611ece1b80ef817dce2ca9a4dfa7ded19a0d9fa1f56e7368cd70957"></a>kSMC_PowerStateStop</em>&nbsp;</td><td class="fielddoc">
+<p>0000_0010 - Current power mode is any STOP mode </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga3913e95033611ece1b80ef817dce2ca9a2457fcbd1884818e017070eca5f0233c"></a>kSMC_PowerStateVlpr</em>&nbsp;</td><td class="fielddoc">
+<p>0000_0100 - Current power mode is VLPR </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga3913e95033611ece1b80ef817dce2ca9afc3dc2c53dd620cac2d37cf6c7f8ec73"></a>kSMC_PowerStateHsrun</em>&nbsp;</td><td class="fielddoc">
+<p>1000_0000 - Current power mode is HSRUN </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="gae21b0dd6c1a3c96f4b177395bca5622b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00067.html#gae21b0dd6c1a3c96f4b177395bca5622b">smc_power_stop_entry_status_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggae21b0dd6c1a3c96f4b177395bca5622ba32f5c2dee75619501f20cdf7cd8c7d92"></a>kSMC_PowerStopEntryAlt0</em>&nbsp;</td><td class="fielddoc">
+<p>Indicates a Stop mode entry since this field was last cleared. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggae21b0dd6c1a3c96f4b177395bca5622ba4463e1a4c348e7ebef43915332d263ca"></a>kSMC_PowerStopEntryAlt1</em>&nbsp;</td><td class="fielddoc">
+<p>Indicates the system bus masters acknowledged the Stop mode entry. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggae21b0dd6c1a3c96f4b177395bca5622ba0376243e72de895cae43fd58faa092b1"></a>kSMC_PowerStopEntryAlt2</em>&nbsp;</td><td class="fielddoc">
+<p>Indicates the system clock peripherals acknowledged the Stop mode entry. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggae21b0dd6c1a3c96f4b177395bca5622ba98969b3bcbe8bbcb36cfc2b850ce08b6"></a>kSMC_PowerStopEntryAlt3</em>&nbsp;</td><td class="fielddoc">
+<p>Indicates the bus clock peripherals acknowledged the Stop mode entry. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggae21b0dd6c1a3c96f4b177395bca5622bac6931fa0ba0904aa6341e9f89023578b"></a>kSMC_PowerStopEntryAlt4</em>&nbsp;</td><td class="fielddoc">
+<p>Indicates the slow clock peripherals acknowledged the Stop mode entry. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggae21b0dd6c1a3c96f4b177395bca5622bafc033823f07378a8c4fd449d546db4f0"></a>kSMC_PowerStopEntryAlt5</em>&nbsp;</td><td class="fielddoc">
+<p>Indicates Stop mode entry completed. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="ga0d6771fed6001bdf5e283360a23655f4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00067.html#ga0d6771fed6001bdf5e283360a23655f4">smc_run_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga0d6771fed6001bdf5e283360a23655f4abaeb1d66b5ab95289522985e831186de"></a>kSMC_RunNormal</em>&nbsp;</td><td class="fielddoc">
+<p>normal RUN mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0d6771fed6001bdf5e283360a23655f4ac1461903d002daab1af773d6d506fea3"></a>kSMC_RunVlpr</em>&nbsp;</td><td class="fielddoc">
+<p>Very-Low-Power RUN mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0d6771fed6001bdf5e283360a23655f4ac575a1829a745c18d19ab10744b44f47"></a>kSMC_Hsrun</em>&nbsp;</td><td class="fielddoc">
+<p>High Speed Run mode (HSRUN). </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="ga249b51abbe6891665977c9e43d8e1cdc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00067.html#ga249b51abbe6891665977c9e43d8e1cdc">smc_stop_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga249b51abbe6891665977c9e43d8e1cdcac642d13640f334c1c509aa89568028dc"></a>kSMC_StopNormal</em>&nbsp;</td><td class="fielddoc">
+<p>Normal STOP mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga249b51abbe6891665977c9e43d8e1cdca0309375b2672e8c29eebd50bd80236c3"></a>kSMC_StopVlps</em>&nbsp;</td><td class="fielddoc">
+<p>Very-Low-Power STOP mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga249b51abbe6891665977c9e43d8e1cdca49290f942a305169a63ca4ce30f3cd9a"></a>kSMC_StopLls</em>&nbsp;</td><td class="fielddoc">
+<p>Low-Leakage Stop mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga249b51abbe6891665977c9e43d8e1cdcafae316de35cb50c1212bd172eb25037f"></a>kSMC_StopVlls</em>&nbsp;</td><td class="fielddoc">
+<p>Very-Low-Leakage Stop mode. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="gad54e13a8299dd76ab1807137ca78e482"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00067.html#gad54e13a8299dd76ab1807137ca78e482">smc_partial_stop_option_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggad54e13a8299dd76ab1807137ca78e482a04f63da1ef433f2240cc42337c55e1b0"></a>kSMC_PartialStop</em>&nbsp;</td><td class="fielddoc">
+<p>STOP - Normal Stop mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad54e13a8299dd76ab1807137ca78e482a2ebc7dc8a6bd5f83dd842cddcc6483a3"></a>kSMC_PartialStop1</em>&nbsp;</td><td class="fielddoc">
+<p>Partial Stop with both system and bus clocks disabled. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad54e13a8299dd76ab1807137ca78e482afca17db21b7e59ecd2e271e566001b63"></a>kSMC_PartialStop2</em>&nbsp;</td><td class="fielddoc">
+<p>Partial Stop with system clock disabled and bus clock enabled. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad54e13a8299dd76ab1807137ca78e482a0bd1cee626881c2fd3d716d8dd6a7eb7"></a>kSMC_PartialStop3</em>&nbsp;</td><td class="fielddoc">
+<p>Partial Stop with system clock enabled and bus clock disabled. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="gae6dceca96ec2c7a1b4aa211264a87ef6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggae6dceca96ec2c7a1b4aa211264a87ef6ac8b70e0e27736678bcb91340b06c011e"></a>kStatus_SMC_StopAbort</em>&nbsp;</td><td class="fielddoc">
+<p>Entering Stop mode is abort. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="ga41d9a9d5f157ac5985200f16228f1d0b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00067.html#ga41d9a9d5f157ac5985200f16228f1d0b">smc_reset_source_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0ba2861f33b64fb9444171deadf1dec216a"></a>kSMC_SourceWakeup</em>&nbsp;</td><td class="fielddoc">
+<p>Very low-leakage wakeup reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0ba2ef41a99a849508f7bb01db67fadcef8"></a>kSMC_SourcePor</em>&nbsp;</td><td class="fielddoc">
+<p>Power on reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0ba51a7332d542bc09aa0c79504fc9501d5"></a>kSMC_SourceLvd</em>&nbsp;</td><td class="fielddoc">
+<p>Low-voltage detect reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0baf7cada6555257956137e0413001f4e3b"></a>kSMC_SourceHvd</em>&nbsp;</td><td class="fielddoc">
+<p>High-voltage detect reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0baf9e28ded9c3e837abe58f331613392f8"></a>kSMC_SourceWarm</em>&nbsp;</td><td class="fielddoc">
+<p>Warm reset. </p>
+<p>Warm Reset flag will assert if any of the system reset sources in this register assert (SRS[31:8]) </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0baa34a0fb061bc75ae3ccccdf79324ec77"></a>kSMC_SourceFatal</em>&nbsp;</td><td class="fielddoc">
+<p>Fatal reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0ba0ee5d493438ca2ee939e21783b31b069"></a>kSMC_SourceCore</em>&nbsp;</td><td class="fielddoc">
+<p>Software reset that only reset the core, NOT a sticky system reset source. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0ba0f1ed5951f9e463ef4ce4cf6c5f86142"></a>kSMC_SourcePin</em>&nbsp;</td><td class="fielddoc">
+<p>RESET_B pin reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0ba62b56098a197c1779faf013d22ab34fc"></a>kSMC_SourceMdm</em>&nbsp;</td><td class="fielddoc">
+<p>MDM reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0ba123f2986effc7841fe41fdfa0fd76fa6"></a>kSMC_SourceRstAck</em>&nbsp;</td><td class="fielddoc">
+<p>Reset Controller timeout reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0baf7e8b14f8ae7bbf13676147f420aa7d7"></a>kSMC_SourceStopAck</em>&nbsp;</td><td class="fielddoc">
+<p>Stop timeout reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0ba57d5033ab41e9d5e469ce081a51364ff"></a>kSMC_SourceScg</em>&nbsp;</td><td class="fielddoc">
+<p>SCG loss of lock or loss of clock. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0ba87c6299ffc176e18c84d546dcff33b4b"></a>kSMC_SourceWdog</em>&nbsp;</td><td class="fielddoc">
+<p>Watchdog reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0ba896f454b422037166d2d35a8108c705d"></a>kSMC_SourceSoftware</em>&nbsp;</td><td class="fielddoc">
+<p>Software reset. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0ba629aa8ffd6366f2cef1030bf81758b9a"></a>kSMC_SourceLockup</em>&nbsp;</td><td class="fielddoc">
+<p>Lockup reset. </p>
+<p>Core lockup or exception. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga41d9a9d5f157ac5985200f16228f1d0ba2a376f02a89f4701e4ee57a9937e3a8b"></a>kSMC_SourceJtag</em>&nbsp;</td><td class="fielddoc">
+<p>JTAG system reset. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="ga58af707cf7db2eb88f97d6cc61ecc582"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00067.html#ga58af707cf7db2eb88f97d6cc61ecc582">smc_interrupt_enable_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga58af707cf7db2eb88f97d6cc61ecc582a5451f680c83239aae0706ac269b970a0"></a>kSMC_IntNone</em>&nbsp;</td><td class="fielddoc">
+<p>No interrupt enabled. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga58af707cf7db2eb88f97d6cc61ecc582a7adbffee423e42df938866c56789e7d5"></a>kSMC_IntPin</em>&nbsp;</td><td class="fielddoc">
+<p>Pin reset interrupt. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga58af707cf7db2eb88f97d6cc61ecc582a8dfbbf3b4a105ed134c206eb41c5f7eb"></a>kSMC_IntMdm</em>&nbsp;</td><td class="fielddoc">
+<p>MDM reset interrupt. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga58af707cf7db2eb88f97d6cc61ecc582a8debbfe3c7875e3d8d38f230183da598"></a>kSMC_IntStopAck</em>&nbsp;</td><td class="fielddoc">
+<p>Stop timeout reset interrupt. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga58af707cf7db2eb88f97d6cc61ecc582a5082d6057025b59db3b3ed62e582cf22"></a>kSMC_IntWdog</em>&nbsp;</td><td class="fielddoc">
+<p>Watchdog interrupt. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga58af707cf7db2eb88f97d6cc61ecc582a2af6715629b3a405db96a9e48bc21573"></a>kSMC_IntSoftware</em>&nbsp;</td><td class="fielddoc">
+<p>Software reset interrupts. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga58af707cf7db2eb88f97d6cc61ecc582a410c64e50113a8f6e9d45236c0d92ae2"></a>kSMC_IntLockup</em>&nbsp;</td><td class="fielddoc">
+<p>Lock up interrupt. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga58af707cf7db2eb88f97d6cc61ecc582a99e443d5fa8cf148538747a562d80a22"></a>kSMC_IntAll</em>&nbsp;</td><td class="fielddoc">
+<p>All system reset interrupts. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga7961e946400cd244c315cfbbd36ae5d1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a> SHELL_Init </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a>&#160;</td>
-          <td class="paramname"><em>shellHandle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00064.html#gaba1cc3859c4f829ee0bc6091184d4b08">serial_handle_t</a>&#160;</td>
-          <td class="paramname"><em>serialHandle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>prompt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function must be called before calling all other Shell functions. Call operation the Shell commands with user-defined settings. The example below shows how to set up the Shell and how to call the SHELL_Init function by passing in these parameters. This is an example. </p>
-<div class="fragment"><div class="line">*   <span class="keyword">static</span> <a class="code" href="a00067.html#gafdb2c68b2d83d459fc196ab0f58d7ab3">SHELL_HANDLE_DEFINE</a>(s_shellHandle);</div>
-<div class="line">*   <a class="code" href="a00067.html#ga7961e946400cd244c315cfbbd36ae5d1">SHELL_Init</a>((<a class="code" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a>)s_shellHandle, (<a class="code" href="a00064.html#gaba1cc3859c4f829ee0bc6091184d4b08">serial_handle_t</a>)s_serialHandle, <span class="stringliteral">&quot;Test@SHELL&gt;&quot;</span>);</div>
-<div class="line">* </div>
-</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">shellHandle</td><td>Pointer to point to a memory space of size <a class="el" href="a00067.html#gaa4c15d7595f7cf7ee5f837a02cbdf574" title="The handle size of the shell module. ">SHELL_HANDLE_SIZE</a> allocated by the caller. The handle should be 4 byte aligned, because unaligned access doesn't be supported on some devices. You can define the handle in the following two ways: <a class="el" href="a00067.html#gafdb2c68b2d83d459fc196ab0f58d7ab3" title="Defines the shell handle. ">SHELL_HANDLE_DEFINE(shellHandle)</a>; or uint32_t shellHandle[((SHELL_HANDLE_SIZE + sizeof(uint32_t) - 1U) / sizeof(uint32_t))]; </td></tr>
-    <tr><td class="paramname">serialHandle</td><td>The serial manager module handle pointer. </td></tr>
-    <tr><td class="paramname">prompt</td><td>The string prompt pointer of Shell. Only the global variable can be passed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">kStatus_SHELL_Success</td><td>The shell initialization succeed. </td></tr>
-    <tr><td class="paramname">kStatus_SHELL_Error</td><td>An error occurred when the shell is initialized. </td></tr>
-    <tr><td class="paramname">kStatus_SHELL_OpenWriteHandleFailed</td><td>Open the write handle failed. </td></tr>
-    <tr><td class="paramname">kStatus_SHELL_OpenReadHandleFailed</td><td>Open the read handle failed. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gab5f85f3ba2cc7dd58bc85076c19c5177"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a> SHELL_RegisterCommand </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a>&#160;</td>
-          <td class="paramname"><em>shellHandle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00067.html#a00477">shell_command_t</a> *&#160;</td>
-          <td class="paramname"><em>shellCommand</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function is used to register the shell command by using the command configuration shell_command_config_t. This is a example, </p>
-<div class="fragment"><div class="line">* <a class="code" href="a00067.html#gacd1f7ee25cd791efee6a45e753ec9824">SHELL_COMMAND_DEFINE</a>(exit, <span class="stringliteral">&quot;\r\n\&quot;exit\&quot;: Exit program\r\n&quot;</span>, SHELL_ExitCommand, 0);</div>
-<div class="line">* <a class="code" href="a00067.html#gab5f85f3ba2cc7dd58bc85076c19c5177">SHELL_RegisterCommand</a>(s_shellHandle, <a class="code" href="a00067.html#ga16dd6cfbd9db7dafdaa802eda58564b5">SHELL_COMMAND</a>(exit));</div>
-<div class="line">* </div>
-</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">shellHandle</td><td>The shell module handle pointer. </td></tr>
-    <tr><td class="paramname">shellCommand</td><td>The command element. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">kStatus_SHELL_Success</td><td>Successfully register the command. </td></tr>
-    <tr><td class="paramname">kStatus_SHELL_Error</td><td>An error occurred. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga53355638d856258b0bcb76e308803dab"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a> SHELL_UnregisterCommand </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00067.html#a00477">shell_command_t</a> *&#160;</td>
-          <td class="paramname"><em>shellCommand</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function is used to unregister the shell command.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">shellCommand</td><td>The command element. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">kStatus_SHELL_Success</td><td>Successfully unregister the command. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga9f182608b5a6107757be5bb8a90ad74c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a> SHELL_Write </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a>&#160;</td>
-          <td class="paramname"><em>shellHandle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>length</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function is used to send data to the shell output stream.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">shellHandle</td><td>The shell module handle pointer. </td></tr>
-    <tr><td class="paramname">buffer</td><td>Start address of the data to write. </td></tr>
-    <tr><td class="paramname">length</td><td>Length of the data to write. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">kStatus_SHELL_Success</td><td>Successfully send data. </td></tr>
-    <tr><td class="paramname">kStatus_SHELL_Error</td><td>An error occurred. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gaade5449d8cbfc3cd026667b40c35d29f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int SHELL_Printf </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a>&#160;</td>
-          <td class="paramname"><em>shellHandle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>formatString</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Call this function to write a formatted output to the shell output stream.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">shellHandle</td><td>The shell module handle pointer.</td></tr>
-    <tr><td class="paramname">formatString</td><td>Format string. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns the number of characters printed or a negative value if an error occurs. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga6466b141fd4f94e78636e4a15c302dda"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00067.html#ga16424f17c6492c580e65adf9a4e1ac61">shell_status_t</a> SHELL_WriteSynchronization </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a>&#160;</td>
-          <td class="paramname"><em>shellHandle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>length</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function is used to send data to the shell output stream with OS synchronization, note the function could not be called in ISR.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">shellHandle</td><td>The shell module handle pointer. </td></tr>
-    <tr><td class="paramname">buffer</td><td>Start address of the data to write. </td></tr>
-    <tr><td class="paramname">length</td><td>Length of the data to write. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">kStatus_SHELL_Success</td><td>Successfully send data. </td></tr>
-    <tr><td class="paramname">kStatus_SHELL_Error</td><td>An error occurred. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga56c78f6217a822015a9369bf3e52e92a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int SHELL_PrintfSynchronization </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a>&#160;</td>
-          <td class="paramname"><em>shellHandle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>formatString</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Call this function to write a formatted output to the shell output stream with OS synchronization, note the function could not be called in ISR.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">shellHandle</td><td>The shell module handle pointer.</td></tr>
-    <tr><td class="paramname">formatString</td><td>Format string. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns the number of characters printed or a negative value if an error occurs. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gaca4540dc42f8892cb276691644a247e2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SHELL_ChangePrompt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a>&#160;</td>
-          <td class="paramname"><em>shellHandle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>prompt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Call this function to change shell prompt.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">shellHandle</td><td>The shell module handle pointer.</td></tr>
-    <tr><td class="paramname">prompt</td><td>The string which will be used for command prompt </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>NULL. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gad2a840776dee8490d482a0692fbf2d7e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SHELL_PrintPrompt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a>&#160;</td>
-          <td class="paramname"><em>shellHandle</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Call this function to print shell prompt.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">shellHandle</td><td>The shell module handle pointer.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>NULL. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga44e3087a3cdea9b62f159e2585dfcd8d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SHELL_Task </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00067.html#ga818c3ca274bd83d1dc870a5618eb21f2">shell_handle_t</a>&#160;</td>
-          <td class="paramname"><em>shellHandle</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The task function for Shell; The function should be polled by upper layer. This function does not return until Shell command exit was called.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">shellHandle</td><td>The shell module handle pointer. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga4eeb17b16773359c132f1d40478938ec"></a>
+<a class="anchor" id="ga883084279eccf59d4594cc4fc6b07570"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -992,7 +715,82 @@ list_element_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static bool SHELL_checkRunningInIsr </td>
+          <td class="memname">static void SMC_SetPowerModeProtection </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>allowedModes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function configures the power mode protection settings for supported power modes in the specified chip family. The available power modes are defined in the smc_power_mode_protection_t. This should be done at an early system level initialization stage. See the reference manual for details. This register can only write once after the power reset.</p>
+<p>The allowed modes are passed as bit map, for example, to allow LLS and VLLS, use SMC_SetPowerModeProtection(kSMC_AllowPowerModeLls | kSMC_AllowPowerModeVlls). To allow all modes, use SMC_SetPowerModeProtection(kSMC_AllowPowerModeAll).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+    <tr><td class="paramname">allowedModes</td><td>Bitmap of the allowed power modes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga8891a49d31b2f79a72d2b696c3c7d21a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00067.html#ga3913e95033611ece1b80ef817dce2ca9">smc_power_state_t</a> SMC_GetPowerModeState </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function returns the current power mode stat. Once application switches the power mode, it should always check the stat to check whether it runs into the specified mode or not. An application should check this mode before switching to a different mode. The system requires that only certain modes can switch to other specific modes. See the reference manual for details and the smc_power_state_t for information about the power stat.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Current power mode status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga344da3e55dffa5d50fb4872e40f36ff0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SMC_PreEnterStopModes </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -1005,13 +803,636 @@ list_element_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This function is used to check if code running in ISR.</p>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">TRUE</td><td>if code runing in ISR. </td></tr>
+<p>This function should be called before entering STOP/VLPS/LLS/VLLS modes. </p>
+
+</div>
+</div>
+<a class="anchor" id="gaee8b556d6a459c2a69b8178ee4279df6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SMC_PostExitStopModes </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function should be called after wake up from STOP/VLPS/LLS/VLLS modes. It is used together with <a class="el" href="a00067.html#ga344da3e55dffa5d50fb4872e40f36ff0">SMC_PreEnterStopModes</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="gab8f3b43e5a5af5698ed57297f0f9b8f3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SMC_PreEnterWaitModes </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function should be called before entering WAIT/VLPW modes.. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga667477c948aeeabf905969a37ab6fc70"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SMC_PostExitWaitModes </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function should be called after wake up from WAIT/VLPW modes. It is used together with <a class="el" href="a00067.html#gab8f3b43e5a5af5698ed57297f0f9b8f3">SMC_PreEnterWaitModes</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga8f141beaa4867a3d1606b714e63c30c3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeRun </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaff75ec614c35b4f8f979b103ab159dcd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeHsrun </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaaf1664f2d4a78b756e5e30f5433af975"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeWait </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa1e2666198ce75322be3280472a224ee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeStop </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00067.html#gad54e13a8299dd76ab1807137ca78e482">smc_partial_stop_option_t</a>&#160;</td>
+          <td class="paramname"><em>option</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+    <tr><td class="paramname">option</td><td>Partial Stop mode option. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa1439e98fb0d82099217f822e3329b14"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeVlpr </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga69d0fb061423ef6ed718f3acee96ebf6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeVlpw </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga7f7303f155f36716cc68672e0a4027cf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeVlps </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga998c58e17bdd9ef190c7bcc5dd9395e7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeLls </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gacee93389ff12a7686d3567d9d3e582e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SMC_SetPowerModeVlls </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SMC configuration error code. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaf0845474594f3bd8413793de1e51c271"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint32_t SMC_GetPreviousResetSources </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function gets the current reset source status. Use source masks defined in the smc_reset_source_t to get the desired source status.</p>
+<p>Example: To get all reset source statuses. </p>
+<div class="fragment"><div class="line">resetStatus = <a class="code" href="a00067.html#gaf0845474594f3bd8413793de1e51c271">SMC_GetPreviousResetSources</a>(SMC0) &amp; kSMC_SourceAll;</div>
+</div><!-- fragment --><p>Example: To test whether the MCU is reset using Watchdog. </p>
+<div class="fragment"><div class="line">uint32_t resetStatus;</div>
+<div class="line"></div>
+<div class="line">resetStatus = <a class="code" href="a00067.html#gaf0845474594f3bd8413793de1e51c271">SMC_GetPreviousResetSources</a>(SMC0) &amp; <a class="code" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba87c6299ffc176e18c84d546dcff33b4b">kSMC_SourceWdog</a>;</div>
+</div><!-- fragment --><p>Example: To test multiple reset sources. </p>
+<div class="fragment"><div class="line">uint32_t resetStatus;</div>
+<div class="line"></div>
+<div class="line">resetStatus = <a class="code" href="a00067.html#gaf0845474594f3bd8413793de1e51c271">SMC_GetPreviousResetSources</a>(SMC0) &amp; (<a class="code" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba87c6299ffc176e18c84d546dcff33b4b">kSMC_SourceWdog</a> | <a class="code" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba0f1ed5951f9e463ef4ce4cf6c5f86142">kSMC_SourcePin</a>);</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>All reset source status bit map. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga8c7b8d725d5b9f354e53e94160323a8f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint32_t SMC_GetStickyResetSources </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function gets the current reset source status that has not been cleared by software for some specific source.</p>
+<p>Example: To get all reset source statuses. </p>
+<div class="fragment"><div class="line">uint32_t resetStatus;</div>
+<div class="line"></div>
+<div class="line">resetStatus = <a class="code" href="a00067.html#ga8c7b8d725d5b9f354e53e94160323a8f">SMC_GetStickyResetSources</a>(SMC0) &amp; kSMC_SourceAll;</div>
+</div><!-- fragment --><p>Example, To test whether the MCU is reset using Watchdog. </p>
+<div class="fragment"><div class="line">uint32_t resetStatus;</div>
+<div class="line"></div>
+<div class="line">resetStatus = <a class="code" href="a00067.html#ga8c7b8d725d5b9f354e53e94160323a8f">SMC_GetStickyResetSources</a>(SMC0) &amp; <a class="code" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba87c6299ffc176e18c84d546dcff33b4b">kSMC_SourceWdog</a>;</div>
+</div><!-- fragment --><p>Example To test multiple reset sources. </p>
+<div class="fragment"><div class="line">uint32_t resetStatus;</div>
+<div class="line"></div>
+<div class="line">resetStatus = <a class="code" href="a00067.html#ga8c7b8d725d5b9f354e53e94160323a8f">SMC_GetStickyResetSources</a>(SMC0) &amp; (<a class="code" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba87c6299ffc176e18c84d546dcff33b4b">kSMC_SourceWdog</a> | <a class="code" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba0f1ed5951f9e463ef4ce4cf6c5f86142">kSMC_SourcePin</a>);</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>All reset source status bit map. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga9870b5d3a94b6385cf3c40ac5919caf2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SMC_ClearStickyResetSources </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>sourceMasks</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function clears the sticky system reset flags indicated by source masks.</p>
+<p>Example: Clears multiple reset sources. </p>
+<div class="fragment"><div class="line"><a class="code" href="a00067.html#ga9870b5d3a94b6385cf3c40ac5919caf2">SMC_ClearStickyResetSources</a>(SMC0, (<a class="code" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba87c6299ffc176e18c84d546dcff33b4b">kSMC_SourceWdog</a> | <a class="code" href="a00067.html#gga41d9a9d5f157ac5985200f16228f1d0ba0f1ed5951f9e463ef4ce4cf6c5f86142">kSMC_SourcePin</a>));</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+    <tr><td class="paramname">sourceMasks</td><td>reset source status bit map </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga411662c3c2d7b96b350fb9d06bf61dd1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SMC_ConfigureResetPinFilter </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00067.html#a00474">smc_reset_pin_filter_config_t</a> *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function sets the reset pin filter including the enablement/disablement and filter width.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+    <tr><td class="paramname">config</td><td>Pointer to the configuration structure. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gaf7c01c2b4897682c13288abf93f7efe3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SMC_SetSystemResetInterruptConfig </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>intMask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For a graceful shut down, the MSMC supports delaying the assertion of the system reset for a period of time when the reset interrupt is generated. This function can be used to enable the interrupt. The interrupts are passed in as bit mask. See smc_interrupt_enable_t for details. For example, to delay a reset after the WDOG timeout or PIN reset occurs, configure as follows: SMC_SetSystemResetInterruptConfig(SMC0, (kSMC_IntWdog | kSMC_IntPin));</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+    <tr><td class="paramname">intMask</td><td>Bit mask of the system reset interrupts to enable. See smc_interrupt_enable_t for details. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gaabe43cecbad4a671c0366666aee1f53b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint32_t SMC_GetResetInterruptSourcesStatus </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function gets the source status of the reset interrupt. Use source masks defined in the smc_interrupt_enable_t to get the desired source status.</p>
+<p>Example: To get all reset interrupt source statuses. </p>
+<div class="fragment"><div class="line">uint32_t interruptStatus;</div>
+<div class="line"></div>
+<div class="line">interruptStatus = <a class="code" href="a00067.html#gaabe43cecbad4a671c0366666aee1f53b">SMC_GetResetInterruptSourcesStatus</a>(SMC0) &amp; <a class="code" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a99e443d5fa8cf148538747a562d80a22">kSMC_IntAll</a>;</div>
+</div><!-- fragment --><p>Example: To test whether the reset interrupt of Watchdog is pending. </p>
+<div class="fragment"><div class="line">uint32_t interruptStatus;</div>
+<div class="line"></div>
+<div class="line">interruptStatus = <a class="code" href="a00067.html#gaabe43cecbad4a671c0366666aee1f53b">SMC_GetResetInterruptSourcesStatus</a>(SMC0) &amp; <a class="code" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a5082d6057025b59db3b3ed62e582cf22">kSMC_IntWdog</a>;</div>
+</div><!-- fragment --><p>Example: To test multiple reset interrupt sources. </p>
+<div class="fragment"><div class="line">uint32_t interruptStatus;</div>
+<div class="line"></div>
+<div class="line">interruptStatus = <a class="code" href="a00067.html#gaabe43cecbad4a671c0366666aee1f53b">SMC_GetResetInterruptSourcesStatus</a>(SMC0) &amp; (<a class="code" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a5082d6057025b59db3b3ed62e582cf22">kSMC_IntWdog</a> | <a class="code" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a7adbffee423e42df938866c56789e7d5">kSMC_IntPin</a>);</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>All reset interrupt source status bit map. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga5a134260893f14762503324f06f586ff"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SMC_ClearResetInterruptSourcesStatus </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>intMask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function clears the source status of the reset interrupt. Use source masks defined in the smc_interrupt_enable_t to get the desired source status.</p>
+<p>Example: To clear all reset interrupt source statuses. </p>
+<div class="fragment"><div class="line">uint32_t interruptStatus;</div>
+<div class="line"></div>
+<div class="line">MMC_ClearResetInterruptSourcesStatus(SMC0, <a class="code" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a99e443d5fa8cf148538747a562d80a22">kSMC_IntAll</a>);</div>
+</div><!-- fragment --><p>Example, To clear the reset interrupt of Watchdog. </p>
+<div class="fragment"><div class="line">uint32_t interruptStatus;</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="a00067.html#ga5a134260893f14762503324f06f586ff">SMC_ClearResetInterruptSourcesStatus</a>(SMC0, <a class="code" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a5082d6057025b59db3b3ed62e582cf22">kSMC_IntWdog</a>);</div>
+</div><!-- fragment --><p>Example, To clear multiple reset interrupt sources status. </p>
+<div class="fragment"><div class="line">uint32_t interruptStatus;</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="a00067.html#ga5a134260893f14762503324f06f586ff">SMC_ClearResetInterruptSourcesStatus</a>(SMC0, (<a class="code" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a5082d6057025b59db3b3ed62e582cf22">kSMC_IntWdog</a> | <a class="code" href="a00067.html#gga58af707cf7db2eb88f97d6cc61ecc582a7adbffee423e42df938866c56789e7d5">kSMC_IntPin</a>));</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+    <tr><td class="paramname">intMask</td><td>All reset interrupt source status bit map to clear. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga5b08a53f1afd002cff552265ee91a223"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint32_t SMC_GetBootOptionConfig </td>
+          <td>(</td>
+          <td class="paramtype">SMC_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function gets the boot option configuration of MSMC.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SMC peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The boot option configuration. 1 means boot option enabled. 0 means not. </dd></dl>
 
 </div>
 </div>

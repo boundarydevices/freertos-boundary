@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef _FSL_CACHE_H_
-#define _FSL_CACHE_H_
+#ifndef FSL_CACHE_H_
+#define FSL_CACHE_H_
 
 #include "fsl_common.h"
 
@@ -20,10 +20,10 @@
  ******************************************************************************/
 
 /*! @name Driver version */
-/*@{*/
+/*! @{ */
 /*! @brief cache driver version. */
 #define FSL_CACHE_DRIVER_VERSION (MAKE_VERSION(2, 0, 0))
-/*@}*/
+/*! @} */
 
 /*! @brief cache line size. */
 #define XCACHE_LINESIZE_BYTE (FSL_FEATURE_XCACHE_LINESIZE_BYTE)
@@ -137,7 +137,7 @@ void XCACHE_CleanInvalidateCacheByRange(uint32_t address, uint32_t size_byte);
 void XCACHE_EnableWriteBuffer(XCACHE_Type *base, bool enable);
 #endif
 
-/*@}*/
+/*! @} */
 
 /*!
  * @name Unified Cache Control for all caches
@@ -204,7 +204,7 @@ static inline void DCACHE_CleanInvalidateByRange(uint32_t address, uint32_t size
     XCACHE_CleanInvalidateCacheByRange(address, size_byte);
 }
 
-/*@}*/
+/*! @} */
 
 #if defined(__cplusplus)
 }
@@ -212,4 +212,4 @@ static inline void DCACHE_CleanInvalidateByRange(uint32_t address, uint32_t size
 
 /*! @}*/
 
-#endif /* _FSL_CACHE_H_*/
+#endif /* FSL_CACHE_H_*/

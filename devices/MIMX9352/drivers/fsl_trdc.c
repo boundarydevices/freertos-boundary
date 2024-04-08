@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 NXP
+ * Copyright 2022,2023 NXP
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -30,13 +30,22 @@
 
 typedef union
 {
+#if defined(FSL_FEATURE_TRDC_HAS_DOMAIN_ASSIGNMENT) && FSL_FEATURE_TRDC_HAS_DOMAIN_ASSIGNMENT
     trdc_processor_domain_assignment_t _processor_domain_assignment;
     trdc_non_processor_domain_assignment_t _non_processor_domain_assignment;
+    trdc_pid_config_t _pid_config;
+#endif
+#if defined(FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG) && FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG
     trdc_idau_config_t _idau_config;
+#endif
+#if (defined(FSL_FEATURE_TRDC_HAS_MBC) && FSL_FEATURE_TRDC_HAS_MBC) || \
+    (defined(FSL_FEATURE_TRDC_HAS_MRC) && FSL_FEATURE_TRDC_HAS_MRC)
     trdc_memory_access_control_config_t _memory_access_control;
+#endif
+#if defined(FSL_FEATURE_TRDC_HAS_MBC) && FSL_FEATURE_TRDC_HAS_MBC
     trdc_mbc_memory_block_config_t _mbc_memory_blk;
     trdc_mbc_nse_update_config_t _mbc_nse_update;
-    trdc_pid_config_t _pid_config;
+#endif
     uint32_t _u32;
 } trdc_reg32_convert_t;
 
@@ -49,6 +58,7 @@ typedef union
 /*******************************************************************************
  * Code
  ******************************************************************************/
+#if defined(FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG) && FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG
 /*!
  * brief Gets the TRDC hardware configuration.
  *
@@ -71,7 +81,9 @@ void TRDC_GetHardwareConfig(TRDC_Type *base, trdc_hardware_config_t *config)
     config->mrcNumber =
         (uint8_t)((TRDC_GENERAL_BASE(base)->TRDC_HWCFG0 & TRDC_TRDC_HWCFG0_NMRC_MASK) >> TRDC_TRDC_HWCFG0_NMRC_SHIFT);
 }
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_MBC) && FSL_FEATURE_TRDC_HAS_MBC
 /*!
  * brief Gets the hardware configuration of the one of two slave memories within each MBC(memory block checker).
  *
@@ -86,15 +98,21 @@ void TRDC_GetMbcHardwareConfig(TRDC_Type *base,
                                uint8_t slvIdx)
 {
     assert(NULL != config);
+#if defined(TRDC_MBC_COUNT) && TRDC_MBC_COUNT
+    assert(mbcIdx < TRDC_MBC_COUNT);
+#else
     assert(mbcIdx < (uint8_t)((TRDC_GENERAL_BASE(base)->TRDC_HWCFG0 & TRDC_TRDC_HWCFG0_NMBC_MASK) >>
                               TRDC_TRDC_HWCFG0_NMBC_SHIFT));
+#endif
     assert(slvIdx < 4U);
 
     config->blockNum  = TRDC_MBC_BASE(base, mbcIdx)->MBC_MEM_GLBCFG[slvIdx] & TRDC_MBC_MEM_GLBCFG_NBLKS_MASK;
     config->blockSize = (TRDC_MBC_BASE(base, mbcIdx)->MBC_MEM_GLBCFG[slvIdx] & TRDC_MBC_MEM_GLBCFG_SIZE_LOG2_MASK) >>
                         TRDC_MBC_MEM_GLBCFG_SIZE_LOG2_SHIFT;
 }
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_DOMAIN_ASSIGNMENT) && FSL_FEATURE_TRDC_HAS_DOMAIN_ASSIGNMENT
 /*!
  * brief Gets the default master domain assignment for the processor bus master.
  *
@@ -255,7 +273,9 @@ void TRDC_SetPid(TRDC_Type *base, uint8_t master, const trdc_pid_config_t *pidCo
     pid._pid_config                                = *pidConfig;
     TRDC_DOMAIN_ASSIGNMENT_BASE(base)->PID[master] = pid._u32;
 }
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG) && FSL_FEATURE_TRDC_HAS_GENERAL_CONFIG
 /*!
  * brief Gets the default IDAU(Implementation-Defined Attribution Unit) configuration.
  *
@@ -304,7 +324,9 @@ void TRDC_SetIDAU(TRDC_Type *base, const trdc_idau_config_t *idauConfiguration)
 
     TRDC_GENERAL_BASE(base)->TRDC_IDAU_CR = pid._u32 | TRDC_TRDC_IDAU_CR_VLD_MASK;
 }
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_FLW) && FSL_FEATURE_TRDC_HAS_FLW
 /*!
  * brief Gets the default FLW(Flsh Logical Window) configuration.
  *
@@ -352,7 +374,9 @@ void TRDC_SetFlashLogicalWindow(TRDC_Type *base, const trdc_flw_config_t *flwCon
     TRDC_FLW_BASE(base)->TRDC_FLW_CTL =
         TRDC_TRDC_FLW_CTL_V(flwConfiguration->enable) | TRDC_TRDC_FLW_CTL_LK(flwConfiguration->lock);
 }
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_DOMAIN_ERROR) && FSL_FEATURE_TRDC_HAS_DOMAIN_ERROR
 #if (((__CORTEX_M == 0U) && (defined(__ICCARM__))) || (defined(__XTENSA__)))
 /*!
  * @brief Count the leading zeros.
@@ -377,6 +401,7 @@ static uint8_t TRDC_CountLeadingZeros(uint32_t data)
 
     return count;
 }
+#endif
 #endif
 
 /*!
@@ -407,6 +432,7 @@ void TRDC_Deinit(TRDC_Type *base)
 #endif /* FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL */
 }
 
+#if defined(FSL_FEATURE_TRDC_HAS_DOMAIN_ERROR) && FSL_FEATURE_TRDC_HAS_DOMAIN_ERROR
 /*!
  * brief Gets and clears the first domain error of the current domain.
  *
@@ -521,7 +547,9 @@ status_t TRDC_GetAndClearFirstSpecificDomainError(TRDC_Type *base, trdc_domain_e
 
     return status;
 }
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_MRC) && FSL_FEATURE_TRDC_HAS_MRC
 /*!
  * brief Sets the memory access configuration for one of the access control register of one MRC.
  *
@@ -619,13 +647,30 @@ void TRDC_MrcRegionNseClear(TRDC_Type *base, uint8_t mrcIdx, uint16_t regionMask
  *
  * param base TRDC peripheral base address.
  * param mrcIdx MRC index.
- * param domianMask Bit mask of the domians whose NSE bits to clear.
+ * param domainMask Bit mask of the domians whose NSE bits to clear.
  */
-void TRDC_MrcDomainNseClear(TRDC_Type *base, uint8_t mrcIdx, uint16_t domianMask)
+void TRDC_MrcDomainNseClear(TRDC_Type *base, uint8_t mrcIdx, uint16_t domainMask)
 {
     assert(NULL != base);
 
-    TRDC_MRC_BASE(base, mrcIdx)->MRC_NSE_RGN_CLR_ALL = ((uint32_t)domianMask);
+    uint8_t domainCount =
+        (uint8_t)((TRDC_GENERAL_BASE(base)->TRDC_HWCFG0 & TRDC_TRDC_HWCFG0_NDID_MASK) >> TRDC_TRDC_HWCFG0_NDID_SHIFT);
+    uint8_t maxDomainId = 0U;
+    uint16_t tmpDomainMask = domainMask;
+
+    while (tmpDomainMask != 0U)
+    {
+        tmpDomainMask >>= 1U;
+        maxDomainId++;
+    }
+
+    /* Check whether the domain mask contains invalid domain. */
+    if (maxDomainId > domainCount)
+    {
+        assert(false);
+    }
+
+    TRDC_MRC_BASE(base, mrcIdx)->MRC_NSE_RGN_CLR_ALL = ((uint32_t)domainMask << 16U);
 }
 
 /*!
@@ -656,7 +701,9 @@ void TRDC_MrcSetRegionDescriptorConfig(TRDC_Type *base, const trdc_mrc_region_de
            ((config->endAddr) & ~(TRDC_MRC_DOM0_RGD_W_VLD_MASK | TRDC_MRC_DOM0_RGD_W_NSE_MASK));
     *(uint32_t *)regAddr = data;
 }
+#endif
 
+#if defined(FSL_FEATURE_TRDC_HAS_MBC) && FSL_FEATURE_TRDC_HAS_MBC
 /*!
  * brief Sets the NSR update configuration for one of the MBC instance.
  *
@@ -720,17 +767,22 @@ void TRDC_MbcNseClearAll(TRDC_Type *base, uint8_t mbcIdx, uint16_t domainMask, u
 {
     assert(NULL != base);
 
+#if defined(FSL_FEATURE_TRDC_DOMAIN_COUNT) && FSL_FEATURE_TRDC_DOMAIN_COUNT
+    uint8_t dmainCount = FSL_FEATURE_TRDC_DOMAIN_COUNT;
+#else
     uint8_t dmainCount =
         (uint8_t)((TRDC_GENERAL_BASE(base)->TRDC_HWCFG0 & TRDC_TRDC_HWCFG0_NDID_MASK) >> TRDC_TRDC_HWCFG0_NDID_SHIFT);
-    uint8_t maxDomianId = 0U;
+#endif
+    uint8_t maxDomainId = 0U;
+    uint16_t tmpDomainMask = domainMask;
 
-    while (domainMask != 0U)
+    while (tmpDomainMask != 0U)
     {
-        domainMask >>= 1U;
-        maxDomianId++;
+        tmpDomainMask >>= 1U;
+        maxDomainId++;
     }
 
-    if ((maxDomianId - 1U) > dmainCount)
+    if (maxDomainId > dmainCount)
     {
         assert(false);
     }
@@ -799,3 +851,4 @@ void TRDC_MbcSetMemoryBlockConfig(TRDC_Type *base, const trdc_mbc_memory_block_c
     configWord           = configWord | (*(uint32_t *)regAddr & ~(0xFUL << shift));
     *(uint32_t *)regAddr = configWord;
 }
+#endif

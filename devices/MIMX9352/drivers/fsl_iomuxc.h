@@ -1,6 +1,5 @@
 /*
- * Copyright 2022 NXP
- * All rights reserved.
+ * Copyright 2022-2023 NXP
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -361,7 +360,6 @@
 #define IOMUXC_PAD_ENET1_RD2__FLEXIO2_FLEXIO12                    0x543c00c8, 0x4, 0x0, 0x0, 0x543c0278
 #define IOMUXC_PAD_ENET1_RD2__GPIO4_IO12                          0x543c00c8, 0x5, 0x0, 0x0, 0x543c0278
 #define IOMUXC_PAD_ENET1_RD3__ENET_QOS_RGMII_RD3                  0x543c00cc, 0x0, 0x0, 0x0, 0x543c027c
-#define IOMUXC_PAD_ENET1_RD3__FLEXSPI1_TESTER_TRIGGER             0x543c00cc, 0x2, 0x0, 0x0, 0x543c027c
 #define IOMUXC_PAD_ENET1_RD3__LPTMR2_ALT3                         0x543c00cc, 0x3, 0x543c0410, 0x0, 0x543c027c
 #define IOMUXC_PAD_ENET1_RD3__FLEXIO2_FLEXIO13                    0x543c00cc, 0x4, 0x0, 0x0, 0x543c027c
 #define IOMUXC_PAD_ENET1_RD3__GPIO4_IO13                          0x543c00cc, 0x5, 0x0, 0x0, 0x543c027c
@@ -448,11 +446,9 @@
 #define IOMUXC_PAD_SD1_DATA1__USDHC1_DATA1                        0x543c0114, 0x0, 0x0, 0x0, 0x543c02c4
 #define IOMUXC_PAD_SD1_DATA1__FLEXIO1_FLEXIO11                    0x543c0114, 0x4, 0x543c0398, 0x1, 0x543c02c4
 #define IOMUXC_PAD_SD1_DATA1__GPIO3_IO11                          0x543c0114, 0x5, 0x0, 0x0, 0x543c02c4
-#define IOMUXC_PAD_SD1_DATA1__CCMSRCGPCMIX_INT_BOOT               0x543c0114, 0x6, 0x0, 0x0, 0x543c02c4
 #define IOMUXC_PAD_SD1_DATA2__USDHC1_DATA2                        0x543c0118, 0x0, 0x0, 0x0, 0x543c02c8
 #define IOMUXC_PAD_SD1_DATA2__FLEXIO1_FLEXIO12                    0x543c0118, 0x4, 0x0, 0x0, 0x543c02c8
 #define IOMUXC_PAD_SD1_DATA2__GPIO3_IO12                          0x543c0118, 0x5, 0x0, 0x0, 0x543c02c8
-#define IOMUXC_PAD_SD1_DATA2__CCMSRCGPCMIX_PMIC_READY             0x543c0118, 0x6, 0x0, 0x0, 0x543c02c8
 #define IOMUXC_PAD_SD1_DATA3__USDHC1_DATA3                        0x543c011c, 0x0, 0x0, 0x0, 0x543c02cc
 #define IOMUXC_PAD_SD1_DATA3__FLEXSPI1_A_SS1_B                    0x543c011c, 0x1, 0x0, 0x0, 0x543c02cc
 #define IOMUXC_PAD_SD1_DATA3__FLEXIO1_FLEXIO13                    0x543c011c, 0x4, 0x543c039c, 0x1, 0x543c02cc
@@ -539,19 +535,16 @@
 #define IOMUXC_PAD_SD2_DATA1__CAN2_RX                             0x543c0160, 0x2, 0x543c0364, 0x3, 0x543c0310
 #define IOMUXC_PAD_SD2_DATA1__FLEXIO1_FLEXIO04                    0x543c0160, 0x4, 0x543c037c, 0x1, 0x543c0310
 #define IOMUXC_PAD_SD2_DATA1__GPIO3_IO04                          0x543c0160, 0x5, 0x0, 0x0, 0x543c0310
-#define IOMUXC_PAD_SD2_DATA1__CCMSRCGPCMIX_WAIT                   0x543c0160, 0x6, 0x0, 0x0, 0x543c0310
 #define IOMUXC_PAD_SD2_DATA2__USDHC2_DATA2                        0x543c0164, 0x0, 0x0, 0x0, 0x543c0314
 #define IOMUXC_PAD_SD2_DATA2__ENET1_1588_EVENT1_OUT               0x543c0164, 0x1, 0x0, 0x0, 0x543c0314
 #define IOMUXC_PAD_SD2_DATA2__MQS2_RIGHT                          0x543c0164, 0x2, 0x0, 0x0, 0x543c0314
 #define IOMUXC_PAD_SD2_DATA2__FLEXIO1_FLEXIO05                    0x543c0164, 0x4, 0x543c0380, 0x1, 0x543c0314
 #define IOMUXC_PAD_SD2_DATA2__GPIO3_IO05                          0x543c0164, 0x5, 0x0, 0x0, 0x543c0314
-#define IOMUXC_PAD_SD2_DATA2__CCMSRCGPCMIX_STOP                   0x543c0164, 0x6, 0x0, 0x0, 0x543c0314
 #define IOMUXC_PAD_SD2_DATA3__USDHC2_DATA3                        0x543c0168, 0x0, 0x0, 0x0, 0x543c0318
 #define IOMUXC_PAD_SD2_DATA3__LPTMR2_ALT1                         0x543c0168, 0x1, 0x543c0408, 0x1, 0x543c0318
 #define IOMUXC_PAD_SD2_DATA3__MQS2_LEFT                           0x543c0168, 0x2, 0x0, 0x0, 0x543c0318
 #define IOMUXC_PAD_SD2_DATA3__FLEXIO1_FLEXIO06                    0x543c0168, 0x4, 0x543c0384, 0x1, 0x543c0318
 #define IOMUXC_PAD_SD2_DATA3__GPIO3_IO06                          0x543c0168, 0x5, 0x0, 0x0, 0x543c0318
-#define IOMUXC_PAD_SD2_DATA3__CCMSRCGPCMIX_EARLY_RESET            0x543c0168, 0x6, 0x0, 0x0, 0x543c0318
 #define IOMUXC_PAD_SD2_RESET_B__USDHC2_RESET_B                    0x543c016c, 0x0, 0x0, 0x0, 0x543c031c
 #define IOMUXC_PAD_SD2_RESET_B__LPTMR2_ALT2                       0x543c016c, 0x1, 0x543c040c, 0x1, 0x543c031c
 #define IOMUXC_PAD_SD2_RESET_B__FLEXIO1_FLEXIO07                  0x543c016c, 0x4, 0x543c0388, 0x1, 0x543c031c
@@ -650,7 +643,7 @@
 #define IOMUXC_PAD_MUX_MODE_MASK  (0x7U)
 #define IOMUXC_PAD_MUX_MODE_SHIFT (0U)
 #define IOMUXC_PAD_MUX_MODE(x)    (((uint32_t)(((uint32_t)(x)) << IOMUXC_PAD_MUX_MODE_SHIFT)) & IOMUXC_PAD_MUX_MODE_MASK)
-#define IOMUXC_PAD_SION_MASK      (0x10)
+#define IOMUXC_PAD_SION_MASK      (0x10U)
 #define IOMUXC_PAD_SION_SHIFT     (4U)
 #define IOMUXC_PAD_SION(x)        (((uint32_t)(((uint32_t)(x)) << IOMUXC_PAD_SION_SHIFT)) & IOMUXC_PAD_SION_MASK)
 
@@ -704,12 +697,12 @@ static inline void IOMUXC_SetPinMux(uint32_t muxRegister,
                                     uint32_t configRegister,
                                     uint32_t inputOnfield)
 {
-    if (muxRegister)
+    if (muxRegister != 0U)
     {
         *((volatile uint32_t *)muxRegister) = IOMUXC_PAD_MUX_MODE(muxMode) | IOMUXC_PAD_SION(inputOnfield);
     }
 
-    if (inputRegister)
+    if (inputRegister != 0U)
     {
         *((volatile uint32_t *)inputRegister) = inputDaisy;
     }
@@ -732,7 +725,7 @@ static inline void IOMUXC_SetPinConfig(uint32_t muxRegister,
                                        uint32_t configRegister,
                                        uint32_t configValue)
 {
-    if (configRegister)
+    if (configRegister != 0U)
     {
         *((volatile uint32_t *)configRegister) = configValue;
     }

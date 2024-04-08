@@ -17,11 +17,20 @@
  ******************************************************************************/
 #define EXAMPLE_SLAVE              I3C1
 #define I3C_SLAVE_CLOCK_ROOT       kCLOCK_Root_I3c1
-#define I3C_SLAVE_CLOCK_GATE kCLOCK_I3c1
+#define I3C_SLAVE_CLOCK_GATE       kCLOCK_I3c1
 #define I3C_SLAVE_CLOCK_FREQUENCY  CLOCK_GetIpFreq(I3C_SLAVE_CLOCK_ROOT)
 #define I3C_TIME_OUT_INDEX         210000000
 #define I3C_MASTER_SLAVE_ADDR_7BIT 0x1EU
 #define I3C_DATA_LENGTH            34U
+#ifndef I3C_MASTER_SLAVE_ADDR_7BIT
+#define I3C_MASTER_SLAVE_ADDR_7BIT 0x1EU
+#endif
+#ifndef I3C_DATA_LENGTH
+#define I3C_DATA_LENGTH 34U
+#endif
+#ifndef EXAMPLE_I3C_HDR_SUPPORT
+#define EXAMPLE_I3C_HDR_SUPPORT 0
+#endif
 
 /*******************************************************************************
  * Prototypes
@@ -30,16 +39,16 @@
 /*******************************************************************************
  * Variables
  ******************************************************************************/
-
 uint8_t g_slave_txBuff[I3C_DATA_LENGTH + 1] = {0};
 uint8_t g_slave_rxBuff[I3C_DATA_LENGTH + 1] = {0};
 volatile bool g_slaveCompletionFlag         = false;
-i3c_slave_handle_t g_i3c_s_handle;
-uint8_t *g_txBuff;
+uint8_t *g_txBuff                = NULL;
 uint32_t g_txSize                = I3C_DATA_LENGTH;
 volatile uint8_t g_deviceAddress = 0U;
 uint8_t *g_deviceBuff            = NULL;
 uint8_t g_deviceBuffSize         = I3C_DATA_LENGTH;
+static i3c_slave_handle_t g_i3c_s_handle;
+
 /*******************************************************************************
  * Code
  ******************************************************************************/
@@ -117,12 +126,11 @@ static void i3c_slave_callback(I3C_Type *base, i3c_slave_transfer_t *xfer, void 
  */
 int main(void)
 {
-    volatile uint32_t timeout_i = 0U;
-    i3c_slave_config_t slaveConfig;
     uint32_t eventMask = kI3C_SlaveCompletionEvent;
 #if defined(I3C_ASYNC_WAKE_UP_INTR_CLEAR)
     eventMask |= kI3C_SlaveAddressMatchEvent;
 #endif
+    i3c_slave_config_t slaveConfig;
 
     /* clang-format off */
     const clock_root_config_t i3cClkCfg = {
@@ -147,8 +155,6 @@ int main(void)
     slaveConfig.vendorID   = 0x123U;
     slaveConfig.offline    = false;
     I3C_SlaveInit(EXAMPLE_SLAVE, &slaveConfig, I3C_SLAVE_CLOCK_FREQUENCY);
-
-    /* Create slave handle. */
     I3C_SlaveTransferCreateHandle(EXAMPLE_SLAVE, &g_i3c_s_handle, i3c_slave_callback, NULL);
 
     g_txBuff = g_slave_txBuff;
@@ -160,17 +166,12 @@ int main(void)
     /* For I2C transfer check, master board will always send one byte subaddress(device address). The first transfer is
     a I2C write transfer, master will send one byte device address + one byte transmit size + several bytes transmit
     buffer content. */
-    memset(g_slave_rxBuff, 0, I3C_DATA_LENGTH);
+    memset(g_slave_rxBuff, 0, sizeof(g_slave_rxBuff));
     /* Wait for master transmit completed. */
-    while ((!g_slaveCompletionFlag) && (++timeout_i < 10 * I3C_TIME_OUT_INDEX))
+    while (!g_slaveCompletionFlag)
     {
     }
     g_slaveCompletionFlag = false;
-    if (timeout_i == 10 * I3C_TIME_OUT_INDEX)
-    {
-        PRINTF("\r\nTransfer timeout.\r\n");
-        return -1;
-    }
 
     memcpy(g_slave_txBuff, g_slave_rxBuff, I3C_DATA_LENGTH);
     /* Preapre slave tx buffer, the first byte is received device address, second byte is transmit size, following bytes
@@ -183,7 +184,7 @@ int main(void)
     PRINTF("Slave received data :");
     for (uint32_t i = 0U; i < I3C_DATA_LENGTH; i++)
     {
-        if (i % 8 == 0)
+        if (i % 8U == 0U)
         {
             PRINTF("\r\n");
         }
@@ -193,16 +194,10 @@ int main(void)
     /* The second transfer is a I2C read transfer, master will send one byte device address, then send repeated start
      * and read back the transmit buffer to that device address. */
     /* Wait for slave transmit completed. */
-    timeout_i = 0U;
-    while ((!g_slaveCompletionFlag) && (++timeout_i < I3C_TIME_OUT_INDEX))
+    while (!g_slaveCompletionFlag)
     {
     }
     g_slaveCompletionFlag = false;
-    if (timeout_i == I3C_TIME_OUT_INDEX)
-    {
-        PRINTF("\r\nTransfer timeout.\r\n");
-        return -1;
-    }
 
     PRINTF("\r\nI3C master I2C transfer finished.\r\n");
 
@@ -211,17 +206,11 @@ int main(void)
     /* For I3C SDR transfer check, master board will not send subaddress(device address). The first transfer is a
     I3C SDR write transfer, master will send one byte transmit size + several bytes transmit buffer content. */
     /* Wait for master transmit completed. */
-    memset(g_slave_rxBuff, 0, I3C_DATA_LENGTH);
-    timeout_i = 0U;
-    while ((!g_slaveCompletionFlag) && (++timeout_i < I3C_TIME_OUT_INDEX))
+    memset(g_slave_rxBuff, 0, sizeof(g_slave_rxBuff));
+    while (!g_slaveCompletionFlag)
     {
     }
     g_slaveCompletionFlag = false;
-    if (timeout_i == I3C_TIME_OUT_INDEX)
-    {
-        PRINTF("\r\nTransfer timeout.\r\n");
-        return -1;
-    }
 
     /* Update slave tx buffer according to the received buffer, the first byte is transmit data size, the following
      * bytes are transmit buffer content. */
@@ -230,10 +219,9 @@ int main(void)
     g_txSize = g_slave_txBuff[0];
 
     PRINTF("Slave received data :");
-
     for (uint32_t i = 0U; i < g_slave_rxBuff[0]; i++)
     {
-        if (i % 8 == 0)
+        if (i % 8U == 0U)
         {
             PRINTF("\r\n");
         }
@@ -242,18 +230,48 @@ int main(void)
 
     /* The second transfer is a I3C SDR read transfer, master will read back the transmit buffer content just sent. */
     /* Wait for slave transmit completed. */
-    timeout_i = 0U;
-    while ((!g_slaveCompletionFlag) && (++timeout_i < I3C_TIME_OUT_INDEX))
+    while (!g_slaveCompletionFlag)
     {
     }
     g_slaveCompletionFlag = false;
-    if (timeout_i == I3C_TIME_OUT_INDEX)
-    {
-        PRINTF("\r\nTransfer timeout.\r\n");
-        return -1;
-    }
 
     PRINTF("\r\nI3C master I3C SDR transfer finished.\r\n");
+
+#if defined(EXAMPLE_I3C_HDR_SUPPORT) && (EXAMPLE_I3C_HDR_SUPPORT)
+    PRINTF("\r\nCheck I3C master I3C HDR transfer.\r\n");
+
+    memset(g_slave_rxBuff, 0, sizeof(g_slave_rxBuff));
+    /* Wait for master HDR-DDR transmit completed. */
+    while (!g_slaveCompletionFlag)
+    {
+    }
+    g_slaveCompletionFlag = false;
+
+    /* Update slave tx buffer according to the received buffer, the first byte is transmit data size, the following
+     * bytes are transmit buffer content. */
+    memcpy(g_slave_txBuff, g_slave_rxBuff, I3C_DATA_LENGTH);
+    g_txBuff = &g_slave_txBuff[2];
+    g_txSize = g_slave_txBuff[1];
+
+    PRINTF("Slave received data :");
+    for (uint32_t i = 0U; i < g_slave_rxBuff[1]; i++)
+    {
+        if (i % 8U == 0U)
+        {
+            PRINTF("\r\n");
+        }
+        PRINTF("0x%2x  ", g_slave_rxBuff[i + 2]);
+    }
+
+    /* The second transfer is a I3C SDR read transfer, master will read back the transmit buffer content just sent. */
+    /* Wait for slave transmit completed. */
+    while (!g_slaveCompletionFlag)
+    {
+    }
+    g_slaveCompletionFlag = false;
+
+    PRINTF("\r\nI3C master I3C HDR transfer finished.\r\n");
+#endif
 
     while (1)
     {

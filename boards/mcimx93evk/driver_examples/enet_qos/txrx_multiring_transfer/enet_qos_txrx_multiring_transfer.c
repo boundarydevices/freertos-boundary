@@ -75,6 +75,9 @@ extern phy_rtl8211f_resource_t g_phy_resource;
 #define EXAMPLE_CACHE_LINE_SIZE 1 /*!< No need to align cache line size */
 #endif                            /* FSL_ETH_ENABLE_CACHE_CONTROL */
 
+#ifndef PHY_LINKUP_TIMEOUT_COUNT
+#define PHY_LINKUP_TIMEOUT_COUNT (800000U)
+#endif
 #ifndef PHY_AUTONEGO_TIMEOUT_COUNT
 #define PHY_AUTONEGO_TIMEOUT_COUNT (800000U)
 #endif
@@ -141,12 +144,12 @@ uint32_t g_txMessageOut      = false;
  ******************************************************************************/
 void ENET_QOS_EnableClock(bool enable)
 {
-    BLK_CTRL_WAKEUPMIX1->GPR =
-        (BLK_CTRL_WAKEUPMIX1->GPR & (~BLK_CTRL_WAKEUPMIX_GPR_ENABLE_MASK)) | BLK_CTRL_WAKEUPMIX_GPR_ENABLE(enable);
+    BLK_CTRL_WAKEUPMIX->GPR =
+        (BLK_CTRL_WAKEUPMIX->GPR & (~BLK_CTRL_WAKEUPMIX_GPR_ENABLE_MASK)) | BLK_CTRL_WAKEUPMIX_GPR_ENABLE(enable);
 }
 void ENET_QOS_SetSYSControl(enet_qos_mii_mode_t miiMode)
 {
-    BLK_CTRL_WAKEUPMIX1->GPR |= BLK_CTRL_WAKEUPMIX_GPR_MODE(miiMode);
+    BLK_CTRL_WAKEUPMIX->GPR |= BLK_CTRL_WAKEUPMIX_GPR_MODE(miiMode);
 }
 
 static void MDIO_Init(void)
@@ -313,7 +316,9 @@ int main(void)
     enet_qos_ptp_config_t ptpConfig = {0};
     phy_config_t phyConfig          = {0};
     bool link                       = false;
+#if !defined(EXAMPLE_PHY_LOOPBACK_ENABLE)
     bool autonego                   = false;
+#endif
     uint32_t ringId                 = 0;
     uint32_t testTxNum              = 0;
     uint32_t count                  = 0;
@@ -446,8 +451,39 @@ int main(void)
     phyConfig.resource = EXAMPLE_PHY_RESOURCE;
     phyConfig.autoNeg  = true;
 
-    /* Initialize PHY and wait auto-negotiation over. */
     PRINTF("Wait for PHY init...\r\n");
+#if defined(EXAMPLE_PHY_LOOPBACK_ENABLE)
+    /* Initialize PHY and enable loopback. */
+    do
+    {
+        status = PHY_Init(&phyHandle, &phyConfig);
+        if (status != kStatus_Success)
+        {
+            PRINTF("Failed to init PHY\r\n");
+            return status;
+        }
+
+        status = PHY_EnableLoopback(&phyHandle, kPHY_LocalLoop, kPHY_Speed1000M, true);
+        if (status != kStatus_Success)
+        {
+            PRINTF("Failed to enable PHY loopback\r\n");
+            return status;
+        }
+
+        /* Wait link up */
+        PRINTF("Wait for PHY link up...\r\n");
+        count = PHY_LINKUP_TIMEOUT_COUNT;
+        do
+        {
+            PHY_GetLinkStatus(&phyHandle, &link);
+            if (link)
+            {
+                break;
+            }
+        } while (--count);
+    } while (!link);
+#else
+    /* Initialize PHY and wait auto-negotiation over. */
     do
     {
         status = PHY_Init(&phyHandle, &phyConfig);
@@ -471,6 +507,7 @@ int main(void)
             }
         }
     } while (!(link && autonego));
+#endif
 
     /* Wait a moment for PHY status to be stable. */
     SDK_DelayAtLeastUs(PHY_STABILITY_DELAY_US, SDK_DEVICE_MAXIMUM_CPU_CLOCK_FREQUENCY);
@@ -645,6 +682,11 @@ int main(void)
                 while (kStatus_Success != ENET_QOS_SendFrame(EXAMPLE_ENET_QOS_BASE, &g_handle, &g_frame[ringId][0],
                                                              ENET_QOS_FRAME_LENGTH, ringId, false, NULL, kENET_QOS_TxOffloadDisable))
                 {
+                }
+                /* Wait for Rx over every three frames to prevent Rx FIFO overflow when Rx interrupt handling is slow. */
+                if (ringId == 0U)
+                {
+                    while (g_rxIndex != (testTxNum / 3U));
                 }
 
                 ringId = (ringId + 2) % 3;

@@ -4,8 +4,8 @@
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-#ifndef _FSL_EDMA_CORE_H_
-#define _FSL_EDMA_CORE_H_
+#ifndef FSL_EDMA_CORE_H_
+#define FSL_EDMA_CORE_H_
 
 #include "fsl_edma_soc.h"
 
@@ -22,6 +22,8 @@
 #define DMA_CSR_INTHALF_MASK           DMA_TCD_CSR_INTHALF_MASK
 #define DMA_CSR_DREQ_MASK              DMA_TCD_CSR_DREQ_MASK
 #define DMA_CSR_ESG_MASK               DMA_TCD_CSR_ESG_MASK
+#define DMA_CSR_BWC_MASK               DMA_TCD_CSR_BWC_MASK
+#define DMA_CSR_BWC(x)                 DMA_TCD_CSR_BWC(x)
 #define DMA_CSR_START_MASK             DMA_TCD_CSR_START_MASK
 #define DMA_CITER_ELINKNO_CITER_MASK   DMA_TCD_CITER_ELINKNO_CITER_MASK
 #define DMA_BITER_ELINKNO_BITER_MASK   DMA_TCD_BITER_ELINKNO_BITER_MASK
@@ -69,6 +71,8 @@
 #define DMA_CSR_INTHALF_MASK           DMA_TCD_CSR_INTHALF_MASK
 #define DMA_CSR_DREQ_MASK              DMA_TCD_CSR_DREQ_MASK
 #define DMA_CSR_ESG_MASK               DMA_TCD_CSR_ESG_MASK
+#define DMA_CSR_BWC_MASK               DMA_TCD_CSR_BWC_MASK
+#define DMA_CSR_BWC(x)                 DMA_TCD_CSR_BWC(x)
 #define DMA_CSR_START_MASK             DMA_TCD_CSR_START_MASK
 #define DMA_CITER_ELINKNO_CITER_MASK   DMA_TCD_CITER_ELINKNO_CITER_MASK
 #define DMA_BITER_ELINKNO_BITER_MASK   DMA_TCD_BITER_ELINKNO_BITER_MASK
@@ -107,6 +111,8 @@
 #define DMA_CSR_INTHALF_MASK           DMA4_CSR_INTHALF_MASK
 #define DMA_CSR_DREQ_MASK              DMA4_CSR_DREQ_MASK
 #define DMA_CSR_ESG_MASK               DMA4_CSR_ESG_MASK
+#define DMA_CSR_BWC_MASK               DMA4_CSR_BWC_MASK
+#define DMA_CSR_BWC(x)                 DMA4_CSR_BWC(x)
 #define DMA_CSR_START_MASK             DMA4_CSR_START_MASK
 #define DMA_CITER_ELINKNO_CITER_MASK   DMA4_CITER_ELINKNO_CITER_MASK
 #define DMA_BITER_ELINKNO_BITER_MASK   DMA4_BITER_ELINKNO_BITER_MASK
@@ -152,6 +158,77 @@
 #elif defined(FSL_EDMA_SOC_IP_EDMA) && FSL_EDMA_SOC_IP_EDMA
 /*! intentional empty */
 #endif
+
+/*! @brief DMA error flag */
+#if defined(FSL_EDMA_SOC_IP_EDMA) && FSL_EDMA_SOC_IP_EDMA
+#define DMA_ERR_DBE_FLAG     DMA_ES_DBE_MASK
+#define DMA_ERR_SBE_FLAG     DMA_ES_SBE_MASK
+#define DMA_ERR_SGE_FLAG     DMA_ES_SGE_MASK
+#define DMA_ERR_NCE_FLAG     DMA_ES_NCE_MASK
+#define DMA_ERR_DOE_FLAG     DMA_ES_DOE_MASK
+#define DMA_ERR_DAE_FLAG     DMA_ES_DAE_MASK
+#define DMA_ERR_SOE_FLAG     DMA_ES_SOE_MASK
+#define DMA_ERR_SAE_FLAG     DMA_ES_SAE_MASK
+#define DMA_ERR_ERRCHAN_FLAG DMA_ES_ERRCHN_MASK
+#define DMA_ERR_CPE_FLAG     DMA_ES_CPE_MASK
+#define DMA_ERR_ECX_FLAG     DMA_ES_ECX_MASK
+#if defined(FSL_FEATURE_EDMA_CHANNEL_GROUP_COUNT) && (FSL_FEATURE_EDMA_CHANNEL_GROUP_COUNT > 1)
+#define DMA_ERR_GPE_FLAG DMA_ES_GPE_MASK
+#endif
+#define DMA_ERR_FLAG DMA_ES_VLD_MASK
+
+/*! @brief get/clear DONE status*/
+#define DMA_CLEAR_DONE_STATUS(base, channel) (EDMA_BASE(base)->CDNE = (uint8_t)channel)
+#define DMA_GET_DONE_STATUS(base, channel) \
+    ((EDMA_TCD_BASE(base, channel)->CSR & DMA_CSR_DONE_MASK) >> DMA_CSR_DONE_SHIFT)
+/*! @brief enable/disable error interrupt*/
+#define DMA_ENABLE_ERROR_INT(base, channel)  (base->EEI |= ((uint32_t)0x1U << channel))
+#define DMA_DISABLE_ERROR_INT(base, channel) (base->EEI &= (~((uint32_t)0x1U << channel)))
+/*! @brief get/clear error status*/
+#define DMA_GET_ERROR_STATUS(base, channel)   (((uint32_t)EDMA_BASE(base)->ERR >> channel) & 0x1U)
+#define DMA_CLEAR_ERROR_STATUS(base, channel) ((uint32_t)EDMA_BASE(base)->CERR = (uint8_t)channel)
+/*! @brief get/clear int status*/
+#define DMA_GET_INT_STATUS(base, channel)   ((((uint32_t)EDMA_BASE(base)->INT >> channel) & 0x1U))
+#define DMA_CLEAR_INT_STATUS(base, channel) ((uint32_t)EDMA_BASE(base)->CINT = (uint8_t)channel)
+
+#else
+
+#define DMA_ERR_DBE_FLAG                     DMA_MP_ES_DBE_MASK
+#define DMA_ERR_SBE_FLAG                     DMA_MP_ES_SBE_MASK
+#define DMA_ERR_SGE_FLAG                     DMA_MP_ES_SGE_MASK
+#define DMA_ERR_NCE_FLAG                     DMA_MP_ES_NCE_MASK
+#define DMA_ERR_DOE_FLAG                     DMA_MP_ES_DOE_MASK
+#define DMA_ERR_DAE_FLAG                     DMA_MP_ES_DAE_MASK
+#define DMA_ERR_SOE_FLAG                     DMA_MP_ES_SOE_MASK
+#define DMA_ERR_SAE_FLAG                     DMA_MP_ES_SAE_MASK
+#define DMA_ERR_ERRCHAN_FLAG                 DMA_MP_ES_ERRCHN_MASK
+#define DMA_ERR_ECX_FLAG                     DMA_MP_ES_ECX_MASK
+#define DMA_ERR_FLAG                         DMA_MP_ES_VLD_MASK
+
+/*! @brief get/clear DONE bit*/
+#define DMA_CLEAR_DONE_STATUS(base, channel) (EDMA_CHANNEL_BASE(base, channel)->CH_CSR |= DMA_CH_CSR_DONE_MASK)
+#define DMA_GET_DONE_STATUS(base, channel) \
+    ((EDMA_CHANNEL_BASE(base, channel)->CH_CSR & DMA_CH_CSR_DONE_MASK) >> DMA_CH_CSR_DONE_SHIFT)
+/*! @brief enable/disable error interupt*/
+#define DMA_ENABLE_ERROR_INT(base, channel)   (EDMA_CHANNEL_BASE(base, channel)->CH_CSR |= DMA_CH_CSR_EEI_MASK)
+#define DMA_DISABLE_ERROR_INT(base, channel)  (EDMA_CHANNEL_BASE(base, channel)->CH_CSR &= ~DMA_CH_CSR_EEI_MASK)
+/*! @brief get/clear error status*/
+#define DMA_CLEAR_ERROR_STATUS(base, channel) (EDMA_CHANNEL_BASE(base, channel)->CH_ES |= DMA_CH_ES_ERR_MASK)
+#define DMA_GET_ERROR_STATUS(base, channel) \
+    (((uint32_t)EDMA_CHANNEL_BASE(base, channel)->CH_ES >> DMA_CH_ES_ERR_SHIFT) & 0x1U)
+/*! @brief get/clear INT status*/
+#define DMA_CLEAR_INT_STATUS(base, channel) (EDMA_CHANNEL_BASE(base, channel)->CH_INT = DMA_CH_INT_INT_MASK)
+#define DMA_GET_INT_STATUS(base, channel)   ((((uint32_t)EDMA_CHANNEL_BASE(base, channel)->CH_INT) & 0x1U))
+#endif /*FSL_EDMA_SOC_IP_EDMA*/
+
+/*! @brief enable/dsiable MAJOR/HALF INT*/
+#define DMA_ENABLE_MAJOR_INT(base, channel)  (EDMA_TCD_BASE(base, channel)->CSR |= DMA_CSR_INTMAJOR_MASK)
+#define DMA_ENABLE_HALF_INT(base, channel)   (EDMA_TCD_BASE(base, channel)->CSR |= DMA_CSR_INTHALF_MASK)
+#define DMA_DISABLE_MAJOR_INT(base, channel) (EDMA_TCD_BASE(base, channel)->CSR &= ~(uint16_t)DMA_CSR_INTMAJOR_MASK)
+#define DMA_DISABLE_HALF_INT(base, channel)  (EDMA_TCD_BASE(base, channel)->CSR &= ~(uint16_t)DMA_CSR_INTHALF_MASK)
+
+/*!@brief EDMA tcd align size */
+#define EDMA_TCD_ALIGN_SIZE (32U)
 
 /*!@brief edma core channel struture definition */
 typedef struct _edma_core_mp
@@ -219,4 +296,4 @@ extern "C" {
  * @}
  */
 
-#endif /* _FSL_EDMA_CORE_H_ */
+#endif /* FSL_EDMA_CORE_H_ */

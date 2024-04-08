@@ -1,6 +1,5 @@
 /*
  * Copyright 2022 NXP.
- * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -79,13 +78,7 @@ const struct remote_resource_table resources = {
 
 void copyResourceTable(void)
 {
-    /*
-     * On startup, DDR not be enabled when M Core does resource table copy.
-     * Here store the resource table to a destination address
-     * (such as: 0x2001f000(NS)/0x3001F000(S) in TCM).
-     */
-    memset((void *)0x2001F000U, 0,
-           0x1000); /* ECC is enabled defaultly , cortex-A55 failed to read 4KB from the region when the region is not
-                       initialized.(cortex-A55 report an ECC read error) */
-    memcpy((void *)0x2001F000U, &resources, sizeof(resources));
+    /* TCM ECC is enabled in default. Must initialize to use. */
+    memset((void *)RESOURCE_TABLE_START, 0, RESOURCE_TABLE_SIZE);
+    memcpy((void *)RESOURCE_TABLE_START, &resources, sizeof(resources));
 }

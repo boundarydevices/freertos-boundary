@@ -1,128 +1,92 @@
 var a00039 =
 [
-    [ "i3c_slave_config_t", "a00039.html#a00403", [
-      [ "enableSlave", "a00039.html#ae2c684a0c8d014cc95005a69a9098234", null ],
-      [ "isHotJoin", "a00039.html#a4b8cf9213963e3b1a9bb09542016abf2", null ],
-      [ "staticAddr", "a00039.html#a72ff7b8ddcfcd192d3f725e5c031d0cd", null ],
-      [ "vendorID", "a00039.html#ab62d4b9438499941dfbc2c249bbccb67", null ],
-      [ "partNumber", "a00039.html#a8893cffb422079a3947772fb26742d4b", null ],
-      [ "dcr", "a00039.html#a9af242fae8896f33f006501ea3511595", null ],
-      [ "bcr", "a00039.html#a1b38cce093c4a80604f995a8888a8778", null ],
-      [ "hdrMode", "a00039.html#af9dd7561b552a5abf874e1eb6ac69c86", null ],
-      [ "nakAllRequest", "a00039.html#a4302cc872a697850efa15f3e0ef2de7f", null ],
-      [ "ignoreS0S1Error", "a00039.html#a46b944ec63a101dfb91fa6e10068bccd", null ],
-      [ "offline", "a00039.html#a96f746320ee2cbf323f962a87234c932", null ],
-      [ "matchSlaveStartStop", "a00039.html#a94abf3c964a3cd1bf0fce2f559eef7c4", null ],
-      [ "maxWriteLength", "a00039.html#a6da25cf7b73330353129a87dfa969013", null ],
-      [ "maxReadLength", "a00039.html#ae90c094ef89f248db0069e4953b6b193", null ]
+    [ "iomux_pin_config_t", "a00039.html#a00401", [
+      [ "pullSelect", "a00039.html#a0d4b696c02f5e18423ada42515f882b1", null ],
+      [ "slewRate", "a00039.html#a6162d769fceb3934492aacf9e33d696e", null ],
+      [ "openDrainEnable", "a00039.html#a67580e5e579658f1fb1c088ce0e6dcd7", null ],
+      [ "driveStrength", "a00039.html#a1a76f881bc02078371720836eabc7db5", null ],
+      [ "mux", "a00039.html#a91cab3cffc36440d6d98871318800a34", null ],
+      [ "lockRegister", "a00039.html#abf2857fd0a6b2e994f48ae509fbe8a88", null ],
+      [ "inputBufferEnable", "a00039.html#a98e722d7e142d337fb3449d9c7a2f7ac", null ],
+      [ "outputBufferEnable", "a00039.html#ae8337b24bb96abf5cc69ca82448478af", null ],
+      [ "digitalFilterEnable", "a00039.html#a2636105794024b51dbe5adf281566879", null ],
+      [ "digitalFilterSelect", "a00039.html#aa95fe75d87f19c054b077bb757b2f5f4", null ],
+      [ "digitalFilterDuration", "a00039.html#a88bbac648234610f17250cc9ead6526f", null ]
     ] ],
-    [ "i3c_slave_transfer_t", "a00039.html#a00404", [
-      [ "event", "a00039.html#a66d37b6a457d38cf3436d5ec7920b908", null ],
-      [ "txData", "a00039.html#a99c768011290e47a97b298b665b6bc74", null ],
-      [ "txDataSize", "a00039.html#a83c9312424beab3c34239ece1865b507", null ],
-      [ "rxData", "a00039.html#a568d0498dfb79ae3c37e1a6a10b703f3", null ],
-      [ "rxDataSize", "a00039.html#aa2ba04b3725aefbb014b89fd2e3c7f43", null ],
-      [ "completionStatus", "a00039.html#a66ea82168521a0843a4619ea4933c0da", null ],
-      [ "transferredCount", "a00039.html#a0b66066e2be94f4eaa371adf37da32a8", null ]
+    [ "iomuxc_input_pin_config_t", "a00039.html#a00403", [
+      [ "daisy", "a00039.html#ace7e7b7a386392a2c3d424f5b34bc65b", null ],
+      [ "inversion", "a00039.html#af963c7a6feae468c437188416132e03d", null ]
     ] ],
-    [ "i3c_slave_handle_t", "a00039.html#a00289", [
-      [ "transfer", "a00039.html#a50a74a027294db6b95d2436342644d32", null ],
-      [ "isBusy", "a00039.html#a623b52328752ec251c7235b560b359b3", null ],
-      [ "wasTransmit", "a00039.html#a726c4eb7a4a7dbcb6bff19892b52fb92", null ],
-      [ "eventMask", "a00039.html#a955a5590b496c365dca1dda6521b6945", null ],
-      [ "transferredCount", "a00039.html#a2ba6e2ab17cdd7dfd7c2eb71ad8679fe", null ],
-      [ "callback", "a00039.html#a3fa83ecc8a16fce5ad748daa1820c94b", null ],
-      [ "userData", "a00039.html#a8d4d3fa4219c24442c1f478837cf87ea", null ],
-      [ "txFifoSize", "a00039.html#a7b318b7ba2f9b74b90c8bf788af5871e", null ]
+    [ "iomux_pin_reset_config_t", "a00039.html#a00402", [
+      [ "pullSelect", "a00039.html#a5f109df680c5028582bbd07fc3cdd430", null ],
+      [ "slewRate", "a00039.html#a128c21b742f8b8209bfec161e0141944", null ],
+      [ "openDrainEnable", "a00039.html#a941e5fcfa5f3bf9134744147d86dac41", null ],
+      [ "driveStrength", "a00039.html#a54e7f56789293673be14f0a48c383ce3", null ],
+      [ "lockRegister", "a00039.html#ac0ea7608fc0633eed6af132a0c4989ab", null ]
     ] ],
-    [ "i3c_slave_transfer_callback_t", "a00039.html#gada633855ef6083061ce6205185f29187", null ],
-    [ "i3c_slave_isr_t", "a00039.html#gaa57ff17d0b3919986c395a8825e00462", null ],
-    [ "_i3c_slave_flags", "a00039.html#gae5c787dbdeb2420f38e50c912e36bad1", [
-      [ "kI3C_SlaveNotStopFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1ae856c2de9789a964c5df9de6b59fa5b5", null ],
-      [ "kI3C_SlaveMessageFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1abb232d0753ef5e1cb528c0f70daa2028", null ],
-      [ "kI3C_SlaveRequiredReadFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1afc342a0ed101c4dd987047414dba5727", null ],
-      [ "kI3C_SlaveRequiredWriteFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1a1b44c76f76dc7592c5a3a851691c827f", null ],
-      [ "kI3C_SlaveBusDAAFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1a90d1bd0889b419b41710c905a023e699", null ],
-      [ "kI3C_SlaveBusHDRModeFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1a8134e94cfc1a1a1e41b6d7dafecc6721", null ],
-      [ "kI3C_SlaveBusStartFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1a007137b4800c84cf25a31eadc687bc2e", null ],
-      [ "kI3C_SlaveMatchedFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1aa7410fa50b7d84e1f3da17649389cf98", null ],
-      [ "kI3C_SlaveBusStopFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1a8904ae203162bf4de511bd3d44166bd0", null ],
-      [ "kI3C_SlaveRxReadyFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1ab04dfa145be7ae004f3e453cc5f22975", null ],
-      [ "kI3C_SlaveTxReadyFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1ac0fb318358a569c3b90a754649ad480b", null ],
-      [ "kI3C_SlaveDynamicAddrChangedFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1a36533bd278344d58566e0316d8c32695", null ],
-      [ "kI3C_SlaveReceivedCCCFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1a0237cb952ce19512f77eaea85ec7dd87", null ],
-      [ "kI3C_SlaveErrorFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1a603496b621ece631d6b7c66398f37254", null ],
-      [ "kI3C_SlaveHDRCommandMatchFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1aa40886fd07849aa04abbf78a0e90213b", null ],
-      [ "kI3C_SlaveCCCHandledFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1a47c0731626e7d65f7bd99befb714082b", null ],
-      [ "kI3C_SlaveEventSentFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1a5e512f1349b7b6d5d245be7496f9d9a2", null ],
-      [ "kI3C_SlaveIbiDisableFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1a111fbbfc5bd0296baaa460209acbb17b", null ],
-      [ "kI3C_SlaveMasterRequestDisabledFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1ae2da05c79b6d1dcbf7087b638c95351f", null ],
-      [ "kI3C_SlaveHotJoinDisabledFlag", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1af43952b3f9ba151711d1d6b105d956d7", null ],
-      [ "kI3C_SlaveClearFlags", "a00039.html#ggae5c787dbdeb2420f38e50c912e36bad1a085cabea22a033d45af3bdd11ef20558", null ]
+    [ "FSL_IOMUXC_DRIVER_VERSION", "a00039.html#gaa82996f29b9fa7947fdc478b7a874757", null ],
+    [ "IOMUXC_SET_MUX_CONTROL_PAD", "a00039.html#gad46f287661c73d0d2611363fadf207fa", null ],
+    [ "IOMUXC_SET_INPUTPIN_CONFIG", "a00039.html#ga275f326284d041985a40687b80ec272b", null ],
+    [ "IOMUXC_SET_MUX_CONTROL_PAD_RESET", "a00039.html#ga84ed041f19ae06c13e9580c42eca39cc", null ],
+    [ "_iomuxc_pull", "a00039.html#ga4d99388185a141bdde3c8aa67f873cc3", [
+      [ "kIOMUXC_PullDisable", "a00039.html#gga4d99388185a141bdde3c8aa67f873cc3a4f292f9edaca5c6a77c736a14fe9c673", null ],
+      [ "kIOMUXC_PullDown", "a00039.html#gga4d99388185a141bdde3c8aa67f873cc3a9e3739e270ac264017b42a6a9c7c87f6", null ],
+      [ "kIOMUXC_PullUp", "a00039.html#gga4d99388185a141bdde3c8aa67f873cc3a7b78ae37a3e1438fcb94409407082c1f", null ]
     ] ],
-    [ "_i3c_slave_error_flags", "a00039.html#ga806dc86e40128eb6bf3e0853537b2b9b", [
-      [ "kI3C_SlaveErrorOverrunFlag", "a00039.html#gga806dc86e40128eb6bf3e0853537b2b9bab6fbf473367003f04876296c2fbca2af", null ],
-      [ "kI3C_SlaveErrorUnderrunFlag", "a00039.html#gga806dc86e40128eb6bf3e0853537b2b9ba15a719f050edf51372b2cb7eacb54f4f", null ],
-      [ "kI3C_SlaveErrorUnderrunNakFlag", "a00039.html#gga806dc86e40128eb6bf3e0853537b2b9ba6890862c30f340f357ab162c6f193ec0", null ],
-      [ "kI3C_SlaveErrorTermFlag", "a00039.html#gga806dc86e40128eb6bf3e0853537b2b9ba712354ffcf66274ceca67defb71a3eb0", null ],
-      [ "kI3C_SlaveErrorInvalidStartFlag", "a00039.html#gga806dc86e40128eb6bf3e0853537b2b9ba55e1ca378f58f8528cd7f7da6b34997f", null ],
-      [ "kI3C_SlaveErrorSdrParityFlag", "a00039.html#gga806dc86e40128eb6bf3e0853537b2b9baf97cf443cb9b10aa179e4c01edebfef5", null ],
-      [ "kI3C_SlaveErrorHdrParityFlag", "a00039.html#gga806dc86e40128eb6bf3e0853537b2b9ba2c9b8ea22108348a0ddb649b6caa6c10", null ],
-      [ "kI3C_SlaveErrorHdrCRCFlag", "a00039.html#gga806dc86e40128eb6bf3e0853537b2b9ba7aa919a09ffc845467c720d4cec2de62", null ],
-      [ "kI3C_SlaveErrorS0S1Flag", "a00039.html#gga806dc86e40128eb6bf3e0853537b2b9bae001a006772822e5feeba1a48447c8d7", null ],
-      [ "kI3C_SlaveErrorOverreadFlag", "a00039.html#gga806dc86e40128eb6bf3e0853537b2b9baf2c8a7e4796255f62eaa3f879bf42dfe", null ],
-      [ "kI3C_SlaveErrorOverwriteFlag", "a00039.html#gga806dc86e40128eb6bf3e0853537b2b9ba397e6eebaeae742add9b14dc2a72a07f", null ]
+    [ "_iomuxc_slew_rate", "a00039.html#ga44c35fc62f2b115b931aa7c2201c090e", [
+      [ "kIOMUXC_StandardSlewRate", "a00039.html#gga44c35fc62f2b115b931aa7c2201c090ea1953d4fae7ce2cbf68045fe558c79288", null ],
+      [ "kIOMUXC_SlowSlewRate", "a00039.html#gga44c35fc62f2b115b931aa7c2201c090eae36a3041bc67a1b17ab53f3e741bbd05", null ]
     ] ],
-    [ "i3c_slave_event_t", "a00039.html#ga83516aaf2d5af1d6f01bfe90c51155ff", [
-      [ "kI3C_SlaveEventNormal", "a00039.html#gga83516aaf2d5af1d6f01bfe90c51155ffaa0edb1d7b4740e23426ab265c7f76da4", null ],
-      [ "kI3C_SlaveEventIBI", "a00039.html#gga83516aaf2d5af1d6f01bfe90c51155ffa42c92ea9bd328c3b65d0e7fc6674c338", null ],
-      [ "kI3C_SlaveEventMasterReq", "a00039.html#gga83516aaf2d5af1d6f01bfe90c51155ffaf81749873ca6b6a227c090fd5bceeee8", null ],
-      [ "kI3C_SlaveEventHotJoinReq", "a00039.html#gga83516aaf2d5af1d6f01bfe90c51155ffa1989c0750ed0d920482b8b65d98a73b4", null ]
+    [ "_iomuxc_open_drain_enable", "a00039.html#gaf2a065b62174adea37aa3bd53a069576", [
+      [ "kIOMUXC_OpenDrainDisable", "a00039.html#ggaf2a065b62174adea37aa3bd53a069576ab33e3e92fd1c85f3c2120af265b4c105", null ],
+      [ "kIOMUXC_OpenDrainEnable", "a00039.html#ggaf2a065b62174adea37aa3bd53a069576abc0ddef8cd7158405aabe8daeee8cf40", null ]
     ] ],
-    [ "i3c_slave_activity_state_t", "a00039.html#ga3acce2b23e62894f993dba8044f41ded", [
-      [ "kI3C_SlaveNoLatency", "a00039.html#gga3acce2b23e62894f993dba8044f41dedae04aca510c43014f567bb5ecc92b055a", null ],
-      [ "kI3C_SlaveLatency1Ms", "a00039.html#gga3acce2b23e62894f993dba8044f41dedacba58e3c0ddebac15feacc8810aa36e9", null ],
-      [ "kI3C_SlaveLatency100Ms", "a00039.html#gga3acce2b23e62894f993dba8044f41deda7cc603734f6cea7f36f11f6e82bbec2a", null ],
-      [ "kI3C_SlaveLatency10S", "a00039.html#gga3acce2b23e62894f993dba8044f41deda886e7c36aa0320db1a27769d23bbe245", null ]
+    [ "_iomuxc_drive_strength", "a00039.html#ga22933985edfa083072d768559d3c547a", [
+      [ "kIOMUXC_StandardDriveStrength", "a00039.html#gga22933985edfa083072d768559d3c547aa7c5bb00d8e639aed6dab875411f5b56c", null ],
+      [ "kIOMUXC_HighDriveStrength", "a00039.html#gga22933985edfa083072d768559d3c547aad1fd3b0e89aa63006baa731960f17d2d", null ]
     ] ],
-    [ "i3c_slave_transfer_event_t", "a00039.html#ga2c7de75eda1c22aa63ab2bbdc0f0d989", [
-      [ "kI3C_SlaveAddressMatchEvent", "a00039.html#gga2c7de75eda1c22aa63ab2bbdc0f0d989a4ba7cde181fc4720255985ac9669563b", null ],
-      [ "kI3C_SlaveTransmitEvent", "a00039.html#gga2c7de75eda1c22aa63ab2bbdc0f0d989ac1ddc4bae9e31c516d468c44c644438b", null ],
-      [ "kI3C_SlaveReceiveEvent", "a00039.html#gga2c7de75eda1c22aa63ab2bbdc0f0d989afc30108371d78ede74f4a1c9724d22b8", null ],
-      [ "kI3C_SlaveRequiredTransmitEvent", "a00039.html#gga2c7de75eda1c22aa63ab2bbdc0f0d989a16e7360bba643f1a7f699ac0d9ff5033", null ],
-      [ "kI3C_SlaveStartEvent", "a00039.html#gga2c7de75eda1c22aa63ab2bbdc0f0d989a3a226dce66e90a81b3766c9f4ab61128", null ],
-      [ "kI3C_SlaveHDRCommandMatchEvent", "a00039.html#gga2c7de75eda1c22aa63ab2bbdc0f0d989ace186b327e1875eb407912f73feaa2d0", null ],
-      [ "kI3C_SlaveCompletionEvent", "a00039.html#gga2c7de75eda1c22aa63ab2bbdc0f0d989afd02679de07ec01bbda9eddff9d51142", null ],
-      [ "kI3C_SlaveRequestSentEvent", "a00039.html#gga2c7de75eda1c22aa63ab2bbdc0f0d989ada90e0bf341a85503f67d12f6845ffe0", null ],
-      [ "kI3C_SlaveReceivedCCCEvent", "a00039.html#gga2c7de75eda1c22aa63ab2bbdc0f0d989ad241179a27080e858b3b7e7c8f6069e8", null ],
-      [ "kI3C_SlaveAllEvents", "a00039.html#gga2c7de75eda1c22aa63ab2bbdc0f0d989ac872741fd80ab9d76f9ec145a674f53c", null ]
+    [ "_iomuxc_mux", "a00039.html#gaacab0cbd06b841f89bd94df62395babe", [
+      [ "kIOMUXC_MuxAlt0", "a00039.html#ggaacab0cbd06b841f89bd94df62395babea72c9b8e5caf85ef6ffba082de7f9cee0", null ],
+      [ "kIOMUXC_MuxAlt1", "a00039.html#ggaacab0cbd06b841f89bd94df62395babeaa387407f74691c88670be85df21eb746", null ],
+      [ "kIOMUXC_MuxAlt2", "a00039.html#ggaacab0cbd06b841f89bd94df62395babeae8ac879acf57d91babe10ee251ebf17f", null ],
+      [ "kIOMUXC_MuxAlt3", "a00039.html#ggaacab0cbd06b841f89bd94df62395babeabc5b577484c9d3049af4416e6c24b082", null ],
+      [ "kIOMUXC_MuxAlt4", "a00039.html#ggaacab0cbd06b841f89bd94df62395babea85d300193b5f06f217938e65d1298faf", null ],
+      [ "kIOMUXC_MuxAlt5", "a00039.html#ggaacab0cbd06b841f89bd94df62395babea37d8c92b456d8952a7b89cf33a62df7c", null ],
+      [ "kIOMUXC_MuxAlt6", "a00039.html#ggaacab0cbd06b841f89bd94df62395babea30343290be7ba273339d1f556de80464", null ],
+      [ "kIOMUXC_MuxAlt7", "a00039.html#ggaacab0cbd06b841f89bd94df62395babea671c29cbe99838f243f1ca1b20b53539", null ],
+      [ "kIOMUXC_MuxAlt8", "a00039.html#ggaacab0cbd06b841f89bd94df62395babeaf3466538c2a48cf131aceb752d290ee6", null ],
+      [ "kIOMUXC_MuxAlt9", "a00039.html#ggaacab0cbd06b841f89bd94df62395babea4166581cac494ed6dce4d923c5476a5b", null ],
+      [ "kIOMUXC_MuxAlt10", "a00039.html#ggaacab0cbd06b841f89bd94df62395babea90f10a2513ccb4d921d23767c798043f", null ],
+      [ "kIOMUXC_MuxAlt11", "a00039.html#ggaacab0cbd06b841f89bd94df62395babea474d2039ebfa148cd04bf0eddae594c1", null ],
+      [ "kIOMUXC_MuxAlt12", "a00039.html#ggaacab0cbd06b841f89bd94df62395babea8cf7c942d62631d93725a35f9a66c750", null ],
+      [ "kIOMUXC_MuxAlt13", "a00039.html#ggaacab0cbd06b841f89bd94df62395babea196b3a88eecb18c841ed70f1934ef8bd", null ],
+      [ "kIOMUXC_MuxAlt14", "a00039.html#ggaacab0cbd06b841f89bd94df62395babea8a37d8d1a2f3cd69ba6551a75125133d", null ],
+      [ "kIOMUXC_MuxAlt15", "a00039.html#ggaacab0cbd06b841f89bd94df62395babea86d8dee7f9656f8f3429a0f843375599", null ]
     ] ],
-    [ "I3C_SlaveGetDefaultConfig", "a00036.html#gada6de6140ea7a8fd8f9b188f6ca8d561", null ],
-    [ "I3C_SlaveInit", "a00036.html#ga6cbdffff9439d0b1ee27682a5c592c34", null ],
-    [ "I3C_SlaveDeinit", "a00036.html#gaaf8b8a5e1974d969dfb4769ece3f2d0c", null ],
-    [ "I3C_SlaveEnable", "a00036.html#ga4ee0343d4b79a3a929821af22b227949", null ],
-    [ "I3C_SlaveGetStatusFlags", "a00036.html#gaf483efbd8d9c2569369d4d6d9ee043c7", null ],
-    [ "I3C_SlaveClearStatusFlags", "a00036.html#ga41de2b6422398d3aed02cfdbda87ded5", null ],
-    [ "I3C_SlaveGetErrorStatusFlags", "a00036.html#gaf6c4e955676f72510a17e7cf9797d389", null ],
-    [ "I3C_SlaveClearErrorStatusFlags", "a00036.html#gaff291ac645d00d688a3c4539362a9e3a", null ],
-    [ "I3C_SlaveGetActivityState", "a00036.html#gab93bd6b3583b8382d1d5f40795004f73", null ],
-    [ "I3C_SlaveEnableInterrupts", "a00036.html#ga2af3e5de992c1276297273a63348d457", null ],
-    [ "I3C_SlaveDisableInterrupts", "a00036.html#ga9e57f2e719be892e00d0a2e418a7d36a", null ],
-    [ "I3C_SlaveGetEnabledInterrupts", "a00036.html#ga7e7f2933e71c84110713583b86756728", null ],
-    [ "I3C_SlaveGetPendingInterrupts", "a00036.html#ga1ca3ffdca28af282a70156dd851dc6e6", null ],
-    [ "I3C_SlaveEnableDMA", "a00036.html#ga295e383ac5ea2f4e1d1ce23507f6235d", null ],
-    [ "I3C_SlaveGetTxFifoAddress", "a00036.html#ga7105aa1d37198b11eb064634c4ab55a3", null ],
-    [ "I3C_SlaveGetRxFifoAddress", "a00036.html#ga4d7c6a568b4031a0036521a834362d3c", null ],
-    [ "I3C_SlaveSetWatermarks", "a00036.html#ga636c51a8e9043322a0ac215928c2e46d", null ],
-    [ "I3C_SlaveGetFifoCounts", "a00036.html#ga5598ac74ca66fa9c73998d43a3b48f5c", null ],
-    [ "I3C_SlaveRequestEvent", "a00036.html#gab024187605c4c4bf9256a36e4e217b2e", null ],
-    [ "I3C_SlaveSend", "a00036.html#gada1fa684cab9859f17724bc800b35b19", null ],
-    [ "I3C_SlaveReceive", "a00036.html#gab35cd6ef6042ccbd3534a4b57a3dcf37", null ],
-    [ "I3C_SlaveTransferCreateHandle", "a00039.html#ga3c0a5fc262795b92f8a68b6e20c572e5", null ],
-    [ "I3C_SlaveTransferNonBlocking", "a00039.html#ga6105a83b8c488151a17eb8d93d51f00d", null ],
-    [ "I3C_SlaveTransferGetCount", "a00039.html#ga9f19df9a2dd5d99440e7707aa662d49c", null ],
-    [ "I3C_SlaveTransferAbort", "a00039.html#ga2d2b65294f290b2dd43ac2707f3ca87e", null ],
-    [ "I3C_SlaveTransferHandleIRQ", "a00039.html#gaf604d3e51fccadaa37e28bd6ba6d37c3", null ],
-    [ "I3C_SlaveRequestIBIWithData", "a00039.html#ga41456fa4696a936a2d7419667f39c6b8", null ],
-    [ "I3C_SlaveRequestIBIWithSingleData", "a00039.html#gad2b8e86e437281cd6d464930e55cc8be", null ]
+    [ "_iomuxc_lock_register", "a00039.html#ga9664ce389138ed8cd1c12dc9e742b892", [
+      [ "kIOMUXC_UnlockRegister", "a00039.html#gga9664ce389138ed8cd1c12dc9e742b892a89628004c4b69dd404b994ff2def6d27", null ],
+      [ "kIOMUXC_LockRegister", "a00039.html#gga9664ce389138ed8cd1c12dc9e742b892a88d889a680ad9db388b4a16eec9fa94f", null ]
+    ] ],
+    [ "_iomuxc_input_buffer_enable", "a00039.html#ga29ebcbf202807e8c5d3bfd680f25882d", [
+      [ "kIOMUXC_InputBufferDisable", "a00039.html#gga29ebcbf202807e8c5d3bfd680f25882daaca555f5e85a0ef7a6bb775d14d7412a", null ],
+      [ "kIOMUXC_InputBufferEnable", "a00039.html#gga29ebcbf202807e8c5d3bfd680f25882da64a3091e03d44a731959bdae81c36da4", null ]
+    ] ],
+    [ "_iomuxc_output_buffer_enable", "a00039.html#ga3a1788e3215f4ded989b2677d00e82c2", [
+      [ "kIOMUXC_outputBufferDisable", "a00039.html#gga3a1788e3215f4ded989b2677d00e82c2a4665c2e8842df303d354f2d88e6547ae", null ],
+      [ "kIOMUXC_outputBufferEnable", "a00039.html#gga3a1788e3215f4ded989b2677d00e82c2a96e121257feab3e3d5fbf7b9d248575d", null ]
+    ] ],
+    [ "iomux_digital_filter_clock_select_t", "a00039.html#ga5f4b330c07ce6080b34fa5e2632b1fb7", [
+      [ "kIOMUXC_IPGClock", "a00039.html#gga5f4b330c07ce6080b34fa5e2632b1fb7ab73bce721a91beaa62be0d2ed31ef190", null ],
+      [ "kIOMUXC_1KhzClock", "a00039.html#gga5f4b330c07ce6080b34fa5e2632b1fb7abaa2a6ba1a209372b16a7f38d1338a79", null ]
+    ] ],
+    [ "_iomuxc_inputpin_mux", "a00039.html#ga0558da6e64fcf957e9e7e6949c7cb73a", [
+      [ "kIOMUXC_InputMuxAlt0", "a00039.html#gga0558da6e64fcf957e9e7e6949c7cb73aac33c6062cba930a988c5d11328ec1d6b", null ],
+      [ "kIOMUXC_InputMuxAlt1", "a00039.html#gga0558da6e64fcf957e9e7e6949c7cb73aacbcf9c3cfd1306456ee4c16a37d26a1d", null ],
+      [ "kIOMUXC_InputMuxAlt2", "a00039.html#gga0558da6e64fcf957e9e7e6949c7cb73aa35fa71f36d18feac3a45c703024d3524", null ],
+      [ "kIOMUXC_InputMuxAlt3", "a00039.html#gga0558da6e64fcf957e9e7e6949c7cb73aa826c4dc92f15bf565785484190ef6ff7", null ]
+    ] ],
+    [ "_iomuxc_input_inversion_enable", "a00039.html#gaf32f2ea7a4753020d56a2384919016bb", [
+      [ "kIOMUXC_InputInversionDisable", "a00039.html#ggaf32f2ea7a4753020d56a2384919016bba6ecba0f55034101acf2d494910488820", null ],
+      [ "kIOMUXC_InputInversionEnable", "a00039.html#ggaf32f2ea7a4753020d56a2384919016bba08325def6110bf1d86b5b31309c5369b", null ]
+    ] ]
 ];

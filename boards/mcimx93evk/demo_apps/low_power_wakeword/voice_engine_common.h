@@ -18,4 +18,11 @@ void voice_engine_algo_init(void);
 uint8_t voice_engine_algo_process(void *data);
 void voice_engine_algo_reset(void);
 
+
+#ifdef VOICE_ENGINE_VERBOSE
+#define PRINTF_VERBOSE(...)  PRINTF(__VA_ARGS__)
+#else
+#define PRINTF_VERBOSE(...)
+#endif
+
 #endif

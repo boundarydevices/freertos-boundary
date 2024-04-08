@@ -61,7 +61,7 @@ void TZM_JumpToNormalWorld(uint32_t nonsecVtorAddress)
 
         /* One register size is 4byte */
         tmpSp = (tmpSp % 32) / 4;
-        for(byteAlign = 0; (byteAlign + tmpSp + 7) % 8 != 0; byteAlign++)
+        for (byteAlign = 0; (byteAlign + tmpSp + 7) % 8 != 0; byteAlign++)
         {
             asm volatile("PUSH {r12}");
         }

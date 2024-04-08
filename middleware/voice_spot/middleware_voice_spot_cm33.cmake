@@ -3,15 +3,12 @@
 include_guard(GLOBAL)
 message("${CMAKE_CURRENT_LIST_FILE} component is included.")
 
-if(CONFIG_USE_middleware_voice_spot_template AND (CONFIG_BOARD STREQUAL mcimx93evk) AND CONFIG_USE_middleware_voice_spot_model)
-
-target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
-  ${CMAKE_CURRENT_LIST_DIR}/ARM_CortexM33/lib/include
-)
+if((CONFIG_BOARD STREQUAL mcimx93autoevk OR CONFIG_BOARD STREQUAL mcimx93evk OR CONFIG_BOARD STREQUAL mcimx93qsb) AND CONFIG_USE_middleware_voice_spot_model)
 
 if(CONFIG_TOOLCHAIN STREQUAL armgcc)
 target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
-  ${CMAKE_CURRENT_LIST_DIR}/rdsp_utilities_public/include
+  ${CMAKE_CURRENT_LIST_DIR}/ARM_CortexM33/lib/include
+  ${CMAKE_CURRENT_LIST_DIR}/ARM_CortexM33/rdsp_utilities_public/include
 )
 endif()
 

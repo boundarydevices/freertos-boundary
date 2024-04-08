@@ -1,6 +1,5 @@
 /*
  * Copyright 2022 NXP
- * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -19,11 +18,13 @@
 #include "srtm_i2c_service.h"
 #include "srtm_sai_edma_adapter.h"
 #include "srtm_pdm_edma_adapter.h"
+#include "srtm_channel_struct.h"
 
 #include "app_srtm.h"
 #include "board.h"
 #include "rsc_table.h"
 #include "fsl_mu.h"
+#include "fsl_sema42.h"
 
 static srtm_sai_adapter_t saiAdapter;
 srtm_sai_adapter_t pdmAdapter;
@@ -184,6 +185,63 @@ static void APP_SRTM_InitI2CService(void)
     SRTM_Dispatcher_RegisterService(disp, i2cService);
 }
 
+#if defined(BOARD_USE_DDR_RETENTION) && BOARD_USE_DDR_RETENTION
+void APP_SRTM_PreCopyCallback()
+{
+    /* Sema42 lock */
+    SEMA42_Lock(APP_SEMA42, APP_SEMA42_GATE, APP_CORTEX_M_DID);
+
+    /* Put DDR exit retention if used by A55 side */
+    if (R32(DDR_RETENTION_BASE) & DDR_RETENTION_A55_FLAG)
+    {
+        /* Put DDR exit retention */
+        BOARD_DRAMExitRetention();
+    }
+
+    /* M33 is using ddr, clear DDR_RETENTION_M33_FLAG */
+    CLRBIT32(DDR_RETENTION_BASE, DDR_RETENTION_M33_FLAG);
+
+    /* Sema42 unlock */
+    SEMA42_Unlock(APP_SEMA42, APP_SEMA42_GATE);
+}
+
+void APP_SRTM_PostCopyCallback()
+{
+    /* Sema42 lock */
+    SEMA42_Lock(APP_SEMA42, APP_SEMA42_GATE, APP_CORTEX_M_DID);
+
+    /* Put ddr into retention if not used by A55 side */
+    if (R32(DDR_RETENTION_BASE) & DDR_RETENTION_A55_FLAG)
+    {
+        /* Put ddr into retention */
+        BOARD_DRAMEnterRetention();
+    }
+
+    /* M33 is not using ddr, clear DDR_RETENTION_M33_FLAG */
+    SETBIT32(DDR_RETENTION_BASE, DDR_RETENTION_M33_FLAG);
+
+    /* Unlock */
+    SEMA42_Unlock(APP_SEMA42, APP_SEMA42_GATE);
+}
+
+/*
+ * As IMX93 don't have hardware method to get peer core power state, Only life cycle service cannot express the complete
+ * power change process. So Mcore will default peer core to actived state, in time for the peer side to enter the
+ * low-power state. For LPA example, Mcore need ensure that ddr is available when sending messages via rpmsg machine.
+ */
+/* rpmsg_lite_send pre call back */
+void APP_SRTM_SendMessagePreCallback(srtm_channel_t channel, void *data, uint32_t len)
+{
+    APP_SRTM_PreCopyCallback();
+}
+
+/* rpmsg_lite_send post call back */
+void APP_SRTM_SendMessagePostCallback(srtm_channel_t channel, void *data, uint32_t len)
+{
+    APP_SRTM_PostCopyCallback();
+}
+#endif
+
 static void APP_SRTM_PollLinkup(srtm_dispatcher_t dispatcher, void *param1, void *param2)
 {
     if (srtmState == APP_SRTM_StateRun)
@@ -229,6 +287,13 @@ static void APP_SRTM_Linkup(void)
     rpmsgConfig.epName = APP_SRTM_AUDIO_CHANNEL_NAME;
     chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
     SRTM_PeerCore_AddChannel(core, chan);
+#if defined(BOARD_USE_DDR_RETENTION) && BOARD_USE_DDR_RETENTION
+// Don't enable these callbacks in LPV case (DDR retention managed by SRTM PDM adapter)
+#if !(defined(SRTM_DDR_RETENTION_USED) && SRTM_DDR_RETENTION_USED)
+    chan->sendDataPreCallback  = APP_SRTM_SendMessagePreCallback;
+    chan->sendDataPostCallback = APP_SRTM_SendMessagePostCallback;
+#endif
+#endif
     assert((audioService != NULL) && (saiAdapter != NULL));
     SRTM_AudioService_BindChannel(audioService, saiAdapter, chan);
 
@@ -238,7 +303,7 @@ static void APP_SRTM_Linkup(void)
     assert((audioService != NULL) && (pdmAdapter != NULL));
     SRTM_AudioService_BindChannel(audioService, pdmAdapter, chan);
 
-    /* Create and add SRTM I2C channel to peer core*/
+    /* Create and add SRTM I2C channel to peer core */
     rpmsgConfig.epName = APP_SRTM_I2C_CHANNEL_NAME;
     chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
     SRTM_PeerCore_AddChannel(core, chan);
@@ -336,8 +401,8 @@ static void APP_SRTM_InitAudioDevice(void)
     EDMA_Init(DMA4, &dmaConfig);
 
     /* Initialize DMAMUX for SAI */
-    EDMA_SetChannelMux(DMA4, APP_SAI_TX_DMA_CHANNEL, Dma4RequestMuxSai3Tx);
-    EDMA_SetChannelMux(DMA4, APP_SAI_RX_DMA_CHANNEL, Dma4RequestMuxSai3Rx);
+    EDMA_SetChannelMux(DMA4, APP_SAI_TX_DMA_CHANNEL, kDma4RequestMuxSai3Tx);
+    EDMA_SetChannelMux(DMA4, APP_SAI_RX_DMA_CHANNEL, kDma4RequestMuxSai3Rx);
 
     APP_SRTM_InitPdmDevice(true);
 }
@@ -353,22 +418,24 @@ static void APP_SRTM_InitAudioService(void)
     srtm_sai_edma_config_t saiRxConfig;
     srtm_pdm_edma_config_t pdmConfig;
 
-    PRINTF("%s\r\n", __func__);
     APP_SRTM_InitAudioDevice();
 
     memset(&saiTxConfig, 0, sizeof(saiTxConfig));
     memset(&saiRxConfig, 0, sizeof(saiRxConfig));
     memset(&pdmConfig, 0, sizeof(srtm_pdm_edma_config_t));
 
-    /*  Set SAI DMA IRQ Priority. */
-    NVIC_SetPriority(APP_DMA_IRQN(APP_SAI_TX_DMA_CHANNEL), APP_SAI_TX_DMA_IRQ_PRIO);
-    NVIC_SetPriority(APP_DMA_IRQN(APP_SAI_RX_DMA_CHANNEL), APP_SAI_RX_DMA_IRQ_PRIO);
+    /*  Set IRQ Priorities. */
+    NVIC_SetPriority(APP_DMA4_IRQN(APP_SAI_TX_DMA_CHANNEL), APP_SAI_TX_DMA_IRQ_PRIO);
+    NVIC_SetPriority(APP_DMA4_IRQN(APP_SAI_RX_DMA_CHANNEL), APP_SAI_RX_DMA_IRQ_PRIO);
     NVIC_SetPriority(APP_SRTM_SAI_IRQn, APP_SAI_IRQ_PRIO);
+    NVIC_SetPriority(APP_DMA3_IRQN(APP_PDM_RX_DMA_CHANNEL), APP_PDM_DMA_IRQ_PRIO);
+    NVIC_SetPriority(APP_DMA4_IRQN(APP_MEM2MEM_W_DMA_CHANNEL), APP_M2M_DMA_IRQ_PRIO);
+    NVIC_SetPriority(APP_DMA4_IRQN(APP_MEM2MEM_R_DMA_CHANNEL), APP_M2M_DMA_IRQ_PRIO);
 
     /* Create SAI EDMA adapter */
     SAI_GetClassicI2SConfig(&saiTxConfig.config, kSAI_WordWidth16bits, kSAI_Stereo, kSAI_Channel0Mask);
-    saiTxConfig.config.syncMode           = kSAI_ModeSync; /* Tx in Sync mode */
-    saiTxConfig.config.fifo.fifoWatermark = FSL_FEATURE_SAI_FIFO_COUNTn(APP_SRTM_SAI) / 2;
+    saiTxConfig.config.syncMode           = kSAI_ModeAsync; /* Tx in Async mode */
+    saiTxConfig.config.fifo.fifoWatermark = FSL_FEATURE_SAI_FIFO_COUNTn(APP_SRTM_SAI) - 1;
     saiTxConfig.mclk                      = CLOCK_GetIpFreq(kCLOCK_Root_Sai3);
 #if defined(DEMO_SAI_TX_CONFIG_StopOnSuspend)
     saiTxConfig.stopOnSuspend = DEMO_SAI_TX_CONFIG_StopOnSuspend;
@@ -381,7 +448,7 @@ static void APP_SRTM_InitAudioService(void)
     saiTxConfig.dmaChannel = APP_SAI_TX_DMA_CHANNEL;
 
     SAI_GetClassicI2SConfig(&saiRxConfig.config, kSAI_WordWidth16bits, kSAI_Stereo, kSAI_Channel0Mask);
-    saiRxConfig.config.syncMode           = kSAI_ModeAsync; /* Rx in async mode */
+    saiRxConfig.config.syncMode           = kSAI_ModeSync; /* Rx in Sync mode */
     saiRxConfig.config.fifo.fifoWatermark = 1;
     saiRxConfig.mclk                      = saiTxConfig.mclk;
 #if defined(DEMO_SAI_TX_CONFIG_StopOnSuspend)
@@ -397,6 +464,8 @@ static void APP_SRTM_InitAudioService(void)
 
 #if SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
     SRTM_SaiEdmaAdapter_SetTxLocalBuf(saiAdapter, &g_local_buf);
+    SRTM_SaiEdmaAdapter_SetTxPreCopyCallback(saiAdapter, APP_SRTM_PreCopyCallback);
+    SRTM_SaiEdmaAdapter_SetTxPostCopyCallback(saiAdapter, APP_SRTM_PostCopyCallback);
 #endif
 
     /* Creat PDM SDMA adapter */
@@ -523,7 +592,6 @@ void APP_SRTM_Init(void)
 
     /* Create SRTM dispatcher */
     disp = SRTM_Dispatcher_Create();
-
     xTaskCreate(SRTM_MonitorTask, "SRTM monitor", 256U, NULL, APP_SRTM_MONITOR_TASK_PRIO, NULL);
     xTaskCreate(SRTM_DispatcherTask, "SRTM dispatcher", 512U, NULL, APP_SRTM_DISPATCHER_TASK_PRIO, NULL);
 }
@@ -532,4 +600,33 @@ void APP_SRTM_StartCommunication(void)
 {
     srtmState = APP_SRTM_StateRun;
     xSemaphoreGive(monSig);
+}
+
+/* true: idle; false: busy(playing audio) */
+bool APP_SRTM_IsAudioServiceIdle(void)
+{
+    srtm_audio_state_t TxState, RxState;
+    static m_core_mode_e curPwrState = RunMode;
+
+    SRTM_SaiEdmaAdapter_GetAudioServiceState(saiAdapter, &TxState, &RxState);
+
+    if (TxState == SRTM_AudioStateClosed && RxState == SRTM_AudioStateClosed)
+    {
+        if (curPwrState != StopMode)
+        {
+            PRINTF("\r\nNo audio playback, M core enters STOP mode!\r\n");
+            curPwrState = StopMode;
+        }
+
+        return true;
+    }
+    else
+    {
+        if (curPwrState != RunMode)
+        {
+            PRINTF("\r\nPlayback is running, M core enters RUN mode!\r\n");
+            curPwrState = RunMode;
+        }
+        return false;
+    }
 }

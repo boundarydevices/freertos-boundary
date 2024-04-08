@@ -169,7 +169,7 @@ status_t PCAL6524_ClearPins(pcal6524_handle_t *handle, uint32_t pins);
  */
 status_t PCAL6524_TogglePins(pcal6524_handle_t *handle, uint32_t pins);
 
-/* @} */
+/*! @} */
 
 #if defined(__cplusplus)
 }

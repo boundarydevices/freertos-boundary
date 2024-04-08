@@ -103,7 +103,7 @@ extern phy_rtl8211f_resource_t g_phy_resource;
 #define EXAMPLE_CLOCK_ROOT kCLOCK_Root_WakeupAxi
 #define EXAMPLE_CLOCK_FREQ CLOCK_GetIpFreq(EXAMPLE_CLOCK_ROOT)
 #define ENETREF_CLOCK_ROOT kCLOCK_Root_EnetRef
-#define ENET_CLOCK_GATE kCLOCK_Enet1
+#define ENET_CLOCK_GATE    kCLOCK_Enet1
 
 
 #ifndef EXAMPLE_NETIF_INIT_FN

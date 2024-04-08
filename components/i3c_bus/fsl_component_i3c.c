@@ -585,10 +585,10 @@ status_t I3C_BusMasterResetDAA(i3c_device_t *masterDev, uint8_t slaveAddr)
         }
         else
         {
-            for (uint32_t i = 0; i <= I3C_BUS_MAX_ADDR; i++)
+            for (uint8_t i = 0; i <= I3C_BUS_MAX_ADDR; i++)
             {
                 addrStat = I3C_BusGetAddrSlotStatus(i3cBus, i);
-                if ((addrStat == kI3C_Bus_AddrSlot_I3CDev) && (masterDev->info.dynamicAddr != i))
+                if ((addrStat == (uint8_t)kI3C_Bus_AddrSlot_I3CDev) && (masterDev->info.dynamicAddr != i))
                 {
                     I3C_BusSetAddrSlot(i3cBus, i, kI3C_Bus_AddrSlot_Free);
                 }

@@ -41,7 +41,7 @@ static void dataCallback(srtm_sai_adapter_t adapter, void *data, uint32_t bytes,
     /* Notify processing task of a new data buffer. */
     if (xTaskNotify(engine_task_handle, (uint32_t)data, eSetValueWithoutOverwrite) != pdPASS)
     {
-        PRINTF("voice_engine_process previous buffer not processed\r\n");
+        PRINTF_VERBOSE("voice_engine_process previous buffer not processed\r\n");
     }
 }
 
@@ -83,7 +83,7 @@ static void voice_engine_task(void *params)
         }
         else
         {
-            PRINTF("xTaskNotifyWait timeout\r\n");
+            PRINTF_VERBOSE("xTaskNotifyWait timeout\r\n");
         }
     }
 }
@@ -92,7 +92,7 @@ void voice_engine_create(void)
 {
     if (xTaskCreate(voice_engine_task, "Voice engine", VOICE_ENGINE_STACK_SIZE, NULL, 2, &engine_task_handle) != pdPASS)
     {
-        PRINTF("Task creation failed!.\r\n");
+        PRINTF_VERBOSE("Voice Task creation failed!.\r\n");
         while (1)
             ;
     }

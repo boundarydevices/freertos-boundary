@@ -22,8 +22,17 @@
 #ifndef SRTM_PDM_EDMA_ADAPTER_USE_HWVAD
 #define SRTM_PDM_EDMA_ADAPTER_USE_HWVAD (1U)
 #endif
+
 #ifndef SRTM_PDM_EDMA_ADAPTER_USE_EXTRA_BUFFER
 #define SRTM_PDM_EDMA_ADAPTER_USE_EXTRA_BUFFER (1U)
+#endif
+
+#ifndef SRTM_PDM_EDMA_DATA_INJECTION
+#define SRTM_PDM_EDMA_DATA_INJECTION (0)
+#endif
+
+#ifndef SRTM_DDR_RETENTION_USED
+#define SRTM_DDR_RETENTION_USED (0)
 #endif
 
 /* Compile option to force usage of local and extra buffers.
@@ -60,7 +69,7 @@ typedef struct _srtm_pdm_edma_config
     bool stopOnSuspend;                 /*!< Stop capture when received suspend command. */
     uint32_t eventSource;               /*!< DMA request source. */
 
-    //edma_context_data_t rxContext;
+    // edma_context_data_t rxContext;
     pdm_misc_set_t extendConfig;
 } srtm_pdm_edma_config_t;
 
@@ -77,6 +86,9 @@ re-computed based on the value and bufSize) */
 } srtm_pdm_edma_local_buf_t;
 
 #if SRTM_PDM_EDMA_ADAPTER_USE_EXTRA_BUFFER
+/*! @brief Buffer access enable/disable function for power saving. */
+typedef void (*buff_access_enable)(bool enable);
+
 /*! @brief PDM EDMA extra buffer. When the local buffer is full, the data can be copied to extra buffer.  */
 typedef struct _srtm_pdm_edma_ext_buf
 {
@@ -84,10 +96,11 @@ typedef struct _srtm_pdm_edma_ext_buf
     uint32_t bufSize; /*!< bytes of the whole extra buffer */
     uint32_t periods; /*!< periods in the buffer, it will be recalculated by the driver using given bufSize and local
                          buffer configuration. */
-    EDMA_Type *mem2memDmaBase;   /*!< The DMA to use for memory copies to/from this external buffer. */
-    uint32_t bufWriteDmaChannel; /*!< The extra buffer write DMA channel. */
-    uint32_t bufReadDmaChannel;  /*!< The extra buffer read DMA channel. */
-    uint8_t channelPriority;     /*!< The priority of DMA channel. */
+    EDMA_Type *mem2memDmaBase;         /*!< The DMA to use for memory copies to/from this external buffer. */
+    uint32_t bufWriteDmaChannel;       /*!< The extra buffer write DMA channel. */
+    uint32_t bufReadDmaChannel;        /*!< The extra buffer read DMA channel. */
+    uint8_t channelPriority;           /*!< The priority of DMA channel. */
+    buff_access_enable buff_access_cb; /*!< callback to enable or disable access to this buffer for power management*/
 } srtm_pdm_edma_ext_buf_t;
 #endif
 
@@ -172,6 +185,15 @@ void SRTM_PdmEdmaAdapter_SetRxLocalBuf(srtm_sai_adapter_t adapter, srtm_pdm_edma
  * @param extBuf extra buffer information to be set to the adapter RX path.
  */
 void SRTM_PdmEdmaAdapter_SetRxExtBuf(srtm_sai_adapter_t adapter, srtm_pdm_edma_ext_buf_t *extBuf);
+
+/*!
+ * @brief configure a callback function that SRTM will call before and after accessing
+ * the Rx ext buffer, so power can be reduced when access to this buffer is not needed.
+ *
+ * @param adapter PDM EDMA adapter for which to configure the callback
+ * @param cb_func callback function
+ */
+void SRTM_PdmEdmaAdapter_SetRxExtBufAccessCb(srtm_sai_adapter_t adapter, buff_access_enable cb_func);
 #endif /* SRTM_PDM_EDMA_ADAPTER_USE_EXTRA_BUFFER */
 
 /*!

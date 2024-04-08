@@ -1,8 +1,9 @@
 /*
 ** ###################################################################
 **     Processors:          MIMX9352AVTXM_cm33
-**                          MIMX9352CVUXK_cm33
-**                          MIMX9352DVUXM_cm33
+**                          MIMX9352CVVXM_cm33
+**                          MIMX9352DVVXM_cm33
+**                          MIMX9352XVVXM_cm33
 **
 **     Compilers:           GNU C Compiler
 **                          IAR ANSI C/C++ Compiler for ARM
@@ -10,7 +11,7 @@
 **
 **     Reference manual:    IMX93RM, Internal, November. 2021
 **     Version:             rev. 1.0, 2021-11-16
-**     Build:               b230512
+**     Build:               b231019
 **
 **     Abstract:
 **         Provides a system configuration function and a global variable that

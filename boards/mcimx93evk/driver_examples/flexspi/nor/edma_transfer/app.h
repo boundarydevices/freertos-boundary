@@ -1,6 +1,5 @@
 /*
  * Copyright 2023 NXP
- * All rights reserved.
  *
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -37,7 +36,6 @@
 #define NOR_CMD_LUT_SEQ_IDX_READ_FAST_QUAD   10
 #define NOR_CMD_LUT_SEQ_IDX_ERASECHIP        11
 
-
 #define CUSTOM_LUT_LENGTH        60
 #define MT25Q_FLASH_QUAD_ENABLE  1
 #define FLASH_BUSY_STATUS_POL    1
@@ -51,8 +49,8 @@
 /* DMA related. */
 #define EXAMPLE_FLEXSPI_DMA (DMA4)
 
-#define FLEXSPI_TX_DMA_REQUEST_SOURCE Dma4RequestMuxFlexSPI1Tx
-#define FLEXSPI_RX_DMA_REQUEST_SOURCE Dma4RequestMuxFlexSPI1Rx
+#define FLEXSPI_TX_DMA_REQUEST_SOURCE kDma4RequestMuxFlexSPI1Tx
+#define FLEXSPI_RX_DMA_REQUEST_SOURCE kDma4RequestMuxFlexSPI1Rx
 
 #define FLEXSPI_TX_DMA_CHANNEL 1U
 #define FLEXSPI_RX_DMA_CHANNEL 2U
@@ -64,7 +62,6 @@
  ******************************************************************************/
 /*${variable:start}*/
 
-
 /*${variable:end}*/
 
 /*******************************************************************************
@@ -75,11 +72,9 @@ void BOARD_InitHardware(void);
 static inline void flexspi_clock_init(void)
 {
     /*Clock setting for flexspi1*/
-    const clock_root_config_t flexspiClkCfg = {
-        .clockOff = false,
-        .mux = 0, // 24MHz oscillator source
-        .div = 2
-    };
+    const clock_root_config_t flexspiClkCfg = {.clockOff = false,
+                                               .mux      = 0, // 24MHz oscillator source
+                                               .div      = 2};
     CLOCK_SetRootClock(kCLOCK_Root_Flexspi1, &flexspiClkCfg);
 }
 /*${prototype:end}*/

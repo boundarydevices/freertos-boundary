@@ -13,7 +13,7 @@
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define DEMO_SEC_ADDRESS    0x30000000
+#define DEMO_SEC_ADDRESS    0x30003000
 #define DEMO_NONSEC_ADDRESS 0x20040000
 typedef void (*funcptr_t)(char const *s);
 #define PRINTF_NSE DbgConsole_Printf_NSE

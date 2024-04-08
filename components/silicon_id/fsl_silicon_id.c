@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 NXP
+ * Copyright 2022-2023 NXP
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,8 +12,6 @@
 #elif (defined(FSL_FEATURE_SYSCON_ROMAPI) && (FSL_FEATURE_SYSCON_ROMAPI == 1))
 #include "fsl_flash.h"
 #include "fsl_flash_ffr.h"
-#else
-#include "fsl_silicon_id_soc.h"
 #endif
 
 /* Component ID definition, used by tools. */
@@ -67,6 +65,7 @@ status_t SILICONID_GetID(uint8_t *siliconId, uint32_t *idLen)
         }
     }
 #else
+    extern status_t SILICONID_ReadUniqueID(uint8_t * siliconId, uint32_t * idLen);
     result = SILICONID_ReadUniqueID(&siliconId[0], idLen);
 #endif
 

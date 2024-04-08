@@ -18,6 +18,11 @@
 #include "srtm_message.h"
 #include "srtm_message_struct.h"
 #include "srtm_service_struct.h"
+
+#if SRTM_DDR_RETENTION_USED
+#include "lpm.h"
+#endif
+
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
@@ -39,7 +44,7 @@ typedef struct _srtm_pdm_edma_buf_runtime
     uint32_t remainingPeriods; /* periods to be consumed/filled */
     uint32_t remainingLoadPeriods; /* periods to be preloaded either to DMA transfer or to local buffer. */
     uint32_t offset;               /* period offset, non-zero value means current period is not finished. */
-} * srtm_pdm_edma_buf_runtime_t;
+} *srtm_pdm_edma_buf_runtime_t;
 
 struct _srtm_pdm_edma_local_runtime
 {
@@ -47,16 +52,17 @@ struct _srtm_pdm_edma_local_runtime
     struct _srtm_pdm_edma_buf_runtime bufRtm;
 };
 
-#define TCD_QUEUE_SIZE   2U
-AT_QUICKACCESS_SECTION_DATA_ALIGN(edma_tcd_t tcdMemoryPoolPtr[TCD_QUEUE_SIZE], sizeof(edma_tcd_t));
-AT_QUICKACCESS_SECTION_DATA_ALIGN(edma_tcd_t tcdMemoryPoolPtrMem2Mem[TCD_QUEUE_SIZE], sizeof(edma_tcd_t));
-volatile bool g_Transfer_Done = false;
-volatile bool g_Transfer_End = false;
+#define TCD_QUEUE_SIZE 2U
+AT_QUICKACCESS_SECTION_DATA_ALIGN(static edma_tcd_t tcdMemoryPoolPtr[TCD_QUEUE_SIZE], sizeof(edma_tcd_t));
+AT_QUICKACCESS_SECTION_DATA_ALIGN(static edma_tcd_t tcdMemoryPoolPtrMem2Mem[TCD_QUEUE_SIZE], sizeof(edma_tcd_t));
+static volatile bool g_w_Transfer_Done = false;
+static volatile bool g_w_Transfer_End  = false;
+static volatile bool g_r_Transfer_Done = false;
 
 struct _srtm_pdm_ext_buf_edma_handle
 {
-    edma_handle_t rDmaHandle;        /* Extra buffer read DMA handle. */
-    edma_handle_t wDmaHandle;        /* Extra buffer write DMA handle. */
+    edma_handle_t rDmaHandle; /* Extra buffer read DMA handle. */
+    edma_handle_t wDmaHandle; /* Extra buffer write DMA handle. */
 };
 
 typedef struct _srtm_pdm_edma_runtime
@@ -78,7 +84,7 @@ typedef struct _srtm_pdm_edma_runtime
                                 the period will be splited into multiple transmissions. */
     uint32_t curXferIdx;      /* The current transmission index in countsPerPeriod. */
     srtm_procedure_t proc;    /* proc message to trigger DMA transfer in SRTM context. */
-    struct _srtm_pdm_edma_buf_runtime bufRtm; /* buffer provided by audio client. */
+    struct _srtm_pdm_edma_buf_runtime bufRtm;     /* buffer provided by audio client. */
     srtm_pdm_edma_local_buf_t localBuf;
     struct _srtm_pdm_edma_local_runtime localRtm; /* buffer set by application. */
 #if SRTM_PDM_EDMA_ADAPTER_USE_EXTRA_BUFFER
@@ -89,15 +95,15 @@ typedef struct _srtm_pdm_edma_runtime
     bool freeRun; /* flag to indicate that no periodReady will be sent by audio client. */
     bool stoppedOnSuspend;
     bool paramSet;
-    uint32_t finishedBufOffset;                 /* offset from bufAddr where the data transfer has completed. */
-    srtm_pdm_edma_suspend_state suspendState;   /* service state in client suspend. */
-    srtm_pdm_edma_data_callback_t dataCallback; /* Callback function to provide data when client is suspend */
-    void *dataCallbackParam;                    /* Callback function argument to be passed back to application */
+    uint32_t finishedBufOffset;                   /* offset from bufAddr where the data transfer has completed. */
+    srtm_pdm_edma_suspend_state suspendState;     /* service state in client suspend. */
+    srtm_pdm_edma_data_callback_t dataCallback;   /* Callback function to provide data when client is suspend */
+    void *dataCallbackParam;                      /* Callback function argument to be passed back to application */
 #if SRTM_PDM_EDMA_ADAPTER_USE_HWVAD
     srtm_pdm_edma_hwvad_callback_t hwvadCallback; /* Callback function which is called when voice detacted by HWVAD. */
     void *hwvadCallbackParam;                     /* Callback function argument to be passed back to application */
 #endif
-} * srtm_pdm_edma_runtime_t;
+} *srtm_pdm_edma_runtime_t;
 
 /* SAI EDMA adapter */
 typedef struct _srtm_pdm_edma_adapter
@@ -116,7 +122,29 @@ typedef struct _srtm_pdm_edma_adapter
 #if SRTM_PDM_EDMA_ADAPTER_USE_EXTRA_BUFFER
     struct _srtm_pdm_ext_buf_edma_handle extBufDmaHandle; /* Extra buffer read/write DMA handle. */
 #endif
-} * srtm_pdm_edma_adapter_t;
+} *srtm_pdm_edma_adapter_t;
+
+/* Data injection.
+ * bootloader can modify this value afer having started this application
+ * and before starting Linux. According to the values read when Linux
+ * starts the corresponding audio device, then Cortex-M will switch to data
+ * injection mode, reading data from the provided address in memory.
+ * This is important that these variables are located in a specific section in
+ * linker script so that their address don't change at each compilation, and
+ * thus easier to locate for bootloader.
+ */
+#if SRTM_PDM_EDMA_DATA_INJECTION
+typedef struct
+{
+    /* Need to be kept in same positions to avoid confusion for users.*/
+    uint32_t data_inject_mode;
+    uint8_t *data_inject_addr;
+    uint32_t data_inject_size;
+    uint32_t data_inject_idx;
+} data_inject_ctrl_t;
+__attribute__((section(".bss.DataInject"))) data_inject_ctrl_t data_inject_ctrl = {0};
+#endif
+
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
@@ -126,7 +154,10 @@ static void SRTM_PdmEdmaAdapter_HwvadCallback(status_t status, void *userData);
 #if SRTM_PDM_EDMA_ADAPTER_USE_EXTRA_BUFFER
 static void SRTM_PdmEdmaAdapter_PumpExtraBuf(srtm_pdm_edma_adapter_t handle);
 static void SRTM_PdmEdmaAdapter_ExtPeriodCopyAndNotifyProc(srtm_dispatcher_t dispatcher, void *param1, void *param2);
-static void SRTM_PdmEdmaAdapter_DmaM2MCallback(edma_handle_t *edma_handle, void *param, bool transferDone, uint32_t bds);
+static void SRTM_PdmEdmaAdapter_DmaM2MCallback(edma_handle_t *edma_handle,
+                                               void *param,
+                                               bool transferDone,
+                                               uint32_t bds);
 #endif
 static void SRTM_PdmEdmaAdapter_CopyData(srtm_pdm_edma_adapter_t handle);
 static void SRTM_PdmEdmaAdapter_AddNewPeriods(srtm_pdm_edma_runtime_t rtm, uint32_t periodIdx);
@@ -215,7 +246,7 @@ static status_t SRTM_PdmEdmaAdapter_PeriodReceiveEDMA(srtm_pdm_edma_adapter_t ha
     }
 #endif
 
-    memset(&xfer, 0, sizeof(xfer));
+    (void)memset(&xfer, 0, sizeof(xfer));
 
     if (rtm->localBuf.buf != NULL)
     {
@@ -317,8 +348,19 @@ static void SRTM_PdmEdmaAdapter_PeriodCopyAndNotify(srtm_pdm_edma_adapter_t hand
         srcSize = rtm->localRtm.periodSize - srcRtm->offset;
         dstSize = rtm->periodSize - dstRtm->offset;
         size    = MIN(srcSize, dstSize);
+#if SRTM_DDR_RETENTION_USED
+        LPM_ddr_pre_access();
+#endif
         SRTM_PdmEdmaAdapter_LocalBufferUpdate((uint32_t *)(void *)(dst + dstRtm->offset),
                                               (uint32_t *)(void *)(src + srcRtm->offset), size / 4U);
+#if SRTM_DDR_RETENTION_USED
+#if SRTM_PDM_EDMA_DATA_INJECTION
+        if (data_inject_ctrl.data_inject_mode == 0)
+#endif
+        {
+            LPM_ddr_post_access();
+        }
+#endif
 
         srcRtm->offset += size;
         dstRtm->offset += size;
@@ -454,7 +496,6 @@ static void SRTM_PdmEdmaAdapter_RxTransferProc(srtm_dispatcher_t dispatcher, voi
             bufAddr = rtm->bufAddr + chaseIdx * rtm->periodSize;
             bufSize = rtm->periodSize;
         }
-
         rtm->dataCallback(adapter, (void *)(bufAddr), bufSize, rtm->dataCallbackParam);
     }
 
@@ -499,11 +540,12 @@ static void SRTM_PdmEdmaAdapter_LocalBufFullDMACb(edma_handle_t *dmahandle,
 
     if (transferDone)
     {
-        g_Transfer_Done = true;
-        if (g_Transfer_End) {
-            rtm->extBufRtm.bufRtm.remainingPeriods--; /* A period is filled. */
+        g_w_Transfer_Done = true;
+        if (g_w_Transfer_End)
+        {
+            rtm->extBufRtm.bufRtm.remainingPeriods--;                            /* A period is filled. */
             rtm->extBufRtm.bufRtm.chaseIdx =
-                (rtm->extBufRtm.bufRtm.chaseIdx + 1U) % rtm->extBuf.periods; /* Move the write pointer. */
+                (rtm->extBufRtm.bufRtm.chaseIdx + 1U) % rtm->extBuf.periods;     /* Move the write pointer. */
 
             if (rtm->extBufRtm.bufRtm.chaseIdx == rtm->extBufRtm.bufRtm.leadIdx) /* Extra buffer overwrite. */
             {
@@ -534,62 +576,70 @@ static void SRTM_PdmEdmaAdapter_LocalBufFullProc(srtm_dispatcher_t dispatcher, v
     src     = rtm->localBuf.buf + rtm->localRtm.bufRtm.leadIdx * rtm->localRtm.periodSize;
     dst     = rtm->extBuf.buf + rtm->extBufRtm.bufRtm.chaseIdx * rtm->extBufRtm.periodSize;
 
-    if (rtm->extBufPumpRunning)
+    if (rtm->extBuf.buff_access_cb != NULL)
     {
-        SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_WARN, "Warn:Local buffer full during extra buffer pump.\r\n");
+        rtm->extBuf.buff_access_cb(true);
     }
 
     if (periods < periodsPerExt) /* The localbuf is a ringbuffer, there are more periods need to be copied. */
     {
-        size   = periods * rtm->localRtm.periodSize;
+        size = periods * rtm->localRtm.periodSize;
 
-        EDMA_PrepareTransfer(&transferConfig, (void *)src, sizeof(uint32_t), (void *)dst, sizeof(uint32_t),
-                             size, size, kEDMA_MemoryToMemory);
-        EDMA_SubmitTransfer(&handle->extBufDmaHandle.wDmaHandle, &transferConfig);
+        EDMA_PrepareTransfer(&transferConfig, (void *)src, sizeof(uint32_t), (void *)dst, sizeof(uint32_t), size, size,
+                             kEDMA_MemoryToMemory);
+
+        EDMA_ResetChannel(rtm->extBuf.mem2memDmaBase, rtm->extBuf.bufWriteDmaChannel);
+        (void)EDMA_SubmitTransfer(&handle->extBufDmaHandle.wDmaHandle, &transferConfig);
 
         src = rtm->localBuf.buf; /* Return back to buffer start.*/
         dst = dst + size;
 
-        size = (periodsPerExt - periods) * rtm->localRtm.periodSize;
-        g_Transfer_End = false; // Don't update circular buffer indexes when this first partial transfer is done
+        size             = (periodsPerExt - periods) * rtm->localRtm.periodSize;
+        g_w_Transfer_End = false; // Don't update circular buffer indexes when this first partial transfer is done
 
-        EDMA_PrepareTransfer(&transferConfig, (void *)src, sizeof(uint32_t), (void *)dst, sizeof(uint32_t),
-                             size, size, kEDMA_MemoryToMemory);
-        EDMA_SubmitTransfer(&handle->extBufDmaHandle.wDmaHandle, &transferConfig);
+        EDMA_PrepareTransfer(&transferConfig, (void *)src, sizeof(uint32_t), (void *)dst, sizeof(uint32_t), size, size,
+                             kEDMA_MemoryToMemory);
+        (void)EDMA_SubmitTransfer(&handle->extBufDmaHandle.wDmaHandle, &transferConfig);
 
         /* Trigger transfer start */
         EDMA_StartTransfer(&handle->extBufDmaHandle.wDmaHandle);
         /* Wait for the first TCD finished */
-        while (g_Transfer_Done != true)
+        while (g_w_Transfer_Done != true)
         {
         }
-        g_Transfer_Done = false;
-        g_Transfer_End = true; // circular buffers indexes can be updated when this final transfer is complete
+        g_w_Transfer_Done = false;
+        g_w_Transfer_End  = true; // circular buffers indexes can be updated when this final transfer is complete
         /* Trigger the second tcd */
         EDMA_StartTransfer(&handle->extBufDmaHandle.wDmaHandle);
         /* Wait for the second TCD finished */
-        while (g_Transfer_Done != true)
+        while (g_w_Transfer_Done != true)
         {
         }
-        g_Transfer_Done = false;
+        g_w_Transfer_Done = false;
     }
     else
     {
-        size   = periodsPerExt * rtm->localRtm.periodSize;
-        g_Transfer_End  = true; // circular buffers indexes can be updated when this final transfer is complete
-        EDMA_PrepareTransfer(&transferConfig, (void *)src, sizeof(uint32_t), (void *)dst, sizeof(uint32_t),
-                             size, size, kEDMA_MemoryToMemory);
-        EDMA_SubmitTransfer(&handle->extBufDmaHandle.wDmaHandle, &transferConfig);
+        size             = periodsPerExt * rtm->localRtm.periodSize;
+        g_w_Transfer_End = true; // circular buffers indexes can be updated when this final transfer is complete
+        EDMA_PrepareTransfer(&transferConfig, (void *)src, sizeof(uint32_t), (void *)dst, sizeof(uint32_t), size, size,
+                             kEDMA_MemoryToMemory);
+
+        EDMA_ResetChannel(rtm->extBuf.mem2memDmaBase, rtm->extBuf.bufWriteDmaChannel);
+        (void)EDMA_SubmitTransfer(&handle->extBufDmaHandle.wDmaHandle, &transferConfig);
 
         /* Trigger transfer start */
         EDMA_StartTransfer(&handle->extBufDmaHandle.wDmaHandle);
         /* Wait for the first TCD finished */
-        while (g_Transfer_Done != true)
+        while (g_w_Transfer_Done != true)
         {
         }
-        g_Transfer_Done = false;
+        g_w_Transfer_Done = false;
     }
 
+    if (rtm->extBuf.buff_access_cb != NULL)
+    {
+        rtm->extBuf.buff_access_cb(false);
+    }
 }
 #endif /* SRTM_PDM_EDMA_ADAPTER_USE_EXTRA_BUFFER */
 
@@ -603,7 +653,6 @@ static void SRTM_PdmEdmaRxCallback(PDM_Type *sai, pdm_edma_handle_t *edmaHandle,
 #if SRTM_PDM_EDMA_ADAPTER_USE_EXTRA_BUFFER
     srtm_procedure_t extProc;
 #endif
-
 #if SRTM_PDM_EDMA_ADAPTER_FORCE_LOCAL_AND_EXTRA_BUFFERS
     if (rtm->localBuf.buf == NULL)
     {
@@ -615,7 +664,26 @@ static void SRTM_PdmEdmaRxCallback(PDM_Type *sai, pdm_edma_handle_t *edmaHandle,
     /* When localBuf is used, the period size should not exceed the max size supported by one DMA tranfer. */
     if (rtm->localBuf.buf != NULL)
     {
-        rtm->localRtm.bufRtm.remainingPeriods--; /* One of the local period is filled */
+#if SRTM_PDM_EDMA_DATA_INJECTION
+        if (data_inject_ctrl.data_inject_mode != 0)
+        {
+#if SRTM_DDR_RETENTION_USED
+            /* Ensure DDR is not in retention (could have been done by another process) */
+            LPM_ddr_pre_access();
+#endif
+            /* loop to beginning of the file */
+            if (data_inject_ctrl.data_inject_idx + rtm->localRtm.periodSize > data_inject_ctrl.data_inject_size)
+            {
+                data_inject_ctrl.data_inject_idx = 0;
+            }
+            /* overwrite data received by DMA with test data */
+            memcpy(rtm->localBuf.buf + rtm->localRtm.bufRtm.chaseIdx * rtm->localRtm.periodSize,
+                   data_inject_ctrl.data_inject_addr + data_inject_ctrl.data_inject_idx, rtm->localRtm.periodSize);
+            data_inject_ctrl.data_inject_idx += rtm->localRtm.periodSize;
+        }
+#endif
+
+        rtm->localRtm.bufRtm.remainingPeriods--;                       /* One of the local period is filled */
 
         chaseIdx                      = rtm->localRtm.bufRtm.chaseIdx; /* For callback */
         rtm->localRtm.bufRtm.chaseIdx = (rtm->localRtm.bufRtm.chaseIdx + 1U) % rtm->localBuf.periods;
@@ -772,6 +840,15 @@ static srtm_status_t SRTM_PdmEdmaAdapter_Open(srtm_sai_adapter_t adapter, srtm_a
     assert(dir == SRTM_AudioDirRx);
     SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_INFO, "%s: %s%d\r\n", __func__, saiDirection[dir], index);
 
+#if SRTM_PDM_EDMA_DATA_INJECTION
+    if (data_inject_ctrl.data_inject_mode != 0)
+    {
+        PRINTF("test mode 0x%x src :0x%x len:0x%x \r\n", data_inject_ctrl.data_inject_mode,
+               data_inject_ctrl.data_inject_addr, data_inject_ctrl.data_inject_size);
+        data_inject_ctrl.data_inject_idx = 0;
+    }
+#endif
+
     /* Record the index. */
     handle->index = index;
 
@@ -835,15 +912,18 @@ static srtm_status_t SRTM_PdmEdmaAdapter_Start(srtm_sai_adapter_t adapter, srtm_
     }
 
 #if SRTM_PDM_EDMA_ADAPTER_USE_EXTRA_BUFFER
-    if ((thisRtm->extBuf.buf != NULL) && (thisRtm->extBuf.mem2memDmaBase != NULL)) {
+    if ((thisRtm->extBuf.buf != NULL) && (thisRtm->extBuf.mem2memDmaBase != NULL))
+    {
         EDMA_GetDefaultConfig(&userConfig);
         EDMA_Init(thisRtm->extBuf.mem2memDmaBase, &userConfig);
 
-        EDMA_CreateHandle(&handle->extBufDmaHandle.rDmaHandle, thisRtm->extBuf.mem2memDmaBase, thisRtm->extBuf.bufReadDmaChannel);
+        EDMA_CreateHandle(&handle->extBufDmaHandle.rDmaHandle, thisRtm->extBuf.mem2memDmaBase,
+                          thisRtm->extBuf.bufReadDmaChannel);
         EDMA_SetCallback(&handle->extBufDmaHandle.rDmaHandle, SRTM_PdmEdmaAdapter_DmaM2MCallback, handle);
         EDMA_ResetChannel(thisRtm->extBuf.mem2memDmaBase, thisRtm->extBuf.bufReadDmaChannel);
 
-        EDMA_CreateHandle(&handle->extBufDmaHandle.wDmaHandle, thisRtm->extBuf.mem2memDmaBase, thisRtm->extBuf.bufWriteDmaChannel);
+        EDMA_CreateHandle(&handle->extBufDmaHandle.wDmaHandle, thisRtm->extBuf.mem2memDmaBase,
+                          thisRtm->extBuf.bufWriteDmaChannel);
         EDMA_SetCallback(&handle->extBufDmaHandle.wDmaHandle, SRTM_PdmEdmaAdapter_LocalBufFullDMACb, handle);
         EDMA_ResetChannel(thisRtm->extBuf.mem2memDmaBase, thisRtm->extBuf.bufWriteDmaChannel);
         EDMA_InstallTCDMemory(&handle->extBufDmaHandle.wDmaHandle, tcdMemoryPoolPtrMem2Mem, TCD_QUEUE_SIZE);
@@ -1144,6 +1224,9 @@ static srtm_status_t SRTM_PdmEdmaAdapter_Resume(srtm_sai_adapter_t adapter, srtm
             if ((adapter->service != NULL) && (extProc != NULL))
             {
                 thisRtm->extBufPumpRunning = true;
+#if SRTM_DDR_RETENTION_USED
+                LPM_ddr_pre_access();
+#endif
                 (void)SRTM_Dispatcher_PostProc(adapter->service->dispatcher, extProc);
             }
         }
@@ -1359,76 +1442,51 @@ void SRTM_PdmEdmaAdapter_SetRxExtBuf(srtm_sai_adapter_t adapter, srtm_pdm_edma_e
     {
         rtm->extBuf.buf = NULL;
     }
+    /* callback configured through a dedicated API to keep compatibility */
+    rtm->extBuf.buff_access_cb = NULL;
+}
+
+void SRTM_PdmEdmaAdapter_SetRxExtBufAccessCb(srtm_sai_adapter_t adapter, buff_access_enable cb_func)
+{
+    srtm_pdm_edma_adapter_t handle = (srtm_pdm_edma_adapter_t)(void *)adapter;
+    srtm_pdm_edma_runtime_t rtm    = &handle->rxRtm;
+
+    rtm->extBuf.buff_access_cb = cb_func;
 }
 
 static void SRTM_PdmEdmaAdapter_DmaM2MCallback(edma_handle_t *edma_handle, void *param, bool transferDone, uint32_t bds)
 {
-    srtm_pdm_edma_adapter_t handle = (srtm_pdm_edma_adapter_t)param;
-
-    srtm_sai_adapter_t adapter  = &handle->adapter;
-    srtm_pdm_edma_runtime_t rtm = &handle->rxRtm;
-    srtm_pdm_edma_buf_runtime_t srcRtm, dstRtm;
-
-    srtm_procedure_t proc;
-
-    srcRtm = &rtm->extBufRtm.bufRtm;
-    dstRtm = &rtm->bufRtm;
-
-    if (transferDone)
-    {
-        if (srcRtm->offset == rtm->extBufRtm.periodSize) /* A extra buffer period is copied. */
-        {
-            srcRtm->leadIdx = (srcRtm->leadIdx + 1U) % rtm->extBuf.periods;
-            srcRtm->offset  = 0U;
-            srcRtm->remainingPeriods++;
-        }
-
-        if (dstRtm->offset == rtm->periodSize)
-        {
-            /* One period is filled. */
-            dstRtm->chaseIdx = (dstRtm->chaseIdx + 1U) % rtm->periods;
-            dstRtm->remainingPeriods--; /* Now one of the remote buffer has been consumed. Assume the ready period is
-                                           consumed by host immediately. */
-            dstRtm->remainingLoadPeriods--; /* Unused. */
-            rtm->finishedBufOffset = dstRtm->chaseIdx * rtm->periodSize;
-            dstRtm->offset         = 0U;
-
-            /* Rx is always freeRun, we assume filled period is consumed immediately. */
-            SRTM_PdmEdmaAdapter_AddNewPeriods(rtm, dstRtm->chaseIdx);
-
-            if ((adapter->service != NULL) && (adapter->periodDone != NULL))
-            {
-                (void)adapter->periodDone(adapter->service, SRTM_AudioDirRx, handle->index, rtm->bufRtm.chaseIdx);
-            }
-        }
-
-        /* Pump more data. */
-        proc = SRTM_Procedure_Create(SRTM_PdmEdmaAdapter_ExtPeriodCopyAndNotifyProc, handle, NULL);
-        if ((adapter->service != NULL) && (proc != NULL))
-        {
-            (void)SRTM_Dispatcher_PostProc(adapter->service->dispatcher, proc);
-        }
-    }
+    g_r_Transfer_Done = transferDone;
 }
 
 static void SRTM_PdmEdmaAdapter_DmaMemcpy(srtm_pdm_edma_adapter_t handle, uint32_t *dest, uint32_t *src, uint32_t count)
 {
     edma_transfer_config_t transferConfig = {0U};
+    srtm_pdm_edma_runtime_t rtm           = &handle->rxRtm;
 
-    EDMA_PrepareTransfer(&transferConfig, (void *)src, sizeof(dest[0]), (void *)dest, sizeof(dest[0]),
-                         count, count, kEDMA_MemoryToMemory);
-    EDMA_SubmitTransfer(&handle->extBufDmaHandle.rDmaHandle, &transferConfig);
+    EDMA_PrepareTransfer(&transferConfig, (void *)src, sizeof(dest[0]), (void *)dest, sizeof(dest[0]), count, count,
+                         kEDMA_MemoryToMemory);
+
+    g_r_Transfer_Done = false;
+    EDMA_ResetChannel(rtm->extBuf.mem2memDmaBase, rtm->extBuf.bufReadDmaChannel);
+    (void)EDMA_SubmitTransfer(&handle->extBufDmaHandle.rDmaHandle, &transferConfig);
     EDMA_StartTransfer(&handle->extBufDmaHandle.rDmaHandle);
+
+    while (g_r_Transfer_Done != true)
+    {
+    }
 }
 
 static void SRTM_PdmEdmaAdapter_ExtPeriodCopyAndNotifyProc(srtm_dispatcher_t dispatcher, void *param1, void *param2)
 {
     srtm_pdm_edma_adapter_t handle = (srtm_pdm_edma_adapter_t)param1;
+    srtm_sai_adapter_t adapter     = &handle->adapter;
     srtm_pdm_edma_runtime_t rtm    = &handle->rxRtm;
     uint32_t srcSize, dstSize, size;
     srtm_pdm_edma_buf_runtime_t srcRtm, dstRtm;
 
     uint8_t *src, *dst;
+    srtm_procedure_t proc;
 
     srcRtm = &rtm->extBufRtm.bufRtm;
     dstRtm = &rtm->bufRtm;
@@ -1443,15 +1501,59 @@ static void SRTM_PdmEdmaAdapter_ExtPeriodCopyAndNotifyProc(srtm_dispatcher_t dis
             dstSize = rtm->periodSize - dstRtm->offset;
             size    = MIN(srcSize, dstSize);
 
+#if SRTM_DDR_RETENTION_USED
+            LPM_ddr_pre_access();
+#endif
             SRTM_PdmEdmaAdapter_DmaMemcpy(handle, (uint32_t *)(void *)(dst + dstRtm->offset),
                                           (uint32_t *)(void *)(src + srcRtm->offset), size);
 
             srcRtm->offset += size;
             dstRtm->offset += size;
+
+            if (srcRtm->offset == rtm->extBufRtm.periodSize) /* A extra buffer period is copied. */
+            {
+                srcRtm->leadIdx = (srcRtm->leadIdx + 1U) % rtm->extBuf.periods;
+                srcRtm->offset  = 0U;
+                srcRtm->remainingPeriods++;
+            }
+
+            if (dstRtm->offset == rtm->periodSize)
+            {
+                /* One period is filled. */
+                dstRtm->chaseIdx = (dstRtm->chaseIdx + 1U) % rtm->periods;
+                dstRtm->remainingPeriods--; /* Now one of the remote buffer has been consumed. Assume the ready period
+                                               is consumed by host immediately. */
+                dstRtm->remainingLoadPeriods--; /* Unused. */
+                rtm->finishedBufOffset = dstRtm->chaseIdx * rtm->periodSize;
+                dstRtm->offset         = 0U;
+
+                /* Rx is always freeRun, we assume filled period is consumed immediately. */
+                SRTM_PdmEdmaAdapter_AddNewPeriods(rtm, dstRtm->chaseIdx);
+
+                if ((adapter->service != NULL) && (adapter->periodDone != NULL))
+                {
+                    (void)adapter->periodDone(adapter->service, SRTM_AudioDirRx, handle->index, rtm->bufRtm.chaseIdx);
+                }
+            }
+
+            /* Pump more data. */
+            proc = SRTM_Procedure_Create(SRTM_PdmEdmaAdapter_ExtPeriodCopyAndNotifyProc, handle, NULL);
+            if ((adapter->service != NULL) && (proc != NULL))
+            {
+                (void)SRTM_Dispatcher_PostProc(adapter->service->dispatcher, proc);
+            }
         }
         else
         {
             rtm->extBufPumpRunning = false;
+#if SRTM_DDR_RETENTION_USED
+#if SRTM_PDM_EDMA_DATA_INJECTION
+            if (data_inject_ctrl.data_inject_mode == 0)
+#endif
+            {
+                LPM_ddr_post_access();
+            }
+#endif
             /* Pump local buffer ASAP. */
             if (rtm->localBuf.buf != NULL)
             {
@@ -1473,8 +1575,13 @@ static void SRTM_PdmEdmaAdapter_ExtPeriodCopyAndNotifyProc(srtm_dispatcher_t dis
 static void SRTM_PdmEdmaAdapter_PumpExtraBuf(srtm_pdm_edma_adapter_t handle)
 {
     srtm_sai_adapter_t adapter = &handle->adapter;
+    srtm_procedure_t proc;
 
-    SRTM_PdmEdmaAdapter_ExtPeriodCopyAndNotifyProc(adapter->service->dispatcher, handle, NULL);
+    proc = SRTM_Procedure_Create(SRTM_PdmEdmaAdapter_ExtPeriodCopyAndNotifyProc, handle, NULL);
+    if ((adapter->service != NULL) && (proc != NULL))
+    {
+        (void)SRTM_Dispatcher_PostProc(adapter->service->dispatcher, proc);
+    }
 }
 #endif /* SRTM_PDM_EDMA_ADAPTER_USE_EXTRA_BUFFER */
 

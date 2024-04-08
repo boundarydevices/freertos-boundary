@@ -67,8 +67,8 @@ const uint32_t customLUT[CUSTOM_LUT_LENGTH] = {
     /* Fast read quad mode -SDR */
     [4 * NOR_CMD_LUT_SEQ_IDX_READ + 0] =
         FLEXSPI_LUT_SEQ(kFLEXSPI_Command_SDR, kFLEXSPI_4PAD, 0x0B, kFLEXSPI_Command_RADDR_SDR, kFLEXSPI_4PAD, 0x18),
-    [4 * NOR_CMD_LUT_SEQ_IDX_READ + 1] =
-        FLEXSPI_LUT_SEQ(kFLEXSPI_Command_DUMMY_SDR, kFLEXSPI_4PAD, 0x0A, kFLEXSPI_Command_READ_SDR, kFLEXSPI_4PAD, 0x04),
+    [4 * NOR_CMD_LUT_SEQ_IDX_READ + 1] = FLEXSPI_LUT_SEQ(
+        kFLEXSPI_Command_DUMMY_SDR, kFLEXSPI_4PAD, 0x0A, kFLEXSPI_Command_READ_SDR, kFLEXSPI_4PAD, 0x04),
 
     /* Read status register */
     [4 * NOR_CMD_LUT_SEQ_IDX_READSTATUSREG] =
@@ -113,7 +113,6 @@ const uint32_t customLUT[CUSTOM_LUT_LENGTH] = {
 };
 
 
-
 /*!
  * @brief Main function
  */
@@ -146,12 +145,11 @@ int main(void)
     CLOCK_SetRootClock(BOARD_PCAL6524_I2C_CLOCK_ROOT, &lpi2cClkCfg);
     CLOCK_EnableClock(BOARD_PCAL6524_I2C_CLOCK_GATE);
     CLOCK_SetRootClock(kCLOCK_Root_WakeupAxi, &dmaClkCfg);
-    
+
     /* Set 3.3V for M.2 nor flash card */
     BOARD_InitPCAL6524(&handle);
     PCAL6524_SetDirection(&handle, (1 << BOARD_PCAL6524_EXT1_PWREN), kPCAL6524_Output);
     PCAL6524_SetPins(&handle, (1 << BOARD_PCAL6524_EXT1_PWREN));
-    
 
     PRINTF("\r\nFLEXSPI edma example started!\r\n");
 

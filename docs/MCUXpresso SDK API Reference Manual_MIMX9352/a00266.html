@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: Edma_soc</title>
+<title>MCUXpresso SDK API Reference Manual: CODEC Adapter</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.14.0</span>
+   &#160;<span id="projectnumber">Rev 2.15.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -99,665 +99,101 @@ $(document).ready(function(){initNavTree('a00266.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">Edma_soc</div>  </div>
+<div class="title">CODEC Adapter<div class="ingroups"><a class="el" href="a00009.html">CODEC Common Driver</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ga4ba2841202cf12aa54753d5d88d16777"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4ba2841202cf12aa54753d5d88d16777"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00266.html#ga4ba2841202cf12aa54753d5d88d16777">FSL_EDMA_SOC_IP_DMA3</a>&#160;&#160;&#160;(1)</td></tr>
-<tr class="memdesc:ga4ba2841202cf12aa54753d5d88d16777"><td class="mdescLeft">&#160;</td><td class="mdescRight">DMA IP version. <br/></td></tr>
-<tr class="separator:ga4ba2841202cf12aa54753d5d88d16777"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae2ad368d3a0b53d823af4fee8e0260ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae2ad368d3a0b53d823af4fee8e0260ba"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00266.html#gae2ad368d3a0b53d823af4fee8e0260ba">EDMA_BASE_PTRS</a></td></tr>
-<tr class="memdesc:gae2ad368d3a0b53d823af4fee8e0260ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">DMA base table. <br/></td></tr>
-<tr class="separator:gae2ad368d3a0b53d823af4fee8e0260ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2727967e9e2e1be65e12ad7bc4ada456"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2727967e9e2e1be65e12ad7bc4ada456"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00266.html#ga2727967e9e2e1be65e12ad7bc4ada456">EDMA_CHANNEL_OFFSET</a>&#160;&#160;&#160;0x10000U</td></tr>
-<tr class="memdesc:ga2727967e9e2e1be65e12ad7bc4ada456"><td class="mdescLeft">&#160;</td><td class="mdescRight">EDMA base address convert macro. <br/></td></tr>
-<tr class="separator:ga2727967e9e2e1be65e12ad7bc4ada456"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:gad052948ef0b5730afc6ce6101c34ae47"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00266.html#gad052948ef0b5730afc6ce6101c34ae47">dma_request_source_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a7fa191f1644abdfec1abf89274f323fb">kDmaRequestDisabled</a> = 0U, 
+<tr class="memitem:ga5a77d65f4abba81d4456fa6ba8136e24"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
+&#160;&#160;<a class="el" href="a00266.html#gga5a77d65f4abba81d4456fa6ba8136e24acb2ee31cd4ee06712e3cf445e12cb389">kCODEC_WM8904</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a2b50d4881bc66e7e6e5b4455d0efea45">Dma3RequestMuxCAN1</a> = 1U | 0x100U, 
+&#160;&#160;<a class="el" href="a00266.html#gga5a77d65f4abba81d4456fa6ba8136e24aa15237d33f0b971a6596458ef7aa8d99">kCODEC_WM8960</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a12828a34bfd7d76b50cc5a8d69452941">Dma3RequestMuxGPIO1Request0</a> = 3U | 0x100U, 
+&#160;&#160;<a class="el" href="a00266.html#gga5a77d65f4abba81d4456fa6ba8136e24a57b2941cff245c37272e1ea4598c3ab0">kCODEC_WM8524</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a34edb7403c6405c87904085e484f775c">Dma3RequestMuxGPIO1Request1</a> = 4U | 0x100U, 
+&#160;&#160;<a class="el" href="a00266.html#gga5a77d65f4abba81d4456fa6ba8136e24a870028cfe305a220c90a187029ae3408">kCODEC_SGTL5000</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ae7520974cde990f8c15cc1d8f6cb5306">Dma3RequestMuxI3C1ToBusRequest</a> = 5U | 0x100U, 
+&#160;&#160;<a class="el" href="a00266.html#gga5a77d65f4abba81d4456fa6ba8136e24a533359b62306ff77d6cd4a6aeaf075ab">kCODEC_DA7212</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a7356741480eac5bb871ca03c3c0e3c3e">Dma3RequestMuxI3C1FromBusRequest</a> = 6U | 0x100U, 
+&#160;&#160;<a class="el" href="a00266.html#gga5a77d65f4abba81d4456fa6ba8136e24ae667850df8261ea1e8c02201e1ccafee">kCODEC_CS42888</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a48dcfe8e165513817a7ade5cf0a9d371">Dma3RequestMuxLPI2C1Tx</a> = 7U | 0x100U, 
+&#160;&#160;<a class="el" href="a00266.html#gga5a77d65f4abba81d4456fa6ba8136e24a32073f5e23a3c6e7960d937c0816286b">kCODEC_CS42448</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a11d97a3bfe53e45f0932f44de4323d4d">Dma3RequestMuxLPI2C1Rx</a> = 8U | 0x100U, 
+&#160;&#160;<a class="el" href="a00266.html#gga5a77d65f4abba81d4456fa6ba8136e24a58d64d2b7b432eb8ede4e22a811cadf1">kCODEC_AK4497</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a2f5a065a0234aedef254791948f54ce3">Dma3RequestMuxLPI2C2Tx</a> = 9U | 0x100U, 
+&#160;&#160;<a class="el" href="a00266.html#gga5a77d65f4abba81d4456fa6ba8136e24a67f0293553ad8cc4bbb432b6b09f6900">kCODEC_AK4458</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a6f61a3bb4cf08c5d8c8f1c357d9eec31">Dma3RequestMuxLPI2C2Rx</a> = 10U | 0x100U, 
+&#160;&#160;<a class="el" href="a00266.html#gga5a77d65f4abba81d4456fa6ba8136e24a448b697ab0cc0c28740e77484faad04f">kCODEC_TFA9XXX</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a81b558c1b48fb99cbfd8c41bba318e48">Dma3RequestMuxLPSPI1Tx</a> = 11U | 0x100U, 
+&#160;&#160;<a class="el" href="a00266.html#gga5a77d65f4abba81d4456fa6ba8136e24a899f42fede26bf5fd37ea863fb4e5624">kCODEC_TFA9896</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a26fb5691ade5c238afac853eb80e5503">Dma3RequestMuxLPSPI1Rx</a> = 12U | 0x100U, 
+&#160;&#160;<a class="el" href="a00266.html#gga5a77d65f4abba81d4456fa6ba8136e24a018d6b6d07eab64fe414983199950dc8">kCODEC_WM8962</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a44cdbb0d39b7b7f23cf7523be949fb21">Dma3RequestMuxLPSPI2Tx</a> = 13U | 0x100U, 
+&#160;&#160;<a class="el" href="a00266.html#gga5a77d65f4abba81d4456fa6ba8136e24a317f6511304608e3a32df3bf009f4181">kCODEC_PCM512X</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47aafabf6828cfb3ec5b08c263ff8e51b7c">Dma3RequestMuxLPSPI2Rx</a> = 14U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a96e96e2adeb47e1c864ed3d690925ab2">Dma3RequestMuxLPTMR1Request</a> = 15U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a800dc2d5003b0b4eea2f22423229be77">Dma3RequestMuxLPUART1Tx</a> = 16U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a175be47ff48b981a2244e5ff84c21b76">Dma3RequestMuxLPUART1Rx</a> = 17U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47af23be769818aa2538d169a651d9858c5">Dma3RequestMuxLPUART2Tx</a> = 18U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a1d281cf3e621bb53c1b55fccdaa9fdc3">Dma3RequestMuxLPUART2Rx</a> = 19U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a0224ad8aa9af3d610786003c43decd16">Dma3RequestMuxEdgelockRequest</a> = 20U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a9657e6424ff1dc3b1303bdc7942b339d">Dma3RequestMuxSai1Tx</a> = 21U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a03437ee89ed3b86131fdd9845d47c9ad">Dma3RequestMuxSai1Rx</a> = 22U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a79efe7e51beb69ad360854acc366b0c5">Dma3RequestMuxTPM1Request0Request2</a> = 23U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a5aedba0078cc403b532ff53a44180eed">Dma3RequestMuxTPM1Request1Request3</a> = 24U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ad93d6a8ea8eba68168122b932fa56006">Dma3RequestMuxTPM1OverflowRequest</a> = 25U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47abcdf0e025fa4cf87fc68f7369ea8413e">Dma3RequestMuxTPM2Request0Request2</a> = 26U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a6976b1ab00c15128ddbc158bacc18df7">Dma3RequestMuxTPM2Request1Request3</a> = 27U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a7113c0757c7d66d20ef8612994001256">Dma3RequestMuxTPM2OverflowRequest</a> = 28U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a94c85ddf5c2b2e510262b13b4ad4706f">Dma3RequestMuxPDMRequest</a> = 29U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a0e6ec30dc4e0f8890ddf8fe46ee69093">Dma3RequestMuxADC1Request</a> = 30U | 0x100U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a7b23f7d587995bf35bbd12804016238d">Dma4RequestMuxCAN2</a> = 1U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a51560fbfc05db8768fa0024d77fdb512">Dma4RequestMuxGPIO2Request0</a> = 2U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a6dbf153ca40c27833e0edeaefa36984b">Dma4RequestMuxGPIO2Request1</a> = 3U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ad8d27992cd812e0f7934baf8f8ea70ca">Dma4RequestMuxGPIO3Request0</a> = 4U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a4ffdec0c3a4e53ffa63454cf8f032407">Dma4RequestMuxGPIO3Request1</a> = 5U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a303a171c7b470097b77616cd517b3d22">Dma4RequestMuxI3C2ToBusRequest</a> = 6U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47adc7f48f12813862703c66a2df920b8ec">Dma4RequestMuxI3C2FromBusRequest</a> = 7U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a4b2b12680c47d7f57de7ed03b6f24a23">Dma4RequestMuxLPI2C3Tx</a> = 8U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a290661c674f57f62699053d23d3e3da5">Dma4RequestMuxLPI2C3Rx</a> = 9U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a554b2c3b933b285020f33029e76fc397">Dma4RequestMuxLPI2C4Tx</a> = 10U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47aab5fabc231ceec0c257c9e1e04d849a4">Dma4RequestMuxLPI2C4Rx</a> = 11U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47aabb5f91d5d3d5e83e7d20e3be1940ec8">Dma4RequestMuxLPSPI3Tx</a> = 12U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a744376f377d5c9d707f5bb6d3ba59b5a">Dma4RequestMuxLPSPI3Rx</a> = 13U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a86eee49bb449b3ef4050c58cfcbb41ab">Dma4RequestMuxLPSPI4Tx</a> = 14U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a39b4f3f5e5dc94a94fdb8d087af78b3a">Dma4RequestMuxLPSPI4Rx</a> = 15U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a53cb7b6b3b2b097ad3e674a68e9695d2">Dma4RequestMuxLPTMR2Request</a> = 16U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a7d2fbee3d5ff0b94a453845c24281a49">Dma4RequestMuxLPUART3Tx</a> = 17U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a73057c4dfe3eee2bba03785b6c381134">Dma4RequestMuxLPUART3Rx</a> = 18U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a191d09806374f3f21c7ac9c18f22a762">Dma4RequestMuxLPUART4Tx</a> = 19U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ae38a91420f162cb050cc7b078e5e2f1d">Dma4RequestMuxLPUART4Rx</a> = 20U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a4044fa951080e900be0329000662f0df">Dma4RequestMuxLPUART5Tx</a> = 21U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a380abb1193f93a09858ae5e26e49af93">Dma4RequestMuxLPUART5Rx</a> = 22U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a34748df32e4ade05877a26b28412159d">Dma4RequestMuxLPUART6Tx</a> = 23U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47adf6009f698eaca7df4e1b25e871238cc">Dma4RequestMuxLPUART6Rx</a> = 24U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ab19453795297d5a04e02a3942ca79556">Dma4RequestMuxTPM3Request0Request2</a> = 25U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47afabc7ff308d894bb5bfe115a92d899ea">Dma4RequestMuxTPM3Request1Request3</a> = 26U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a7930bc60e53601572a5f7e504008b914">Dma4RequestMuxTPM3OverflowRequest</a> = 27U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a656bb49d3affc12010e6cb6d6fa59451">Dma4RequestMuxTPM4Request0Request2</a> = 28U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a4669c2f45f35d57da629559401f528f4">Dma4RequestMuxTPM4Request1Request3</a> = 29U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a77ed9b0e72bd1f5fe29ab2bf72323eaa">Dma4RequestMuxTPM4OverflowRequest</a> = 30U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a42106712c27880688d8789508923ccae">Dma4RequestMuxTPM5Request0Request2</a> = 31U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a5b0e0531415fbecbf8d0bae665a13baa">Dma4RequestMuxTPM5Request1Request3</a> = 32U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a8f9aefee0295e2065c6171443ade4109">Dma4RequestMuxTPM5OverflowRequest</a> = 33U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ab37c542a08342aedcb66486f093a4647">Dma4RequestMuxTPM6Request0Request2</a> = 34U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47af534d9f101fd04bfd674c45543bfa636">Dma4RequestMuxTPM6Request1Request3</a> = 35U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ab0187957b225a4813014856c46a91a25">Dma4RequestMuxTPM6OverflowRequest</a> = 36U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47aad5eec9499514e559791502e9912c9e3">Dma4RequestMuxFlexIO1Request0</a> = 37U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ae7b8a1f94b635d8ab042900c6283ae49">Dma4RequestMuxFlexIO1Request1</a> = 38U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47af11beffdeeb66e0830cafb644da44a56">Dma4RequestMuxFlexIO1Request2</a> = 39U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47abf80e74aef4085c5417423d234bf0704">Dma4RequestMuxFlexIO1Request3</a> = 40U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ae8500cc39e10e5cc0d08ee101b05c6d3">Dma4RequestMuxFlexIO1Request4</a> = 41U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47adb8699bc7928ee28c52a0b43618e6144">Dma4RequestMuxFlexIO1Request5</a> = 42U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ab5b9b4e7239fb63bb97ef6d1b5958c44">Dma4RequestMuxFlexIO1Request6</a> = 43U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47aab7faad796c80775cb5761557229ea2f">Dma4RequestMuxFlexIO1Request7</a> = 44U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a15b71743a0de0b991470c1cf07157af5">Dma4RequestMuxFlexIO2Request0</a> = 45U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ac94a7f5d06d4a1a99a585432959e495d">Dma4RequestMuxFlexIO2Request1</a> = 46U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a5f31301603ff7bdb44a5f811257c8b4f">Dma4RequestMuxFlexIO2Request2</a> = 47U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a90a84527ecd0b84ee315f121c4ae8723">Dma4RequestMuxFlexIO2Request3</a> = 48U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47aece617b59ec055ef7211613b07e573a6">Dma4RequestMuxFlexIO2Request4</a> = 49U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a988cccde00cfb1968f1e9a46692dc2c3">Dma4RequestMuxFlexIO2Request5</a> = 50U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a03a41a29a401daa190cb3763eb9c3781">Dma4RequestMuxFlexIO2Request6</a> = 51U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a37c25ef5b758c38177e9233a5b7e1b9e">Dma4RequestMuxFlexIO2Request7</a> = 52U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47aff89a1c09cc2c996f7579883728e3ca4">Dma4RequestMuxFlexSPI1Tx</a> = 53U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a530cfcab0067a58ec4b9cecec2e66d8d">Dma4RequestMuxFlexSPI1Rx</a> = 54U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47aa25536efc8c056b043e28ea25521cacc">Dma4RequestMuxSai2Tx</a> = 58U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ab70595a108d066a5661650a3891b2ace">Dma4RequestMuxSai2Rx</a> = 59U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a74f10d14600b8c1ad39ec8dfc1d5c81e">Dma4RequestMuxSai3Tx</a> = 60U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a1b6e5ccbd7611f393b6552b298ee8a3c">Dma4RequestMuxSai3Rx</a> = 61U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a8ce9351379cebf70472968fb6e3315ac">Dma4RequestMuxGPIO4Request0</a> = 62U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a9c598dea828bbefda6f6737cb952612f">Dma4RequestMuxGPIO4Request1</a> = 63U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47af77436cd5889d5d7ec661f81336d3508">Dma4RequestMuxSPDIFRequest</a> = 65U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a22bc2e59740e3ab247ea3c5311f89207">Dma4RequestMuxSPDIFRequest1</a> = 66U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ab330520972216d94de6aea50760b4306">Dma4RequestMuxENETRequest</a> = 67U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a3509ed38192faa4fb8dd8abe3e58d6a6">Dma4RequestMuxENETRequest1</a> = 68U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a3c8d183e9e03dbeda9c2869e272fb188">Dma4RequestMuxENETRequest2</a> = 69U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a0c050883cea0024708b0419b755cf876">Dma4RequestMuxENETRequest3</a> = 70U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a059f41cadd98f0920652f2a44c928730">Dma4RequestMuxLPI2C5Tx</a> = 71U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a915218795256e650bc169d1499602eb0">Dma4RequestMuxLPI2C5Rx</a> = 72U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a50df49aeca181658fe5031768d76e931">Dma4RequestMuxLPI2C6Tx</a> = 73U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47af2113a373fbe89e68266529ed07c1621">Dma4RequestMuxLPI2C6Rx</a> = 74U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a8c698844ac1e2c7d017a89065a7a5752">Dma4RequestMuxLPI2C7Tx</a> = 75U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a1c3e64174850fb16a597f129113b59bf">Dma4RequestMuxLPI2C7Rx</a> = 76U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47aa33d3238c9e54bc899ca7b8f250a2b4c">Dma4RequestMuxLPI2C8Tx</a> = 77U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ad39bb63060813239b3a9be3ff4d24d8e">Dma4RequestMuxLPI2C8Rx</a> = 78U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a5eec48b094d1ea3f04b2f91449411614">Dma4RequestMuxLPSPI5Tx</a> = 79U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a12334add5d8ff815986c61e699cd1016">Dma4RequestMuxLPSPI5Rx</a> = 80U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a9cf6556781f60ef069091ae4a22062a8">Dma4RequestMuxLPSPI6Tx</a> = 81U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ac5b7227c76a53e2d696a151d4359f333">Dma4RequestMuxLPSPI6Rx</a> = 82U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ac6e19c3d5fa526fb7782440dd3f014b9">Dma4RequestMuxLPSPI7Tx</a> = 83U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a019f4e2df91276924dbf462ed7ed557b">Dma4RequestMuxLPSPI7Rx</a> = 84U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a85cf3ef26b1f383e0788532cad16bce9">Dma4RequestMuxLPSPI8Tx</a> = 85U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47aefb865a74c3a1800632712ee9031b121">Dma4RequestMuxLPSPI8Rx</a> = 86U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47aae95f9b312fe607cf28123005fc83f35">Dma4RequestMuxLPUART7Tx</a> = 87U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a1ddd591be3d88a525c5189594d9fb601">Dma4RequestMuxLPUART7Rx</a> = 88U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47aa07ea2533811694c557b5b3e121d5a72">Dma4RequestMuxLPUART8Tx</a> = 89U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a609585fcb2d4c376798db4a0257a89d1">Dma4RequestMuxLPUART8Rx</a> = 90U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47af84c66dc82be92e124235b08768440d9">Dma4RequestMuxENET_QOSRequest</a> = 91U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47ab91c5e2eef98b42346af2c32efe33dd5">Dma4RequestMuxENET_QOSRequest1</a> = 92U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a7d0d257ac5208ce9f330fb8b0a9eb745">Dma4RequestMuxENET_QOSRequest2</a> = 93U | 0x200U, 
-<br/>
-&#160;&#160;<a class="el" href="a00266.html#ggad052948ef0b5730afc6ce6101c34ae47a6b70d2f9e4bdd7b03ddd61371ee40c0a">Dma4RequestMuxENET_QOSRequest3</a> = 94U | 0x200U
+&#160;&#160;<a class="el" href="a00266.html#gga5a77d65f4abba81d4456fa6ba8136e24aa765592ccbbe2fb41ab0df45bc6ab9ed">kCODEC_PCM186X</a>
 <br/>
  }</td></tr>
-<tr class="memdesc:gad052948ef0b5730afc6ce6101c34ae47"><td class="mdescLeft">&#160;</td><td class="mdescRight">dma request source  <a href="a00266.html#gad052948ef0b5730afc6ce6101c34ae47">More...</a><br/></td></tr>
-<tr class="separator:gad052948ef0b5730afc6ce6101c34ae47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-Driver version</h2></td></tr>
-<tr class="memitem:ga831120489cc9d849c4b52872c89a07bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00266.html#ga831120489cc9d849c4b52872c89a07bf">FSL_EDMA_SOC_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00226.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 0))</td></tr>
-<tr class="memdesc:ga831120489cc9d849c4b52872c89a07bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Driver version 2.0.0.  <a href="#ga831120489cc9d849c4b52872c89a07bf">More...</a><br/></td></tr>
-<tr class="separator:ga831120489cc9d849c4b52872c89a07bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ga5a77d65f4abba81d4456fa6ba8136e24"><td class="mdescLeft">&#160;</td><td class="mdescRight">codec type  <a href="a00266.html#ga5a77d65f4abba81d4456fa6ba8136e24">More...</a><br/></td></tr>
+<tr class="separator:ga5a77d65f4abba81d4456fa6ba8136e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="ga831120489cc9d849c4b52872c89a07bf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FSL_EDMA_SOC_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00226.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 0))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="gad052948ef0b5730afc6ce6101c34ae47"></a>
+<a class="anchor" id="ga5a77d65f4abba81d4456fa6ba8136e24"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00266.html#gad052948ef0b5730afc6ce6101c34ae47">dma_request_source_t</a></td>
+          <td class="memname">anonymous enum</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p><a class="anchor" id="_codec_type"></a></p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a7fa191f1644abdfec1abf89274f323fb"></a>kDmaRequestDisabled</em>&nbsp;</td><td class="fielddoc">
-<p>DSisabled </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga5a77d65f4abba81d4456fa6ba8136e24acb2ee31cd4ee06712e3cf445e12cb389"></a>kCODEC_WM8904</em>&nbsp;</td><td class="fielddoc">
+<p>wm8904 </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a2b50d4881bc66e7e6e5b4455d0efea45"></a>Dma3RequestMuxCAN1</em>&nbsp;</td><td class="fielddoc">
-<p>CAN1 </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5a77d65f4abba81d4456fa6ba8136e24aa15237d33f0b971a6596458ef7aa8d99"></a>kCODEC_WM8960</em>&nbsp;</td><td class="fielddoc">
+<p>wm8960 </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a12828a34bfd7d76b50cc5a8d69452941"></a>Dma3RequestMuxGPIO1Request0</em>&nbsp;</td><td class="fielddoc">
-<p>GPIO1 channel 0 </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5a77d65f4abba81d4456fa6ba8136e24a57b2941cff245c37272e1ea4598c3ab0"></a>kCODEC_WM8524</em>&nbsp;</td><td class="fielddoc">
+<p>wm8524 </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a34edb7403c6405c87904085e484f775c"></a>Dma3RequestMuxGPIO1Request1</em>&nbsp;</td><td class="fielddoc">
-<p>GPIO1 channel 1 </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5a77d65f4abba81d4456fa6ba8136e24a870028cfe305a220c90a187029ae3408"></a>kCODEC_SGTL5000</em>&nbsp;</td><td class="fielddoc">
+<p>sgtl5000 </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ae7520974cde990f8c15cc1d8f6cb5306"></a>Dma3RequestMuxI3C1ToBusRequest</em>&nbsp;</td><td class="fielddoc">
-<p>I3C1 To-bus Request </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5a77d65f4abba81d4456fa6ba8136e24a533359b62306ff77d6cd4a6aeaf075ab"></a>kCODEC_DA7212</em>&nbsp;</td><td class="fielddoc">
+<p>da7212 </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a7356741480eac5bb871ca03c3c0e3c3e"></a>Dma3RequestMuxI3C1FromBusRequest</em>&nbsp;</td><td class="fielddoc">
-<p>I3C1 From-bus Request </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5a77d65f4abba81d4456fa6ba8136e24ae667850df8261ea1e8c02201e1ccafee"></a>kCODEC_CS42888</em>&nbsp;</td><td class="fielddoc">
+<p>CS42888. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a48dcfe8e165513817a7ade5cf0a9d371"></a>Dma3RequestMuxLPI2C1Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C1 </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5a77d65f4abba81d4456fa6ba8136e24a32073f5e23a3c6e7960d937c0816286b"></a>kCODEC_CS42448</em>&nbsp;</td><td class="fielddoc">
+<p>CS42448. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a11d97a3bfe53e45f0932f44de4323d4d"></a>Dma3RequestMuxLPI2C1Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C1 </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5a77d65f4abba81d4456fa6ba8136e24a58d64d2b7b432eb8ede4e22a811cadf1"></a>kCODEC_AK4497</em>&nbsp;</td><td class="fielddoc">
+<p>AK4497. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a2f5a065a0234aedef254791948f54ce3"></a>Dma3RequestMuxLPI2C2Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C2 </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5a77d65f4abba81d4456fa6ba8136e24a67f0293553ad8cc4bbb432b6b09f6900"></a>kCODEC_AK4458</em>&nbsp;</td><td class="fielddoc">
+<p>ak4458 </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a6f61a3bb4cf08c5d8c8f1c357d9eec31"></a>Dma3RequestMuxLPI2C2Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C2 </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5a77d65f4abba81d4456fa6ba8136e24a448b697ab0cc0c28740e77484faad04f"></a>kCODEC_TFA9XXX</em>&nbsp;</td><td class="fielddoc">
+<p>tfa9xxx </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a81b558c1b48fb99cbfd8c41bba318e48"></a>Dma3RequestMuxLPSPI1Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI1 Transmit </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5a77d65f4abba81d4456fa6ba8136e24a899f42fede26bf5fd37ea863fb4e5624"></a>kCODEC_TFA9896</em>&nbsp;</td><td class="fielddoc">
+<p>tfa9896 </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a26fb5691ade5c238afac853eb80e5503"></a>Dma3RequestMuxLPSPI1Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI1 Receive </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5a77d65f4abba81d4456fa6ba8136e24a018d6b6d07eab64fe414983199950dc8"></a>kCODEC_WM8962</em>&nbsp;</td><td class="fielddoc">
+<p>wm8962 </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a44cdbb0d39b7b7f23cf7523be949fb21"></a>Dma3RequestMuxLPSPI2Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI2 Transmit </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5a77d65f4abba81d4456fa6ba8136e24a317f6511304608e3a32df3bf009f4181"></a>kCODEC_PCM512X</em>&nbsp;</td><td class="fielddoc">
+<p>pcm512x </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47aafabf6828cfb3ec5b08c263ff8e51b7c"></a>Dma3RequestMuxLPSPI2Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI2 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a96e96e2adeb47e1c864ed3d690925ab2"></a>Dma3RequestMuxLPTMR1Request</em>&nbsp;</td><td class="fielddoc">
-<p>LPTMR1 Request </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a800dc2d5003b0b4eea2f22423229be77"></a>Dma3RequestMuxLPUART1Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART1 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a175be47ff48b981a2244e5ff84c21b76"></a>Dma3RequestMuxLPUART1Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART1 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47af23be769818aa2538d169a651d9858c5"></a>Dma3RequestMuxLPUART2Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART2 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a1d281cf3e621bb53c1b55fccdaa9fdc3"></a>Dma3RequestMuxLPUART2Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART2 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a0224ad8aa9af3d610786003c43decd16"></a>Dma3RequestMuxEdgelockRequest</em>&nbsp;</td><td class="fielddoc">
-<p>Edgelock enclave DMA Request </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a9657e6424ff1dc3b1303bdc7942b339d"></a>Dma3RequestMuxSai1Tx</em>&nbsp;</td><td class="fielddoc">
-<p>SAI1 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a03437ee89ed3b86131fdd9845d47c9ad"></a>Dma3RequestMuxSai1Rx</em>&nbsp;</td><td class="fielddoc">
-<p>SAI1 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a79efe7e51beb69ad360854acc366b0c5"></a>Dma3RequestMuxTPM1Request0Request2</em>&nbsp;</td><td class="fielddoc">
-<p>TPM1 request 0 and request 2 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a5aedba0078cc403b532ff53a44180eed"></a>Dma3RequestMuxTPM1Request1Request3</em>&nbsp;</td><td class="fielddoc">
-<p>TPM1 request 1 and request 3 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ad93d6a8ea8eba68168122b932fa56006"></a>Dma3RequestMuxTPM1OverflowRequest</em>&nbsp;</td><td class="fielddoc">
-<p>TPM1 Overflow request </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47abcdf0e025fa4cf87fc68f7369ea8413e"></a>Dma3RequestMuxTPM2Request0Request2</em>&nbsp;</td><td class="fielddoc">
-<p>TPM2 request 0 and request 2 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a6976b1ab00c15128ddbc158bacc18df7"></a>Dma3RequestMuxTPM2Request1Request3</em>&nbsp;</td><td class="fielddoc">
-<p>TPM2 request 1 and request 3 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a7113c0757c7d66d20ef8612994001256"></a>Dma3RequestMuxTPM2OverflowRequest</em>&nbsp;</td><td class="fielddoc">
-<p>TPM2 Overflow request </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a94c85ddf5c2b2e510262b13b4ad4706f"></a>Dma3RequestMuxPDMRequest</em>&nbsp;</td><td class="fielddoc">
-<p>PDM </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a0e6ec30dc4e0f8890ddf8fe46ee69093"></a>Dma3RequestMuxADC1Request</em>&nbsp;</td><td class="fielddoc">
-<p>ADC1 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a7b23f7d587995bf35bbd12804016238d"></a>Dma4RequestMuxCAN2</em>&nbsp;</td><td class="fielddoc">
-<p>CAN2 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a51560fbfc05db8768fa0024d77fdb512"></a>Dma4RequestMuxGPIO2Request0</em>&nbsp;</td><td class="fielddoc">
-<p>GPIO2 channel 0 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a6dbf153ca40c27833e0edeaefa36984b"></a>Dma4RequestMuxGPIO2Request1</em>&nbsp;</td><td class="fielddoc">
-<p>GPIO2 channel 1 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ad8d27992cd812e0f7934baf8f8ea70ca"></a>Dma4RequestMuxGPIO3Request0</em>&nbsp;</td><td class="fielddoc">
-<p>GPIO3 channel 0 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a4ffdec0c3a4e53ffa63454cf8f032407"></a>Dma4RequestMuxGPIO3Request1</em>&nbsp;</td><td class="fielddoc">
-<p>GPIO3 channel 1 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a303a171c7b470097b77616cd517b3d22"></a>Dma4RequestMuxI3C2ToBusRequest</em>&nbsp;</td><td class="fielddoc">
-<p>I3C2 To-bus Request </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47adc7f48f12813862703c66a2df920b8ec"></a>Dma4RequestMuxI3C2FromBusRequest</em>&nbsp;</td><td class="fielddoc">
-<p>I3C2 From-bus Request </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a4b2b12680c47d7f57de7ed03b6f24a23"></a>Dma4RequestMuxLPI2C3Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C3 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a290661c674f57f62699053d23d3e3da5"></a>Dma4RequestMuxLPI2C3Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C3 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a554b2c3b933b285020f33029e76fc397"></a>Dma4RequestMuxLPI2C4Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C4 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47aab5fabc231ceec0c257c9e1e04d849a4"></a>Dma4RequestMuxLPI2C4Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C4 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47aabb5f91d5d3d5e83e7d20e3be1940ec8"></a>Dma4RequestMuxLPSPI3Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI3 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a744376f377d5c9d707f5bb6d3ba59b5a"></a>Dma4RequestMuxLPSPI3Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI3 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a86eee49bb449b3ef4050c58cfcbb41ab"></a>Dma4RequestMuxLPSPI4Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI4 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a39b4f3f5e5dc94a94fdb8d087af78b3a"></a>Dma4RequestMuxLPSPI4Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI4 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a53cb7b6b3b2b097ad3e674a68e9695d2"></a>Dma4RequestMuxLPTMR2Request</em>&nbsp;</td><td class="fielddoc">
-<p>LPTMR2 Request </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a7d2fbee3d5ff0b94a453845c24281a49"></a>Dma4RequestMuxLPUART3Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART3 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a73057c4dfe3eee2bba03785b6c381134"></a>Dma4RequestMuxLPUART3Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART3 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a191d09806374f3f21c7ac9c18f22a762"></a>Dma4RequestMuxLPUART4Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART4 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ae38a91420f162cb050cc7b078e5e2f1d"></a>Dma4RequestMuxLPUART4Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART4 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a4044fa951080e900be0329000662f0df"></a>Dma4RequestMuxLPUART5Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART5 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a380abb1193f93a09858ae5e26e49af93"></a>Dma4RequestMuxLPUART5Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART5 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a34748df32e4ade05877a26b28412159d"></a>Dma4RequestMuxLPUART6Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART6 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47adf6009f698eaca7df4e1b25e871238cc"></a>Dma4RequestMuxLPUART6Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART6 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ab19453795297d5a04e02a3942ca79556"></a>Dma4RequestMuxTPM3Request0Request2</em>&nbsp;</td><td class="fielddoc">
-<p>TPM3 request 0 and request 2 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47afabc7ff308d894bb5bfe115a92d899ea"></a>Dma4RequestMuxTPM3Request1Request3</em>&nbsp;</td><td class="fielddoc">
-<p>TPM3 request 1 and request 3 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a7930bc60e53601572a5f7e504008b914"></a>Dma4RequestMuxTPM3OverflowRequest</em>&nbsp;</td><td class="fielddoc">
-<p>TPM3 Overflow request </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a656bb49d3affc12010e6cb6d6fa59451"></a>Dma4RequestMuxTPM4Request0Request2</em>&nbsp;</td><td class="fielddoc">
-<p>TPM4 request 0 and request 2 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a4669c2f45f35d57da629559401f528f4"></a>Dma4RequestMuxTPM4Request1Request3</em>&nbsp;</td><td class="fielddoc">
-<p>TPM4 request 1 and request 3 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a77ed9b0e72bd1f5fe29ab2bf72323eaa"></a>Dma4RequestMuxTPM4OverflowRequest</em>&nbsp;</td><td class="fielddoc">
-<p>TPM4 Overflow request </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a42106712c27880688d8789508923ccae"></a>Dma4RequestMuxTPM5Request0Request2</em>&nbsp;</td><td class="fielddoc">
-<p>TPM5 request 0 and request 2 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a5b0e0531415fbecbf8d0bae665a13baa"></a>Dma4RequestMuxTPM5Request1Request3</em>&nbsp;</td><td class="fielddoc">
-<p>TPM5 request 1 and request 3 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a8f9aefee0295e2065c6171443ade4109"></a>Dma4RequestMuxTPM5OverflowRequest</em>&nbsp;</td><td class="fielddoc">
-<p>TPM5 Overflow request </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ab37c542a08342aedcb66486f093a4647"></a>Dma4RequestMuxTPM6Request0Request2</em>&nbsp;</td><td class="fielddoc">
-<p>TPM6 request 0 and request 2 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47af534d9f101fd04bfd674c45543bfa636"></a>Dma4RequestMuxTPM6Request1Request3</em>&nbsp;</td><td class="fielddoc">
-<p>TPM6 request 1 and request 3 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ab0187957b225a4813014856c46a91a25"></a>Dma4RequestMuxTPM6OverflowRequest</em>&nbsp;</td><td class="fielddoc">
-<p>TPM6 Overflow request </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47aad5eec9499514e559791502e9912c9e3"></a>Dma4RequestMuxFlexIO1Request0</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO1 Request0 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ae7b8a1f94b635d8ab042900c6283ae49"></a>Dma4RequestMuxFlexIO1Request1</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO1 Request1 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47af11beffdeeb66e0830cafb644da44a56"></a>Dma4RequestMuxFlexIO1Request2</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO1 Request2 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47abf80e74aef4085c5417423d234bf0704"></a>Dma4RequestMuxFlexIO1Request3</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO1 Request3 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ae8500cc39e10e5cc0d08ee101b05c6d3"></a>Dma4RequestMuxFlexIO1Request4</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO1 Request4 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47adb8699bc7928ee28c52a0b43618e6144"></a>Dma4RequestMuxFlexIO1Request5</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO1 Request5 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ab5b9b4e7239fb63bb97ef6d1b5958c44"></a>Dma4RequestMuxFlexIO1Request6</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO1 Request6 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47aab7faad796c80775cb5761557229ea2f"></a>Dma4RequestMuxFlexIO1Request7</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO1 Request7 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a15b71743a0de0b991470c1cf07157af5"></a>Dma4RequestMuxFlexIO2Request0</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO2 Request0 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ac94a7f5d06d4a1a99a585432959e495d"></a>Dma4RequestMuxFlexIO2Request1</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO2 Request1 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a5f31301603ff7bdb44a5f811257c8b4f"></a>Dma4RequestMuxFlexIO2Request2</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO2 Request2 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a90a84527ecd0b84ee315f121c4ae8723"></a>Dma4RequestMuxFlexIO2Request3</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO2 Request3 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47aece617b59ec055ef7211613b07e573a6"></a>Dma4RequestMuxFlexIO2Request4</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO2 Request4 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a988cccde00cfb1968f1e9a46692dc2c3"></a>Dma4RequestMuxFlexIO2Request5</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO2 Request5 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a03a41a29a401daa190cb3763eb9c3781"></a>Dma4RequestMuxFlexIO2Request6</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO2 Request6 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a37c25ef5b758c38177e9233a5b7e1b9e"></a>Dma4RequestMuxFlexIO2Request7</em>&nbsp;</td><td class="fielddoc">
-<p>FlexIO2 Request7 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47aff89a1c09cc2c996f7579883728e3ca4"></a>Dma4RequestMuxFlexSPI1Tx</em>&nbsp;</td><td class="fielddoc">
-<p>FlexSPI1 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a530cfcab0067a58ec4b9cecec2e66d8d"></a>Dma4RequestMuxFlexSPI1Rx</em>&nbsp;</td><td class="fielddoc">
-<p>FlexSPI1 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47aa25536efc8c056b043e28ea25521cacc"></a>Dma4RequestMuxSai2Tx</em>&nbsp;</td><td class="fielddoc">
-<p>SAI2 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ab70595a108d066a5661650a3891b2ace"></a>Dma4RequestMuxSai2Rx</em>&nbsp;</td><td class="fielddoc">
-<p>SAI2 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a74f10d14600b8c1ad39ec8dfc1d5c81e"></a>Dma4RequestMuxSai3Tx</em>&nbsp;</td><td class="fielddoc">
-<p>SAI3 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a1b6e5ccbd7611f393b6552b298ee8a3c"></a>Dma4RequestMuxSai3Rx</em>&nbsp;</td><td class="fielddoc">
-<p>SAI3 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a8ce9351379cebf70472968fb6e3315ac"></a>Dma4RequestMuxGPIO4Request0</em>&nbsp;</td><td class="fielddoc">
-<p>GPIO4 channel 0 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a9c598dea828bbefda6f6737cb952612f"></a>Dma4RequestMuxGPIO4Request1</em>&nbsp;</td><td class="fielddoc">
-<p>GPIO4 channel 1 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47af77436cd5889d5d7ec661f81336d3508"></a>Dma4RequestMuxSPDIFRequest</em>&nbsp;</td><td class="fielddoc">
-<p>SPDIF </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a22bc2e59740e3ab247ea3c5311f89207"></a>Dma4RequestMuxSPDIFRequest1</em>&nbsp;</td><td class="fielddoc">
-<p>SPDIF </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ab330520972216d94de6aea50760b4306"></a>Dma4RequestMuxENETRequest</em>&nbsp;</td><td class="fielddoc">
-<p>ENET </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a3509ed38192faa4fb8dd8abe3e58d6a6"></a>Dma4RequestMuxENETRequest1</em>&nbsp;</td><td class="fielddoc">
-<p>ENET </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a3c8d183e9e03dbeda9c2869e272fb188"></a>Dma4RequestMuxENETRequest2</em>&nbsp;</td><td class="fielddoc">
-<p>ENET </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a0c050883cea0024708b0419b755cf876"></a>Dma4RequestMuxENETRequest3</em>&nbsp;</td><td class="fielddoc">
-<p>ENET </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a059f41cadd98f0920652f2a44c928730"></a>Dma4RequestMuxLPI2C5Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C5 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a915218795256e650bc169d1499602eb0"></a>Dma4RequestMuxLPI2C5Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C5 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a50df49aeca181658fe5031768d76e931"></a>Dma4RequestMuxLPI2C6Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C6 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47af2113a373fbe89e68266529ed07c1621"></a>Dma4RequestMuxLPI2C6Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C6 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a8c698844ac1e2c7d017a89065a7a5752"></a>Dma4RequestMuxLPI2C7Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C7 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a1c3e64174850fb16a597f129113b59bf"></a>Dma4RequestMuxLPI2C7Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C7 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47aa33d3238c9e54bc899ca7b8f250a2b4c"></a>Dma4RequestMuxLPI2C8Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C8 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ad39bb63060813239b3a9be3ff4d24d8e"></a>Dma4RequestMuxLPI2C8Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPI2C8 </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a5eec48b094d1ea3f04b2f91449411614"></a>Dma4RequestMuxLPSPI5Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI5 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a12334add5d8ff815986c61e699cd1016"></a>Dma4RequestMuxLPSPI5Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI5 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a9cf6556781f60ef069091ae4a22062a8"></a>Dma4RequestMuxLPSPI6Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI6 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ac5b7227c76a53e2d696a151d4359f333"></a>Dma4RequestMuxLPSPI6Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI6 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ac6e19c3d5fa526fb7782440dd3f014b9"></a>Dma4RequestMuxLPSPI7Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI7 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a019f4e2df91276924dbf462ed7ed557b"></a>Dma4RequestMuxLPSPI7Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI7 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a85cf3ef26b1f383e0788532cad16bce9"></a>Dma4RequestMuxLPSPI8Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI8 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47aefb865a74c3a1800632712ee9031b121"></a>Dma4RequestMuxLPSPI8Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPSPI8 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47aae95f9b312fe607cf28123005fc83f35"></a>Dma4RequestMuxLPUART7Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART7 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a1ddd591be3d88a525c5189594d9fb601"></a>Dma4RequestMuxLPUART7Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART7 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47aa07ea2533811694c557b5b3e121d5a72"></a>Dma4RequestMuxLPUART8Tx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART8 Transmit </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a609585fcb2d4c376798db4a0257a89d1"></a>Dma4RequestMuxLPUART8Rx</em>&nbsp;</td><td class="fielddoc">
-<p>LPUART8 Receive </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47af84c66dc82be92e124235b08768440d9"></a>Dma4RequestMuxENET_QOSRequest</em>&nbsp;</td><td class="fielddoc">
-<p>ENET_QOS </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47ab91c5e2eef98b42346af2c32efe33dd5"></a>Dma4RequestMuxENET_QOSRequest1</em>&nbsp;</td><td class="fielddoc">
-<p>ENET_QOS </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a7d0d257ac5208ce9f330fb8b0a9eb745"></a>Dma4RequestMuxENET_QOSRequest2</em>&nbsp;</td><td class="fielddoc">
-<p>ENET_QOS </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggad052948ef0b5730afc6ce6101c34ae47a6b70d2f9e4bdd7b03ddd61371ee40c0a"></a>Dma4RequestMuxENET_QOSRequest3</em>&nbsp;</td><td class="fielddoc">
-<p>ENET_QOS </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga5a77d65f4abba81d4456fa6ba8136e24aa765592ccbbe2fb41ab0df45bc6ab9ed"></a>kCODEC_PCM186X</em>&nbsp;</td><td class="fielddoc">
+<p>pcm186x </p>
 </td></tr>
 </table>
 

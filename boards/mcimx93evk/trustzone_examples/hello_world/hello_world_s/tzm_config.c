@@ -1,6 +1,5 @@
 /*
  * Copyright 2022 NXP
- * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,7 +13,7 @@
 !!GlobalInfo
 product: TEE v4.0
 processor: MIMX9352xxxxM
-package_id: MIMX9352DVUXM
+package_id: MIMX9352DVVXM
 mcu_data: ksdk2_0
 processor_version: 0.12.3
 toolOptions:
@@ -67,7 +66,7 @@ void APP_SetTrdcGlobalConfig(void)
         App_SetTrdcMBCNSE(1, 0, i, 1);
     }
 
-    for (i = 18; i < 32; i++)
+    for (i = 19; i < 30; i++)
     {
         App_SetTrdcMBCNSE(1, 1, i, 1);
     }

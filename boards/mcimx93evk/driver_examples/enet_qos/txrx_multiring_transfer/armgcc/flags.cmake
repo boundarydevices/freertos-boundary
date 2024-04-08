@@ -48,7 +48,7 @@ SET(CMAKE_C_FLAGS_DEBUG " \
     ${CMAKE_C_FLAGS_DEBUG} \
     -DDEBUG \
     -DPHY_STABILITY_DELAY_US=500000U \
-    -DCPU_MIMX9352DVUXM_cm33 \
+    -DCPU_MIMX9352DVVXM_cm33 \
     -DSDK_I2C_BASED_COMPONENT_USED=1 \
     -DBOARD_USE_PCAL6524=1 \
     -DMCUXPRESSO_SDK \
@@ -73,7 +73,7 @@ SET(CMAKE_C_FLAGS_RELEASE " \
     ${CMAKE_C_FLAGS_RELEASE} \
     -DNDEBUG \
     -DPHY_STABILITY_DELAY_US=500000U \
-    -DCPU_MIMX9352DVUXM_cm33 \
+    -DCPU_MIMX9352DVVXM_cm33 \
     -DSDK_I2C_BASED_COMPONENT_USED=1 \
     -DBOARD_USE_PCAL6524=1 \
     -DMCUXPRESSO_SDK \
@@ -165,7 +165,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     --defsym=__heap_size__=0x8000 \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX9352_cm33_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX9352_cm33_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     ${CMAKE_EXE_LINKER_FLAGS_RELEASE} \
@@ -195,5 +195,5 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     --defsym=__heap_size__=0x8000 \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX9352_cm33_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX9352_cm33_ram.ld\" -static \
 ")

@@ -1,8 +1,8 @@
 /*
 ** ###################################################################
 **     Processors:          MIMX9352AVTXM_cm33
-**                          MIMX9352CVUXK_cm33
-**                          MIMX9352DVUXM_cm33
+**                          MIMX9352CVVXK_cm33
+**                          MIMX9352DVVXM_cm33
 **
 **     Compiler:            GNU C Compiler
 **     Reference manual:    IMX93RM, Internal, November. 2021
@@ -14,7 +14,6 @@
 **
 **     Copyright 2016 Freescale Semiconductor, Inc.
 **     Copyright 2016-2023 NXP
-**     All rights reserved.
 **
 **     SPDX-License-Identifier: BSD-3-Clause
 **
@@ -38,8 +37,8 @@ MEMORY
   m_interrupts          (RX)  : ORIGIN = 0x0FFE0000, LENGTH = 0x00000478
   m_text                (RX)  : ORIGIN = 0x0FFE0478, LENGTH = 0x0001FB88
   m_data                (RW)  : ORIGIN = 0x20000000, LENGTH = 0x0000E000
-  m_data2               (RW)  : ORIGIN = 0x2000E000, LENGTH = 0x00011000
-  m_rsc_tbl             (RW)  : ORIGIN = 0x2001F000, LENGTH = 0x00001000
+  m_data2               (RW)  : ORIGIN = 0x2000E000, LENGTH = 0x00010000
+  m_rsc_tbl             (RW)  : ORIGIN = 0x2001E000, LENGTH = 0x00001000
 }
 
 /* Define output sections */

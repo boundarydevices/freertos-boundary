@@ -1,6 +1,5 @@
 /*
- * Copyright 2021-2022 NXP
- * All rights reserved.
+ * Copyright 2021-2023 NXP
  *
  * SPDX-License-Identifier : BSD-3-Clause
  */
@@ -14,6 +13,7 @@ status_t LSM_Init(lsm_handle_t *handle, const lsm_config_t *config)
     assert(handle);
     assert(config);
     uint8_t val = 0;
+    lsm_ctrl3_c_t ctrl3_c = {0};
 
     /* Initialize the I2C access function. */
     handle->I2C_SendFunc    = config->I2C_SendFunc;
@@ -37,6 +37,27 @@ status_t LSM_Init(lsm_handle_t *handle, const lsm_config_t *config)
     }
     val |= 0x01U;
     if (LSM_WriteReg(handle, LSM_CTRL3_C_REG, &val) != kStatus_Success)
+    {
+        return kStatus_Fail;
+    }
+
+    /*
+     * Setup interrupt output pins activation level(low/high)
+     * H_LACTIVE(1 bit, in 5th bit):
+     *   0 - interrupt output pins active high
+     *   1 - interrupt output pins active low
+     */
+    if (LSM_ReadReg(handle, LSM_CTRL3_C_REG, (uint8_t *)&ctrl3_c) != kStatus_Success)
+    {
+        return kStatus_Fail;
+    }
+
+    if (config->int_active_level == LSM_INT_ACTIVE_HIGH)
+    {
+        ctrl3_c.h_lactive = 1;
+    }
+
+    if (LSM_WriteReg(handle, LSM_CTRL3_C_REG, (uint8_t *)&ctrl3_c) != kStatus_Success)
     {
         return kStatus_Fail;
     }

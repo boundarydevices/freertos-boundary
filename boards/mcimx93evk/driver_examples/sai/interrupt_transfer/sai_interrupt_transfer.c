@@ -35,7 +35,7 @@
 
 /* Get frequency of sai1 clock */
 #define SAI_CLOCK_ROOT    kCLOCK_Root_Sai3
-#define SAI_CLOCK_GATE kCLOCK_Sai3
+#define SAI_CLOCK_GATE    kCLOCK_Sai3
 #define DEMO_SAI_CLK_FREQ CLOCK_GetIpFreq(SAI_CLOCK_ROOT)
 
 /* I2C instance and clock */

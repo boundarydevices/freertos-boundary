@@ -31,7 +31,7 @@ SET(CMAKE_C_FLAGS_RELEASE " \
     ${CMAKE_C_FLAGS_RELEASE} \
     -DNDEBUG \
     -D_POSIX_SOURCE \
-    -DCPU_MIMX9352DVUXM_cm33 \
+    -DCPU_MIMX9352DVVXM_cm33 \
     -DSDK_I2C_BASED_COMPONENT_USED=1 \
     -DBOARD_USE_PCAL6524=1 \
     -DUSE_RTOS=1 \
@@ -107,5 +107,5 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     --defsym=__heap_size__=25600 \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX9352_cm33_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX9352_cm33_ram.ld\" -static \
 ")

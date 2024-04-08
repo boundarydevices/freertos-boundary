@@ -15,7 +15,7 @@
 !!GlobalInfo
 product: Pins v12.0
 processor: MIMX9352xxxxM
-package_id: MIMX9352DVUXM
+package_id: MIMX9352DVVXM
 mcu_data: ksdk2_0
 processor_version: 0.12.3
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********

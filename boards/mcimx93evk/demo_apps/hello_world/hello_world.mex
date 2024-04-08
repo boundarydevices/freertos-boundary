@@ -2,7 +2,7 @@
 <configuration name="MIMX9352xxxxM" xsi:schemaLocation="http://mcuxpresso.nxp.com/XSD/mex_configuration_12 http://mcuxpresso.nxp.com/XSD/mex_configuration_12.xsd" uuid="d8216ed4-aa88-43a9-8811-335b1ca1dfce" version="12" xmlns="http://mcuxpresso.nxp.com/XSD/mex_configuration_12" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <common>
       <processor>MIMX9352xxxxM</processor>
-      <package>MIMX9352DVUXM</package>
+      <package>MIMX9352DVVXM</package>
       <mcu_data>ksdk2_0</mcu_data>
       <cores selected="cm33">
          <core name="Cortex-A55" id="ca55" description=""/>
@@ -1408,7 +1408,7 @@
                               <domain security="s" template="NO_ACCESS"/>
                               <domain security="s" template="NO_ACCESS"/>
                            </slave>
-                           <slave id="BLK_CTRL_WAKEUPMIX1">
+                           <slave id="BLK_CTRL_WAKEUPMIX">
                               <domain security="s" template="NO_ACCESS"/>
                               <domain security="s" template="NO_ACCESS"/>
                               <domain security="s" template="NO_ACCESS"/>

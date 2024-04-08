@@ -25,24 +25,21 @@
 #define DEMO_EDMA_CHANNEL      kDma3RequestMuxPDMRequest
 #define EXAMPLE_DMA_CLOCK_ROOT kCLOCK_Root_WakeupAxi
 #define EXAMPLE_DMA_CLOCK_GATE kCLOCK_Edma1
-/* Workaround for i.MX93 which has both DMA3 and DMA4 */
-#undef FSL_FEATURE_EDMA_HAS_CHANNEL_MUX
-#define FSL_FEATURE_EDMA_HAS_CHANNEL_MUX (0)
 
 #define DEMO_PDM                      PDM
 #define PDM_CLOCK_ROOT                kCLOCK_Root_Pdm
-#define PDM_CLOCK_GATE kCLOCK_Pdm
+#define PDM_CLOCK_GATE                kCLOCK_Pdm
 #define DEMO_PDM_CLK_FREQ             CLOCK_GetIpFreq(PDM_CLOCK_ROOT)
 #define DEMO_PDM_FIFO_WATERMARK       (FSL_FEATURE_PDM_FIFO_DEPTH / 2U)
 #define DEMO_PDM_QUALITY_MODE         kPDM_QualityModeHigh
 #define DEMO_PDM_CIC_OVERSAMPLE_RATE  (0U)
 #define DEMO_PDM_ENABLE_CHANNEL_LEFT  (0U)
 #define DEMO_PDM_ENABLE_CHANNEL_RIGHT (1U)
-//#define DEMO_PDM_HWVAD_SIGNAL_GAIN    0
+// #define DEMO_PDM_HWVAD_SIGNAL_GAIN    0
 #define DEMO_PDM_SAMPLE_CLOCK_RATE (640000U) /* 16KHZ */
 #define DEMO_PDM_ERROR_IRQn        PDM_ERROR_IRQn
 #define DEMO_PDM_ERROR_IRQHandler  PDM_ERROR_IRQHandler
-//#define DEMO_PDM_CHANNEL_GAIN         kPDM_DfOutputGain0
+// #define DEMO_PDM_CHANNEL_GAIN         kPDM_DfOutputGain0
 
 #define DEMO_AUDIO_SAMPLE_RATE (48000U)
 #define BUFFER_SIZE (256)
@@ -64,6 +61,9 @@ static volatile bool s_fifoErrorFlag = false;
 static volatile bool s_pdmRxFinished = false;
 
 static const pdm_config_t pdmConfig = {
+#if defined(FSL_FEATURE_PDM_HAS_DECIMATION_FILTER_BYPASS) && FSL_FEATURE_PDM_HAS_DECIMATION_FILTER_BYPASS
+    .enableFilterBypass = false,
+#endif
     .enableDoze        = false,
     .fifoWatermark     = DEMO_PDM_FIFO_WATERMARK,
     .qualityMode       = DEMO_PDM_QUALITY_MODE,
@@ -120,7 +120,7 @@ void DEMO_PDM_ERROR_IRQHandler(void)
         PDM_ClearOutputStatus(DEMO_PDM, status);
     }
 #endif
-    __DSB();
+    SDK_ISR_EXIT_BARRIER;
 }
 
 /*!

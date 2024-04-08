@@ -47,47 +47,46 @@ SET(CMAKE_ASM_FLAGS_DEBUG " \
 SET(CMAKE_C_FLAGS_RELEASE " \
     ${CMAKE_C_FLAGS_RELEASE} \
     -DNDEBUG \
-    -DCPU_MIMX9352DVUXM_cm33 \
+    -DCPU_MIMX9352DVVXM_cm33 \
     -DARM_MATH_CM33 \
     -D__FPU_PRESENT=1 \
     -DPRINTF_ADVANCED_ENABLE=1 \
     -DETHOSU_ARCH=u65 \
     -DETHOSU65=1 \
-    -DMCUXPRESSO_SDK \
     -DTF_LITE_STATIC_MEMORY \
+    -DMCUXPRESSO_SDK \
     -DCMSIS_NN \
     -DSDK_OS_FREE_RTOS \
     -DSERIAL_PORT_TYPE_UART=1 \
     -Os \
     -fno-strict-aliasing \
     -Wno-unused-function \
-    -mcpu=cortex-m33 \
     -Wall \
+    -Wno-maybe-uninitialized \
+    -Wno-strict-aliasing \
+    -mcpu=cortex-m33 \
     -mthumb \
     -MMD \
     -MP \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
-    -fno-builtin \
     -mapcs \
     -std=gnu99 \
-    -Wno-strict-aliasing \
     ${FPU} \
     ${DEBUG_CONSOLE_CONFIG} \
 ")
 SET(CMAKE_C_FLAGS_DEBUG " \
     ${CMAKE_C_FLAGS_DEBUG} \
     -DDEBUG \
-    -DCPU_MIMX9352DVUXM_cm33 \
+    -DCPU_MIMX9352DVVXM_cm33 \
     -DARM_MATH_CM33 \
     -D__FPU_PRESENT=1 \
     -DPRINTF_ADVANCED_ENABLE=1 \
     -DETHOSU_ARCH=u65 \
     -DETHOSU65=1 \
-    -DMCUXPRESSO_SDK \
     -DTF_LITE_STATIC_MEMORY \
+    -DMCUXPRESSO_SDK \
     -DCMSIS_NN \
     -DSDK_OS_FREE_RTOS \
     -DSERIAL_PORT_TYPE_UART=1 \
@@ -95,19 +94,18 @@ SET(CMAKE_C_FLAGS_DEBUG " \
     -g \
     -fno-strict-aliasing \
     -Wno-unused-function \
-    -mcpu=cortex-m33 \
     -Wall \
+    -Wno-maybe-uninitialized \
+    -Wno-strict-aliasing \
+    -mcpu=cortex-m33 \
     -mthumb \
     -MMD \
     -MP \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
-    -fno-builtin \
     -mapcs \
     -std=gnu99 \
-    -Wno-strict-aliasing \
     ${FPU} \
     ${DEBUG_CONSOLE_CONFIG} \
 ")
@@ -117,30 +115,29 @@ SET(CMAKE_CXX_FLAGS_RELEASE " \
     -DARM_MATH_CM33 \
     -D__FPU_PRESENT=1 \
     -DPRINTF_ADVANCED_ENABLE=1 \
-    -DCPU_MIMX9352DVUXM_cm33 \
+    -DCPU_MIMX9352DVVXM_cm33 \
     -DETHOSU_ARCH=u65 \
     -DETHOSU65=1 \
-    -DMCUXPRESSO_SDK \
     -DTF_LITE_STATIC_MEMORY \
+    -DMCUXPRESSO_SDK \
     -DCMSIS_NN \
     -DSERIAL_PORT_TYPE_UART=1 \
     -Os \
-    -mcpu=cortex-m33 \
     -Wall \
+    -fno-rtti \
+    -fno-exceptions \
+    -Wno-maybe-uninitialized \
+    -Wno-sign-compare \
+    -Wno-strict-aliasing \
+    -Wno-deprecated-declarations \
+    -mcpu=cortex-m33 \
     -mthumb \
     -MMD \
     -MP \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
-    -fno-builtin \
     -mapcs \
-    -fno-rtti \
-    -fno-exceptions \
-    -Wno-sign-compare \
-    -Wno-strict-aliasing \
-    -Wno-deprecated-declarations \
     ${FPU} \
     ${DEBUG_CONSOLE_CONFIG} \
 ")
@@ -150,31 +147,30 @@ SET(CMAKE_CXX_FLAGS_DEBUG " \
     -DARM_MATH_CM33 \
     -D__FPU_PRESENT=1 \
     -DPRINTF_ADVANCED_ENABLE=1 \
-    -DCPU_MIMX9352DVUXM_cm33 \
+    -DCPU_MIMX9352DVVXM_cm33 \
     -DETHOSU_ARCH=u65 \
     -DETHOSU65=1 \
-    -DMCUXPRESSO_SDK \
     -DTF_LITE_STATIC_MEMORY \
+    -DMCUXPRESSO_SDK \
     -DCMSIS_NN \
     -DSERIAL_PORT_TYPE_UART=1 \
     -O1 \
     -g \
-    -mcpu=cortex-m33 \
     -Wall \
+    -fno-rtti \
+    -fno-exceptions \
+    -Wno-maybe-uninitialized \
+    -Wno-sign-compare \
+    -Wno-strict-aliasing \
+    -Wno-deprecated-declarations \
+    -mcpu=cortex-m33 \
     -mthumb \
     -MMD \
     -MP \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
-    -fno-builtin \
     -mapcs \
-    -fno-rtti \
-    -fno-exceptions \
-    -Wno-sign-compare \
-    -Wno-strict-aliasing \
-    -Wno-deprecated-declarations \
     ${FPU} \
     ${DEBUG_CONSOLE_CONFIG} \
 ")
@@ -187,8 +183,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
-    -fno-builtin \
     -mthumb \
     -mapcs \
     -Xlinker \
@@ -208,7 +202,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     --defsym=__heap_size__=0x2000 \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX9352_cm33_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX9352_cm33_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     ${CMAKE_EXE_LINKER_FLAGS_DEBUG} \
@@ -220,8 +214,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
-    -fno-builtin \
     -mthumb \
     -mapcs \
     -Xlinker \
@@ -241,5 +233,5 @@ SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     --defsym=__heap_size__=0x2000 \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX9352_cm33_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX9352_cm33_ram.ld\" -static \
 ")

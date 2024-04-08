@@ -1,21 +1,20 @@
 /*
 ** ###################################################################
 **     Processors:          MIMX9352AVTXM_cm33
-**                          MIMX9352CVUXK_cm33
-**                          MIMX9352DVUXM_cm33
+**                          MIMX9352CVVXM_cm33
+**                          MIMX9352DVVXM_cm33
+**                          MIMX9352XVVXM_cm33
 **
 **     Compiler:            GNU C Compiler
 **     Reference manual:    IMX93RM, Internal, November. 2021
 **     Version:             rev. 1.0, 2021-11-16
-**     Build:               b230423
+**     Build:               b231019
 **
 **     Abstract:
 **         Linker file for the GNU C Compiler
 **
 **     Copyright 2016 Freescale Semiconductor, Inc.
 **     Copyright 2016-2023 NXP
-**     All rights reserved.
-**
 **     SPDX-License-Identifier: BSD-3-Clause
 **
 **     http:                 www.nxp.com
@@ -31,7 +30,6 @@ HEAP_SIZE  = DEFINED(__heap_size__)  ? __heap_size__  : 0x0400;
 STACK_SIZE = DEFINED(__stack_size__) ? __stack_size__ : 0x0400;
 M_VECTOR_RAM_SIZE = DEFINED(__ram_vector_table__) ? 0x0478 : 0x0;
 
-
 /* Specify the memory areas */
 MEMORY
 {
@@ -39,8 +37,8 @@ MEMORY
   m_text                (RX)  : ORIGIN = 0x0FFE0478, LENGTH = 0x0001FB88
   m_m33_suspend_ram     (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00002000
   m_a55_suspend_ram     (RW)  : ORIGIN = 0x20002000, LENGTH = 0x00001000
-  m_data                (RW)  : ORIGIN = 0x20003000, LENGTH = 0x0001C000
-  m_rsc_tbl             (RW)  : ORIGIN = 0x2001F000, LENGTH = 0x00001000
+  m_data                (RW)  : ORIGIN = 0x20003000, LENGTH = 0x0001B000
+  m_rsc_tbl             (RW)  : ORIGIN = 0x2001E000, LENGTH = 0x00001000
 }
 
 /* Define output sections */

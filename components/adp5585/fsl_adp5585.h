@@ -167,7 +167,7 @@ status_t ADP5585_ClearPins(adp5585_handle_t *handle, uint16_t pins);
  */
 status_t ADP5585_TogglePins(adp5585_handle_t *handle, uint16_t pins);
 
-/* @} */
+/*! @} */
 
 #if defined(__cplusplus)
 }

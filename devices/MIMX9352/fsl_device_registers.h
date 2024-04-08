@@ -13,7 +13,8 @@
  *
  * The CPU macro should be declared in the project or makefile.
  */
-#if (defined(CPU_MIMX9352AVTXM_cm33) || defined(CPU_MIMX9352CVUXK_cm33) || defined(CPU_MIMX9352DVUXM_cm33))
+#if (defined(CPU_MIMX9352AVTXM_cm33) || defined(CPU_MIMX9352CVVXM_cm33) || defined(CPU_MIMX9352DVVXM_cm33) || \
+     defined(CPU_MIMX9352XVVXM_cm33))
 
 #define MIMX9352_cm33_SERIES
 

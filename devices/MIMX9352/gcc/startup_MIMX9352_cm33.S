@@ -4,7 +4,7 @@
 /*            MIMX9352_cm33                                                  */
 /*  @version: 1.0                                                            */
 /*  @date:    2021-11-16                                                     */
-/*  @build:   b230512                                                        */
+/*  @build:   b231019                                                        */
 /* ------------------------------------------------------------------------- */
 /*                                                                           */
 /* Copyright 1997-2016 Freescale Semiconductor, Inc.                         */
@@ -313,6 +313,11 @@ __isr_vector:
     .text
     .thumb
 
+#if defined (__cplusplus)
+#ifdef __REDLIB__
+#error Redlib does not support C++
+#endif
+#endif
 /* Reset Handler */
 
     .thumb_func
@@ -387,11 +392,7 @@ Reset_Handler:
 /* TCM initializaiton in case of ECC error */
     movs    r0, 0
     ldr     r1, =__HeapBase
-#ifdef DEMO_CODE_START_NS /* For trustzone secure world demos */
     ldr     r2, =__StackTop
-#else
-    ldr     r2, =__RscTblEnd
-#endif
 .LC3:
     cmp     r1, r2
     itt     lt
@@ -400,7 +401,11 @@ Reset_Handler:
 /* End of TCM initializaiton */
     cpsie   i               /* Unmask interrupts */
 #ifndef __START
+#ifdef __REDLIB__
+#define __START __main
+#else
 #define __START _start
+#endif
 #endif
 #ifndef __ATOLLIC__
     ldr   r0,=__START

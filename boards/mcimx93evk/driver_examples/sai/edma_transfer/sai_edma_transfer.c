@@ -35,7 +35,7 @@
 
 /* Get frequency of sai3 clock */
 #define SAI_CLOCK_ROOT          kCLOCK_Root_Sai3
-#define SAI_CLOCK_GATE kCLOCK_Sai3
+#define SAI_CLOCK_GATE          kCLOCK_Sai3
 #define DEMO_SAI_CLK_FREQ       CLOCK_GetIpFreq(SAI_CLOCK_ROOT)
 #define DEMO_AUDIO_MASTER_CLOCK DEMO_SAI_CLK_FREQ
 
@@ -48,7 +48,7 @@
 /* DMA */
 #define DEMO_DMA               DMA4
 #define DEMO_EDMA_CHANNEL      2U
-#define DEMO_SAI_EDMA_CHANNEL  Dma4RequestMuxSai3Tx
+#define DEMO_SAI_EDMA_CHANNEL  kDma4RequestMuxSai3Tx
 #define DEMO_XFER_BUFFER_SIZE  (3200U)
 #define EXAMPLE_DMA_CLOCK_ROOT kCLOCK_Root_WakeupAxi
 #define EXAMPLE_DMA_CLOCK_GATE kCLOCK_Edma2

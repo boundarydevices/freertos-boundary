@@ -17,7 +17,7 @@
  ******************************************************************************/
 #define DEMO_PDM                      PDM
 #define PDM_CLOCK_ROOT                kCLOCK_Root_Pdm
-#define PDM_CLOCK_GATE kCLOCK_Pdm
+#define PDM_CLOCK_GATE                kCLOCK_Pdm
 #define DEMO_PDM_CLK_FREQ             CLOCK_GetIpFreq(PDM_CLOCK_ROOT)
 #define DEMO_PDM_FIFO_WATERMARK       (FSL_FEATURE_PDM_FIFO_DEPTH / 2U - 1U)
 #define DEMO_PDM_QUALITY_MODE         kPDM_QualityModeHigh
@@ -40,6 +40,9 @@ static volatile bool s_hwvadFlag       = false;
 static volatile uint32_t s_readIndex   = 0U;
 static volatile uint32_t s_detectTimes = 50U;
 static const pdm_config_t pdmConfig    = {
+#if defined(FSL_FEATURE_PDM_HAS_DECIMATION_FILTER_BYPASS) && FSL_FEATURE_PDM_HAS_DECIMATION_FILTER_BYPASS
+    .enableFilterBypass = false,
+#endif
     .enableDoze        = false,
     .fifoWatermark     = DEMO_PDM_FIFO_WATERMARK,
     .qualityMode       = DEMO_PDM_QUALITY_MODE,

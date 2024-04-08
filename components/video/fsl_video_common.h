@@ -65,11 +65,11 @@ typedef enum _video_pixel_format
     kVIDEO_PixelFormatXBGR8888 = FSL_VIDEO_FOURCC('X', 'B', '2', '4'), /*!< 32-bit XBGR8888. */
     kVIDEO_PixelFormatBGRX8888 = FSL_VIDEO_FOURCC('B', 'X', '2', '4'), /*!< 32-bit BGRX8888. */
 
-    kVIDEO_PixelFormatRGB888 = FSL_VIDEO_FOURCC('R', 'G', '2', '4'), /*!< 24-bit RGB888. */
-    kVIDEO_PixelFormatBGR888 = FSL_VIDEO_FOURCC('B', 'G', '2', '4'), /*!< 24-bit BGR888. */
+    kVIDEO_PixelFormatRGB888 = FSL_VIDEO_FOURCC('R', 'G', '2', '4'),   /*!< 24-bit RGB888. */
+    kVIDEO_PixelFormatBGR888 = FSL_VIDEO_FOURCC('B', 'G', '2', '4'),   /*!< 24-bit BGR888. */
 
-    kVIDEO_PixelFormatRGB565 = FSL_VIDEO_FOURCC('R', 'G', '1', '6'), /*!< 16-bit RGB565. */
-    kVIDEO_PixelFormatBGR565 = FSL_VIDEO_FOURCC('B', 'G', '1', '6'), /*!< 16-bit BGR565. */
+    kVIDEO_PixelFormatRGB565 = FSL_VIDEO_FOURCC('R', 'G', '1', '6'),   /*!< 16-bit RGB565. */
+    kVIDEO_PixelFormatBGR565 = FSL_VIDEO_FOURCC('B', 'G', '1', '6'),   /*!< 16-bit BGR565. */
 
     kVIDEO_PixelFormatXRGB1555 = FSL_VIDEO_FOURCC('X', 'R', '1', '5'), /*!< 16-bit XRGB1555. */
     kVIDEO_PixelFormatRGBX5551 = FSL_VIDEO_FOURCC('R', 'X', '1', '5'), /*!< 16-bit RGBX5551. */
@@ -134,9 +134,9 @@ typedef struct
  */
 typedef struct
 {
-    void **buf;           /*!< Pointer to the memory to store the items. */
-    volatile int32_t top; /*!< Current top stack top. */
-    int32_t maxCount;     /*!< Maximal count of items can be stored in the stack. */
+    void **buf;            /*!< Pointer to the memory to store the items. */
+    volatile uint32_t top; /*!< Current top stack top. */
+    uint32_t maxCount;     /*!< Maximal count of items can be stored in the stack. */
 } video_stack_t;
 
 /*******************************************************************************
@@ -174,7 +174,7 @@ void VIDEO_DelayMs(uint32_t ms);
  */
 uint8_t VIDEO_GetPixelSizeBits(video_pixel_format_t pixelFormat);
 
-/* @} */
+/*! @} */
 
 /*!
  * @name Ring buffer.
@@ -235,7 +235,7 @@ bool VIDEO_RINGBUF_IsEmpty(video_ringbuf_t *ringbuf);
  * @return Returns true if the ring buffer is full, otherwise returns false.
  */
 bool VIDEO_RINGBUF_IsFull(video_ringbuf_t *ringbuf);
-/* @} */
+/*! @} */
 
 /*!
  * @name Memory Pool
@@ -295,7 +295,7 @@ void *VIDEO_MEMPOOL_Get(video_mempool_t *mempool);
  */
 uint32_t VIDEO_MEMPOOL_GetCount(video_mempool_t *mempool);
 
-/* @} */
+/*! @} */
 
 /*!
  * @name Stack which supports LIFO item management.
@@ -339,9 +339,9 @@ status_t VIDEO_STACK_Push(video_stack_t *stack, void *item);
  * @param stack Pointer to the stack handle.
  * @return Returns the item count.
  */
-static inline int32_t VIDEO_STACK_GetCount(video_stack_t *stack)
+static inline uint32_t VIDEO_STACK_GetCount(video_stack_t *stack)
 {
-    return stack->top + 1;
+    return stack->top;
 }
 
 /*!
@@ -350,12 +350,12 @@ static inline int32_t VIDEO_STACK_GetCount(video_stack_t *stack)
  * @param stack Pointer to the stack handle.
  * @return Returns the maxiumal count of items in the stack.
  */
-static inline int32_t VIDEO_STACK_GetMaxCount(video_stack_t *stack)
+static inline uint32_t VIDEO_STACK_GetMaxCount(video_stack_t *stack)
 {
     return stack->maxCount;
 }
 
-/* @} */
+/*! @} */
 
 #if defined(__cplusplus)
 }

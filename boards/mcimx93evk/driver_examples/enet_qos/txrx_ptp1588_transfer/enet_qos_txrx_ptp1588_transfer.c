@@ -58,6 +58,9 @@ extern phy_rtl8211f_resource_t g_phy_resource;
 #define EXAMPLE_CACHE_LINE_SIZE 1 /*!< No need to align cache line size */
 #endif                            /* FSL_ETH_ENABLE_CACHE_CONTROL */
 
+#ifndef PHY_LINKUP_TIMEOUT_COUNT
+#define PHY_LINKUP_TIMEOUT_COUNT (800000U)
+#endif
 #ifndef PHY_AUTONEGO_TIMEOUT_COUNT
 #define PHY_AUTONEGO_TIMEOUT_COUNT (800000U)
 #endif
@@ -124,12 +127,12 @@ static bool linkChange = false;
  ******************************************************************************/
 void ENET_QOS_EnableClock(bool enable)
 {
-    BLK_CTRL_WAKEUPMIX1->GPR =
-        (BLK_CTRL_WAKEUPMIX1->GPR & (~BLK_CTRL_WAKEUPMIX_GPR_ENABLE_MASK)) | BLK_CTRL_WAKEUPMIX_GPR_ENABLE(enable);
+    BLK_CTRL_WAKEUPMIX->GPR =
+        (BLK_CTRL_WAKEUPMIX->GPR & (~BLK_CTRL_WAKEUPMIX_GPR_ENABLE_MASK)) | BLK_CTRL_WAKEUPMIX_GPR_ENABLE(enable);
 }
 void ENET_QOS_SetSYSControl(enet_qos_mii_mode_t miiMode)
 {
-    BLK_CTRL_WAKEUPMIX1->GPR |= BLK_CTRL_WAKEUPMIX_GPR_MODE(miiMode);
+    BLK_CTRL_WAKEUPMIX->GPR |= BLK_CTRL_WAKEUPMIX_GPR_MODE(miiMode);
 }
 
 static void MDIO_Init(void)
@@ -214,8 +217,10 @@ int main(void)
     uint64_t second;
     uint32_t nanosecond;
     bool link              = false;
+#if !defined(EXAMPLE_PHY_LOOPBACK_ENABLE)
+    bool autonego                   = false;
+#endif
     bool tempLink          = false;
-    bool autonego          = false;
     phy_config_t phyConfig = {0};
 
     /* Hardware Initialization. */
@@ -317,8 +322,39 @@ int main(void)
     phyConfig.intrType = kPHY_IntrActiveLow;
 #endif
 
-    /* Initialize PHY and wait auto-negotiation over. */
     PRINTF("Wait for PHY init...\r\n");
+#if defined(EXAMPLE_PHY_LOOPBACK_ENABLE)
+    /* Initialize PHY and enable loopback. */
+    do
+    {
+        status = PHY_Init(&phyHandle, &phyConfig);
+        if (status != kStatus_Success)
+        {
+            PRINTF("Failed to init PHY\r\n");
+            return status;
+        }
+
+        status = PHY_EnableLoopback(&phyHandle, kPHY_LocalLoop, kPHY_Speed1000M, true);
+        if (status != kStatus_Success)
+        {
+            PRINTF("Failed to enable PHY loopback\r\n");
+            return status;
+        }
+
+        /* Wait link up */
+        PRINTF("Wait for PHY link up...\r\n");
+        count = PHY_LINKUP_TIMEOUT_COUNT;
+        do
+        {
+            PHY_GetLinkStatus(&phyHandle, &link);
+            if (link)
+            {
+                break;
+            }
+        } while (--count);
+    } while (!link);
+#else
+    /* Initialize PHY and wait auto-negotiation over. */
     do
     {
         status = PHY_Init(&phyHandle, &phyConfig);
@@ -342,6 +378,7 @@ int main(void)
             }
         }
     } while (!(link && autonego));
+#endif
 
     /* Wait a moment for PHY status to be stable. */
     SDK_DelayAtLeastUs(PHY_STABILITY_DELAY_US, SDK_DEVICE_MAXIMUM_CPU_CLOCK_FREQUENCY);

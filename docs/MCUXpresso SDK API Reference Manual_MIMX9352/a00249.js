@@ -1,21 +1,23 @@
 var a00249 =
 [
-    [ "FSL_OCOTP_DRIVER_VERSION", "a00249.html#ga211ad512cb6afc3a8649a61c4f887dd5", [
-      [ "kStatus_OCOTP_AccessError", "a00249.html#ggac9420823bfeba78fce625fc105e3b01da6133e2fb03bd09bc490982251048c8de", null ],
-      [ "kStatus_OCOTP_CrcFail", "a00249.html#ggac9420823bfeba78fce625fc105e3b01da6c5aa99c2965029cf80feaf36cd0763a", null ],
-      [ "kStatus_OCOTP_ReloadError", "a00249.html#ggac9420823bfeba78fce625fc105e3b01daa1a3a69603c6973128021852a03cf9ce", null ],
-      [ "kStatus_OCOTP_ProgramFail", "a00249.html#ggac9420823bfeba78fce625fc105e3b01dae3aafd3ae27db94a954965038445d240", null ],
-      [ "kStatus_OCOTP_Locked", "a00249.html#ggac9420823bfeba78fce625fc105e3b01da3a38a5c2c3c0f0146c9b773e855812a6", null ]
+    [ "FSL_PORT_DRIVER_VERSION", "a00249.html#ga75a0a23a423adf79cd0f83a5fa2567a3", null ],
+    [ "port_interrupt_t", "a00249.html#ga18b2add7e164a5dfa5c00832f857a1f6", [
+      [ "kPORT_InterruptOrDMADisabled", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a3a632495179d065e620ada24a6521ac6", null ],
+      [ "kPORT_DMARisingEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6acf057f010d45cf99b2d42ca76752b103", null ],
+      [ "kPORT_DMAFallingEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6af3275302ec20083e1f12047b2982057c", null ],
+      [ "kPORT_DMAEitherEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aa9d93b8e5b3ae154b5b33ed86d3370ca", null ],
+      [ "kPORT_FlagRisingEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aed05d5f28be0e81a10b36765b1e62750", null ],
+      [ "kPORT_FlagFallingEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aa741b2c34ca3924b5f25a118d833fa2b", null ],
+      [ "kPORT_FlagEitherEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a31d92dea54cfd39106b324260bc3c8f6", null ],
+      [ "kPORT_InterruptLogicZero", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a4001279f550382ce823ad62136970f14", null ],
+      [ "kPORT_InterruptRisingEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a2f8db24e21fd5fabfc8dc5250fbc6471", null ],
+      [ "kPORT_InterruptFallingEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6afe8f52eaca9af2ce2087a2991f50c463", null ],
+      [ "kPORT_InterruptEitherEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a02b1f5ef221c395aa49960c8c32943d2", null ],
+      [ "kPORT_InterruptLogicOne", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aa10b78a566c8439f00d14d18897f765c", null ],
+      [ "kPORT_ActiveHighTriggerOutputEnable", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a47452bd9fd5a7ff1dce3ccba5b38fe25", null ],
+      [ "kPORT_ActiveLowTriggerOutputEnable", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6af726a3a1b4f551c31fe80cac6111484a", null ]
     ] ],
-    [ "OCOTP_Init", "a00249.html#ga54480b3c489116b8cb76053b16f02c89", null ],
-    [ "OCOTP_Deinit", "a00249.html#gaafffa3b5fe3f1f69f077e88ba5a7e107", null ],
-    [ "OCOTP_CheckBusyStatus", "a00249.html#gaa3040092099624ec476dd81bd022712c", null ],
-    [ "OCOTP_CheckErrorStatus", "a00249.html#gaf0ee0166ccd35b0273d468b7eb72c954", null ],
-    [ "OCOTP_ClearErrorStatus", "a00249.html#gad9294be0c39be4dfaa1eea436ac85171", null ],
-    [ "OCOTP_ReloadShadowRegister", "a00249.html#ga7a7b1cd03383fafde15157a06fdda557", null ],
-    [ "OCOTP_ReadFuseShadowRegister", "a00249.html#gaecc991ccf4be0c49286fb13cba97e389", null ],
-    [ "OCOTP_ReadFuseShadowRegisterExt", "a00249.html#gaa1b0f813fa5ca43225d71d9218c48a28", null ],
-    [ "OCOTP_WriteFuseShadowRegister", "a00249.html#ga43636ab96125958c9a14fe82c176e33e", null ],
-    [ "OCOTP_WriteFuseShadowRegisterWithLock", "a00249.html#ga4f837c7b4a66ffe3153f2975fd5c6388", null ],
-    [ "OCOTP_GetVersion", "a00249.html#ga38c12a5cb815d9330cd8f2c04e8e1ec5", null ]
+    [ "PORT_SetPinInterruptConfig", "a00249.html#ga001584128ac80df3857c8df6cf5245ff", null ],
+    [ "PORT_GetPinsInterruptFlags", "a00249.html#ga50cecfe358ab8f9cad6ab881be2f8899", null ],
+    [ "PORT_ClearPinsInterruptFlags", "a00249.html#gadb6ede61f32b89a54049b899cd576ff7", null ]
 ];

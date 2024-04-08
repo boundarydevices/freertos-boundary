@@ -1,6 +1,5 @@
 /*
  * Copyright 2022 NXP.
- * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -20,6 +19,9 @@ extern "C" {
 
 #define NO_RESOURCE_ENTRIES (2)
 #define RSC_VDEV_FEATURE_NS (1) /* Support name service announcement */
+
+#define RESOURCE_TABLE_START 0x2001E000U
+#define RESOURCE_TABLE_SIZE  0x1000U
 
 /* Resource table for the given remote */
 METAL_PACKED_BEGIN

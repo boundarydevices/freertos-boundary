@@ -61,7 +61,7 @@ void DEMO_TMU_IRQ_HANDLER_FUNC(void)
             PRINTF("The TMU monitor failed to report temperature.");
         }
     }
-    __DSB();
+    SDK_ISR_EXIT_BARRIER;
 }
 
 /*!

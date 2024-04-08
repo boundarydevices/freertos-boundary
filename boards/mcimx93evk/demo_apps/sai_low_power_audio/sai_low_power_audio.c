@@ -18,6 +18,7 @@
 #include "rsc_table.h"
 #include "fsl_edma.h"
 #include "fsl_sai.h"
+#include "fsl_sema42.h"
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
@@ -26,14 +27,38 @@
  * Prototypes
  ******************************************************************************/
 extern volatile app_srtm_state_t srtmState;
-
+extern bool APP_SRTM_IsAudioServiceIdle(void);
 /*******************************************************************************
  * Code
  ******************************************************************************/
-#define IMX_SRC_BASE            0x44460000
-#define M33_ACTIVE_FLAG         (IMX_SRC_BASE + 0x54)
-#define M33_ACTIVE              (0x5555)
-#define M33_DisACTIVE           (0x0)
+void vPortSuppressTicksAndSleep(TickType_t xExpectedIdleTime)
+{
+    uint32_t irqMask;
+
+    irqMask = DisableGlobalIRQ();
+
+    /*
+     * Only when no context switch is pending and no task is waiting for the scheduler
+     * to be unsuspended then enter low power entry.
+     */
+    if (eTaskConfirmSleepModeStatus() != eAbortSleep)
+    {
+        if (APP_SRTM_IsAudioServiceIdle())
+        {
+            *((uint32_t *)M33_ACTIVE_FLAG) = M33_INACTIVE;
+            /* M33 enter Stop mode */
+            GPC_CTRL_CM33->CM_MODE_CTRL |= GPC_CPU_CTRL_CM_MODE_CTRL_CPU_MODE_TARGET(2);
+            __DSB();
+            __WFI();
+            __ISB();
+            *((uint32_t *)M33_ACTIVE_FLAG) = M33_ACTIVE;
+            /* Reset the CM MODE CTRL to Run mode */
+            GPC_CTRL_CM33->CM_MODE_CTRL |= GPC_CPU_CTRL_CM_MODE_CTRL_CPU_MODE_TARGET(0);
+        }
+    }
+
+    EnableGlobalIRQ(irqMask);
+}
 
 void MainTask(void *pvParameters)
 {
@@ -116,7 +141,13 @@ int main(void)
     saiMasterCfg.mclkHz          = saiMasterCfg.mclkSourceClkHz;       /* setup target clock of MCLK */
     SAI_SetMasterClockConfig(SAI3, &saiMasterCfg);
 
-    /* Request ATF to let DDR active when Cortex-A is suspended */
+    timing_info = (struct dram_timing_info *)(SAVED_DRAM_DATA_BASE_ADDR);
+
+    /* Init SEMA42 clock and reset all gates */
+    SEMA42_Init(APP_SEMA42);
+    SEMA42_ResetAllGates(APP_SEMA42);
+
+    /* Default request ATF to let DDR active when Cortex-A is suspended */
     *((uint32_t *)M33_ACTIVE_FLAG) = M33_ACTIVE;
 
     /* copy resource table to destination address(TCM) */

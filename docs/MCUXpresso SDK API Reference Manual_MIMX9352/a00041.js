@@ -1,89 +1,121 @@
 var a00041 =
 [
-    [ "lcdif_dpi_config_t", "a00041.html#a00410", [
-      [ "panelWidth", "a00041.html#aa5adf5a17120f754b47b89615be1bb50", null ],
-      [ "panelHeight", "a00041.html#acf772a144022f878d82cbd98fdbf9800", null ],
-      [ "hsw", "a00041.html#a97ced1f245e83c03a3d645ceac02022b", null ],
-      [ "hfp", "a00041.html#ad63de1a8b3087f2d8ec9b69bb6ad0f37", null ],
-      [ "hbp", "a00041.html#ade166a710f6a3d72796ad75716c9140f", null ],
-      [ "vsw", "a00041.html#a39eadabac0c953be5236e1d0aa446353", null ],
-      [ "vfp", "a00041.html#afcf0973035b99a4d719d953f01cf8ec5", null ],
-      [ "vbp", "a00041.html#a8537a10d3cc0fef3431d32e5d5d5be55", null ],
-      [ "polarityFlags", "a00041.html#a66f577e75374fd4fc7c9cb45eafbb152", null ],
-      [ "format", "a00041.html#a25d673529c7f4080663d83ca606b8da5", null ]
+    [ "lpadc_config_t", "a00041.html#a00408", [
+      [ "enableInDozeMode", "a00041.html#ac47a5a50ba40ca3b021b4be239a048f3", null ],
+      [ "enableAnalogPreliminary", "a00041.html#ab62dd78747ca5df971c30ad59d0127ba", null ],
+      [ "powerUpDelay", "a00041.html#a05885e7359e788bfee8bee8b1b7e17ac", null ],
+      [ "referenceVoltageSource", "a00041.html#af2a2e2e253efb0a783435fe171091b3f", null ],
+      [ "triggerPriorityPolicy", "a00041.html#a6790dea9cdf41dbe47a312f46d046d39", null ],
+      [ "enableConvPause", "a00041.html#a54cc3c1d27305b3916a0ce2fc1f86af0", null ],
+      [ "convPauseDelay", "a00041.html#a95cd7bea05bf46e0f5444762aba38fbe", null ],
+      [ "FIFOWatermark", "a00041.html#aeb5cae2223bf1d49e13332308ceae79b", null ]
     ] ],
-    [ "lcdif_fb_config_t", "a00041.html#a00411", [
-      [ "enable", "a00041.html#adcbb66c7ddb8cbbce6174696e30b2861", null ],
-      [ "enableGamma", "a00041.html#a38a98b380b2cb0092b928819f6b04ef5", null ],
-      [ "format", "a00041.html#ac82ac825a47c5e4ddacda22e8154971f", null ]
+    [ "lpadc_conv_command_config_t", "a00041.html#a00409", [
+      [ "sampleChannelMode", "a00041.html#ad83d6cc054bd648551aa7a875e5e8a58", null ],
+      [ "channelNumber", "a00041.html#a34b3392e374a496930b09d8c5a410d7b", null ],
+      [ "chainedNextCommandNumber", "a00041.html#adcf04257bab0b975b7667a25bf4cbcdf", null ],
+      [ "enableAutoChannelIncrement", "a00041.html#a66e3347e2c2f96cadd5805bca6409646", null ],
+      [ "loopCount", "a00041.html#a7ce69c5cf297a804b5510d779036c867", null ],
+      [ "hardwareAverageMode", "a00041.html#a1c44cc7c4a60d180e6a9aae0501e8752", null ],
+      [ "sampleTimeMode", "a00041.html#a24deb3ab5d573ce3b17ed48987350b65", null ],
+      [ "hardwareCompareMode", "a00041.html#a5bb19c6af0abf963655462a350c53ce4", null ],
+      [ "hardwareCompareValueHigh", "a00041.html#a4bc748a87503d1d30fce8652296a21a1", null ],
+      [ "hardwareCompareValueLow", "a00041.html#aded6fd827d36d7f20693cf5f361ec57e", null ]
     ] ],
-    [ "lcdif_cursor_config_t", "a00041.html#a00408", [
-      [ "enable", "a00041.html#ae59aa88354a6032097fa47bcfe6cf700", null ],
-      [ "format", "a00041.html#a5fb390a893539047f7cdcc9b53b8ac7b", null ],
-      [ "hotspotOffsetX", "a00041.html#a8ca15952547b206b974cc907452e4770", null ],
-      [ "hotspotOffsetY", "a00041.html#a4657f486d2b7035df685983154ba9785", null ]
+    [ "lpadc_conv_trigger_config_t", "a00041.html#a00411", [
+      [ "targetCommandId", "a00041.html#ae1c77e5afcb5c9d2b80ac92cc5de597e", null ],
+      [ "delayPower", "a00041.html#a33fd3b422ca9c26c1eb915ef8fdc3c3e", null ],
+      [ "priority", "a00041.html#a2e4d3a907597cd2c8c712ae967c5ac2f", null ],
+      [ "enableHardwareTrigger", "a00041.html#a32a44ab0d65a0666b659027b93738c95", null ]
     ] ],
-    [ "lcdif_dither_config_t", "a00041.html#a00409", [
-      [ "enable", "a00041.html#aa8409dd2b05772d447c5682f8a0bfbf8", null ],
-      [ "redSize", "a00041.html#aaacc076b69f1472ad7e80bdaaef1e9ce", null ],
-      [ "greenSize", "a00041.html#a63a906dd0d687a960a7ec55d079d0574", null ],
-      [ "blueSize", "a00041.html#ab836c126e4929cc35b15d6f703de354d", null ],
-      [ "low", "a00041.html#acc64c8fbe20f053137eef6b64354e82f", null ],
-      [ "high", "a00041.html#a1fda8cea54caeb477c21b9803bcfdcb0", null ]
+    [ "lpadc_conv_result_t", "a00041.html#a00410", [
+      [ "commandIdSource", "a00041.html#a7ed6dcbf44ad017014525335013c817b", null ],
+      [ "loopCountIndex", "a00041.html#a87e1ee666c960928797ca574f1bcae1b", null ],
+      [ "triggerIdSource", "a00041.html#ad3b63c03e1c136e4293dd82a443f1de2", null ],
+      [ "convValue", "a00041.html#a4add4f13e761e8048d4434eb195f44d5", null ]
     ] ],
-    [ "LCDIF_MAKE_CURSOR_COLOR", "a00041.html#ga59226e4d188d172b3df72f6976766dd6", null ],
-    [ "LCDIF_MAKE_GAMMA_VALUE", "a00041.html#ga1c8701d1bffcab393b254ffd9c64dc3c", null ],
-    [ "LCDIF_FB_ALIGN", "a00041.html#ga9b3c1e1727697f2846397dee63ba51b4", null ],
-    [ "LCDIF_GAMMA_INDEX_MAX", "a00041.html#ga35c38704589fb7e742a1d6462a77699f", null ],
-    [ "LCDIF_CURSOR_SIZE", "a00041.html#ga270843d0ec2b7d9346fefee2aac7fd71", null ],
-    [ "_lcdif_polarity_flags", "a00041.html#gacbd1a1f016048fe79f77c89c43ab7d69", [
-      [ "kLCDIF_VsyncActiveLow", "a00041.html#ggacbd1a1f016048fe79f77c89c43ab7d69ad43556a2480fab6e6a83dba2f43903ce", null ],
-      [ "kLCDIF_VsyncActiveHigh", "a00041.html#ggacbd1a1f016048fe79f77c89c43ab7d69acc9a4a9f81de243c2337c6c32ac9d28b", null ],
-      [ "kLCDIF_HsyncActiveLow", "a00041.html#ggacbd1a1f016048fe79f77c89c43ab7d69ac1d9e497bb1e16d685a708ea4fd4ae1f", null ],
-      [ "kLCDIF_HsyncActiveHigh", "a00041.html#ggacbd1a1f016048fe79f77c89c43ab7d69a8398f52fc2ec870e8c2efbea00773032", null ],
-      [ "kLCDIF_DataEnableActiveLow", "a00041.html#ggacbd1a1f016048fe79f77c89c43ab7d69a34436f9dd3d168eec5a0b72ffe2d470e", null ],
-      [ "kLCDIF_DataEnableActiveHigh", "a00041.html#ggacbd1a1f016048fe79f77c89c43ab7d69a6e41b6197d6dace5ce1160e6c1ff20cc", null ],
-      [ "kLCDIF_DriveDataOnFallingClkEdge", "a00041.html#ggacbd1a1f016048fe79f77c89c43ab7d69a1b40a65cb92d5045449659ea902297a6", null ],
-      [ "kLCDIF_DriveDataOnRisingClkEdge", "a00041.html#ggacbd1a1f016048fe79f77c89c43ab7d69a6c7313c291216e2c865e77a3d1b8a495", null ]
+    [ "FSL_LPADC_DRIVER_VERSION", "a00041.html#gab8a795637177dc9973e0fd2f5b29b6c3", null ],
+    [ "LPADC_GET_ACTIVE_COMMAND_STATUS", "a00041.html#gae305eca1c95975e49ea88d0d39aeb3e0", null ],
+    [ "LPADC_GET_ACTIVE_TRIGGER_STATUE", "a00041.html#ga48a0c8b6bac1e45cc7bdc93ccc288786", null ],
+    [ "_lpadc_status_flags", "a00041.html#gaf40ddd93026be88551f23b9428e98e22", [
+      [ "kLPADC_ResultFIFO0OverflowFlag", "a00041.html#ggaf40ddd93026be88551f23b9428e98e22a0bc43d455f0c92b0455d392b02a4581e", null ],
+      [ "kLPADC_ResultFIFO0ReadyFlag", "a00041.html#ggaf40ddd93026be88551f23b9428e98e22a16e8001de19be822847a36c2d6e6146c", null ],
+      [ "kLPADC_ResultFIFOOverflowFlag", "a00041.html#ggaf40ddd93026be88551f23b9428e98e22aa52211bffea2def3062daff07532cb28", null ],
+      [ "kLPADC_ResultFIFOReadyFlag", "a00041.html#ggaf40ddd93026be88551f23b9428e98e22a7bd75ce7f5f38970c10f03c77075fc5d", null ]
     ] ],
-    [ "lcdif_output_format_t", "a00041.html#gabda3a49032546bf3f21cfd7d5855a7f4", [
-      [ "kLCDIF_Output16BitConfig1", "a00041.html#ggabda3a49032546bf3f21cfd7d5855a7f4a3ae6b5d98a236cb4d9692ed59e1f0b80", null ],
-      [ "kLCDIF_Output16BitConfig2", "a00041.html#ggabda3a49032546bf3f21cfd7d5855a7f4ad831e8aa1cd484c1c86a98e6707dfa38", null ],
-      [ "kLCDIF_Output16BitConfig3", "a00041.html#ggabda3a49032546bf3f21cfd7d5855a7f4aa569045521e6c08f36a9d2f8cb866510", null ],
-      [ "kLCDIF_Output18BitConfig1", "a00041.html#ggabda3a49032546bf3f21cfd7d5855a7f4a4c6286d64dbf3b63ac4ca50393879239", null ],
-      [ "kLCDIF_Output18BitConfig2", "a00041.html#ggabda3a49032546bf3f21cfd7d5855a7f4ad91ae01b58fb8fe4694fc0fb1fc1850e", null ],
-      [ "kLCDIF_Output24Bit", "a00041.html#ggabda3a49032546bf3f21cfd7d5855a7f4ada2fe0a90f6abfca86a5e05f1ecfbb57", null ]
+    [ "_lpadc_interrupt_enable", "a00041.html#gaeba33be014c52b093d5e7815dcf8e6b3", [
+      [ "kLPADC_ResultFIFO0OverflowInterruptEnable", "a00041.html#ggaeba33be014c52b093d5e7815dcf8e6b3a8591fb75b5c63ceab76e5766ef49363e", null ],
+      [ "kLPADC_FIFO0WatermarkInterruptEnable", "a00041.html#ggaeba33be014c52b093d5e7815dcf8e6b3a2bab7f05a3af09e6f8b90a6ca39fc2b6", null ],
+      [ "kLPADC_ResultFIFOOverflowInterruptEnable", "a00041.html#ggaeba33be014c52b093d5e7815dcf8e6b3a487f293b5443e2b9c39412f4476f7638", null ],
+      [ "kLPADC_FIFOWatermarkInterruptEnable", "a00041.html#ggaeba33be014c52b093d5e7815dcf8e6b3a90f6e2b2819d89b685281a440b10b8b5", null ]
     ] ],
-    [ "lcdif_fb_format_t", "a00041.html#ga2fc79ebe789de2f5712d048d2f2d0b4b", [
-      [ "kLCDIF_PixelFormatXRGB444", "a00041.html#gga2fc79ebe789de2f5712d048d2f2d0b4badc2d1b0b2b513de6d75a1bd99bebbf58", null ],
-      [ "kLCDIF_PixelFormatXRGB4444", "a00041.html#gga2fc79ebe789de2f5712d048d2f2d0b4ba47c83850d82cdecdbd7f6b614cb79f87", null ],
-      [ "kLCDIF_PixelFormatXRGB1555", "a00041.html#gga2fc79ebe789de2f5712d048d2f2d0b4ba41c2dfedf8f9cdffd36ec25b30029280", null ],
-      [ "kLCDIF_PixelFormatRGB565", "a00041.html#gga2fc79ebe789de2f5712d048d2f2d0b4babb8af96612b1082431622dc50d10f1e7", null ],
-      [ "kLCDIF_PixelFormatXRGB8888", "a00041.html#gga2fc79ebe789de2f5712d048d2f2d0b4baeeaaa6d79f8192c043e41fb8ee16b6e3", null ]
+    [ "lpadc_sample_scale_mode_t", "a00041.html#gaa0d71fb3a1bd431af8cf5aacc2e8fc6c", [
+      [ "kLPADC_SamplePartScale", "a00041.html#ggaa0d71fb3a1bd431af8cf5aacc2e8fc6ca2d5ef37dc371402d7b50992f6724f2fd", null ],
+      [ "kLPADC_SampleFullScale", "a00041.html#ggaa0d71fb3a1bd431af8cf5aacc2e8fc6cacf9a7acbde288c4de0a60d0018457721", null ]
     ] ],
-    [ "_lcdif_interrupt", "a00041.html#gabb35141167dc39b20256742723a76fcd", [
-      [ "kLCDIF_Display0FrameDoneInterrupt", "a00041.html#ggabb35141167dc39b20256742723a76fcda6cecd0087b4f593a3cad12ed75a6efaa", null ]
+    [ "lpadc_sample_channel_mode_t", "a00041.html#ga03c78bd98bf88df854e5a67e86521e7a", [
+      [ "kLPADC_SampleChannelSingleEndSideA", "a00041.html#gga03c78bd98bf88df854e5a67e86521e7aae511411bd331e3049a5c9583163e4fe2", null ],
+      [ "kLPADC_SampleChannelSingleEndSideB", "a00041.html#gga03c78bd98bf88df854e5a67e86521e7aab477a25f4b1cef6b47115b7bb4b9583c", null ]
     ] ],
-    [ "lcdif_cursor_format_t", "a00041.html#gacd497b9f21eba04e9c35a626ad8f4be3", [
-      [ "kLCDIF_CursorMasked", "a00041.html#ggacd497b9f21eba04e9c35a626ad8f4be3a7e5a57926e5f87f35a453688e826c148", null ],
-      [ "kLCDIF_CursorARGB8888", "a00041.html#ggacd497b9f21eba04e9c35a626ad8f4be3adfc857aaf0b25ea58bbf95ee5430ef47", null ]
+    [ "lpadc_hardware_average_mode_t", "a00041.html#gabb529e856c73d606ce37f7da01a0f6f3", [
+      [ "kLPADC_HardwareAverageCount1", "a00041.html#ggabb529e856c73d606ce37f7da01a0f6f3adeae8ae097545482c1942926119d968c", null ],
+      [ "kLPADC_HardwareAverageCount2", "a00041.html#ggabb529e856c73d606ce37f7da01a0f6f3a03e731d3d2e024623fd22145c484b797", null ],
+      [ "kLPADC_HardwareAverageCount4", "a00041.html#ggabb529e856c73d606ce37f7da01a0f6f3a0eda65451db63f4a0c1d154f851f9353", null ],
+      [ "kLPADC_HardwareAverageCount8", "a00041.html#ggabb529e856c73d606ce37f7da01a0f6f3a3cc487e2f5720a5c45318f69028c32cc", null ],
+      [ "kLPADC_HardwareAverageCount16", "a00041.html#ggabb529e856c73d606ce37f7da01a0f6f3ad5fece9b31b47f741c413fe7445df855", null ],
+      [ "kLPADC_HardwareAverageCount32", "a00041.html#ggabb529e856c73d606ce37f7da01a0f6f3a4cfb338bc49982bc7e58a7f0949bf425", null ],
+      [ "kLPADC_HardwareAverageCount64", "a00041.html#ggabb529e856c73d606ce37f7da01a0f6f3a081530884310024c8d2750735b6295ea", null ],
+      [ "kLPADC_HardwareAverageCount128", "a00041.html#ggabb529e856c73d606ce37f7da01a0f6f3a4f86910a33fa9874108753b6de1947ce", null ]
     ] ],
-    [ "LCDIF_Init", "a00041.html#gab0523d22a3a8d515aa2fb762efebb4bc", null ],
-    [ "LCDIF_Deinit", "a00041.html#ga818172091bd80e756a19c13b44544d4c", null ],
-    [ "LCDIF_DpiModeGetDefaultConfig", "a00041.html#gaee2f174428a5a63890934f9ecdaf08dd", null ],
-    [ "LCDIF_DpiModeSetConfig", "a00041.html#ga3d990d2e41cd7a733f74e48ea949dbbd", null ],
-    [ "LCDIF_SetFrameBufferConfig", "a00041.html#ga3dd0dd8aaf355978ecafa7bfcb10542e", null ],
-    [ "LCDIF_FrameBufferGetDefaultConfig", "a00041.html#ga678c29005f0cacec1bde485425e0bf56", null ],
-    [ "LCDIF_SetFrameBufferAddr", "a00041.html#ga0c73e4bacf024dfe0bd6067dab787265", null ],
-    [ "LCDIF_SetFrameBufferStride", "a00041.html#ga58f7e2933dd2ba24b1f92b07594b4141", null ],
-    [ "LCDIF_SetDitherConfig", "a00041.html#ga6bd634282f266a1f5abcad74cc01f065", null ],
-    [ "LCDIF_SetGammaData", "a00041.html#ga87ce294f816311c7bfcb6cb98983da70", null ],
-    [ "LCDIF_EnableInterrupts", "a00041.html#gac427bd0a2d8572de0ccc3736b5629f57", null ],
-    [ "LCDIF_DisableInterrupts", "a00041.html#ga28f933e4671bc5dfcca66e06b3256f0a", null ],
-    [ "LCDIF_GetAndClearInterruptPendingFlags", "a00041.html#gabd7b321bbb9d21339ea69c2818cfaf8d", null ],
-    [ "LCDIF_CursorGetDefaultConfig", "a00041.html#ga46518ea0bbcae6644f60b9e448b94dbd", null ],
-    [ "LCDIF_SetCursorConfig", "a00041.html#gad5e18f101ac53cd9ae4ab655075ec179", null ],
-    [ "LCDIF_SetCursorHotspotPosition", "a00041.html#ga0aed14a8feac14fcbc7f7da03585181d", null ],
-    [ "LCDIF_SetCursorBufferAddress", "a00041.html#gad872652fbbda43e1ed5a83463743d365", null ],
-    [ "LCDIF_SetCursorColor", "a00041.html#gada8ff5341c29870ef7bf65fa06e45a2d", null ]
+    [ "lpadc_sample_time_mode_t", "a00041.html#gac70e2c24ba9ef059ee2487d821136e85", [
+      [ "kLPADC_SampleTimeADCK3", "a00041.html#ggac70e2c24ba9ef059ee2487d821136e85abfd94e19de3d57b94fae9baded5804db", null ],
+      [ "kLPADC_SampleTimeADCK5", "a00041.html#ggac70e2c24ba9ef059ee2487d821136e85a441c59d3df7a1ad5b64416e6a08dd246", null ],
+      [ "kLPADC_SampleTimeADCK7", "a00041.html#ggac70e2c24ba9ef059ee2487d821136e85aa2a17502f50e36de117b337994c21dc2", null ],
+      [ "kLPADC_SampleTimeADCK11", "a00041.html#ggac70e2c24ba9ef059ee2487d821136e85a4a980813baf6845d528db2a265475905", null ],
+      [ "kLPADC_SampleTimeADCK19", "a00041.html#ggac70e2c24ba9ef059ee2487d821136e85a7f5bb84adb8783fd6fa8d3ce5ed31f3a", null ],
+      [ "kLPADC_SampleTimeADCK35", "a00041.html#ggac70e2c24ba9ef059ee2487d821136e85a9d59f3e6e9335223746533051f83a20b", null ],
+      [ "kLPADC_SampleTimeADCK67", "a00041.html#ggac70e2c24ba9ef059ee2487d821136e85a653e653b0ee479f6b42ff4b8ffea49ac", null ],
+      [ "kLPADC_SampleTimeADCK131", "a00041.html#ggac70e2c24ba9ef059ee2487d821136e85ae327cbad1ded4882cbcd53ad5e6c2262", null ]
+    ] ],
+    [ "lpadc_hardware_compare_mode_t", "a00041.html#gad7a09557254487374b1b125f2146ba22", [
+      [ "kLPADC_HardwareCompareDisabled", "a00041.html#ggad7a09557254487374b1b125f2146ba22ab205c4a4aa1cd79f38be81e6469f2fd2", null ],
+      [ "kLPADC_HardwareCompareStoreOnTrue", "a00041.html#ggad7a09557254487374b1b125f2146ba22a0e30824c70217e386a1dfbaaecbd7b67", null ],
+      [ "kLPADC_HardwareCompareRepeatUntilTrue", "a00041.html#ggad7a09557254487374b1b125f2146ba22a11bc71ef00c5e95a18431947fe0362e1", null ]
+    ] ],
+    [ "lpadc_reference_voltage_source_t", "a00041.html#gac8bce529fe3a77c5a22136eac3c7d626", [
+      [ "kLPADC_ReferenceVoltageAlt1", "a00041.html#ggac8bce529fe3a77c5a22136eac3c7d626a8d40316bc847f29e588ff1a50775ab11", null ],
+      [ "kLPADC_ReferenceVoltageAlt2", "a00041.html#ggac8bce529fe3a77c5a22136eac3c7d626a7f45d8cf9f4a252f22d52b8a82db304a", null ],
+      [ "kLPADC_ReferenceVoltageAlt3", "a00041.html#ggac8bce529fe3a77c5a22136eac3c7d626a8c41f94955b5b1141956d61fc2feb44c", null ]
+    ] ],
+    [ "lpadc_power_level_mode_t", "a00041.html#gab930081517abc866eaa456e58fd365aa", [
+      [ "kLPADC_PowerLevelAlt1", "a00041.html#ggab930081517abc866eaa456e58fd365aaac88970640320826c36101d8e7fa5a9c9", null ],
+      [ "kLPADC_PowerLevelAlt2", "a00041.html#ggab930081517abc866eaa456e58fd365aaaca71931306fe195df044d6a889639919", null ],
+      [ "kLPADC_PowerLevelAlt3", "a00041.html#ggab930081517abc866eaa456e58fd365aaaed7771e49eeec9fee65726c600956d6d", null ],
+      [ "kLPADC_PowerLevelAlt4", "a00041.html#ggab930081517abc866eaa456e58fd365aaa2f34a351174cf34ee124ccfc7f2bf9d2", null ]
+    ] ],
+    [ "lpadc_trigger_priority_policy_t", "a00041.html#ga4c65872fd8d9cca041a6d668473537c3", [
+      [ "kLPADC_ConvPreemptImmediatelyNotAutoResumed", "a00041.html#gga4c65872fd8d9cca041a6d668473537c3a8952cef1b3169656cb213b1269f19e8a", null ],
+      [ "kLPADC_ConvPreemptSoftlyNotAutoResumed", "a00041.html#gga4c65872fd8d9cca041a6d668473537c3a50acd884fdcaa0297e0a5597172418fe", null ],
+      [ "kLPADC_TriggerPriorityPreemptImmediately", "a00041.html#gga4c65872fd8d9cca041a6d668473537c3a0fec3ebd14c77fc5a1711cb3ed7a2ab5", null ],
+      [ "kLPADC_TriggerPriorityPreemptSoftly", "a00041.html#gga4c65872fd8d9cca041a6d668473537c3a406eb5620e19a0cad27c10211c548a46", null ]
+    ] ],
+    [ "LPADC_Init", "a00041.html#gaf13dbab92e7a26afb07b3bb2cbaab793", null ],
+    [ "LPADC_GetDefaultConfig", "a00041.html#ga94c79af85a28c45bc642226292b14d1c", null ],
+    [ "LPADC_Deinit", "a00041.html#gabc10ae5663788ea5c7f77e2f3517a677", null ],
+    [ "LPADC_Enable", "a00041.html#gaf76592d9f392cd30b738f599b2e71344", null ],
+    [ "LPADC_DoResetFIFO", "a00041.html#gab6e4218842365ee6c620cfc59db213c4", null ],
+    [ "LPADC_DoResetConfig", "a00041.html#ga3d6911f2f9ad7fd2fdf93c3b5d1e80f7", null ],
+    [ "LPADC_GetStatusFlags", "a00041.html#gaa2793911f11091179bfcd8e9b1860300", null ],
+    [ "LPADC_ClearStatusFlags", "a00041.html#ga77ba72fad1e0f84b42809da6918e6532", null ],
+    [ "LPADC_EnableInterrupts", "a00041.html#ga2c147558843514556795fd52f86aca56", null ],
+    [ "LPADC_DisableInterrupts", "a00041.html#ga5c633af2aeab39c215d3b5aa6172ccb7", null ],
+    [ "LPADC_EnableFIFOWatermarkDMA", "a00041.html#gacaaa33bc4d9cfd8fad4fac8f1475d97c", null ],
+    [ "LPADC_GetConvResultCount", "a00041.html#ga51b39db4ab530f900aa3a88a3047daf3", null ],
+    [ "LPADC_GetConvResult", "a00041.html#ga1862883b3c4ce8365ad1f1a6c64043cc", null ],
+    [ "LPADC_GetConvResultBlocking", "a00041.html#gaebbcb9d28f962d7f12512a0e99aa09d2", null ],
+    [ "LPADC_SetConvTriggerConfig", "a00041.html#ga67927722ab525eda9e31d1f7554f02a4", null ],
+    [ "LPADC_GetDefaultConvTriggerConfig", "a00041.html#ga44e286bc27b1e8fee3f4796ca9196a27", null ],
+    [ "LPADC_DoSoftwareTrigger", "a00041.html#gacaef94ac48a3e0a34f9235f88767b7a3", null ],
+    [ "LPADC_SetConvCommandConfig", "a00041.html#ga500d8b7b0323136353e10fdfad2e40c7", null ],
+    [ "LPADC_GetDefaultConvCommandConfig", "a00041.html#gaa3f7fd90bdbd65fbc4e5b88e904173f9", null ]
 ];

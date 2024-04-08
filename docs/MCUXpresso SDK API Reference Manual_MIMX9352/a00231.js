@@ -1,16 +1,16 @@
 var a00231 =
 [
-    [ "GPIO_PinInit", "a00231.html#ga0793a4e8cb6e746485012da3e487db53", null ],
-    [ "GPIO_PinWrite", "a00231.html#ga80e69ba881f3667fee56c01fa2b2e890", null ],
-    [ "GPIO_PortSet", "a00231.html#ga2de9f41517bfde0920a5dea5db6e56d6", null ],
-    [ "GPIO_PortClear", "a00231.html#gaff8a89d83ce5fdaea9db88317eece33c", null ],
-    [ "GPIO_PortToggle", "a00231.html#gaedff8c598cb084323f2aa6c324c2c0cb", null ],
-    [ "GPIO_PinRead", "a00231.html#gac999c0dd229595fe2b651e796da560be", null ],
-    [ "GPIO_SetPinInterruptConfig", "a00231.html#gab9967340de1977ca533240e0819ad876", null ],
-    [ "GPIO_GpioGetInterruptFlags", "a00231.html#ga9f0b75348e79199f81b75d4969b3867e", null ],
-    [ "GPIO_PinGetInterruptFlag", "a00231.html#ga9769a667a796bcd93cf28304870d3257", null ],
-    [ "GPIO_GpioClearInterruptFlags", "a00231.html#gafd738c868447c88d9f010a7c04a0c551", null ],
-    [ "GPIO_PinClearInterruptFlag", "a00231.html#gab3c667b58e2fb90d0f998f66d9bdea7b", null ],
-    [ "GPIO_GetPinsDMARequestFlags", "a00231.html#ga9d2981db2bb5124995e29c6a92df8b5a", null ],
-    [ "GPIO_SetMultipleInterruptPinsConfig", "a00231.html#ga7f5186a9bedc509e40799d9e060b28db", null ]
+    [ "FSL_LLWU_DRIVER_VERSION", "a00231.html#ga89a3dc773d6a05997c01e407561830b9", null ],
+    [ "llwu_external_pin_mode_t", "a00231.html#gaef7b7f596eb66ea9d825bfd7a05278ea", [
+      [ "kLLWU_ExternalPinDisable", "a00231.html#ggaef7b7f596eb66ea9d825bfd7a05278eaa918f72033c61b0e9f5e83585ae76feea", null ],
+      [ "kLLWU_ExternalPinRisingEdge", "a00231.html#ggaef7b7f596eb66ea9d825bfd7a05278eaa3d0358ae5f5e4e420efe998fce1c8b6c", null ],
+      [ "kLLWU_ExternalPinFallingEdge", "a00231.html#ggaef7b7f596eb66ea9d825bfd7a05278eaa2cc310ae58735aeaefe6f8822f2d4e0c", null ],
+      [ "kLLWU_ExternalPinAnyEdge", "a00231.html#ggaef7b7f596eb66ea9d825bfd7a05278eaa576c426077b7cc720ca746f5f1c27fa2", null ]
+    ] ],
+    [ "llwu_pin_filter_mode_t", "a00231.html#ga2719c17c108a42ecdf3e8d97d8312d8a", [
+      [ "kLLWU_PinFilterDisable", "a00231.html#gga2719c17c108a42ecdf3e8d97d8312d8aab1efbba59f0416cdb5f11563cbc86f8d", null ],
+      [ "kLLWU_PinFilterRisingEdge", "a00231.html#gga2719c17c108a42ecdf3e8d97d8312d8aa4247bc305c7b3b8c51c9fa54e6f3ab52", null ],
+      [ "kLLWU_PinFilterFallingEdge", "a00231.html#gga2719c17c108a42ecdf3e8d97d8312d8aaf429cb4dfc4343a66429baf2b8971279", null ],
+      [ "kLLWU_PinFilterAnyEdge", "a00231.html#gga2719c17c108a42ecdf3e8d97d8312d8aa9ae5329e7b3fad4d4cdc447ca64c9ad2", null ]
+    ] ]
 ];

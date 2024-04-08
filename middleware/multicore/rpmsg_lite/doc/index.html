@@ -34,7 +34,7 @@
   <td id="projectlogo"><img alt="Logo" src="nxp_logo_small.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RPMsg-Lite User&#39;s Guide
-   &#160;<span id="projectnumber">Rev. 5.1.0</span>
+   &#160;<span id="projectnumber">Rev. 5.1.1</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -167,7 +167,21 @@ Usage</h1>
 <img src="rpmsg_lite_send_receive.png" alt="rpmsg_lite_send_receive.png"/>
 <div class="caption">
 RPMsg Lite copy and no-copy interface, multiple scenarios</div></div>
- <h1><a class="anchor" id="configuration"></a>
+ <h1><a class="anchor" id="notes"></a>
+Notes</h1>
+<h2><a class="anchor" id="Environment_layers_implementation"></a>
+Environment layers implementation</h2>
+<p>Several environment layers are provided in lib/rpmsg_lite/porting/environment folder. Not all of them are fully tested however. Here is the list of environment layers that passed testing:</p><ul>
+<li>rpmsg_env_bm.c</li>
+<li>rpmsg_env_freertos.c</li>
+<li>rpmsg_env_xos.c</li>
+<li>rpmsg_env_threadx.c</li>
+</ul>
+<p>The rest of environment layers has been created and used in some experimental projects, it has been running well at the time of creation but due to the lack of unit testing there is no guarantee it is still fully functional.</p>
+<h2><a class="anchor" id="Shared_memory_configuration"></a>
+Shared memory configuration</h2>
+<p>It is important to correctly initialize/configure the shared memory for data exchange in the application. The shared memory must be accessible from both the master and the remote core and it needs to be configured as Non-Cacheable memory. Dedicated shared memory section in liker file is also a good practise, it is recommended to use linker files from MCUXpressSDK packages for NXP devices based applications. It needs to be ensured no other application part/component is unintentionally accessing this part of memory.</p>
+<h1><a class="anchor" id="configuration_options"></a>
 Configuration options</h1>
 <p>The RPMsg-Lite can be configured at the compile time. The default configuration is defined in the <a class="el" href="rpmsg__default__config_8h.html">rpmsg_default_config.h</a> header file. This configuration can be customized by the user by including rpmsg_config.h file with custom settings. The following table summarizes all possible RPMsg-Lite configuration options.</p>
 <table class="doxtable">
@@ -274,6 +288,11 @@ Revision History</h1>
 <td>14.0 </td><td>10/2022 </td><td><p class="starttd">Timeout parameter added to rpmsg_lite_wait_for_link_up API function. </p>
 <p>VRING_SIZE is set based on number of used buffers now (as calculated in vring_init) - updated for all platforms that are not communicating to Linux rpmsg counterpart. </p>
 <p class="endtd">Improveed debug check buffers implementation - instead of checking the pointer fits into shared memory check the presence in the VirtIO ring descriptors list. </p>
+</td></tr>
+<tr>
+<td>15.0 </td><td>06/2023 </td><td><p class="starttd">Resolved issues in ThreadX env. layer implementation. </p>
+<p>Added aarch64 support. </p>
+<p class="endtd">Increased the queue size to (2 * RL_BUFFER_COUNT) to cover zero copy cases. </p>
 </td></tr>
 </table>
 </div></div><!-- contents -->

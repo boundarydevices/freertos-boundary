@@ -30,6 +30,13 @@ typedef enum
     LSM_EMBEDDED_FUNC_BANK = 2,
 } lsm_reg_access_t;
 
+typedef enum
+{
+    LSM_INT_ACTIVE_HIGH    = 0,
+    LSM_INT_ACTIVE_LOW     = 1,
+} lsm_int_active_level_e;
+
+
 typedef struct
 {
     uint8_t not_used_01 : 6;
@@ -228,6 +235,17 @@ typedef struct
 
 /* Set 0x1 to CTRL3_C_REG to do software reset */
 #define LSM_CTRL3_C_REG (0x12U)
+typedef struct
+{
+    uint8_t sw_reset : 1; /* 0: normal mode; 1: reset device */
+    uint8_t not_used : 1;
+    uint8_t if_inc : 1; /* Register address automatically incremented; 0: disabled; 1: enabled(default) */
+    uint8_t sim : 1; /* SPI serial interface mode selection; 0: 4-wire interface(default); 1: 3-wire interface */
+    uint8_t pp_od : 1; /* push-pull/open-drain selection on INT1 and INT2 pins; 0: push-pull mode(default); 1: open-drain mode */
+    uint8_t h_lactive : 1; /* interrupt activation level; 0: interrupt output pins active high(default); 1: interrupt output pins active low  */
+    uint8_t bdu : 1; /* block data update; 0: continuous update(default); 1: output registers are not updated until MSB and LSB have been read */
+    uint8_t boot : 1; /* Reboots memory content; 0: normal mode(default); 1: reboot memory content */
+} lsm_ctrl3_c_t;
 
 #define LSM_STATUS_REG_OR_STATUS_SPIAUX_REG (0x1EU)
 
@@ -273,6 +291,7 @@ typedef struct _lsm_config
     I2C_ReceiveFunc_t I2C_ReceiveFunc;
     /* The I2C slave address . */
     uint8_t slaveAddress;
+    lsm_int_active_level_e int_active_level; /* interrupt output pins activation level */
 } lsm_config_t;
 
 #if defined(__cplusplus)

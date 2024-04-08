@@ -1,5 +1,5 @@
 /*
- * Copyright 2019-2023 NXP
+ * Copyright 2019-2024 NXP
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -2135,6 +2135,7 @@ static void ENET_QOS_DropFrame(ENET_QOS_Type *base, enet_qos_handle_t *handle, u
     rxDescTail = MEMORY_ConvertMemoryMapAddress(rxDescTail, kMEMORY_Local2DMA);
 #endif
     base->DMA_CH[channel].DMA_CHX_RXDESC_TAIL_PTR = rxDescTail;
+    base->DMA_CH[channel].DMA_CHX_RX_CTRL |= ENET_QOS_DMA_CHX_RX_CTRL_SR_MASK;
 }
 
 /*!
@@ -2322,12 +2323,9 @@ status_t ENET_QOS_ReadFrame(ENET_QOS_Type *base,
                         }
                         control = rxDesc->control;
                     }
-                }
 
-                /* Reinit for the context descritor which has been updated by DMA. */
-                if ((control & ENET_QOS_RXDESCRIP_WR_CTXT_MASK) != 0U)
-                {
-                    if (tsAvailable && (NULL != ts))
+                    /* Reinit for the context descriptor which has been updated by DMA. */
+                    if (NULL != ts)
                     {
                         ENET_QOS_StoreRxFrameTime(base, handle, rxDesc, ts);
                     }
@@ -2393,6 +2391,7 @@ status_t ENET_QOS_ReadFrame(ENET_QOS_Type *base,
         rxDescTail = MEMORY_ConvertMemoryMapAddress(rxDescTail, kMEMORY_Local2DMA);
 #endif
         base->DMA_CH[channel].DMA_CHX_RXDESC_TAIL_PTR = rxDescTail;
+        base->DMA_CH[channel].DMA_CHX_RX_CTRL |= ENET_QOS_DMA_CHX_RX_CTRL_SR_MASK;
     }
 
     return result;
@@ -3152,6 +3151,7 @@ status_t ENET_QOS_GetRxFrame(ENET_QOS_Type *base,
             rxDescTail = MEMORY_ConvertMemoryMapAddress(rxDescTail, kMEMORY_Local2DMA);
 #endif
             base->DMA_CH[channel].DMA_CHX_RXDESC_TAIL_PTR = rxDescTail;
+            base->DMA_CH[channel].DMA_CHX_RX_CTRL |= ENET_QOS_DMA_CHX_RX_CTRL_SR_MASK;
         }
         else
         {
@@ -3160,7 +3160,7 @@ status_t ENET_QOS_GetRxFrame(ENET_QOS_Type *base,
             /* Free the incomplete frame buffers. */
             while (index-- != 0U)
             {
-                handle->rxBuffFree(base, &rxFrame->rxBuffArray[index].buffer, handle->userData, channel);
+                handle->rxBuffFree(base, rxFrame->rxBuffArray[index].buffer, handle->userData, channel);
             }
 
             /* Update all left BDs of this frame from current index. */
