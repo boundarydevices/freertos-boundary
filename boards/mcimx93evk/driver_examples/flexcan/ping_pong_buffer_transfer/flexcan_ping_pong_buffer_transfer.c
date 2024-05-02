@@ -7,6 +7,7 @@
 
 #include "fsl_debug_console.h"
 #include "fsl_flexcan.h"
+#include "fsl_rgpio.h"
 #include "pin_mux.h"
 #include "clock_config.h"
 #include "board.h"
@@ -15,19 +16,19 @@
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define EXAMPLE_CAN                   CAN2
-#define EXAMPLE_FLEXCAN_RxWarningIRQn CAN2_IRQn
-#define EXAMPLE_FLEXCAN_BusOffIRQn    CAN2_IRQn
-#define EXAMPLE_FLEXCAN_ErrorIRQn     CAN2_IRQn
-#define EXAMPLE_FLEXCAN_MBIRQn        CAN2_IRQn
-#define EXAMPLE_FLEXCAN_IRQHandler    CAN2_IRQHandler
+#define EXAMPLE_CAN                   CAN1
+#define EXAMPLE_FLEXCAN_RxWarningIRQn CAN1_IRQn
+#define EXAMPLE_FLEXCAN_BusOffIRQn    CAN1_IRQn
+#define EXAMPLE_FLEXCAN_ErrorIRQn     CAN1_IRQn
+#define EXAMPLE_FLEXCAN_MBIRQn        CAN1_IRQn
+#define EXAMPLE_FLEXCAN_IRQHandler    CAN1_IRQHandler
 
 #define RX_QUEUE_BUFFER_BASE  (1U)
 #define RX_QUEUE_BUFFER_SIZE  (4U)
 #define TX_MESSAGE_BUFFER_NUM (8U)
 
-#define FLEXCAN_CLOCK_ROOT         (kCLOCK_Root_Can2)
-#define FLEXCAN_CLOCK_GATE         kCLOCK_Can2
+#define FLEXCAN_CLOCK_ROOT         (kCLOCK_Root_Can1)
+#define FLEXCAN_CLOCK_GATE         kCLOCK_Can1
 #define EXAMPLE_CAN_CLK_FREQ       CLOCK_GetIpFreq(FLEXCAN_CLOCK_ROOT)
 #define USE_IMPROVED_TIMING_CONFIG (1U)
 /* Fix MISRA_C-2012 Rule 17.7. */
@@ -384,11 +385,6 @@ int main(void)
 	.mux = 2,
 	.div = 10
     };
-    const clock_root_config_t lpi2cClkCfg = {
-        .clockOff = false,
-        .mux = 0, // 24MHZ oscillator source
-        .div = 1
-    };
     /* clang-format on */
     BOARD_InitBootPins();
     BOARD_BootClockRUN();
@@ -396,20 +392,9 @@ int main(void)
 
     CLOCK_SetRootClock(FLEXCAN_CLOCK_ROOT, &flexcanClkCfg);
     CLOCK_EnableClock(FLEXCAN_CLOCK_GATE);
-    CLOCK_SetRootClock(BOARD_ADP5585_I2C_CLOCK_ROOT, &lpi2cClkCfg);
-    CLOCK_EnableClock(BOARD_ADP5585_I2C_CLOCK_GATE);
 
-    /* Select CAN2 signals */
-    adp5585_handle_t handle1;
-    BOARD_InitADP5585(&handle1);
-    ADP5585_SetDirection(&handle1, (1 << BOARD_ADP5585_EXP_SEL), kADP5585_Output);
-    ADP5585_ClearPins(&handle1, (1 << BOARD_ADP5585_EXP_SEL));
-
-    /* Select CAN_STBY signals */
-    adp5585_handle_t handle;
-    BOARD_InitADP5585(&handle);
-    ADP5585_SetDirection(&handle, (1 << BOARD_ADP5585_CAN_STBY), kADP5585_Output);
-    ADP5585_ClearPins(&handle, (1 << BOARD_ADP5585_CAN_STBY));
+    /* Enable transceiver */
+    RGPIO_PinWrite(GPIO3, 27, 1);
 
     LOG_INFO("********* FLEXCAN PingPong Buffer Example *********\r\n");
     LOG_INFO("    Message format: Standard (11 bit id)\r\n");
@@ -443,8 +428,6 @@ int main(void)
      * flexcanConfig.enableDoze             = false;
      */
     FLEXCAN_GetDefaultConfig(&flexcanConfig);
-
-    flexcanConfig.bitRate = 500000U;
 
     /* Enable Rx Individual Mask and Queue feature. */
     flexcanConfig.enableIndividMask = true;
