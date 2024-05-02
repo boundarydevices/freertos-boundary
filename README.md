@@ -36,6 +36,12 @@ i.MX 8ULP
 For our [Nitrogen8ULP][nitrogen8ulp] platform, please use the following branch:
 * [imx8ulp_2.15.0][branch-8ulp]
 
+i.MX 93
+---------
+
+For our [Nitrogen93 SMARC][nitrogen93] platform, please use the following branch:
+* [imx93_2.15.0][branch-93]
+
 i.MX 6SoloX
 -----------
 
@@ -56,6 +62,7 @@ For our [Nitrogen7][nitrogen7] platform, please use the following branch:
 [nitrogen8mp]: https://boundarydevices.com/product/nitrogen8m-plus-som/ "Nitrogen8M Plus"
 [nitrogen8mp-smarc]: https://boundarydevices.com/product/nitrogen8m-plus-smarc/ "Nitrogen8MP SMARC"
 [nitrogen8ulp]: https://boundarydevices.com/product/nitrogen8ulp-som/ "Nitrogen8ULP SOM"
+[nitrogen93-smarc]: https://www.ezurio.com/system-on-module/nxp-imx9/nitrogen93-smarc "Nitrogen93 SMARC"
 [branch-6sx]: https://github.com/boundarydevices/freertos-boundary/tree/imx6sx_1.0.1 "i.MX6SoloX 1.0.1 branch"
 [branch-7d]: https://github.com/boundarydevices/freertos-boundary/tree/imx7d_1.0.1 "i.MX7D 1.0.1 branch"
 [branch-8mq]: https://github.com/boundarydevices/freertos-boundary/tree/imx8mq_2.13 "i.MX8MQ 2.13 branch"
@@ -64,3 +71,4 @@ For our [Nitrogen7][nitrogen7] platform, please use the following branch:
 [branch-8mp]: https://github.com/boundarydevices/freertos-boundary/tree/imx8mp_2.13 "i.MX8M Plus 2.13 branch"
 [branch-8mp-smarc]: https://github.com/boundarydevices/freertos-boundary/tree/imx8mp_smarc_2.13 "i.MX8M Plus SMARC 2.13 branch"
 [branch-8ulp]: https://github.com/boundarydevices/freertos-boundary/tree/imx8ulp_2.15.0 "i.MX8ULP 2.15.0 branch"
+[branch-93]: https://github.com/boundarydevices/freertos-boundary/tree/imx93_2.15.0 "i.MX93 2.15.0 branch"
