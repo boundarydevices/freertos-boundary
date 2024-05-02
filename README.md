@@ -39,7 +39,7 @@ For our [Nitrogen8ULP][nitrogen8ulp] platform, please use the following branch:
 i.MX 93
 ---------
 
-For our [Nitrogen93 SMARC][nitrogen93] platform, please use the following branch:
+For our [Nitrogen93 SMARC][nitrogen93-smarc] platform, please use the following branch:
 * [imx93_2.15.0][branch-93]
 
 i.MX 6SoloX
