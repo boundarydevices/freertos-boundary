@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.13.0</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -121,42 +121,20 @@ Macros</h2></td></tr>
 <tr class="memitem:ga812138aa3315b0c6953c1a26130bcc37"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(major, minor, bugfix)&#160;&#160;&#160;(((major)*65536L) + ((minor)*256L) + (bugfix))</td></tr>
 <tr class="memdesc:ga812138aa3315b0c6953c1a26130bcc37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the version number for drivers.  <a href="#ga812138aa3315b0c6953c1a26130bcc37">More...</a><br/></td></tr>
 <tr class="separator:ga812138aa3315b0c6953c1a26130bcc37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa7fc9e15d36453236a580b3c8116ee85"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gaa7fc9e15d36453236a580b3c8116ee85">DEBUG_CONSOLE_DEVICE_TYPE_NONE</a>&#160;&#160;&#160;0U</td></tr>
-<tr class="memdesc:gaa7fc9e15d36453236a580b3c8116ee85"><td class="mdescLeft">&#160;</td><td class="mdescRight">No debug console.  <a href="#gaa7fc9e15d36453236a580b3c8116ee85">More...</a><br/></td></tr>
-<tr class="separator:gaa7fc9e15d36453236a580b3c8116ee85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga59764d32e5394455906edbf03cff0b9f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga59764d32e5394455906edbf03cff0b9f">DEBUG_CONSOLE_DEVICE_TYPE_UART</a>&#160;&#160;&#160;1U</td></tr>
-<tr class="memdesc:ga59764d32e5394455906edbf03cff0b9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on UART.  <a href="#ga59764d32e5394455906edbf03cff0b9f">More...</a><br/></td></tr>
-<tr class="separator:ga59764d32e5394455906edbf03cff0b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1a04b7330b5196f73ed4ffe7fa2bae6c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga1a04b7330b5196f73ed4ffe7fa2bae6c">DEBUG_CONSOLE_DEVICE_TYPE_LPUART</a>&#160;&#160;&#160;2U</td></tr>
-<tr class="memdesc:ga1a04b7330b5196f73ed4ffe7fa2bae6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on LPUART.  <a href="#ga1a04b7330b5196f73ed4ffe7fa2bae6c">More...</a><br/></td></tr>
-<tr class="separator:ga1a04b7330b5196f73ed4ffe7fa2bae6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6b4add5f2d938a89da56f58ac0b4e89b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga6b4add5f2d938a89da56f58ac0b4e89b">DEBUG_CONSOLE_DEVICE_TYPE_LPSCI</a>&#160;&#160;&#160;3U</td></tr>
-<tr class="memdesc:ga6b4add5f2d938a89da56f58ac0b4e89b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on LPSCI.  <a href="#ga6b4add5f2d938a89da56f58ac0b4e89b">More...</a><br/></td></tr>
-<tr class="separator:ga6b4add5f2d938a89da56f58ac0b4e89b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga262e149f9ce1ef4cf2e539e9494d3cca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga262e149f9ce1ef4cf2e539e9494d3cca">DEBUG_CONSOLE_DEVICE_TYPE_USBCDC</a>&#160;&#160;&#160;4U</td></tr>
-<tr class="memdesc:ga262e149f9ce1ef4cf2e539e9494d3cca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on USBCDC.  <a href="#ga262e149f9ce1ef4cf2e539e9494d3cca">More...</a><br/></td></tr>
-<tr class="separator:ga262e149f9ce1ef4cf2e539e9494d3cca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad4f7f7e51a84c34f06bbbb34973ae97a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gad4f7f7e51a84c34f06bbbb34973ae97a">DEBUG_CONSOLE_DEVICE_TYPE_FLEXCOMM</a>&#160;&#160;&#160;5U</td></tr>
-<tr class="memdesc:gad4f7f7e51a84c34f06bbbb34973ae97a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on FLEXCOMM.  <a href="#gad4f7f7e51a84c34f06bbbb34973ae97a">More...</a><br/></td></tr>
-<tr class="separator:gad4f7f7e51a84c34f06bbbb34973ae97a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga75a9e86134df04f6a8b66025d11e25c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga75a9e86134df04f6a8b66025d11e25c2">DEBUG_CONSOLE_DEVICE_TYPE_IUART</a>&#160;&#160;&#160;6U</td></tr>
-<tr class="memdesc:ga75a9e86134df04f6a8b66025d11e25c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on i.MX UART.  <a href="#ga75a9e86134df04f6a8b66025d11e25c2">More...</a><br/></td></tr>
-<tr class="separator:ga75a9e86134df04f6a8b66025d11e25c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2c85202f838f94e51a0bb7b33856c78d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga2c85202f838f94e51a0bb7b33856c78d">DEBUG_CONSOLE_DEVICE_TYPE_VUSART</a>&#160;&#160;&#160;7U</td></tr>
-<tr class="memdesc:ga2c85202f838f94e51a0bb7b33856c78d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on LPC_VUSART.  <a href="#ga2c85202f838f94e51a0bb7b33856c78d">More...</a><br/></td></tr>
-<tr class="separator:ga2c85202f838f94e51a0bb7b33856c78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5a951951cdb6063d949523052aa5b5e4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga5a951951cdb6063d949523052aa5b5e4">DEBUG_CONSOLE_DEVICE_TYPE_MINI_USART</a>&#160;&#160;&#160;8U</td></tr>
-<tr class="memdesc:ga5a951951cdb6063d949523052aa5b5e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on LPC_USART.  <a href="#ga5a951951cdb6063d949523052aa5b5e4">More...</a><br/></td></tr>
-<tr class="separator:ga5a951951cdb6063d949523052aa5b5e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9d142691c3a4d810f8bdabc41e89dfd7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga9d142691c3a4d810f8bdabc41e89dfd7">DEBUG_CONSOLE_DEVICE_TYPE_SWO</a>&#160;&#160;&#160;9U</td></tr>
-<tr class="memdesc:ga9d142691c3a4d810f8bdabc41e89dfd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on SWO.  <a href="#ga9d142691c3a4d810f8bdabc41e89dfd7">More...</a><br/></td></tr>
-<tr class="separator:ga9d142691c3a4d810f8bdabc41e89dfd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga74389c7c04a9f53548d05287c7c665cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga74389c7c04a9f53548d05287c7c665cd">DEBUG_CONSOLE_DEVICE_TYPE_QSCI</a>&#160;&#160;&#160;10U</td></tr>
-<tr class="memdesc:ga74389c7c04a9f53548d05287c7c665cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on QSCI.  <a href="#ga74389c7c04a9f53548d05287c7c665cd">More...</a><br/></td></tr>
-<tr class="separator:ga74389c7c04a9f53548d05287c7c665cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6242a25f9d996f0cc4f4cdb911218b75"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga6242a25f9d996f0cc4f4cdb911218b75">ARRAY_SIZE</a>(x)&#160;&#160;&#160;(sizeof(x) / sizeof((x)[0]))</td></tr>
 <tr class="memdesc:ga6242a25f9d996f0cc4f4cdb911218b75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the number of elements in an array.  <a href="#ga6242a25f9d996f0cc4f4cdb911218b75">More...</a><br/></td></tr>
 <tr class="separator:ga6242a25f9d996f0cc4f4cdb911218b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga439b03380a5fd7279f83939b17659e38"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga439b03380a5fd7279f83939b17659e38"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga439b03380a5fd7279f83939b17659e38">UINT64_H</a>(X)&#160;&#160;&#160;((uint32_t)((((uint64_t) (X)) &gt;&gt; 32U) &amp; 0x0FFFFFFFFULL))</td></tr>
+<tr class="memdesc:ga439b03380a5fd7279f83939b17659e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to get upper 32 bits of a 64-bit value. <br/></td></tr>
+<tr class="separator:ga439b03380a5fd7279f83939b17659e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4afe760f8e2a4001bae59b5a94d6ed0e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4afe760f8e2a4001bae59b5a94d6ed0e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga4afe760f8e2a4001bae59b5a94d6ed0e">UINT64_L</a>(X)&#160;&#160;&#160;((uint32_t)(((uint64_t) (X)) &amp; 0x0FFFFFFFFULL))</td></tr>
+<tr class="memdesc:ga4afe760f8e2a4001bae59b5a94d6ed0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to get lower 32 bits of a 64-bit value. <br/></td></tr>
+<tr class="separator:ga4afe760f8e2a4001bae59b5a94d6ed0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b47cb52d1ceba88ee3e6cd19820ecfc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga0b47cb52d1ceba88ee3e6cd19820ecfc">SUPPRESS_FALL_THROUGH_WARNING</a>()</td></tr>
+<tr class="memdesc:ga0b47cb52d1ceba88ee3e6cd19820ecfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">For switch case code block, if case section ends without "break;" statement, there wil be fallthrough warning with compiler flag -Wextra or -Wimplicit-fallthrough=n when using armgcc.  <a href="#ga0b47cb52d1ceba88ee3e6cd19820ecfc">More...</a><br/></td></tr>
+<tr class="separator:ga0b47cb52d1ceba88ee3e6cd19820ecfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -323,6 +301,12 @@ Enumerations</h2></td></tr>
 <br/>
 &#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29af4cabd4468ae9e670d9c188064c56f41">kStatusGroup_VBAT</a> = 107, 
 <br/>
+&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29aada92c05acb618141acd4ffa4311ea1e">kStatusGroup_XSPI</a> = 108, 
+<br/>
+&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a79d5b5d632bebb0ae237f5d4c7d04fdb">kStatusGroup_PNGDEC</a> = 109, 
+<br/>
+&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a1824b35bceebfe62e179c40a9c850a77">kStatusGroup_JPEGDEC</a> = 110, 
+<br/>
 &#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a18ce0675c0cc628b2ff29a1bafce8b58">kStatusGroup_HAL_GPIO</a> = 121, 
 <br/>
 &#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a6510cce112fc6ed1e0523b5d7b307ca2">kStatusGroup_HAL_UART</a> = 122, 
@@ -340,6 +324,8 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29aa0d0535965c8d28434b036961f6a8c20">kStatusGroup_HAL_RNG</a> = 128, 
 <br/>
 &#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29ac509445aa04b715b77e6461993b50085">kStatusGroup_HAL_I2S</a> = 129, 
+<br/>
+&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a91a5a43e0f7acfb5894ec7c246d05bcc">kStatusGroup_HAL_ADC_SENSOR</a> = 130, 
 <br/>
 &#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a4603f8fedc8ad994788e17baae895013">kStatusGroup_TIMERMANAGER</a> = 135, 
 <br/>
@@ -385,7 +371,7 @@ Enumerations</h2></td></tr>
 <br/>
 &#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a025ed41827a0bd0b7bf60b853a921c7d">kStatusGroup_QSCI</a> = 156, 
 <br/>
-&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29ae67462f0d7dbac886d8a1272a29b846c">kStatusGroup_SNT</a> = 157, 
+&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29ae9d67092ecc6b4f406fc0fb862174476">kStatusGroup_ELEMU</a> = 157, 
 <br/>
 &#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a7712fcacc6d5e9698366daafc59ea644">kStatusGroup_QUEUEDSPI</a> = 158, 
 <br/>
@@ -393,15 +379,21 @@ Enumerations</h2></td></tr>
 <br/>
 &#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a79d16666510da650e32b1499cf102aa5">kStatusGroup_IPED</a> = 160, 
 <br/>
-&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a9ef29ac5ce94ff0617434c39574b4f91">kStatusGroup_CSS_PKC</a> = 161, 
+&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a70c9114d88c3a9b48cabb36cd4b2884d">kStatusGroup_ELS_PKC</a> = 161, 
 <br/>
-&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a51bf18cc27f6df31f1602db81a2f77f5">kStatusGroup_HOSTIF</a> = 162, 
+&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a9ef29ac5ce94ff0617434c39574b4f91">kStatusGroup_CSS_PKC</a> = 162, 
 <br/>
-&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a50aada436b514e0056476e275e1fd203">kStatusGroup_CLIF</a> = 163, 
+&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a51bf18cc27f6df31f1602db81a2f77f5">kStatusGroup_HOSTIF</a> = 163, 
 <br/>
-&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29af5e618b56733c41397941d8dec581030">kStatusGroup_BMA</a> = 164, 
+&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a50aada436b514e0056476e275e1fd203">kStatusGroup_CLIF</a> = 164, 
 <br/>
-&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a2e0ac8d81af0520d13c650cd3a3bcdde">kStatusGroup_NETC</a> = 165
+&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29af5e618b56733c41397941d8dec581030">kStatusGroup_BMA</a> = 165, 
+<br/>
+&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a2e0ac8d81af0520d13c650cd3a3bcdde">kStatusGroup_NETC</a> = 166, 
+<br/>
+&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a446c74416be882daecb3038dbe42e9de">kStatusGroup_ELE</a> = 167, 
+<br/>
+&#160;&#160;<a class="el" href="a00085.html#gga7ff0b98bb1341c07acefb1473b6eda29a45af4d693828886ce7d95dd9cb932af6">kStatusGroup_GLIKEY</a> = 168
 <br/>
  }</td></tr>
 <tr class="memdesc:ga7ff0b98bb1341c07acefb1473b6eda29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status group numbers.  <a href="a00085.html#ga7ff0b98bb1341c07acefb1473b6eda29">More...</a><br/></td></tr>
@@ -440,36 +432,202 @@ Functions</h2></td></tr>
 <tr class="memitem:ga4f9121590e5b8fe025d706ff2fe5da36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga4f9121590e5b8fe025d706ff2fe5da36">SDK_DelayAtLeastUs</a> (uint32_t delayTime_us, uint32_t coreClock_Hz)</td></tr>
 <tr class="memdesc:ga4f9121590e5b8fe025d706ff2fe5da36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delay at least for some time.  <a href="#ga4f9121590e5b8fe025d706ff2fe5da36">More...</a><br/></td></tr>
 <tr class="separator:ga4f9121590e5b8fe025d706ff2fe5da36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2b92855a9ebf6eadeed1527b8339d50a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga2b92855a9ebf6eadeed1527b8339d50a">EnableIRQ</a> (IRQn_Type interrupt)</td></tr>
+<tr class="memdesc:ga2b92855a9ebf6eadeed1527b8339d50a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable specific interrupt.  <a href="#ga2b92855a9ebf6eadeed1527b8339d50a">More...</a><br/></td></tr>
+<tr class="separator:ga2b92855a9ebf6eadeed1527b8339d50a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f9bbd23e70eaf6670d3425683753961"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga7f9bbd23e70eaf6670d3425683753961">DisableIRQ</a> (IRQn_Type interrupt)</td></tr>
+<tr class="memdesc:ga7f9bbd23e70eaf6670d3425683753961"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable specific interrupt.  <a href="#ga7f9bbd23e70eaf6670d3425683753961">More...</a><br/></td></tr>
+<tr class="separator:ga7f9bbd23e70eaf6670d3425683753961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa9463731425e110e2d841820f4559a3f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gaa9463731425e110e2d841820f4559a3f">EnableIRQWithPriority</a> (IRQn_Type interrupt, uint8_t priNum)</td></tr>
+<tr class="memdesc:gaa9463731425e110e2d841820f4559a3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the IRQ, and also set the interrupt priority.  <a href="#gaa9463731425e110e2d841820f4559a3f">More...</a><br/></td></tr>
+<tr class="separator:gaa9463731425e110e2d841820f4559a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d1df086c696c7864d98ea6ec28846f3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga9d1df086c696c7864d98ea6ec28846f3">IRQ_SetPriority</a> (IRQn_Type interrupt, uint8_t priNum)</td></tr>
+<tr class="memdesc:ga9d1df086c696c7864d98ea6ec28846f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the IRQ priority.  <a href="#ga9d1df086c696c7864d98ea6ec28846f3">More...</a><br/></td></tr>
+<tr class="separator:ga9d1df086c696c7864d98ea6ec28846f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9b0f720fcb617b3aa9cb554d87dbc55"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gac9b0f720fcb617b3aa9cb554d87dbc55">IRQ_ClearPendingIRQ</a> (IRQn_Type interrupt)</td></tr>
+<tr class="memdesc:gac9b0f720fcb617b3aa9cb554d87dbc55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the pending IRQ flag.  <a href="#gac9b0f720fcb617b3aa9cb554d87dbc55">More...</a><br/></td></tr>
+<tr class="separator:gac9b0f720fcb617b3aa9cb554d87dbc55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4f63764780e8eae7726d7a7e10f4b2a1"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga4f63764780e8eae7726d7a7e10f4b2a1">DisableGlobalIRQ</a> (void)</td></tr>
+<tr class="memdesc:ga4f63764780e8eae7726d7a7e10f4b2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the global IRQ.  <a href="#ga4f63764780e8eae7726d7a7e10f4b2a1">More...</a><br/></td></tr>
+<tr class="separator:ga4f63764780e8eae7726d7a7e10f4b2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacca38e4e11db8e795201c82f6ce4c9d5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gacca38e4e11db8e795201c82f6ce4c9d5">EnableGlobalIRQ</a> (uint32_t primask)</td></tr>
+<tr class="memdesc:gacca38e4e11db8e795201c82f6ce4c9d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the global IRQ.  <a href="#gacca38e4e11db8e795201c82f6ce4c9d5">More...</a><br/></td></tr>
+<tr class="separator:gacca38e4e11db8e795201c82f6ce4c9d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
-<tr class="memitem:gac6e3c4c6fa592fc0da7fab541e7019f7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gac6e3c4c6fa592fc0da7fab541e7019f7">FSL_COMMON_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00085.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 4, 0))</td></tr>
+<tr class="memitem:gac6e3c4c6fa592fc0da7fab541e7019f7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gac6e3c4c6fa592fc0da7fab541e7019f7">FSL_COMMON_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00085.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 4, 1))</td></tr>
 <tr class="memdesc:gac6e3c4c6fa592fc0da7fab541e7019f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">common driver version.  <a href="#gac6e3c4c6fa592fc0da7fab541e7019f7">More...</a><br/></td></tr>
 <tr class="separator:gac6e3c4c6fa592fc0da7fab541e7019f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Debug console type definition.</h2></td></tr>
+<tr class="memitem:gaa7fc9e15d36453236a580b3c8116ee85"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gaa7fc9e15d36453236a580b3c8116ee85">DEBUG_CONSOLE_DEVICE_TYPE_NONE</a>&#160;&#160;&#160;0U</td></tr>
+<tr class="memdesc:gaa7fc9e15d36453236a580b3c8116ee85"><td class="mdescLeft">&#160;</td><td class="mdescRight">No debug console.  <a href="#gaa7fc9e15d36453236a580b3c8116ee85">More...</a><br/></td></tr>
+<tr class="separator:gaa7fc9e15d36453236a580b3c8116ee85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga59764d32e5394455906edbf03cff0b9f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga59764d32e5394455906edbf03cff0b9f">DEBUG_CONSOLE_DEVICE_TYPE_UART</a>&#160;&#160;&#160;1U</td></tr>
+<tr class="memdesc:ga59764d32e5394455906edbf03cff0b9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on UART.  <a href="#ga59764d32e5394455906edbf03cff0b9f">More...</a><br/></td></tr>
+<tr class="separator:ga59764d32e5394455906edbf03cff0b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a04b7330b5196f73ed4ffe7fa2bae6c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga1a04b7330b5196f73ed4ffe7fa2bae6c">DEBUG_CONSOLE_DEVICE_TYPE_LPUART</a>&#160;&#160;&#160;2U</td></tr>
+<tr class="memdesc:ga1a04b7330b5196f73ed4ffe7fa2bae6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on LPUART.  <a href="#ga1a04b7330b5196f73ed4ffe7fa2bae6c">More...</a><br/></td></tr>
+<tr class="separator:ga1a04b7330b5196f73ed4ffe7fa2bae6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6b4add5f2d938a89da56f58ac0b4e89b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga6b4add5f2d938a89da56f58ac0b4e89b">DEBUG_CONSOLE_DEVICE_TYPE_LPSCI</a>&#160;&#160;&#160;3U</td></tr>
+<tr class="memdesc:ga6b4add5f2d938a89da56f58ac0b4e89b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on LPSCI.  <a href="#ga6b4add5f2d938a89da56f58ac0b4e89b">More...</a><br/></td></tr>
+<tr class="separator:ga6b4add5f2d938a89da56f58ac0b4e89b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga262e149f9ce1ef4cf2e539e9494d3cca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga262e149f9ce1ef4cf2e539e9494d3cca">DEBUG_CONSOLE_DEVICE_TYPE_USBCDC</a>&#160;&#160;&#160;4U</td></tr>
+<tr class="memdesc:ga262e149f9ce1ef4cf2e539e9494d3cca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on USBCDC.  <a href="#ga262e149f9ce1ef4cf2e539e9494d3cca">More...</a><br/></td></tr>
+<tr class="separator:ga262e149f9ce1ef4cf2e539e9494d3cca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad4f7f7e51a84c34f06bbbb34973ae97a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gad4f7f7e51a84c34f06bbbb34973ae97a">DEBUG_CONSOLE_DEVICE_TYPE_FLEXCOMM</a>&#160;&#160;&#160;5U</td></tr>
+<tr class="memdesc:gad4f7f7e51a84c34f06bbbb34973ae97a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on FLEXCOMM.  <a href="#gad4f7f7e51a84c34f06bbbb34973ae97a">More...</a><br/></td></tr>
+<tr class="separator:gad4f7f7e51a84c34f06bbbb34973ae97a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga75a9e86134df04f6a8b66025d11e25c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga75a9e86134df04f6a8b66025d11e25c2">DEBUG_CONSOLE_DEVICE_TYPE_IUART</a>&#160;&#160;&#160;6U</td></tr>
+<tr class="memdesc:ga75a9e86134df04f6a8b66025d11e25c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on i.MX UART.  <a href="#ga75a9e86134df04f6a8b66025d11e25c2">More...</a><br/></td></tr>
+<tr class="separator:ga75a9e86134df04f6a8b66025d11e25c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c85202f838f94e51a0bb7b33856c78d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga2c85202f838f94e51a0bb7b33856c78d">DEBUG_CONSOLE_DEVICE_TYPE_VUSART</a>&#160;&#160;&#160;7U</td></tr>
+<tr class="memdesc:ga2c85202f838f94e51a0bb7b33856c78d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on LPC_VUSART.  <a href="#ga2c85202f838f94e51a0bb7b33856c78d">More...</a><br/></td></tr>
+<tr class="separator:ga2c85202f838f94e51a0bb7b33856c78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a951951cdb6063d949523052aa5b5e4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga5a951951cdb6063d949523052aa5b5e4">DEBUG_CONSOLE_DEVICE_TYPE_MINI_USART</a>&#160;&#160;&#160;8U</td></tr>
+<tr class="memdesc:ga5a951951cdb6063d949523052aa5b5e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on LPC_USART.  <a href="#ga5a951951cdb6063d949523052aa5b5e4">More...</a><br/></td></tr>
+<tr class="separator:ga5a951951cdb6063d949523052aa5b5e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d142691c3a4d810f8bdabc41e89dfd7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga9d142691c3a4d810f8bdabc41e89dfd7">DEBUG_CONSOLE_DEVICE_TYPE_SWO</a>&#160;&#160;&#160;9U</td></tr>
+<tr class="memdesc:ga9d142691c3a4d810f8bdabc41e89dfd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on SWO.  <a href="#ga9d142691c3a4d810f8bdabc41e89dfd7">More...</a><br/></td></tr>
+<tr class="separator:ga9d142691c3a4d810f8bdabc41e89dfd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74389c7c04a9f53548d05287c7c665cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga74389c7c04a9f53548d05287c7c665cd">DEBUG_CONSOLE_DEVICE_TYPE_QSCI</a>&#160;&#160;&#160;10U</td></tr>
+<tr class="memdesc:ga74389c7c04a9f53548d05287c7c665cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console based on QSCI.  <a href="#ga74389c7c04a9f53548d05287c7c665cd">More...</a><br/></td></tr>
+<tr class="separator:ga74389c7c04a9f53548d05287c7c665cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Min/max macros</h2></td></tr>
-<tr class="memitem:ga3acffbd305ee72dcd4593c0d8af64a4f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3acffbd305ee72dcd4593c0d8af64a4f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MIN</b>(a, b)&#160;&#160;&#160;(((a) &lt; (b)) ? (a) : (b))</td></tr>
+<tr class="memitem:ga3acffbd305ee72dcd4593c0d8af64a4f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga3acffbd305ee72dcd4593c0d8af64a4f">MIN</a>(a, b)&#160;&#160;&#160;(((a) &lt; (b)) ? (a) : (b))</td></tr>
+<tr class="memdesc:ga3acffbd305ee72dcd4593c0d8af64a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the minimum of <em>a</em> and <em>b</em>.  <a href="#ga3acffbd305ee72dcd4593c0d8af64a4f">More...</a><br/></td></tr>
 <tr class="separator:ga3acffbd305ee72dcd4593c0d8af64a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafa99ec4acc4ecb2dc3c2d05da15d0e3f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gafa99ec4acc4ecb2dc3c2d05da15d0e3f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX</b>(a, b)&#160;&#160;&#160;(((a) &gt; (b)) ? (a) : (b))</td></tr>
+<tr class="memitem:gafa99ec4acc4ecb2dc3c2d05da15d0e3f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gafa99ec4acc4ecb2dc3c2d05da15d0e3f">MAX</a>(a, b)&#160;&#160;&#160;(((a) &gt; (b)) ? (a) : (b))</td></tr>
+<tr class="memdesc:gafa99ec4acc4ecb2dc3c2d05da15d0e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the maximum of <em>a</em> and <em>b</em>.  <a href="#gafa99ec4acc4ecb2dc3c2d05da15d0e3f">More...</a><br/></td></tr>
 <tr class="separator:gafa99ec4acc4ecb2dc3c2d05da15d0e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 UINT16_MAX/UINT32_MAX value</h2></td></tr>
-<tr class="memitem:ga3ea490c9b3617d4479bd80ef93cd5602"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3ea490c9b3617d4479bd80ef93cd5602"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>UINT16_MAX</b>&#160;&#160;&#160;((uint16_t)-1)</td></tr>
+<tr class="memitem:ga3ea490c9b3617d4479bd80ef93cd5602"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga3ea490c9b3617d4479bd80ef93cd5602">UINT16_MAX</a>&#160;&#160;&#160;((uint16_t)-1)</td></tr>
+<tr class="memdesc:ga3ea490c9b3617d4479bd80ef93cd5602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max value of uint16_t type.  <a href="#ga3ea490c9b3617d4479bd80ef93cd5602">More...</a><br/></td></tr>
 <tr class="separator:ga3ea490c9b3617d4479bd80ef93cd5602"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab5eb23180f7cc12b7d6c04a8ec067fdd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab5eb23180f7cc12b7d6c04a8ec067fdd"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>UINT32_MAX</b>&#160;&#160;&#160;((uint32_t)-1)</td></tr>
+<tr class="memitem:gab5eb23180f7cc12b7d6c04a8ec067fdd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gab5eb23180f7cc12b7d6c04a8ec067fdd">UINT32_MAX</a>&#160;&#160;&#160;((uint32_t)-1)</td></tr>
+<tr class="memdesc:gab5eb23180f7cc12b7d6c04a8ec067fdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max value of uint32_t type.  <a href="#gab5eb23180f7cc12b7d6c04a8ec067fdd">More...</a><br/></td></tr>
 <tr class="separator:gab5eb23180f7cc12b7d6c04a8ec067fdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-Suppress fallthrough warning macro</h2></td></tr>
-<tr class="memitem:ga0b47cb52d1ceba88ee3e6cd19820ecfc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga0b47cb52d1ceba88ee3e6cd19820ecfc"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SUPPRESS_FALL_THROUGH_WARNING</b>()</td></tr>
-<tr class="separator:ga0b47cb52d1ceba88ee3e6cd19820ecfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+Atomic modification</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp95f1a0b5da633d7126ac4f520196e492"></a>These macros are used for atomic access, such as read-modify-write to the peripheral registers.</p>
+<p>Take <a class="el" href="a00085.html#ga2bfce8f92b8539d9b2eedc4d52b35dd1">SDK_ATOMIC_LOCAL_CLEAR_AND_SET</a> as an example: the parameter <code>addr</code> means the address of the peripheral register or variable you want to modify atomically, the parameter <code>clearBits</code> is the bits to clear, the parameter <code>setBits</code> it the bits to set. For example, to set a 32-bit register bit1:bit0 to 0b10, use like this:</p>
+<div class="fragment"><div class="line"><span class="keyword">volatile</span> uint32_t * reg = (<span class="keyword">volatile</span> uint32_t *)REG_ADDR;</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="a00085.html#ga2bfce8f92b8539d9b2eedc4d52b35dd1">SDK_ATOMIC_LOCAL_CLEAR_AND_SET</a>(reg, 0x03, 0x02);</div>
+</div><!-- fragment --><p>In this example, the register bit1:bit0 are cleared and bit1 is set, as a result, register bit1:bit0 = 0b10.</p>
+<dl class="section note"><dt>Note</dt><dd>For the platforms don't support exclusive load and store, these macros disable the global interrupt to pretect the modification.</dd>
+<dd>
+These macros only guarantee the local processor atomic operations. For the multi-processor devices, use hardware semaphore such as SEMA42 to guarantee exclusive access if necessary. </dd></dl>
+</td></tr>
+<tr class="memitem:ga957fd03848a6eb9dbca45a30dcdcc139"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga957fd03848a6eb9dbca45a30dcdcc139"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga957fd03848a6eb9dbca45a30dcdcc139">SDK_ATOMIC_LOCAL_ADD</a>(addr, val)</td></tr>
+<tr class="memdesc:ga957fd03848a6eb9dbca45a30dcdcc139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add value <em>val</em> from the variable at address <em>address</em>. <br/></td></tr>
+<tr class="separator:ga957fd03848a6eb9dbca45a30dcdcc139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae82c4d49594c973ce454a8c03cdf7d88"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae82c4d49594c973ce454a8c03cdf7d88"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gae82c4d49594c973ce454a8c03cdf7d88">SDK_ATOMIC_LOCAL_SUB</a>(addr, val)</td></tr>
+<tr class="memdesc:gae82c4d49594c973ce454a8c03cdf7d88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract value <em>val</em> to the variable at address <em>address</em>. <br/></td></tr>
+<tr class="separator:gae82c4d49594c973ce454a8c03cdf7d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gade7ec3533b9f508554ee1535b7b8bc8c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gade7ec3533b9f508554ee1535b7b8bc8c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gade7ec3533b9f508554ee1535b7b8bc8c">SDK_ATOMIC_LOCAL_SET</a>(addr, bits)</td></tr>
+<tr class="memdesc:gade7ec3533b9f508554ee1535b7b8bc8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the bits specifiled by <em>bits</em> to the variable at address <em>address</em>. <br/></td></tr>
+<tr class="separator:gade7ec3533b9f508554ee1535b7b8bc8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50f13aaa6905b92a83c762e1513471c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga50f13aaa6905b92a83c762e1513471c8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga50f13aaa6905b92a83c762e1513471c8">SDK_ATOMIC_LOCAL_CLEAR</a>(addr, bits)</td></tr>
+<tr class="memdesc:ga50f13aaa6905b92a83c762e1513471c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the bits specifiled by <em>bits</em> to the variable at address <em>address</em>. <br/></td></tr>
+<tr class="separator:ga50f13aaa6905b92a83c762e1513471c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga022210ec2f02da145599baef78fbeb5a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga022210ec2f02da145599baef78fbeb5a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga022210ec2f02da145599baef78fbeb5a">SDK_ATOMIC_LOCAL_TOGGLE</a>(addr, bits)</td></tr>
+<tr class="memdesc:ga022210ec2f02da145599baef78fbeb5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggle the bits specifiled by <em>bits</em> to the variable at address <em>address</em>. <br/></td></tr>
+<tr class="separator:ga022210ec2f02da145599baef78fbeb5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2bfce8f92b8539d9b2eedc4d52b35dd1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2bfce8f92b8539d9b2eedc4d52b35dd1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga2bfce8f92b8539d9b2eedc4d52b35dd1">SDK_ATOMIC_LOCAL_CLEAR_AND_SET</a>(addr, clearBits, setBits)</td></tr>
+<tr class="memdesc:ga2bfce8f92b8539d9b2eedc4d52b35dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the variable at address <em>address</em>, clear the bits specifiled by <em>clearBits</em> and set the bits specifiled by <em>setBits</em>. <br/></td></tr>
+<tr class="separator:ga2bfce8f92b8539d9b2eedc4d52b35dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Timer utilities</h2></td></tr>
+<tr class="memitem:gad5639aadf668899775fc7506a5e19dc1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad5639aadf668899775fc7506a5e19dc1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gad5639aadf668899775fc7506a5e19dc1">USEC_TO_COUNT</a>(us, clockFreqInHz)&#160;&#160;&#160;(uint64_t)(((uint64_t)(us) * (clockFreqInHz)) / 1000000U)</td></tr>
+<tr class="memdesc:gad5639aadf668899775fc7506a5e19dc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert a microsecond period to raw count value. <br/></td></tr>
+<tr class="separator:gad5639aadf668899775fc7506a5e19dc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga601b69842ec962d1babd627e5a3541fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga601b69842ec962d1babd627e5a3541fd"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga601b69842ec962d1babd627e5a3541fd">COUNT_TO_USEC</a>(count, clockFreqInHz)&#160;&#160;&#160;(uint64_t)((uint64_t)(count)*1000000U / (clockFreqInHz))</td></tr>
+<tr class="memdesc:ga601b69842ec962d1babd627e5a3541fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert a raw count value to microsecond. <br/></td></tr>
+<tr class="separator:ga601b69842ec962d1babd627e5a3541fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa9fb2136029d807bd7c349c30348b52a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa9fb2136029d807bd7c349c30348b52a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gaa9fb2136029d807bd7c349c30348b52a">MSEC_TO_COUNT</a>(ms, clockFreqInHz)&#160;&#160;&#160;(uint64_t)((uint64_t)(ms) * (clockFreqInHz) / 1000U)</td></tr>
+<tr class="memdesc:gaa9fb2136029d807bd7c349c30348b52a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert a millisecond period to raw count value. <br/></td></tr>
+<tr class="separator:gaa9fb2136029d807bd7c349c30348b52a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafa0fe6bd95d5455c99aee949cb285b20"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gafa0fe6bd95d5455c99aee949cb285b20"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gafa0fe6bd95d5455c99aee949cb285b20">COUNT_TO_MSEC</a>(count, clockFreqInHz)&#160;&#160;&#160;(uint64_t)((uint64_t)(count)*1000U / (clockFreqInHz))</td></tr>
+<tr class="memdesc:gafa0fe6bd95d5455c99aee949cb285b20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert a raw count value to millisecond. <br/></td></tr>
+<tr class="separator:gafa0fe6bd95d5455c99aee949cb285b20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Alignment variable definition macros</h2></td></tr>
+<tr class="memitem:gade00270528e66e9f091cc49d1ac2212c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gade00270528e66e9f091cc49d1ac2212c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gade00270528e66e9f091cc49d1ac2212c">SDK_ALIGN</a>(var, alignbytes)&#160;&#160;&#160;var __attribute__((aligned(alignbytes)))</td></tr>
+<tr class="memdesc:gade00270528e66e9f091cc49d1ac2212c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to define a variable with alignbytes alignment. <br/></td></tr>
+<tr class="separator:gade00270528e66e9f091cc49d1ac2212c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga870e52d54fc8ec35f89fc99ca656fb0b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga870e52d54fc8ec35f89fc99ca656fb0b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga870e52d54fc8ec35f89fc99ca656fb0b">SDK_L1DCACHE_ALIGN</a>(var)&#160;&#160;&#160;<a class="el" href="a00085.html#gade00270528e66e9f091cc49d1ac2212c">SDK_ALIGN</a>(var, FSL_FEATURE_L1DCACHE_LINESIZE_BYTE)</td></tr>
+<tr class="memdesc:ga870e52d54fc8ec35f89fc99ca656fb0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to define a variable with L1 d-cache line size alignment. <br/></td></tr>
+<tr class="separator:ga870e52d54fc8ec35f89fc99ca656fb0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga44d24ac5229dbbd054f046331b58d43b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga44d24ac5229dbbd054f046331b58d43b">SDK_SIZEALIGN</a>(var, alignbytes)&#160;&#160;&#160;((unsigned int)((var) + ((alignbytes)-1U)) &amp; (unsigned int)(~(unsigned int)((alignbytes)-1U)))</td></tr>
+<tr class="memdesc:ga44d24ac5229dbbd054f046331b58d43b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to define a variable with L2 cache line size alignment.  <a href="#ga44d24ac5229dbbd054f046331b58d43b">More...</a><br/></td></tr>
+<tr class="separator:ga44d24ac5229dbbd054f046331b58d43b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Non-cacheable region definition macros</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrpd2713a05260357a382af64555664b549"></a>For initialized non-zero non-cacheable variables, please use "AT_NONCACHEABLE_SECTION_INIT(var) ={xx};" or "AT_NONCACHEABLE_SECTION_ALIGN_INIT(var) ={xx};" in your projects to define them.</p>
+<p>For zero-inited non-cacheable variables, please use "AT_NONCACHEABLE_SECTION(var);" or "AT_NONCACHEABLE_SECTION_ALIGN(var);" to define them, these zero-inited variables will be initialized to zero in system startup.</p>
+<dl class="section note"><dt>Note</dt><dd>For GCC, when the non-cacheable section is required, please define "__STARTUP_INITIALIZE_NONCACHEDATA" in your projects to make sure the non-cacheable section variables will be initialized in system startup. </dd></dl>
+</td></tr>
+<tr class="memitem:gad98e0c70f9195609e3c3d9e635bc207d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad98e0c70f9195609e3c3d9e635bc207d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#gad98e0c70f9195609e3c3d9e635bc207d">AT_NONCACHEABLE_SECTION</a>(var)&#160;&#160;&#160;__attribute__((section(&quot;NonCacheable,\&quot;aw\&quot;,%nobits @&quot;))) var</td></tr>
+<tr class="memdesc:gad98e0c70f9195609e3c3d9e635bc207d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a variable <em>var</em>, and place it in non-cacheable section. <br/></td></tr>
+<tr class="separator:gad98e0c70f9195609e3c3d9e635bc207d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga545036768d164aad61b71502371e7165"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga545036768d164aad61b71502371e7165"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga545036768d164aad61b71502371e7165">AT_NONCACHEABLE_SECTION_ALIGN</a>(var, alignbytes)&#160;&#160;&#160;__attribute__((section(&quot;NonCacheable,\&quot;aw\&quot;,%nobits @&quot;))) var __attribute__((aligned(alignbytes)))</td></tr>
+<tr class="memdesc:ga545036768d164aad61b71502371e7165"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a variable <em>var</em>, and place it in non-cacheable section, the start address of the variable is aligned to <em>alignbytes</em>. <br/></td></tr>
+<tr class="separator:ga545036768d164aad61b71502371e7165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0e6dbf5a33f2390db8f141f2df5055aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga0e6dbf5a33f2390db8f141f2df5055aa"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga0e6dbf5a33f2390db8f141f2df5055aa">AT_NONCACHEABLE_SECTION_INIT</a>(var)&#160;&#160;&#160;__attribute__((section(&quot;NonCacheable.init&quot;))) var</td></tr>
+<tr class="memdesc:ga0e6dbf5a33f2390db8f141f2df5055aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a variable <em>var</em> with initial value, and place it in non-cacheable section. <br/></td></tr>
+<tr class="separator:ga0e6dbf5a33f2390db8f141f2df5055aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5861db7ec245a076dbb525bb75255cf0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5861db7ec245a076dbb525bb75255cf0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga5861db7ec245a076dbb525bb75255cf0">AT_NONCACHEABLE_SECTION_ALIGN_INIT</a>(var, alignbytes)&#160;&#160;&#160;__attribute__((section(&quot;NonCacheable.init&quot;))) var __attribute__((aligned(alignbytes)))</td></tr>
+<tr class="memdesc:ga5861db7ec245a076dbb525bb75255cf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a variable <em>var</em> with initial value, and place it in non-cacheable section, the start address of the variable is aligned to <em>alignbytes</em>. <br/></td></tr>
+<tr class="separator:ga5861db7ec245a076dbb525bb75255cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Time sensitive region</h2></td></tr>
+<tr class="memitem:ga467c6a1ad5af6f887127bb059beb5369"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga467c6a1ad5af6f887127bb059beb5369"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga467c6a1ad5af6f887127bb059beb5369">AT_QUICKACCESS_SECTION_CODE</a>(func)&#160;&#160;&#160;__attribute__((section(&quot;CodeQuickAccess&quot;), __noinline__)) func</td></tr>
+<tr class="memdesc:ga467c6a1ad5af6f887127bb059beb5369"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place function in a section which can be accessed quickly by core. <br/></td></tr>
+<tr class="separator:ga467c6a1ad5af6f887127bb059beb5369"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga02126e90add2f23cf21504de04412d1a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga02126e90add2f23cf21504de04412d1a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga02126e90add2f23cf21504de04412d1a">AT_QUICKACCESS_SECTION_DATA</a>(var)&#160;&#160;&#160;__attribute__((section(&quot;DataQuickAccess&quot;))) var</td></tr>
+<tr class="memdesc:ga02126e90add2f23cf21504de04412d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place data in a section which can be accessed quickly by core. <br/></td></tr>
+<tr class="separator:ga02126e90add2f23cf21504de04412d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga53074a5c435105610c452d6ac9d71ad8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga53074a5c435105610c452d6ac9d71ad8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga53074a5c435105610c452d6ac9d71ad8">AT_QUICKACCESS_SECTION_DATA_ALIGN</a>(var, alignbytes)&#160;&#160;&#160;__attribute__((section(&quot;DataQuickAccess&quot;))) var __attribute__((aligned(alignbytes)))</td></tr>
+<tr class="memdesc:ga53074a5c435105610c452d6ac9d71ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place data in a section which can be accessed quickly by core, and the variable address is set to align with <em>alignbytes</em>. <br/></td></tr>
+<tr class="separator:ga53074a5c435105610c452d6ac9d71ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Ram Function</h2></td></tr>
+<tr class="memitem:ga0cc30b1528f944524f009ada9c85e897"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga0cc30b1528f944524f009ada9c85e897"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00085.html#ga0cc30b1528f944524f009ada9c85e897">RAMFUNCTION_SECTION_CODE</a>(func)&#160;&#160;&#160;__attribute__((section(&quot;RamFunction&quot;))) func</td></tr>
+<tr class="memdesc:ga0cc30b1528f944524f009ada9c85e897"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place function in ram. <br/></td></tr>
+<tr class="separator:ga0cc30b1528f944524f009ada9c85e897"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="ga9a10f3f762d9eb7c5db73535db6a9d78"></a>
@@ -549,7 +707,7 @@ Suppress fallthrough warning macro</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FSL_COMMON_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00085.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 4, 0))</td>
+          <td class="memname">#define FSL_COMMON_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00085.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 4, 1))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -688,6 +846,58 @@ Suppress fallthrough warning macro</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ga3acffbd305ee72dcd4593c0d8af64a4f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MIN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(((a) &lt; (b)) ? (a) : (b))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="gafa99ec4acc4ecb2dc3c2d05da15d0e3f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(((a) &gt; (b)) ? (a) : (b))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ga6242a25f9d996f0cc4f4cdb911218b75"></a>
 <div class="memitem">
 <div class="memproto">
@@ -701,6 +911,73 @@ Suppress fallthrough warning macro</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ga3ea490c9b3617d4479bd80ef93cd5602"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UINT16_MAX&#160;&#160;&#160;((uint16_t)-1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="gab5eb23180f7cc12b7d6c04a8ec067fdd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UINT32_MAX&#160;&#160;&#160;((uint32_t)-1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ga0b47cb52d1ceba88ee3e6cd19820ecfc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SUPPRESS_FALL_THROUGH_WARNING</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>To suppress this warning, "SUPPRESS_FALL_THROUGH_WARNING();" need to be added at the end of each case section which misses "break;"statement. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga44d24ac5229dbbd054f046331b58d43b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDK_SIZEALIGN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">var, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">alignbytes&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;((unsigned int)((var) + ((alignbytes)-1U)) &amp; (unsigned int)(~(unsigned int)((alignbytes)-1U)))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Macro to change a value to a given size aligned value </p>
 
 </div>
 </div>
@@ -962,6 +1239,15 @@ Suppress fallthrough warning macro</h2></td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29af4cabd4468ae9e670d9c188064c56f41"></a>kStatusGroup_VBAT</em>&nbsp;</td><td class="fielddoc">
 <p>Group number for VBAT status codes. </p>
 </td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29aada92c05acb618141acd4ffa4311ea1e"></a>kStatusGroup_XSPI</em>&nbsp;</td><td class="fielddoc">
+<p>Group number for XSPI status codes. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29a79d5b5d632bebb0ae237f5d4c7d04fdb"></a>kStatusGroup_PNGDEC</em>&nbsp;</td><td class="fielddoc">
+<p>Group number for PNGDEC status codes. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29a1824b35bceebfe62e179c40a9c850a77"></a>kStatusGroup_JPEGDEC</em>&nbsp;</td><td class="fielddoc">
+<p>Group number for JPEGDEC status codes. </p>
+</td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29a18ce0675c0cc628b2ff29a1bafce8b58"></a>kStatusGroup_HAL_GPIO</em>&nbsp;</td><td class="fielddoc">
 <p>Group number for HAL GPIO status codes. </p>
 </td></tr>
@@ -988,6 +1274,9 @@ Suppress fallthrough warning macro</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29ac509445aa04b715b77e6461993b50085"></a>kStatusGroup_HAL_I2S</em>&nbsp;</td><td class="fielddoc">
 <p>Group number for HAL I2S status codes. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29a91a5a43e0f7acfb5894ec7c246d05bcc"></a>kStatusGroup_HAL_ADC_SENSOR</em>&nbsp;</td><td class="fielddoc">
+<p>Group number for HAL ADC SENSOR status codes. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29a4603f8fedc8ad994788e17baae895013"></a>kStatusGroup_TIMERMANAGER</em>&nbsp;</td><td class="fielddoc">
 <p>Group number for TiMER MANAGER status codes. </p>
@@ -1055,8 +1344,8 @@ Suppress fallthrough warning macro</h2></td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29a025ed41827a0bd0b7bf60b853a921c7d"></a>kStatusGroup_QSCI</em>&nbsp;</td><td class="fielddoc">
 <p>Group number for QSCI status codes. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29ae67462f0d7dbac886d8a1272a29b846c"></a>kStatusGroup_SNT</em>&nbsp;</td><td class="fielddoc">
-<p>Group number for SNT status codes. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29ae9d67092ecc6b4f406fc0fb862174476"></a>kStatusGroup_ELEMU</em>&nbsp;</td><td class="fielddoc">
+<p>Group number for ELEMU status codes. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29a7712fcacc6d5e9698366daafc59ea644"></a>kStatusGroup_QUEUEDSPI</em>&nbsp;</td><td class="fielddoc">
 <p>Group number for QSPI status codes. </p>
@@ -1066,6 +1355,9 @@ Suppress fallthrough warning macro</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29a79d16666510da650e32b1499cf102aa5"></a>kStatusGroup_IPED</em>&nbsp;</td><td class="fielddoc">
 <p>Group number for IPED status codes. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29a70c9114d88c3a9b48cabb36cd4b2884d"></a>kStatusGroup_ELS_PKC</em>&nbsp;</td><td class="fielddoc">
+<p>Group number for ELS PKC status codes. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29a9ef29ac5ce94ff0617434c39574b4f91"></a>kStatusGroup_CSS_PKC</em>&nbsp;</td><td class="fielddoc">
 <p>Group number for CSS PKC status codes. </p>
@@ -1081,6 +1373,12 @@ Suppress fallthrough warning macro</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29a2e0ac8d81af0520d13c650cd3a3bcdde"></a>kStatusGroup_NETC</em>&nbsp;</td><td class="fielddoc">
 <p>Group number for NETC status codes. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29a446c74416be882daecb3038dbe42e9de"></a>kStatusGroup_ELE</em>&nbsp;</td><td class="fielddoc">
+<p>Group number for ELE status codes. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga7ff0b98bb1341c07acefb1473b6eda29a45af4d693828886ce7d95dd9cb932af6"></a>kStatusGroup_GLIKEY</em>&nbsp;</td><td class="fielddoc">
+<p>Group number for GLIKEY status codes. </p>
 </td></tr>
 </table>
 
@@ -1218,6 +1516,280 @@ Suppress fallthrough warning macro</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">delayTime_us</td><td>Delay time in unit of microsecond. </td></tr>
     <tr><td class="paramname">coreClock_Hz</td><td>Core clock frequency with Hz. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga2b92855a9ebf6eadeed1527b8339d50a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> EnableIRQ </td>
+          <td>(</td>
+          <td class="paramtype">IRQn_Type&#160;</td>
+          <td class="paramname"><em>interrupt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Enable LEVEL1 interrupt. For some devices, there might be multiple interrupt levels. For example, there are NVIC and intmux. Here the interrupts connected to NVIC are the LEVEL1 interrupts, because they are routed to the core directly. The interrupts connected to intmux are the LEVEL2 interrupts, they are routed to NVIC first then routed to core.</p>
+<p>This function only enables the LEVEL1 interrupts. The number of LEVEL1 interrupts is indicated by the feature macro FSL_FEATURE_NUMBER_OF_LEVEL1_INT_VECTORS.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interrupt</td><td>The IRQ number. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">kStatus_Success</td><td>Interrupt enabled successfully </td></tr>
+    <tr><td class="paramname">kStatus_Fail</td><td>Failed to enable the interrupt </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga7f9bbd23e70eaf6670d3425683753961"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> DisableIRQ </td>
+          <td>(</td>
+          <td class="paramtype">IRQn_Type&#160;</td>
+          <td class="paramname"><em>interrupt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Disable LEVEL1 interrupt. For some devices, there might be multiple interrupt levels. For example, there are NVIC and intmux. Here the interrupts connected to NVIC are the LEVEL1 interrupts, because they are routed to the core directly. The interrupts connected to intmux are the LEVEL2 interrupts, they are routed to NVIC first then routed to core.</p>
+<p>This function only disables the LEVEL1 interrupts. The number of LEVEL1 interrupts is indicated by the feature macro FSL_FEATURE_NUMBER_OF_LEVEL1_INT_VECTORS.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interrupt</td><td>The IRQ number. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">kStatus_Success</td><td>Interrupt disabled successfully </td></tr>
+    <tr><td class="paramname">kStatus_Fail</td><td>Failed to disable the interrupt </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa9463731425e110e2d841820f4559a3f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> EnableIRQWithPriority </td>
+          <td>(</td>
+          <td class="paramtype">IRQn_Type&#160;</td>
+          <td class="paramname"><em>interrupt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>priNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Only handle LEVEL1 interrupt. For some devices, there might be multiple interrupt levels. For example, there are NVIC and intmux. Here the interrupts connected to NVIC are the LEVEL1 interrupts, because they are routed to the core directly. The interrupts connected to intmux are the LEVEL2 interrupts, they are routed to NVIC first then routed to core.</p>
+<p>This function only handles the LEVEL1 interrupts. The number of LEVEL1 interrupts is indicated by the feature macro FSL_FEATURE_NUMBER_OF_LEVEL1_INT_VECTORS.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interrupt</td><td>The IRQ to Enable. </td></tr>
+    <tr><td class="paramname">priNum</td><td>Priority number set to interrupt controller register. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">kStatus_Success</td><td>Interrupt priority set successfully </td></tr>
+    <tr><td class="paramname">kStatus_Fail</td><td>Failed to set the interrupt priority. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga9d1df086c696c7864d98ea6ec28846f3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> IRQ_SetPriority </td>
+          <td>(</td>
+          <td class="paramtype">IRQn_Type&#160;</td>
+          <td class="paramname"><em>interrupt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>priNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Only handle LEVEL1 interrupt. For some devices, there might be multiple interrupt levels. For example, there are NVIC and intmux. Here the interrupts connected to NVIC are the LEVEL1 interrupts, because they are routed to the core directly. The interrupts connected to intmux are the LEVEL2 interrupts, they are routed to NVIC first then routed to core.</p>
+<p>This function only handles the LEVEL1 interrupts. The number of LEVEL1 interrupts is indicated by the feature macro FSL_FEATURE_NUMBER_OF_LEVEL1_INT_VECTORS.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interrupt</td><td>The IRQ to set. </td></tr>
+    <tr><td class="paramname">priNum</td><td>Priority number set to interrupt controller register.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">kStatus_Success</td><td>Interrupt priority set successfully </td></tr>
+    <tr><td class="paramname">kStatus_Fail</td><td>Failed to set the interrupt priority. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gac9b0f720fcb617b3aa9cb554d87dbc55"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> IRQ_ClearPendingIRQ </td>
+          <td>(</td>
+          <td class="paramtype">IRQn_Type&#160;</td>
+          <td class="paramname"><em>interrupt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Only handle LEVEL1 interrupt. For some devices, there might be multiple interrupt levels. For example, there are NVIC and intmux. Here the interrupts connected to NVIC are the LEVEL1 interrupts, because they are routed to the core directly. The interrupts connected to intmux are the LEVEL2 interrupts, they are routed to NVIC first then routed to core.</p>
+<p>This function only handles the LEVEL1 interrupts. The number of LEVEL1 interrupts is indicated by the feature macro FSL_FEATURE_NUMBER_OF_LEVEL1_INT_VECTORS.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interrupt</td><td>The flag which IRQ to clear.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">kStatus_Success</td><td>Interrupt priority set successfully </td></tr>
+    <tr><td class="paramname">kStatus_Fail</td><td>Failed to set the interrupt priority. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga4f63764780e8eae7726d7a7e10f4b2a1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint32_t DisableGlobalIRQ </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Disable the global interrupt and return the current primask register. User is required to provided the primask register for the <a class="el" href="a00085.html#gacca38e4e11db8e795201c82f6ce4c9d5" title="Enable the global IRQ. ">EnableGlobalIRQ()</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current primask value. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gacca38e4e11db8e795201c82f6ce4c9d5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void EnableGlobalIRQ </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>primask</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the primask register with the provided primask value but not just enable the primask. The idea is for the convenience of integration of RTOS. some RTOS get its own management mechanism of primask. User is required to use the <a class="el" href="a00085.html#gacca38e4e11db8e795201c82f6ce4c9d5" title="Enable the global IRQ. ">EnableGlobalIRQ()</a> and <a class="el" href="a00085.html#ga4f63764780e8eae7726d7a7e10f4b2a1" title="Disable the global IRQ. ">DisableGlobalIRQ()</a> in pair.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">primask</td><td>value of primask register to be restored. The primask value is supposed to be provided by the <a class="el" href="a00085.html#ga4f63764780e8eae7726d7a7e10f4b2a1" title="Disable the global IRQ. ">DisableGlobalIRQ()</a>. </td></tr>
   </table>
   </dd>
 </dl>

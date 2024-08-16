@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.13.0</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -118,14 +118,14 @@ Function groups</h1>
 Initialization</h2>
 <p>To initialize the debug console, call the <span style="color:red"><a class="el" href="a00101.html#ga12e50ee0450679fd8ca950a89338d366" title="Initializes the peripheral used for debug messages. ">DbgConsole_Init()</a></span> function with these parameters. This function automatically enables the module and the clock.</p>
 <div class="fragment"><div class="line"></div>
-<div class="line"><a class="code" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> <a class="code" href="a00101.html#ga12e50ee0450679fd8ca950a89338d366">DbgConsole_Init</a>(uint8_t instance, uint32_t baudRate, <a class="code" href="a00017.html#ga103db7d7f3fc8234978efadef0fdaf80">serial_port_type_t</a> device, uint32_t clkSrcFreq);</div>
+<div class="line"><a class="code" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> <a class="code" href="a00101.html#ga12e50ee0450679fd8ca950a89338d366">DbgConsole_Init</a>(uint8_t instance, uint32_t baudRate, <a class="code" href="a00017.html#gaa7dc5f93aacda72d14bb0fa66b0401f3">serial_port_type_t</a> device, uint32_t clkSrcFreq);</div>
 </div><!-- fragment --><p>Select the supported debug console hardware device type, such as</p>
-<div class="fragment"><div class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> _serial_port_type</div>
+<div class="fragment"><div class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="a00017.html#ga37012d03963b0a7aac96cda088362180">_serial_port_type</a></div>
 <div class="line">{</div>
-<div class="line">    <a class="code" href="a00017.html#gga103db7d7f3fc8234978efadef0fdaf80a5b4d039d8c91cb19fca7c5dc196f8d77">kSerialPort_Uart</a> = 1U,                </div>
-<div class="line">    <a class="code" href="a00017.html#gga103db7d7f3fc8234978efadef0fdaf80a3785825f30826c61a4ef13bf983381c2">kSerialPort_UsbCdc</a>,                   </div>
-<div class="line">    <a class="code" href="a00017.html#gga103db7d7f3fc8234978efadef0fdaf80af6a37935b2767a9ae22825f0bc49ef77">kSerialPort_Swo</a>,                      </div>
-<div class="line">} <a class="code" href="a00017.html#ga103db7d7f3fc8234978efadef0fdaf80">serial_port_type_t</a>;</div>
+<div class="line">    <a class="code" href="a00017.html#gga37012d03963b0a7aac96cda088362180a5b4d039d8c91cb19fca7c5dc196f8d77">kSerialPort_Uart</a> = 1U,                </div>
+<div class="line">    <a class="code" href="a00017.html#gga37012d03963b0a7aac96cda088362180a3785825f30826c61a4ef13bf983381c2">kSerialPort_UsbCdc</a>,                   </div>
+<div class="line">    <a class="code" href="a00017.html#gga37012d03963b0a7aac96cda088362180af6a37935b2767a9ae22825f0bc49ef77">kSerialPort_Swo</a>,                      </div>
+<div class="line">} <a class="code" href="a00017.html#gaa7dc5f93aacda72d14bb0fa66b0401f3">serial_port_type_t</a>;</div>
 </div><!-- fragment --><p>After the initialization is successful, stdout and stdin are connected to the selected peripheral.</p>
 <p>This example shows how to call the <a class="el" href="a00101.html#ga12e50ee0450679fd8ca950a89338d366" title="Initializes the peripheral used for debug messages. ">DbgConsole_Init()</a> given the user configuration structure.</p>
 <div class="fragment"><div class="line"><a class="code" href="a00101.html#ga12e50ee0450679fd8ca950a89338d366">DbgConsole_Init</a>(BOARD_DEBUG_UART_INSTANCE, BOARD_DEBUG_UART_BAUDRATE, BOARD_DEBUG_UART_TYPE,</div>
@@ -327,9 +327,12 @@ Typical use case</h1>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
 Modules</h2></td></tr>
-<tr class="memitem:a00103"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00103.html">SWO</a></td></tr>
+<tr class="memitem:a00104"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00104.html">SWO</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00102"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html">Semihosting</a></td></tr>
+<tr class="memitem:a00103"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00103.html">Semihosting</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00102"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html">debug console configuration</a></td></tr>
+<tr class="memdesc:a00102"><td class="mdescLeft">&#160;</td><td class="mdescRight">The configuration is used for debug console only. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -359,7 +362,7 @@ Variables</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Initialization</h2></td></tr>
-<tr class="memitem:ga12e50ee0450679fd8ca950a89338d366"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00101.html#ga12e50ee0450679fd8ca950a89338d366">DbgConsole_Init</a> (uint8_t instance, uint32_t baudRate, <a class="el" href="a00017.html#ga103db7d7f3fc8234978efadef0fdaf80">serial_port_type_t</a> device, uint32_t clkSrcFreq)</td></tr>
+<tr class="memitem:ga12e50ee0450679fd8ca950a89338d366"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00101.html#ga12e50ee0450679fd8ca950a89338d366">DbgConsole_Init</a> (uint8_t instance, uint32_t baudRate, <a class="el" href="a00017.html#gaa7dc5f93aacda72d14bb0fa66b0401f3">serial_port_type_t</a> device, uint32_t clkSrcFreq)</td></tr>
 <tr class="memdesc:ga12e50ee0450679fd8ca950a89338d366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the peripheral used for debug messages.  <a href="#ga12e50ee0450679fd8ca950a89338d366">More...</a><br/></td></tr>
 <tr class="separator:ga12e50ee0450679fd8ca950a89338d366"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad80e7aa70bbb3fce1a9168621372833e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00101.html#gad80e7aa70bbb3fce1a9168621372833e">DbgConsole_Deinit</a> (void)</td></tr>
@@ -395,6 +398,9 @@ Initialization</h2></td></tr>
 <tr class="memitem:ga3194467c3dae6c5015b8b29c3cc1db1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00101.html#ga3194467c3dae6c5015b8b29c3cc1db1e">DbgConsole_Flush</a> (void)</td></tr>
 <tr class="memdesc:ga3194467c3dae6c5015b8b29c3cc1db1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console flush.  <a href="#ga3194467c3dae6c5015b8b29c3cc1db1e">More...</a><br/></td></tr>
 <tr class="separator:ga3194467c3dae6c5015b8b29c3cc1db1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga867a9778cd1401d3336ae5599851c1fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00101.html#ga867a9778cd1401d3336ae5599851c1fd">DbgConsole_TryGetchar</a> (char *ch)</td></tr>
+<tr class="memdesc:ga867a9778cd1401d3336ae5599851c1fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug console try to get char This function provides a API which will not block current task, if character is available return it, otherwise return fail.  <a href="#ga867a9778cd1401d3336ae5599851c1fd">More...</a><br/></td></tr>
+<tr class="separator:ga867a9778cd1401d3336ae5599851c1fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="gabb8f0adbec02f143b4f84d2eb42126df"></a>
@@ -480,7 +486,7 @@ Initialization</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00017.html#ga103db7d7f3fc8234978efadef0fdaf80">serial_port_type_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00017.html#gaa7dc5f93aacda72d14bb0fa66b0401f3">serial_port_type_t</a>&#160;</td>
           <td class="paramname"><em>device</em>, </td>
         </tr>
         <tr>
@@ -805,6 +811,29 @@ Initialization</h2></td></tr>
 </div><div class="memdoc">
 <p>Call this function to wait the tx buffer empty. If interrupt transfer is using, make sure the global IRQ is enable before call this function This function should be called when 1, before enter power down mode 2, log is required to print to terminal immediately </p>
 <dl class="section return"><dt>Returns</dt><dd>Indicates whether wait idle was successful or not. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga867a9778cd1401d3336ae5599851c1fd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> DbgConsole_TryGetchar </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ch</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ch</td><td>the address of char to receive </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Indicates get char was successful or not. </dd></dl>
 
 </div>
 </div>

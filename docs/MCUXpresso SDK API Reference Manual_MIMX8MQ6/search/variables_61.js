@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['address',['address',['../a00015.html#ac26082e85ff1d7e0874fc5a2467a904c',1,'rdc_mem_status_t']]],
-  ['ahbbuffermaster',['AHBbufferMaster',['../a00014.html#a0b223821f4f9a57e61244b66da926113',1,'qspi_config_t']]],
-  ['ahbbuffersize',['AHBbufferSize',['../a00014.html#ac4a1f15dc587c01444fc506b32d82b1f',1,'qspi_config_t']]],
-  ['area',['area',['../a00014.html#a29b0ae614176264f9d58d2152e80cd70',1,'qspi_config_t']]],
-  ['averagecriticalinterruptssitemask',['AverageCriticalInterruptsSiteMask',['../a00019.html#a326c080425bcc9219dd9db338bf48180',1,'tmu_interrupt_status_t']]],
-  ['averagecriticalthresoldenable',['AverageCriticalThresoldEnable',['../a00019.html#ae3422784818643c5e78ab9b2b545204b',1,'tmu_thresold_config_t']]],
-  ['averagecriticalthresoldvalue',['averageCriticalThresoldValue',['../a00019.html#a36c49c9978a39decb657e72026189754',1,'tmu_thresold_config_t']]],
-  ['averageinterruptssitemask',['AverageInterruptsSiteMask',['../a00019.html#a24bd33df8c9f3c8ec609b5fb72d8cf7c',1,'tmu_interrupt_status_t']]],
-  ['averagelpf',['averageLPF',['../a00019.html#a19cb414c5a89d06931bb5d3f48ba64c2',1,'tmu_config_t']]],
-  ['averagethresoldenable',['AverageThresoldEnable',['../a00019.html#a269f4768530d6a95fd23ad2bce651cde',1,'tmu_thresold_config_t']]],
-  ['averagethresoldvalue',['averageThresoldValue',['../a00019.html#aee4703600e7bae9134b7fb717071a3d0',1,'tmu_thresold_config_t']]]
+  ['address',['address',['../a00015.html#a8613c0efb2da82d09f7f67a5a3efee4f',1,'_rdc_mem_status']]],
+  ['ahbbuffermaster',['AHBbufferMaster',['../a00014.html#a41edf51bea73e109220a120a427a1aab',1,'QspiConfig']]],
+  ['ahbbuffersize',['AHBbufferSize',['../a00014.html#ab30ef315448ee1e327cfbee59e1133b0',1,'QspiConfig']]],
+  ['area',['area',['../a00014.html#a349bf97f83e0ddaf2acc7705c4bc03af',1,'QspiConfig']]],
+  ['averagecriticalinterruptssitemask',['AverageCriticalInterruptsSiteMask',['../a00019.html#a679e593bd6abcd1600e6f020dbc0258c',1,'_tmu_interrupt_status']]],
+  ['averagecriticalthresoldenable',['AverageCriticalThresoldEnable',['../a00019.html#a2bc0698acdddde49fd6a18e3aaef8b40',1,'_tmu_thresold_config']]],
+  ['averagecriticalthresoldvalue',['averageCriticalThresoldValue',['../a00019.html#ac01d497bc25964566de01d54cfc5a990',1,'_tmu_thresold_config']]],
+  ['averageinterruptssitemask',['AverageInterruptsSiteMask',['../a00019.html#a98738a92d8baddcc672849b25b25c7e6',1,'_tmu_interrupt_status']]],
+  ['averagelpf',['averageLPF',['../a00019.html#abbb852655cf1f47d22d19c1838616421',1,'_tmu_config']]],
+  ['averagethresoldenable',['AverageThresoldEnable',['../a00019.html#a8cb3b2992a262e084d2533ca62db4a0c',1,'_tmu_thresold_config']]],
+  ['averagethresoldvalue',['averageThresoldValue',['../a00019.html#a2836b3ac0865b743f109f813c08ca22b',1,'_tmu_thresold_config']]]
 ];

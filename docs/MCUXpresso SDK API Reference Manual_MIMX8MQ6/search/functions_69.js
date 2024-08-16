@@ -20,9 +20,6 @@ var searchData=
   ['i2c_5fmastertransferhandleirq',['I2C_MasterTransferHandleIRQ',['../a00013.html#gad091cd1857d2bd8ce64583739b3a35d5',1,'fsl_i2c.h']]],
   ['i2c_5fmastertransfernonblocking',['I2C_MasterTransferNonBlocking',['../a00013.html#gac7f76a04b6f6873c52ad176d58901fe9',1,'fsl_i2c.h']]],
   ['i2c_5fmasterwriteblocking',['I2C_MasterWriteBlocking',['../a00013.html#gac4e1a954243aa852cb4d358e90091efd',1,'fsl_i2c.h']]],
-  ['i2c_5frtos_5fdeinit',['I2C_RTOS_Deinit',['../a00090.html#gabe3dc27604637a77cba04967097defb2',1,'fsl_i2c_freertos.h']]],
-  ['i2c_5frtos_5finit',['I2C_RTOS_Init',['../a00090.html#ga2d8b0de9d5d807257ac91df157233cae',1,'fsl_i2c_freertos.h']]],
-  ['i2c_5frtos_5ftransfer',['I2C_RTOS_Transfer',['../a00090.html#ga0b090779ab62f02149066a2325feb868',1,'fsl_i2c_freertos.h']]],
   ['i2c_5fslaveclearstatusflags',['I2C_SlaveClearStatusFlags',['../a00013.html#ga545c1a43d8d49c4675de493d45a4063a',1,'fsl_i2c.h']]],
   ['i2c_5fslavedeinit',['I2C_SlaveDeinit',['../a00013.html#gadb50014db29dd75ea2001fb7bc837e77',1,'fsl_i2c.h']]],
   ['i2c_5fslavegetdefaultconfig',['I2C_SlaveGetDefaultConfig',['../a00013.html#ga7115f80e28b62bbbd3be1a2a918529ba',1,'fsl_i2c.h']]],
@@ -35,6 +32,9 @@ var searchData=
   ['i2c_5fslavetransferhandleirq',['I2C_SlaveTransferHandleIRQ',['../a00013.html#ga097c0b20503381de44cccba311dcf236',1,'fsl_i2c.h']]],
   ['i2c_5fslavetransfernonblocking',['I2C_SlaveTransferNonBlocking',['../a00013.html#gaa387d81ea08a9d4b39cfeb3dfec505f7',1,'fsl_i2c.h']]],
   ['i2c_5fslavewriteblocking',['I2C_SlaveWriteBlocking',['../a00013.html#ga280404c6b1ede542f2c1c20bd382869c',1,'fsl_i2c.h']]],
-  ['iomuxc_5fsetpinconfig',['IOMUXC_SetPinConfig',['../a00084.html#gab7a6f9e42bd00d9e80457b53712748de',1,'fsl_iomuxc.h']]],
-  ['iomuxc_5fsetpinmux',['IOMUXC_SetPinMux',['../a00084.html#gaff65bf655b0d541b868b4a9d15415ce8',1,'fsl_iomuxc.h']]]
+  ['icache_5finvalidatebyrange',['ICACHE_InvalidateByRange',['../a00084.html#gab9e79fa88e11db521b74f5316de68676',1,'fsl_cache.h']]],
+  ['iomuxc_5fsetpinconfig',['IOMUXC_SetPinConfig',['../a00083.html#gab7a6f9e42bd00d9e80457b53712748de',1,'fsl_iomuxc.h']]],
+  ['iomuxc_5fsetpinmux',['IOMUXC_SetPinMux',['../a00083.html#gaff65bf655b0d541b868b4a9d15415ce8',1,'fsl_iomuxc.h']]],
+  ['irq_5fclearpendingirq',['IRQ_ClearPendingIRQ',['../a00085.html#gac9b0f720fcb617b3aa9cb554d87dbc55',1,'fsl_common_arm.h']]],
+  ['irq_5fsetpriority',['IRQ_SetPriority',['../a00085.html#ga9d1df086c696c7864d98ea6ec28846f3',1,'fsl_common_arm.h']]]
 ];

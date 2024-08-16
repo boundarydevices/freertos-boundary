@@ -1,7 +1,8 @@
 var a00101 =
 [
-    [ "SWO", "a00103.html", null ],
-    [ "Semihosting", "a00102.html", null ],
+    [ "SWO", "a00104.html", null ],
+    [ "Semihosting", "a00103.html", null ],
+    [ "debug console configuration", "a00102.html", "a00102" ],
     [ "DEBUGCONSOLE_REDIRECT_TO_TOOLCHAIN", "a00101.html#gabb8f0adbec02f143b4f84d2eb42126df", null ],
     [ "DEBUGCONSOLE_REDIRECT_TO_SDK", "a00101.html#gac33031f28afa29dc8fe1718bbc86ee23", null ],
     [ "DEBUGCONSOLE_DISABLE", "a00101.html#gaf8f85fd102e4aedcee3d061dc2d3e0c2", null ],
@@ -19,5 +20,6 @@ var a00101 =
     [ "DbgConsole_BlockingPrintf", "a00101.html#ga23e7c243b07d594a0a1016dcab28d3a3", null ],
     [ "DbgConsole_BlockingVprintf", "a00101.html#gaed722925a966ae462d5d44cd33f836c3", null ],
     [ "DbgConsole_Flush", "a00101.html#ga3194467c3dae6c5015b8b29c3cc1db1e", null ],
+    [ "DbgConsole_TryGetchar", "a00101.html#ga867a9778cd1401d3336ae5599851c1fd", null ],
     [ "g_serialHandle", "a00101.html#gaad3c4240a1364156a239471ccdb9aa0b", null ]
 ];

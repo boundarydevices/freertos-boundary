@@ -1,34 +1,39 @@
 var a00015 =
 [
-    [ "rdc_hardware_config_t", "a00015.html#a00139", [
-      [ "domainNumber", "a00015.html#a739ea4a24186ac54d3d97ec1bcda5631", null ],
-      [ "masterNumber", "a00015.html#a81842ff8d313ca38916e3226efdd3bde", null ],
-      [ "periphNumber", "a00015.html#ac02b7c759b76aac047c8dfd86fd93a59", null ],
-      [ "memNumber", "a00015.html#afb605761a847c152ab23a5790b44dee9", null ]
+    [ "_rdc_hardware_config", "a00015.html#a00135", [
+      [ "domainNumber", "a00015.html#a0a1c71ea8794188dc975c8308c737dbb", null ],
+      [ "masterNumber", "a00015.html#a5173b5ae360696c710d9c28696342e7e", null ],
+      [ "periphNumber", "a00015.html#a7f5b8abeaf670f544b25bd22e51f584d", null ],
+      [ "memNumber", "a00015.html#a8ed986154479237da36ccd3f6241ffee", null ]
     ] ],
-    [ "rdc_domain_assignment_t", "a00015.html#a00138", [
-      [ "domainId", "a00015.html#a6e918db4f50ef773621e9f90a8dd0aa1", null ],
-      [ "__pad0__", "a00015.html#a8d76c2ce9f3ab1bd748c21c409e14b08", null ],
-      [ "lock", "a00015.html#add7373049bb837ae009d9d6f54d6c042", null ]
+    [ "_rdc_domain_assignment", "a00015.html#a00134", [
+      [ "domainId", "a00015.html#a5bbfcb6e3db56bcca10e6c5f7ee9de4d", null ],
+      [ "__pad0__", "a00015.html#a48fe208537eb4029cbe45bbb77fcae66", null ],
+      [ "lock", "a00015.html#a41881095499e658420cfc5efda6c5caa", null ]
     ] ],
-    [ "rdc_periph_access_config_t", "a00015.html#a00142", [
-      [ "periph", "a00015.html#a7472e8b72f7646864b1244f491559d48", null ],
-      [ "lock", "a00015.html#a9a39e94946c18bba0593a7d063e39ead", null ],
-      [ "enableSema", "a00015.html#ae3359bd3ece8b0075310586208b0f18e", null ],
-      [ "policy", "a00015.html#a8e401a7aabd8cd79807858b4eb89cd70", null ]
+    [ "_rdc_periph_access_config", "a00015.html#a00138", [
+      [ "periph", "a00015.html#a242a1e54f86e21e833da3140902eaec1", null ],
+      [ "lock", "a00015.html#ab8b7b20b2b41579fea486131de105468", null ],
+      [ "enableSema", "a00015.html#a8d0c915fee91b8ec6fea7c2391c17e8f", null ],
+      [ "policy", "a00015.html#a7b0f6bba021eb4c36e304ff2ac9a6b66", null ]
     ] ],
-    [ "rdc_mem_access_config_t", "a00015.html#a00140", [
-      [ "mem", "a00015.html#ad4e1e98d9c5b9bf9fbbadf2f90c46dfc", null ],
-      [ "lock", "a00015.html#af7b74c739bdc6cf8d13c3a9679ea934b", null ],
-      [ "baseAddress", "a00015.html#a9407a23678502889ab8eccd55cba8377", null ],
-      [ "endAddress", "a00015.html#a2d4f63927e154de9e68610e77d1a5978", null ],
-      [ "policy", "a00015.html#aa8fa0fa776b881c0b884461f4f96f827", null ]
+    [ "_rdc_mem_access_config", "a00015.html#a00136", [
+      [ "mem", "a00015.html#aab16c859d011f27f18e8ef76f81439f4", null ],
+      [ "lock", "a00015.html#ab2dac0a75be9929c8e12a92b37f1b8e4", null ],
+      [ "baseAddress", "a00015.html#af42d89ec16e7b15c75c8a63b667d5ded", null ],
+      [ "endAddress", "a00015.html#a57f9536d7f3b6f2f8b4bd38104e280eb", null ],
+      [ "policy", "a00015.html#aac58d77bc6cc194f6902dffe4e80e0d6", null ]
     ] ],
-    [ "rdc_mem_status_t", "a00015.html#a00141", [
-      [ "hasViolation", "a00015.html#a64e77210e7d78eab8f492aec96ab1812", null ],
-      [ "domainID", "a00015.html#a9cdb8148ebf80d343b95716e03964127", null ],
-      [ "address", "a00015.html#ac26082e85ff1d7e0874fc5a2467a904c", null ]
+    [ "_rdc_mem_status", "a00015.html#a00137", [
+      [ "hasViolation", "a00015.html#ad4dad1cd9f4e66b664b525ecd4b1be37", null ],
+      [ "domainID", "a00015.html#a28ba9cfc8af0f862635ded4738718c78", null ],
+      [ "address", "a00015.html#a8613c0efb2da82d09f7f67a5a3efee4f", null ]
     ] ],
+    [ "rdc_hardware_config_t", "a00015.html#ga5809f23a3763c0c2d114c8b991b19224", null ],
+    [ "rdc_domain_assignment_t", "a00015.html#ga2fa0f432125eabe3c7444a58ac406b10", null ],
+    [ "rdc_periph_access_config_t", "a00015.html#gab34ae3929d80075974affc8e2e4a1225", null ],
+    [ "rdc_mem_access_config_t", "a00015.html#ga7fa4bee53cb416b150b75ad4a5bfca61", null ],
+    [ "rdc_mem_status_t", "a00015.html#gaccf5405a9b3fc24040bd8f066f8b8a83", null ],
     [ "_rdc_interrupts", "a00015.html#ga43f5d8d1ed667a8c73ab204a74925892", [
       [ "kRDC_RestoreCompleteInterrupt", "a00015.html#gga43f5d8d1ed667a8c73ab204a74925892a5088cfe20c6ef9e259657e6f6ecc7387", null ]
     ] ],

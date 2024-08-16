@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.13.0</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -101,6 +101,7 @@ $(document).ready(function(){initNavTree('a00019.html','');});
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -117,21 +118,42 @@ Monitor and report Configuration</h2>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:a00156"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a00156">tmu_thresold_config_t</a></td></tr>
-<tr class="memdesc:a00156"><td class="mdescLeft">&#160;</td><td class="mdescRight">configuration for TMU thresold.  <a href="a00019.html#a00156">More...</a><br/></td></tr>
-<tr class="separator:a00156"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00155"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a00155">tmu_interrupt_status_t</a></td></tr>
-<tr class="memdesc:a00155"><td class="mdescLeft">&#160;</td><td class="mdescRight">TMU interrupt status.  <a href="a00019.html#a00155">More...</a><br/></td></tr>
-<tr class="separator:a00155"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00154"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a00154">tmu_config_t</a></td></tr>
-<tr class="memdesc:a00154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for TMU module.  <a href="a00019.html#a00154">More...</a><br/></td></tr>
-<tr class="separator:a00154"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00153"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a00153">_tmu_thresold_config</a></td></tr>
+<tr class="memdesc:a00153"><td class="mdescLeft">&#160;</td><td class="mdescRight">configuration for TMU thresold.  <a href="a00019.html#a00153">More...</a><br/></td></tr>
+<tr class="separator:a00153"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00152"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a00152">_tmu_interrupt_status</a></td></tr>
+<tr class="memdesc:a00152"><td class="mdescLeft">&#160;</td><td class="mdescRight">TMU interrupt status.  <a href="a00019.html#a00152">More...</a><br/></td></tr>
+<tr class="separator:a00152"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00151"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a00151">_tmu_config</a></td></tr>
+<tr class="memdesc:a00151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for TMU module.  <a href="a00019.html#a00151">More...</a><br/></td></tr>
+<tr class="separator:a00151"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:gaeb1fc20d716a24f048c7a5ac29948086"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#gaeb1fc20d716a24f048c7a5ac29948086">FSL_TMU_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00085.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 3))</td></tr>
 <tr class="memdesc:gaeb1fc20d716a24f048c7a5ac29948086"><td class="mdescLeft">&#160;</td><td class="mdescRight">TMU driver version.  <a href="#gaeb1fc20d716a24f048c7a5ac29948086">More...</a><br/></td></tr>
 <tr class="separator:gaeb1fc20d716a24f048c7a5ac29948086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga487862d0aa3fb984b3431ad7c6923125"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga487862d0aa3fb984b3431ad7c6923125"></a>
+typedef struct <a class="el" href="a00019.html#a00153">_tmu_thresold_config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#ga487862d0aa3fb984b3431ad7c6923125">tmu_thresold_config_t</a></td></tr>
+<tr class="memdesc:ga487862d0aa3fb984b3431ad7c6923125"><td class="mdescLeft">&#160;</td><td class="mdescRight">configuration for TMU thresold. <br/></td></tr>
+<tr class="separator:ga487862d0aa3fb984b3431ad7c6923125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8430f4edd8b0bb9aaf2f031b20b7c4e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8430f4edd8b0bb9aaf2f031b20b7c4e2"></a>
+typedef struct <br class="typebreak"/>
+<a class="el" href="a00019.html#a00152">_tmu_interrupt_status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#ga8430f4edd8b0bb9aaf2f031b20b7c4e2">tmu_interrupt_status_t</a></td></tr>
+<tr class="memdesc:ga8430f4edd8b0bb9aaf2f031b20b7c4e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">TMU interrupt status. <br/></td></tr>
+<tr class="separator:ga8430f4edd8b0bb9aaf2f031b20b7c4e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga556b4a353fc881d0fe7ac90d4d9b5361"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga556b4a353fc881d0fe7ac90d4d9b5361"></a>
+typedef enum <br class="typebreak"/>
+<a class="el" href="a00019.html#ga3d65f4100d8016713d765b92b35896c5">_tmu_average_low_pass_filter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#ga556b4a353fc881d0fe7ac90d4d9b5361">tmu_average_low_pass_filter_t</a></td></tr>
+<tr class="memdesc:ga556b4a353fc881d0fe7ac90d4d9b5361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average low pass filter setting. <br/></td></tr>
+<tr class="separator:ga556b4a353fc881d0fe7ac90d4d9b5361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee1abc2c6197e642651c8b74e45291af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaee1abc2c6197e642651c8b74e45291af"></a>
+typedef struct <a class="el" href="a00019.html#a00151">_tmu_config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#gaee1abc2c6197e642651c8b74e45291af">tmu_config_t</a></td></tr>
+<tr class="memdesc:gaee1abc2c6197e642651c8b74e45291af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for TMU module. <br/></td></tr>
+<tr class="separator:gaee1abc2c6197e642651c8b74e45291af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -165,28 +187,28 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga4a9e76f7f4dfdd8644e0a9e8bff07641"><td class="mdescLeft">&#160;</td><td class="mdescRight">TMU status flags.  <a href="a00019.html#ga4a9e76f7f4dfdd8644e0a9e8bff07641">More...</a><br/></td></tr>
 <tr class="separator:ga4a9e76f7f4dfdd8644e0a9e8bff07641"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaca82b26be0dba081331898db1a56d7b7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#gaca82b26be0dba081331898db1a56d7b7">tmu_average_low_pass_filter_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00019.html#ggaca82b26be0dba081331898db1a56d7b7a291ff39f3aa2246d306d41239419ac91">kTMU_AverageLowPassFilter1_0</a> = 0U, 
+<tr class="memitem:ga3d65f4100d8016713d765b92b35896c5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#ga3d65f4100d8016713d765b92b35896c5">_tmu_average_low_pass_filter</a> { <br/>
+&#160;&#160;<a class="el" href="a00019.html#gga3d65f4100d8016713d765b92b35896c5a291ff39f3aa2246d306d41239419ac91">kTMU_AverageLowPassFilter1_0</a> = 0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00019.html#ggaca82b26be0dba081331898db1a56d7b7ad4f106ea1c4a87f1baadcfcf93f9d7cc">kTMU_AverageLowPassFilter0_5</a> = 1U, 
+&#160;&#160;<a class="el" href="a00019.html#gga3d65f4100d8016713d765b92b35896c5ad4f106ea1c4a87f1baadcfcf93f9d7cc">kTMU_AverageLowPassFilter0_5</a> = 1U, 
 <br/>
-&#160;&#160;<a class="el" href="a00019.html#ggaca82b26be0dba081331898db1a56d7b7a15867fc170984bedc164d257b4a7961a">kTMU_AverageLowPassFilter0_25</a> = 2U, 
+&#160;&#160;<a class="el" href="a00019.html#gga3d65f4100d8016713d765b92b35896c5a15867fc170984bedc164d257b4a7961a">kTMU_AverageLowPassFilter0_25</a> = 2U, 
 <br/>
-&#160;&#160;<a class="el" href="a00019.html#ggaca82b26be0dba081331898db1a56d7b7adede33bc421ad4952f2949b00fde3f32">kTMU_AverageLowPassFilter0_125</a> = 3U
+&#160;&#160;<a class="el" href="a00019.html#gga3d65f4100d8016713d765b92b35896c5adede33bc421ad4952f2949b00fde3f32">kTMU_AverageLowPassFilter0_125</a> = 3U
 <br/>
  }</td></tr>
-<tr class="memdesc:gaca82b26be0dba081331898db1a56d7b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average low pass filter setting.  <a href="a00019.html#gaca82b26be0dba081331898db1a56d7b7">More...</a><br/></td></tr>
-<tr class="separator:gaca82b26be0dba081331898db1a56d7b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ga3d65f4100d8016713d765b92b35896c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average low pass filter setting.  <a href="a00019.html#ga3d65f4100d8016713d765b92b35896c5">More...</a><br/></td></tr>
+<tr class="separator:ga3d65f4100d8016713d765b92b35896c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaf1935ea2d85738576f72606d8848c210"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#gaf1935ea2d85738576f72606d8848c210">TMU_Init</a> (TMU_Type *base, const <a class="el" href="a00019.html#a00154">tmu_config_t</a> *config)</td></tr>
+<tr class="memitem:gaf1935ea2d85738576f72606d8848c210"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#gaf1935ea2d85738576f72606d8848c210">TMU_Init</a> (TMU_Type *base, const <a class="el" href="a00019.html#gaee1abc2c6197e642651c8b74e45291af">tmu_config_t</a> *config)</td></tr>
 <tr class="memdesc:gaf1935ea2d85738576f72606d8848c210"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the access to TMU registers and Initialize TMU module.  <a href="#gaf1935ea2d85738576f72606d8848c210">More...</a><br/></td></tr>
 <tr class="separator:gaf1935ea2d85738576f72606d8848c210"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacf6dce9f7c9619c0d3561009f0020ab4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#gacf6dce9f7c9619c0d3561009f0020ab4">TMU_Deinit</a> (TMU_Type *base)</td></tr>
 <tr class="memdesc:gacf6dce9f7c9619c0d3561009f0020ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize TMU module and Disable the access to DCDC registers.  <a href="#gacf6dce9f7c9619c0d3561009f0020ab4">More...</a><br/></td></tr>
 <tr class="separator:gacf6dce9f7c9619c0d3561009f0020ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2e037ecf7cbc657021b5f488a19da0e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#ga2e037ecf7cbc657021b5f488a19da0e7">TMU_GetDefaultConfig</a> (<a class="el" href="a00019.html#a00154">tmu_config_t</a> *config)</td></tr>
+<tr class="memitem:ga2e037ecf7cbc657021b5f488a19da0e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#ga2e037ecf7cbc657021b5f488a19da0e7">TMU_GetDefaultConfig</a> (<a class="el" href="a00019.html#gaee1abc2c6197e642651c8b74e45291af">tmu_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga2e037ecf7cbc657021b5f488a19da0e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the default configuration for TMU.  <a href="#ga2e037ecf7cbc657021b5f488a19da0e7">More...</a><br/></td></tr>
 <tr class="separator:ga2e037ecf7cbc657021b5f488a19da0e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga36dbce6cc66c0d7d26bf21a961ada454"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#ga36dbce6cc66c0d7d26bf21a961ada454">TMU_Enable</a> (TMU_Type *base, bool enable)</td></tr>
@@ -198,7 +220,7 @@ Functions</h2></td></tr>
 <tr class="memitem:gaa2f045a00e2f2c29ef73b24e24d5649d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#gaa2f045a00e2f2c29ef73b24e24d5649d">TMU_DisableInterrupts</a> (TMU_Type *base, uint32_t mask)</td></tr>
 <tr class="memdesc:gaa2f045a00e2f2c29ef73b24e24d5649d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the TMU interrupts.  <a href="#gaa2f045a00e2f2c29ef73b24e24d5649d">More...</a><br/></td></tr>
 <tr class="separator:gaa2f045a00e2f2c29ef73b24e24d5649d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaac1d559c559b1451be2bd22ea3b15506"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#gaac1d559c559b1451be2bd22ea3b15506">TMU_GetInterruptStatusFlags</a> (TMU_Type *base, <a class="el" href="a00019.html#a00155">tmu_interrupt_status_t</a> *status)</td></tr>
+<tr class="memitem:gaac1d559c559b1451be2bd22ea3b15506"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#gaac1d559c559b1451be2bd22ea3b15506">TMU_GetInterruptStatusFlags</a> (TMU_Type *base, <a class="el" href="a00019.html#ga8430f4edd8b0bb9aaf2f031b20b7c4e2">tmu_interrupt_status_t</a> *status)</td></tr>
 <tr class="memdesc:gaac1d559c559b1451be2bd22ea3b15506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get interrupt status flags.  <a href="#gaac1d559c559b1451be2bd22ea3b15506">More...</a><br/></td></tr>
 <tr class="separator:gaac1d559c559b1451be2bd22ea3b15506"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab96d6588069f0a392706121a8536a334"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#gab96d6588069f0a392706121a8536a334">TMU_ClearInterruptStatusFlags</a> (TMU_Type *base, uint32_t mask)</td></tr>
@@ -219,84 +241,84 @@ Functions</h2></td></tr>
 <tr class="memitem:ga68848ca8814badd049340e2496c3224f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#ga68848ca8814badd049340e2496c3224f">TMU_GetAverageTemperature</a> (TMU_Type *base, uint32_t siteIndex, uint32_t *temperature)</td></tr>
 <tr class="memdesc:ga68848ca8814badd049340e2496c3224f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the last average temperature at site n.  <a href="#ga68848ca8814badd049340e2496c3224f">More...</a><br/></td></tr>
 <tr class="separator:ga68848ca8814badd049340e2496c3224f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae0fe58362113f09ec233fb83f4c1cc01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#gae0fe58362113f09ec233fb83f4c1cc01">TMU_SetHighTemperatureThresold</a> (TMU_Type *base, const <a class="el" href="a00019.html#a00156">tmu_thresold_config_t</a> *config)</td></tr>
+<tr class="memitem:gae0fe58362113f09ec233fb83f4c1cc01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#gae0fe58362113f09ec233fb83f4c1cc01">TMU_SetHighTemperatureThresold</a> (TMU_Type *base, const <a class="el" href="a00019.html#ga487862d0aa3fb984b3431ad7c6923125">tmu_thresold_config_t</a> *config)</td></tr>
 <tr class="memdesc:gae0fe58362113f09ec233fb83f4c1cc01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the high temperature thresold value and enable/disable relevant thresold.  <a href="#gae0fe58362113f09ec233fb83f4c1cc01">More...</a><br/></td></tr>
 <tr class="separator:gae0fe58362113f09ec233fb83f4c1cc01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="a00156" id="a00156"></a>
+<a name="a00153" id="a00153"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct tmu_thresold_config_t</td>
+          <td class="memname">struct _tmu_thresold_config</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a26dcfbd2e1b2358536423c97a932b220"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a26dcfbd2e1b2358536423c97a932b220">immediateThresoldEnable</a></td></tr>
-<tr class="memdesc:a26dcfbd2e1b2358536423c97a932b220"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable high temperature immediate threshold.  <a href="#a26dcfbd2e1b2358536423c97a932b220">More...</a><br/></td></tr>
-<tr class="separator:a26dcfbd2e1b2358536423c97a932b220"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a269f4768530d6a95fd23ad2bce651cde"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a269f4768530d6a95fd23ad2bce651cde">AverageThresoldEnable</a></td></tr>
-<tr class="memdesc:a269f4768530d6a95fd23ad2bce651cde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable high temperature average threshold.  <a href="#a269f4768530d6a95fd23ad2bce651cde">More...</a><br/></td></tr>
-<tr class="separator:a269f4768530d6a95fd23ad2bce651cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3422784818643c5e78ab9b2b545204b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#ae3422784818643c5e78ab9b2b545204b">AverageCriticalThresoldEnable</a></td></tr>
-<tr class="memdesc:ae3422784818643c5e78ab9b2b545204b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable high temperature average critical threshold.  <a href="#ae3422784818643c5e78ab9b2b545204b">More...</a><br/></td></tr>
-<tr class="separator:ae3422784818643c5e78ab9b2b545204b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86a0ce2dd78e46a1b842a4c86afeee11"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a86a0ce2dd78e46a1b842a4c86afeee11">immediateThresoldValue</a></td></tr>
-<tr class="memdesc:a86a0ce2dd78e46a1b842a4c86afeee11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range:0U-125U.  <a href="#a86a0ce2dd78e46a1b842a4c86afeee11">More...</a><br/></td></tr>
-<tr class="separator:a86a0ce2dd78e46a1b842a4c86afeee11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee4703600e7bae9134b7fb717071a3d0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#aee4703600e7bae9134b7fb717071a3d0">averageThresoldValue</a></td></tr>
-<tr class="memdesc:aee4703600e7bae9134b7fb717071a3d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range:0U-125U.  <a href="#aee4703600e7bae9134b7fb717071a3d0">More...</a><br/></td></tr>
-<tr class="separator:aee4703600e7bae9134b7fb717071a3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36c49c9978a39decb657e72026189754"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a36c49c9978a39decb657e72026189754">averageCriticalThresoldValue</a></td></tr>
-<tr class="memdesc:a36c49c9978a39decb657e72026189754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range:0U-125U.  <a href="#a36c49c9978a39decb657e72026189754">More...</a><br/></td></tr>
-<tr class="separator:a36c49c9978a39decb657e72026189754"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeac986904c49c00572763b06fc7065a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#aeac986904c49c00572763b06fc7065a3">immediateThresoldEnable</a></td></tr>
+<tr class="memdesc:aeac986904c49c00572763b06fc7065a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable high temperature immediate threshold.  <a href="#aeac986904c49c00572763b06fc7065a3">More...</a><br/></td></tr>
+<tr class="separator:aeac986904c49c00572763b06fc7065a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cb3b2992a262e084d2533ca62db4a0c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a8cb3b2992a262e084d2533ca62db4a0c">AverageThresoldEnable</a></td></tr>
+<tr class="memdesc:a8cb3b2992a262e084d2533ca62db4a0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable high temperature average threshold.  <a href="#a8cb3b2992a262e084d2533ca62db4a0c">More...</a><br/></td></tr>
+<tr class="separator:a8cb3b2992a262e084d2533ca62db4a0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bc0698acdddde49fd6a18e3aaef8b40"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a2bc0698acdddde49fd6a18e3aaef8b40">AverageCriticalThresoldEnable</a></td></tr>
+<tr class="memdesc:a2bc0698acdddde49fd6a18e3aaef8b40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable high temperature average critical threshold.  <a href="#a2bc0698acdddde49fd6a18e3aaef8b40">More...</a><br/></td></tr>
+<tr class="separator:a2bc0698acdddde49fd6a18e3aaef8b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5fe44464c1cacfe75ee82b8cbcd2ce0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#ae5fe44464c1cacfe75ee82b8cbcd2ce0">immediateThresoldValue</a></td></tr>
+<tr class="memdesc:ae5fe44464c1cacfe75ee82b8cbcd2ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range:0U-125U.  <a href="#ae5fe44464c1cacfe75ee82b8cbcd2ce0">More...</a><br/></td></tr>
+<tr class="separator:ae5fe44464c1cacfe75ee82b8cbcd2ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2836b3ac0865b743f109f813c08ca22b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a2836b3ac0865b743f109f813c08ca22b">averageThresoldValue</a></td></tr>
+<tr class="memdesc:a2836b3ac0865b743f109f813c08ca22b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range:0U-125U.  <a href="#a2836b3ac0865b743f109f813c08ca22b">More...</a><br/></td></tr>
+<tr class="separator:a2836b3ac0865b743f109f813c08ca22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac01d497bc25964566de01d54cfc5a990"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#ac01d497bc25964566de01d54cfc5a990">averageCriticalThresoldValue</a></td></tr>
+<tr class="memdesc:ac01d497bc25964566de01d54cfc5a990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range:0U-125U.  <a href="#ac01d497bc25964566de01d54cfc5a990">More...</a><br/></td></tr>
+<tr class="separator:ac01d497bc25964566de01d54cfc5a990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h4 class="groupheader">Field Documentation</h4>
-<a class="anchor" id="a26dcfbd2e1b2358536423c97a932b220"></a>
+<a class="anchor" id="aeac986904c49c00572763b06fc7065a3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tmu_thresold_config_t::immediateThresoldEnable</td>
+          <td class="memname">bool _tmu_thresold_config::immediateThresoldEnable</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a269f4768530d6a95fd23ad2bce651cde"></a>
+<a class="anchor" id="a8cb3b2992a262e084d2533ca62db4a0c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tmu_thresold_config_t::AverageThresoldEnable</td>
+          <td class="memname">bool _tmu_thresold_config::AverageThresoldEnable</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="ae3422784818643c5e78ab9b2b545204b"></a>
+<a class="anchor" id="a2bc0698acdddde49fd6a18e3aaef8b40"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tmu_thresold_config_t::AverageCriticalThresoldEnable</td>
+          <td class="memname">bool _tmu_thresold_config::AverageCriticalThresoldEnable</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a86a0ce2dd78e46a1b842a4c86afeee11"></a>
+<a class="anchor" id="ae5fe44464c1cacfe75ee82b8cbcd2ce0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t tmu_thresold_config_t::immediateThresoldValue</td>
+          <td class="memname">uint8_t _tmu_thresold_config::immediateThresoldValue</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -304,12 +326,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aee4703600e7bae9134b7fb717071a3d0"></a>
+<a class="anchor" id="a2836b3ac0865b743f109f813c08ca22b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t tmu_thresold_config_t::averageThresoldValue</td>
+          <td class="memname">uint8_t _tmu_thresold_config::averageThresoldValue</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -317,12 +339,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a36c49c9978a39decb657e72026189754"></a>
+<a class="anchor" id="ac01d497bc25964566de01d54cfc5a990"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t tmu_thresold_config_t::averageCriticalThresoldValue</td>
+          <td class="memname">uint8_t _tmu_thresold_config::averageCriticalThresoldValue</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -333,37 +355,37 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a name="a00155" id="a00155"></a>
+<a name="a00152" id="a00152"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct tmu_interrupt_status_t</td>
+          <td class="memname">struct _tmu_interrupt_status</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:ab43148d3beb8ceff37928791119ccad5"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#ab43148d3beb8ceff37928791119ccad5">interruptDetectMask</a></td></tr>
-<tr class="memdesc:ab43148d3beb8ceff37928791119ccad5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The mask of interrupt status flags.  <a href="#ab43148d3beb8ceff37928791119ccad5">More...</a><br/></td></tr>
-<tr class="separator:ab43148d3beb8ceff37928791119ccad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3c226f844d7000f1b2b8f6470401bc9"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#ae3c226f844d7000f1b2b8f6470401bc9">immediateInterruptsSiteMask</a></td></tr>
-<tr class="memdesc:ae3c226f844d7000f1b2b8f6470401bc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The mask of the temperature sensor site associated with a detected ITTE event.  <a href="#ae3c226f844d7000f1b2b8f6470401bc9">More...</a><br/></td></tr>
-<tr class="separator:ae3c226f844d7000f1b2b8f6470401bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24bd33df8c9f3c8ec609b5fb72d8cf7c"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a24bd33df8c9f3c8ec609b5fb72d8cf7c">AverageInterruptsSiteMask</a></td></tr>
-<tr class="memdesc:a24bd33df8c9f3c8ec609b5fb72d8cf7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The mask of the temperature sensor site associated with a detected ATTE event.  <a href="#a24bd33df8c9f3c8ec609b5fb72d8cf7c">More...</a><br/></td></tr>
-<tr class="separator:a24bd33df8c9f3c8ec609b5fb72d8cf7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a326c080425bcc9219dd9db338bf48180"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a326c080425bcc9219dd9db338bf48180">AverageCriticalInterruptsSiteMask</a></td></tr>
-<tr class="memdesc:a326c080425bcc9219dd9db338bf48180"><td class="mdescLeft">&#160;</td><td class="mdescRight">The mask of the temperature sensor site associated with a detected ATCTE event.  <a href="#a326c080425bcc9219dd9db338bf48180">More...</a><br/></td></tr>
-<tr class="separator:a326c080425bcc9219dd9db338bf48180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa003e39771da8ef1face098c1f84a92"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#afa003e39771da8ef1face098c1f84a92">interruptDetectMask</a></td></tr>
+<tr class="memdesc:afa003e39771da8ef1face098c1f84a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">The mask of interrupt status flags.  <a href="#afa003e39771da8ef1face098c1f84a92">More...</a><br/></td></tr>
+<tr class="separator:afa003e39771da8ef1face098c1f84a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3db21b2dc905ae725104729dd3a3d028"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a3db21b2dc905ae725104729dd3a3d028">immediateInterruptsSiteMask</a></td></tr>
+<tr class="memdesc:a3db21b2dc905ae725104729dd3a3d028"><td class="mdescLeft">&#160;</td><td class="mdescRight">The mask of the temperature sensor site associated with a detected ITTE event.  <a href="#a3db21b2dc905ae725104729dd3a3d028">More...</a><br/></td></tr>
+<tr class="separator:a3db21b2dc905ae725104729dd3a3d028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98738a92d8baddcc672849b25b25c7e6"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a98738a92d8baddcc672849b25b25c7e6">AverageInterruptsSiteMask</a></td></tr>
+<tr class="memdesc:a98738a92d8baddcc672849b25b25c7e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The mask of the temperature sensor site associated with a detected ATTE event.  <a href="#a98738a92d8baddcc672849b25b25c7e6">More...</a><br/></td></tr>
+<tr class="separator:a98738a92d8baddcc672849b25b25c7e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a679e593bd6abcd1600e6f020dbc0258c"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a679e593bd6abcd1600e6f020dbc0258c">AverageCriticalInterruptsSiteMask</a></td></tr>
+<tr class="memdesc:a679e593bd6abcd1600e6f020dbc0258c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The mask of the temperature sensor site associated with a detected ATCTE event.  <a href="#a679e593bd6abcd1600e6f020dbc0258c">More...</a><br/></td></tr>
+<tr class="separator:a679e593bd6abcd1600e6f020dbc0258c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h4 class="groupheader">Field Documentation</h4>
-<a class="anchor" id="ab43148d3beb8ceff37928791119ccad5"></a>
+<a class="anchor" id="afa003e39771da8ef1face098c1f84a92"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t tmu_interrupt_status_t::interruptDetectMask</td>
+          <td class="memname">uint32_t _tmu_interrupt_status::interruptDetectMask</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -371,12 +393,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae3c226f844d7000f1b2b8f6470401bc9"></a>
+<a class="anchor" id="a3db21b2dc905ae725104729dd3a3d028"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t tmu_interrupt_status_t::immediateInterruptsSiteMask</td>
+          <td class="memname">uint16_t _tmu_interrupt_status::immediateInterruptsSiteMask</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -384,12 +406,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a24bd33df8c9f3c8ec609b5fb72d8cf7c"></a>
+<a class="anchor" id="a98738a92d8baddcc672849b25b25c7e6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t tmu_interrupt_status_t::AverageInterruptsSiteMask</td>
+          <td class="memname">uint16_t _tmu_interrupt_status::AverageInterruptsSiteMask</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -397,12 +419,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a326c080425bcc9219dd9db338bf48180"></a>
+<a class="anchor" id="a679e593bd6abcd1600e6f020dbc0258c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t tmu_interrupt_status_t::AverageCriticalInterruptsSiteMask</td>
+          <td class="memname">uint16_t _tmu_interrupt_status::AverageCriticalInterruptsSiteMask</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -413,34 +435,34 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a name="a00154" id="a00154"></a>
+<a name="a00151" id="a00151"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct tmu_config_t</td>
+          <td class="memname">struct _tmu_config</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a7049d2607cf6ad72fa1ea42c92d5ad2d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a7049d2607cf6ad72fa1ea42c92d5ad2d">monitorInterval</a></td></tr>
-<tr class="memdesc:a7049d2607cf6ad72fa1ea42c92d5ad2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature monitoring interval in seconds.  <a href="#a7049d2607cf6ad72fa1ea42c92d5ad2d">More...</a><br/></td></tr>
-<tr class="separator:a7049d2607cf6ad72fa1ea42c92d5ad2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22e27a3d3ae32b6f8b46729c402a0dfb"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a22e27a3d3ae32b6f8b46729c402a0dfb">monitorSiteSelection</a></td></tr>
-<tr class="memdesc:a22e27a3d3ae32b6f8b46729c402a0dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">By setting the select bit for a temperature sensor site, it is enabled and included in all monitoring functions.  <a href="#a22e27a3d3ae32b6f8b46729c402a0dfb">More...</a><br/></td></tr>
-<tr class="separator:a22e27a3d3ae32b6f8b46729c402a0dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19cb414c5a89d06931bb5d3f48ba64c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00019.html#gaca82b26be0dba081331898db1a56d7b7">tmu_average_low_pass_filter_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a19cb414c5a89d06931bb5d3f48ba64c2">averageLPF</a></td></tr>
-<tr class="memdesc:a19cb414c5a89d06931bb5d3f48ba64c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The average temperature is calculated as: ALPF x Current_Temp + (1 - ALPF) x Average_Temp.  <a href="#a19cb414c5a89d06931bb5d3f48ba64c2">More...</a><br/></td></tr>
-<tr class="separator:a19cb414c5a89d06931bb5d3f48ba64c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef1c8d20652a32cf96d9b6a59fb1b4a6"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#aef1c8d20652a32cf96d9b6a59fb1b4a6">monitorInterval</a></td></tr>
+<tr class="memdesc:aef1c8d20652a32cf96d9b6a59fb1b4a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature monitoring interval in seconds.  <a href="#aef1c8d20652a32cf96d9b6a59fb1b4a6">More...</a><br/></td></tr>
+<tr class="separator:aef1c8d20652a32cf96d9b6a59fb1b4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17d26d10bb42010feb497e0e5073520c"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a17d26d10bb42010feb497e0e5073520c">monitorSiteSelection</a></td></tr>
+<tr class="memdesc:a17d26d10bb42010feb497e0e5073520c"><td class="mdescLeft">&#160;</td><td class="mdescRight">By setting the select bit for a temperature sensor site, it is enabled and included in all monitoring functions.  <a href="#a17d26d10bb42010feb497e0e5073520c">More...</a><br/></td></tr>
+<tr class="separator:a17d26d10bb42010feb497e0e5073520c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbb852655cf1f47d22d19c1838616421"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00019.html#ga556b4a353fc881d0fe7ac90d4d9b5361">tmu_average_low_pass_filter_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#abbb852655cf1f47d22d19c1838616421">averageLPF</a></td></tr>
+<tr class="memdesc:abbb852655cf1f47d22d19c1838616421"><td class="mdescLeft">&#160;</td><td class="mdescRight">The average temperature is calculated as: ALPF x Current_Temp + (1 - ALPF) x Average_Temp.  <a href="#abbb852655cf1f47d22d19c1838616421">More...</a><br/></td></tr>
+<tr class="separator:abbb852655cf1f47d22d19c1838616421"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h4 class="groupheader">Field Documentation</h4>
-<a class="anchor" id="a7049d2607cf6ad72fa1ea42c92d5ad2d"></a>
+<a class="anchor" id="aef1c8d20652a32cf96d9b6a59fb1b4a6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t tmu_config_t::monitorInterval</td>
+          <td class="memname">uint8_t _tmu_config::monitorInterval</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -448,12 +470,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a22e27a3d3ae32b6f8b46729c402a0dfb"></a>
+<a class="anchor" id="a17d26d10bb42010feb497e0e5073520c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t tmu_config_t::monitorSiteSelection</td>
+          <td class="memname">uint16_t _tmu_config::monitorSiteSelection</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -461,12 +483,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a19cb414c5a89d06931bb5d3f48ba64c2"></a>
+<a class="anchor" id="abbb852655cf1f47d22d19c1838616421"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00019.html#gaca82b26be0dba081331898db1a56d7b7">tmu_average_low_pass_filter_t</a> tmu_config_t::averageLPF</td>
+          <td class="memname"><a class="el" href="a00019.html#ga556b4a353fc881d0fe7ac90d4d9b5361">tmu_average_low_pass_filter_t</a> _tmu_config::averageLPF</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -566,26 +588,26 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="gaca82b26be0dba081331898db1a56d7b7"></a>
+<a class="anchor" id="ga3d65f4100d8016713d765b92b35896c5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00019.html#gaca82b26be0dba081331898db1a56d7b7">tmu_average_low_pass_filter_t</a></td>
+          <td class="memname">enum <a class="el" href="a00019.html#ga3d65f4100d8016713d765b92b35896c5">_tmu_average_low_pass_filter</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaca82b26be0dba081331898db1a56d7b7a291ff39f3aa2246d306d41239419ac91"></a>kTMU_AverageLowPassFilter1_0</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga3d65f4100d8016713d765b92b35896c5a291ff39f3aa2246d306d41239419ac91"></a>kTMU_AverageLowPassFilter1_0</em>&nbsp;</td><td class="fielddoc">
 <p>Average low pass filter = 1. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaca82b26be0dba081331898db1a56d7b7ad4f106ea1c4a87f1baadcfcf93f9d7cc"></a>kTMU_AverageLowPassFilter0_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga3d65f4100d8016713d765b92b35896c5ad4f106ea1c4a87f1baadcfcf93f9d7cc"></a>kTMU_AverageLowPassFilter0_5</em>&nbsp;</td><td class="fielddoc">
 <p>Average low pass filter = 0.5. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaca82b26be0dba081331898db1a56d7b7a15867fc170984bedc164d257b4a7961a"></a>kTMU_AverageLowPassFilter0_25</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga3d65f4100d8016713d765b92b35896c5a15867fc170984bedc164d257b4a7961a"></a>kTMU_AverageLowPassFilter0_25</em>&nbsp;</td><td class="fielddoc">
 <p>Average low pass filter = 0.25. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaca82b26be0dba081331898db1a56d7b7adede33bc421ad4952f2949b00fde3f32"></a>kTMU_AverageLowPassFilter0_125</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga3d65f4100d8016713d765b92b35896c5adede33bc421ad4952f2949b00fde3f32"></a>kTMU_AverageLowPassFilter0_125</em>&nbsp;</td><td class="fielddoc">
 <p>Average low pass filter = 0.125. </p>
 </td></tr>
 </table>
@@ -606,7 +628,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00019.html#a00154">tmu_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00019.html#gaee1abc2c6197e642651c8b74e45291af">tmu_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>&#160;</td>
         </tr>
         <tr>
@@ -655,7 +677,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void TMU_GetDefaultConfig </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00019.html#a00154">tmu_config_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00019.html#gaee1abc2c6197e642651c8b74e45291af">tmu_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -665,7 +687,7 @@ Functions</h2></td></tr>
 <p>Example: </p>
 <div class="fragment"><div class="line">config-&gt;monitorInterval = 0U;</div>
 <div class="line">config-&gt;monitorSiteSelection = 0U;</div>
-<div class="line">config-&gt;averageLPF = <a class="code" href="a00019.html#ggaca82b26be0dba081331898db1a56d7b7a291ff39f3aa2246d306d41239419ac91">kTMU_AverageLowPassFilter1_0</a>;</div>
+<div class="line">config-&gt;averageLPF = <a class="code" href="a00019.html#gga3d65f4100d8016713d765b92b35896c5a291ff39f3aa2246d306d41239419ac91">kTMU_AverageLowPassFilter1_0</a>;</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">config</td><td>Pointer to TMU configuration structure. </td></tr>
@@ -811,7 +833,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00019.html#a00155">tmu_interrupt_status_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00019.html#ga8430f4edd8b0bb9aaf2f031b20b7c4e2">tmu_interrupt_status_t</a> *&#160;</td>
           <td class="paramname"><em>status</em>&#160;</td>
         </tr>
         <tr>
@@ -1088,7 +1110,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00019.html#a00156">tmu_thresold_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00019.html#ga487862d0aa3fb984b3431ad7c6923125">tmu_thresold_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>&#160;</td>
         </tr>
         <tr>

@@ -111,8 +111,8 @@ typedef enum _led_flash_type
 {
     kLED_FlashOneColor = 0x00U, /*!< Fast with one color */
 #if (defined(LED_COLOR_WHEEL_ENABLEMENT) && (LED_COLOR_WHEEL_ENABLEMENT > 0U))
-    kLED_FlashColorWheel, /*!< Fast with color wheel */
-#endif                    /* (defined(LED_COLOR_WHEEL_ENABLEMENT) && (LED_COLOR_WHEEL_ENABLEMENT > 0U)) */
+    kLED_FlashColorWheel,       /*!< Fast with color wheel */
+#endif                          /* (defined(LED_COLOR_WHEEL_ENABLEMENT) && (LED_COLOR_WHEEL_ENABLEMENT > 0U)) */
 } led_flash_type_t;
 
 /*! @brief The color struct of LED */
@@ -293,7 +293,7 @@ extern "C" {
  * @retval kStatus_LED_Error An error occurred.
  * @retval kStatus_LED_Success LED initialization succeed.
  */
-led_status_t LED_Init(led_handle_t ledHandle, led_config_t *ledConfig);
+led_status_t LED_Init(led_handle_t ledHandle, const led_config_t *ledConfig);
 
 /*!
  * @brief Deinitializes a LED instance.

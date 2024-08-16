@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.13.0</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -136,15 +136,15 @@ UART automatic baud rate detect feature</h2>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:a00157"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a00157">uart_config_t</a></td></tr>
-<tr class="memdesc:a00157"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART configuration structure.  <a href="a00020.html#a00157">More...</a><br/></td></tr>
-<tr class="separator:a00157"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00159"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a00159">uart_transfer_t</a></td></tr>
-<tr class="memdesc:a00159"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART transfer structure.  <a href="a00020.html#a00159">More...</a><br/></td></tr>
-<tr class="separator:a00159"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00116"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a00116">uart_handle_t</a></td></tr>
-<tr class="memdesc:a00116"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART handle structure.  <a href="a00020.html#a00116">More...</a><br/></td></tr>
-<tr class="separator:a00116"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00154"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a00154">_uart_config</a></td></tr>
+<tr class="memdesc:a00154"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART configuration structure.  <a href="a00020.html#a00154">More...</a><br/></td></tr>
+<tr class="separator:a00154"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00156"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a00156">_uart_transfer</a></td></tr>
+<tr class="memdesc:a00156"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART transfer structure.  <a href="a00020.html#a00156">More...</a><br/></td></tr>
+<tr class="separator:a00156"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00155"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a00155">_uart_handle</a></td></tr>
+<tr class="memdesc:a00155"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART handle structure.  <a href="a00020.html#a00155">More...</a><br/></td></tr>
+<tr class="separator:a00155"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
@@ -154,7 +154,28 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:gaf164fa4e12ff8a3e3f3997512001e007"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gaf164fa4e12ff8a3e3f3997512001e007">uart_transfer_callback_t</a> )(UART_Type *base, uart_handle_t *handle, <a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> status, void *userData)</td></tr>
+<tr class="memitem:ga5733305b30c1d41fa58f14c0a3156578"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00020.html#ga86b6c29e8e296bfd0f8fabfa08340bb1">_uart_data_bits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga5733305b30c1d41fa58f14c0a3156578">uart_data_bits_t</a></td></tr>
+<tr class="memdesc:ga5733305b30c1d41fa58f14c0a3156578"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART data bits count.  <a href="#ga5733305b30c1d41fa58f14c0a3156578">More...</a><br/></td></tr>
+<tr class="separator:ga5733305b30c1d41fa58f14c0a3156578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3d74bf70252b21a0dd19d61587ed320c"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00020.html#gadf9f66755acc340eab030e1a48e35e10">_uart_parity_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga3d74bf70252b21a0dd19d61587ed320c">uart_parity_mode_t</a></td></tr>
+<tr class="memdesc:ga3d74bf70252b21a0dd19d61587ed320c"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART parity mode.  <a href="#ga3d74bf70252b21a0dd19d61587ed320c">More...</a><br/></td></tr>
+<tr class="separator:ga3d74bf70252b21a0dd19d61587ed320c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1df1fcb3fcd2d2db0b7ea0189fd94554"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00020.html#ga3c656a4365cab1185398ff953272091e">_uart_stop_bit_count</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga1df1fcb3fcd2d2db0b7ea0189fd94554">uart_stop_bit_count_t</a></td></tr>
+<tr class="memdesc:ga1df1fcb3fcd2d2db0b7ea0189fd94554"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART stop bit count.  <a href="#ga1df1fcb3fcd2d2db0b7ea0189fd94554">More...</a><br/></td></tr>
+<tr class="separator:ga1df1fcb3fcd2d2db0b7ea0189fd94554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf7b51cd2e675a6bf91e6b5eb0db30ec6"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00020.html#ga136932d7bbb25b3d517b01f858a1c774">_uart_idle_condition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gaf7b51cd2e675a6bf91e6b5eb0db30ec6">uart_idle_condition_t</a></td></tr>
+<tr class="memdesc:gaf7b51cd2e675a6bf91e6b5eb0db30ec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART idle condition detect.  <a href="#gaf7b51cd2e675a6bf91e6b5eb0db30ec6">More...</a><br/></td></tr>
+<tr class="separator:gaf7b51cd2e675a6bf91e6b5eb0db30ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga032da70848aac8bc9c3904a32bde5899"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00020.html#a00154">_uart_config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga032da70848aac8bc9c3904a32bde5899">uart_config_t</a></td></tr>
+<tr class="memdesc:ga032da70848aac8bc9c3904a32bde5899"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART configuration structure.  <a href="#ga032da70848aac8bc9c3904a32bde5899">More...</a><br/></td></tr>
+<tr class="separator:ga032da70848aac8bc9c3904a32bde5899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae245db88e02822f416e4d246d49076df"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00020.html#a00156">_uart_transfer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gae245db88e02822f416e4d246d49076df">uart_transfer_t</a></td></tr>
+<tr class="memdesc:gae245db88e02822f416e4d246d49076df"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART transfer structure.  <a href="#gae245db88e02822f416e4d246d49076df">More...</a><br/></td></tr>
+<tr class="separator:gae245db88e02822f416e4d246d49076df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae4cc0b0d1b32237a516424ff2f60e406"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00020.html#a00155">_uart_handle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a></td></tr>
+<tr class="memdesc:gae4cc0b0d1b32237a516424ff2f60e406"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forward declaration of the handle typedef.  <a href="#gae4cc0b0d1b32237a516424ff2f60e406">More...</a><br/></td></tr>
+<tr class="separator:gae4cc0b0d1b32237a516424ff2f60e406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf164fa4e12ff8a3e3f3997512001e007"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gaf164fa4e12ff8a3e3f3997512001e007">uart_transfer_callback_t</a> )(UART_Type *base, <a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *handle, <a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> status, void *userData)</td></tr>
 <tr class="memdesc:gaf164fa4e12ff8a3e3f3997512001e007"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART transfer callback function.  <a href="#gaf164fa4e12ff8a3e3f3997512001e007">More...</a><br/></td></tr>
 <tr class="separator:gaf164fa4e12ff8a3e3f3997512001e007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -196,44 +217,44 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga726ca809ffd3d67ab4b8476646f26635"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error codes for the UART driver.  <a href="a00020.html#ga726ca809ffd3d67ab4b8476646f26635">More...</a><br/></td></tr>
 <tr class="separator:ga726ca809ffd3d67ab4b8476646f26635"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadc68b8fd9ded3990f84129df23fee798"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gadc68b8fd9ded3990f84129df23fee798">uart_data_bits_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00020.html#ggadc68b8fd9ded3990f84129df23fee798ab8c89dfed11b0628f58344705d4b0fb8">kUART_SevenDataBits</a> = 0x0U, 
+<tr class="memitem:ga86b6c29e8e296bfd0f8fabfa08340bb1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga86b6c29e8e296bfd0f8fabfa08340bb1">_uart_data_bits</a> { <br/>
+&#160;&#160;<a class="el" href="a00020.html#gga86b6c29e8e296bfd0f8fabfa08340bb1ab8c89dfed11b0628f58344705d4b0fb8">kUART_SevenDataBits</a> = 0x0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00020.html#ggadc68b8fd9ded3990f84129df23fee798a2d77888a8dd82a66fb7bd86e51b4127c">kUART_EightDataBits</a> = 0x1U
-<br/>
- }</td></tr>
-<tr class="memdesc:gadc68b8fd9ded3990f84129df23fee798"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART data bits count.  <a href="a00020.html#gadc68b8fd9ded3990f84129df23fee798">More...</a><br/></td></tr>
-<tr class="separator:gadc68b8fd9ded3990f84129df23fee798"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga436e5a7bdb5f24decb5bfb0c87a83ff4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga436e5a7bdb5f24decb5bfb0c87a83ff4">uart_parity_mode_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00020.html#gga436e5a7bdb5f24decb5bfb0c87a83ff4a97e2feae6671a6de1126ebc2edf4606b">kUART_ParityDisabled</a> = 0x0U, 
-<br/>
-&#160;&#160;<a class="el" href="a00020.html#gga436e5a7bdb5f24decb5bfb0c87a83ff4a9e68fe3aba46e045bee5433ed098bff0">kUART_ParityEven</a> = 0x2U, 
-<br/>
-&#160;&#160;<a class="el" href="a00020.html#gga436e5a7bdb5f24decb5bfb0c87a83ff4ae48c7fabc9babf1be626ebeb2627a54c">kUART_ParityOdd</a> = 0x3U
+&#160;&#160;<a class="el" href="a00020.html#gga86b6c29e8e296bfd0f8fabfa08340bb1a2d77888a8dd82a66fb7bd86e51b4127c">kUART_EightDataBits</a> = 0x1U
 <br/>
  }</td></tr>
-<tr class="memdesc:ga436e5a7bdb5f24decb5bfb0c87a83ff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART parity mode.  <a href="a00020.html#ga436e5a7bdb5f24decb5bfb0c87a83ff4">More...</a><br/></td></tr>
-<tr class="separator:ga436e5a7bdb5f24decb5bfb0c87a83ff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaca4f14d23735c6afefb76cbee18e1db6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gaca4f14d23735c6afefb76cbee18e1db6">uart_stop_bit_count_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00020.html#ggaca4f14d23735c6afefb76cbee18e1db6a5a8829a108d8a46abb097a36cde051a7">kUART_OneStopBit</a> = 0x0U, 
+<tr class="memdesc:ga86b6c29e8e296bfd0f8fabfa08340bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART data bits count.  <a href="a00020.html#ga86b6c29e8e296bfd0f8fabfa08340bb1">More...</a><br/></td></tr>
+<tr class="separator:ga86b6c29e8e296bfd0f8fabfa08340bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadf9f66755acc340eab030e1a48e35e10"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gadf9f66755acc340eab030e1a48e35e10">_uart_parity_mode</a> { <br/>
+&#160;&#160;<a class="el" href="a00020.html#ggadf9f66755acc340eab030e1a48e35e10a97e2feae6671a6de1126ebc2edf4606b">kUART_ParityDisabled</a> = 0x0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00020.html#ggaca4f14d23735c6afefb76cbee18e1db6a9704b3ae3ee851acf324eb357f75ab56">kUART_TwoStopBit</a> = 0x1U
+&#160;&#160;<a class="el" href="a00020.html#ggadf9f66755acc340eab030e1a48e35e10a9e68fe3aba46e045bee5433ed098bff0">kUART_ParityEven</a> = 0x2U, 
 <br/>
- }</td></tr>
-<tr class="memdesc:gaca4f14d23735c6afefb76cbee18e1db6"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART stop bit count.  <a href="a00020.html#gaca4f14d23735c6afefb76cbee18e1db6">More...</a><br/></td></tr>
-<tr class="separator:gaca4f14d23735c6afefb76cbee18e1db6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac1d3d36674ef10ea596df09cd1ac4834"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gac1d3d36674ef10ea596df09cd1ac4834">uart_idle_condition_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00020.html#ggac1d3d36674ef10ea596df09cd1ac4834a5b39a550a12fb82364e14867ba800df6">kUART_IdleFor4Frames</a> = 0x0U, 
-<br/>
-&#160;&#160;<a class="el" href="a00020.html#ggac1d3d36674ef10ea596df09cd1ac4834ad1a880a7b8d05eabd494ad0a9154555d">kUART_IdleFor8Frames</a> = 0x1U, 
-<br/>
-&#160;&#160;<a class="el" href="a00020.html#ggac1d3d36674ef10ea596df09cd1ac4834a2379458f47b103178be8e3265e02fa28">kUART_IdleFor16Frames</a> = 0x2U, 
-<br/>
-&#160;&#160;<a class="el" href="a00020.html#ggac1d3d36674ef10ea596df09cd1ac4834a12f80ba050b8a679e22b92d5e4e163e7">kUART_IdleFor32Frames</a> = 0x3U
+&#160;&#160;<a class="el" href="a00020.html#ggadf9f66755acc340eab030e1a48e35e10ae48c7fabc9babf1be626ebeb2627a54c">kUART_ParityOdd</a> = 0x3U
 <br/>
  }</td></tr>
-<tr class="memdesc:gac1d3d36674ef10ea596df09cd1ac4834"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART idle condition detect.  <a href="a00020.html#gac1d3d36674ef10ea596df09cd1ac4834">More...</a><br/></td></tr>
-<tr class="separator:gac1d3d36674ef10ea596df09cd1ac4834"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:gadf9f66755acc340eab030e1a48e35e10"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART parity mode.  <a href="a00020.html#gadf9f66755acc340eab030e1a48e35e10">More...</a><br/></td></tr>
+<tr class="separator:gadf9f66755acc340eab030e1a48e35e10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c656a4365cab1185398ff953272091e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga3c656a4365cab1185398ff953272091e">_uart_stop_bit_count</a> { <br/>
+&#160;&#160;<a class="el" href="a00020.html#gga3c656a4365cab1185398ff953272091ea5a8829a108d8a46abb097a36cde051a7">kUART_OneStopBit</a> = 0x0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00020.html#gga3c656a4365cab1185398ff953272091ea9704b3ae3ee851acf324eb357f75ab56">kUART_TwoStopBit</a> = 0x1U
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga3c656a4365cab1185398ff953272091e"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART stop bit count.  <a href="a00020.html#ga3c656a4365cab1185398ff953272091e">More...</a><br/></td></tr>
+<tr class="separator:ga3c656a4365cab1185398ff953272091e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga136932d7bbb25b3d517b01f858a1c774"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga136932d7bbb25b3d517b01f858a1c774">_uart_idle_condition</a> { <br/>
+&#160;&#160;<a class="el" href="a00020.html#gga136932d7bbb25b3d517b01f858a1c774a5b39a550a12fb82364e14867ba800df6">kUART_IdleFor4Frames</a> = 0x0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00020.html#gga136932d7bbb25b3d517b01f858a1c774ad1a880a7b8d05eabd494ad0a9154555d">kUART_IdleFor8Frames</a> = 0x1U, 
+<br/>
+&#160;&#160;<a class="el" href="a00020.html#gga136932d7bbb25b3d517b01f858a1c774a2379458f47b103178be8e3265e02fa28">kUART_IdleFor16Frames</a> = 0x2U, 
+<br/>
+&#160;&#160;<a class="el" href="a00020.html#gga136932d7bbb25b3d517b01f858a1c774a12f80ba050b8a679e22b92d5e4e163e7">kUART_IdleFor32Frames</a> = 0x3U
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga136932d7bbb25b3d517b01f858a1c774"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART idle condition detect.  <a href="a00020.html#ga136932d7bbb25b3d517b01f858a1c774">More...</a><br/></td></tr>
+<tr class="separator:ga136932d7bbb25b3d517b01f858a1c774"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga700f3cd8e3800273a1591307cab6311c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga700f3cd8e3800273a1591307cab6311c">_uart_interrupt_enable</a> </td></tr>
 <tr class="memdesc:ga700f3cd8e3800273a1591307cab6311c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This structure contains the settings for all of the UART interrupt configurations.  <a href="a00020.html#ga700f3cd8e3800273a1591307cab6311c">More...</a><br/></td></tr>
 <tr class="separator:ga700f3cd8e3800273a1591307cab6311c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -338,13 +359,13 @@ Software Reset</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Initialization and deinitialization</h2></td></tr>
-<tr class="memitem:gab5965a8e11f7e1d4d531141291fd5288"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gab5965a8e11f7e1d4d531141291fd5288">UART_Init</a> (UART_Type *base, const <a class="el" href="a00020.html#a00157">uart_config_t</a> *config, uint32_t srcClock_Hz)</td></tr>
+<tr class="memitem:gab5965a8e11f7e1d4d531141291fd5288"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gab5965a8e11f7e1d4d531141291fd5288">UART_Init</a> (UART_Type *base, const <a class="el" href="a00020.html#ga032da70848aac8bc9c3904a32bde5899">uart_config_t</a> *config, uint32_t srcClock_Hz)</td></tr>
 <tr class="memdesc:gab5965a8e11f7e1d4d531141291fd5288"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes an UART instance with the user configuration structure and the peripheral clock.  <a href="#gab5965a8e11f7e1d4d531141291fd5288">More...</a><br/></td></tr>
 <tr class="separator:gab5965a8e11f7e1d4d531141291fd5288"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3ff48bc211831be33e6fe5c50eb671a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga3ff48bc211831be33e6fe5c50eb671a0">UART_Deinit</a> (UART_Type *base)</td></tr>
 <tr class="memdesc:ga3ff48bc211831be33e6fe5c50eb671a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes a UART instance.  <a href="#ga3ff48bc211831be33e6fe5c50eb671a0">More...</a><br/></td></tr>
 <tr class="separator:ga3ff48bc211831be33e6fe5c50eb671a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga47c7c09e04a0497f4530d553e27d96c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga47c7c09e04a0497f4530d553e27d96c5">UART_GetDefaultConfig</a> (<a class="el" href="a00020.html#a00157">uart_config_t</a> *config)</td></tr>
+<tr class="memitem:ga47c7c09e04a0497f4530d553e27d96c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga47c7c09e04a0497f4530d553e27d96c5">UART_GetDefaultConfig</a> (<a class="el" href="a00020.html#ga032da70848aac8bc9c3904a32bde5899">uart_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga47c7c09e04a0497f4530d553e27d96c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">l  <a href="#ga47c7c09e04a0497f4530d553e27d96c5">More...</a><br/></td></tr>
 <tr class="separator:ga47c7c09e04a0497f4530d553e27d96c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab3ba5019c11f288cc4f545dd656b6284"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gab3ba5019c11f288cc4f545dd656b6284">UART_SetBaudRate</a> (UART_Type *base, uint32_t baudRate_Bps, uint32_t srcClock_Hz)</td></tr>
@@ -353,7 +374,7 @@ Initialization and deinitialization</h2></td></tr>
 <tr class="memitem:gae1c2de08deac42b1fe8675bba9ece467"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gae1c2de08deac42b1fe8675bba9ece467">UART_Enable</a> (UART_Type *base)</td></tr>
 <tr class="memdesc:gae1c2de08deac42b1fe8675bba9ece467"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to Enable the UART Module.  <a href="#gae1c2de08deac42b1fe8675bba9ece467">More...</a><br/></td></tr>
 <tr class="separator:gae1c2de08deac42b1fe8675bba9ece467"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga55c076014a07717b8d8ed889800b833b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga55c076014a07717b8d8ed889800b833b">UART_SetIdleCondition</a> (UART_Type *base, <a class="el" href="a00020.html#gac1d3d36674ef10ea596df09cd1ac4834">uart_idle_condition_t</a> condition)</td></tr>
+<tr class="memitem:ga55c076014a07717b8d8ed889800b833b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga55c076014a07717b8d8ed889800b833b">UART_SetIdleCondition</a> (UART_Type *base, <a class="el" href="a00020.html#gaf7b51cd2e675a6bf91e6b5eb0db30ec6">uart_idle_condition_t</a> condition)</td></tr>
 <tr class="memdesc:ga55c076014a07717b8d8ed889800b833b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to configure the IDLE line condition.  <a href="#ga55c076014a07717b8d8ed889800b833b">More...</a><br/></td></tr>
 <tr class="separator:ga55c076014a07717b8d8ed889800b833b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4b6fdc3af78f9d5e8a1f8f6a07ce124d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga4b6fdc3af78f9d5e8a1f8f6a07ce124d">UART_Disable</a> (UART_Type *base)</td></tr>
@@ -404,34 +425,34 @@ Bus Operations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Transactional</h2></td></tr>
-<tr class="memitem:ga63db308c32019b7dd6c0647d618e5247"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga63db308c32019b7dd6c0647d618e5247">UART_TransferCreateHandle</a> (UART_Type *base, uart_handle_t *handle, <a class="el" href="a00020.html#gaf164fa4e12ff8a3e3f3997512001e007">uart_transfer_callback_t</a> callback, void *userData)</td></tr>
+<tr class="memitem:ga63db308c32019b7dd6c0647d618e5247"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga63db308c32019b7dd6c0647d618e5247">UART_TransferCreateHandle</a> (UART_Type *base, <a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *handle, <a class="el" href="a00020.html#gaf164fa4e12ff8a3e3f3997512001e007">uart_transfer_callback_t</a> callback, void *userData)</td></tr>
 <tr class="memdesc:ga63db308c32019b7dd6c0647d618e5247"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the UART handle.  <a href="#ga63db308c32019b7dd6c0647d618e5247">More...</a><br/></td></tr>
 <tr class="separator:ga63db308c32019b7dd6c0647d618e5247"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga223fba584bfabd599629d5ce92f929ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga223fba584bfabd599629d5ce92f929ac">UART_TransferStartRingBuffer</a> (UART_Type *base, uart_handle_t *handle, uint8_t *ringBuffer, size_t ringBufferSize)</td></tr>
+<tr class="memitem:ga223fba584bfabd599629d5ce92f929ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga223fba584bfabd599629d5ce92f929ac">UART_TransferStartRingBuffer</a> (UART_Type *base, <a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *handle, uint8_t *ringBuffer, size_t ringBufferSize)</td></tr>
 <tr class="memdesc:ga223fba584bfabd599629d5ce92f929ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the RX ring buffer.  <a href="#ga223fba584bfabd599629d5ce92f929ac">More...</a><br/></td></tr>
 <tr class="separator:ga223fba584bfabd599629d5ce92f929ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0c0bc73df49cb31dff0e903630314f5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga0c0bc73df49cb31dff0e903630314f5b">UART_TransferStopRingBuffer</a> (UART_Type *base, uart_handle_t *handle)</td></tr>
+<tr class="memitem:ga0c0bc73df49cb31dff0e903630314f5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga0c0bc73df49cb31dff0e903630314f5b">UART_TransferStopRingBuffer</a> (UART_Type *base, <a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *handle)</td></tr>
 <tr class="memdesc:ga0c0bc73df49cb31dff0e903630314f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts the background transfer and uninstalls the ring buffer.  <a href="#ga0c0bc73df49cb31dff0e903630314f5b">More...</a><br/></td></tr>
 <tr class="separator:ga0c0bc73df49cb31dff0e903630314f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3921aa660977ca77dadf95fa35f1c3a9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga3921aa660977ca77dadf95fa35f1c3a9">UART_TransferGetRxRingBufferLength</a> (uart_handle_t *handle)</td></tr>
+<tr class="memitem:ga3921aa660977ca77dadf95fa35f1c3a9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga3921aa660977ca77dadf95fa35f1c3a9">UART_TransferGetRxRingBufferLength</a> (<a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *handle)</td></tr>
 <tr class="memdesc:ga3921aa660977ca77dadf95fa35f1c3a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the length of received data in RX ring buffer.  <a href="#ga3921aa660977ca77dadf95fa35f1c3a9">More...</a><br/></td></tr>
 <tr class="separator:ga3921aa660977ca77dadf95fa35f1c3a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad89afd7db1656c5aef404bb285d0dc05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gad89afd7db1656c5aef404bb285d0dc05">UART_TransferSendNonBlocking</a> (UART_Type *base, uart_handle_t *handle, <a class="el" href="a00020.html#a00159">uart_transfer_t</a> *xfer)</td></tr>
+<tr class="memitem:gad89afd7db1656c5aef404bb285d0dc05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gad89afd7db1656c5aef404bb285d0dc05">UART_TransferSendNonBlocking</a> (UART_Type *base, <a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *handle, <a class="el" href="a00020.html#gae245db88e02822f416e4d246d49076df">uart_transfer_t</a> *xfer)</td></tr>
 <tr class="memdesc:gad89afd7db1656c5aef404bb285d0dc05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits a buffer of data using the interrupt method.  <a href="#gad89afd7db1656c5aef404bb285d0dc05">More...</a><br/></td></tr>
 <tr class="separator:gad89afd7db1656c5aef404bb285d0dc05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa64f9f89d8286fd3ef0736a8c40be2c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gaa64f9f89d8286fd3ef0736a8c40be2c2">UART_TransferAbortSend</a> (UART_Type *base, uart_handle_t *handle)</td></tr>
+<tr class="memitem:gaa64f9f89d8286fd3ef0736a8c40be2c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gaa64f9f89d8286fd3ef0736a8c40be2c2">UART_TransferAbortSend</a> (UART_Type *base, <a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *handle)</td></tr>
 <tr class="memdesc:gaa64f9f89d8286fd3ef0736a8c40be2c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts the interrupt-driven data transmit.  <a href="#gaa64f9f89d8286fd3ef0736a8c40be2c2">More...</a><br/></td></tr>
 <tr class="separator:gaa64f9f89d8286fd3ef0736a8c40be2c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga071727ba05b2937ef5ad641ca7faf9c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga071727ba05b2937ef5ad641ca7faf9c7">UART_TransferGetSendCount</a> (UART_Type *base, uart_handle_t *handle, uint32_t *count)</td></tr>
+<tr class="memitem:ga071727ba05b2937ef5ad641ca7faf9c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga071727ba05b2937ef5ad641ca7faf9c7">UART_TransferGetSendCount</a> (UART_Type *base, <a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *handle, uint32_t *count)</td></tr>
 <tr class="memdesc:ga071727ba05b2937ef5ad641ca7faf9c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of bytes written to the UART TX register.  <a href="#ga071727ba05b2937ef5ad641ca7faf9c7">More...</a><br/></td></tr>
 <tr class="separator:ga071727ba05b2937ef5ad641ca7faf9c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf804acde5d73ce0a5bf54b06195e1218"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gaf804acde5d73ce0a5bf54b06195e1218">UART_TransferReceiveNonBlocking</a> (UART_Type *base, uart_handle_t *handle, <a class="el" href="a00020.html#a00159">uart_transfer_t</a> *xfer, size_t *receivedBytes)</td></tr>
+<tr class="memitem:gaf804acde5d73ce0a5bf54b06195e1218"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gaf804acde5d73ce0a5bf54b06195e1218">UART_TransferReceiveNonBlocking</a> (UART_Type *base, <a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *handle, <a class="el" href="a00020.html#gae245db88e02822f416e4d246d49076df">uart_transfer_t</a> *xfer, size_t *receivedBytes)</td></tr>
 <tr class="memdesc:gaf804acde5d73ce0a5bf54b06195e1218"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a buffer of data using an interrupt method.  <a href="#gaf804acde5d73ce0a5bf54b06195e1218">More...</a><br/></td></tr>
 <tr class="separator:gaf804acde5d73ce0a5bf54b06195e1218"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacc35671622b2401545cc55cc6ae572d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gacc35671622b2401545cc55cc6ae572d4">UART_TransferAbortReceive</a> (UART_Type *base, uart_handle_t *handle)</td></tr>
+<tr class="memitem:gacc35671622b2401545cc55cc6ae572d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gacc35671622b2401545cc55cc6ae572d4">UART_TransferAbortReceive</a> (UART_Type *base, <a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *handle)</td></tr>
 <tr class="memdesc:gacc35671622b2401545cc55cc6ae572d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts the interrupt-driven data receiving.  <a href="#gacc35671622b2401545cc55cc6ae572d4">More...</a><br/></td></tr>
 <tr class="separator:gacc35671622b2401545cc55cc6ae572d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga05df10f570cdca4ac2dff63b069d254e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga05df10f570cdca4ac2dff63b069d254e">UART_TransferGetReceiveCount</a> (UART_Type *base, uart_handle_t *handle, uint32_t *count)</td></tr>
+<tr class="memitem:ga05df10f570cdca4ac2dff63b069d254e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga05df10f570cdca4ac2dff63b069d254e">UART_TransferGetReceiveCount</a> (UART_Type *base, <a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *handle, uint32_t *count)</td></tr>
 <tr class="memdesc:ga05df10f570cdca4ac2dff63b069d254e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of bytes that have been received.  <a href="#ga05df10f570cdca4ac2dff63b069d254e">More...</a><br/></td></tr>
 <tr class="separator:ga05df10f570cdca4ac2dff63b069d254e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9b9c99f73429317bfce6065c82b0db3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga9b9c99f73429317bfce6065c82b0db3c">UART_TransferHandleIRQ</a> (UART_Type *base, void *irqHandle)</td></tr>
@@ -469,94 +490,94 @@ Auto baud rate detection.</h2></td></tr>
 <tr class="separator:ga28850ab8c31bd095fde407992b937035"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="a00157" id="a00157"></a>
+<a name="a00154" id="a00154"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct uart_config_t</td>
+          <td class="memname">struct _uart_config</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:acc123668836f3432c54ee6a2f6f318f1"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#acc123668836f3432c54ee6a2f6f318f1">baudRate_Bps</a></td></tr>
-<tr class="memdesc:acc123668836f3432c54ee6a2f6f318f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART baud rate.  <a href="#acc123668836f3432c54ee6a2f6f318f1">More...</a><br/></td></tr>
-<tr class="separator:acc123668836f3432c54ee6a2f6f318f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a3abcf4f0f5d0a3893df14f2991aa39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00020.html#ga436e5a7bdb5f24decb5bfb0c87a83ff4">uart_parity_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a1a3abcf4f0f5d0a3893df14f2991aa39">parityMode</a></td></tr>
-<tr class="memdesc:a1a3abcf4f0f5d0a3893df14f2991aa39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parity error check mode of this module.  <a href="#a1a3abcf4f0f5d0a3893df14f2991aa39">More...</a><br/></td></tr>
-<tr class="separator:a1a3abcf4f0f5d0a3893df14f2991aa39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa026642db643d8cae1a64869acd9baf5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa026642db643d8cae1a64869acd9baf5"></a>
-<a class="el" href="a00020.html#gadc68b8fd9ded3990f84129df23fee798">uart_data_bits_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#aa026642db643d8cae1a64869acd9baf5">dataBitsCount</a></td></tr>
-<tr class="memdesc:aa026642db643d8cae1a64869acd9baf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data bits count, eight (default), seven. <br/></td></tr>
-<tr class="separator:aa026642db643d8cae1a64869acd9baf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf6e33c13910e9ec7c2688f83a462be0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00020.html#gaca4f14d23735c6afefb76cbee18e1db6">uart_stop_bit_count_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#adf6e33c13910e9ec7c2688f83a462be0">stopBitCount</a></td></tr>
-<tr class="memdesc:adf6e33c13910e9ec7c2688f83a462be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of stop bits in one frame.  <a href="#adf6e33c13910e9ec7c2688f83a462be0">More...</a><br/></td></tr>
-<tr class="separator:adf6e33c13910e9ec7c2688f83a462be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5eb9ab81752080bc726b8d625d2b6b21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5eb9ab81752080bc726b8d625d2b6b21"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a5eb9ab81752080bc726b8d625d2b6b21">txFifoWatermark</a></td></tr>
-<tr class="memdesc:a5eb9ab81752080bc726b8d625d2b6b21"><td class="mdescLeft">&#160;</td><td class="mdescRight">TX FIFO watermark. <br/></td></tr>
-<tr class="separator:a5eb9ab81752080bc726b8d625d2b6b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bb7b2f0f7df79977d33be264fb5163a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bb7b2f0f7df79977d33be264fb5163a"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a1bb7b2f0f7df79977d33be264fb5163a">rxFifoWatermark</a></td></tr>
-<tr class="memdesc:a1bb7b2f0f7df79977d33be264fb5163a"><td class="mdescLeft">&#160;</td><td class="mdescRight">RX FIFO watermark. <br/></td></tr>
-<tr class="separator:a1bb7b2f0f7df79977d33be264fb5163a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c7cdd2e54c98166de5148ffe637ce8c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c7cdd2e54c98166de5148ffe637ce8c"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a4c7cdd2e54c98166de5148ffe637ce8c">rxRTSWatermark</a></td></tr>
-<tr class="memdesc:a4c7cdd2e54c98166de5148ffe637ce8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">RX RTS watermark, RX FIFO data count being larger than this triggers RTS deassertion. <br/></td></tr>
-<tr class="separator:a4c7cdd2e54c98166de5148ffe637ce8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac595435b68632c2dbaece764c54cd41d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac595435b68632c2dbaece764c54cd41d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ac595435b68632c2dbaece764c54cd41d">enableAutoBaudRate</a></td></tr>
-<tr class="memdesc:ac595435b68632c2dbaece764c54cd41d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable automatic baud rate detection. <br/></td></tr>
-<tr class="separator:ac595435b68632c2dbaece764c54cd41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91d575902455699a312c64b564133a8d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91d575902455699a312c64b564133a8d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a91d575902455699a312c64b564133a8d">enableTx</a></td></tr>
-<tr class="memdesc:a91d575902455699a312c64b564133a8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable TX. <br/></td></tr>
-<tr class="separator:a91d575902455699a312c64b564133a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa045acd340fc86d70a497f49e0a95bdd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa045acd340fc86d70a497f49e0a95bdd"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#aa045acd340fc86d70a497f49e0a95bdd">enableRx</a></td></tr>
-<tr class="memdesc:aa045acd340fc86d70a497f49e0a95bdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable RX. <br/></td></tr>
-<tr class="separator:aa045acd340fc86d70a497f49e0a95bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc47219b87ec27ff77d872e1dd234fa4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc47219b87ec27ff77d872e1dd234fa4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#adc47219b87ec27ff77d872e1dd234fa4">enableRxRTS</a></td></tr>
-<tr class="memdesc:adc47219b87ec27ff77d872e1dd234fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">RX RTS enable. <br/></td></tr>
-<tr class="separator:adc47219b87ec27ff77d872e1dd234fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a800f164d6cfca4e94dedf307bbc6a555"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a800f164d6cfca4e94dedf307bbc6a555"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a800f164d6cfca4e94dedf307bbc6a555">enableTxCTS</a></td></tr>
-<tr class="memdesc:a800f164d6cfca4e94dedf307bbc6a555"><td class="mdescLeft">&#160;</td><td class="mdescRight">TX CTS enable. <br/></td></tr>
-<tr class="separator:a800f164d6cfca4e94dedf307bbc6a555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7887988d467cbcb940bfb69e30f4b419"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a7887988d467cbcb940bfb69e30f4b419">baudRate_Bps</a></td></tr>
+<tr class="memdesc:a7887988d467cbcb940bfb69e30f4b419"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART baud rate.  <a href="#a7887988d467cbcb940bfb69e30f4b419">More...</a><br/></td></tr>
+<tr class="separator:a7887988d467cbcb940bfb69e30f4b419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedd929d32b06c4bc7418067c832ab28f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00020.html#ga3d74bf70252b21a0dd19d61587ed320c">uart_parity_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#aedd929d32b06c4bc7418067c832ab28f">parityMode</a></td></tr>
+<tr class="memdesc:aedd929d32b06c4bc7418067c832ab28f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parity error check mode of this module.  <a href="#aedd929d32b06c4bc7418067c832ab28f">More...</a><br/></td></tr>
+<tr class="separator:aedd929d32b06c4bc7418067c832ab28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94bbbf136bbcb7acd10f7a7abd3cc32d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94bbbf136bbcb7acd10f7a7abd3cc32d"></a>
+<a class="el" href="a00020.html#ga5733305b30c1d41fa58f14c0a3156578">uart_data_bits_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a94bbbf136bbcb7acd10f7a7abd3cc32d">dataBitsCount</a></td></tr>
+<tr class="memdesc:a94bbbf136bbcb7acd10f7a7abd3cc32d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data bits count, eight (default), seven. <br/></td></tr>
+<tr class="separator:a94bbbf136bbcb7acd10f7a7abd3cc32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f9966f4b0a032df66ffc233c65264f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00020.html#ga1df1fcb3fcd2d2db0b7ea0189fd94554">uart_stop_bit_count_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a0f9966f4b0a032df66ffc233c65264f9">stopBitCount</a></td></tr>
+<tr class="memdesc:a0f9966f4b0a032df66ffc233c65264f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of stop bits in one frame.  <a href="#a0f9966f4b0a032df66ffc233c65264f9">More...</a><br/></td></tr>
+<tr class="separator:a0f9966f4b0a032df66ffc233c65264f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a080a4d1e3cc73718fd9609a154f3352d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a080a4d1e3cc73718fd9609a154f3352d"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a080a4d1e3cc73718fd9609a154f3352d">txFifoWatermark</a></td></tr>
+<tr class="memdesc:a080a4d1e3cc73718fd9609a154f3352d"><td class="mdescLeft">&#160;</td><td class="mdescRight">TX FIFO watermark. <br/></td></tr>
+<tr class="separator:a080a4d1e3cc73718fd9609a154f3352d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92b0cc268cbe203c207779c5b6d569fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92b0cc268cbe203c207779c5b6d569fa"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a92b0cc268cbe203c207779c5b6d569fa">rxFifoWatermark</a></td></tr>
+<tr class="memdesc:a92b0cc268cbe203c207779c5b6d569fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">RX FIFO watermark. <br/></td></tr>
+<tr class="separator:a92b0cc268cbe203c207779c5b6d569fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23b1e6e04de101a46836dab6d3477612"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23b1e6e04de101a46836dab6d3477612"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a23b1e6e04de101a46836dab6d3477612">rxRTSWatermark</a></td></tr>
+<tr class="memdesc:a23b1e6e04de101a46836dab6d3477612"><td class="mdescLeft">&#160;</td><td class="mdescRight">RX RTS watermark, RX FIFO data count being larger than this triggers RTS deassertion. <br/></td></tr>
+<tr class="separator:a23b1e6e04de101a46836dab6d3477612"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12f641ac95769db93199caacd021afda"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a12f641ac95769db93199caacd021afda"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a12f641ac95769db93199caacd021afda">enableAutoBaudRate</a></td></tr>
+<tr class="memdesc:a12f641ac95769db93199caacd021afda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable automatic baud rate detection. <br/></td></tr>
+<tr class="separator:a12f641ac95769db93199caacd021afda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f651168ae7be081a29e8f1de5244540"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f651168ae7be081a29e8f1de5244540"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a2f651168ae7be081a29e8f1de5244540">enableTx</a></td></tr>
+<tr class="memdesc:a2f651168ae7be081a29e8f1de5244540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable TX. <br/></td></tr>
+<tr class="separator:a2f651168ae7be081a29e8f1de5244540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa854be533f7f43433572dbf1e4bebb03"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa854be533f7f43433572dbf1e4bebb03"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#aa854be533f7f43433572dbf1e4bebb03">enableRx</a></td></tr>
+<tr class="memdesc:aa854be533f7f43433572dbf1e4bebb03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable RX. <br/></td></tr>
+<tr class="separator:aa854be533f7f43433572dbf1e4bebb03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae8a136ede05667f52e63c46ca8378bc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae8a136ede05667f52e63c46ca8378bc"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#aae8a136ede05667f52e63c46ca8378bc">enableRxRTS</a></td></tr>
+<tr class="memdesc:aae8a136ede05667f52e63c46ca8378bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">RX RTS enable. <br/></td></tr>
+<tr class="separator:aae8a136ede05667f52e63c46ca8378bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb32f70748661f6e944c1b864e955870"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb32f70748661f6e944c1b864e955870"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#afb32f70748661f6e944c1b864e955870">enableTxCTS</a></td></tr>
+<tr class="memdesc:afb32f70748661f6e944c1b864e955870"><td class="mdescLeft">&#160;</td><td class="mdescRight">TX CTS enable. <br/></td></tr>
+<tr class="separator:afb32f70748661f6e944c1b864e955870"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h4 class="groupheader">Field Documentation</h4>
-<a class="anchor" id="acc123668836f3432c54ee6a2f6f318f1"></a>
+<a class="anchor" id="a7887988d467cbcb940bfb69e30f4b419"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t uart_config_t::baudRate_Bps</td>
+          <td class="memname">uint32_t _uart_config::baudRate_Bps</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a1a3abcf4f0f5d0a3893df14f2991aa39"></a>
+<a class="anchor" id="aedd929d32b06c4bc7418067c832ab28f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00020.html#ga436e5a7bdb5f24decb5bfb0c87a83ff4">uart_parity_mode_t</a> uart_config_t::parityMode</td>
+          <td class="memname"><a class="el" href="a00020.html#ga3d74bf70252b21a0dd19d61587ed320c">uart_parity_mode_t</a> _uart_config::parityMode</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="adf6e33c13910e9ec7c2688f83a462be0"></a>
+<a class="anchor" id="a0f9966f4b0a032df66ffc233c65264f9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00020.html#gaca4f14d23735c6afefb76cbee18e1db6">uart_stop_bit_count_t</a> uart_config_t::stopBitCount</td>
+          <td class="memname"><a class="el" href="a00020.html#ga1df1fcb3fcd2d2db0b7ea0189fd94554">uart_stop_bit_count_t</a> _uart_config::stopBitCount</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -566,73 +587,73 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a000
 
 </div>
 </div>
-<a name="a00159" id="a00159"></a>
+<a name="a00156" id="a00156"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct uart_transfer_t</td>
+          <td class="memname">struct _uart_transfer</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a21820f8294de0d75d863b72512a7c12f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a21820f8294de0d75d863b72512a7c12f">dataSize</a></td></tr>
-<tr class="memdesc:a21820f8294de0d75d863b72512a7c12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The byte count to be transfer.  <a href="#a21820f8294de0d75d863b72512a7c12f">More...</a><br/></td></tr>
-<tr class="separator:a21820f8294de0d75d863b72512a7c12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af91f05b0f951836e3002f60f0575f369"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#af91f05b0f951836e3002f60f0575f369">data</a></td></tr>
-<tr class="memdesc:af91f05b0f951836e3002f60f0575f369"><td class="mdescLeft">&#160;</td><td class="mdescRight">The buffer of data to be transfer.  <a href="#af91f05b0f951836e3002f60f0575f369">More...</a><br/></td></tr>
-<tr class="separator:af91f05b0f951836e3002f60f0575f369"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a01cecc49085fd54225618e4aa7d9df"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a6a01cecc49085fd54225618e4aa7d9df">rxData</a></td></tr>
-<tr class="memdesc:a6a01cecc49085fd54225618e4aa7d9df"><td class="mdescLeft">&#160;</td><td class="mdescRight">The buffer to receive data.  <a href="#a6a01cecc49085fd54225618e4aa7d9df">More...</a><br/></td></tr>
-<tr class="separator:a6a01cecc49085fd54225618e4aa7d9df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b21ddbed7f4029bbd73c783d7633339"><td class="memItemLeft" align="right" valign="top">const uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a6b21ddbed7f4029bbd73c783d7633339">txData</a></td></tr>
-<tr class="memdesc:a6b21ddbed7f4029bbd73c783d7633339"><td class="mdescLeft">&#160;</td><td class="mdescRight">The buffer of data to be sent.  <a href="#a6b21ddbed7f4029bbd73c783d7633339">More...</a><br/></td></tr>
-<tr class="separator:a6b21ddbed7f4029bbd73c783d7633339"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47819d071bfe28c770850b7569fe3483"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a47819d071bfe28c770850b7569fe3483">dataSize</a></td></tr>
+<tr class="memdesc:a47819d071bfe28c770850b7569fe3483"><td class="mdescLeft">&#160;</td><td class="mdescRight">The byte count to be transfer.  <a href="#a47819d071bfe28c770850b7569fe3483">More...</a><br/></td></tr>
+<tr class="separator:a47819d071bfe28c770850b7569fe3483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a539dba6b07c6b81b52f508ebf8a7d6c0"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a539dba6b07c6b81b52f508ebf8a7d6c0">data</a></td></tr>
+<tr class="memdesc:a539dba6b07c6b81b52f508ebf8a7d6c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The buffer of data to be transfer.  <a href="#a539dba6b07c6b81b52f508ebf8a7d6c0">More...</a><br/></td></tr>
+<tr class="separator:a539dba6b07c6b81b52f508ebf8a7d6c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed76abc37dea80849d9d0cc35a216e45"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#aed76abc37dea80849d9d0cc35a216e45">rxData</a></td></tr>
+<tr class="memdesc:aed76abc37dea80849d9d0cc35a216e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">The buffer to receive data.  <a href="#aed76abc37dea80849d9d0cc35a216e45">More...</a><br/></td></tr>
+<tr class="separator:aed76abc37dea80849d9d0cc35a216e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6465f735a1152bcb8d731cc2d52dbc37"><td class="memItemLeft" align="right" valign="top">const uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a6465f735a1152bcb8d731cc2d52dbc37">txData</a></td></tr>
+<tr class="memdesc:a6465f735a1152bcb8d731cc2d52dbc37"><td class="mdescLeft">&#160;</td><td class="mdescRight">The buffer of data to be sent.  <a href="#a6465f735a1152bcb8d731cc2d52dbc37">More...</a><br/></td></tr>
+<tr class="separator:a6465f735a1152bcb8d731cc2d52dbc37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h4 class="groupheader">Field Documentation</h4>
-<a class="anchor" id="af91f05b0f951836e3002f60f0575f369"></a>
+<a class="anchor" id="a539dba6b07c6b81b52f508ebf8a7d6c0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t* uart_transfer_t::data</td>
+          <td class="memname">uint8_t* _uart_transfer::data</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a6a01cecc49085fd54225618e4aa7d9df"></a>
+<a class="anchor" id="aed76abc37dea80849d9d0cc35a216e45"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t* uart_transfer_t::rxData</td>
+          <td class="memname">uint8_t* _uart_transfer::rxData</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a6b21ddbed7f4029bbd73c783d7633339"></a>
+<a class="anchor" id="a6465f735a1152bcb8d731cc2d52dbc37"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const uint8_t* uart_transfer_t::txData</td>
+          <td class="memname">const uint8_t* _uart_transfer::txData</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a21820f8294de0d75d863b72512a7c12f"></a>
+<a class="anchor" id="a47819d071bfe28c770850b7569fe3483"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t uart_transfer_t::dataSize</td>
+          <td class="memname">size_t _uart_transfer::dataSize</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -642,7 +663,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a000
 
 </div>
 </div>
-<a name="a00116" id="a00116"></a>
+<a name="a00155" id="a00155"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -651,204 +672,203 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a000
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"><p>Forward declaration of the handle typedef.</p>
-</div><table class="memberdecls">
+<div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a8335d5ed357baeccd5c4dc961be8441e"><td class="memItemLeft" align="right" valign="top">const uint8_t *volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a8335d5ed357baeccd5c4dc961be8441e">txData</a></td></tr>
-<tr class="memdesc:a8335d5ed357baeccd5c4dc961be8441e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Address of remaining data to send.  <a href="#a8335d5ed357baeccd5c4dc961be8441e">More...</a><br/></td></tr>
-<tr class="separator:a8335d5ed357baeccd5c4dc961be8441e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e67a92b463ad328646834ea0de4d70d"><td class="memItemLeft" align="right" valign="top">volatile size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a1e67a92b463ad328646834ea0de4d70d">txDataSize</a></td></tr>
-<tr class="memdesc:a1e67a92b463ad328646834ea0de4d70d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the remaining data to send.  <a href="#a1e67a92b463ad328646834ea0de4d70d">More...</a><br/></td></tr>
-<tr class="separator:a1e67a92b463ad328646834ea0de4d70d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80361474eb03b3aa30d02bda82adce65"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a80361474eb03b3aa30d02bda82adce65">txDataSizeAll</a></td></tr>
-<tr class="memdesc:a80361474eb03b3aa30d02bda82adce65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the data to send out.  <a href="#a80361474eb03b3aa30d02bda82adce65">More...</a><br/></td></tr>
-<tr class="separator:a80361474eb03b3aa30d02bda82adce65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c87354702502998d3ccca9d9bfd3069"><td class="memItemLeft" align="right" valign="top">uint8_t *volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a5c87354702502998d3ccca9d9bfd3069">rxData</a></td></tr>
-<tr class="memdesc:a5c87354702502998d3ccca9d9bfd3069"><td class="mdescLeft">&#160;</td><td class="mdescRight">Address of remaining data to receive.  <a href="#a5c87354702502998d3ccca9d9bfd3069">More...</a><br/></td></tr>
-<tr class="separator:a5c87354702502998d3ccca9d9bfd3069"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46bd84d885004806f89744ad79edd81e"><td class="memItemLeft" align="right" valign="top">volatile size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a46bd84d885004806f89744ad79edd81e">rxDataSize</a></td></tr>
-<tr class="memdesc:a46bd84d885004806f89744ad79edd81e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the remaining data to receive.  <a href="#a46bd84d885004806f89744ad79edd81e">More...</a><br/></td></tr>
-<tr class="separator:a46bd84d885004806f89744ad79edd81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a800a05d5ea3c6240daad46f466a8fea4"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a800a05d5ea3c6240daad46f466a8fea4">rxDataSizeAll</a></td></tr>
-<tr class="memdesc:a800a05d5ea3c6240daad46f466a8fea4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the data to receive.  <a href="#a800a05d5ea3c6240daad46f466a8fea4">More...</a><br/></td></tr>
-<tr class="separator:a800a05d5ea3c6240daad46f466a8fea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afeba8b549facc329937046e734681963"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#afeba8b549facc329937046e734681963">rxRingBuffer</a></td></tr>
-<tr class="memdesc:afeba8b549facc329937046e734681963"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start address of the receiver ring buffer.  <a href="#afeba8b549facc329937046e734681963">More...</a><br/></td></tr>
-<tr class="separator:afeba8b549facc329937046e734681963"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d6afed4b64233c959a180b66686c14c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a8d6afed4b64233c959a180b66686c14c">rxRingBufferSize</a></td></tr>
-<tr class="memdesc:a8d6afed4b64233c959a180b66686c14c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the ring buffer.  <a href="#a8d6afed4b64233c959a180b66686c14c">More...</a><br/></td></tr>
-<tr class="separator:a8d6afed4b64233c959a180b66686c14c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85d061606b31401fb4a9d0e22e77056c"><td class="memItemLeft" align="right" valign="top">volatile uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a85d061606b31401fb4a9d0e22e77056c">rxRingBufferHead</a></td></tr>
-<tr class="memdesc:a85d061606b31401fb4a9d0e22e77056c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index for the driver to store received data into ring buffer.  <a href="#a85d061606b31401fb4a9d0e22e77056c">More...</a><br/></td></tr>
-<tr class="separator:a85d061606b31401fb4a9d0e22e77056c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f4482059188bea2603b1c07cf9cc084"><td class="memItemLeft" align="right" valign="top">volatile uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a9f4482059188bea2603b1c07cf9cc084">rxRingBufferTail</a></td></tr>
-<tr class="memdesc:a9f4482059188bea2603b1c07cf9cc084"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index for the user to get data from the ring buffer.  <a href="#a9f4482059188bea2603b1c07cf9cc084">More...</a><br/></td></tr>
-<tr class="separator:a9f4482059188bea2603b1c07cf9cc084"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ef9706e8203ba72fa1e04c48581fb0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00020.html#gaf164fa4e12ff8a3e3f3997512001e007">uart_transfer_callback_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a2ef9706e8203ba72fa1e04c48581fb0f">callback</a></td></tr>
-<tr class="memdesc:a2ef9706e8203ba72fa1e04c48581fb0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function.  <a href="#a2ef9706e8203ba72fa1e04c48581fb0f">More...</a><br/></td></tr>
-<tr class="separator:a2ef9706e8203ba72fa1e04c48581fb0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69ce1fdb7a2f60c0ecc94c4d1b2ed6ff"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a69ce1fdb7a2f60c0ecc94c4d1b2ed6ff">userData</a></td></tr>
-<tr class="memdesc:a69ce1fdb7a2f60c0ecc94c4d1b2ed6ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART callback function parameter.  <a href="#a69ce1fdb7a2f60c0ecc94c4d1b2ed6ff">More...</a><br/></td></tr>
-<tr class="separator:a69ce1fdb7a2f60c0ecc94c4d1b2ed6ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fa8f119b6e0e3a7805fb25edafb1498"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a9fa8f119b6e0e3a7805fb25edafb1498">txState</a></td></tr>
-<tr class="memdesc:a9fa8f119b6e0e3a7805fb25edafb1498"><td class="mdescLeft">&#160;</td><td class="mdescRight">TX transfer state.  <a href="#a9fa8f119b6e0e3a7805fb25edafb1498">More...</a><br/></td></tr>
-<tr class="separator:a9fa8f119b6e0e3a7805fb25edafb1498"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5aa95f3d2cb81a8bb01a11ab2cf66234"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5aa95f3d2cb81a8bb01a11ab2cf66234"></a>
-volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a5aa95f3d2cb81a8bb01a11ab2cf66234">rxState</a></td></tr>
-<tr class="memdesc:a5aa95f3d2cb81a8bb01a11ab2cf66234"><td class="mdescLeft">&#160;</td><td class="mdescRight">RX transfer state. <br/></td></tr>
-<tr class="separator:a5aa95f3d2cb81a8bb01a11ab2cf66234"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a21ca8d9b4fb65febc769c187abc0fe"><td class="memItemLeft" align="right" valign="top">const uint8_t *volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a2a21ca8d9b4fb65febc769c187abc0fe">txData</a></td></tr>
+<tr class="memdesc:a2a21ca8d9b4fb65febc769c187abc0fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Address of remaining data to send.  <a href="#a2a21ca8d9b4fb65febc769c187abc0fe">More...</a><br/></td></tr>
+<tr class="separator:a2a21ca8d9b4fb65febc769c187abc0fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae58e8fca80610613930971c944c5a13f"><td class="memItemLeft" align="right" valign="top">volatile size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ae58e8fca80610613930971c944c5a13f">txDataSize</a></td></tr>
+<tr class="memdesc:ae58e8fca80610613930971c944c5a13f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the remaining data to send.  <a href="#ae58e8fca80610613930971c944c5a13f">More...</a><br/></td></tr>
+<tr class="separator:ae58e8fca80610613930971c944c5a13f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1681a0ef5772f10119be9f66efb0d77"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ab1681a0ef5772f10119be9f66efb0d77">txDataSizeAll</a></td></tr>
+<tr class="memdesc:ab1681a0ef5772f10119be9f66efb0d77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the data to send out.  <a href="#ab1681a0ef5772f10119be9f66efb0d77">More...</a><br/></td></tr>
+<tr class="separator:ab1681a0ef5772f10119be9f66efb0d77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedb4263284f51ebecf7842dbc6a12958"><td class="memItemLeft" align="right" valign="top">uint8_t *volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#aedb4263284f51ebecf7842dbc6a12958">rxData</a></td></tr>
+<tr class="memdesc:aedb4263284f51ebecf7842dbc6a12958"><td class="mdescLeft">&#160;</td><td class="mdescRight">Address of remaining data to receive.  <a href="#aedb4263284f51ebecf7842dbc6a12958">More...</a><br/></td></tr>
+<tr class="separator:aedb4263284f51ebecf7842dbc6a12958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9575748a161e9b26616c07357b5ffbf"><td class="memItemLeft" align="right" valign="top">volatile size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#aa9575748a161e9b26616c07357b5ffbf">rxDataSize</a></td></tr>
+<tr class="memdesc:aa9575748a161e9b26616c07357b5ffbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the remaining data to receive.  <a href="#aa9575748a161e9b26616c07357b5ffbf">More...</a><br/></td></tr>
+<tr class="separator:aa9575748a161e9b26616c07357b5ffbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f67f7836c8e0575489ddb579be06ab2"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a6f67f7836c8e0575489ddb579be06ab2">rxDataSizeAll</a></td></tr>
+<tr class="memdesc:a6f67f7836c8e0575489ddb579be06ab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the data to receive.  <a href="#a6f67f7836c8e0575489ddb579be06ab2">More...</a><br/></td></tr>
+<tr class="separator:a6f67f7836c8e0575489ddb579be06ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0899932285fcefa9d2cb3a5528c5f1f2"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a0899932285fcefa9d2cb3a5528c5f1f2">rxRingBuffer</a></td></tr>
+<tr class="memdesc:a0899932285fcefa9d2cb3a5528c5f1f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start address of the receiver ring buffer.  <a href="#a0899932285fcefa9d2cb3a5528c5f1f2">More...</a><br/></td></tr>
+<tr class="separator:a0899932285fcefa9d2cb3a5528c5f1f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab17ccbc11c8d2de94eb6105db53583c9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ab17ccbc11c8d2de94eb6105db53583c9">rxRingBufferSize</a></td></tr>
+<tr class="memdesc:ab17ccbc11c8d2de94eb6105db53583c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the ring buffer.  <a href="#ab17ccbc11c8d2de94eb6105db53583c9">More...</a><br/></td></tr>
+<tr class="separator:ab17ccbc11c8d2de94eb6105db53583c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d116920fe45bdbb0819841841fa3ea5"><td class="memItemLeft" align="right" valign="top">volatile uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a9d116920fe45bdbb0819841841fa3ea5">rxRingBufferHead</a></td></tr>
+<tr class="memdesc:a9d116920fe45bdbb0819841841fa3ea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index for the driver to store received data into ring buffer.  <a href="#a9d116920fe45bdbb0819841841fa3ea5">More...</a><br/></td></tr>
+<tr class="separator:a9d116920fe45bdbb0819841841fa3ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb8a7d117c675e9164a480265aecae45"><td class="memItemLeft" align="right" valign="top">volatile uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#adb8a7d117c675e9164a480265aecae45">rxRingBufferTail</a></td></tr>
+<tr class="memdesc:adb8a7d117c675e9164a480265aecae45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index for the user to get data from the ring buffer.  <a href="#adb8a7d117c675e9164a480265aecae45">More...</a><br/></td></tr>
+<tr class="separator:adb8a7d117c675e9164a480265aecae45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aa04dcc733827d88d7ca589cad87008"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00020.html#gaf164fa4e12ff8a3e3f3997512001e007">uart_transfer_callback_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a6aa04dcc733827d88d7ca589cad87008">callback</a></td></tr>
+<tr class="memdesc:a6aa04dcc733827d88d7ca589cad87008"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function.  <a href="#a6aa04dcc733827d88d7ca589cad87008">More...</a><br/></td></tr>
+<tr class="separator:a6aa04dcc733827d88d7ca589cad87008"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5813a8c6733b4ac0b4979c68c45168c"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#aa5813a8c6733b4ac0b4979c68c45168c">userData</a></td></tr>
+<tr class="memdesc:aa5813a8c6733b4ac0b4979c68c45168c"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART callback function parameter.  <a href="#aa5813a8c6733b4ac0b4979c68c45168c">More...</a><br/></td></tr>
+<tr class="separator:aa5813a8c6733b4ac0b4979c68c45168c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dc421b251f4feb8a01258737294c5ab"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a4dc421b251f4feb8a01258737294c5ab">txState</a></td></tr>
+<tr class="memdesc:a4dc421b251f4feb8a01258737294c5ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">TX transfer state.  <a href="#a4dc421b251f4feb8a01258737294c5ab">More...</a><br/></td></tr>
+<tr class="separator:a4dc421b251f4feb8a01258737294c5ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a627bed2cba21fd6ba785bc49e7d87c3d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a627bed2cba21fd6ba785bc49e7d87c3d"></a>
+volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#a627bed2cba21fd6ba785bc49e7d87c3d">rxState</a></td></tr>
+<tr class="memdesc:a627bed2cba21fd6ba785bc49e7d87c3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">RX transfer state. <br/></td></tr>
+<tr class="separator:a627bed2cba21fd6ba785bc49e7d87c3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h4 class="groupheader">Field Documentation</h4>
-<a class="anchor" id="a8335d5ed357baeccd5c4dc961be8441e"></a>
+<a class="anchor" id="a2a21ca8d9b4fb65febc769c187abc0fe"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const uint8_t* volatile uart_handle_t::txData</td>
+          <td class="memname">const uint8_t* volatile _uart_handle::txData</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a1e67a92b463ad328646834ea0de4d70d"></a>
+<a class="anchor" id="ae58e8fca80610613930971c944c5a13f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile size_t uart_handle_t::txDataSize</td>
+          <td class="memname">volatile size_t _uart_handle::txDataSize</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a80361474eb03b3aa30d02bda82adce65"></a>
+<a class="anchor" id="ab1681a0ef5772f10119be9f66efb0d77"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t uart_handle_t::txDataSizeAll</td>
+          <td class="memname">size_t _uart_handle::txDataSizeAll</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a5c87354702502998d3ccca9d9bfd3069"></a>
+<a class="anchor" id="aedb4263284f51ebecf7842dbc6a12958"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t* volatile uart_handle_t::rxData</td>
+          <td class="memname">uint8_t* volatile _uart_handle::rxData</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a46bd84d885004806f89744ad79edd81e"></a>
+<a class="anchor" id="aa9575748a161e9b26616c07357b5ffbf"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile size_t uart_handle_t::rxDataSize</td>
+          <td class="memname">volatile size_t _uart_handle::rxDataSize</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a800a05d5ea3c6240daad46f466a8fea4"></a>
+<a class="anchor" id="a6f67f7836c8e0575489ddb579be06ab2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t uart_handle_t::rxDataSizeAll</td>
+          <td class="memname">size_t _uart_handle::rxDataSizeAll</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="afeba8b549facc329937046e734681963"></a>
+<a class="anchor" id="a0899932285fcefa9d2cb3a5528c5f1f2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t* uart_handle_t::rxRingBuffer</td>
+          <td class="memname">uint8_t* _uart_handle::rxRingBuffer</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a8d6afed4b64233c959a180b66686c14c"></a>
+<a class="anchor" id="ab17ccbc11c8d2de94eb6105db53583c9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t uart_handle_t::rxRingBufferSize</td>
+          <td class="memname">size_t _uart_handle::rxRingBufferSize</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a85d061606b31401fb4a9d0e22e77056c"></a>
+<a class="anchor" id="a9d116920fe45bdbb0819841841fa3ea5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile uint16_t uart_handle_t::rxRingBufferHead</td>
+          <td class="memname">volatile uint16_t _uart_handle::rxRingBufferHead</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a9f4482059188bea2603b1c07cf9cc084"></a>
+<a class="anchor" id="adb8a7d117c675e9164a480265aecae45"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile uint16_t uart_handle_t::rxRingBufferTail</td>
+          <td class="memname">volatile uint16_t _uart_handle::rxRingBufferTail</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a2ef9706e8203ba72fa1e04c48581fb0f"></a>
+<a class="anchor" id="a6aa04dcc733827d88d7ca589cad87008"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00020.html#gaf164fa4e12ff8a3e3f3997512001e007">uart_transfer_callback_t</a> uart_handle_t::callback</td>
+          <td class="memname"><a class="el" href="a00020.html#gaf164fa4e12ff8a3e3f3997512001e007">uart_transfer_callback_t</a> _uart_handle::callback</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a69ce1fdb7a2f60c0ecc94c4d1b2ed6ff"></a>
+<a class="anchor" id="aa5813a8c6733b4ac0b4979c68c45168c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void* uart_handle_t::userData</td>
+          <td class="memname">void* _uart_handle::userData</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a9fa8f119b6e0e3a7805fb25edafb1498"></a>
+<a class="anchor" id="a4dc421b251f4feb8a01258737294c5ab"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile uint8_t uart_handle_t::txState</td>
+          <td class="memname">volatile uint8_t _uart_handle::txState</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -884,12 +904,96 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="ga5733305b30c1d41fa58f14c0a3156578"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="a00020.html#ga86b6c29e8e296bfd0f8fabfa08340bb1">_uart_data_bits</a>  <a class="el" href="a00020.html#ga5733305b30c1d41fa58f14c0a3156578">uart_data_bits_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ga3d74bf70252b21a0dd19d61587ed320c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="a00020.html#gadf9f66755acc340eab030e1a48e35e10">_uart_parity_mode</a>  <a class="el" href="a00020.html#ga3d74bf70252b21a0dd19d61587ed320c">uart_parity_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ga1df1fcb3fcd2d2db0b7ea0189fd94554"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="a00020.html#ga3c656a4365cab1185398ff953272091e">_uart_stop_bit_count</a>  <a class="el" href="a00020.html#ga1df1fcb3fcd2d2db0b7ea0189fd94554">uart_stop_bit_count_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="gaf7b51cd2e675a6bf91e6b5eb0db30ec6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="a00020.html#ga136932d7bbb25b3d517b01f858a1c774">_uart_idle_condition</a>  <a class="el" href="a00020.html#gaf7b51cd2e675a6bf91e6b5eb0db30ec6">uart_idle_condition_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ga032da70848aac8bc9c3904a32bde5899"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="a00020.html#a00154">_uart_config</a>  <a class="el" href="a00020.html#ga032da70848aac8bc9c3904a32bde5899">uart_config_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="gae245db88e02822f416e4d246d49076df"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="a00020.html#a00156">_uart_transfer</a>  <a class="el" href="a00020.html#gae245db88e02822f416e4d246d49076df">uart_transfer_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="gae4cc0b0d1b32237a516424ff2f60e406"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="a00020.html#a00155">_uart_handle</a> <a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="gaf164fa4e12ff8a3e3f3997512001e007"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef void(* uart_transfer_callback_t)(UART_Type *base, uart_handle_t *handle, <a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> status, void *userData)</td>
+          <td class="memname">typedef void(* uart_transfer_callback_t)(UART_Type *base, <a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *handle, <a class="el" href="a00085.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> status, void *userData)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -959,89 +1063,89 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 
 </div>
 </div>
-<a class="anchor" id="gadc68b8fd9ded3990f84129df23fee798"></a>
+<a class="anchor" id="ga86b6c29e8e296bfd0f8fabfa08340bb1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00020.html#gadc68b8fd9ded3990f84129df23fee798">uart_data_bits_t</a></td>
+          <td class="memname">enum <a class="el" href="a00020.html#ga86b6c29e8e296bfd0f8fabfa08340bb1">_uart_data_bits</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggadc68b8fd9ded3990f84129df23fee798ab8c89dfed11b0628f58344705d4b0fb8"></a>kUART_SevenDataBits</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga86b6c29e8e296bfd0f8fabfa08340bb1ab8c89dfed11b0628f58344705d4b0fb8"></a>kUART_SevenDataBits</em>&nbsp;</td><td class="fielddoc">
 <p>Seven data bit. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggadc68b8fd9ded3990f84129df23fee798a2d77888a8dd82a66fb7bd86e51b4127c"></a>kUART_EightDataBits</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga86b6c29e8e296bfd0f8fabfa08340bb1a2d77888a8dd82a66fb7bd86e51b4127c"></a>kUART_EightDataBits</em>&nbsp;</td><td class="fielddoc">
 <p>Eight data bit. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="ga436e5a7bdb5f24decb5bfb0c87a83ff4"></a>
+<a class="anchor" id="gadf9f66755acc340eab030e1a48e35e10"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00020.html#ga436e5a7bdb5f24decb5bfb0c87a83ff4">uart_parity_mode_t</a></td>
+          <td class="memname">enum <a class="el" href="a00020.html#gadf9f66755acc340eab030e1a48e35e10">_uart_parity_mode</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga436e5a7bdb5f24decb5bfb0c87a83ff4a97e2feae6671a6de1126ebc2edf4606b"></a>kUART_ParityDisabled</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggadf9f66755acc340eab030e1a48e35e10a97e2feae6671a6de1126ebc2edf4606b"></a>kUART_ParityDisabled</em>&nbsp;</td><td class="fielddoc">
 <p>Parity disabled. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga436e5a7bdb5f24decb5bfb0c87a83ff4a9e68fe3aba46e045bee5433ed098bff0"></a>kUART_ParityEven</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggadf9f66755acc340eab030e1a48e35e10a9e68fe3aba46e045bee5433ed098bff0"></a>kUART_ParityEven</em>&nbsp;</td><td class="fielddoc">
 <p>Even error check is selected. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga436e5a7bdb5f24decb5bfb0c87a83ff4ae48c7fabc9babf1be626ebeb2627a54c"></a>kUART_ParityOdd</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggadf9f66755acc340eab030e1a48e35e10ae48c7fabc9babf1be626ebeb2627a54c"></a>kUART_ParityOdd</em>&nbsp;</td><td class="fielddoc">
 <p>Odd error check is selected. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="gaca4f14d23735c6afefb76cbee18e1db6"></a>
+<a class="anchor" id="ga3c656a4365cab1185398ff953272091e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00020.html#gaca4f14d23735c6afefb76cbee18e1db6">uart_stop_bit_count_t</a></td>
+          <td class="memname">enum <a class="el" href="a00020.html#ga3c656a4365cab1185398ff953272091e">_uart_stop_bit_count</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaca4f14d23735c6afefb76cbee18e1db6a5a8829a108d8a46abb097a36cde051a7"></a>kUART_OneStopBit</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga3c656a4365cab1185398ff953272091ea5a8829a108d8a46abb097a36cde051a7"></a>kUART_OneStopBit</em>&nbsp;</td><td class="fielddoc">
 <p>One stop bit. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaca4f14d23735c6afefb76cbee18e1db6a9704b3ae3ee851acf324eb357f75ab56"></a>kUART_TwoStopBit</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga3c656a4365cab1185398ff953272091ea9704b3ae3ee851acf324eb357f75ab56"></a>kUART_TwoStopBit</em>&nbsp;</td><td class="fielddoc">
 <p>Two stop bits. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="gac1d3d36674ef10ea596df09cd1ac4834"></a>
+<a class="anchor" id="ga136932d7bbb25b3d517b01f858a1c774"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00020.html#gac1d3d36674ef10ea596df09cd1ac4834">uart_idle_condition_t</a></td>
+          <td class="memname">enum <a class="el" href="a00020.html#ga136932d7bbb25b3d517b01f858a1c774">_uart_idle_condition</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggac1d3d36674ef10ea596df09cd1ac4834a5b39a550a12fb82364e14867ba800df6"></a>kUART_IdleFor4Frames</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga136932d7bbb25b3d517b01f858a1c774a5b39a550a12fb82364e14867ba800df6"></a>kUART_IdleFor4Frames</em>&nbsp;</td><td class="fielddoc">
 <p>Idle for more than 4 frames. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggac1d3d36674ef10ea596df09cd1ac4834ad1a880a7b8d05eabd494ad0a9154555d"></a>kUART_IdleFor8Frames</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga136932d7bbb25b3d517b01f858a1c774ad1a880a7b8d05eabd494ad0a9154555d"></a>kUART_IdleFor8Frames</em>&nbsp;</td><td class="fielddoc">
 <p>Idle for more than 8 frames. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggac1d3d36674ef10ea596df09cd1ac4834a2379458f47b103178be8e3265e02fa28"></a>kUART_IdleFor16Frames</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga136932d7bbb25b3d517b01f858a1c774a2379458f47b103178be8e3265e02fa28"></a>kUART_IdleFor16Frames</em>&nbsp;</td><td class="fielddoc">
 <p>Idle for more than 16 frames. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggac1d3d36674ef10ea596df09cd1ac4834a12f80ba050b8a679e22b92d5e4e163e7"></a>kUART_IdleFor32Frames</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga136932d7bbb25b3d517b01f858a1c774a12f80ba050b8a679e22b92d5e4e163e7"></a>kUART_IdleFor32Frames</em>&nbsp;</td><td class="fielddoc">
 <p>Idle for more than 32 frames. </p>
 </td></tr>
 </table>
@@ -1248,7 +1352,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00020.html#a00157">uart_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00020.html#ga032da70848aac8bc9c3904a32bde5899">uart_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>, </td>
         </tr>
         <tr>
@@ -1265,16 +1369,16 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
       </table>
 </div><div class="memdoc">
 <p>This function configures the UART module with user-defined settings. Call the <a class="el" href="a00020.html#ga47c7c09e04a0497f4530d553e27d96c5" title="l ">UART_GetDefaultConfig()</a> function to configure the configuration structure and get the default configuration. The example below shows how to use this API to configure the UART. </p>
-<div class="fragment"><div class="line">*  <a class="code" href="a00020.html#a00157">uart_config_t</a> uartConfig;</div>
-<div class="line">*  uartConfig.<a class="code" href="a00020.html#acc123668836f3432c54ee6a2f6f318f1">baudRate_Bps</a> = 115200U;</div>
-<div class="line">*  uartConfig.<a class="code" href="a00020.html#a1a3abcf4f0f5d0a3893df14f2991aa39">parityMode</a> = <a class="code" href="a00020.html#gga436e5a7bdb5f24decb5bfb0c87a83ff4a97e2feae6671a6de1126ebc2edf4606b">kUART_ParityDisabled</a>;</div>
-<div class="line">*  uartConfig.<a class="code" href="a00020.html#aa026642db643d8cae1a64869acd9baf5">dataBitsCount</a> = <a class="code" href="a00020.html#ggadc68b8fd9ded3990f84129df23fee798a2d77888a8dd82a66fb7bd86e51b4127c">kUART_EightDataBits</a>;</div>
-<div class="line">*  uartConfig.<a class="code" href="a00020.html#adf6e33c13910e9ec7c2688f83a462be0">stopBitCount</a> = <a class="code" href="a00020.html#ggaca4f14d23735c6afefb76cbee18e1db6a5a8829a108d8a46abb097a36cde051a7">kUART_OneStopBit</a>;</div>
-<div class="line">*  uartConfig.<a class="code" href="a00020.html#a5eb9ab81752080bc726b8d625d2b6b21">txFifoWatermark</a> = 2;</div>
-<div class="line">*  uartConfig.<a class="code" href="a00020.html#a1bb7b2f0f7df79977d33be264fb5163a">rxFifoWatermark</a> = 1;</div>
+<div class="fragment"><div class="line">*  <a class="code" href="a00020.html#a00154">uart_config_t</a> uartConfig;</div>
+<div class="line">*  uartConfig.<a class="code" href="a00020.html#a7887988d467cbcb940bfb69e30f4b419">baudRate_Bps</a> = 115200U;</div>
+<div class="line">*  uartConfig.<a class="code" href="a00020.html#aedd929d32b06c4bc7418067c832ab28f">parityMode</a> = <a class="code" href="a00020.html#ggadf9f66755acc340eab030e1a48e35e10a97e2feae6671a6de1126ebc2edf4606b">kUART_ParityDisabled</a>;</div>
+<div class="line">*  uartConfig.<a class="code" href="a00020.html#a94bbbf136bbcb7acd10f7a7abd3cc32d">dataBitsCount</a> = <a class="code" href="a00020.html#gga86b6c29e8e296bfd0f8fabfa08340bb1a2d77888a8dd82a66fb7bd86e51b4127c">kUART_EightDataBits</a>;</div>
+<div class="line">*  uartConfig.<a class="code" href="a00020.html#a0f9966f4b0a032df66ffc233c65264f9">stopBitCount</a> = <a class="code" href="a00020.html#gga3c656a4365cab1185398ff953272091ea5a8829a108d8a46abb097a36cde051a7">kUART_OneStopBit</a>;</div>
+<div class="line">*  uartConfig.<a class="code" href="a00020.html#a080a4d1e3cc73718fd9609a154f3352d">txFifoWatermark</a> = 2;</div>
+<div class="line">*  uartConfig.<a class="code" href="a00020.html#a92b0cc268cbe203c207779c5b6d569fa">rxFifoWatermark</a> = 1;</div>
 <div class="line">*  uartConfig.enableAutoBaudrate = <span class="keyword">false</span>;</div>
-<div class="line">*  uartConfig.<a class="code" href="a00020.html#a91d575902455699a312c64b564133a8d">enableTx</a> = <span class="keyword">true</span>;</div>
-<div class="line">*  uartConfig.<a class="code" href="a00020.html#aa045acd340fc86d70a497f49e0a95bdd">enableRx</a> = <span class="keyword">true</span>;</div>
+<div class="line">*  uartConfig.<a class="code" href="a00020.html#a2f651168ae7be081a29e8f1de5244540">enableTx</a> = <span class="keyword">true</span>;</div>
+<div class="line">*  uartConfig.<a class="code" href="a00020.html#aa854be533f7f43433572dbf1e4bebb03">enableRx</a> = <span class="keyword">true</span>;</div>
 <div class="line">*  <a class="code" href="a00020.html#gab5965a8e11f7e1d4d531141291fd5288">UART_Init</a>(UART1, &amp;uartConfig, 24000000U);</div>
 <div class="line">* </div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
@@ -1324,7 +1428,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="memname">void UART_GetDefaultConfig </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00020.html#a00157">uart_config_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00020.html#ga032da70848aac8bc9c3904a32bde5899">uart_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1437,7 +1541,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00020.html#gac1d3d36674ef10ea596df09cd1ac4834">uart_idle_condition_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00020.html#gaf7b51cd2e675a6bf91e6b5eb0db30ec6">uart_idle_condition_t</a>&#160;</td>
           <td class="paramname"><em>condition</em>&#160;</td>
         </tr>
         <tr>
@@ -1455,7 +1559,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>UART base pointer. </td></tr>
-    <tr><td class="paramname">condition</td><td>IDLE line detect condition of the enumerators in <a class="el" href="a00020.html#gac1d3d36674ef10ea596df09cd1ac4834">uart_idle_condition_t</a>. </td></tr>
+    <tr><td class="paramname">condition</td><td>IDLE line detect condition of the enumerators in <a class="el" href="a00020.html#gaf7b51cd2e675a6bf91e6b5eb0db30ec6">uart_idle_condition_t</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1940,7 +2044,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uart_handle_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *&#160;</td>
           <td class="paramname"><em>handle</em>, </td>
         </tr>
         <tr>
@@ -1988,7 +2092,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uart_handle_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *&#160;</td>
           <td class="paramname"><em>handle</em>, </td>
         </tr>
         <tr>
@@ -2038,7 +2142,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uart_handle_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *&#160;</td>
           <td class="paramname"><em>handle</em>&#160;</td>
         </tr>
         <tr>
@@ -2066,7 +2170,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="memname">size_t UART_TransferGetRxRingBufferLength </td>
           <td>(</td>
-          <td class="paramtype">uart_handle_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *&#160;</td>
           <td class="paramname"><em>handle</em></td><td>)</td>
           <td></td>
         </tr>
@@ -2095,13 +2199,13 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uart_handle_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *&#160;</td>
           <td class="paramname"><em>handle</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00020.html#a00159">uart_transfer_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00020.html#gae245db88e02822f416e4d246d49076df">uart_transfer_t</a> *&#160;</td>
           <td class="paramname"><em>xfer</em>&#160;</td>
         </tr>
         <tr>
@@ -2117,7 +2221,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
   <table class="params">
     <tr><td class="paramname">base</td><td>UART peripheral base address. </td></tr>
     <tr><td class="paramname">handle</td><td>UART handle pointer. </td></tr>
-    <tr><td class="paramname">xfer</td><td>UART transfer structure. See <a class="el" href="a00020.html#a00159" title="UART transfer structure. ">uart_transfer_t</a>. </td></tr>
+    <tr><td class="paramname">xfer</td><td>UART transfer structure. See <a class="el" href="a00020.html#gae245db88e02822f416e4d246d49076df" title="UART transfer structure. ">uart_transfer_t</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -2145,7 +2249,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uart_handle_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *&#160;</td>
           <td class="paramname"><em>handle</em>&#160;</td>
         </tr>
         <tr>
@@ -2179,7 +2283,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uart_handle_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *&#160;</td>
           <td class="paramname"><em>handle</em>, </td>
         </tr>
         <tr>
@@ -2228,13 +2332,13 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uart_handle_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *&#160;</td>
           <td class="paramname"><em>handle</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00020.html#a00159">uart_transfer_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00020.html#gae245db88e02822f416e4d246d49076df">uart_transfer_t</a> *&#160;</td>
           <td class="paramname"><em>xfer</em>, </td>
         </tr>
         <tr>
@@ -2255,7 +2359,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
   <table class="params">
     <tr><td class="paramname">base</td><td>UART peripheral base address. </td></tr>
     <tr><td class="paramname">handle</td><td>UART handle pointer. </td></tr>
-    <tr><td class="paramname">xfer</td><td>UART transfer structure, see <a class="el" href="a00020.html#a00159" title="UART transfer structure. ">uart_transfer_t</a>. </td></tr>
+    <tr><td class="paramname">xfer</td><td>UART transfer structure, see <a class="el" href="a00020.html#gae245db88e02822f416e4d246d49076df" title="UART transfer structure. ">uart_transfer_t</a>. </td></tr>
     <tr><td class="paramname">receivedBytes</td><td>Bytes received from the ring buffer directly. </td></tr>
   </table>
   </dd>
@@ -2284,7 +2388,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uart_handle_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *&#160;</td>
           <td class="paramname"><em>handle</em>&#160;</td>
         </tr>
         <tr>
@@ -2318,7 +2422,7 @@ volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uart_handle_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00020.html#gae4cc0b0d1b32237a516424ff2f60e406">uart_handle_t</a> *&#160;</td>
           <td class="paramname"><em>handle</em>, </td>
         </tr>
         <tr>

@@ -3,8 +3,16 @@ SET(CMAKE_SYSTEM_NAME Generic)
 CMAKE_MINIMUM_REQUIRED (VERSION 3.10.0)
 
 # THE VERSION NUMBER
-SET (Tutorial_VERSION_MAJOR 1)
-SET (Tutorial_VERSION_MINOR 0)
+SET (MCUXPRESSO_CMAKE_FORMAT_MAJOR_VERSION 2)
+SET (MCUXPRESSO_CMAKE_FORMAT_MINOR_VERSION 0)
+
+include(ide_overrides.cmake OPTIONAL)
+
+if(CMAKE_SCRIPT_MODE_FILE)
+  message("${MCUXPRESSO_CMAKE_FORMAT_MAJOR_VERSION}")
+  return()
+endif()
+
 
 # ENABLE ASM
 ENABLE_LANGUAGE(ASM)
@@ -49,57 +57,13 @@ add_executable(${MCUX_SDK_PROJECT_NAME}
 "${ProjDirPath}/../empty_rsc_table.c"
 )
 
-target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
+target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
     ${ProjDirPath}/..
 )
 
-set(CMAKE_MODULE_PATH
-    ${SdkRootDirPath}/devices/MIMX8MQ6/utilities
-    ${SdkRootDirPath}/devices/MIMX8MQ6/utilities/debug_console_lite
-    ${SdkRootDirPath}/devices/MIMX8MQ6/drivers
-    ${SdkRootDirPath}/devices/MIMX8MQ6/cmsis_drivers
-    ${SdkRootDirPath}/devices/MIMX8MQ6
-    ${SdkRootDirPath}/components/uart
-    ${SdkRootDirPath}/components/lists
-    ${SdkRootDirPath}/CMSIS/Core/Include
-    ${SdkRootDirPath}/CMSIS/Driver/Include
-)
+set_source_files_properties("${ProjDirPath}/../RTE_Device.h" PROPERTIES COMPONENT_CONFIG_FILE "RTE_Device.MIMX8MQ6")
 
-# include modules
-include(utility_debug_console_lite_MIMX8MQ6)
-
-include(utility_assert_lite_MIMX8MQ6)
-
-include(driver_clock_MIMX8MQ6)
-
-include(driver_cmsis_ii2c_MIMX8MQ6)
-
-include(driver_common_MIMX8MQ6)
-
-include(driver_rdc_MIMX8MQ6)
-
-include(device_MIMX8MQ6_CMSIS_MIMX8MQ6)
-
-include(component_iuart_adapter_MIMX8MQ6)
-
-include(component_lists_MIMX8MQ6)
-
-include(driver_iuart_MIMX8MQ6)
-
-include(device_MIMX8MQ6_startup_MIMX8MQ6)
-
-include(CMSIS_Include_core_cm_MIMX8MQ6)
-
-include(driver_ii2c_MIMX8MQ6)
-
-include(CMSIS_Driver_Include_I2C_MIMX8MQ6)
-
-include(CMSIS_Driver_Include_Common_MIMX8MQ6)
-
-include(utilities_misc_utilities_MIMX8MQ6)
-
-include(device_MIMX8MQ6_system_MIMX8MQ6)
-
+include(${SdkRootDirPath}/devices/MIMX8MQ6/all_lib_device.cmake)
 
 IF(NOT DEFINED TARGET_LINK_SYSTEM_LIBRARIES)  
     SET(TARGET_LINK_SYSTEM_LIBRARIES "-lm -lc -lgcc -lnosys")  
@@ -113,4 +77,6 @@ TARGET_LINK_LIBRARIES(${MCUX_SDK_PROJECT_NAME} PRIVATE -Wl,--end-group)
 
 ADD_CUSTOM_COMMAND(TARGET ${MCUX_SDK_PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_OBJCOPY}
 -Obinary ${EXECUTABLE_OUTPUT_PATH}/${MCUX_SDK_PROJECT_NAME} ${EXECUTABLE_OUTPUT_PATH}/cmsis_ii2c_int_b2b_transfer_slave.bin)
+
+set_target_properties(${MCUX_SDK_PROJECT_NAME} PROPERTIES ADDITIONAL_CLEAN_FILES "output.map;${EXECUTABLE_OUTPUT_PATH}/cmsis_ii2c_int_b2b_transfer_slave.bin")
 

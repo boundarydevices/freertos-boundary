@@ -1,53 +1,62 @@
 var a00092 =
 [
     [ "FSL_PWM_DRIVER_VERSION", "a00092.html#ga8bda5d1da1f6b7150e002c109a62d083", null ],
-    [ "pwm_clock_source_t", "a00092.html#ga54dcbb5e3e5c8ceebef5f46a9ec73a2f", [
-      [ "kPWM_PeripheralClock", "a00092.html#gga54dcbb5e3e5c8ceebef5f46a9ec73a2fa720ad082de555ca2262db6704c2a48a3", null ],
-      [ "kPWM_HighFrequencyClock", "a00092.html#gga54dcbb5e3e5c8ceebef5f46a9ec73a2fa085a1f3b7337dbbba37cc92b63c456a9", null ],
-      [ "kPWM_LowFrequencyClock", "a00092.html#gga54dcbb5e3e5c8ceebef5f46a9ec73a2faba2ffadbe1b173e93305c188117a76c2", null ]
+    [ "pwm_clock_source_t", "a00092.html#ga16c01b0c4438bd155b806221e213d81b", null ],
+    [ "pwm_fifo_water_mark_t", "a00092.html#gaaa9eb1ca8ab99f937ef954a561780320", null ],
+    [ "pwm_byte_data_swap_t", "a00092.html#gab98376ef2ed15d14758893c66db1fb30", null ],
+    [ "pwm_half_word_data_swap_t", "a00092.html#ga88a4d321886ab0f276d9c69123714fc8", null ],
+    [ "pwm_output_configuration_t", "a00092.html#gab7d20b2bacd71066f1a022ab141ab38b", null ],
+    [ "pwm_sample_repeat_t", "a00092.html#ga679efe5dd696fa11e3cc155c2030fdef", null ],
+    [ "pwm_interrupt_enable_t", "a00092.html#ga36af25274e927d9ebbe8ae96b42025e7", null ],
+    [ "pwm_status_flags_t", "a00092.html#gaf8b3b6e23f00bc167f2a57fdae9587d6", null ],
+    [ "pwm_fifo_available_t", "a00092.html#gae0a80fa1c2e4b4eaad197a4d016ea2a6", null ],
+    [ "_pwm_clock_source", "a00092.html#gad24dbd7a287a6152a9a3237c318be541", [
+      [ "kPWM_PeripheralClock", "a00092.html#ggad24dbd7a287a6152a9a3237c318be541a720ad082de555ca2262db6704c2a48a3", null ],
+      [ "kPWM_HighFrequencyClock", "a00092.html#ggad24dbd7a287a6152a9a3237c318be541a085a1f3b7337dbbba37cc92b63c456a9", null ],
+      [ "kPWM_LowFrequencyClock", "a00092.html#ggad24dbd7a287a6152a9a3237c318be541aba2ffadbe1b173e93305c188117a76c2", null ]
     ] ],
-    [ "pwm_fifo_water_mark_t", "a00092.html#ga6e28d42a5d0c43c2afd4a360868b67c1", [
-      [ "kPWM_FIFOWaterMark_1", "a00092.html#gga6e28d42a5d0c43c2afd4a360868b67c1a46bc12cdcd748f75352dda927d12469a", null ],
-      [ "kPWM_FIFOWaterMark_2", "a00092.html#gga6e28d42a5d0c43c2afd4a360868b67c1aa33f62954c9e10d85e4a13412090913f", null ],
-      [ "kPWM_FIFOWaterMark_3", "a00092.html#gga6e28d42a5d0c43c2afd4a360868b67c1ada5ef9ecf09d93451bf57b8a4b618ba4", null ],
-      [ "kPWM_FIFOWaterMark_4", "a00092.html#gga6e28d42a5d0c43c2afd4a360868b67c1af5401079de9ca6b7e62439d9a984ae03", null ]
+    [ "_pwm_fifo_water_mark", "a00092.html#gadd11dde7b3d83044bace8fa7358573b3", [
+      [ "kPWM_FIFOWaterMark_1", "a00092.html#ggadd11dde7b3d83044bace8fa7358573b3a46bc12cdcd748f75352dda927d12469a", null ],
+      [ "kPWM_FIFOWaterMark_2", "a00092.html#ggadd11dde7b3d83044bace8fa7358573b3aa33f62954c9e10d85e4a13412090913f", null ],
+      [ "kPWM_FIFOWaterMark_3", "a00092.html#ggadd11dde7b3d83044bace8fa7358573b3ada5ef9ecf09d93451bf57b8a4b618ba4", null ],
+      [ "kPWM_FIFOWaterMark_4", "a00092.html#ggadd11dde7b3d83044bace8fa7358573b3af5401079de9ca6b7e62439d9a984ae03", null ]
     ] ],
-    [ "pwm_byte_data_swap_t", "a00092.html#gacc83f5df6efd279b96ec7736d4259134", [
-      [ "kPWM_ByteNoSwap", "a00092.html#ggacc83f5df6efd279b96ec7736d4259134ae3fa9d0120efe5505d2af8e97930289d", null ],
-      [ "kPWM_ByteSwap", "a00092.html#ggacc83f5df6efd279b96ec7736d4259134a4c7de4fcc7f74c751dad87d905dc1898", null ]
+    [ "_pwm_byte_data_swap", "a00092.html#ga61c1c5ac5e7359d63be87aa0817e4f67", [
+      [ "kPWM_ByteNoSwap", "a00092.html#gga61c1c5ac5e7359d63be87aa0817e4f67ae3fa9d0120efe5505d2af8e97930289d", null ],
+      [ "kPWM_ByteSwap", "a00092.html#gga61c1c5ac5e7359d63be87aa0817e4f67a4c7de4fcc7f74c751dad87d905dc1898", null ]
     ] ],
-    [ "pwm_half_word_data_swap_t", "a00092.html#ga9717526c69f90be4577677b784a95c99", [
-      [ "kPWM_HalfWordNoSwap", "a00092.html#gga9717526c69f90be4577677b784a95c99a7fa6ec0c14835ef884bf21948ab9bcf1", null ],
-      [ "kPWM_HalfWordSwap", "a00092.html#gga9717526c69f90be4577677b784a95c99a6a9922129c4d784d1c2a7b488ef5f9fc", null ]
+    [ "_pwm_half_word_data_swap", "a00092.html#ga112a5e4cb8a2e84b5831d3f2a581c20b", [
+      [ "kPWM_HalfWordNoSwap", "a00092.html#gga112a5e4cb8a2e84b5831d3f2a581c20ba7fa6ec0c14835ef884bf21948ab9bcf1", null ],
+      [ "kPWM_HalfWordSwap", "a00092.html#gga112a5e4cb8a2e84b5831d3f2a581c20ba6a9922129c4d784d1c2a7b488ef5f9fc", null ]
     ] ],
-    [ "pwm_output_configuration_t", "a00092.html#ga0adacb1aa800a63efc5284aad1c99e94", [
-      [ "kPWM_SetAtRolloverAndClearAtcomparison", "a00092.html#gga0adacb1aa800a63efc5284aad1c99e94ae7aa751cf0d4e6cc037bcb759a2da38a", null ],
-      [ "kPWM_ClearAtRolloverAndSetAtcomparison", "a00092.html#gga0adacb1aa800a63efc5284aad1c99e94ab0fc28ed8325295cc72f3dd186b92d89", null ],
-      [ "kPWM_NoConfigure", "a00092.html#gga0adacb1aa800a63efc5284aad1c99e94a2defe10613012528de8c7cb282af6534", null ]
+    [ "_pwm_output_configuration", "a00092.html#ga75547f11a58cc1dbe4368a4f9708e18d", [
+      [ "kPWM_SetAtRolloverAndClearAtcomparison", "a00092.html#gga75547f11a58cc1dbe4368a4f9708e18dae7aa751cf0d4e6cc037bcb759a2da38a", null ],
+      [ "kPWM_ClearAtRolloverAndSetAtcomparison", "a00092.html#gga75547f11a58cc1dbe4368a4f9708e18dab0fc28ed8325295cc72f3dd186b92d89", null ],
+      [ "kPWM_NoConfigure", "a00092.html#gga75547f11a58cc1dbe4368a4f9708e18da2defe10613012528de8c7cb282af6534", null ]
     ] ],
-    [ "pwm_sample_repeat_t", "a00092.html#ga0fa976f45603849cad601ab4db4d15b7", [
-      [ "kPWM_EachSampleOnce", "a00092.html#gga0fa976f45603849cad601ab4db4d15b7a602b673889a9b270cec181f67df0b693", null ],
-      [ "kPWM_EachSampletwice", "a00092.html#gga0fa976f45603849cad601ab4db4d15b7aa76ac77e7df80d685a539609a2f3989d", null ],
-      [ "kPWM_EachSampleFourTimes", "a00092.html#gga0fa976f45603849cad601ab4db4d15b7abe0215aa24b7e1b37dadbb36ec82d38b", null ],
-      [ "kPWM_EachSampleEightTimes", "a00092.html#gga0fa976f45603849cad601ab4db4d15b7a0aaa4ddab42036d9bc77aaacf16717e5", null ]
+    [ "_pwm_sample_repeat", "a00092.html#ga0db8c0ad2d2b5e90a93e416e2bc76c79", [
+      [ "kPWM_EachSampleOnce", "a00092.html#gga0db8c0ad2d2b5e90a93e416e2bc76c79a602b673889a9b270cec181f67df0b693", null ],
+      [ "kPWM_EachSampletwice", "a00092.html#gga0db8c0ad2d2b5e90a93e416e2bc76c79aa76ac77e7df80d685a539609a2f3989d", null ],
+      [ "kPWM_EachSampleFourTimes", "a00092.html#gga0db8c0ad2d2b5e90a93e416e2bc76c79abe0215aa24b7e1b37dadbb36ec82d38b", null ],
+      [ "kPWM_EachSampleEightTimes", "a00092.html#gga0db8c0ad2d2b5e90a93e416e2bc76c79a0aaa4ddab42036d9bc77aaacf16717e5", null ]
     ] ],
-    [ "pwm_interrupt_enable_t", "a00092.html#ga4f56d1f07b6947af55eccc5375ed520d", [
-      [ "kPWM_FIFOEmptyInterruptEnable", "a00092.html#gga4f56d1f07b6947af55eccc5375ed520da4525b66559dac8d57abfad2c4bbbea40", null ],
-      [ "kPWM_RolloverInterruptEnable", "a00092.html#gga4f56d1f07b6947af55eccc5375ed520daaf5fdeddfe16aa2c1208c2e4d91996f7", null ],
-      [ "kPWM_CompareInterruptEnable", "a00092.html#gga4f56d1f07b6947af55eccc5375ed520daa9b58c2bf5145b5ef4b981b5f5d50fea", null ]
+    [ "_pwm_interrupt_enable", "a00092.html#ga34dec3dd0f1cd687ab28f2d6cf2938a1", [
+      [ "kPWM_FIFOEmptyInterruptEnable", "a00092.html#gga34dec3dd0f1cd687ab28f2d6cf2938a1a4525b66559dac8d57abfad2c4bbbea40", null ],
+      [ "kPWM_RolloverInterruptEnable", "a00092.html#gga34dec3dd0f1cd687ab28f2d6cf2938a1aaf5fdeddfe16aa2c1208c2e4d91996f7", null ],
+      [ "kPWM_CompareInterruptEnable", "a00092.html#gga34dec3dd0f1cd687ab28f2d6cf2938a1aa9b58c2bf5145b5ef4b981b5f5d50fea", null ]
     ] ],
-    [ "pwm_status_flags_t", "a00092.html#gabc3ee1e46578039b2dbe795d60a69b2f", [
-      [ "kPWM_FIFOEmptyFlag", "a00092.html#ggabc3ee1e46578039b2dbe795d60a69b2faa760e2de69f86bf50b160fa613f3ed0f", null ],
-      [ "kPWM_RolloverFlag", "a00092.html#ggabc3ee1e46578039b2dbe795d60a69b2fa6935f1892585a8ee4236792eb8b71e9d", null ],
-      [ "kPWM_CompareFlag", "a00092.html#ggabc3ee1e46578039b2dbe795d60a69b2fa5c09799112bef469896b400acfa81c47", null ],
-      [ "kPWM_FIFOWriteErrorFlag", "a00092.html#ggabc3ee1e46578039b2dbe795d60a69b2faea97a51c1742c4b203c9d43efabf773e", null ]
+    [ "_pwm_status_flags", "a00092.html#gabf7180682e00816d6f9fcecaf3ffa13b", [
+      [ "kPWM_FIFOEmptyFlag", "a00092.html#ggabf7180682e00816d6f9fcecaf3ffa13baa760e2de69f86bf50b160fa613f3ed0f", null ],
+      [ "kPWM_RolloverFlag", "a00092.html#ggabf7180682e00816d6f9fcecaf3ffa13ba6935f1892585a8ee4236792eb8b71e9d", null ],
+      [ "kPWM_CompareFlag", "a00092.html#ggabf7180682e00816d6f9fcecaf3ffa13ba5c09799112bef469896b400acfa81c47", null ],
+      [ "kPWM_FIFOWriteErrorFlag", "a00092.html#ggabf7180682e00816d6f9fcecaf3ffa13baea97a51c1742c4b203c9d43efabf773e", null ]
     ] ],
-    [ "pwm_fifo_available_t", "a00092.html#ga44d23f62b51e6ff9cfb59c0de70854e0", [
-      [ "kPWM_NoDataInFIFOFlag", "a00092.html#gga44d23f62b51e6ff9cfb59c0de70854e0abc972d0365de9da7939b7b2303843ae7", null ],
-      [ "kPWM_OneWordInFIFOFlag", "a00092.html#gga44d23f62b51e6ff9cfb59c0de70854e0a7ad9f69d768a8db9d06451bd10570f45", null ],
-      [ "kPWM_TwoWordsInFIFOFlag", "a00092.html#gga44d23f62b51e6ff9cfb59c0de70854e0a9f29c4ee5edf483e38b8cfd8ae17d5fe", null ],
-      [ "kPWM_ThreeWordsInFIFOFlag", "a00092.html#gga44d23f62b51e6ff9cfb59c0de70854e0a562337a037bdefed6658dbc098d28ba8", null ],
-      [ "kPWM_FourWordsInFIFOFlag", "a00092.html#gga44d23f62b51e6ff9cfb59c0de70854e0a8c49eedceff1f99bd9908fcaf652278d", null ]
+    [ "_pwm_fifo_available", "a00092.html#ga7fe50d64f1cdc226b6c627ac85626293", [
+      [ "kPWM_NoDataInFIFOFlag", "a00092.html#gga7fe50d64f1cdc226b6c627ac85626293abc972d0365de9da7939b7b2303843ae7", null ],
+      [ "kPWM_OneWordInFIFOFlag", "a00092.html#gga7fe50d64f1cdc226b6c627ac85626293a7ad9f69d768a8db9d06451bd10570f45", null ],
+      [ "kPWM_TwoWordsInFIFOFlag", "a00092.html#gga7fe50d64f1cdc226b6c627ac85626293a9f29c4ee5edf483e38b8cfd8ae17d5fe", null ],
+      [ "kPWM_ThreeWordsInFIFOFlag", "a00092.html#gga7fe50d64f1cdc226b6c627ac85626293a562337a037bdefed6658dbc098d28ba8", null ],
+      [ "kPWM_FourWordsInFIFOFlag", "a00092.html#gga7fe50d64f1cdc226b6c627ac85626293a8c49eedceff1f99bd9908fcaf652278d", null ]
     ] ],
     [ "PWM_Init", "a00092.html#ga6359b8a4cd00c794549ed9441e50ba3c", null ],
     [ "PWM_Deinit", "a00092.html#gaf93b767ea243d633bb00e3c7b4a217c6", null ],

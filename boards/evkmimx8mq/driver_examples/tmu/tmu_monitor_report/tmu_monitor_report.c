@@ -17,15 +17,15 @@
 
 /* @TEST_ANCHOR */
 
-#define DEMO_TMU_BASE               TMU
+#define DEMO_TMU_BASE TMU
 #ifndef DEMO_TMU_IMMEDIATE_THRESOLD
 #define DEMO_TMU_IMMEDIATE_THRESOLD 0U
 #endif
 #ifndef DEMO_TMU_INTERVAL_VALUE
-#define DEMO_TMU_INTERVAL_VALUE     8U
+#define DEMO_TMU_INTERVAL_VALUE 8U
 #endif
-#define DEMO_TMU_IRQ                TEMPMON_IRQn
-#define DEMO_TMU_IRQ_HANDLER_FUNC   TEMPMON_IRQHandler
+#define DEMO_TMU_IRQ              TEMPMON_IRQn
+#define DEMO_TMU_IRQ_HANDLER_FUNC TEMPMON_IRQHandler
 
 /*******************************************************************************
  * Prototypes
@@ -63,7 +63,7 @@ void DEMO_TMU_IRQ_HANDLER_FUNC(void)
             PRINTF("site 1 immediate temperature is too high. %d celsius degree\r\n", temp);
         }
     }
-    __DSB();
+    SDK_ISR_EXIT_BARRIER;
 }
 
 /*!

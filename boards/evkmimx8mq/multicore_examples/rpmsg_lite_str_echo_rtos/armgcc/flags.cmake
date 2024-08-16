@@ -49,9 +49,9 @@ SET(CMAKE_C_FLAGS_DEBUG " \
     -DDEBUG \
     -DCPU_MIMX8MQ6DVAJZ \
     -DCPU_MIMX8MQ6DVAJZ_cm4 \
+    -DMCUXPRESSO_SDK \
     -DSDK_OS_FREE_RTOS \
     -DSERIAL_PORT_TYPE_UART=1 \
-    -DMCUXPRESSO_SDK \
     -g \
     -O0 \
     -mcpu=cortex-m4 \
@@ -63,7 +63,6 @@ SET(CMAKE_C_FLAGS_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -75,9 +74,9 @@ SET(CMAKE_C_FLAGS_RELEASE " \
     -DNDEBUG \
     -DCPU_MIMX8MQ6DVAJZ \
     -DCPU_MIMX8MQ6DVAJZ_cm4 \
+    -DMCUXPRESSO_SDK \
     -DSDK_OS_FREE_RTOS \
     -DSERIAL_PORT_TYPE_UART=1 \
-    -DMCUXPRESSO_SDK \
     -Os \
     -mcpu=cortex-m4 \
     -Wall \
@@ -88,7 +87,6 @@ SET(CMAKE_C_FLAGS_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -99,9 +97,9 @@ SET(CMAKE_C_FLAGS_DDR_DEBUG " \
     ${CMAKE_C_FLAGS_DDR_DEBUG} \
     -DCPU_MIMX8MQ6DVAJZ \
     -DCPU_MIMX8MQ6DVAJZ_cm4 \
+    -DMCUXPRESSO_SDK \
     -DSDK_OS_FREE_RTOS \
     -DSERIAL_PORT_TYPE_UART=1 \
-    -DMCUXPRESSO_SDK \
     -g \
     -O0 \
     -mcpu=cortex-m4 \
@@ -113,7 +111,6 @@ SET(CMAKE_C_FLAGS_DDR_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -124,9 +121,9 @@ SET(CMAKE_C_FLAGS_DDR_RELEASE " \
     ${CMAKE_C_FLAGS_DDR_RELEASE} \
     -DCPU_MIMX8MQ6DVAJZ \
     -DCPU_MIMX8MQ6DVAJZ_cm4 \
+    -DMCUXPRESSO_SDK \
     -DSDK_OS_FREE_RTOS \
     -DSERIAL_PORT_TYPE_UART=1 \
-    -DMCUXPRESSO_SDK \
     -Os \
     -mcpu=cortex-m4 \
     -Wall \
@@ -137,7 +134,6 @@ SET(CMAKE_C_FLAGS_DDR_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -149,8 +145,8 @@ SET(CMAKE_CXX_FLAGS_DEBUG " \
     -DDEBUG \
     -DCPU_MIMX8MQ6DVAJZ \
     -DCPU_MIMX8MQ6DVAJZ_cm4 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -g \
     -O0 \
     -mcpu=cortex-m4 \
@@ -162,7 +158,6 @@ SET(CMAKE_CXX_FLAGS_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -175,8 +170,8 @@ SET(CMAKE_CXX_FLAGS_RELEASE " \
     -DNDEBUG \
     -DCPU_MIMX8MQ6DVAJZ \
     -DCPU_MIMX8MQ6DVAJZ_cm4 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -Os \
     -mcpu=cortex-m4 \
     -Wall \
@@ -187,7 +182,6 @@ SET(CMAKE_CXX_FLAGS_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -199,8 +193,8 @@ SET(CMAKE_CXX_FLAGS_DDR_DEBUG " \
     ${CMAKE_CXX_FLAGS_DDR_DEBUG} \
     -DCPU_MIMX8MQ6DVAJZ \
     -DCPU_MIMX8MQ6DVAJZ_cm4 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -g \
     -O0 \
     -mcpu=cortex-m4 \
@@ -212,7 +206,6 @@ SET(CMAKE_CXX_FLAGS_DDR_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -224,8 +217,8 @@ SET(CMAKE_CXX_FLAGS_DDR_RELEASE " \
     ${CMAKE_CXX_FLAGS_DDR_RELEASE} \
     -DCPU_MIMX8MQ6DVAJZ \
     -DCPU_MIMX8MQ6DVAJZ_cm4 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -Os \
     -mcpu=cortex-m4 \
     -Wall \
@@ -236,7 +229,6 @@ SET(CMAKE_CXX_FLAGS_DDR_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -253,7 +245,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -273,7 +264,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     --defsym=__heap_size__=0x400 \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8MQ6xxxJZ_cm4_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8MQ6xxxJZ_cm4_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     ${CMAKE_EXE_LINKER_FLAGS_RELEASE} \
@@ -283,7 +274,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -303,7 +293,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     --defsym=__heap_size__=0x400 \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8MQ6xxxJZ_cm4_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8MQ6xxxJZ_cm4_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_DDR_DEBUG " \
     ${CMAKE_EXE_LINKER_FLAGS_DDR_DEBUG} \
@@ -314,7 +304,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_DDR_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -334,7 +323,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_DDR_DEBUG " \
     --defsym=__heap_size__=0x400 \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8MQ6xxxJZ_cm4_ddr_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8MQ6xxxJZ_cm4_ddr_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_DDR_RELEASE " \
     ${CMAKE_EXE_LINKER_FLAGS_DDR_RELEASE} \
@@ -344,7 +333,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_DDR_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -364,5 +352,5 @@ SET(CMAKE_EXE_LINKER_FLAGS_DDR_RELEASE " \
     --defsym=__heap_size__=0x400 \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8MQ6xxxJZ_cm4_ddr_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8MQ6xxxJZ_cm4_ddr_ram.ld\" -static \
 ")
