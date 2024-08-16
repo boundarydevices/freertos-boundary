@@ -1,28 +1,25 @@
 var a00036 =
 [
-    [ "_lpuart_rtos_config", "a00036.html#a00297", [
-      [ "base", "a00036.html#aa4e6cddd1beadc52a71ac5933dd47afd", null ],
-      [ "srcclk", "a00036.html#a3ad0def261b033ab202cd29804387cad", null ],
-      [ "baudrate", "a00036.html#ae145aec6fcd6a1fd8811d47f1b3d69e7", null ],
-      [ "parity", "a00036.html#a590d28ebbfe2cc5eae93559ebcd70aaa", null ],
-      [ "stopbits", "a00036.html#a3bad2260df1b2e44edba5bb1621e5c89", null ],
-      [ "buffer", "a00036.html#a421d97b8a3d56a3fbe80a439d6a12e8b", null ],
-      [ "buffer_size", "a00036.html#ab01354efe7fe0281ec722857d6ff9370", null ],
-      [ "rx_timeout_constant_ms", "a00036.html#af72c515a22bf7a4cd058fafd5ee192b2", null ],
-      [ "rx_timeout_multiplier_ms", "a00036.html#a9459f1a39d576c85bb20cc8d00c641c3", null ],
-      [ "tx_timeout_constant_ms", "a00036.html#a321ae993de2ec70250dac9d19e2f3422", null ],
-      [ "tx_timeout_multiplier_ms", "a00036.html#a1716df2698e5e1c5df95530e90b1d0f6", null ],
-      [ "enableRxRTS", "a00036.html#a22f26846697fdb4a1293f8adc7f6973f", null ],
-      [ "enableTxCTS", "a00036.html#a0029e97fa7a5cc92ddccc62e2a24b700", null ],
-      [ "txCtsSource", "a00036.html#ac33e737fd77ccad71995d979ec1602a7", null ],
-      [ "txCtsConfig", "a00036.html#a3b29bd9c3c89e10dda93c37f23365632", null ]
+    [ "_ltc_edma_handle", "a00036.html#a00293", [
+      [ "callback", "a00036.html#a4b9535fcb3cf3e738dc48b5dd9d574a7", null ],
+      [ "userData", "a00036.html#ad1f31cccbd730a59ca8f8f7a6029f0dc", null ],
+      [ "inputFifoEdmaHandle", "a00036.html#a0c797a2a46d375f5ac4c735ffbb0ea6f", null ],
+      [ "outputFifoEdmaHandle", "a00036.html#a0e2075175f859c7fe1ee387d0b2fe5e5", null ],
+      [ "state_machine", "a00036.html#a77424ba76f11105a9de3ae1dbaa59149", null ],
+      [ "state", "a00036.html#a52288f52a87004be44028ac8bbdb8ddb", null ],
+      [ "inData", "a00036.html#a18e5016d36cee52a93f4635a02f36054", null ],
+      [ "outData", "a00036.html#a960a3147ccf77519f5cb1c1e11b49f92", null ],
+      [ "size", "a00036.html#a5121ce8bb58aba736f576867c7eec947", null ],
+      [ "modeReg", "a00036.html#a7340d450db8ee4247a575eea80d90d15", null ],
+      [ "counter", "a00036.html#a14b6b71e15c3d5496be386e20d92711a", null ],
+      [ "key", "a00036.html#a4a3ad57cdd45c9f6f0a2c6963bc09fc1", null ],
+      [ "keySize", "a00036.html#a684b667084656fff9d45bfc917d94c9b", null ],
+      [ "counterlast", "a00036.html#a5f51a5a1189e3f0fa3420bbd66132e6e", null ],
+      [ "szLeft", "a00036.html#ad32b763231a696c8327217a169104eac", null ],
+      [ "lastSize", "a00036.html#a1cfd063f45ca4209af5ac971e40c3c50", null ]
     ] ],
-    [ "FSL_LPUART_FREERTOS_DRIVER_VERSION", "a00036.html#gae78d379ef6bde2ad08e1fe64f1f09bf5", null ],
-    [ "lpuart_rtos_config_t", "a00036.html#gaec3e5cc86ceea303798e171e10f9163a", null ],
-    [ "LPUART_RTOS_Init", "a00036.html#ga5be9370b1fa0187c194475769e7138fc", null ],
-    [ "LPUART_RTOS_Deinit", "a00036.html#ga057e59dcc578ef4b303850bcd90ca50e", null ],
-    [ "LPUART_RTOS_Send", "a00036.html#ga275e067e13ecc77dde83d2d7938c038e", null ],
-    [ "LPUART_RTOS_Receive", "a00036.html#ga0561f87122863c6e9b20f8991a73a0fb", null ],
-    [ "LPUART_RTOS_SetRxTimeout", "a00036.html#ga3e211e0c1a2c93d9bdd73d6ca4639a10", null ],
-    [ "LPUART_RTOS_SetTxTimeout", "a00036.html#gad2317ff04710f0f4a2dc7d219f850c85", null ]
+    [ "FSL_LTC_EDMA_DRIVER_VERSION", "a00036.html#ga8531b5bfd034f7e0e47273c2948788fd", null ],
+    [ "ltc_edma_callback_t", "a00036.html#gab9bd2683c043b5b33f7b08b675a0df8f", null ],
+    [ "ltc_edma_state_machine_t", "a00036.html#ga2efde022171efa84e07207d89dbab1b0", null ],
+    [ "LTC_CreateHandleEDMA", "a00036.html#gad85a924157b84cca4313cb59e7bdb7be", null ]
 ];

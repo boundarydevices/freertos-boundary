@@ -9,10 +9,7 @@ var searchData=
   ['acmp_5fdac_5fwork_5fmode_5ft',['acmp_dac_work_mode_t',['../a00008.html#gadc8916886edee6512437c9b20fad90db',1,'fsl_acmp.h']]],
   ['acmp_5fdeinit',['ACMP_Deinit',['../a00008.html#gaa2fb24fced5ab6d71e7372132cea0c4a',1,'fsl_acmp.h']]],
   ['acmp_5fdisableinterrupts',['ACMP_DisableInterrupts',['../a00008.html#gaa242deae42b1632a288243b907bf8408',1,'fsl_acmp.h']]],
-  ['acmp_5fdiscrete_5fclock_5fsource_5ft',['acmp_discrete_clock_source_t',['../a00008.html#gac88f411fb25b3de73ebbc3491ae9d9ba',1,'fsl_acmp.h']]],
   ['acmp_5fdiscrete_5fmode_5fconfig_5ft',['acmp_discrete_mode_config_t',['../a00008.html#ga9c536129632390ac5873068d41a6e713',1,'fsl_acmp.h']]],
-  ['acmp_5fdiscrete_5fphase_5ftime_5ft',['acmp_discrete_phase_time_t',['../a00008.html#ga47163f3995466cc0bd71dc05e9665de6',1,'fsl_acmp.h']]],
-  ['acmp_5fdiscrete_5fsample_5ftime_5ft',['acmp_discrete_sample_time_t',['../a00008.html#gaa3f2ec6da4b3ce67331f41c59e833fb5',1,'fsl_acmp.h']]],
   ['acmp_5fenable',['ACMP_Enable',['../a00008.html#ga100dd2cf37519abd251c55f17f59c11e',1,'fsl_acmp.h']]],
   ['acmp_5fenabledma',['ACMP_EnableDMA',['../a00008.html#ga8f5a2138d5799fe45f30c74ff8e0390e',1,'fsl_acmp.h']]],
   ['acmp_5fenableinterrupts',['ACMP_EnableInterrupts',['../a00008.html#gac5adb0b6498ef8e4ae56717da0690680',1,'fsl_acmp.h']]],
@@ -42,7 +39,7 @@ var searchData=
   ['ahbbuffersize',['AHBbufferSize',['../a00026.html#ab30ef315448ee1e327cfbee59e1133b0',1,'QspiConfig']]],
   ['architectural_20overview',['Architectural Overview',['../a00004.html',1,'']]],
   ['area',['area',['../a00026.html#a349bf97f83e0ddaf2acc7705c4bc03af',1,'QspiConfig']]],
-  ['array_5fsize',['ARRAY_SIZE',['../a00181.html#ga6242a25f9d996f0cc4f4cdb911218b75',1,'fsl_common.h']]],
-  ['arrayregulatorselect',['arrayRegulatorSelect',['../a00041.html#a9b860a3ae13ab183d859a4164dc54563',1,'_pmc0_vlpr_mode_config::arrayRegulatorSelect()'],['../a00041.html#aad6d3bf09295eecd94694ec4f418bf7c',1,'_pmc0_vlps_mode_config::arrayRegulatorSelect()'],['../a00041.html#a01867b901f0612ab10ae2a70a66a8b4f',1,'_pmc0_lls_mode_config::arrayRegulatorSelect()'],['../a00041.html#a2cb4b1a0dce7f8c713651032f299f929',1,'_pmc0_vlls_mode_config::arrayRegulatorSelect()']]],
+  ['array_5fsize',['ARRAY_SIZE',['../a00177.html#ga6242a25f9d996f0cc4f4cdb911218b75',1,'fsl_common.h']]],
+  ['arrayregulatorselect',['arrayRegulatorSelect',['../a00040.html#a9b860a3ae13ab183d859a4164dc54563',1,'_pmc0_vlpr_mode_config::arrayRegulatorSelect()'],['../a00040.html#aad6d3bf09295eecd94694ec4f418bf7c',1,'_pmc0_vlps_mode_config::arrayRegulatorSelect()'],['../a00040.html#a01867b901f0612ab10ae2a70a66a8b4f',1,'_pmc0_lls_mode_config::arrayRegulatorSelect()'],['../a00040.html#a2cb4b1a0dce7f8c713651032f299f929',1,'_pmc0_vlls_mode_config::arrayRegulatorSelect()']]],
   ['attr',['ATTR',['../a00015.html#adaf5bd1c5cd5530c283ea329531dd54b',1,'_edma_tcd']]]
 ];

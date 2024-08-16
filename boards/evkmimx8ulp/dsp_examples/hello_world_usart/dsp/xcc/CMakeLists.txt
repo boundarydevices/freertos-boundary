@@ -111,13 +111,13 @@ include_directories(${ProjDirPath}/../../../../../../components/uart)
 
 include_directories(${ProjDirPath}/../../../../../../devices/MIMX8UD7/drivers)
 
-include_directories(${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/str)
-
 include_directories(${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/debug_console_lite)
 
 include_directories(${ProjDirPath}/../../../../../../components/lists)
 
 include_directories(${ProjDirPath}/../../../../../../devices/MIMX8UD7)
+
+include_directories(${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/str)
 
 include_directories(${ProjDirPath}/../../../../../../CMSIS/Core/Include)
 
@@ -131,8 +131,6 @@ add_executable(dsp_hello_world_usart_fusionf1.elf
 "${ProjDirPath}/../../../../../../components/uart/fsl_adapter_lpuart.c"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/drivers/fsl_lpuart.h"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/drivers/fsl_lpuart.c"
-"${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/str/fsl_str.c"
-"${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/str/fsl_str.h"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/debug_console_lite/fsl_debug_console.c"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/debug_console_lite/fsl_debug_console.h"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/debug_console_lite/fsl_assert.c"
@@ -151,6 +149,8 @@ add_executable(dsp_hello_world_usart_fusionf1.elf
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/MIMX8UD7_dsp0_features.h"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/system_MIMX8UD7_dsp0.c"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/system_MIMX8UD7_dsp0.h"
+"${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/str/fsl_str.c"
+"${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/str/fsl_str.h"
 )
 
 

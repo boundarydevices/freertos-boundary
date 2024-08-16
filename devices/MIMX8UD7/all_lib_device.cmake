@@ -1,11 +1,11 @@
 # Copy variable into project config.cmake to use software component
-#set.board.evkmimx8ulp
-#  # description: Board_project_template evkmimx8ulp
-#  set(CONFIG_USE_BOARD_Project_Template_evkmimx8ulp true)
-
 #set.board.evk9mimx8ulp
 #  # description: Board_project_template evk9mimx8ulp
 #  set(CONFIG_USE_BOARD_Project_Template_evk9mimx8ulp true)
+
+#set.board.evkmimx8ulp
+#  # description: Board_project_template evkmimx8ulp
+#  set(CONFIG_USE_BOARD_Project_Template_evkmimx8ulp true)
 
 #set.device.MIMX8UD7
 #  # description: Device MIMX8UD7_startup
@@ -176,6 +176,9 @@
 #  # description: Component mem_manager_light
 #  set(CONFIG_USE_component_mem_manager_light true)
 
+#  # description: Component mem_manager_freertos
+#  set(CONFIG_USE_component_mem_manager_freertos true)
+
 #  # description: Component panic
 #  set(CONFIG_USE_component_panic true)
 
@@ -320,7 +323,7 @@
 #  # description: LPI2C Driver
 #  set(CONFIG_USE_driver_lpi2c true)
 
-#  # description: LPI2C Driver
+#  # description: LPI2C FreeRTOS Driver
 #  set(CONFIG_USE_driver_lpi2c_freertos true)
 
 #  # description: LPIT Driver
@@ -329,7 +332,7 @@
 #  # description: LPSPI Driver
 #  set(CONFIG_USE_driver_lpspi true)
 
-#  # description: LPSPI Driver
+#  # description: LPSPI FreeRTOS Driver
 #  set(CONFIG_USE_driver_lpspi_freertos true)
 
 #  # description: LPTMR Driver
@@ -338,7 +341,7 @@
 #  # description: LPUART Driver
 #  set(CONFIG_USE_driver_lpuart true)
 
-#  # description: LPUART Driver
+#  # description: LPUART Freertos Driver
 #  set(CONFIG_USE_driver_lpuart_freertos true)
 
 #  # description: MIPI DSI Driver
@@ -530,7 +533,10 @@
 #  # description: FreeRTOS heap 5
 #  set(CONFIG_USE_middleware_freertos-kernel_heap_5 true)
 
-#  # description: FreeRTOS MPU wrappers
+#  # description: new V2 FreeRTOS MPU wrappers introduced in V10.6.0
+#  set(CONFIG_USE_middleware_freertos-kernel_mpu_wrappers_v2 true)
+
+#  # description: old FreeRTOS MPU wrappers used before V10.6.0
 #  set(CONFIG_USE_middleware_freertos-kernel_mpu_wrappers true)
 
 #  # description: FreeRTOS cm33 TrustZone secure port
@@ -545,6 +551,12 @@
 
 #  # description: els_pkc config
 #  set(CONFIG_USE_middleware_mbedtls_els_pkc_config true)
+
+#  # description: mbedTLS test suite
+#  set(CONFIG_USE_middleware_mbedtls_tests true)
+
+#  # description: mbedTLS 3rdparty code
+#  set(CONFIG_USE_middleware_mbedtls_3rdparty true)
 
 #set.middleware.multicore
 #  # description: Multicore SDK
@@ -664,6 +676,15 @@
 #  # description: erpc_doc
 #  set(CONFIG_USE_middleware_multicore_erpc_doc true)
 
+#  # description: erpc_zephyr
+#  set(CONFIG_USE_middleware_multicore_erpc_zephyr true)
+
+#  # description: erpc_java
+#  set(CONFIG_USE_middleware_multicore_erpc_java true)
+
+#  # description: erpc_examples
+#  set(CONFIG_USE_middleware_multicore_erpc_examples true)
+
 #  # description: eRPC
 #  set(CONFIG_USE_middleware_multicore_erpc true)
 
@@ -675,6 +696,9 @@
 
 #  # description: RPMsg-Lite for evkmimx8ulp fusion dsp baremetal application
 #  set(CONFIG_USE_middleware_multicore_rpmsg_lite_imx8ulp_fusionf1_bm true)
+
+#  # description: RPMsg-Lite Zephyr environment sources
+#  set(CONFIG_USE_middleware_multicore_rpmsg_lite_zephyr true)
 
 #  # description: RPMsg-Lite
 #  set(CONFIG_USE_middleware_multicore_rpmsg_lite true)
@@ -697,19 +721,10 @@
 #  # description: Voice Spot library
 #  set(CONFIG_USE_middleware_voice_spot_fusionf1_imx8ULP true)
 
-#set.middleware.corehttp
-#  # description: Client implementation of the HTTP/1.1 specification for embedded devices.
-#  set(CONFIG_USE_middleware_freertos_corehttp true)
-
-#set.middleware.llhttp
-#  # description: HTTP parser in LLVM IR
-#  set(CONFIG_USE_middleware_llhttp true)
-
-#set.middleware.naturedsp_fusionf1
-#  # description: NatureDSP
-#  set(CONFIG_USE_middleware_naturedsp_naturedsp_fusionf1 true)
-
 #set.component.osa
+#  # description: Component osa_zephyr
+#  set(CONFIG_USE_component_osa_zephyr true)
+
 #  # description: Component common_task
 #  set(CONFIG_USE_component_common_task true)
 
@@ -724,6 +739,18 @@
 
 #  # description: Component osa interface
 #  set(CONFIG_USE_component_osa_interface true)
+
+#set.middleware.corehttp
+#  # description: Client implementation of the HTTP/1.1 specification for embedded devices.
+#  set(CONFIG_USE_middleware_freertos_corehttp true)
+
+#set.middleware.llhttp
+#  # description: HTTP parser in LLVM IR
+#  set(CONFIG_USE_middleware_llhttp true)
+
+#set.middleware.naturedsp_fusionf1
+#  # description: NatureDSP
+#  set(CONFIG_USE_middleware_naturedsp_naturedsp_fusionf1 true)
 
 list(APPEND CMAKE_MODULE_PATH
   ${CMAKE_CURRENT_LIST_DIR}/.
@@ -842,12 +869,14 @@ include_if_use(component_lptmr_adapter.MIMX8UD7)
 include_if_use(component_lpuart_adapter.MIMX8UD7)
 include_if_use(component_lpuart_dma_adapter.MIMX8UD7)
 include_if_use(component_mem_manager.MIMX8UD7)
+include_if_use(component_mem_manager_freertos.MIMX8UD7)
 include_if_use(component_mem_manager_light.MIMX8UD7)
 include_if_use(component_mrt_adapter.MIMX8UD7)
 include_if_use(component_osa)
 include_if_use(component_osa_bm)
 include_if_use(component_osa_free_rtos)
 include_if_use(component_osa_interface)
+include_if_use(component_osa_zephyr)
 include_if_use(component_panic.MIMX8UD7)
 include_if_use(component_pwm_tpm_adapter.MIMX8UD7)
 include_if_use(component_reset_adapter.MIMX8UD7)
@@ -974,10 +1003,13 @@ include_if_use(middleware_freertos-kernel_heap_3)
 include_if_use(middleware_freertos-kernel_heap_4)
 include_if_use(middleware_freertos-kernel_heap_5)
 include_if_use(middleware_freertos-kernel_mpu_wrappers)
+include_if_use(middleware_freertos-kernel_mpu_wrappers_v2)
 include_if_use(middleware_freertos_corehttp)
 include_if_use(middleware_llhttp)
+include_if_use(middleware_mbedtls_3rdparty)
 include_if_use(middleware_mbedtls_els_pkc_config)
 include_if_use(middleware_mbedtls_template)
+include_if_use(middleware_mbedtls_tests)
 include_if_use(middleware_multicore)
 include_if_use(middleware_multicore_erpc)
 include_if_use(middleware_multicore_erpc_common)
@@ -1013,6 +1045,9 @@ include_if_use(middleware_multicore_erpc_eRPC_spi_master_transport)
 include_if_use(middleware_multicore_erpc_eRPC_spi_slave_c_wrapper)
 include_if_use(middleware_multicore_erpc_eRPC_spi_slave_transport)
 include_if_use(middleware_multicore_erpc_eRPC_uart_cmsis_transport)
+include_if_use(middleware_multicore_erpc_examples)
+include_if_use(middleware_multicore_erpc_java)
+include_if_use(middleware_multicore_erpc_zephyr)
 include_if_use(middleware_multicore_remoteproc_loadscript)
 include_if_use(middleware_multicore_rpmsg_lite)
 include_if_use(middleware_multicore_rpmsg_lite_azurertos)
@@ -1022,6 +1057,7 @@ include_if_use(middleware_multicore_rpmsg_lite_imx8ulp_fusionf1_bm)
 include_if_use(middleware_multicore_rpmsg_lite_imx8ulp_m33_bm)
 include_if_use(middleware_multicore_rpmsg_lite_imx8ulp_m33_freertos)
 include_if_use(middleware_multicore_rpmsg_lite_xos)
+include_if_use(middleware_multicore_rpmsg_lite_zephyr)
 include_if_use(middleware_naturedsp_naturedsp_fusionf1)
 include_if_use(middleware_pkcs11)
 include_if_use(middleware_tinycbor)

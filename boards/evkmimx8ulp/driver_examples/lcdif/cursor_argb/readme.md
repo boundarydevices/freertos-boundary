@@ -6,12 +6,12 @@ is moving in the screen, the cursor alpha value changes during moving.
 
 SDK version
 ===========
-- Version: 2.15.000
+- Version: 2.16.000
 
 Toolchain supported
 ===================
-- IAR embedded Workbench  9.40.1
-- GCC ARM Embedded  12.2
+- IAR embedded Workbench  9.60.1
+- GCC ARM Embedded  13.2.1
 
 Hardware requirements
 =====================
@@ -46,6 +46,6 @@ Prepare the Demo
     then re-power on the board
 8.  Let Stop in Uboot
 
-Running the demo(Test with uboot)
-=================================
+Running the demo
+================
 When the example runs, the screen shows what described in overview.

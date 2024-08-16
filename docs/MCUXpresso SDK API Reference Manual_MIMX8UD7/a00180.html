@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: CACHE: LMEM CACHE Memory Controller</title>
+<title>MCUXpresso SDK API Reference Manual: GPIO Driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.15.000</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -98,109 +98,94 @@ $(document).ready(function(){initNavTree('a00180.html','');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
-<div class="title">CACHE: LMEM CACHE Memory Controller</div>  </div>
+<div class="title">GPIO Driver<div class="ingroups"><a class="el" href="a00025.html">GPIO: General-Purpose Input/Output Driver</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
-<p>The MCUXpresso SDK provides a peripheral driver for the CACHE Controller of MCUXpresso SDK devices.</p>
-<p>The CACHE driver is created to help the user more easily operate the cache memory. The APIs for basic operations are including the following three levels: 1L. The L1 cache driver API. This level provides the level 1 caches controller drivers. The L1 caches in this arch is the previous the local memory controller (LMEM).</p>
-<p>2L. The unified cache driver API. This level provides many APIs for unified cache driver APIs for combined L1 and L2 cache maintain operations. This is provided for SDK drivers (DMA, ENET, USDHC, etc) which should do the cache maintenance in their transactional APIs. Because in this arch, there is no L2 cache so the unified cache driver API directly calls only L1 driver APIs.</p>
-<h1><a class="anchor" id="CACHEFuncGrps"></a>
-Function groups</h1>
-<h2><a class="anchor" id="L1CACHEMaintainOperation"></a>
-L1 CACHE Operation</h2>
-<p>The L1 CACHE has both code cache and data cache. This function group provides two independent API groups for both code cache and data cache. There are Enable/Disable APIs for code cache and data cache control and cache maintenance operations as Invalidate/Clean/CleanInvalidate by all and by address range. </p>
+<p>The MCUXpresso SDK provides a peripheral driver for the General-Purpose Input/Output (GPIO) module of MCUXpresso SDK devices.</p>
+<h1><a class="anchor" id="GPIOTpyUC"></a>
+Typical use case</h1>
+<h2><a class="anchor" id="GPIOOutOps"></a>
+Output Operation</h2>
+<p>Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/gpio </p>
+<h2><a class="anchor" id="GPIOInOps"></a>
+Input Operation</h2>
+<p>Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/gpio </p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:gaf058136578c173de92a3ffdd74084d90"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#gaf058136578c173de92a3ffdd74084d90">L1CODEBUSCACHE_LINESIZE_BYTE</a>&#160;&#160;&#160;FSL_FEATURE_L1ICACHE_LINESIZE_BYTE</td></tr>
-<tr class="memdesc:gaf058136578c173de92a3ffdd74084d90"><td class="mdescLeft">&#160;</td><td class="mdescRight">code bus cache line size is equal to system bus line size, so the unified I/D cache line size equals too.  <a href="#gaf058136578c173de92a3ffdd74084d90">More...</a><br/></td></tr>
-<tr class="separator:gaf058136578c173de92a3ffdd74084d90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga857580957c4b09df471f1142873d38b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#ga857580957c4b09df471f1142873d38b8">L1SYSTEMBUSCACHE_LINESIZE_BYTE</a>&#160;&#160;&#160;<a class="el" href="a00180.html#gaf058136578c173de92a3ffdd74084d90">L1CODEBUSCACHE_LINESIZE_BYTE</a></td></tr>
-<tr class="memdesc:ga857580957c4b09df471f1142873d38b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The system bus CACHE line size is 16B = 128b.  <a href="#ga857580957c4b09df471f1142873d38b8">More...</a><br/></td></tr>
-<tr class="separator:ga857580957c4b09df471f1142873d38b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+GPIO Configuration</h2></td></tr>
+<tr class="memitem:ga0793a4e8cb6e746485012da3e487db53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#ga0793a4e8cb6e746485012da3e487db53">GPIO_PinInit</a> (GPIO_Type *base, uint32_t pin, const <a class="el" href="a00025.html#ga9279df0a87f2432dc3c5d596028223b7">gpio_pin_config_t</a> *config)</td></tr>
+<tr class="memdesc:ga0793a4e8cb6e746485012da3e487db53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a GPIO pin used by the board.  <a href="#ga0793a4e8cb6e746485012da3e487db53">More...</a><br/></td></tr>
+<tr class="separator:ga0793a4e8cb6e746485012da3e487db53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-Driver version</h2></td></tr>
-<tr class="memitem:gac954b8be2bb59a983a9594c59e4b4fa5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#gac954b8be2bb59a983a9594c59e4b4fa5">FSL_CACHE_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 6))</td></tr>
-<tr class="memdesc:gac954b8be2bb59a983a9594c59e4b4fa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">cache driver version.  <a href="#gac954b8be2bb59a983a9594c59e4b4fa5">More...</a><br/></td></tr>
-<tr class="separator:gac954b8be2bb59a983a9594c59e4b4fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+GPIO Output Operations</h2></td></tr>
+<tr class="memitem:ga80e69ba881f3667fee56c01fa2b2e890"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#ga80e69ba881f3667fee56c01fa2b2e890">GPIO_PinWrite</a> (GPIO_Type *base, uint32_t pin, uint8_t output)</td></tr>
+<tr class="memdesc:ga80e69ba881f3667fee56c01fa2b2e890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the output level of the multiple GPIO pins to the logic 1 or 0.  <a href="#ga80e69ba881f3667fee56c01fa2b2e890">More...</a><br/></td></tr>
+<tr class="separator:ga80e69ba881f3667fee56c01fa2b2e890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2de9f41517bfde0920a5dea5db6e56d6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#ga2de9f41517bfde0920a5dea5db6e56d6">GPIO_PortSet</a> (GPIO_Type *base, uint32_t mask)</td></tr>
+<tr class="memdesc:ga2de9f41517bfde0920a5dea5db6e56d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the output level of the multiple GPIO pins to the logic 1.  <a href="#ga2de9f41517bfde0920a5dea5db6e56d6">More...</a><br/></td></tr>
+<tr class="separator:ga2de9f41517bfde0920a5dea5db6e56d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff8a89d83ce5fdaea9db88317eece33c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#gaff8a89d83ce5fdaea9db88317eece33c">GPIO_PortClear</a> (GPIO_Type *base, uint32_t mask)</td></tr>
+<tr class="memdesc:gaff8a89d83ce5fdaea9db88317eece33c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the output level of the multiple GPIO pins to the logic 0.  <a href="#gaff8a89d83ce5fdaea9db88317eece33c">More...</a><br/></td></tr>
+<tr class="separator:gaff8a89d83ce5fdaea9db88317eece33c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaedff8c598cb084323f2aa6c324c2c0cb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#gaedff8c598cb084323f2aa6c324c2c0cb">GPIO_PortToggle</a> (GPIO_Type *base, uint32_t mask)</td></tr>
+<tr class="memdesc:gaedff8c598cb084323f2aa6c324c2c0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses the current output logic of the multiple GPIO pins.  <a href="#gaedff8c598cb084323f2aa6c324c2c0cb">More...</a><br/></td></tr>
+<tr class="separator:gaedff8c598cb084323f2aa6c324c2c0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-Unified Cache Control for all caches</h2></td></tr>
-<tr class="memitem:gab9e79fa88e11db521b74f5316de68676"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#gab9e79fa88e11db521b74f5316de68676">ICACHE_InvalidateByRange</a> (uint32_t address, uint32_t size_byte)</td></tr>
-<tr class="memdesc:gab9e79fa88e11db521b74f5316de68676"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invalidates instruction cache by range.  <a href="#gab9e79fa88e11db521b74f5316de68676">More...</a><br/></td></tr>
-<tr class="separator:gab9e79fa88e11db521b74f5316de68676"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4a4a0028d417cbce2b62222ca06ad185"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#ga4a4a0028d417cbce2b62222ca06ad185">DCACHE_InvalidateByRange</a> (uint32_t address, uint32_t size_byte)</td></tr>
-<tr class="memdesc:ga4a4a0028d417cbce2b62222ca06ad185"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invalidates data cache by range.  <a href="#ga4a4a0028d417cbce2b62222ca06ad185">More...</a><br/></td></tr>
-<tr class="separator:ga4a4a0028d417cbce2b62222ca06ad185"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa201659a87d58936f5e7e07ab12d634c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#gaa201659a87d58936f5e7e07ab12d634c">DCACHE_CleanByRange</a> (uint32_t address, uint32_t size_byte)</td></tr>
-<tr class="memdesc:gaa201659a87d58936f5e7e07ab12d634c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean data cache by range.  <a href="#gaa201659a87d58936f5e7e07ab12d634c">More...</a><br/></td></tr>
-<tr class="separator:gaa201659a87d58936f5e7e07ab12d634c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga829a56918d5a245ffc86121703bdc160"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#ga829a56918d5a245ffc86121703bdc160">DCACHE_CleanInvalidateByRange</a> (uint32_t address, uint32_t size_byte)</td></tr>
-<tr class="memdesc:ga829a56918d5a245ffc86121703bdc160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans and Invalidates data cache by range.  <a href="#ga829a56918d5a245ffc86121703bdc160">More...</a><br/></td></tr>
-<tr class="separator:ga829a56918d5a245ffc86121703bdc160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+GPIO Input Operations</h2></td></tr>
+<tr class="memitem:gac999c0dd229595fe2b651e796da560be"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#gac999c0dd229595fe2b651e796da560be">GPIO_PinRead</a> (GPIO_Type *base, uint32_t pin)</td></tr>
+<tr class="memdesc:gac999c0dd229595fe2b651e796da560be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the current input value of the GPIO port.  <a href="#gac999c0dd229595fe2b651e796da560be">More...</a><br/></td></tr>
+<tr class="separator:gac999c0dd229595fe2b651e796da560be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+GPIO Interrupt</h2></td></tr>
+<tr class="memitem:gab9967340de1977ca533240e0819ad876"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#gab9967340de1977ca533240e0819ad876">GPIO_SetPinInterruptConfig</a> (GPIO_Type *base, uint32_t pin, <a class="el" href="a00025.html#ga42677c82eb346d4e5b887ee443b1544e">gpio_interrupt_config_t</a> config)</td></tr>
+<tr class="memdesc:gab9967340de1977ca533240e0819ad876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the gpio pin interrupt/DMA request.  <a href="#gab9967340de1977ca533240e0819ad876">More...</a><br/></td></tr>
+<tr class="separator:gab9967340de1977ca533240e0819ad876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f0b75348e79199f81b75d4969b3867e"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#ga9f0b75348e79199f81b75d4969b3867e">GPIO_GpioGetInterruptFlags</a> (GPIO_Type *base)</td></tr>
+<tr class="memdesc:ga9f0b75348e79199f81b75d4969b3867e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the GPIO interrupt status flags.  <a href="#ga9f0b75348e79199f81b75d4969b3867e">More...</a><br/></td></tr>
+<tr class="separator:ga9f0b75348e79199f81b75d4969b3867e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9769a667a796bcd93cf28304870d3257"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#ga9769a667a796bcd93cf28304870d3257">GPIO_PinGetInterruptFlag</a> (GPIO_Type *base, uint32_t pin)</td></tr>
+<tr class="memdesc:ga9769a667a796bcd93cf28304870d3257"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read individual pin's interrupt status flag.  <a href="#ga9769a667a796bcd93cf28304870d3257">More...</a><br/></td></tr>
+<tr class="separator:ga9769a667a796bcd93cf28304870d3257"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd738c868447c88d9f010a7c04a0c551"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#gafd738c868447c88d9f010a7c04a0c551">GPIO_GpioClearInterruptFlags</a> (GPIO_Type *base, uint32_t mask)</td></tr>
+<tr class="memdesc:gafd738c868447c88d9f010a7c04a0c551"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears GPIO pin interrupt status flags.  <a href="#gafd738c868447c88d9f010a7c04a0c551">More...</a><br/></td></tr>
+<tr class="separator:gafd738c868447c88d9f010a7c04a0c551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab3c667b58e2fb90d0f998f66d9bdea7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#gab3c667b58e2fb90d0f998f66d9bdea7b">GPIO_PinClearInterruptFlag</a> (GPIO_Type *base, uint32_t pin)</td></tr>
+<tr class="memdesc:gab3c667b58e2fb90d0f998f66d9bdea7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear GPIO individual pin's interrupt status flag.  <a href="#gab3c667b58e2fb90d0f998f66d9bdea7b">More...</a><br/></td></tr>
+<tr class="separator:gab3c667b58e2fb90d0f998f66d9bdea7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d2981db2bb5124995e29c6a92df8b5a"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#ga9d2981db2bb5124995e29c6a92df8b5a">GPIO_GetPinsDMARequestFlags</a> (GPIO_Type *base)</td></tr>
+<tr class="memdesc:ga9d2981db2bb5124995e29c6a92df8b5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the GPIO DMA request flags.  <a href="#ga9d2981db2bb5124995e29c6a92df8b5a">More...</a><br/></td></tr>
+<tr class="separator:ga9d2981db2bb5124995e29c6a92df8b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f5186a9bedc509e40799d9e060b28db"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#ga7f5186a9bedc509e40799d9e060b28db">GPIO_SetMultipleInterruptPinsConfig</a> (GPIO_Type *base, uint32_t mask, <a class="el" href="a00025.html#ga42677c82eb346d4e5b887ee443b1544e">gpio_interrupt_config_t</a> config)</td></tr>
+<tr class="memdesc:ga7f5186a9bedc509e40799d9e060b28db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the GPIO interrupt configuration in PCR register for multiple pins.  <a href="#ga7f5186a9bedc509e40799d9e060b28db">More...</a><br/></td></tr>
+<tr class="separator:ga7f5186a9bedc509e40799d9e060b28db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="gac954b8be2bb59a983a9594c59e4b4fa5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FSL_CACHE_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 6))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="gaf058136578c173de92a3ffdd74084d90"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define L1CODEBUSCACHE_LINESIZE_BYTE&#160;&#160;&#160;FSL_FEATURE_L1ICACHE_LINESIZE_BYTE</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The code bus CACHE line size is 16B = 128b. </p>
-
-</div>
-</div>
-<a class="anchor" id="ga857580957c4b09df471f1142873d38b8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define L1SYSTEMBUSCACHE_LINESIZE_BYTE&#160;&#160;&#160;<a class="el" href="a00180.html#gaf058136578c173de92a3ffdd74084d90">L1CODEBUSCACHE_LINESIZE_BYTE</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="gab9e79fa88e11db521b74f5316de68676"></a>
+<a class="anchor" id="ga0793a4e8cb6e746485012da3e487db53"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void ICACHE_InvalidateByRange </td>
+          <td class="memname">void GPIO_PinInit </td>
           <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>address</em>, </td>
+          <td class="paramtype">GPIO_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>size_byte</em>&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00025.html#ga9279df0a87f2432dc3c5d596028223b7">gpio_pin_config_t</a> *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -208,24 +193,34 @@ Unified Cache Control for all caches</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+<p>To initialize the GPIO, define a pin configuration, as either input or output, in the user file. Then, call the <a class="el" href="a00180.html#ga0793a4e8cb6e746485012da3e487db53" title="Initializes a GPIO pin used by the board. ">GPIO_PinInit()</a> function.</p>
+<p>This is an example to define an input pin or an output pin configuration. </p>
+<div class="fragment"><div class="line">* Define a digital input pin configuration,</div>
+<div class="line">* <a class="code" href="a00025.html#a00269">gpio_pin_config_t</a> config =</div>
+<div class="line">* {</div>
+<div class="line">*   <a class="code" href="a00025.html#gga0df4be96fa56f3bdd7bfa048fdaacd6babacf19933be1940ab40c83535e6a46d4">kGPIO_DigitalInput</a>,</div>
+<div class="line">*   0,</div>
+<div class="line">* }</div>
+<div class="line">* Define a digital output pin configuration,</div>
+<div class="line">* <a class="code" href="a00025.html#a00269">gpio_pin_config_t</a> config =</div>
+<div class="line">* {</div>
+<div class="line">*   <a class="code" href="a00025.html#gga0df4be96fa56f3bdd7bfa048fdaacd6ba509ebcd228fc813cf4afcacd258680f9">kGPIO_DigitalOutput</a>,</div>
+<div class="line">*   0,</div>
+<div class="line">* }</div>
+<div class="line">* </div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>The physical address. </td></tr>
-    <tr><td class="paramname">size_byte</td><td>size of the memory to be invalidated. </td></tr>
+    <tr><td class="paramname">base</td><td>GPIO peripheral base pointer (GPIOA, GPIOB, GPIOC, and so on.) </td></tr>
+    <tr><td class="paramname">pin</td><td>GPIO port pin number </td></tr>
+    <tr><td class="paramname">config</td><td>GPIO pin configuration pointer </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Address and size should be aligned to 16-Byte due to the cache operation unit FSL_FEATURE_L1ICACHE_LINESIZE_BYTE. The startAddr here will be forced to align to the cache line size if startAddr is not aligned. For the size_byte, application should make sure the alignment or make sure the right operation order if the size_byte is not aligned. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga4a4a0028d417cbce2b62222ca06ad185"></a>
+<a class="anchor" id="ga80e69ba881f3667fee56c01fa2b2e890"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -233,16 +228,22 @@ Unified Cache Control for all caches</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void DCACHE_InvalidateByRange </td>
+          <td class="memname">static void GPIO_PinWrite </td>
           <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>address</em>, </td>
+          <td class="paramtype">GPIO_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>size_byte</em>&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>output</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -258,16 +259,20 @@ Unified Cache Control for all caches</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>The physical address. </td></tr>
-    <tr><td class="paramname">size_byte</td><td>size of the memory to be invalidated. </td></tr>
+    <tr><td class="paramname">base</td><td>GPIO peripheral base pointer (GPIOA, GPIOB, GPIOC, and so on.) </td></tr>
+    <tr><td class="paramname">pin</td><td>GPIO pin number </td></tr>
+    <tr><td class="paramname">output</td><td>GPIO pin output logic level.<ul>
+<li>0: corresponding pin output low-logic level.</li>
+<li>1: corresponding pin output high-logic level. </li>
+</ul>
+</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Address and size should be aligned to 16-Byte due to the cache operation unit FSL_FEATURE_L1DCACHE_LINESIZE_BYTE. The startAddr here will be forced to align to the cache line size if startAddr is not aligned. For the size_byte, application should make sure the alignment or make sure the right operation order if the size_byte is not aligned. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gaa201659a87d58936f5e7e07ab12d634c"></a>
+<a class="anchor" id="ga2de9f41517bfde0920a5dea5db6e56d6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -275,16 +280,16 @@ Unified Cache Control for all caches</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void DCACHE_CleanByRange </td>
+          <td class="memname">static void GPIO_PortSet </td>
           <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>address</em>, </td>
+          <td class="paramtype">GPIO_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>size_byte</em>&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -300,16 +305,15 @@ Unified Cache Control for all caches</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>The physical address. </td></tr>
-    <tr><td class="paramname">size_byte</td><td>size of the memory to be cleaned. </td></tr>
+    <tr><td class="paramname">base</td><td>GPIO peripheral base pointer (GPIOA, GPIOB, GPIOC, and so on.) </td></tr>
+    <tr><td class="paramname">mask</td><td>GPIO pin number macro </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Address and size should be aligned to 16-Byte due to the cache operation unit FSL_FEATURE_L1DCACHE_LINESIZE_BYTE. The startAddr here will be forced to align to the cache line size if startAddr is not aligned. For the size_byte, application should make sure the alignment or make sure the right operation order if the size_byte is not aligned. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga829a56918d5a245ffc86121703bdc160"></a>
+<a class="anchor" id="gaff8a89d83ce5fdaea9db88317eece33c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -317,16 +321,16 @@ Unified Cache Control for all caches</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void DCACHE_CleanInvalidateByRange </td>
+          <td class="memname">static void GPIO_PortClear </td>
           <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>address</em>, </td>
+          <td class="paramtype">GPIO_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>size_byte</em>&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -342,12 +346,379 @@ Unified Cache Control for all caches</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>The physical address. </td></tr>
-    <tr><td class="paramname">size_byte</td><td>size of the memory to be Cleaned and Invalidated. </td></tr>
+    <tr><td class="paramname">base</td><td>GPIO peripheral base pointer (GPIOA, GPIOB, GPIOC, and so on.) </td></tr>
+    <tr><td class="paramname">mask</td><td>GPIO pin number macro </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Address and size should be aligned to 16-Byte due to the cache operation unit FSL_FEATURE_L1DCACHE_LINESIZE_BYTE. The startAddr here will be forced to align to the cache line size if startAddr is not aligned. For the size_byte, application should make sure the alignment or make sure the right operation order if the size_byte is not aligned. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaedff8c598cb084323f2aa6c324c2c0cb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void GPIO_PortToggle </td>
+          <td>(</td>
+          <td class="paramtype">GPIO_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPIO peripheral base pointer (GPIOA, GPIOB, GPIOC, and so on.) </td></tr>
+    <tr><td class="paramname">mask</td><td>GPIO pin number macro </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gac999c0dd229595fe2b651e796da560be"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint32_t GPIO_PinRead </td>
+          <td>(</td>
+          <td class="paramtype">GPIO_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>pin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPIO peripheral base pointer (GPIOA, GPIOB, GPIOC, and so on.) </td></tr>
+    <tr><td class="paramname">pin</td><td>GPIO pin number </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">GPIO</td><td>port input value<ul>
+<li>0: corresponding pin input low-logic level.</li>
+<li>1: corresponding pin input high-logic level. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gab9967340de1977ca533240e0819ad876"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void GPIO_SetPinInterruptConfig </td>
+          <td>(</td>
+          <td class="paramtype">GPIO_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00025.html#ga42677c82eb346d4e5b887ee443b1544e">gpio_interrupt_config_t</a>&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPIO peripheral base pointer. </td></tr>
+    <tr><td class="paramname">pin</td><td>GPIO pin number. </td></tr>
+    <tr><td class="paramname">config</td><td>GPIO pin interrupt configuration.<ul>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4ae49c67dff5a5af96441b5be5877920e2" title="Interrupt status flag is disabled. ">kGPIO_InterruptStatusFlagDisabled</a>: Interrupt/DMA request disabled.</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4aea5a6f00e7f460462cbb61d869d6afb3" title="ISF flag and DMA request on rising edge. ">kGPIO_DMARisingEdge</a> : DMA request on rising edge(if the DMA requests exit).</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a0d6241b8923e095b6929b8953223eff7" title="ISF flag and DMA request on falling edge. ">kGPIO_DMAFallingEdge</a>: DMA request on falling edge(if the DMA requests exit).</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a60082b41139b7f39a4bfeb0c3d063bb4" title="ISF flag and DMA request on either edge. ">kGPIO_DMAEitherEdge</a> : DMA request on either edge(if the DMA requests exit).</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a7d3dc52df6b88850b150e147f6fae8b4" title="Flag sets on rising edge. ">kGPIO_FlagRisingEdge</a> : Flag sets on rising edge(if the Flag states exit).</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4ac96724429f68b193d6d9df6a87f05796" title="Flag sets on falling edge. ">kGPIO_FlagFallingEdge</a> : Flag sets on falling edge(if the Flag states exit).</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a4178a46b5dd82465dc1fea82f0dfa060" title="Flag sets on either edge. ">kGPIO_FlagEitherEdge</a> : Flag sets on either edge(if the Flag states exit).</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a54e1670e1eaee99015b7d0087bc7eff6" title="Interrupt when logic zero. ">kGPIO_InterruptLogicZero</a> : Interrupt when logic zero.</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a9037ab47c47cbb1b78769e551543d7ab" title="Interrupt on rising edge. ">kGPIO_InterruptRisingEdge</a> : Interrupt on rising edge.</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4afd6a7ce8570cd3a48c665e0e2702f906" title="Interrupt on falling edge. ">kGPIO_InterruptFallingEdge</a>: Interrupt on falling edge.</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4ac135bf36c113d67a23f75cc84310611d" title="Interrupt on either edge. ">kGPIO_InterruptEitherEdge</a> : Interrupt on either edge.</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a212b62b7e9009f75ab1ee4b660c89024" title="Interrupt when logic one. ">kGPIO_InterruptLogicOne</a> : Interrupt when logic one.</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a7cbafdc984c633da3dcd62a61ae174d3" title="Enable active high-trigger output. ">kGPIO_ActiveHighTriggerOutputEnable</a> : Enable active high-trigger output (if the trigger states exit).</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4ae1f53b8ca425d32ea1417b6eaef76d62" title="Enable active low-trigger output. ">kGPIO_ActiveLowTriggerOutputEnable</a> : Enable active low-trigger output (if the trigger states exit). </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga9f0b75348e79199f81b75d4969b3867e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t GPIO_GpioGetInterruptFlags </td>
+          <td>(</td>
+          <td class="paramtype">GPIO_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPIO peripheral base pointer. (GPIOA, GPIOB, GPIOC, and so on.) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The current GPIO's interrupt status flag. '1' means the related pin's flag is set, '0' means the related pin's flag not set. For example, the return value 0x00010001 means the pin 0 and 17 have the interrupt pending. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga9769a667a796bcd93cf28304870d3257"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t GPIO_PinGetInterruptFlag </td>
+          <td>(</td>
+          <td class="paramtype">GPIO_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>pin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPIO peripheral base pointer. (GPIOA, GPIOB, GPIOC, and so on) </td></tr>
+    <tr><td class="paramname">pin</td><td>GPIO specific pin number. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The current selected pin's interrupt status flag. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gafd738c868447c88d9f010a7c04a0c551"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPIO_GpioClearInterruptFlags </td>
+          <td>(</td>
+          <td class="paramtype">GPIO_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPIO peripheral base pointer (GPIOA, GPIOB, GPIOC, and so on.) </td></tr>
+    <tr><td class="paramname">mask</td><td>GPIO pin number macro </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gab3c667b58e2fb90d0f998f66d9bdea7b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPIO_PinClearInterruptFlag </td>
+          <td>(</td>
+          <td class="paramtype">GPIO_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>pin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPIO peripheral base pointer (GPIOA, GPIOB, GPIOC, and so on). </td></tr>
+    <tr><td class="paramname">pin</td><td>GPIO specific pin number. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga9d2981db2bb5124995e29c6a92df8b5a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint32_t GPIO_GetPinsDMARequestFlags </td>
+          <td>(</td>
+          <td class="paramtype">GPIO_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The corresponding flag will be cleared automatically at the completion of the requested DMA transfer </p>
+
+</div>
+</div>
+<a class="anchor" id="ga7f5186a9bedc509e40799d9e060b28db"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void GPIO_SetMultipleInterruptPinsConfig </td>
+          <td>(</td>
+          <td class="paramtype">GPIO_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>mask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00025.html#ga42677c82eb346d4e5b887ee443b1544e">gpio_interrupt_config_t</a>&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>GPIO peripheral base pointer. </td></tr>
+    <tr><td class="paramname">mask</td><td>GPIO pin number macro. </td></tr>
+    <tr><td class="paramname">config</td><td>GPIO pin interrupt configuration.<ul>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4ae49c67dff5a5af96441b5be5877920e2" title="Interrupt status flag is disabled. ">kGPIO_InterruptStatusFlagDisabled</a>: Interrupt disabled.</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4aea5a6f00e7f460462cbb61d869d6afb3" title="ISF flag and DMA request on rising edge. ">kGPIO_DMARisingEdge</a> : DMA request on rising edge(if the DMA requests exit).</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a0d6241b8923e095b6929b8953223eff7" title="ISF flag and DMA request on falling edge. ">kGPIO_DMAFallingEdge</a>: DMA request on falling edge(if the DMA requests exit).</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a60082b41139b7f39a4bfeb0c3d063bb4" title="ISF flag and DMA request on either edge. ">kGPIO_DMAEitherEdge</a> : DMA request on either edge(if the DMA requests exit).</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a7d3dc52df6b88850b150e147f6fae8b4" title="Flag sets on rising edge. ">kGPIO_FlagRisingEdge</a> : Flag sets on rising edge(if the Flag states exit).</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4ac96724429f68b193d6d9df6a87f05796" title="Flag sets on falling edge. ">kGPIO_FlagFallingEdge</a> : Flag sets on falling edge(if the Flag states exit).</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a4178a46b5dd82465dc1fea82f0dfa060" title="Flag sets on either edge. ">kGPIO_FlagEitherEdge</a> : Flag sets on either edge(if the Flag states exit).</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a54e1670e1eaee99015b7d0087bc7eff6" title="Interrupt when logic zero. ">kGPIO_InterruptLogicZero</a> : Interrupt when logic zero.</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a9037ab47c47cbb1b78769e551543d7ab" title="Interrupt on rising edge. ">kGPIO_InterruptRisingEdge</a> : Interrupt on rising edge.</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4afd6a7ce8570cd3a48c665e0e2702f906" title="Interrupt on falling edge. ">kGPIO_InterruptFallingEdge</a>: Interrupt on falling edge.</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4ac135bf36c113d67a23f75cc84310611d" title="Interrupt on either edge. ">kGPIO_InterruptEitherEdge</a> : Interrupt on either edge.</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a212b62b7e9009f75ab1ee4b660c89024" title="Interrupt when logic one. ">kGPIO_InterruptLogicOne</a> : Interrupt when logic one.</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4a7cbafdc984c633da3dcd62a61ae174d3" title="Enable active high-trigger output. ">kGPIO_ActiveHighTriggerOutputEnable</a> : Enable active high-trigger output (if the trigger states exit).</li>
+<li><a class="el" href="a00025.html#gga2a038ce0d4d7b18266f652c713e824c4ae1f53b8ca425d32ea1417b6eaef76d62" title="Enable active low-trigger output. ">kGPIO_ActiveLowTriggerOutputEnable</a> : Enable active low-trigger output (if the trigger states exit).. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -1,7 +1,7 @@
 var a00009 =
 [
-    [ "System Clock Generator (SCG)", "a00179.html", null ],
-    [ "_cgc_rtd_sys_clk_config", "a00009.html#a00231", [
+    [ "System Clock Generator (SCG)", "a00175.html", null ],
+    [ "_cgc_rtd_sys_clk_config", "a00009.html#a00226", [
       [ "divSlow", "a00009.html#a3f6da217225540b9ae95df954fa9edff", null ],
       [ "__pad0__", "a00009.html#a1e94be5860d7d2e33a0e9815d5d1ad68", null ],
       [ "divBus", "a00009.html#a1a65476c6d67582bbcd453ed49de4686", null ],
@@ -11,7 +11,7 @@ var a00009 =
       [ "src", "a00009.html#a2ae504d132ba1f294a4cc5e1d38af552", null ],
       [ "locked", "a00009.html#a5f98d52158d5e01e3c0e33f0f968bf70", null ]
     ] ],
-    [ "_cgc_hifi_sys_clk_config", "a00009.html#a00224", [
+    [ "_cgc_hifi_sys_clk_config", "a00009.html#a00219", [
       [ "__pad0__", "a00009.html#a4fe72a275712ba6b62b161629921ccbb", null ],
       [ "divPlat", "a00009.html#a7ac20ad48e6ec33bf934a2f9ed0c116d", null ],
       [ "__pad1__", "a00009.html#a629d01dbbeb3784dbc8839b55e3eebfa", null ],
@@ -20,7 +20,7 @@ var a00009 =
       [ "src", "a00009.html#a6b5369b5f45a8677e3356f8699c287dd", null ],
       [ "locked", "a00009.html#a3fc197c7085bfc7633edc44a16f214a3", null ]
     ] ],
-    [ "_cgc_lpav_sys_clk_config", "a00009.html#a00225", [
+    [ "_cgc_lpav_sys_clk_config", "a00009.html#a00220", [
       [ "__pad0__", "a00009.html#a2531a93621b8c09796c81f86dce5cfcc", null ],
       [ "divBus", "a00009.html#a1ad2d2dde0830574c9797cd452c121b8", null ],
       [ "__pad1__", "a00009.html#a487bf290866ba488f1d2d2533fe2a9f5", null ],
@@ -32,26 +32,26 @@ var a00009 =
       [ "__pad3__", "a00009.html#ae94bff3bf39e1d35c448fc2f2225f056", null ],
       [ "locked", "a00009.html#abd33047f442b2fe69e7210e426be2753", null ]
     ] ],
-    [ "_cgc_ddr_sys_clk_config", "a00009.html#a00222", [
+    [ "_cgc_ddr_sys_clk_config", "a00009.html#a00217", [
       [ "__pad0__", "a00009.html#afebeb7bb31aa5d238c488ea340d9eb01", null ],
       [ "divDdr", "a00009.html#af2b81301d6375a195137e5e7e70b9f19", null ],
       [ "switchFin", "a00009.html#ab8c28c98080702b98a0980966999befa", null ],
       [ "src", "a00009.html#ab9560c30152281ff087f4e6ac062aaa2", null ],
       [ "locked", "a00009.html#a2730065885cdabc57392b047fd36a369", null ]
     ] ],
-    [ "_cgc_sosc_config", "a00009.html#a00232", [
+    [ "_cgc_sosc_config", "a00009.html#a00227", [
       [ "freq", "a00009.html#a538193cab8fde7d2ab74569b3e07b985", null ],
       [ "monitorMode", "a00009.html#a3a43362b52a027b3bcb0a44a9b606737", null ],
       [ "enableMode", "a00009.html#a76118caa7bc52646da54c69b27fde8df", null ],
       [ "workMode", "a00009.html#ad43cbafe0a222b156d434310bfd4d780", null ]
     ] ],
-    [ "_cgc_fro_config", "a00009.html#a00223", [
+    [ "_cgc_fro_config", "a00009.html#a00218", [
       [ "enableMode", "a00009.html#aca69e95c8c58b99caad8aab11ce5f048", null ]
     ] ],
-    [ "_cgc_lposc_config", "a00009.html#a00226", [
+    [ "_cgc_lposc_config", "a00009.html#a00221", [
       [ "enableMode", "a00009.html#a36d319fcbfba1705a983e534d46831dc", null ]
     ] ],
-    [ "_cgc_pll0_config", "a00009.html#a00227", [
+    [ "_cgc_pll0_config", "a00009.html#a00222", [
       [ "enableMode", "a00009.html#af8bee7d5b41f7f11c5fcbd9f162d7e88", null ],
       [ "div1", "a00009.html#ad7cd417fe07c9606ee6083937139a668", null ],
       [ "pfd1Div", "a00009.html#a0690647e4bdf4c200a3dc268d2ccc0ec", null ],
@@ -59,10 +59,10 @@ var a00009 =
       [ "src", "a00009.html#a8e68cfa79ea7f3c72bf18513c5e3f831", null ],
       [ "mult", "a00009.html#ad7318eed98b3997f4c9d51fabae6530e", null ]
     ] ],
-    [ "_cgc_rosc_config", "a00009.html#a00230", [
+    [ "_cgc_rosc_config", "a00009.html#a00225", [
       [ "monitorMode", "a00009.html#a1a8f69cc4915c671faa081426dd96f64", null ]
     ] ],
-    [ "_cgc_pll1_config", "a00009.html#a00228", [
+    [ "_cgc_pll1_config", "a00009.html#a00223", [
       [ "enableMode", "a00009.html#a7c8814e7b90515b6fd227e8a4ee6132a", null ],
       [ "div1", "a00009.html#a40362b7796a4489f1d6476d5cfb7cb19", null ],
       [ "pfd1Div", "a00009.html#a15ddbd93ae06492a2b5d2bb2540e63cd", null ],
@@ -72,7 +72,7 @@ var a00009 =
       [ "num", "a00009.html#a17f58be47ec46b0795f44c0f44af5a6a", null ],
       [ "denom", "a00009.html#af0488e3db4a96bc36832afd0bfcb5850", null ]
     ] ],
-    [ "_cgc_pll4_config", "a00009.html#a00229", [
+    [ "_cgc_pll4_config", "a00009.html#a00224", [
       [ "enableMode", "a00009.html#af80845b9b4446ea090328a5570147ac0", null ],
       [ "div1", "a00009.html#a558cfa6b470f41b5ae29ae5c6c32d9bf", null ],
       [ "pfd0Div1", "a00009.html#af9223acf6f9755afc72d5698a3923377", null ],

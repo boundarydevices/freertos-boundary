@@ -1,107 +1,185 @@
 var a00048 =
 [
-    [ "_smc_reset_pin_filter_config", "a00048.html#a00332", [
-      [ "slowClockFilterCount", "a00048.html#a94275870457948377bb1058fb82835f8", null ],
-      [ "enableFilter", "a00048.html#a41a0aa9a293a59886ea1c2b8def28094", null ]
+    [ "_tpm_chnl_pwm_signal_param", "a00048.html#a00327", [
+      [ "chnlNumber", "a00048.html#aa814cdb6a3eebc68f906ff586b0ac52f", null ],
+      [ "pauseLevel", "a00048.html#aea47cbdc1c94aa59358263ed0ed46bb9", null ],
+      [ "level", "a00048.html#a75fc8877b97eee16cba5b5828127044d", null ],
+      [ "dutyCyclePercent", "a00048.html#a277ddc518d3b60df9512053c0db61ca9", null ],
+      [ "firstEdgeDelayPercent", "a00048.html#ae057ccb1496d556dc1c8da14d14520b9", null ],
+      [ "enableComplementary", "a00048.html#a0a1428a4a97e51b06e179b7855ffa043", null ],
+      [ "secPauseLevel", "a00048.html#a3073b833c7d132e5df4af6c79c7e169c", null ],
+      [ "deadTimeValue", "a00048.html#a0a306ac3eb3cee10c4588010e7ff3dca", null ]
     ] ],
-    [ "FSL_MSMC_DRIVER_VERSION", "a00048.html#ga50b8faab80972aca20f7705925b23038", null ],
-    [ "smc_power_mode_protection_t", "a00048.html#gae7c2937e0ea1e285d082aa300f98b13c", null ],
-    [ "smc_power_state_t", "a00048.html#ga1a2eebdb1e5516b543c27e68d61f8b85", null ],
-    [ "smc_power_stop_entry_status_t", "a00048.html#ga2180dd71484f6570fa3cb2334222732e", null ],
-    [ "smc_run_mode_t", "a00048.html#ga861334db15972df1faebfec3992bf211", null ],
-    [ "smc_stop_mode_t", "a00048.html#ga2fdba7a72fb477e8b4515b3a52055291", null ],
-    [ "smc_partial_stop_option_t", "a00048.html#gaf4ac8e3c162dfdfca1ab17fc2d78bf82", null ],
-    [ "smc_reset_source_t", "a00048.html#ga8ce451f4a5c51e525e1ca4e12529ec26", null ],
-    [ "smc_interrupt_enable_t", "a00048.html#ga13a0685e5b8f39b2f67cbdf4aca34ba9", null ],
-    [ "smc_reset_pin_filter_config_t", "a00048.html#gabba72113393221f719c2e901175e3cdb", null ],
-    [ "_smc_power_mode_protection", "a00048.html#ga53fe305f7c8245eb9faac439fc4d5051", [
-      [ "kSMC_AllowPowerModeVlls", "a00048.html#gga53fe305f7c8245eb9faac439fc4d5051a4f2f4907d44dbe20d528a4f21457f45c", null ],
-      [ "kSMC_AllowPowerModeLls", "a00048.html#gga53fe305f7c8245eb9faac439fc4d5051ab43c79be60f1abf26f8342322d22e907", null ],
-      [ "kSMC_AllowPowerModeVlp", "a00048.html#gga53fe305f7c8245eb9faac439fc4d5051a59c7889c43c88969558086058a70025c", null ],
-      [ "kSMC_AllowPowerModeHsrun", "a00048.html#gga53fe305f7c8245eb9faac439fc4d5051a830612d22e0dc3662e6b2292601093b2", null ],
-      [ "kSMC_AllowPowerModeAll", "a00048.html#gga53fe305f7c8245eb9faac439fc4d5051a2d2790f7f2a43e4fc6f3816cc1693328", null ]
+    [ "_tpm_dual_edge_capture_param", "a00048.html#a00329", [
+      [ "enableSwap", "a00048.html#a12c0a2133f47acf342e847ccfe4a2f48", null ],
+      [ "currChanEdgeMode", "a00048.html#acdcee1e856f21b5fa8b87a233585b41e", null ],
+      [ "nextChanEdgeMode", "a00048.html#a4d1a1f5084bf86399063afe1c1f1ea05", null ]
     ] ],
-    [ "_smc_power_state", "a00048.html#gac5330d1b90932ef578e4e0d06b2f5ae5", [
-      [ "kSMC_PowerStateRun", "a00048.html#ggac5330d1b90932ef578e4e0d06b2f5ae5a5b88bef81d70c5bd0d36b4dfbe48c1e5", null ],
-      [ "kSMC_PowerStateStop", "a00048.html#ggac5330d1b90932ef578e4e0d06b2f5ae5a4dfa7ded19a0d9fa1f56e7368cd70957", null ],
-      [ "kSMC_PowerStateVlpr", "a00048.html#ggac5330d1b90932ef578e4e0d06b2f5ae5a2457fcbd1884818e017070eca5f0233c", null ],
-      [ "kSMC_PowerStateHsrun", "a00048.html#ggac5330d1b90932ef578e4e0d06b2f5ae5afc3dc2c53dd620cac2d37cf6c7f8ec73", null ]
+    [ "_tpm_phase_param", "a00048.html#a00330", [
+      [ "phaseFilterVal", "a00048.html#ae6274aa45d189209b92d03ef1b9b54a0", null ],
+      [ "phasePolarity", "a00048.html#a7b7001e5201e5305e273fdfc26821b25", null ]
     ] ],
-    [ "_smc_power_stop_entry_status", "a00048.html#ga91db71f81555360a72a84b3ca9899b12", [
-      [ "kSMC_PowerStopEntryAlt0", "a00048.html#gga91db71f81555360a72a84b3ca9899b12a32f5c2dee75619501f20cdf7cd8c7d92", null ],
-      [ "kSMC_PowerStopEntryAlt1", "a00048.html#gga91db71f81555360a72a84b3ca9899b12a4463e1a4c348e7ebef43915332d263ca", null ],
-      [ "kSMC_PowerStopEntryAlt2", "a00048.html#gga91db71f81555360a72a84b3ca9899b12a0376243e72de895cae43fd58faa092b1", null ],
-      [ "kSMC_PowerStopEntryAlt3", "a00048.html#gga91db71f81555360a72a84b3ca9899b12a98969b3bcbe8bbcb36cfc2b850ce08b6", null ],
-      [ "kSMC_PowerStopEntryAlt4", "a00048.html#gga91db71f81555360a72a84b3ca9899b12ac6931fa0ba0904aa6341e9f89023578b", null ],
-      [ "kSMC_PowerStopEntryAlt5", "a00048.html#gga91db71f81555360a72a84b3ca9899b12afc033823f07378a8c4fd449d546db4f0", null ]
+    [ "_tpm_config", "a00048.html#a00328", [
+      [ "prescale", "a00048.html#a32d3609dc3dd839a1fe3b5fe792b6f3a", null ],
+      [ "useGlobalTimeBase", "a00048.html#af52fd4ba424fa723379c3d8954107276", null ],
+      [ "syncGlobalTimeBase", "a00048.html#ab84f9b9c08ee0229deb5f41c2adcba10", null ],
+      [ "triggerSelect", "a00048.html#a0a9964715bfb99ca40775f9322211c76", null ],
+      [ "triggerSource", "a00048.html#a6efaf2264a9f0d793530959515498738", null ],
+      [ "extTriggerPolarity", "a00048.html#a6a50eb2ba538b6c517ed3b77a7730224", null ],
+      [ "enableDoze", "a00048.html#a101ce57c6dd65d53eb335b9e1f27de6a", null ],
+      [ "enableDebugMode", "a00048.html#ae4ec981f83a9177ad50063d0498be4ab", null ],
+      [ "enableReloadOnTrigger", "a00048.html#a82f700545316cccaeb166ac4f95e537f", null ],
+      [ "enableStopOnOverflow", "a00048.html#a609e68d52d1ffbacf4bf1c2088eed0fe", null ],
+      [ "enableStartOnTrigger", "a00048.html#a82ff3b7ac98bcea58407ec672054e75c", null ],
+      [ "enablePauseOnTrigger", "a00048.html#a734151a8cef100c0b2cac87494f8e996", null ],
+      [ "chnlPolarity", "a00048.html#a9bf9c6e3a10ef79b4c414c14cab0e87d", null ]
     ] ],
-    [ "_smc_run_mode", "a00048.html#gac2c182287ebbb6119d8bcbb6ead71e53", [
-      [ "kSMC_RunNormal", "a00048.html#ggac2c182287ebbb6119d8bcbb6ead71e53abaeb1d66b5ab95289522985e831186de", null ],
-      [ "kSMC_RunVlpr", "a00048.html#ggac2c182287ebbb6119d8bcbb6ead71e53ac1461903d002daab1af773d6d506fea3", null ],
-      [ "kSMC_Hsrun", "a00048.html#ggac2c182287ebbb6119d8bcbb6ead71e53ac575a1829a745c18d19ab10744b44f47", null ]
+    [ "FSL_TPM_DRIVER_VERSION", "a00048.html#ga54511b6d5433142e99df1dfd8c0816ef", null ],
+    [ "TPM_MAX_COUNTER_VALUE", "a00048.html#ga205b0ec991e96565a48c019a68ae4407", null ],
+    [ "tpm_chnl_t", "a00048.html#gacda6962369e014c8ac72d1b58b224deb", null ],
+    [ "tpm_pwm_mode_t", "a00048.html#ga3575f319c9fbc1aa574a1054c14e7dab", null ],
+    [ "tpm_pwm_level_select_t", "a00048.html#gaa50bc4e977e2e6e8abcbfc39d79f0674", null ],
+    [ "tpm_pwm_pause_level_select_t", "a00048.html#ga07e134f04a836706e4688518f2834441", null ],
+    [ "tpm_chnl_control_bit_mask_t", "a00048.html#ga50882805a54f82ca1a9d99b6c6eff80f", null ],
+    [ "tpm_chnl_pwm_signal_param_t", "a00048.html#ga19383e0a3baf4033a37e96df9016ab1c", null ],
+    [ "tpm_trigger_select_t", "a00048.html#ga7413575956cb565fba0cc99c39c73bc7", null ],
+    [ "tpm_trigger_source_t", "a00048.html#ga137121983cc3e0ea9e6410a6f4a0f6a8", null ],
+    [ "tpm_ext_trigger_polarity_t", "a00048.html#ga6c97ea37c0256d3b2a2086433fb79fef", null ],
+    [ "tpm_output_compare_mode_t", "a00048.html#gae76bda507d28f3c302f4cdfeee61ba5e", null ],
+    [ "tpm_input_capture_edge_t", "a00048.html#ga5bcbd71358fe69e564786631827f7db1", null ],
+    [ "tpm_dual_edge_capture_param_t", "a00048.html#gac7a5e6f7f62687f19f5b9463d92ef6fa", null ],
+    [ "tpm_quad_decode_mode_t", "a00048.html#ga94cb721f2cbcd43024b4307d7e90e286", null ],
+    [ "tpm_phase_polarity_t", "a00048.html#gae4bb9ee20d54d089ce9bc26d204b7d5a", null ],
+    [ "tpm_phase_params_t", "a00048.html#gae2947fb131d19819b8dc3b372a3a7f2f", null ],
+    [ "tpm_clock_source_t", "a00048.html#gac9f0f29f5ff0e39eea892919dc9b50d8", null ],
+    [ "tpm_clock_prescale_t", "a00048.html#gad9e7d333c0c3ad41d6bc740d95004dac", null ],
+    [ "tpm_config_t", "a00048.html#ga5647039a18486c876df5cdeb84c9621d", null ],
+    [ "tpm_interrupt_enable_t", "a00048.html#ga95c8edaff8d8b474bf4796b16413cc16", null ],
+    [ "tpm_status_flags_t", "a00048.html#gaf74093252aa505452b3d64d3b7f56384", null ],
+    [ "tpm_callback_t", "a00048.html#ga47cd0e1fa2a73187f88e3a725d80b53c", null ],
+    [ "_tpm_chnl", "a00048.html#gacc39a4172737e2409c9b198604b1b4a4", [
+      [ "kTPM_Chnl_0", "a00048.html#ggacc39a4172737e2409c9b198604b1b4a4a46ff50014bfb5cde17435197d2832043", null ],
+      [ "kTPM_Chnl_1", "a00048.html#ggacc39a4172737e2409c9b198604b1b4a4a7d807066dff21ee14beb69b6095e35f5", null ],
+      [ "kTPM_Chnl_2", "a00048.html#ggacc39a4172737e2409c9b198604b1b4a4a5e72f0a94f0b95b5bd3741f57496f8fe", null ],
+      [ "kTPM_Chnl_3", "a00048.html#ggacc39a4172737e2409c9b198604b1b4a4a94949003c1c6df144f831cbd1b0ad96b", null ],
+      [ "kTPM_Chnl_4", "a00048.html#ggacc39a4172737e2409c9b198604b1b4a4a3869ab1eaba51de758fbe8ee5d0e270e", null ],
+      [ "kTPM_Chnl_5", "a00048.html#ggacc39a4172737e2409c9b198604b1b4a4af036665843a1a13b7a2a91072474cd2b", null ],
+      [ "kTPM_Chnl_6", "a00048.html#ggacc39a4172737e2409c9b198604b1b4a4a010c5e2f251cd53842145ab272949cd1", null ],
+      [ "kTPM_Chnl_7", "a00048.html#ggacc39a4172737e2409c9b198604b1b4a4a53c9083b38615280db7bc79bd106d7ef", null ]
     ] ],
-    [ "_smc_stop_mode", "a00048.html#ga107d1c64902b4a1a0270a51008b854d5", [
-      [ "kSMC_StopNormal", "a00048.html#gga107d1c64902b4a1a0270a51008b854d5ac642d13640f334c1c509aa89568028dc", null ],
-      [ "kSMC_StopVlps", "a00048.html#gga107d1c64902b4a1a0270a51008b854d5a0309375b2672e8c29eebd50bd80236c3", null ],
-      [ "kSMC_StopLls", "a00048.html#gga107d1c64902b4a1a0270a51008b854d5a49290f942a305169a63ca4ce30f3cd9a", null ],
-      [ "kSMC_StopVlls", "a00048.html#gga107d1c64902b4a1a0270a51008b854d5afae316de35cb50c1212bd172eb25037f", null ]
+    [ "_tpm_pwm_mode", "a00048.html#gad7846db814bfb6055814736b8325b668", [
+      [ "kTPM_EdgeAlignedPwm", "a00048.html#ggad7846db814bfb6055814736b8325b668ac3655841b72d48d51513dbe7bfe2c6fe", null ],
+      [ "kTPM_CenterAlignedPwm", "a00048.html#ggad7846db814bfb6055814736b8325b668a9e201f84919cf715746382741a708263", null ],
+      [ "kTPM_CombinedPwm", "a00048.html#ggad7846db814bfb6055814736b8325b668a08efdcaeb31745a48d82aada13814476", null ]
     ] ],
-    [ "_smc_partial_stop_mode", "a00048.html#gaa8d9e56e87c773e0c77995ba8f7fbef1", [
-      [ "kSMC_PartialStop", "a00048.html#ggaa8d9e56e87c773e0c77995ba8f7fbef1a04f63da1ef433f2240cc42337c55e1b0", null ],
-      [ "kSMC_PartialStop1", "a00048.html#ggaa8d9e56e87c773e0c77995ba8f7fbef1a2ebc7dc8a6bd5f83dd842cddcc6483a3", null ],
-      [ "kSMC_PartialStop2", "a00048.html#ggaa8d9e56e87c773e0c77995ba8f7fbef1afca17db21b7e59ecd2e271e566001b63", null ],
-      [ "kSMC_PartialStop3", "a00048.html#ggaa8d9e56e87c773e0c77995ba8f7fbef1a0bd1cee626881c2fd3d716d8dd6a7eb7", null ],
-      [ "kStatus_SMC_StopAbort", "a00048.html#ggadb49720dc49f7d4e4cf9adbf2948e409ac8b70e0e27736678bcb91340b06c011e", null ]
+    [ "_tpm_pwm_level_select", "a00048.html#ga1efad91e0bd88db60f58667c720d472c", [
+      [ "kTPM_HighTrue", "a00048.html#gga1efad91e0bd88db60f58667c720d472ca33357d6aa2305f0e4881b27399de55ee", null ],
+      [ "kTPM_LowTrue", "a00048.html#gga1efad91e0bd88db60f58667c720d472ca5ab6f0dff57ca92272ff7d563ece0629", null ]
     ] ],
-    [ "_smc_reset_source", "a00048.html#ga0119050aa21406db0f954e558d9fdd26", [
-      [ "kSMC_SourceWakeup", "a00048.html#gga0119050aa21406db0f954e558d9fdd26a2861f33b64fb9444171deadf1dec216a", null ],
-      [ "kSMC_SourcePor", "a00048.html#gga0119050aa21406db0f954e558d9fdd26a2ef41a99a849508f7bb01db67fadcef8", null ],
-      [ "kSMC_SourceLvd", "a00048.html#gga0119050aa21406db0f954e558d9fdd26a51a7332d542bc09aa0c79504fc9501d5", null ],
-      [ "kSMC_SourceHvd", "a00048.html#gga0119050aa21406db0f954e558d9fdd26af7cada6555257956137e0413001f4e3b", null ],
-      [ "kSMC_SourceWarm", "a00048.html#gga0119050aa21406db0f954e558d9fdd26af9e28ded9c3e837abe58f331613392f8", null ],
-      [ "kSMC_SourceFatal", "a00048.html#gga0119050aa21406db0f954e558d9fdd26aa34a0fb061bc75ae3ccccdf79324ec77", null ],
-      [ "kSMC_SourceCore", "a00048.html#gga0119050aa21406db0f954e558d9fdd26a0ee5d493438ca2ee939e21783b31b069", null ],
-      [ "kSMC_SourcePin", "a00048.html#gga0119050aa21406db0f954e558d9fdd26a0f1ed5951f9e463ef4ce4cf6c5f86142", null ],
-      [ "kSMC_SourceMdm", "a00048.html#gga0119050aa21406db0f954e558d9fdd26a62b56098a197c1779faf013d22ab34fc", null ],
-      [ "kSMC_SourceRstAck", "a00048.html#gga0119050aa21406db0f954e558d9fdd26a123f2986effc7841fe41fdfa0fd76fa6", null ],
-      [ "kSMC_SourceStopAck", "a00048.html#gga0119050aa21406db0f954e558d9fdd26af7e8b14f8ae7bbf13676147f420aa7d7", null ],
-      [ "kSMC_SourceScg", "a00048.html#gga0119050aa21406db0f954e558d9fdd26a57d5033ab41e9d5e469ce081a51364ff", null ],
-      [ "kSMC_SourceWdog", "a00048.html#gga0119050aa21406db0f954e558d9fdd26a87c6299ffc176e18c84d546dcff33b4b", null ],
-      [ "kSMC_SourceSoftware", "a00048.html#gga0119050aa21406db0f954e558d9fdd26a896f454b422037166d2d35a8108c705d", null ],
-      [ "kSMC_SourceLockup", "a00048.html#gga0119050aa21406db0f954e558d9fdd26a629aa8ffd6366f2cef1030bf81758b9a", null ],
-      [ "kSMC_SourceJtag", "a00048.html#gga0119050aa21406db0f954e558d9fdd26a2a376f02a89f4701e4ee57a9937e3a8b", null ]
+    [ "_tpm_pwm_pause_level_select", "a00048.html#ga44e7ae350ce39417638e72b0aa6ee349", [
+      [ "kTPM_ClearOnPause", "a00048.html#gga44e7ae350ce39417638e72b0aa6ee349a856cebbbd5b9f156532d58ddf33b4c1f", null ],
+      [ "kTPM_SetOnPause", "a00048.html#gga44e7ae350ce39417638e72b0aa6ee349a89290422eb0253bca223689092f6d459", null ]
     ] ],
-    [ "_smc_interrupt_enable", "a00048.html#ga5293a8c05faaff1ac6b2ede7bf0efc76", [
-      [ "kSMC_IntNone", "a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a5451f680c83239aae0706ac269b970a0", null ],
-      [ "kSMC_IntPin", "a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a7adbffee423e42df938866c56789e7d5", null ],
-      [ "kSMC_IntMdm", "a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a8dfbbf3b4a105ed134c206eb41c5f7eb", null ],
-      [ "kSMC_IntStopAck", "a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a8debbfe3c7875e3d8d38f230183da598", null ],
-      [ "kSMC_IntWdog", "a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a5082d6057025b59db3b3ed62e582cf22", null ],
-      [ "kSMC_IntSoftware", "a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a2af6715629b3a405db96a9e48bc21573", null ],
-      [ "kSMC_IntLockup", "a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a410c64e50113a8f6e9d45236c0d92ae2", null ],
-      [ "kSMC_IntAll", "a00048.html#gga5293a8c05faaff1ac6b2ede7bf0efc76a99e443d5fa8cf148538747a562d80a22", null ]
+    [ "_tpm_chnl_control_bit_mask", "a00048.html#ga7b0cbeea03cafae18842d6de74e98331", [
+      [ "kTPM_ChnlELSnAMask", "a00048.html#gga7b0cbeea03cafae18842d6de74e98331aa22c38fe4ceb8e7eeef2d85e203cfc2b", null ],
+      [ "kTPM_ChnlELSnBMask", "a00048.html#gga7b0cbeea03cafae18842d6de74e98331afcfaf5affe89452cbddeceff89b6ce39", null ],
+      [ "kTPM_ChnlMSAMask", "a00048.html#gga7b0cbeea03cafae18842d6de74e98331a89fd11e613c0b3cbc80bb8d8e0dca4d5", null ],
+      [ "kTPM_ChnlMSBMask", "a00048.html#gga7b0cbeea03cafae18842d6de74e98331a6b8aa4986ced2a6077595f0374718b26", null ]
     ] ],
-    [ "SMC_SetPowerModeProtection", "a00048.html#ga883084279eccf59d4594cc4fc6b07570", null ],
-    [ "SMC_GetPowerModeState", "a00048.html#ga8891a49d31b2f79a72d2b696c3c7d21a", null ],
-    [ "SMC_PreEnterStopModes", "a00048.html#ga344da3e55dffa5d50fb4872e40f36ff0", null ],
-    [ "SMC_PostExitStopModes", "a00048.html#gaee8b556d6a459c2a69b8178ee4279df6", null ],
-    [ "SMC_PreEnterWaitModes", "a00048.html#gab8f3b43e5a5af5698ed57297f0f9b8f3", null ],
-    [ "SMC_PostExitWaitModes", "a00048.html#ga667477c948aeeabf905969a37ab6fc70", null ],
-    [ "SMC_SetPowerModeRun", "a00048.html#ga8f141beaa4867a3d1606b714e63c30c3", null ],
-    [ "SMC_SetPowerModeHsrun", "a00048.html#gaff75ec614c35b4f8f979b103ab159dcd", null ],
-    [ "SMC_SetPowerModeWait", "a00048.html#gaaf1664f2d4a78b756e5e30f5433af975", null ],
-    [ "SMC_SetPowerModeStop", "a00048.html#gaa1e2666198ce75322be3280472a224ee", null ],
-    [ "SMC_SetPowerModeVlpr", "a00048.html#gaa1439e98fb0d82099217f822e3329b14", null ],
-    [ "SMC_SetPowerModeVlpw", "a00048.html#ga69d0fb061423ef6ed718f3acee96ebf6", null ],
-    [ "SMC_SetPowerModeVlps", "a00048.html#ga7f7303f155f36716cc68672e0a4027cf", null ],
-    [ "SMC_SetPowerModeLls", "a00048.html#ga998c58e17bdd9ef190c7bcc5dd9395e7", null ],
-    [ "SMC_SetPowerModeVlls", "a00048.html#gacee93389ff12a7686d3567d9d3e582e9", null ],
-    [ "SMC_GetPreviousResetSources", "a00048.html#gaf0845474594f3bd8413793de1e51c271", null ],
-    [ "SMC_GetStickyResetSources", "a00048.html#ga8c7b8d725d5b9f354e53e94160323a8f", null ],
-    [ "SMC_ClearStickyResetSources", "a00048.html#ga9870b5d3a94b6385cf3c40ac5919caf2", null ],
-    [ "SMC_ConfigureResetPinFilter", "a00048.html#ga411662c3c2d7b96b350fb9d06bf61dd1", null ],
-    [ "SMC_SetSystemResetInterruptConfig", "a00048.html#gaf7c01c2b4897682c13288abf93f7efe3", null ],
-    [ "SMC_GetResetInterruptSourcesStatus", "a00048.html#gaabe43cecbad4a671c0366666aee1f53b", null ],
-    [ "SMC_ClearResetInterruptSourcesStatus", "a00048.html#ga5a134260893f14762503324f06f586ff", null ],
-    [ "SMC_GetBootOptionConfig", "a00048.html#ga5b08a53f1afd002cff552265ee91a223", null ]
+    [ "_tpm_trigger_select", "a00048.html#ga4150281c92685f3d25f13279bdef4b0c", null ],
+    [ "_tpm_trigger_source", "a00048.html#ga2303412e134dadefff925b15ff3526e1", [
+      [ "kTPM_TriggerSource_External", "a00048.html#gga2303412e134dadefff925b15ff3526e1a6cb1e9ba52ab333e3747b4ad75f25eff", null ],
+      [ "kTPM_TriggerSource_Internal", "a00048.html#gga2303412e134dadefff925b15ff3526e1a241d14c4ef5019e6eb3a26b09ff1a4f8", null ]
+    ] ],
+    [ "_tpm_ext_trigger_polarity", "a00048.html#ga4e36d3eead789f64931e7c650d81cd58", [
+      [ "kTPM_ExtTrigger_Active_High", "a00048.html#gga4e36d3eead789f64931e7c650d81cd58a6ba21c16a2daa13b82f601d505e88824", null ],
+      [ "kTPM_ExtTrigger_Active_Low", "a00048.html#gga4e36d3eead789f64931e7c650d81cd58a0385e55b28b2e7086462a846368cf166", null ]
+    ] ],
+    [ "_tpm_output_compare_mode", "a00048.html#ga9a2946f67b4b7513fcd580c48746b22c", [
+      [ "kTPM_NoOutputSignal", "a00048.html#gga9a2946f67b4b7513fcd580c48746b22ca9138cc3b25fc54000c123b79c922be2b", null ],
+      [ "kTPM_ToggleOnMatch", "a00048.html#gga9a2946f67b4b7513fcd580c48746b22ca0870b5b951e6b34dc26018d08c112cd7", null ],
+      [ "kTPM_ClearOnMatch", "a00048.html#gga9a2946f67b4b7513fcd580c48746b22cae7de0fa57318b2440bb402b70f8de883", null ],
+      [ "kTPM_SetOnMatch", "a00048.html#gga9a2946f67b4b7513fcd580c48746b22ca2ab55e90eab69c93d689b1c87876e237", null ],
+      [ "kTPM_HighPulseOutput", "a00048.html#gga9a2946f67b4b7513fcd580c48746b22ca8aa0ae800d6aec8fe262d7c9ac3d95ba", null ],
+      [ "kTPM_LowPulseOutput", "a00048.html#gga9a2946f67b4b7513fcd580c48746b22caffe4c6d8fb0fe229cabc3a3bdb83db92", null ]
+    ] ],
+    [ "_tpm_input_capture_edge", "a00048.html#ga16346109e5b2694d2b977a4757754ad8", [
+      [ "kTPM_RisingEdge", "a00048.html#gga16346109e5b2694d2b977a4757754ad8a5e485c4180e5dac6a4159ddd2524eb42", null ],
+      [ "kTPM_FallingEdge", "a00048.html#gga16346109e5b2694d2b977a4757754ad8a17db2894d6f09cb06f821a8997986309", null ],
+      [ "kTPM_RiseAndFallEdge", "a00048.html#gga16346109e5b2694d2b977a4757754ad8abd91fc4d13b5c5b9421ec8f18ce40013", null ]
+    ] ],
+    [ "_tpm_quad_decode_mode", "a00048.html#ga8aafcc3daf85cb16534cdf60202ba684", [
+      [ "kTPM_QuadPhaseEncode", "a00048.html#gga8aafcc3daf85cb16534cdf60202ba684adb6c180a048916a52528975feef04a59", null ],
+      [ "kTPM_QuadCountAndDir", "a00048.html#gga8aafcc3daf85cb16534cdf60202ba684a89dd4bf90d46046868c892ab0796dd40", null ]
+    ] ],
+    [ "_tpm_phase_polarity", "a00048.html#ga943fda020fa59dcac951c69405e0e6f1", [
+      [ "kTPM_QuadPhaseNormal", "a00048.html#gga943fda020fa59dcac951c69405e0e6f1a7cd59390d3049df649811c6cb413699b", null ],
+      [ "kTPM_QuadPhaseInvert", "a00048.html#gga943fda020fa59dcac951c69405e0e6f1aee6c47f4e78fc76ef98d2c534002b832", null ]
+    ] ],
+    [ "_tpm_clock_source", "a00048.html#gac99d3a5e259dc4ca8b3d30a813490cda", [
+      [ "kTPM_SystemClock", "a00048.html#ggac99d3a5e259dc4ca8b3d30a813490cdaa61149d2836f35678b6fc42970c53be9c", null ],
+      [ "kTPM_ExternalClock", "a00048.html#ggac99d3a5e259dc4ca8b3d30a813490cdaa4857136cf43ac72ca82ed4bc0ed1cec8", null ],
+      [ "kTPM_ExternalInputTriggerClock", "a00048.html#ggac99d3a5e259dc4ca8b3d30a813490cdaad1eefb57eed08c9c76fd4dd0b06cc1f3", null ]
+    ] ],
+    [ "_tpm_clock_prescale", "a00048.html#gabb93e23246be90fb3bed0cae36875cef", [
+      [ "kTPM_Prescale_Divide_1", "a00048.html#ggabb93e23246be90fb3bed0cae36875cefa14017b91b63ac0c4c50aaf2226f79192", null ],
+      [ "kTPM_Prescale_Divide_2", "a00048.html#ggabb93e23246be90fb3bed0cae36875cefac5cfc73fceeed177eee6ffd70dad2655", null ],
+      [ "kTPM_Prescale_Divide_4", "a00048.html#ggabb93e23246be90fb3bed0cae36875cefaec0260e031a00fcb04f9f38b95a60dc5", null ],
+      [ "kTPM_Prescale_Divide_8", "a00048.html#ggabb93e23246be90fb3bed0cae36875cefa2b43a6a117612827f1c697d9d3563877", null ],
+      [ "kTPM_Prescale_Divide_16", "a00048.html#ggabb93e23246be90fb3bed0cae36875cefa2e56961b31ab965c48ac6eb7656f0e2a", null ],
+      [ "kTPM_Prescale_Divide_32", "a00048.html#ggabb93e23246be90fb3bed0cae36875cefa8d656f4013cb72bffef9663568daa7c1", null ],
+      [ "kTPM_Prescale_Divide_64", "a00048.html#ggabb93e23246be90fb3bed0cae36875cefac1e67b46fd2639f7c157f403b244a7f5", null ],
+      [ "kTPM_Prescale_Divide_128", "a00048.html#ggabb93e23246be90fb3bed0cae36875cefaa5611bb8c5bee917cefdc5f4cffa2b17", null ]
+    ] ],
+    [ "_tpm_interrupt_enable", "a00048.html#ga5974278413cf04de350a256f4fb6ad2c", [
+      [ "kTPM_Chnl0InterruptEnable", "a00048.html#gga5974278413cf04de350a256f4fb6ad2cad09402c8e38b5aa03708dcd2bb35ac51", null ],
+      [ "kTPM_Chnl1InterruptEnable", "a00048.html#gga5974278413cf04de350a256f4fb6ad2caef3f216d32d09e6a5b3e9f9c4bb9f96d", null ],
+      [ "kTPM_Chnl2InterruptEnable", "a00048.html#gga5974278413cf04de350a256f4fb6ad2cac7cc9904d2a195053dbbbee00358b191", null ],
+      [ "kTPM_Chnl3InterruptEnable", "a00048.html#gga5974278413cf04de350a256f4fb6ad2cabec0f2aaf00238ac0c4cb70a4d13f265", null ],
+      [ "kTPM_Chnl4InterruptEnable", "a00048.html#gga5974278413cf04de350a256f4fb6ad2ca1a8e5b59c4f342143b701ad4d3c0b932", null ],
+      [ "kTPM_Chnl5InterruptEnable", "a00048.html#gga5974278413cf04de350a256f4fb6ad2ca822c7f47ce806cd0b52c7dcf63a0737c", null ],
+      [ "kTPM_Chnl6InterruptEnable", "a00048.html#gga5974278413cf04de350a256f4fb6ad2ca7b982a6d436af5baea07f369d95a230f", null ],
+      [ "kTPM_Chnl7InterruptEnable", "a00048.html#gga5974278413cf04de350a256f4fb6ad2caa8f8ad983c89ab4bee35948bc5ebb6a4", null ],
+      [ "kTPM_TimeOverflowInterruptEnable", "a00048.html#gga5974278413cf04de350a256f4fb6ad2cad44d57a95ac35d9567dc9978232a8e30", null ]
+    ] ],
+    [ "_tpm_status_flags", "a00048.html#ga8ebc3984cb11aef22f97788dc996620f", [
+      [ "kTPM_Chnl0Flag", "a00048.html#gga8ebc3984cb11aef22f97788dc996620fa00064ef5ff82a125048189d0dbcc435c", null ],
+      [ "kTPM_Chnl1Flag", "a00048.html#gga8ebc3984cb11aef22f97788dc996620fa8c60b928fad1e5f5a360f58647c0e399", null ],
+      [ "kTPM_Chnl2Flag", "a00048.html#gga8ebc3984cb11aef22f97788dc996620fa9121418a8a04e046dca6e301dd96895d", null ],
+      [ "kTPM_Chnl3Flag", "a00048.html#gga8ebc3984cb11aef22f97788dc996620fa9a86b2a0b4aa192856dc1f547b31953e", null ],
+      [ "kTPM_Chnl4Flag", "a00048.html#gga8ebc3984cb11aef22f97788dc996620fab41a86f123124053c919314342b44425", null ],
+      [ "kTPM_Chnl5Flag", "a00048.html#gga8ebc3984cb11aef22f97788dc996620fa06962b6d33d905c35215a673ce797c1c", null ],
+      [ "kTPM_Chnl6Flag", "a00048.html#gga8ebc3984cb11aef22f97788dc996620fa764b6bd11b1f5c8265c1d45329ee3d5e", null ],
+      [ "kTPM_Chnl7Flag", "a00048.html#gga8ebc3984cb11aef22f97788dc996620fa3fb1b0bd96192af71535c0cd2b382989", null ],
+      [ "kTPM_TimeOverflowFlag", "a00048.html#gga8ebc3984cb11aef22f97788dc996620faa9a6749351e61cf4c92fcd20ef929c3d", null ]
+    ] ],
+    [ "TPM_GetInstance", "a00048.html#ga4daa946cc2a2344dac87e002a232dc80", null ],
+    [ "TPM_Init", "a00048.html#gae56e6feacdb75884b00b81256ae4a795", null ],
+    [ "TPM_Deinit", "a00048.html#ga8b642860d51c3c6ef94df8c313c31e91", null ],
+    [ "TPM_GetDefaultConfig", "a00048.html#ga53fcb634d4c70d9bcb14c972944d949f", null ],
+    [ "TPM_CalculateCounterClkDiv", "a00048.html#gacb573624508f4ff5bc0f51b79b72635d", null ],
+    [ "TPM_SetupPwm", "a00048.html#gad52f4e6f23ba1d127f5d5f3f30b49dbd", null ],
+    [ "TPM_UpdatePwmDutycycle", "a00048.html#gab9c919af54bf678af8617c0f39f9d5a1", null ],
+    [ "TPM_UpdateChnlEdgeLevelSelect", "a00048.html#ga6406c3ca4df37694a44078f12b103954", null ],
+    [ "TPM_GetChannelContorlBits", "a00048.html#gaf8383bf750a1156f537eb36e5f6b8a4b", null ],
+    [ "TPM_DisableChannel", "a00048.html#ga648c27d36113f99d90f5492d4decd30f", null ],
+    [ "TPM_EnableChannel", "a00048.html#ga3d5a1645053ef2278e13a4428aaa129e", null ],
+    [ "TPM_SetupInputCapture", "a00048.html#ga400726db4285f60d8c2788ab62d01f13", null ],
+    [ "TPM_SetupOutputCompare", "a00048.html#ga382c4ecd344bc208cd6aa60287442a50", null ],
+    [ "TPM_SetupDualEdgeCapture", "a00048.html#ga8cfdb76802f05cb2dbfbfe0183fae947", null ],
+    [ "TPM_SetupQuadDecode", "a00048.html#ga78732e8398777ac5a14b22fd85629942", null ],
+    [ "TPM_SetChannelPolarity", "a00048.html#ga14767ec3e0387742fe2aece2ac9d82e0", null ],
+    [ "TPM_EnableChannelExtTrigger", "a00048.html#gafc029911e0eb8887d52f922a887e60cc", null ],
+    [ "TPM_EnableInterrupts", "a00048.html#ga1e6563023f023ee826e687d3668b4247", null ],
+    [ "TPM_DisableInterrupts", "a00048.html#ga254be07975c63ee2983421df1d2f0d40", null ],
+    [ "TPM_GetEnabledInterrupts", "a00048.html#gafb59e6f67ff4281f14a9d10f25839208", null ],
+    [ "TPM_RegisterCallBack", "a00048.html#gadd9741bc7e24be3b2b99bf863dc2fee5", null ],
+    [ "TPM_GetChannelValue", "a00048.html#ga3aba521768d7717f7f3832212e2ef5c8", null ],
+    [ "TPM_GetStatusFlags", "a00048.html#gab9ffcff25a7ad4c47d89fb89813853b7", null ],
+    [ "TPM_ClearStatusFlags", "a00048.html#gad8ba1a1808320b2935f6760eda06e42b", null ],
+    [ "TPM_SetTimerPeriod", "a00048.html#gaa6e2cb453544474995c38e6243b34453", null ],
+    [ "TPM_GetCurrentTimerCount", "a00048.html#ga7914053b79ed17c41768f3103b2965a5", null ],
+    [ "TPM_StartTimer", "a00048.html#ga0ec12ec457bf39ed2510d1054cbe1bbd", null ],
+    [ "TPM_StopTimer", "a00048.html#ga48d6d431f773ca70883c565a75017e14", null ],
+    [ "TPM_Reset", "a00048.html#ga1312c871d8b0d00c2f9de129302622fc", null ]
 ];

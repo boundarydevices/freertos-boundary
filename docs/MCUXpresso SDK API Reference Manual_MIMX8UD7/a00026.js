@@ -1,17 +1,17 @@
 var a00026 =
 [
-    [ "QspiDQSConfig", "a00026.html#a00349", [
+    [ "QspiDQSConfig", "a00026.html#a00343", [
       [ "portADelayTapNum", "a00026.html#abd9a79b859dc37c31d9f410b5fe899b8", null ],
       [ "shift", "a00026.html#afb7ce46d43fba3e50c488d8bd46ed6fc", null ],
       [ "rxSampleClock", "a00026.html#a836e03b6f4402d028dbc2cfcea1c4a5b", null ],
       [ "enableDQSClkInverse", "a00026.html#a9acfd6e953daa64b6c9bc1955543f7ee", null ]
     ] ],
-    [ "QspiFlashTiming", "a00026.html#a00350", [
+    [ "QspiFlashTiming", "a00026.html#a00344", [
       [ "dataHoldTime", "a00026.html#a824c00226572b79d32aba4a3330a4bc0", null ],
       [ "CSHoldTime", "a00026.html#a24209fc155fbb5dd661cfb2ca2a51941", null ],
       [ "CSSetupTime", "a00026.html#a1aa10652aec3bc8926048615da548c43", null ]
     ] ],
-    [ "QspiConfig", "a00026.html#a00348", [
+    [ "QspiConfig", "a00026.html#a00342", [
       [ "clockSource", "a00026.html#a2f298d2111ffba837dcf3dff48b5f0cf", null ],
       [ "baudRate", "a00026.html#afadd97f169c90fc2f5e181982cba8cc8", null ],
       [ "txWatermark", "a00026.html#afd8ed504f0988d821fa2e02a891c5c01", null ],
@@ -22,7 +22,7 @@ var a00026 =
       [ "area", "a00026.html#a349bf97f83e0ddaf2acc7705c4bc03af", null ],
       [ "enableQspi", "a00026.html#aa910c619adb984fff534530276a47d83", null ]
     ] ],
-    [ "_qspi_flash_config", "a00026.html#a00314", [
+    [ "_qspi_flash_config", "a00026.html#a00308", [
       [ "flashA1Size", "a00026.html#a669da2b529b22fc56e9e5f258e5249ce", null ],
       [ "flashA2Size", "a00026.html#a0d083f2b57141afe78e77ec62a1e44e9", null ],
       [ "lookuptable", "a00026.html#a3cf56fe42107586eed08546eae444d20", null ],
@@ -34,11 +34,11 @@ var a00026 =
       [ "endian", "a00026.html#afa26f57cc7ad9b26306a97b08dd47e24", null ],
       [ "enableWordAddress", "a00026.html#acef16fa2b61d4d15d31a8c89fc783c13", null ]
     ] ],
-    [ "_qspi_transfer", "a00026.html#a00315", [
+    [ "_qspi_transfer", "a00026.html#a00309", [
       [ "data", "a00026.html#a0bc275e945db9501fdf713331c4514de", null ],
       [ "dataSize", "a00026.html#a2ebb2501b2644769db57a3875c739ed1", null ]
     ] ],
-    [ "_ip_command_config", "a00026.html#a00275", [
+    [ "_ip_command_config", "a00026.html#a00270", [
       [ "IPCR", "a00026.html#a1e06cfc6f008d18b4919a324c72b9eef", null ],
       [ "IDATZ", "a00026.html#aa8da21754588920964ae0e6dd30a2d5c", null ],
       [ "RESERVED_0", "a00026.html#a0794214c767f692b962bff82351b6257", null ],
@@ -60,9 +60,9 @@ var a00026 =
     [ "qspi_flash_config_t", "a00026.html#ga0e40b1b67b101d63cbc8ab6105f6906c", null ],
     [ "qspi_transfer_t", "a00026.html#ga2e9bf4b6af7ab23479bc4bdce6ec6ba6", null ],
     [ "ip_command_config_t", "a00026.html#ga885882af2ffb594c3a18d38c5cb0d730", [
-      [ "kStatus_QSPI_Idle", "a00026.html#ggaae05225933a42f81e7c4a9fb286596f9a650abd7e718c3d31a1b1c31628223255", null ],
-      [ "kStatus_QSPI_Busy", "a00026.html#ggaae05225933a42f81e7c4a9fb286596f9adc835d439498f87c2f72a4b0681d64a9", null ],
-      [ "kStatus_QSPI_Error", "a00026.html#ggaae05225933a42f81e7c4a9fb286596f9af658051f373360010b0c962e513c18f7", null ]
+      [ "kStatus_QSPI_Idle", "a00026.html#ggaabfcbcb5ac86a1edac4035264bc7d2b8a650abd7e718c3d31a1b1c31628223255", null ],
+      [ "kStatus_QSPI_Busy", "a00026.html#ggaabfcbcb5ac86a1edac4035264bc7d2b8adc835d439498f87c2f72a4b0681d64a9", null ],
+      [ "kStatus_QSPI_Error", "a00026.html#ggaabfcbcb5ac86a1edac4035264bc7d2b8af658051f373360010b0c962e513c18f7", null ]
     ] ],
     [ "_qspi_read_area", "a00026.html#ga7f1d433051510384d38eadccdbf7df2e", [
       [ "kQSPI_ReadAHB", "a00026.html#gga7f1d433051510384d38eadccdbf7df2eae47d046fafe2f36a71f54ee103df7a2c", null ],
@@ -182,7 +182,7 @@ var a00026 =
     [ "QSPI_ClearCommandSequence", "a00026.html#gac694b6467a2afd4ef558745989235194", null ],
     [ "QSPI_EnableDDRMode", "a00026.html#ga09d5d2ca0c22fababcb480e6ad574b43", null ],
     [ "QSPI_SetReadDataArea", "a00026.html#ga24880c10846bbe843ec287091f318e88", null ],
-    [ "QSPI_WriteBlocking", "a00026.html#gab2c26100daa3f9f95091e524d8bf5c7d", null ],
+    [ "QSPI_WriteBlocking", "a00026.html#ga065b4ecc783f920b8bd18aec0b7fa5fd", null ],
     [ "QSPI_WriteData", "a00026.html#gaf6225414bf13955c55471779308d531c", null ],
     [ "QSPI_ReadBlocking", "a00026.html#ga4aab7113f914858544075e60dc3b6c4f", null ],
     [ "QSPI_ReadData", "a00026.html#ga673d32dc8663771f44cdda19b091a5d3", null ],

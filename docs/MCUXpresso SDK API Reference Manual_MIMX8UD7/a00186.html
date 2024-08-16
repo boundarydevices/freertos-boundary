@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: LLWU: Low-Leakage Wakeup Unit Driver</title>
+<title>MCUXpresso SDK API Reference Manual: LPSPI: Low Power Serial Peripheral Interface</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.15.000</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -99,135 +99,19 @@ $(document).ready(function(){initNavTree('a00186.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#groups">Modules</a>  </div>
   <div class="headertitle">
-<div class="title">LLWU: Low-Leakage Wakeup Unit Driver</div>  </div>
+<div class="title">LPSPI: Low Power Serial Peripheral Interface</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
-<p>The MCUXpresso SDK provides a peripheral driver for the Low-Leakage Wakeup Unit (LLWU) module of MCUXpresso SDK devices. The LLWU module allows the user to select external pin sources and internal modules as a wake-up source from low-leakage power modes.</p>
-<h1><a class="anchor" id="LLWUExWkPin"></a>
-External wakeup pins configurations</h1>
-<p>Configures the external wakeup pins' working modes, gets, and clears the wake pin flags. External wakeup pins are accessed by the <code>pinIndex</code>, which is started from 1. Numbers of the external pins depend on the SoC configuration.</p>
-<h1><a class="anchor" id="LLWUInWkMdl"></a>
-Internal wakeup modules configurations</h1>
-<p>Enables/disables the internal wakeup modules and gets the module flags. Internal modules are accessed by <code>moduleIndex</code>, which is started from 1. Numbers of external pins depend the on SoC configuration.</p>
-<h1><a class="anchor" id="LLWUPinFlt"></a>
-Digital pin filter for external wakeup pin configurations</h1>
-<p>Configures the digital pin filter of the external wakeup pins' working modes, gets, and clears the pin filter flags. Digital pin filters are accessed by the <code>filterIndex</code>, which is started from 1. Numbers of external pins depend on the SoC configuration. </p>
+<p>The MCUXpresso SDK provides a peripheral driver for the Low Power Serial Peripheral Interface (LPSPI) module of MCUXpresso SDK devices. </p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:gad50bd170037210be2164aa78bdde2621"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad50bd170037210be2164aa78bdde2621"></a>
-typedef enum <br class="typebreak"/>
-<a class="el" href="a00186.html#ga5b7fb066930b9abddc4de2d5431f1f46">_llwu_external_pin_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00186.html#gad50bd170037210be2164aa78bdde2621">llwu_external_pin_mode_t</a></td></tr>
-<tr class="memdesc:gad50bd170037210be2164aa78bdde2621"><td class="mdescLeft">&#160;</td><td class="mdescRight">External input pin control modes. <br/></td></tr>
-<tr class="separator:gad50bd170037210be2164aa78bdde2621"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4a6b294b46f6b4d70cee513423be8d0c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4a6b294b46f6b4d70cee513423be8d0c"></a>
-typedef enum <a class="el" href="a00186.html#ga04b013885364b1fc2c1e9d90e25ef067">_llwu_pin_filter_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00186.html#ga4a6b294b46f6b4d70cee513423be8d0c">llwu_pin_filter_mode_t</a></td></tr>
-<tr class="memdesc:ga4a6b294b46f6b4d70cee513423be8d0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digital filter control modes. <br/></td></tr>
-<tr class="separator:ga4a6b294b46f6b4d70cee513423be8d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:ga5b7fb066930b9abddc4de2d5431f1f46"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00186.html#ga5b7fb066930b9abddc4de2d5431f1f46">_llwu_external_pin_mode</a> { <br/>
-&#160;&#160;<a class="el" href="a00186.html#gga5b7fb066930b9abddc4de2d5431f1f46a918f72033c61b0e9f5e83585ae76feea">kLLWU_ExternalPinDisable</a> = 0U, 
-<br/>
-&#160;&#160;<a class="el" href="a00186.html#gga5b7fb066930b9abddc4de2d5431f1f46a3d0358ae5f5e4e420efe998fce1c8b6c">kLLWU_ExternalPinRisingEdge</a> = 1U, 
-<br/>
-&#160;&#160;<a class="el" href="a00186.html#gga5b7fb066930b9abddc4de2d5431f1f46a2cc310ae58735aeaefe6f8822f2d4e0c">kLLWU_ExternalPinFallingEdge</a> = 2U, 
-<br/>
-&#160;&#160;<a class="el" href="a00186.html#gga5b7fb066930b9abddc4de2d5431f1f46a576c426077b7cc720ca746f5f1c27fa2">kLLWU_ExternalPinAnyEdge</a> = 3U
-<br/>
- }</td></tr>
-<tr class="memdesc:ga5b7fb066930b9abddc4de2d5431f1f46"><td class="mdescLeft">&#160;</td><td class="mdescRight">External input pin control modes.  <a href="a00186.html#ga5b7fb066930b9abddc4de2d5431f1f46">More...</a><br/></td></tr>
-<tr class="separator:ga5b7fb066930b9abddc4de2d5431f1f46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga04b013885364b1fc2c1e9d90e25ef067"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00186.html#ga04b013885364b1fc2c1e9d90e25ef067">_llwu_pin_filter_mode</a> { <br/>
-&#160;&#160;<a class="el" href="a00186.html#gga04b013885364b1fc2c1e9d90e25ef067ab1efbba59f0416cdb5f11563cbc86f8d">kLLWU_PinFilterDisable</a> = 0U, 
-<br/>
-&#160;&#160;<a class="el" href="a00186.html#gga04b013885364b1fc2c1e9d90e25ef067a4247bc305c7b3b8c51c9fa54e6f3ab52">kLLWU_PinFilterRisingEdge</a> = 1U, 
-<br/>
-&#160;&#160;<a class="el" href="a00186.html#gga04b013885364b1fc2c1e9d90e25ef067af429cb4dfc4343a66429baf2b8971279">kLLWU_PinFilterFallingEdge</a> = 2U, 
-<br/>
-&#160;&#160;<a class="el" href="a00186.html#gga04b013885364b1fc2c1e9d90e25ef067a9ae5329e7b3fad4d4cdc447ca64c9ad2">kLLWU_PinFilterAnyEdge</a> = 3U
-<br/>
- }</td></tr>
-<tr class="memdesc:ga04b013885364b1fc2c1e9d90e25ef067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digital filter control modes.  <a href="a00186.html#ga04b013885364b1fc2c1e9d90e25ef067">More...</a><br/></td></tr>
-<tr class="separator:ga04b013885364b1fc2c1e9d90e25ef067"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-Driver version</h2></td></tr>
-<tr class="memitem:ga89a3dc773d6a05997c01e407561830b9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00186.html#ga89a3dc773d6a05997c01e407561830b9">FSL_LLWU_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 5))</td></tr>
-<tr class="memdesc:ga89a3dc773d6a05997c01e407561830b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">LLWU driver version.  <a href="#ga89a3dc773d6a05997c01e407561830b9">More...</a><br/></td></tr>
-<tr class="separator:ga89a3dc773d6a05997c01e407561830b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00031"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00031.html">LPSPI Peripheral driver</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="ga89a3dc773d6a05997c01e407561830b9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FSL_LLWU_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 5))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="ga5b7fb066930b9abddc4de2d5431f1f46"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00186.html#ga5b7fb066930b9abddc4de2d5431f1f46">_llwu_external_pin_mode</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga5b7fb066930b9abddc4de2d5431f1f46a918f72033c61b0e9f5e83585ae76feea"></a>kLLWU_ExternalPinDisable</em>&nbsp;</td><td class="fielddoc">
-<p>Pin disabled as a wakeup input. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga5b7fb066930b9abddc4de2d5431f1f46a3d0358ae5f5e4e420efe998fce1c8b6c"></a>kLLWU_ExternalPinRisingEdge</em>&nbsp;</td><td class="fielddoc">
-<p>Pin enabled with the rising edge detection. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga5b7fb066930b9abddc4de2d5431f1f46a2cc310ae58735aeaefe6f8822f2d4e0c"></a>kLLWU_ExternalPinFallingEdge</em>&nbsp;</td><td class="fielddoc">
-<p>Pin enabled with the falling edge detection. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga5b7fb066930b9abddc4de2d5431f1f46a576c426077b7cc720ca746f5f1c27fa2"></a>kLLWU_ExternalPinAnyEdge</em>&nbsp;</td><td class="fielddoc">
-<p>Pin enabled with any change detection. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a class="anchor" id="ga04b013885364b1fc2c1e9d90e25ef067"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00186.html#ga04b013885364b1fc2c1e9d90e25ef067">_llwu_pin_filter_mode</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga04b013885364b1fc2c1e9d90e25ef067ab1efbba59f0416cdb5f11563cbc86f8d"></a>kLLWU_PinFilterDisable</em>&nbsp;</td><td class="fielddoc">
-<p>Filter disabled. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga04b013885364b1fc2c1e9d90e25ef067a4247bc305c7b3b8c51c9fa54e6f3ab52"></a>kLLWU_PinFilterRisingEdge</em>&nbsp;</td><td class="fielddoc">
-<p>Filter positive edge detection. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga04b013885364b1fc2c1e9d90e25ef067af429cb4dfc4343a66429baf2b8971279"></a>kLLWU_PinFilterFallingEdge</em>&nbsp;</td><td class="fielddoc">
-<p>Filter negative edge detection. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga04b013885364b1fc2c1e9d90e25ef067a9ae5329e7b3fad4d4cdc447ca64c9ad2"></a>kLLWU_PinFilterAnyEdge</em>&nbsp;</td><td class="fielddoc">
-<p>Filter any edge detection. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.5-->

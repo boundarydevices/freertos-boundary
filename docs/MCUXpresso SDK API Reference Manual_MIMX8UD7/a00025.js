@@ -1,8 +1,8 @@
 var a00025 =
 [
-    [ "FGPIO Driver", "a00185.html", null ],
-    [ "GPIO Driver", "a00184.html", "a00184" ],
-    [ "_gpio_pin_config", "a00025.html#a00274", [
+    [ "FGPIO Driver", "a00181.html", null ],
+    [ "GPIO Driver", "a00180.html", "a00180" ],
+    [ "_gpio_pin_config", "a00025.html#a00269", [
       [ "pinDirection", "a00025.html#ae01198d65e4be510c4468dce75b6d779", null ],
       [ "outputLogic", "a00025.html#a70ede6dc868ff6dd15987ba62c5d574b", null ]
     ] ],

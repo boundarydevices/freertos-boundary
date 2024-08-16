@@ -115,13 +115,13 @@ include_directories(${ProjDirPath}/../../../../../../components/uart)
 
 include_directories(${ProjDirPath}/../../../../../../devices/MIMX8UD7/drivers)
 
-include_directories(${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/str)
-
 include_directories(${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/debug_console_lite)
 
 include_directories(${ProjDirPath}/../../../../../../components/lists)
 
 include_directories(${ProjDirPath}/../../../../../../devices/MIMX8UD7)
+
+include_directories(${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/str)
 
 include_directories(${ProjDirPath}/../../../../../../CMSIS/Core/Include)
 
@@ -136,8 +136,6 @@ add_executable(dsp_pdm_sai_fusionf1.elf
 "${ProjDirPath}/../../../../../../components/uart/fsl_adapter_lpuart.c"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/drivers/fsl_lpuart.h"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/drivers/fsl_lpuart.c"
-"${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/str/fsl_str.c"
-"${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/str/fsl_str.h"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/debug_console_lite/fsl_debug_console.c"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/debug_console_lite/fsl_debug_console.h"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/debug_console_lite/fsl_assert.c"
@@ -162,6 +160,8 @@ add_executable(dsp_pdm_sai_fusionf1.elf
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/MIMX8UD7_dsp0_features.h"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/system_MIMX8UD7_dsp0.c"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/system_MIMX8UD7_dsp0.h"
+"${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/str/fsl_str.c"
+"${ProjDirPath}/../../../../../../devices/MIMX8UD7/utilities/str/fsl_str.h"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/drivers/fsl_pdm.h"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/drivers/fsl_pdm.c"
 "${ProjDirPath}/../../../../../../devices/MIMX8UD7/drivers/fsl_sai.h"
@@ -202,8 +202,10 @@ ADD_CUSTOM_COMMAND(TARGET dsp_pdm_sai_fusionf1.elf POST_BUILD COMMAND ${CMAKE_OB
 --xtensa-params= -Obinary ${EXECUTABLE_OUTPUT_PATH}/dsp_pdm_sai_fusionf1.elf ${EXECUTABLE_OUTPUT_PATH}/../../binary/dsp_data_${CMAKE_BUILD_TYPE}.bin
 --xtensa-core=fusion_nxp02_dsp_prod
 --xtensa-system=${XTENSA_SYSTEM}
+--only-section=.clib.rodata
 --only-section=.rtos.rodata
 --only-section=.rodata
+--only-section=.clib.data
 --only-section=.rtos.percpu.data
 --only-section=.data
 --only-section=.bss

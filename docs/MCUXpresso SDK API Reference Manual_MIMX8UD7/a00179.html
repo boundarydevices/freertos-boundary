@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: System Clock Generator (SCG)</title>
+<title>MCUXpresso SDK API Reference Manual: FlexIO: FlexIO Driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.15.000</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -98,83 +98,28 @@ $(document).ready(function(){initNavTree('a00179.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#groups">Modules</a>  </div>
   <div class="headertitle">
-<div class="title">System Clock Generator (SCG)<div class="ingroups"><a class="el" href="a00009.html">Clock Driver</a></div></div>  </div>
+<div class="title">FlexIO: FlexIO Driver</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>The MCUXpresso SDK provides a peripheral driver for the System Clock Generator (SCG) module of MCUXpresso SDK devices.</p>
-<h1><a class="anchor" id="SCGFunc"></a>
-Function description</h1>
-<p>The SCG module contains the system PLL (SPLL), a slow internal reference clock (SIRC), a fast internal reference clock (FIRC), a low power FLL, and the system oscillator clock (SOSC). They can be configured separately as the source of MCU system clocks. Accordingly, the SCG driver provides these functions:</p>
-<ul>
-<li>MCU system clock configuration.</li>
-<li>SCG SOSC configuration.</li>
-<li>SCG SIRC configuration.</li>
-<li>SCG FIRC configuration.</li>
-<li>SCG SPLL configuration.</li>
-<li>SCG LPFLL configuration.</li>
-</ul>
-<h2><a class="anchor" id="SCGSYSClk"></a>
-MCU System Clock</h2>
-<p>MCU system clock configurations include the clock source selection and the clock dividers. The configurations for VLPR, RUN, and HSRUN modes are set separately using the CLOCK_SetVlprModeSysClkConfig(), CLOCK_SetRunModeSysClkConfig(), and the CLOCK_SetHsrunModeSysClkConfig() functions to configure the MCU system clock.<br/>
- The current MCU system clock configuration can be obtained with the function CLOCK_GetCurSysClkConfig(). The current MCU system clock frequency can be obtained with the CLOCK_GetSysClkFreq() function.</p>
-<h2><a class="anchor" id="SCGSOSC"></a>
-SCG System OSC Clock</h2>
-<p>The functions <a class="el" href="a00009.html#ga00d6da54917e3491a396c14eff15000c" title="Initializes the CGC system OSC. ">CLOCK_InitSysOsc()</a>/CLOCK_DeinitSysOsc() are used for the SOSC clock initialization. The function CLOCK_InitSysOsc disables the SOSC internally and re-configures it. As a result, ensure that the SOSC is not used while calling these functions.<br/>
- The SOSC clock can be used directly as the MCU system clock source. The SOSCDIV1_CLK, SOSCDIV2_CLK, and SOSCDIV3_CLK can be used as the peripheral clock source. The clocks frequencies can be obtained by functions <a class="el" href="a00009.html#gaa93043820107f4ba614bc7a10f0d1a8b" title="Gets the CGC system OSC clock frequency (SYSOSC). ">CLOCK_GetSysOscFreq()</a> and CLOCK_GetSysOscAsyncFreq().<br/>
- To configure the SOSC monitor mode, use the function <a class="el" href="a00009.html#ga9627d07df780e3a4fb1cd46e47464eeb" title="Sets the system OSC monitor mode. ">CLOCK_SetSysOscMonitorMode()</a>. The clock error status can be received and cleared with the <a class="el" href="a00009.html#ga1a12699eb7ad6c2eb40dbe266e5ad0a6" title="Checks whether the system OSC clock error occurs. ">CLOCK_IsSysOscErr()</a> and <a class="el" href="a00009.html#gad439c806a2e05474e2932f0b02c118a0" title="Clears the system OSC clock error. ">CLOCK_ClearSysOscErr()</a> functions.<br/>
- </p>
-<h2><a class="anchor" id="SCGSIRC"></a>
-SCG Slow IRC Clock</h2>
-<p>The functions CLOCK_InitSirc()/CLOCK_DeinitSirc() are used for the SIRC clock initialization. The function CLOCK_InitSirc disables the SIRC internally and re-configures it. Ensure that the SIRC is not used while calling these functions.<br/>
- The SIRC clock can be used directly as the MCU system clock source. The SIRCDIV1_CLK, SIRCDIV2_CLK, and SIRCDIV3_CLK can be used as the peripheral clock source. The clocks frequencies can be received with functions CLOCK_GetSircFreq() and CLOCK_GetSircAsyncFreq().<br/>
- </p>
-<h2><a class="anchor" id="SCGFIRC"></a>
-SCG Fast IRC Clock</h2>
-<p>The functions CLOCK_InitFirc()/CLOCK_DeinitFirc() are used for the FIRC clock initialization. The function CLOCK_InitFirc disables the FIRC internally and re-configures it. Ensure that the FIRC is not used while calling these functions.<br/>
- The FIRC clock can be used directly as the MCU system clock source. The FIRCDIV1_CLK, FIRCDIV2_CLK, and FIRCDIV3_CLK can be used as the peripheral clock source. The clocks frequencies could be obtained by functions CLOCK_GetFircFreq() and CLOCK_GetFircAsyncFreq().<br/>
- The FIRC can be trimmed by the external clock. See the Section "Typical use case" to enable the FIRC trim.</p>
-<h2><a class="anchor" id="SCGLPFLL"></a>
-SCG Low Power FLL Clock</h2>
-<p>The functions CLOCK_InitLpFll()/CLOCK_DeinitLpFll() are used for the LPFLL clock initialization. The function CLOCK_InitLpFll disables the LPFLL internally and re-configures it. Ensure that the LPFLL is not used while calling these functions.<br/>
- The LPFLL clock can be used directly as the MCU system clock source. The LPFLLDIV1_CLK, LPFLLDIV2_CLK, and LPFLLDIV3_CLK can be used as the peripheral clock source. The clocks frequencies could be obtained by functions CLOCK_GetLpFllFreq() and CLOCK_GetLpFllAsyncFreq().<br/>
- The LPFLL can be trimmed by the external clock, specific the trimConfig in scg_lpfll_config_t to enable the clock trim.</p>
-<h2><a class="anchor" id="SCGSPLL"></a>
-SCG System PLL Clock</h2>
-<p>The functions CLOCK_InitSysPll()/CLOCK_DeinitSysPll() are used for the SPLL clock initialization. The function CLOCK_InitSysPll disables the SPLL internally and re-configures it. Ensure that the SPLL is not used while calling these functions.<br/>
- To generate the desired SPLL frequency, PREDIV and MULT value must be set properly while initializing the SPLL. The function CLOCK_GetSysPllMultDiv() calculates the PREDIV and MULT. Passing in the reference clock frequency and the desired output frequency, the function returns the PREDIV and MULT which generate the frequency closest to the desired frequency.</p>
-<p>Because the SPLL is based on the FIRC or SOSC, the FIRC or SOSC must be enabled first before the SPLL initialization. Also, when re-configuring the FIRC or SOSC, be careful with the SPLL.<br/>
- The SPLL clock can be used directly as the MCU system clock source. The SPLLDIV1_CLK, SPLLDIV2_CLK, and SPLLDIV3_CLK can be used as the peripheral clock source. The clocks frequencies can be obtained with functions CLOCK_GetSysPllFreq() and CLOCK_GetSysPllAsyncFreq().<br/>
- To configure the SPLL monitor mode, use the function CLOCK_SetSysPllMonitorMode(). The clock error status can be received and cleared by the CLOCK_IsSysPllErr() and CLOCK_ClearSysPllErr().<br/>
- </p>
-<h2><a class="anchor" id="SCGCLKVld"></a>
-SCG clock valid check</h2>
-<p>The functions such as the CLOCK_IsFircValid() are used to check whether a specific clock is valid or not. See "Typical use case" for details.<br/>
- The clocks are valid after the initialization functions such as the CLOCK_InitFirc(). As a result, it is not necessary to call the CLOCK_IsFircValid() after the CLOCK_InitFirc().</p>
-<h1><a class="anchor" id="SCGUSECse"></a>
-Typical use case</h1>
-<h2><a class="anchor" id="SCGFIRCTrim"></a>
-FIRC clock trim</h2>
-<p>During the FIRC initialization, applications can choose whether to enable trim or not.</p>
-<ol type="1">
-<li>Trim is not enabled. Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/scg</li>
-<li>Trim is enabled. Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/scg </li>
-</ol>
-<h2><a class="anchor" id="SCGSPLLInit"></a>
-SPLL initialization</h2>
-<p>The following code shows how to set up the SCG SPLL. The SPLL uses the SOSC as a reference clock. Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/scg </p>
-<h2><a class="anchor" id="SCGSYSCLKCfg"></a>
-System clock configuration</h2>
-<p>While changing the system clock configuration, the actual system clock does not change until the target clock source is valid. Ensure that the clock source is valid before using it. The functions such as CLOCK_IsSircValid() are used for this purpose.<br/>
- The SCG has a dedicated system clock configuration registers for VLPR, RUN, and HSRUN modes. During the power mode change, the system clock configuration may change too. In this case, check whether the clock source is valid during the power mode change.<br/>
- In the following example, the SIRC is used as the system clock source in VLPR mode, the FIRC is used as a system clock source in RUN mode, and the SPLL is used as a system clock source in HSRUN mode.<br/>
- The example work flow:</p>
-<ol type="1">
-<li>SIRC, FIRC, and SPLL are all enabled in RUN mode.</li>
-<li>MCU enters VLPR mode. In VLPR mode, FIRC, and SPLL are disabled automatically.</li>
-<li>MCU enters RUN mode. Wait for the FIRC to become valid.</li>
-<li>MCU enters HSRUN mode. In step 3, the SPLL is already enabled, but may not be valid. Wait for it to become valid when entering HSRUN mode. Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/scg </li>
-</ol>
+<a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
+<p>The MCUXpresso SDK provides a generic driver and multiple protocol-specific FlexIO drivers for the FlexIO module of MCUXpresso SDK devices. </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00017"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html">FlexIO Driver</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00018"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html">FlexIO I2C Master Driver</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00019"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html">FlexIO I2S Driver</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00021"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00021.html">FlexIO SPI Driver</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00023"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html">FlexIO UART Driver</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.5-->

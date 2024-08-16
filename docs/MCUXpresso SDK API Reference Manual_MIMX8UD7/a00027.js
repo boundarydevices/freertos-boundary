@@ -1,6 +1,6 @@
 var a00027 =
 [
-    [ "_lpi2c_master_config", "a00027.html#a00276", [
+    [ "_lpi2c_master_config", "a00027.html#a00271", [
       [ "enableMaster", "a00027.html#a75ff7ea48d319fe03c2ade2e28d278e7", null ],
       [ "enableDoze", "a00027.html#a3c92d69d65e736a88589908cb56e35db", null ],
       [ "debugEnable", "a00027.html#ad64e790c7a7cfebd662f9b6dd4aec46d", null ],
@@ -16,13 +16,13 @@ var a00027 =
       [ "polarity", "a00027.html#ac54e4718ad691c1b3f93e0846948a96e", null ],
       [ "hostRequest", "a00027.html#aa9317a6396b31fb6de4f077d616b6e58", null ]
     ] ],
-    [ "_lpi2c_match_config", "a00027.html#a00280", [
+    [ "_lpi2c_match_config", "a00027.html#a00275", [
       [ "matchMode", "a00027.html#ae95ba41c4d8ee32cdf1071f079fe0f88", null ],
       [ "rxDataMatchOnly", "a00027.html#a8e8ae391cfc6d74a8dd65bf196aae1da", null ],
       [ "match0", "a00027.html#a883539a05fa595ccf0cbb8836d8f9f24", null ],
       [ "match1", "a00027.html#a660d00fcd9fb6e619fb597cf1fbd0fcb", null ]
     ] ],
-    [ "_lpi2c_master_transfer", "a00027.html#a00279", [
+    [ "_lpi2c_master_transfer", "a00027.html#a00274", [
       [ "flags", "a00027.html#a6533bfb1994c17b45346c97e504d6eb1", null ],
       [ "slaveAddress", "a00027.html#a1048f987d2c513d653030a2faccb0390", null ],
       [ "direction", "a00027.html#ad52448e432e47716a97df6ab134c57f6", null ],
@@ -31,7 +31,7 @@ var a00027 =
       [ "data", "a00027.html#a5d334c7862e9bf45ddb6a6d7d0a8ca49", null ],
       [ "dataSize", "a00027.html#aebb7d33eb8e627c56540b43a891f3989", null ]
     ] ],
-    [ "_lpi2c_master_handle", "a00027.html#a00278", [
+    [ "_lpi2c_master_handle", "a00027.html#a00273", [
       [ "state", "a00027.html#ab71bbb48ee02d9ba9a916f7290c42654", null ],
       [ "remainingBytes", "a00027.html#a0237592c3efb422804845a8900dcf525", null ],
       [ "buf", "a00027.html#a7874ac02bba45dab209194265a6cc74a", null ],

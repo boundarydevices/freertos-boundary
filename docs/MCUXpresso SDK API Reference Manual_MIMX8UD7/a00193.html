@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: LTC Blocking APIs</title>
+<title>MCUXpresso SDK API Reference Manual: PORT: Port Control and Interrupts</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.15.000</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -99,25 +99,295 @@ $(document).ready(function(){initNavTree('a00193.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">LTC Blocking APIs<div class="ingroups"><a class="el" href="a00192.html">LTC: LP Trusted Cryptography</a></div></div>  </div>
+<div class="title">PORT: Port Control and Interrupts</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
-<p>This section describes the programming interface of the LTC Synchronous Blocking functions </p>
+<p>The MCUXpresso SDK provides a driver for the Port Control and Interrupts (PORT) module of MCUXpresso SDK devices. </p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
-Modules</h2></td></tr>
-<tr class="memitem:a00195"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html">LTC AES driver</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html">LTC DES driver</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00038"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html">LTC HASH driver</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00039"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00039.html">LTC PKHA driver</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:gaeb69517ed6497ab54c133fd9992c1842"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00193.html#gafd69f8203c1c62d7c81088dc92423dce">_port_interrupt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#gaeb69517ed6497ab54c133fd9992c1842">port_interrupt_t</a></td></tr>
+<tr class="memdesc:gaeb69517ed6497ab54c133fd9992c1842"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the interrupt generation condition.  <a href="#gaeb69517ed6497ab54c133fd9992c1842">More...</a><br/></td></tr>
+<tr class="separator:gaeb69517ed6497ab54c133fd9992c1842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gafd69f8203c1c62d7c81088dc92423dce"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#gafd69f8203c1c62d7c81088dc92423dce">_port_interrupt</a> { <br/>
+&#160;&#160;<a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dcea3a632495179d065e620ada24a6521ac6">kPORT_InterruptOrDMADisabled</a> = 0x0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceacf057f010d45cf99b2d42ca76752b103">kPORT_DMARisingEdge</a> = 0x1U, 
+<br/>
+&#160;&#160;<a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceaf3275302ec20083e1f12047b2982057c">kPORT_DMAFallingEdge</a> = 0x2U, 
+<br/>
+&#160;&#160;<a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceaa9d93b8e5b3ae154b5b33ed86d3370ca">kPORT_DMAEitherEdge</a> = 0x3U, 
+<br/>
+&#160;&#160;<a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceaed05d5f28be0e81a10b36765b1e62750">kPORT_FlagRisingEdge</a> = 0x05U, 
+<br/>
+&#160;&#160;<a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceaa741b2c34ca3924b5f25a118d833fa2b">kPORT_FlagFallingEdge</a> = 0x06U, 
+<br/>
+&#160;&#160;<a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dcea31d92dea54cfd39106b324260bc3c8f6">kPORT_FlagEitherEdge</a> = 0x07U, 
+<br/>
+&#160;&#160;<a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dcea4001279f550382ce823ad62136970f14">kPORT_InterruptLogicZero</a> = 0x8U, 
+<br/>
+&#160;&#160;<a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dcea2f8db24e21fd5fabfc8dc5250fbc6471">kPORT_InterruptRisingEdge</a> = 0x9U, 
+<br/>
+&#160;&#160;<a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceafe8f52eaca9af2ce2087a2991f50c463">kPORT_InterruptFallingEdge</a> = 0xAU, 
+<br/>
+&#160;&#160;<a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dcea02b1f5ef221c395aa49960c8c32943d2">kPORT_InterruptEitherEdge</a> = 0xBU, 
+<br/>
+&#160;&#160;<a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceaa10b78a566c8439f00d14d18897f765c">kPORT_InterruptLogicOne</a> = 0xCU, 
+<br/>
+&#160;&#160;<a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dcea47452bd9fd5a7ff1dce3ccba5b38fe25">kPORT_ActiveHighTriggerOutputEnable</a> = 0xDU, 
+<br/>
+&#160;&#160;<a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceaf726a3a1b4f551c31fe80cac6111484a">kPORT_ActiveLowTriggerOutputEnable</a> = 0xEU
+<br/>
+ }</td></tr>
+<tr class="memdesc:gafd69f8203c1c62d7c81088dc92423dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the interrupt generation condition.  <a href="a00193.html#gafd69f8203c1c62d7c81088dc92423dce">More...</a><br/></td></tr>
+<tr class="separator:gafd69f8203c1c62d7c81088dc92423dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Driver version</h2></td></tr>
+<tr class="memitem:ga75a0a23a423adf79cd0f83a5fa2567a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#ga75a0a23a423adf79cd0f83a5fa2567a3">FSL_PORT_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00177.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 5, 0))</td></tr>
+<tr class="memdesc:ga75a0a23a423adf79cd0f83a5fa2567a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">PORT driver version.  <a href="#ga75a0a23a423adf79cd0f83a5fa2567a3">More...</a><br/></td></tr>
+<tr class="separator:ga75a0a23a423adf79cd0f83a5fa2567a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Interrupt</h2></td></tr>
+<tr class="memitem:ga001584128ac80df3857c8df6cf5245ff"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#ga001584128ac80df3857c8df6cf5245ff">PORT_SetPinInterruptConfig</a> (PORT_Type *base, uint32_t pin, <a class="el" href="a00193.html#gaeb69517ed6497ab54c133fd9992c1842">port_interrupt_t</a> config)</td></tr>
+<tr class="memdesc:ga001584128ac80df3857c8df6cf5245ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the port pin interrupt/DMA request.  <a href="#ga001584128ac80df3857c8df6cf5245ff">More...</a><br/></td></tr>
+<tr class="separator:ga001584128ac80df3857c8df6cf5245ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50cecfe358ab8f9cad6ab881be2f8899"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#ga50cecfe358ab8f9cad6ab881be2f8899">PORT_GetPinsInterruptFlags</a> (PORT_Type *base)</td></tr>
+<tr class="memdesc:ga50cecfe358ab8f9cad6ab881be2f8899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the whole port status flag.  <a href="#ga50cecfe358ab8f9cad6ab881be2f8899">More...</a><br/></td></tr>
+<tr class="separator:ga50cecfe358ab8f9cad6ab881be2f8899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadb6ede61f32b89a54049b899cd576ff7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#gadb6ede61f32b89a54049b899cd576ff7">PORT_ClearPinsInterruptFlags</a> (PORT_Type *base, uint32_t mask)</td></tr>
+<tr class="memdesc:gadb6ede61f32b89a54049b899cd576ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the multiple pin interrupt status flag.  <a href="#gadb6ede61f32b89a54049b899cd576ff7">More...</a><br/></td></tr>
+<tr class="separator:gadb6ede61f32b89a54049b899cd576ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ga75a0a23a423adf79cd0f83a5fa2567a3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FSL_PORT_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00177.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 5, 0))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="gaeb69517ed6497ab54c133fd9992c1842"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="a00193.html#gafd69f8203c1c62d7c81088dc92423dce">_port_interrupt</a>  <a class="el" href="a00193.html#gaeb69517ed6497ab54c133fd9992c1842">port_interrupt_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="gafd69f8203c1c62d7c81088dc92423dce"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00193.html#gafd69f8203c1c62d7c81088dc92423dce">_port_interrupt</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggafd69f8203c1c62d7c81088dc92423dcea3a632495179d065e620ada24a6521ac6"></a>kPORT_InterruptOrDMADisabled</em>&nbsp;</td><td class="fielddoc">
+<p>Interrupt/DMA request is disabled. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggafd69f8203c1c62d7c81088dc92423dceacf057f010d45cf99b2d42ca76752b103"></a>kPORT_DMARisingEdge</em>&nbsp;</td><td class="fielddoc">
+<p>DMA request on rising edge. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggafd69f8203c1c62d7c81088dc92423dceaf3275302ec20083e1f12047b2982057c"></a>kPORT_DMAFallingEdge</em>&nbsp;</td><td class="fielddoc">
+<p>DMA request on falling edge. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggafd69f8203c1c62d7c81088dc92423dceaa9d93b8e5b3ae154b5b33ed86d3370ca"></a>kPORT_DMAEitherEdge</em>&nbsp;</td><td class="fielddoc">
+<p>DMA request on either edge. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggafd69f8203c1c62d7c81088dc92423dceaed05d5f28be0e81a10b36765b1e62750"></a>kPORT_FlagRisingEdge</em>&nbsp;</td><td class="fielddoc">
+<p>Flag sets on rising edge. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggafd69f8203c1c62d7c81088dc92423dceaa741b2c34ca3924b5f25a118d833fa2b"></a>kPORT_FlagFallingEdge</em>&nbsp;</td><td class="fielddoc">
+<p>Flag sets on falling edge. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggafd69f8203c1c62d7c81088dc92423dcea31d92dea54cfd39106b324260bc3c8f6"></a>kPORT_FlagEitherEdge</em>&nbsp;</td><td class="fielddoc">
+<p>Flag sets on either edge. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggafd69f8203c1c62d7c81088dc92423dcea4001279f550382ce823ad62136970f14"></a>kPORT_InterruptLogicZero</em>&nbsp;</td><td class="fielddoc">
+<p>Interrupt when logic zero. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggafd69f8203c1c62d7c81088dc92423dcea2f8db24e21fd5fabfc8dc5250fbc6471"></a>kPORT_InterruptRisingEdge</em>&nbsp;</td><td class="fielddoc">
+<p>Interrupt on rising edge. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggafd69f8203c1c62d7c81088dc92423dceafe8f52eaca9af2ce2087a2991f50c463"></a>kPORT_InterruptFallingEdge</em>&nbsp;</td><td class="fielddoc">
+<p>Interrupt on falling edge. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggafd69f8203c1c62d7c81088dc92423dcea02b1f5ef221c395aa49960c8c32943d2"></a>kPORT_InterruptEitherEdge</em>&nbsp;</td><td class="fielddoc">
+<p>Interrupt on either edge. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggafd69f8203c1c62d7c81088dc92423dceaa10b78a566c8439f00d14d18897f765c"></a>kPORT_InterruptLogicOne</em>&nbsp;</td><td class="fielddoc">
+<p>Interrupt when logic one. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggafd69f8203c1c62d7c81088dc92423dcea47452bd9fd5a7ff1dce3ccba5b38fe25"></a>kPORT_ActiveHighTriggerOutputEnable</em>&nbsp;</td><td class="fielddoc">
+<p>Enable active high-trigger output. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggafd69f8203c1c62d7c81088dc92423dceaf726a3a1b4f551c31fe80cac6111484a"></a>kPORT_ActiveLowTriggerOutputEnable</em>&nbsp;</td><td class="fielddoc">
+<p>Enable active low-trigger output. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga001584128ac80df3857c8df6cf5245ff"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PORT_SetPinInterruptConfig </td>
+          <td>(</td>
+          <td class="paramtype">PORT_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00193.html#gaeb69517ed6497ab54c133fd9992c1842">port_interrupt_t</a>&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>PORT peripheral base pointer. </td></tr>
+    <tr><td class="paramname">pin</td><td>PORT pin number. </td></tr>
+    <tr><td class="paramname">config</td><td>PORT pin interrupt configuration.<ul>
+<li><a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dcea3a632495179d065e620ada24a6521ac6" title="Interrupt/DMA request is disabled. ">kPORT_InterruptOrDMADisabled</a>: Interrupt/DMA request disabled.</li>
+<li><a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceacf057f010d45cf99b2d42ca76752b103" title="DMA request on rising edge. ">kPORT_DMARisingEdge</a> : DMA request on rising edge(if the DMA requests exit).</li>
+<li><a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceaf3275302ec20083e1f12047b2982057c" title="DMA request on falling edge. ">kPORT_DMAFallingEdge</a>: DMA request on falling edge(if the DMA requests exit).</li>
+<li><a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceaa9d93b8e5b3ae154b5b33ed86d3370ca" title="DMA request on either edge. ">kPORT_DMAEitherEdge</a> : DMA request on either edge(if the DMA requests exit).</li>
+<li><a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceaed05d5f28be0e81a10b36765b1e62750" title="Flag sets on rising edge. ">kPORT_FlagRisingEdge</a> : Flag sets on rising edge(if the Flag states exit).</li>
+<li><a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceaa741b2c34ca3924b5f25a118d833fa2b" title="Flag sets on falling edge. ">kPORT_FlagFallingEdge</a> : Flag sets on falling edge(if the Flag states exit).</li>
+<li><a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dcea31d92dea54cfd39106b324260bc3c8f6" title="Flag sets on either edge. ">kPORT_FlagEitherEdge</a> : Flag sets on either edge(if the Flag states exit).</li>
+<li><a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dcea4001279f550382ce823ad62136970f14" title="Interrupt when logic zero. ">kPORT_InterruptLogicZero</a> : Interrupt when logic zero.</li>
+<li><a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dcea2f8db24e21fd5fabfc8dc5250fbc6471" title="Interrupt on rising edge. ">kPORT_InterruptRisingEdge</a> : Interrupt on rising edge.</li>
+<li><a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceafe8f52eaca9af2ce2087a2991f50c463" title="Interrupt on falling edge. ">kPORT_InterruptFallingEdge</a>: Interrupt on falling edge.</li>
+<li><a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dcea02b1f5ef221c395aa49960c8c32943d2" title="Interrupt on either edge. ">kPORT_InterruptEitherEdge</a> : Interrupt on either edge.</li>
+<li><a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceaa10b78a566c8439f00d14d18897f765c" title="Interrupt when logic one. ">kPORT_InterruptLogicOne</a> : Interrupt when logic one.</li>
+<li><a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dcea47452bd9fd5a7ff1dce3ccba5b38fe25" title="Enable active high-trigger output. ">kPORT_ActiveHighTriggerOutputEnable</a> : Enable active high-trigger output (if the trigger states exit).</li>
+<li><a class="el" href="a00193.html#ggafd69f8203c1c62d7c81088dc92423dceaf726a3a1b4f551c31fe80cac6111484a" title="Enable active low-trigger output. ">kPORT_ActiveLowTriggerOutputEnable</a> : Enable active low-trigger output (if the trigger states exit). </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga50cecfe358ab8f9cad6ab881be2f8899"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint32_t PORT_GetPinsInterruptFlags </td>
+          <td>(</td>
+          <td class="paramtype">PORT_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>If a pin is configured to generate the DMA request, the corresponding flag is cleared automatically at the completion of the requested DMA transfer. Otherwise, the flag remains set until a logic one is written to that flag. If configured for a level sensitive interrupt that remains asserted, the flag is set again immediately.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>PORT peripheral base pointer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Current port interrupt status flags, for example, 0x00010001 means the pin 0 and 16 have the interrupt. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gadb6ede61f32b89a54049b899cd576ff7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PORT_ClearPinsInterruptFlags </td>
+          <td>(</td>
+          <td class="paramtype">PORT_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>PORT peripheral base pointer. </td></tr>
+    <tr><td class="paramname">mask</td><td>PORT pin number macro. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.5-->

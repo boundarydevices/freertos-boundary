@@ -5,7 +5,7 @@ var searchData=
   ['qspi_5fdqs_5fconfig_5ft',['qspi_dqs_config_t',['../a00026.html#gaf4bc7a17804dd1403e87a3ff119131b2',1,'fsl_qspi.h']]],
   ['qspi_5fdqs_5fphrase_5fshift_5ft',['qspi_dqs_phrase_shift_t',['../a00026.html#ga41e93b65d603c16799e973184acb5d4a',1,'fsl_qspi.h']]],
   ['qspi_5fdqs_5fread_5fsample_5fclock_5ft',['qspi_dqs_read_sample_clock_t',['../a00026.html#gaafbd27e97d8709d94b97df5ceeba9513',1,'fsl_qspi.h']]],
-  ['qspi_5fedma_5fcallback_5ft',['qspi_edma_callback_t',['../a00042.html#ga7fcc2c0f3515d1071a7d839f87751975',1,'fsl_qspi_edma.h']]],
+  ['qspi_5fedma_5fcallback_5ft',['qspi_edma_callback_t',['../a00041.html#ga7fcc2c0f3515d1071a7d839f87751975',1,'fsl_qspi_edma.h']]],
   ['qspi_5fendianness_5ft',['qspi_endianness_t',['../a00026.html#gad9247e1b4735f4e600c25eb27e6cf41d',1,'fsl_qspi.h']]],
   ['qspi_5ffifo_5ft',['qspi_fifo_t',['../a00026.html#gac2f601cd6d9964054f4a27b6a2a6b4b2',1,'fsl_qspi.h']]],
   ['qspi_5fflash_5fconfig_5ft',['qspi_flash_config_t',['../a00026.html#ga0e40b1b67b101d63cbc8ab6105f6906c',1,'fsl_qspi.h']]],

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: TSTMR: Timestamp Timer Driver</title>
+<title>MCUXpresso SDK API Reference Manual: Lpspi_cmsis_driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.15.000</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -98,107 +98,72 @@ $(document).ready(function(){initNavTree('a00203.html','');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">TSTMR: Timestamp Timer Driver</div>  </div>
+<div class="title">Lpspi_cmsis_driver</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
-<p>The MCUXpresso SDK provides a driver for the TSTMR module of MCUXpresso SDK devices. </p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga404029f1ceb5941116ca404d90998dc2"><td class="memItemLeft" align="right" valign="top">static uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00203.html#ga404029f1ceb5941116ca404d90998dc2">TSTMR_ReadTimeStamp</a> (TSTMR_Type *base)</td></tr>
-<tr class="memdesc:ga404029f1ceb5941116ca404d90998dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the time stamp.  <a href="#ga404029f1ceb5941116ca404d90998dc2">More...</a><br/></td></tr>
-<tr class="separator:ga404029f1ceb5941116ca404d90998dc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9e539de4030d5b2086fa08e8fd6e813d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00203.html#ga9e539de4030d5b2086fa08e8fd6e813d">TSTMR_DelayUs</a> (TSTMR_Type *base, uint32_t delayInUs)</td></tr>
-<tr class="memdesc:ga9e539de4030d5b2086fa08e8fd6e813d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays for a specified number of microseconds.  <a href="#ga9e539de4030d5b2086fa08e8fd6e813d">More...</a><br/></td></tr>
-<tr class="separator:ga9e539de4030d5b2086fa08e8fd6e813d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-Driver version</h2></td></tr>
-<tr class="memitem:ga70d035fa392f87534372ea2097335c1f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga70d035fa392f87534372ea2097335c1f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00203.html#ga70d035fa392f87534372ea2097335c1f">FSL_TSTMR_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00181.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 1))</td></tr>
-<tr class="memdesc:ga70d035fa392f87534372ea2097335c1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version 2.0.1. <br/></td></tr>
-<tr class="separator:ga70d035fa392f87534372ea2097335c1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga404029f1ceb5941116ca404d90998dc2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static uint64_t TSTMR_ReadTimeStamp </td>
-          <td>(</td>
-          <td class="paramtype">TSTMR_Type *&#160;</td>
-          <td class="paramname"><em>base</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This function reads the low and high registers and returns the 56-bit free running counter value. This can be read by software at any time to determine the software ticks. TSTMR registers can be read with 32-bit accesses only. The TSTMR LOW read should occur first, followed by the TSTMR HIGH read.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">base</td><td>TSTMR peripheral base address.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The 56-bit time stamp value. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga9e539de4030d5b2086fa08e8fd6e813d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void TSTMR_DelayUs </td>
-          <td>(</td>
-          <td class="paramtype">TSTMR_Type *&#160;</td>
-          <td class="paramname"><em>base</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>delayInUs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This function repeatedly reads the timestamp register and waits for the user-specified delay value.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">base</td><td>TSTMR peripheral base address. </td></tr>
-    <tr><td class="paramname">delayInUs</td><td>Delay value in microseconds. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-</div><!-- contents -->
+<p>This section describes the programming interface of the LPSPI Cortex Microcontroller Software Interface Standard (CMSIS) driver. And this driver defines generic peripheral driver interfaces for middleware making it reusable across a wide range of supported microcontroller devices. The API connects microcontroller peripherals with middleware that implements for example communication stacks, file systems, or graphic user interfaces. More information and usage methord please refer to <a href="http://www.keil.com/pack/doc/cmsis/Driver/html/index.html">http://www.keil.com/pack/doc/cmsis/Driver/html/index.html</a>.</p>
+<h1><a class="anchor" id="LPSPIFunGrps"></a>
+Function groups</h1>
+<h2><a class="anchor" id="LPSPIGetVersionOps"></a>
+LPSPI CMSIS GetVersion Operation</h2>
+<p>This function group will return the DSPI CMSIS Driver version to user.</p>
+<h2><a class="anchor" id="LPSPIGetCapOps"></a>
+LPSPI CMSIS GetCapabilities Operation</h2>
+<p>This function group will return the capabilities of this driver.</p>
+<h2><a class="anchor" id="LPSPIInitResetOps"></a>
+LPSPI CMSIS Initialize and Uninitialize Operation</h2>
+<p>This function will initialize and uninitialize the instance in master mode or slave mode. And this API must be called before you configure an instance or after you Deinit an instance.The right steps to start an instance is that you must initialize the instance which been slected firstly,then you can power on the instance.After these all have been done,you can configure the instance by using control operation.If you want to Uninitialize the instance, you must power off the instance first.</p>
+<h2><a class="anchor" id="LPSPITransOps"></a>
+LPSPI Transfer Operation</h2>
+<p>This function group controls the transfer, master send/receive data, and slave send/receive data.</p>
+<h2><a class="anchor" id="LPSPIStatusOps"></a>
+LPSPI Status Operation</h2>
+<p>This function group gets the LPSPI transfer status.</p>
+<h2><a class="anchor" id="LPSPIControlOps"></a>
+LPSPI CMSIS Control Operation</h2>
+<p>This function can select instance as master mode or slave mode, set baudrate for master mode transfer, get current baudrate of master mode transfer,set transfer data bits and set other control command.</p>
+<h1><a class="anchor" id="LPSPITpyUC"></a>
+Typical use case</h1>
+<h2><a class="anchor" id="LPSPIMasterOps"></a>
+Master Operation</h2>
+<div class="fragment"><div class="line"><span class="comment">/* Variables */</span></div>
+<div class="line">uint8_t masterRxData[TRANSFER_SIZE] = {0U};</div>
+<div class="line">uint8_t masterTxData[TRANSFER_SIZE] = {0U};</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/*DSPI master init*/</span></div>
+<div class="line">Driver_SPI0.Initialize(DSPI_MasterSignalEvent_t);</div>
+<div class="line">Driver_SPI0.PowerControl(ARM_POWER_FULL);</div>
+<div class="line">Driver_SPI0.Control(ARM_SPI_MODE_MASTER, TRANSFER_BAUDRATE);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* Start master transfer */</span></div>
+<div class="line">Driver_SPI0.Transfer(masterTxData, masterRxData, TRANSFER_SIZE);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* Master power off */</span></div>
+<div class="line">Driver_SPI0.PowerControl(ARM_POWER_OFF);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* Master uninitialize */</span></div>
+<div class="line">Driver_SPI0.Uninitialize();</div>
+</div><!-- fragment --><h2><a class="anchor" id="LPSPISlaveOps"></a>
+Slave Operation</h2>
+<div class="fragment"><div class="line"><span class="comment">/* Variables */</span></div>
+<div class="line">uint8_t slaveRxData[TRANSFER_SIZE] = {0U};</div>
+<div class="line">uint8_t slaveTxData[TRANSFER_SIZE] = {0U};</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/*DSPI slave init*/</span></div>
+<div class="line">Driver_SPI2.Initialize(DSPI_SlaveSignalEvent_t);</div>
+<div class="line">Driver_SPI2.PowerControl(ARM_POWER_FULL);</div>
+<div class="line">Driver_SPI2.Control(ARM_SPI_MODE_SLAVE, <span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* Start slave transfer */</span></div>
+<div class="line">Driver_SPI2.Transfer(slaveTxData, slaveRxData, TRANSFER_SIZE);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* slave power off */</span></div>
+<div class="line">Driver_SPI2.PowerControl(ARM_POWER_OFF);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* slave uninitialize */</span></div>
+<div class="line">Driver_SPI2.Uninitialize();</div>
+</div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.5-->
 <!-- start footer part -->

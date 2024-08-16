@@ -1,14 +1,10 @@
 var a00205 =
 [
-    [ "DEBUG_CONSOLE_TRANSMIT_BUFFER_LEN", "a00205.html#ga028eff2428680ec9e47eed17d7ad6180", null ],
-    [ "DEBUG_CONSOLE_RECEIVE_BUFFER_LEN", "a00205.html#gadad6011e61c820f396b1c13568dbfe16", null ],
-    [ "DEBUG_CONSOLE_TX_RELIABLE_ENABLE", "a00205.html#gab2823ff7917ffeaaccf805f739116ec1", null ],
-    [ "DEBUG_CONSOLE_RX_ENABLE", "a00205.html#ga27259eda6262948659d081ea4b7ad2fe", null ],
-    [ "DEBUG_CONSOLE_PRINTF_MAX_LOG_LEN", "a00205.html#ga9777b06b434b336e5a2c1b21421c9ea3", null ],
-    [ "DEBUG_CONSOLE_SCANF_MAX_LOG_LEN", "a00205.html#gab2afcebb59f366867a49bb888b8d043d", null ],
-    [ "DEBUG_CONSOLE_SYNCHRONIZATION_BM", "a00205.html#ga1cbe5dd480860843788779e39d1d0d1e", null ],
-    [ "DEBUG_CONSOLE_SYNCHRONIZATION_FREERTOS", "a00205.html#ga9589914d5a8b1cfedf834d52a6574496", null ],
-    [ "DEBUG_CONSOLE_SYNCHRONIZATION_MODE", "a00205.html#ga7b85f4e4309413064a69c99e7327d3f2", null ],
-    [ "DEBUG_CONSOLE_ENABLE_ECHO_FUNCTION", "a00205.html#ga5cc1f7845683fbde63e9619f38aac2d1", null ],
-    [ "BOARD_USE_VIRTUALCOM", "a00205.html#ga74776e2523880761897d8b57199e5596", null ]
+    [ "LTC_AES_DecryptCtrEDMA", "a00205.html#ga153b1bda00df624919e1fce8dc3b9aae", null ],
+    [ "LTC_AES_EncryptCtrEDMA", "a00205.html#gad7b8af8e0b417716cca43d5135213cbb", null ],
+    [ "LTC_AES_EncryptEcbEDMA", "a00205.html#ga3121a6c1b7feaeaaa2765c4150e0f46d", null ],
+    [ "LTC_AES_DecryptEcbEDMA", "a00205.html#ga99240b0b534844dbc0548177d3751334", null ],
+    [ "LTC_AES_EncryptCbcEDMA", "a00205.html#ga66c51352763fa816367cbf65ade7bb0e", null ],
+    [ "LTC_AES_DecryptCbcEDMA", "a00205.html#gae65a84cb3fc0a7741edcf7e6118a8613", null ],
+    [ "LTC_AES_CryptCtrEDMA", "a00205.html#gad36d9219457ff9618c7b38180761d9f3", null ]
 ];

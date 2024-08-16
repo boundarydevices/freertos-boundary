@@ -6,12 +6,12 @@ In this example, one sai instance playbacks the audio data stored in flash/SRAM 
 
 SDK version
 ===========
-- Version: 2.15.000
+- Version: 2.16.000
 
 Toolchain supported
 ===================
-- IAR embedded Workbench  9.40.1
-- GCC ARM Embedded  12.2
+- IAR embedded Workbench  9.60.1
+- GCC ARM Embedded  13.2.1
 
 Hardware requirements
 =====================
@@ -65,6 +65,6 @@ Note: This demo outputs 215HZ sine wave audio signal.
 When the demo runs successfully, you can hear the tone and the log would be seen on the terminal like:
 
 ~~~~~~~~~~~~~~~~~~~
-SAI example started!
+SAI EDMA example started!
 SAI EDMA example finished!
  ~~~~~~~~~~~~~~~~~~~

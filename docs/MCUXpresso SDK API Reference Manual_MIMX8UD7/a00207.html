@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: Lpspi_cmsis_driver</title>
+<title>MCUXpresso SDK API Reference Manual: CODEC Adapter</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.15.000</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -98,72 +98,108 @@ $(document).ready(function(){initNavTree('a00207.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">Lpspi_cmsis_driver</div>  </div>
+<div class="title">CODEC Adapter<div class="ingroups"><a class="el" href="a00010.html">CODEC Common Driver</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>This section describes the programming interface of the LPSPI Cortex Microcontroller Software Interface Standard (CMSIS) driver. And this driver defines generic peripheral driver interfaces for middleware making it reusable across a wide range of supported microcontroller devices. The API connects microcontroller peripherals with middleware that implements for example communication stacks, file systems, or graphic user interfaces. More information and usage methord please refer to <a href="http://www.keil.com/pack/doc/cmsis/Driver/html/index.html">http://www.keil.com/pack/doc/cmsis/Driver/html/index.html</a>.</p>
-<h1><a class="anchor" id="LPSPIFunGrps"></a>
-Function groups</h1>
-<h2><a class="anchor" id="LPSPIGetVersionOps"></a>
-LPSPI CMSIS GetVersion Operation</h2>
-<p>This function group will return the DSPI CMSIS Driver version to user.</p>
-<h2><a class="anchor" id="LPSPIGetCapOps"></a>
-LPSPI CMSIS GetCapabilities Operation</h2>
-<p>This function group will return the capabilities of this driver.</p>
-<h2><a class="anchor" id="LPSPIInitResetOps"></a>
-LPSPI CMSIS Initialize and Uninitialize Operation</h2>
-<p>This function will initialize and uninitialize the instance in master mode or slave mode. And this API must be called before you configure an instance or after you Deinit an instance.The right steps to start an instance is that you must initialize the instance which been slected firstly,then you can power on the instance.After these all have been done,you can configure the instance by using control operation.If you want to Uninitialize the instance, you must power off the instance first.</p>
-<h2><a class="anchor" id="LPSPITransOps"></a>
-LPSPI Transfer Operation</h2>
-<p>This function group controls the transfer, master send/receive data, and slave send/receive data.</p>
-<h2><a class="anchor" id="LPSPIStatusOps"></a>
-LPSPI Status Operation</h2>
-<p>This function group gets the LPSPI transfer status.</p>
-<h2><a class="anchor" id="LPSPIControlOps"></a>
-LPSPI CMSIS Control Operation</h2>
-<p>This function can select instance as master mode or slave mode, set baudrate for master mode transfer, get current baudrate of master mode transfer,set transfer data bits and set other control command.</p>
-<h1><a class="anchor" id="LPSPITpyUC"></a>
-Typical use case</h1>
-<h2><a class="anchor" id="LPSPIMasterOps"></a>
-Master Operation</h2>
-<div class="fragment"><div class="line"><span class="comment">/* Variables */</span></div>
-<div class="line">uint8_t masterRxData[TRANSFER_SIZE] = {0U};</div>
-<div class="line">uint8_t masterTxData[TRANSFER_SIZE] = {0U};</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/*DSPI master init*/</span></div>
-<div class="line">Driver_SPI0.Initialize(DSPI_MasterSignalEvent_t);</div>
-<div class="line">Driver_SPI0.PowerControl(ARM_POWER_FULL);</div>
-<div class="line">Driver_SPI0.Control(ARM_SPI_MODE_MASTER, TRANSFER_BAUDRATE);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* Start master transfer */</span></div>
-<div class="line">Driver_SPI0.Transfer(masterTxData, masterRxData, TRANSFER_SIZE);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* Master power off */</span></div>
-<div class="line">Driver_SPI0.PowerControl(ARM_POWER_OFF);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* Master uninitialize */</span></div>
-<div class="line">Driver_SPI0.Uninitialize();</div>
-</div><!-- fragment --><h2><a class="anchor" id="LPSPISlaveOps"></a>
-Slave Operation</h2>
-<div class="fragment"><div class="line"><span class="comment">/* Variables */</span></div>
-<div class="line">uint8_t slaveRxData[TRANSFER_SIZE] = {0U};</div>
-<div class="line">uint8_t slaveTxData[TRANSFER_SIZE] = {0U};</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/*DSPI slave init*/</span></div>
-<div class="line">Driver_SPI2.Initialize(DSPI_SlaveSignalEvent_t);</div>
-<div class="line">Driver_SPI2.PowerControl(ARM_POWER_FULL);</div>
-<div class="line">Driver_SPI2.Control(ARM_SPI_MODE_SLAVE, <span class="keyword">false</span>);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* Start slave transfer */</span></div>
-<div class="line">Driver_SPI2.Transfer(slaveTxData, slaveRxData, TRANSFER_SIZE);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* slave power off */</span></div>
-<div class="line">Driver_SPI2.PowerControl(ARM_POWER_OFF);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* slave uninitialize */</span></div>
-<div class="line">Driver_SPI2.Uninitialize();</div>
-</div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gaf3520ff6d43011872bab77edd27d4de3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
+&#160;&#160;<a class="el" href="a00207.html#ggaf3520ff6d43011872bab77edd27d4de3acb2ee31cd4ee06712e3cf445e12cb389">kCODEC_WM8904</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00207.html#ggaf3520ff6d43011872bab77edd27d4de3aa15237d33f0b971a6596458ef7aa8d99">kCODEC_WM8960</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00207.html#ggaf3520ff6d43011872bab77edd27d4de3a57b2941cff245c37272e1ea4598c3ab0">kCODEC_WM8524</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00207.html#ggaf3520ff6d43011872bab77edd27d4de3a870028cfe305a220c90a187029ae3408">kCODEC_SGTL5000</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00207.html#ggaf3520ff6d43011872bab77edd27d4de3a533359b62306ff77d6cd4a6aeaf075ab">kCODEC_DA7212</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00207.html#ggaf3520ff6d43011872bab77edd27d4de3ae667850df8261ea1e8c02201e1ccafee">kCODEC_CS42888</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00207.html#ggaf3520ff6d43011872bab77edd27d4de3a32073f5e23a3c6e7960d937c0816286b">kCODEC_CS42448</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00207.html#ggaf3520ff6d43011872bab77edd27d4de3a58d64d2b7b432eb8ede4e22a811cadf1">kCODEC_AK4497</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00207.html#ggaf3520ff6d43011872bab77edd27d4de3a67f0293553ad8cc4bbb432b6b09f6900">kCODEC_AK4458</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00207.html#ggaf3520ff6d43011872bab77edd27d4de3a448b697ab0cc0c28740e77484faad04f">kCODEC_TFA9XXX</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00207.html#ggaf3520ff6d43011872bab77edd27d4de3a899f42fede26bf5fd37ea863fb4e5624">kCODEC_TFA9896</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00207.html#ggaf3520ff6d43011872bab77edd27d4de3a018d6b6d07eab64fe414983199950dc8">kCODEC_WM8962</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00207.html#ggaf3520ff6d43011872bab77edd27d4de3a317f6511304608e3a32df3bf009f4181">kCODEC_PCM512X</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00207.html#ggaf3520ff6d43011872bab77edd27d4de3aa765592ccbbe2fb41ab0df45bc6ab9ed">kCODEC_PCM186X</a>
+<br/>
+ }</td></tr>
+<tr class="memdesc:gaf3520ff6d43011872bab77edd27d4de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">codec type  <a href="a00207.html#gaf3520ff6d43011872bab77edd27d4de3">More...</a><br/></td></tr>
+<tr class="separator:gaf3520ff6d43011872bab77edd27d4de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="gaf3520ff6d43011872bab77edd27d4de3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="anchor" id="_codec_type"></a></p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaf3520ff6d43011872bab77edd27d4de3acb2ee31cd4ee06712e3cf445e12cb389"></a>kCODEC_WM8904</em>&nbsp;</td><td class="fielddoc">
+<p>wm8904 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf3520ff6d43011872bab77edd27d4de3aa15237d33f0b971a6596458ef7aa8d99"></a>kCODEC_WM8960</em>&nbsp;</td><td class="fielddoc">
+<p>wm8960 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf3520ff6d43011872bab77edd27d4de3a57b2941cff245c37272e1ea4598c3ab0"></a>kCODEC_WM8524</em>&nbsp;</td><td class="fielddoc">
+<p>wm8524 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf3520ff6d43011872bab77edd27d4de3a870028cfe305a220c90a187029ae3408"></a>kCODEC_SGTL5000</em>&nbsp;</td><td class="fielddoc">
+<p>sgtl5000 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf3520ff6d43011872bab77edd27d4de3a533359b62306ff77d6cd4a6aeaf075ab"></a>kCODEC_DA7212</em>&nbsp;</td><td class="fielddoc">
+<p>da7212 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf3520ff6d43011872bab77edd27d4de3ae667850df8261ea1e8c02201e1ccafee"></a>kCODEC_CS42888</em>&nbsp;</td><td class="fielddoc">
+<p>CS42888. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf3520ff6d43011872bab77edd27d4de3a32073f5e23a3c6e7960d937c0816286b"></a>kCODEC_CS42448</em>&nbsp;</td><td class="fielddoc">
+<p>CS42448. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf3520ff6d43011872bab77edd27d4de3a58d64d2b7b432eb8ede4e22a811cadf1"></a>kCODEC_AK4497</em>&nbsp;</td><td class="fielddoc">
+<p>AK4497. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf3520ff6d43011872bab77edd27d4de3a67f0293553ad8cc4bbb432b6b09f6900"></a>kCODEC_AK4458</em>&nbsp;</td><td class="fielddoc">
+<p>ak4458 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf3520ff6d43011872bab77edd27d4de3a448b697ab0cc0c28740e77484faad04f"></a>kCODEC_TFA9XXX</em>&nbsp;</td><td class="fielddoc">
+<p>tfa9xxx </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf3520ff6d43011872bab77edd27d4de3a899f42fede26bf5fd37ea863fb4e5624"></a>kCODEC_TFA9896</em>&nbsp;</td><td class="fielddoc">
+<p>tfa9896 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf3520ff6d43011872bab77edd27d4de3a018d6b6d07eab64fe414983199950dc8"></a>kCODEC_WM8962</em>&nbsp;</td><td class="fielddoc">
+<p>wm8962 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf3520ff6d43011872bab77edd27d4de3a317f6511304608e3a32df3bf009f4181"></a>kCODEC_PCM512X</em>&nbsp;</td><td class="fielddoc">
+<p>pcm512x </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggaf3520ff6d43011872bab77edd27d4de3aa765592ccbbe2fb41ab0df45bc6ab9ed"></a>kCODEC_PCM186X</em>&nbsp;</td><td class="fielddoc">
+<p>pcm186x </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.5-->
 <!-- start footer part -->
