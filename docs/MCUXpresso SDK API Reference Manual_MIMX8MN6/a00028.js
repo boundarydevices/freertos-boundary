@@ -1,21 +1,45 @@
 var a00028 =
 [
-    [ "uart_sdma_handle_t", "a00028.html#a00143", [
-      [ "callback", "a00028.html#a9bfac94dfa351480c7758f6eec951581", null ],
-      [ "userData", "a00028.html#a5acf81152cc288fefcd6529d50bc48b9", null ],
-      [ "rxDataSizeAll", "a00028.html#a5a78ec231b140dac6e2fde9f6b5bb88a", null ],
-      [ "txDataSizeAll", "a00028.html#ad53a7811ce1a24530f07b181194af6ce", null ],
-      [ "txSdmaHandle", "a00028.html#af638c5d4399fc677a928e6608a993eb4", null ],
-      [ "rxSdmaHandle", "a00028.html#a22b55cccadd9c0b5de6a5245e14600b2", null ],
-      [ "txState", "a00028.html#ac512e5cf0122162333483871e8ae055d", null ],
-      [ "rxState", "a00028.html#a38bcebb7fe84e03118f3dd231d99e883", null ]
+    [ "_wdog_work_mode", "a00028.html#a00207", [
+      [ "enableWait", "a00028.html#a55c6154d576db274039be997e3ec71b3", null ],
+      [ "enableStop", "a00028.html#a87af9a89b5059c8ff3e6f96c8d388986", null ],
+      [ "enableDebug", "a00028.html#a6288ae1c1343579214e0cd1394cc910d", null ]
     ] ],
-    [ "FSL_UART_SDMA_DRIVER_VERSION", "a00028.html#gaec24d47dcc6d0244294a3cd5e59944aa", null ],
-    [ "uart_sdma_transfer_callback_t", "a00028.html#ga99bbb5bd4c0958a0440d34d4000f24f0", null ],
-    [ "UART_TransferCreateHandleSDMA", "a00028.html#ga0c50f5dc5bfdd56a6d3100b0bd7c7253", null ],
-    [ "UART_SendSDMA", "a00028.html#ga38a0db46c56cc3ddf78142c88ad70669", null ],
-    [ "UART_ReceiveSDMA", "a00028.html#gac01a1eba1e297b0d7f48324c7a994bf3", null ],
-    [ "UART_TransferAbortSendSDMA", "a00028.html#ga4b8434c55fd82a8bb22e4b5b8adeb1b4", null ],
-    [ "UART_TransferAbortReceiveSDMA", "a00028.html#ga3d2e02cef72ee6ad5d24e999ab661e3b", null ],
-    [ "UART_TransferSdmaHandleIRQ", "a00028.html#ga8ec3b453066422fbaa7b2928b7890123", null ]
+    [ "_wdog_config", "a00028.html#a00206", [
+      [ "enableWdog", "a00028.html#a4b7049723790cbd8a8d1e7e3971a5950", null ],
+      [ "workMode", "a00028.html#af6c23332b53f68b3d82dd2b8b15d4b85", null ],
+      [ "enableInterrupt", "a00028.html#ae3aa77209befd691717bbf92d3d6368d", null ],
+      [ "timeoutValue", "a00028.html#a3ab2fcc87bafca5e24cc69a3be364997", null ],
+      [ "interruptTimeValue", "a00028.html#aa26228198b7d2406719385d112c265a2", null ],
+      [ "softwareResetExtension", "a00028.html#a417d0ccf18d5c31afececb0ba239bed7", null ],
+      [ "enablePowerDown", "a00028.html#af7620ff7aaea29c44469ba62103ad527", null ],
+      [ "enableTimeOutAssert", "a00028.html#a6d63a952eb0bce621ba7ddcebeb89456", null ]
+    ] ],
+    [ "FSL_WDOG_DRIVER_VERSION", "a00028.html#ga5baa4ad349ae3c543938d4ee773df43e", null ],
+    [ "wdog_work_mode_t", "a00028.html#ga4c03cba4ef6445904c5733f9859cf3cb", null ],
+    [ "wdog_config_t", "a00028.html#ga843869e99770392d4679ba26609548b2", null ],
+    [ "_wdog_interrupt_enable", "a00028.html#ga568a59a02c40c87ed791f569c68e3617", [
+      [ "kWDOG_InterruptEnable", "a00028.html#gga568a59a02c40c87ed791f569c68e3617a8c358d55c0101eaa0a580d867572ec8d", null ]
+    ] ],
+    [ "_wdog_status_flags", "a00028.html#ga0b88468681d9540ae2932b8863df21da", [
+      [ "kWDOG_RunningFlag", "a00028.html#gga0b88468681d9540ae2932b8863df21daa36d15132390c05315cadcd7531d16235", null ],
+      [ "kWDOG_PowerOnResetFlag", "a00028.html#gga0b88468681d9540ae2932b8863df21daac5e2f745cea700526fddf869bead3e7f", null ],
+      [ "kWDOG_TimeoutResetFlag", "a00028.html#gga0b88468681d9540ae2932b8863df21daa3e7218cabdb8b98afb859e5e5bb10c2b", null ],
+      [ "kWDOG_SoftwareResetFlag", "a00028.html#gga0b88468681d9540ae2932b8863df21daab8d3e9351b38a6c2070e168e794cbe04", null ],
+      [ "kWDOG_InterruptFlag", "a00028.html#gga0b88468681d9540ae2932b8863df21daac1277a2936555249acf7a516e6af1f78", null ]
+    ] ],
+    [ "WDOG_GetDefaultConfig", "a00028.html#gaad5ad72d4eaf90ade6be3c976e8bc3f7", null ],
+    [ "WDOG_Init", "a00028.html#ga50d46daf10ab46c6c696e8807c8e913b", null ],
+    [ "WDOG_Deinit", "a00028.html#gaa6667780dc3dcd9579f0689178c3b0d9", null ],
+    [ "WDOG_Enable", "a00028.html#gab4deee569751728b2bd3a74f3c51e51e", null ],
+    [ "WDOG_Disable", "a00028.html#gac50451a963f16a891a365df27305dcca", null ],
+    [ "WDOG_TriggerSystemSoftwareReset", "a00028.html#ga148420ea7de00bc3c60c40abffcdf1cb", null ],
+    [ "WDOG_TriggerSoftwareSignal", "a00028.html#gaedd7386f165e4750bc1aa72544122995", null ],
+    [ "WDOG_EnableInterrupts", "a00028.html#gac10aa3550c0824493f112a02ffd955b1", null ],
+    [ "WDOG_GetStatusFlags", "a00028.html#ga420a7d120956521faf8a40993014d6fa", null ],
+    [ "WDOG_ClearInterruptStatus", "a00028.html#ga45d1ddf1d8f4aeb8a87657f275050594", null ],
+    [ "WDOG_SetTimeoutValue", "a00028.html#ga7744339b66fc64cf4088f0a413e53b08", null ],
+    [ "WDOG_SetInterrputTimeoutValue", "a00028.html#ga18bcb8843c59834b6ae275c58fcf2cd3", null ],
+    [ "WDOG_DisablePowerDownEnable", "a00028.html#ga9c50304e7d819199df178ae26e12f1a8", null ],
+    [ "WDOG_Refresh", "a00028.html#ga1d307a7df8f2b926c306dc8714dda3f5", null ]
 ];

@@ -1,61 +1,75 @@
 var a00017 =
 [
-    [ "pdm_channel_config_t", "a00017.html#a00169", [
-      [ "cutOffFreq", "a00017.html#a892c726c35fa841ac00ae2c53aa5fc70", null ],
-      [ "gain", "a00017.html#a44f9e948fecd2aa21158208d1a1345c5", null ]
+    [ "_pdm_channel_config", "a00017.html#a00162", [
+      [ "cutOffFreq", "a00017.html#a167926a81a53ad502116deb84127cab0", null ],
+      [ "gain", "a00017.html#a7592570f6e9c343e06d3d0cd1c1b8ffb", null ]
     ] ],
-    [ "pdm_config_t", "a00017.html#a00170", [
-      [ "enableDoze", "a00017.html#a52ea2cadf34eadcd38311cb1ea3a7c2a", null ],
-      [ "fifoWatermark", "a00017.html#a3db11fc707c217446032a7d7c408203c", null ],
-      [ "qualityMode", "a00017.html#af5a7749baf36467e4668c58d909dc8f1", null ],
-      [ "cicOverSampleRate", "a00017.html#a8cc4f599b9ecf6bf905933155ce3ee16", null ]
+    [ "_pdm_config", "a00017.html#a00163", [
+      [ "enableDoze", "a00017.html#ae6c265bc8bbb687b582ea47748b34dd0", null ],
+      [ "fifoWatermark", "a00017.html#a2fb75816d4ff2a11577838103691e101", null ],
+      [ "qualityMode", "a00017.html#a21ae65db17708b59749103839f387a5e", null ],
+      [ "cicOverSampleRate", "a00017.html#ac70414a6958fe61ca00f4770b3839fad", null ]
     ] ],
-    [ "pdm_hwvad_config_t", "a00017.html#a00171", [
-      [ "channel", "a00017.html#ae44bdb0573a7a718adaeb712d0172f86", null ],
-      [ "initializeTime", "a00017.html#a1b0b76c560e10d787d70273db9a6a971", null ],
-      [ "cicOverSampleRate", "a00017.html#a15f02e72862a7e74271a2cd4c6614687", null ],
-      [ "inputGain", "a00017.html#a26d82c5363e9d7fb5a1901ed72d90847", null ],
-      [ "frameTime", "a00017.html#a51de7b9ec9809d7834682dcaf1da38c6", null ],
-      [ "cutOffFreq", "a00017.html#ab0fedec49ddafb0931d41c93834e4186", null ],
-      [ "enableFrameEnergy", "a00017.html#aec6b8ca63093fcb7073734ea12d6e35a", null ],
-      [ "enablePreFilter", "a00017.html#a8b9257c5f3a1d8e875f83bbe52870b98", null ]
+    [ "_pdm_hwvad_config", "a00017.html#a00165", [
+      [ "channel", "a00017.html#a737d9f2703427ff448af914c1f6e6068", null ],
+      [ "initializeTime", "a00017.html#acc82a32a1d2eba6829597361757f246b", null ],
+      [ "cicOverSampleRate", "a00017.html#a9c8f26d3f8666476cbbd4fd69b957a2a", null ],
+      [ "inputGain", "a00017.html#aa33a249e77b8680fb12eab1b3c392e4f", null ],
+      [ "frameTime", "a00017.html#ad8a44d224f4574f8d202387936615c87", null ],
+      [ "cutOffFreq", "a00017.html#a59b6f286c2aad25e6d326f3bb0bf7170", null ],
+      [ "enableFrameEnergy", "a00017.html#a9ced844993268f6f87eaff1ecb036238", null ],
+      [ "enablePreFilter", "a00017.html#a0b6a8a8a18a099f8fd9e3c6fc759b630", null ]
     ] ],
-    [ "pdm_hwvad_noise_filter_t", "a00017.html#a00172", [
-      [ "enableAutoNoiseFilter", "a00017.html#a5bb168231a196e9e513ec6e8d0378a1b", null ],
-      [ "enableNoiseMin", "a00017.html#afabdf9985504adde1f491d7d5bced266", null ],
-      [ "enableNoiseDecimation", "a00017.html#acea1e92f33e2c8f63e7c2fdd35e73bb3", null ],
-      [ "enableNoiseDetectOR", "a00017.html#ad5c4951dea3efce806d1dafde29bdfd3", null ],
-      [ "noiseFilterAdjustment", "a00017.html#aa9df6cdbf47ef4eaf06f29bff548a8bd", null ],
-      [ "noiseGain", "a00017.html#ade6a68f4d654916e434895fea2479757", null ]
+    [ "_pdm_hwvad_noise_filter", "a00017.html#a00166", [
+      [ "enableAutoNoiseFilter", "a00017.html#a7a857c7529a82c26d7ea548da04af7a3", null ],
+      [ "enableNoiseMin", "a00017.html#a3e32f31a271ecbd6fd15f09eb0cf6af0", null ],
+      [ "enableNoiseDecimation", "a00017.html#a6a8c3460bfb338e31c0ddf7b45d09c32", null ],
+      [ "enableNoiseDetectOR", "a00017.html#a92ab9e0dc9cf3a6e2dffbc61223e2b2f", null ],
+      [ "noiseFilterAdjustment", "a00017.html#aaf52e6a8f7bc86b3c53fbebfdbfa5e03", null ],
+      [ "noiseGain", "a00017.html#ad8d32164f78e56a7e4f60d5a6fb5af93", null ]
     ] ],
-    [ "pdm_hwvad_zero_cross_detector_t", "a00017.html#a00174", [
-      [ "enableAutoThreshold", "a00017.html#a85356b87a791c5cf53a4193869d3fd3e", null ],
-      [ "zcdAnd", "a00017.html#a3c5f375530d6bf5ee157480f709f46c7", null ],
-      [ "threshold", "a00017.html#a4e2528d882836eea6a8387efd9cacf19", null ],
-      [ "adjustmentThreshold", "a00017.html#add34bccb6c0392bdea758735e72b1ec8", null ]
+    [ "_pdm_hwvad_zero_cross_detector", "a00017.html#a00168", [
+      [ "enableAutoThreshold", "a00017.html#aa863bff74fa162e9f895415cfa088395", null ],
+      [ "zcdAnd", "a00017.html#ada9a8fc3284145f7ec5075306a58901d", null ],
+      [ "threshold", "a00017.html#adee91a9794f50d27a065c1cf04c36d31", null ],
+      [ "adjustmentThreshold", "a00017.html#ac6402ded79c67c6fded4572ab2cf83f5", null ]
     ] ],
-    [ "pdm_transfer_t", "a00017.html#a00175", [
-      [ "data", "a00017.html#a4ba616d801fccc52f3d73364746f677b", null ],
-      [ "dataSize", "a00017.html#a8af478d5a7369fc2c00715231fe34467", null ]
+    [ "_pdm_transfer", "a00017.html#a00170", [
+      [ "data", "a00017.html#a544c8d76c4a3b2bf3a718d8de33352b3", null ],
+      [ "dataSize", "a00017.html#ac462dde99b4d1f45ab7c51e4eed97d37", null ]
     ] ],
-    [ "pdm_hwvad_notification_t", "a00017.html#a00173", null ],
-    [ "pdm_handle_t", "a00017.html#a00138", [
-      [ "state", "a00017.html#ab2b16dd293c06768cbca8eea7a37a514", null ],
-      [ "callback", "a00017.html#a9930728ef1b19dc11541c140bace0cc3", null ],
-      [ "userData", "a00017.html#a1e2468882ba36fdf414fb068d5f6c294", null ],
-      [ "pdmQueue", "a00017.html#aca127efd0ded14635efeb00ab6950a07", null ],
-      [ "transferSize", "a00017.html#a023ee573d404bae6eeeb0a6a32b942ab", null ],
-      [ "queueUser", "a00017.html#a58278b4200597c00c3fa3119b467d61a", null ],
-      [ "queueDriver", "a00017.html#acf9afbf2d6fe6f813ca25aca3fc2375a", null ],
-      [ "format", "a00017.html#a929a81b45d89538c170713fbb52fba1e", null ],
-      [ "watermark", "a00017.html#a98799b1fb7cdc40650b0aef7e90e9bb4", null ],
-      [ "startChannel", "a00017.html#aa72f6d022e4e8e8c75637b4c5ba48e55", null ],
-      [ "channelNums", "a00017.html#a9b4fee885caaf8f085a42629b91eceeb", null ]
+    [ "_pdm_hwvad_notification", "a00017.html#a00167", null ],
+    [ "_pdm_handle", "a00017.html#a00164", [
+      [ "state", "a00017.html#aa2f3cc30e1d9a6966cc556d2e57dbf09", null ],
+      [ "callback", "a00017.html#a3f07432d2c42a756111ce1144d03e7e9", null ],
+      [ "userData", "a00017.html#a54dc3574ea9c8f6e2d0e347d6a492385", null ],
+      [ "pdmQueue", "a00017.html#a7f68ce2d4f2e428206a863ed4cb4b4c5", null ],
+      [ "transferSize", "a00017.html#a2f949e82a982b604f029fd2fa65ed7f2", null ],
+      [ "queueUser", "a00017.html#ab2267bde089fbe4683e5a7b1c985b56a", null ],
+      [ "queueDriver", "a00017.html#a0604852deca03a56db56bf104ae3da3a", null ],
+      [ "format", "a00017.html#a7b7a66e52b1647908b13a15638144d6e", null ],
+      [ "watermark", "a00017.html#ac1e33ec55eb3cfac4065a13f8212ec39", null ],
+      [ "startChannel", "a00017.html#a9ce42bc2ff90422bed856a2446b09005", null ],
+      [ "channelNums", "a00017.html#aed604673d6a3f0f3a66161ce564a6f2e", null ]
     ] ],
     [ "FSL_PDM_DRIVER_VERSION", "a00017.html#ga3cb4702a9e581e2633e1c1bb3c63801f", null ],
     [ "PDM_XFER_QUEUE_SIZE", "a00017.html#ga04b7c7654ce66f908e162bac8c78ffb1", null ],
+    [ "pdm_dc_remover_t", "a00017.html#ga09eb3ba2d941e3a66270bed6519e233f", null ],
+    [ "pdm_df_quality_mode_t", "a00017.html#ga3d65bc493bab39d61a9c82e2095e3444", null ],
+    [ "pdm_df_output_gain_t", "a00017.html#ga063ff066ffbb6b61f3590695f0cf34d4", null ],
+    [ "pdm_channel_config_t", "a00017.html#ga80d9ef1eb58406a6c0f2d2b74dc3a4df", null ],
+    [ "pdm_config_t", "a00017.html#gaf64c3484a40017cef455638ba677b85f", null ],
+    [ "pdm_hwvad_hpf_config_t", "a00017.html#gae01147aecc54e3c4142d3185dc277002", null ],
+    [ "pdm_hwvad_filter_status_t", "a00017.html#ga33317d007c716804e7b0664b6d2a01b0", null ],
+    [ "pdm_hwvad_config_t", "a00017.html#ga15ae512184de40fb00518b1f0b553971", null ],
+    [ "pdm_hwvad_noise_filter_t", "a00017.html#ga546b56983b7ac4c3760e1539a15fde97", null ],
+    [ "pdm_hwvad_zcd_result_t", "a00017.html#ga67fc6037b54bad5f588f23479603e991", null ],
+    [ "pdm_hwvad_zero_cross_detector_t", "a00017.html#gad0833a646ea36de23fa2566ea8fd7878", null ],
+    [ "pdm_transfer_t", "a00017.html#gaf5f4d9d7dabc0c1e1dbb3731bb9ae60b", null ],
+    [ "pdm_handle_t", "a00017.html#gac5b310313b0e149450ebfadf5a112904", null ],
     [ "pdm_transfer_callback_t", "a00017.html#gaf29cd20432f325217c7c12e59638416c", null ],
-    [ "pdm_hwvad_callback_t", "a00017.html#gadd2a341c59f5f8c4c619b62c4ebc4dcd", [
+    [ "pdm_hwvad_callback_t", "a00017.html#gadd2a341c59f5f8c4c619b62c4ebc4dcd", null ],
+    [ "pdm_hwvad_notification_t", "a00017.html#ga384cf06d72c7a2d4e42f6ac07a71f062", [
       [ "kStatus_PDM_Busy", "a00017.html#ggaba01db17f4a2bfbc3db60dc172972a25a7fd57efdf5fd862d82ad3ddc4061995b", null ],
       [ "kStatus_PDM_CLK_LOW", "a00017.html#ggaba01db17f4a2bfbc3db60dc172972a25ad8106fba77ad8b2ae3d1bf8ad844c28a", null ],
       [ "kStatus_PDM_FIFO_ERROR", "a00017.html#ggaba01db17f4a2bfbc3db60dc172972a25ac8731f691ed5f103dc9dbed6a9d16e34", null ],
@@ -129,19 +143,19 @@ var a00017 =
       [ "kPDM_OutputStatusOverFlowCh6", "a00017.html#gga6eed0bbcd52d366e2d36d110703894e6ab2e2040f3df688052542b660a6ca0165", null ],
       [ "kPDM_OutputStatusOverFlowCh7", "a00017.html#gga6eed0bbcd52d366e2d36d110703894e6a8bd9a39601b227cb58f4dc37caf0c346", null ]
     ] ],
-    [ "pdm_dc_remover_t", "a00017.html#ga9e2e02b8edb8f9e04e12896f0c755199", [
-      [ "kPDM_DcRemoverCutOff21Hz", "a00017.html#gga9e2e02b8edb8f9e04e12896f0c755199a32d4236549399d585226677eaac75b03", null ],
-      [ "kPDM_DcRemoverCutOff83Hz", "a00017.html#gga9e2e02b8edb8f9e04e12896f0c755199a9b89a3963e8f707d50f5ec99fc5e7808", null ],
-      [ "kPDM_DcRemoverCutOff152Hz", "a00017.html#gga9e2e02b8edb8f9e04e12896f0c755199a6252b4ef2c5a172460f8b16aeaf964e9", null ],
-      [ "kPDM_DcRemoverBypass", "a00017.html#gga9e2e02b8edb8f9e04e12896f0c755199a0d5786ced48f1ff00ac3120b08d0c90d", null ]
+    [ "_pdm_dc_remover", "a00017.html#ga246ce21eeb5e7c3eb66a0f75e8f68981", [
+      [ "kPDM_DcRemoverCutOff21Hz", "a00017.html#gga246ce21eeb5e7c3eb66a0f75e8f68981a32d4236549399d585226677eaac75b03", null ],
+      [ "kPDM_DcRemoverCutOff83Hz", "a00017.html#gga246ce21eeb5e7c3eb66a0f75e8f68981a9b89a3963e8f707d50f5ec99fc5e7808", null ],
+      [ "kPDM_DcRemoverCutOff152Hz", "a00017.html#gga246ce21eeb5e7c3eb66a0f75e8f68981a6252b4ef2c5a172460f8b16aeaf964e9", null ],
+      [ "kPDM_DcRemoverBypass", "a00017.html#gga246ce21eeb5e7c3eb66a0f75e8f68981a0d5786ced48f1ff00ac3120b08d0c90d", null ]
     ] ],
-    [ "pdm_df_quality_mode_t", "a00017.html#gac5ced91393158ac279bca710742b9b62", [
-      [ "kPDM_QualityModeMedium", "a00017.html#ggac5ced91393158ac279bca710742b9b62a84043d6ad8ea1fe6eba09fc8e5fcaebe", null ],
-      [ "kPDM_QualityModeHigh", "a00017.html#ggac5ced91393158ac279bca710742b9b62ac112c225ead5c446c250aec71f1f9408", null ],
-      [ "kPDM_QualityModeLow", "a00017.html#ggac5ced91393158ac279bca710742b9b62ae1f766b8ce770157e2c79e4c2f6e6ad5", null ],
-      [ "kPDM_QualityModeVeryLow0", "a00017.html#ggac5ced91393158ac279bca710742b9b62a19358a2451ba371e96d8ca0a829d2199", null ],
-      [ "kPDM_QualityModeVeryLow1", "a00017.html#ggac5ced91393158ac279bca710742b9b62a51c7177e4c5ea32f406064603e14275f", null ],
-      [ "kPDM_QualityModeVeryLow2", "a00017.html#ggac5ced91393158ac279bca710742b9b62ad82b1a2b6218b68e8eb513b3afd2b0ec", null ]
+    [ "_pdm_df_quality_mode", "a00017.html#gace73c32c3767033d3be878f67fd723a6", [
+      [ "kPDM_QualityModeMedium", "a00017.html#ggace73c32c3767033d3be878f67fd723a6a84043d6ad8ea1fe6eba09fc8e5fcaebe", null ],
+      [ "kPDM_QualityModeHigh", "a00017.html#ggace73c32c3767033d3be878f67fd723a6ac112c225ead5c446c250aec71f1f9408", null ],
+      [ "kPDM_QualityModeLow", "a00017.html#ggace73c32c3767033d3be878f67fd723a6ae1f766b8ce770157e2c79e4c2f6e6ad5", null ],
+      [ "kPDM_QualityModeVeryLow0", "a00017.html#ggace73c32c3767033d3be878f67fd723a6a19358a2451ba371e96d8ca0a829d2199", null ],
+      [ "kPDM_QualityModeVeryLow1", "a00017.html#ggace73c32c3767033d3be878f67fd723a6a51c7177e4c5ea32f406064603e14275f", null ],
+      [ "kPDM_QualityModeVeryLow2", "a00017.html#ggace73c32c3767033d3be878f67fd723a6ad82b1a2b6218b68e8eb513b3afd2b0ec", null ]
     ] ],
     [ "_pdm_qulaity_mode_k_factor", "a00017.html#gadcdda0076aca47a3c09b3359f8775892", [
       [ "kPDM_QualityModeHighKFactor", "a00017.html#ggadcdda0076aca47a3c09b3359f8775892a4108a3302dd089d7d1a7030f58a5db05", null ],
@@ -149,23 +163,23 @@ var a00017 =
       [ "kPDM_QualityModeLowKFactor", "a00017.html#ggadcdda0076aca47a3c09b3359f8775892a377426e6f63993154e318e30e9208eff", null ],
       [ "kPDM_QualityModeVeryLow2KFactor", "a00017.html#ggadcdda0076aca47a3c09b3359f8775892ae46be552bae52487783705604a97b6db", null ]
     ] ],
-    [ "pdm_df_output_gain_t", "a00017.html#gad7a191981f2a4f874d374767858dd987", [
-      [ "kPDM_DfOutputGain0", "a00017.html#ggad7a191981f2a4f874d374767858dd987a2c7067b54326db93a927e3bece898884", null ],
-      [ "kPDM_DfOutputGain1", "a00017.html#ggad7a191981f2a4f874d374767858dd987a9deb731bcbbc7db8fe05d053d7cff60e", null ],
-      [ "kPDM_DfOutputGain2", "a00017.html#ggad7a191981f2a4f874d374767858dd987aaa62179cfdd26906c6936581ff8b8b68", null ],
-      [ "kPDM_DfOutputGain3", "a00017.html#ggad7a191981f2a4f874d374767858dd987a5e70473e7c509d2d4136662b99439319", null ],
-      [ "kPDM_DfOutputGain4", "a00017.html#ggad7a191981f2a4f874d374767858dd987afb7ccefe007577bfc9fff0710fb18172", null ],
-      [ "kPDM_DfOutputGain5", "a00017.html#ggad7a191981f2a4f874d374767858dd987a6fb656ba297ed35a77fd67851cd5afc4", null ],
-      [ "kPDM_DfOutputGain6", "a00017.html#ggad7a191981f2a4f874d374767858dd987aec239dd0a51f1c6f4175f230ec5822e0", null ],
-      [ "kPDM_DfOutputGain7", "a00017.html#ggad7a191981f2a4f874d374767858dd987af712993b851806046cc16d10429bad51", null ],
-      [ "kPDM_DfOutputGain8", "a00017.html#ggad7a191981f2a4f874d374767858dd987ada54570eb839aeb3b8de98613aaf7b0f", null ],
-      [ "kPDM_DfOutputGain9", "a00017.html#ggad7a191981f2a4f874d374767858dd987a218b3e3e1ff8d323650229edb438bb8a", null ],
-      [ "kPDM_DfOutputGain10", "a00017.html#ggad7a191981f2a4f874d374767858dd987a6bbf9973d59a5a73ac4c7c720812c200", null ],
-      [ "kPDM_DfOutputGain11", "a00017.html#ggad7a191981f2a4f874d374767858dd987a2021fcaafcb3dacfcfe7eb4eb8be3f72", null ],
-      [ "kPDM_DfOutputGain12", "a00017.html#ggad7a191981f2a4f874d374767858dd987aba677089fc1694e4d215a40c834c4f93", null ],
-      [ "kPDM_DfOutputGain13", "a00017.html#ggad7a191981f2a4f874d374767858dd987a3bd48ee15dfa7768d1a4c04ab232ba4e", null ],
-      [ "kPDM_DfOutputGain14", "a00017.html#ggad7a191981f2a4f874d374767858dd987adceba5b5f7dc0e8075ea5769d65d9703", null ],
-      [ "kPDM_DfOutputGain15", "a00017.html#ggad7a191981f2a4f874d374767858dd987a14b1e675c3b280b4a1824967e215cf5c", null ]
+    [ "_pdm_df_output_gain", "a00017.html#ga244468ce52196f630a900bc16157ac32", [
+      [ "kPDM_DfOutputGain0", "a00017.html#gga244468ce52196f630a900bc16157ac32a2c7067b54326db93a927e3bece898884", null ],
+      [ "kPDM_DfOutputGain1", "a00017.html#gga244468ce52196f630a900bc16157ac32a9deb731bcbbc7db8fe05d053d7cff60e", null ],
+      [ "kPDM_DfOutputGain2", "a00017.html#gga244468ce52196f630a900bc16157ac32aaa62179cfdd26906c6936581ff8b8b68", null ],
+      [ "kPDM_DfOutputGain3", "a00017.html#gga244468ce52196f630a900bc16157ac32a5e70473e7c509d2d4136662b99439319", null ],
+      [ "kPDM_DfOutputGain4", "a00017.html#gga244468ce52196f630a900bc16157ac32afb7ccefe007577bfc9fff0710fb18172", null ],
+      [ "kPDM_DfOutputGain5", "a00017.html#gga244468ce52196f630a900bc16157ac32a6fb656ba297ed35a77fd67851cd5afc4", null ],
+      [ "kPDM_DfOutputGain6", "a00017.html#gga244468ce52196f630a900bc16157ac32aec239dd0a51f1c6f4175f230ec5822e0", null ],
+      [ "kPDM_DfOutputGain7", "a00017.html#gga244468ce52196f630a900bc16157ac32af712993b851806046cc16d10429bad51", null ],
+      [ "kPDM_DfOutputGain8", "a00017.html#gga244468ce52196f630a900bc16157ac32ada54570eb839aeb3b8de98613aaf7b0f", null ],
+      [ "kPDM_DfOutputGain9", "a00017.html#gga244468ce52196f630a900bc16157ac32a218b3e3e1ff8d323650229edb438bb8a", null ],
+      [ "kPDM_DfOutputGain10", "a00017.html#gga244468ce52196f630a900bc16157ac32a6bbf9973d59a5a73ac4c7c720812c200", null ],
+      [ "kPDM_DfOutputGain11", "a00017.html#gga244468ce52196f630a900bc16157ac32a2021fcaafcb3dacfcfe7eb4eb8be3f72", null ],
+      [ "kPDM_DfOutputGain12", "a00017.html#gga244468ce52196f630a900bc16157ac32aba677089fc1694e4d215a40c834c4f93", null ],
+      [ "kPDM_DfOutputGain13", "a00017.html#gga244468ce52196f630a900bc16157ac32a3bd48ee15dfa7768d1a4c04ab232ba4e", null ],
+      [ "kPDM_DfOutputGain14", "a00017.html#gga244468ce52196f630a900bc16157ac32adceba5b5f7dc0e8075ea5769d65d9703", null ],
+      [ "kPDM_DfOutputGain15", "a00017.html#gga244468ce52196f630a900bc16157ac32a14b1e675c3b280b4a1824967e215cf5c", null ]
     ] ],
     [ "_pdm_data_width", "a00017.html#ga378d824d2e88465a551d2fea975b1900", [
       [ "kPDM_DataWdith16", "a00017.html#gga378d824d2e88465a551d2fea975b1900a972459be45abeb4f9c087b2528a7990b", null ]
@@ -178,19 +192,19 @@ var a00017 =
       [ "kPDM_HwvadStatusInputSaturation", "a00017.html#gga17d5af61d6bcd00fccce920059185637a5271ab1017846be91a7c7b0a688a5f74", null ],
       [ "kPDM_HwvadStatusVoiceDetectFlag", "a00017.html#gga17d5af61d6bcd00fccce920059185637a63df78c6781f0fa6f5685856a139dc2e", null ]
     ] ],
-    [ "pdm_hwvad_hpf_config_t", "a00017.html#ga574a24aa6095590627e9edb0f31996a6", [
-      [ "kPDM_HwvadHpfBypassed", "a00017.html#gga574a24aa6095590627e9edb0f31996a6a6cff26f3dccd1fd8d6ab72a4494b1317", null ],
-      [ "kPDM_HwvadHpfCutOffFreq1750Hz", "a00017.html#gga574a24aa6095590627e9edb0f31996a6a1a89bd47b0edc644bc32899f66fd9aa2", null ],
-      [ "kPDM_HwvadHpfCutOffFreq215Hz", "a00017.html#gga574a24aa6095590627e9edb0f31996a6acd46128a67ee9757c442293e3190deb5", null ],
-      [ "kPDM_HwvadHpfCutOffFreq102Hz", "a00017.html#gga574a24aa6095590627e9edb0f31996a6a9340d96b5b5b7c1351c17f4e684ee027", null ]
+    [ "_pdm_hwvad_hpf_config", "a00017.html#ga743958a11a72a5647e5f29c8b3a3adce", [
+      [ "kPDM_HwvadHpfBypassed", "a00017.html#gga743958a11a72a5647e5f29c8b3a3adcea6cff26f3dccd1fd8d6ab72a4494b1317", null ],
+      [ "kPDM_HwvadHpfCutOffFreq1750Hz", "a00017.html#gga743958a11a72a5647e5f29c8b3a3adcea1a89bd47b0edc644bc32899f66fd9aa2", null ],
+      [ "kPDM_HwvadHpfCutOffFreq215Hz", "a00017.html#gga743958a11a72a5647e5f29c8b3a3adceacd46128a67ee9757c442293e3190deb5", null ],
+      [ "kPDM_HwvadHpfCutOffFreq102Hz", "a00017.html#gga743958a11a72a5647e5f29c8b3a3adcea9340d96b5b5b7c1351c17f4e684ee027", null ]
     ] ],
-    [ "pdm_hwvad_filter_status_t", "a00017.html#ga7e2a346921c43c6a2020365823995e91", [
-      [ "kPDM_HwvadInternalFilterNormalOperation", "a00017.html#gga7e2a346921c43c6a2020365823995e91a1aa824e3cb6c912ce37d2bba19705250", null ],
-      [ "kPDM_HwvadInternalFilterInitial", "a00017.html#gga7e2a346921c43c6a2020365823995e91a5df43d2b7f1c48fe2f27464eb9eb2904", null ]
+    [ "_pdm_hwvad_filter_status", "a00017.html#ga380d5d7d6b8b23b1ed7cfa2a0c3a7e66", [
+      [ "kPDM_HwvadInternalFilterNormalOperation", "a00017.html#gga380d5d7d6b8b23b1ed7cfa2a0c3a7e66a1aa824e3cb6c912ce37d2bba19705250", null ],
+      [ "kPDM_HwvadInternalFilterInitial", "a00017.html#gga380d5d7d6b8b23b1ed7cfa2a0c3a7e66a5df43d2b7f1c48fe2f27464eb9eb2904", null ]
     ] ],
-    [ "pdm_hwvad_zcd_result_t", "a00017.html#gacad3d73bbc3586b242355329f9123a8a", [
-      [ "kPDM_HwvadResultOREnergyBasedDetection", "a00017.html#ggacad3d73bbc3586b242355329f9123a8aa7344fd67845fdda78ddbb2261d30e3ef", null ],
-      [ "kPDM_HwvadResultANDEnergyBasedDetection", "a00017.html#ggacad3d73bbc3586b242355329f9123a8aaaa82055ac9d5dfb4302ccda47c84087c", null ]
+    [ "_pdm_hwvad_zcd_result", "a00017.html#ga0d9eaa02c477f794adfca2192e45c6af", [
+      [ "kPDM_HwvadResultOREnergyBasedDetection", "a00017.html#gga0d9eaa02c477f794adfca2192e45c6afa7344fd67845fdda78ddbb2261d30e3ef", null ],
+      [ "kPDM_HwvadResultANDEnergyBasedDetection", "a00017.html#gga0d9eaa02c477f794adfca2192e45c6afaaa82055ac9d5dfb4302ccda47c84087c", null ]
     ] ],
     [ "PDM_Init", "a00017.html#ga4d1dc4e0ba7f803451c054e3ef2c5eb7", null ],
     [ "PDM_Deinit", "a00017.html#gad5aeae264785108e5c95c5f9b13bfb75", null ],

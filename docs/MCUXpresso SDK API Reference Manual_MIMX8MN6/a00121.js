@@ -1,19 +1,14 @@
 var a00121 =
 [
-    [ "FSL_SEMA4_DRIVER_VERSION", "a00121.html#ga1bb7148a101cd7925e5271374862802e", null ],
-    [ "SEMA4_GATE_NUM_RESET_ALL", "a00121.html#gacb7a70c49148b0186f0eaa3fe910ba79", null ],
-    [ "SEMA4_GATEn", "a00121.html#gaf1811869c70952983fa9cbd5aef3e933", null ],
-    [ "SEMA4_Init", "a00121.html#gac6380ed053744f451c5175db29f9f3d9", null ],
-    [ "SEMA4_Deinit", "a00121.html#gafc7188cb89c7522813d6be66f97c7e35", null ],
-    [ "SEMA4_TryLock", "a00121.html#ga30d848a2ce959c29af0f13bf8f0ee1dc", null ],
-    [ "SEMA4_Lock", "a00121.html#gae5ca0fa4f34ac84b2c3df0abeeadd9c0", null ],
-    [ "SEMA4_Unlock", "a00121.html#ga1c34c4b2eca52767539b73647e866e7f", null ],
-    [ "SEMA4_GetLockProc", "a00121.html#ga9869fbc634dce9bd292f85bd09661d37", null ],
-    [ "SEMA4_ResetGate", "a00121.html#gae5c7bc935b02303f51a8254886acff76", null ],
-    [ "SEMA4_ResetAllGates", "a00121.html#ga4d466ad087825369aeaa611140dccf55", null ],
-    [ "SEMA4_EnableGateNotifyInterrupt", "a00121.html#ga06ad2e8a81e220aefac8c9a2b49ce1cb", null ],
-    [ "SEMA4_DisableGateNotifyInterrupt", "a00121.html#gac3168fbde7570fc0ce56a92a8eb335fb", null ],
-    [ "SEMA4_GetGateNotifyStatus", "a00121.html#ga0ed4770fa9e88d5abb4b94a775e7db2b", null ],
-    [ "SEMA4_ResetGateNotify", "a00121.html#gab648c6d8479df0890ba2d654f0193f7a", null ],
-    [ "SEMA4_ResetAllGateNotify", "a00121.html#gaef68d23981bfc1c2fbbb823b28976353", null ]
+    [ "DEBUG_CONSOLE_TRANSMIT_BUFFER_LEN", "a00121.html#ga028eff2428680ec9e47eed17d7ad6180", null ],
+    [ "DEBUG_CONSOLE_RECEIVE_BUFFER_LEN", "a00121.html#gadad6011e61c820f396b1c13568dbfe16", null ],
+    [ "DEBUG_CONSOLE_TX_RELIABLE_ENABLE", "a00121.html#gab2823ff7917ffeaaccf805f739116ec1", null ],
+    [ "DEBUG_CONSOLE_RX_ENABLE", "a00121.html#ga27259eda6262948659d081ea4b7ad2fe", null ],
+    [ "DEBUG_CONSOLE_PRINTF_MAX_LOG_LEN", "a00121.html#ga9777b06b434b336e5a2c1b21421c9ea3", null ],
+    [ "DEBUG_CONSOLE_SCANF_MAX_LOG_LEN", "a00121.html#gab2afcebb59f366867a49bb888b8d043d", null ],
+    [ "DEBUG_CONSOLE_SYNCHRONIZATION_BM", "a00121.html#ga1cbe5dd480860843788779e39d1d0d1e", null ],
+    [ "DEBUG_CONSOLE_SYNCHRONIZATION_FREERTOS", "a00121.html#ga9589914d5a8b1cfedf834d52a6574496", null ],
+    [ "DEBUG_CONSOLE_SYNCHRONIZATION_MODE", "a00121.html#ga7b85f4e4309413064a69c99e7327d3f2", null ],
+    [ "DEBUG_CONSOLE_ENABLE_ECHO_FUNCTION", "a00121.html#ga5cc1f7845683fbde63e9619f38aac2d1", null ],
+    [ "BOARD_USE_VIRTUALCOM", "a00121.html#ga74776e2523880761897d8b57199e5596", null ]
 ];

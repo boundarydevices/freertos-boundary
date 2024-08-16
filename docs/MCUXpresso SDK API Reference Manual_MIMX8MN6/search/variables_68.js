@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hasviolation',['hasViolation',['../a00019.html#a64e77210e7d78eab8f492aec96ab1812',1,'rdc_mem_status_t']]]
+  ['hasviolation',['hasViolation',['../a00019.html#ad4dad1cd9f4e66b664b525ecd4b1be37',1,'_rdc_mem_status']]]
 ];

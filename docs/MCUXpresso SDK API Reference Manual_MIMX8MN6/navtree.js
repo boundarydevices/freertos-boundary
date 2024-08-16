@@ -5,7 +5,7 @@ var NAVTREE =
     [ "Trademarks", "a00002.html", null ],
     [ "Architectural Overview", "a00004.html", null ],
     [ "Driver errors status", "a00006.html", null ],
-    [ "Deprecated List", "a00131.html", null ],
+    [ "Deprecated List", "a00130.html", null ],
     [ "API Reference", "modules.html", "modules" ]
   ] ]
 ];
@@ -13,17 +13,18 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "a00002.html",
-"a00010.html#ga53a2bb76cf0c6f5976d5c9c1a641f1c3",
-"a00010.html#gga50eba6f191f718209f78995833f59ed5ac0e2ae90384ba477b319b330dec9d7f8",
-"a00011.html#gga0944a4353780132eeab7b06e3e42291da96936cd5a7270daefa046182d0768829",
-"a00012.html#ggab04a0655cd1e3bcac5e8f48c18df1a57aef9846743f20a85f6429f16d7b98687d",
-"a00017.html#a00173",
-"a00019.html#a7472e8b72f7646864b1244f491559d48",
-"a00020.html#gga6b7b47dd702d9e331586d485013fd1eaa544d76157d9e4e99a322e31b03f2de99",
-"a00022.html#gga758eb6c79509c31397dd944429b10c55a97fe0cdd51ff2bb23ebfa0fc1b880c8c",
-"a00026.html#ga3921aa660977ca77dadf95fa35f1c3a9",
-"a00105.html#gga7ff0b98bb1341c07acefb1473b6eda29a50aada436b514e0056476e275e1fd203",
-"a00117.html#ggae0771a3d173c2b3bf358aff30664f8bfa7ee78bc085c8be00c5997fe1a7b5f3d2"
+"a00010.html#ga0d01cff2c331cdc2703b798930b1c9cd",
+"a00010.html#gga10eb499a97d1bd20020841220bb5de74adcb45418ee3836e0cbe33ce0618fba24",
+"a00010.html#ggab5ea8439282bd7b6ffc6eb1c99ed3714a8b714d0b9b872c30821142222a02a45c",
+"a00012.html#ga8bc32a537b99b7e988228650957f25d8",
+"a00016.html#a89a3ac8137ef778590d0ab3581187a60",
+"a00017.html#gga6eed0bbcd52d366e2d36d110703894e6ac65619d72e3bfbbee52e5a530f577cc9",
+"a00020.html#ga27fad059ad2e1ef81ef83fbce4284e13",
+"a00022.html#a83d7459b1d7909de429260a83571040c",
+"a00023.html#gga37012d03963b0a7aac96cda088362180aa0ec8166f72522a029c7bdb44dbd8cbe",
+"a00026.html#ggac36f475ca5b446f4fde4c9b90bec77c8a89cdd9c043992663c2072079684d1f33",
+"a00102.html#gga7ff0b98bb1341c07acefb1473b6eda29ab7f77dd7e0c3d068baf39117ac08a0b9",
+"a00120.html#ga7fdd594efdc8374ecd8684ed758d6cec"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

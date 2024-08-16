@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.13.0</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -101,39 +101,40 @@ $(document).ready(function(){initNavTree('a00008.html','');});
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">ASRC Driver<div class="ingroups"><a class="el" href="a00106.html">ASRC: Asynchronous sample rate converter</a></div></div>  </div>
+<div class="title">ASRC Driver<div class="ingroups"><a class="el" href="a00103.html">ASRC: Asynchronous sample rate converter</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:a00150"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00150">asrc_data_format_t</a></td></tr>
-<tr class="memdesc:a00150"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context data format  <a href="a00008.html#a00150">More...</a><br/></td></tr>
-<tr class="separator:a00150"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00144"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00144">asrc_access_ctrl_t</a></td></tr>
-<tr class="memdesc:a00144"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context access control The ASRC provides interleaving support in hardware to ensure that a variety of sample source can be internally combined tp confir with this format.  <a href="a00008.html#a00144">More...</a><br/></td></tr>
-<tr class="separator:a00144"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00146"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00146">asrc_context_input_config_t</a></td></tr>
-<tr class="memdesc:a00146"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context input configuration  <a href="a00008.html#a00146">More...</a><br/></td></tr>
-<tr class="separator:a00146"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00147"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00147">asrc_context_output_config_t</a></td></tr>
-<tr class="memdesc:a00147"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context output configuration  <a href="a00008.html#a00147">More...</a><br/></td></tr>
-<tr class="separator:a00147"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00148"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00148">asrc_context_prefilter_config_t</a></td></tr>
-<tr class="memdesc:a00148"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context prefilter configuration  <a href="a00008.html#a00148">More...</a><br/></td></tr>
-<tr class="separator:a00148"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00149"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00149">asrc_context_resampler_config_t</a></td></tr>
-<tr class="memdesc:a00149"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context resampler configuration  <a href="a00008.html#a00149">More...</a><br/></td></tr>
-<tr class="separator:a00149"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00145"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00145">asrc_context_config_t</a></td></tr>
-<tr class="memdesc:a00145"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context configuration  <a href="a00008.html#a00145">More...</a><br/></td></tr>
-<tr class="separator:a00145"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00154"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00154">asrc_transfer_t</a></td></tr>
-<tr class="memdesc:a00154"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC transfer.  <a href="a00008.html#a00154">More...</a><br/></td></tr>
-<tr class="separator:a00154"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00137"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00137">_asrc_data_format</a></td></tr>
+<tr class="memdesc:a00137"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context data format  <a href="a00008.html#a00137">More...</a><br/></td></tr>
+<tr class="separator:a00137"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00131"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00131">_asrc_access_ctrl</a></td></tr>
+<tr class="memdesc:a00131"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context access control The ASRC provides interleaving support in hardware to ensure that a variety of sample source can be internally combined tp confir with this format.  <a href="a00008.html#a00131">More...</a><br/></td></tr>
+<tr class="separator:a00131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00133"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00133">_asrc_context_input_config</a></td></tr>
+<tr class="memdesc:a00133"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context input configuration  <a href="a00008.html#a00133">More...</a><br/></td></tr>
+<tr class="separator:a00133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00134"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00134">_asrc_context_output_config</a></td></tr>
+<tr class="memdesc:a00134"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context output configuration  <a href="a00008.html#a00134">More...</a><br/></td></tr>
+<tr class="separator:a00134"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00135"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00135">_asrc_context_prefilter_config</a></td></tr>
+<tr class="memdesc:a00135"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context prefilter configuration  <a href="a00008.html#a00135">More...</a><br/></td></tr>
+<tr class="separator:a00135"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00136"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00136">_asrc_context_resampler_config</a></td></tr>
+<tr class="memdesc:a00136"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context resampler configuration  <a href="a00008.html#a00136">More...</a><br/></td></tr>
+<tr class="separator:a00136"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00132"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00132">_asrc_context_config</a></td></tr>
+<tr class="memdesc:a00132"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context configuration  <a href="a00008.html#a00132">More...</a><br/></td></tr>
+<tr class="separator:a00132"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00142"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00142">_asrc_transfer</a></td></tr>
+<tr class="memdesc:a00142"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC transfer.  <a href="a00008.html#a00142">More...</a><br/></td></tr>
+<tr class="separator:a00142"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
@@ -145,6 +146,83 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaa285c8bd0eb74e6212214ea58e77da4f">ASRC_SUPPORT_MAXIMUM_CONTEXT_PROCESSOR_NUMBER</a>&#160;&#160;&#160;4U</td></tr>
 <tr class="memdesc:gaa285c8bd0eb74e6212214ea58e77da4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC support maximum channel number of context. <br/></td></tr>
 <tr class="separator:gaa285c8bd0eb74e6212214ea58e77da4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga636ca6628b6d0e538f3c79726078c6a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga636ca6628b6d0e538f3c79726078c6a2"></a>
+typedef enum <a class="el" href="a00008.html#gae93ec7da6dc561fd8f51665142f2a333">_asrc_context</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a></td></tr>
+<tr class="memdesc:ga636ca6628b6d0e538f3c79726078c6a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context id <br/></td></tr>
+<tr class="separator:ga636ca6628b6d0e538f3c79726078c6a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga935d53ce7cc64fb650b68e638f1aadcf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga935d53ce7cc64fb650b68e638f1aadcf"></a>
+typedef enum <a class="el" href="a00008.html#gad266879eb0edcd4d3fe663b5d6fe92c7">_asrc_data_endianness</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga935d53ce7cc64fb650b68e638f1aadcf">asrc_data_endianness_t</a></td></tr>
+<tr class="memdesc:ga935d53ce7cc64fb650b68e638f1aadcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">arsc data endianness <br/></td></tr>
+<tr class="separator:ga935d53ce7cc64fb650b68e638f1aadcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga513560bb9d156ffd0a825d239e019ad9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga513560bb9d156ffd0a825d239e019ad9"></a>
+typedef enum <a class="el" href="a00008.html#ga24b45c9e08c5ae84d1ea31d625a5f623">_asrc_data_width</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga513560bb9d156ffd0a825d239e019ad9">asrc_data_width_t</a></td></tr>
+<tr class="memdesc:ga513560bb9d156ffd0a825d239e019ad9"><td class="mdescLeft">&#160;</td><td class="mdescRight">data width <br/></td></tr>
+<tr class="separator:ga513560bb9d156ffd0a825d239e019ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e99eea58b9bba716bb0d6d80628f5ff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4e99eea58b9bba716bb0d6d80628f5ff"></a>
+typedef enum <a class="el" href="a00008.html#ga77b3f700911f727561166dc8c7b34d0c">_asrc_data_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga4e99eea58b9bba716bb0d6d80628f5ff">asrc_data_type_t</a></td></tr>
+<tr class="memdesc:ga4e99eea58b9bba716bb0d6d80628f5ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">data type <br/></td></tr>
+<tr class="separator:ga4e99eea58b9bba716bb0d6d80628f5ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10e1d7b939f062d03ca417b20e1d2149"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga10e1d7b939f062d03ca417b20e1d2149"></a>
+typedef enum <a class="el" href="a00008.html#gaeb2a73773f3e393b12bf06f2e9821f3d">_asrc_data_sign</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga10e1d7b939f062d03ca417b20e1d2149">asrc_data_sign_t</a></td></tr>
+<tr class="memdesc:ga10e1d7b939f062d03ca417b20e1d2149"><td class="mdescLeft">&#160;</td><td class="mdescRight">sign extension <br/></td></tr>
+<tr class="separator:ga10e1d7b939f062d03ca417b20e1d2149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga54119a8ab95c1dd9c7b6b6f70eb096ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga54119a8ab95c1dd9c7b6b6f70eb096ec"></a>
+typedef enum <br class="typebreak"/>
+<a class="el" href="a00008.html#ga26114d372046d9933595f05ad5a95b65">_asrc_sampleBuffer_init_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga54119a8ab95c1dd9c7b6b6f70eb096ec">asrc_sampleBuffer_init_mode_t</a></td></tr>
+<tr class="memdesc:ga54119a8ab95c1dd9c7b6b6f70eb096ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc prefilter and resampler sample buffer init mode <br/></td></tr>
+<tr class="separator:ga54119a8ab95c1dd9c7b6b6f70eb096ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b97863095612b41c75d8eac4963337e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga7b97863095612b41c75d8eac4963337e"></a>
+typedef enum <br class="typebreak"/>
+<a class="el" href="a00008.html#ga4c2319178a67b38e9c1e0d47c9d31a6a">_asrc_sampleBuffer_stop_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga7b97863095612b41c75d8eac4963337e">asrc_sampleBuffer_stop_mode_t</a></td></tr>
+<tr class="memdesc:ga7b97863095612b41c75d8eac4963337e"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc prefilter and resampler sample buffer stop mode <br/></td></tr>
+<tr class="separator:ga7b97863095612b41c75d8eac4963337e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12341f60b5f1397e07fc62f98ed0842e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga12341f60b5f1397e07fc62f98ed0842e"></a>
+typedef enum <br class="typebreak"/>
+<a class="el" href="a00008.html#gadcf3d32303866da9b593f7a1fdddf780">_asrc_prefilter_stage1_result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga12341f60b5f1397e07fc62f98ed0842e">asrc_prefilter_stage1_result_t</a></td></tr>
+<tr class="memdesc:ga12341f60b5f1397e07fc62f98ed0842e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC prefilter stage1 result format. <br/></td></tr>
+<tr class="separator:ga12341f60b5f1397e07fc62f98ed0842e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2661eaa4f9344653ec57854496398a35"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2661eaa4f9344653ec57854496398a35"></a>
+typedef enum <a class="el" href="a00008.html#gaaedf8638370044eb141964fddad9a245">_asrc_resampler_taps</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga2661eaa4f9344653ec57854496398a35">asrc_resampler_taps_t</a></td></tr>
+<tr class="memdesc:ga2661eaa4f9344653ec57854496398a35"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC resampler taps. <br/></td></tr>
+<tr class="separator:ga2661eaa4f9344653ec57854496398a35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga82ee5888fe34679bc4366ee99c44d0d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga82ee5888fe34679bc4366ee99c44d0d9"></a>
+typedef struct <a class="el" href="a00008.html#a00137">_asrc_data_format</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga82ee5888fe34679bc4366ee99c44d0d9">asrc_data_format_t</a></td></tr>
+<tr class="memdesc:ga82ee5888fe34679bc4366ee99c44d0d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context data format <br/></td></tr>
+<tr class="separator:ga82ee5888fe34679bc4366ee99c44d0d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6990826e5780f5d524d5d35e2977a1e3"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00008.html#a00131">_asrc_access_ctrl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga6990826e5780f5d524d5d35e2977a1e3">asrc_access_ctrl_t</a></td></tr>
+<tr class="memdesc:ga6990826e5780f5d524d5d35e2977a1e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context access control The ASRC provides interleaving support in hardware to ensure that a variety of sample source can be internally combined tp confir with this format.  <a href="#ga6990826e5780f5d524d5d35e2977a1e3">More...</a><br/></td></tr>
+<tr class="separator:ga6990826e5780f5d524d5d35e2977a1e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadd8eea3db2d8e51a74c898dc1f85d621"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gadd8eea3db2d8e51a74c898dc1f85d621"></a>
+typedef struct <br class="typebreak"/>
+<a class="el" href="a00008.html#a00133">_asrc_context_input_config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gadd8eea3db2d8e51a74c898dc1f85d621">asrc_context_input_config_t</a></td></tr>
+<tr class="memdesc:gadd8eea3db2d8e51a74c898dc1f85d621"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context input configuration <br/></td></tr>
+<tr class="separator:gadd8eea3db2d8e51a74c898dc1f85d621"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b23ecb40efcfba226b86858aae082be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga7b23ecb40efcfba226b86858aae082be"></a>
+typedef struct <br class="typebreak"/>
+<a class="el" href="a00008.html#a00134">_asrc_context_output_config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga7b23ecb40efcfba226b86858aae082be">asrc_context_output_config_t</a></td></tr>
+<tr class="memdesc:ga7b23ecb40efcfba226b86858aae082be"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context output configuration <br/></td></tr>
+<tr class="separator:ga7b23ecb40efcfba226b86858aae082be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga538302807a3bee9d638364db115dd04d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga538302807a3bee9d638364db115dd04d"></a>
+typedef struct <br class="typebreak"/>
+<a class="el" href="a00008.html#a00135">_asrc_context_prefilter_config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga538302807a3bee9d638364db115dd04d">asrc_context_prefilter_config_t</a></td></tr>
+<tr class="memdesc:ga538302807a3bee9d638364db115dd04d"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context prefilter configuration <br/></td></tr>
+<tr class="separator:ga538302807a3bee9d638364db115dd04d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa6d37a7d9c6ae902678e22939a91bb16"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa6d37a7d9c6ae902678e22939a91bb16"></a>
+typedef struct <br class="typebreak"/>
+<a class="el" href="a00008.html#a00136">_asrc_context_resampler_config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaa6d37a7d9c6ae902678e22939a91bb16">asrc_context_resampler_config_t</a></td></tr>
+<tr class="memdesc:gaa6d37a7d9c6ae902678e22939a91bb16"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context resampler configuration <br/></td></tr>
+<tr class="separator:gaa6d37a7d9c6ae902678e22939a91bb16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadead48caa8073301b91f1362a4699041"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gadead48caa8073301b91f1362a4699041"></a>
+typedef struct <a class="el" href="a00008.html#a00132">_asrc_context_config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gadead48caa8073301b91f1362a4699041">asrc_context_config_t</a></td></tr>
+<tr class="memdesc:gadead48caa8073301b91f1362a4699041"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context configuration <br/></td></tr>
+<tr class="separator:gadead48caa8073301b91f1362a4699041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa4f4755bc3e39609e357a6f42bde0eb0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa4f4755bc3e39609e357a6f42bde0eb0"></a>
+typedef struct <a class="el" href="a00008.html#a00142">_asrc_transfer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaa4f4755bc3e39609e357a6f42bde0eb0">asrc_transfer_t</a></td></tr>
+<tr class="memdesc:gaa4f4755bc3e39609e357a6f42bde0eb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC transfer. <br/></td></tr>
+<tr class="separator:gaa4f4755bc3e39609e357a6f42bde0eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -174,18 +252,18 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga99fb83031ce9923c84392b4e92f956b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC return status, _asrc_status.  <a href="a00008.html#ga99fb83031ce9923c84392b4e92f956b5">More...</a><br/></td></tr>
 <tr class="separator:ga99fb83031ce9923c84392b4e92f956b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga023e61e315535ac95996c1ae64ecc857"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga023e61e315535ac95996c1ae64ecc857aeaea0e8f1b0cb0459ad9e27080ce1349">kASRC_Context0</a> = 0, 
+<tr class="memitem:gae93ec7da6dc561fd8f51665142f2a333"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gae93ec7da6dc561fd8f51665142f2a333">_asrc_context</a> { <br/>
+&#160;&#160;<a class="el" href="a00008.html#ggae93ec7da6dc561fd8f51665142f2a333aeaea0e8f1b0cb0459ad9e27080ce1349">kASRC_Context0</a> = 0, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga023e61e315535ac95996c1ae64ecc857a87c986440dee6fc28841328438f5f9ce">kASRC_Context1</a> = 1, 
+&#160;&#160;<a class="el" href="a00008.html#ggae93ec7da6dc561fd8f51665142f2a333a87c986440dee6fc28841328438f5f9ce">kASRC_Context1</a> = 1, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga023e61e315535ac95996c1ae64ecc857a9858d15e7de683d9cb8ebd03a7457df8">kASRC_Context2</a> = 2, 
+&#160;&#160;<a class="el" href="a00008.html#ggae93ec7da6dc561fd8f51665142f2a333a9858d15e7de683d9cb8ebd03a7457df8">kASRC_Context2</a> = 2, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga023e61e315535ac95996c1ae64ecc857a3885526fe612c1030b9a41901ff0fd33">kASRC_Context3</a> = 3
+&#160;&#160;<a class="el" href="a00008.html#ggae93ec7da6dc561fd8f51665142f2a333a3885526fe612c1030b9a41901ff0fd33">kASRC_Context3</a> = 3
 <br/>
  }</td></tr>
-<tr class="memdesc:ga023e61e315535ac95996c1ae64ecc857"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context id  <a href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">More...</a><br/></td></tr>
-<tr class="separator:ga023e61e315535ac95996c1ae64ecc857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:gae93ec7da6dc561fd8f51665142f2a333"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc context id  <a href="a00008.html#gae93ec7da6dc561fd8f51665142f2a333">More...</a><br/></td></tr>
+<tr class="separator:gae93ec7da6dc561fd8f51665142f2a333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabc6126af1d45847bc59afa0aa3216b04"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
 &#160;&#160;<a class="el" href="a00008.html#ggabc6126af1d45847bc59afa0aa3216b04aea9c40bc1cfdd4c7bd8de39462346365">kASRC_Context0InputFifoOverflow</a> = 1U, 
 <br/>
@@ -224,78 +302,78 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:gadc29c2ff13d900c2f185ee95427fb06c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC fifo status, _asrc_fifo_status.  <a href="a00008.html#gadc29c2ff13d900c2f185ee95427fb06c">More...</a><br/></td></tr>
 <tr class="separator:gadc29c2ff13d900c2f185ee95427fb06c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaac4bb7d45fe5a0d26263caa77d516964"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaac4bb7d45fe5a0d26263caa77d516964">asrc_data_endianness_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaac4bb7d45fe5a0d26263caa77d516964a6a4ae9ae15cbb05ac9e5afa828d52116">kASRC_DataEndianLittle</a> = 0U, 
+<tr class="memitem:gad266879eb0edcd4d3fe663b5d6fe92c7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gad266879eb0edcd4d3fe663b5d6fe92c7">_asrc_data_endianness</a> { <br/>
+&#160;&#160;<a class="el" href="a00008.html#ggad266879eb0edcd4d3fe663b5d6fe92c7a6a4ae9ae15cbb05ac9e5afa828d52116">kASRC_DataEndianLittle</a> = 0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaac4bb7d45fe5a0d26263caa77d516964aa5bb1354eae5629e369d08e300333553">kASRC_DataEndianBig</a> = 1U
-<br/>
- }</td></tr>
-<tr class="memdesc:gaac4bb7d45fe5a0d26263caa77d516964"><td class="mdescLeft">&#160;</td><td class="mdescRight">arsc data endianness  <a href="a00008.html#gaac4bb7d45fe5a0d26263caa77d516964">More...</a><br/></td></tr>
-<tr class="separator:gaac4bb7d45fe5a0d26263caa77d516964"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaea1d8db6dc0effbb7b93348a6095eaad"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaea1d8db6dc0effbb7b93348a6095eaad">asrc_data_width_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaea1d8db6dc0effbb7b93348a6095eaada4d5a0b8596d5b1e74cb9ea2c29446913">kASRC_DataWidth32Bit</a> = 3U, 
-<br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaea1d8db6dc0effbb7b93348a6095eaada54c8fb38fbb5d80079f8dd04e76183fc">kASRC_DataWidth24Bit</a> = 2U, 
-<br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaea1d8db6dc0effbb7b93348a6095eaada8bcf76acc035afa8d24e9f981a9036a9">kASRC_DataWidth20Bit</a> = 1U, 
-<br/>
-&#160;&#160;<a class="el" href="a00008.html#ggaea1d8db6dc0effbb7b93348a6095eaada75bdfffc838219e49cf4636baa41115c">kASRC_DataWidth16Bit</a> = 0U
+&#160;&#160;<a class="el" href="a00008.html#ggad266879eb0edcd4d3fe663b5d6fe92c7aa5bb1354eae5629e369d08e300333553">kASRC_DataEndianBig</a> = 1U
 <br/>
  }</td></tr>
-<tr class="memdesc:gaea1d8db6dc0effbb7b93348a6095eaad"><td class="mdescLeft">&#160;</td><td class="mdescRight">data width  <a href="a00008.html#gaea1d8db6dc0effbb7b93348a6095eaad">More...</a><br/></td></tr>
-<tr class="separator:gaea1d8db6dc0effbb7b93348a6095eaad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7fcddbcbfcbefbe0df151c2ff44aba7b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga7fcddbcbfcbefbe0df151c2ff44aba7b">asrc_data_type_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga7fcddbcbfcbefbe0df151c2ff44aba7ba6c5d712be172a949f003b3ba401f548d">kASRC_DataTypeInteger</a> = 0U, 
+<tr class="memdesc:gad266879eb0edcd4d3fe663b5d6fe92c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">arsc data endianness  <a href="a00008.html#gad266879eb0edcd4d3fe663b5d6fe92c7">More...</a><br/></td></tr>
+<tr class="separator:gad266879eb0edcd4d3fe663b5d6fe92c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24b45c9e08c5ae84d1ea31d625a5f623"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga24b45c9e08c5ae84d1ea31d625a5f623">_asrc_data_width</a> { <br/>
+&#160;&#160;<a class="el" href="a00008.html#gga24b45c9e08c5ae84d1ea31d625a5f623a4d5a0b8596d5b1e74cb9ea2c29446913">kASRC_DataWidth32Bit</a> = 3U, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga7fcddbcbfcbefbe0df151c2ff44aba7bafc4edd7b3242d4757a8a00de236e0413">kASRC_DataTypeFloat</a> = 1U
+&#160;&#160;<a class="el" href="a00008.html#gga24b45c9e08c5ae84d1ea31d625a5f623a54c8fb38fbb5d80079f8dd04e76183fc">kASRC_DataWidth24Bit</a> = 2U, 
 <br/>
- }</td></tr>
-<tr class="memdesc:ga7fcddbcbfcbefbe0df151c2ff44aba7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">data type  <a href="a00008.html#ga7fcddbcbfcbefbe0df151c2ff44aba7b">More...</a><br/></td></tr>
-<tr class="separator:ga7fcddbcbfcbefbe0df151c2ff44aba7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6e07278be3ee1341a4de87140a39e95f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga6e07278be3ee1341a4de87140a39e95f">asrc_data_sign_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga6e07278be3ee1341a4de87140a39e95fa3eff1eb4149b84b93b9f6d57978464ba">kASRC_DataSigned</a> = 0U, 
+&#160;&#160;<a class="el" href="a00008.html#gga24b45c9e08c5ae84d1ea31d625a5f623a8bcf76acc035afa8d24e9f981a9036a9">kASRC_DataWidth20Bit</a> = 1U, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga6e07278be3ee1341a4de87140a39e95fa491b4b0d171cbe00cf32fa0db68ecaac">kASRC_DataUnsigned</a> = 1U
+&#160;&#160;<a class="el" href="a00008.html#gga24b45c9e08c5ae84d1ea31d625a5f623a75bdfffc838219e49cf4636baa41115c">kASRC_DataWidth16Bit</a> = 0U
 <br/>
  }</td></tr>
-<tr class="memdesc:ga6e07278be3ee1341a4de87140a39e95f"><td class="mdescLeft">&#160;</td><td class="mdescRight">sign extension  <a href="a00008.html#ga6e07278be3ee1341a4de87140a39e95f">More...</a><br/></td></tr>
-<tr class="separator:ga6e07278be3ee1341a4de87140a39e95f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabb95bdb67a9a256d5761bc4a6fe01674"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gabb95bdb67a9a256d5761bc4a6fe01674">asrc_sampleBuffer_init_mode_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggabb95bdb67a9a256d5761bc4a6fe01674a09dfd192866e36446e759706b4506dd5">kASRC_SampleBufferNoPreFillOnInit</a> = 0U, 
+<tr class="memdesc:ga24b45c9e08c5ae84d1ea31d625a5f623"><td class="mdescLeft">&#160;</td><td class="mdescRight">data width  <a href="a00008.html#ga24b45c9e08c5ae84d1ea31d625a5f623">More...</a><br/></td></tr>
+<tr class="separator:ga24b45c9e08c5ae84d1ea31d625a5f623"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77b3f700911f727561166dc8c7b34d0c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga77b3f700911f727561166dc8c7b34d0c">_asrc_data_type</a> { <br/>
+&#160;&#160;<a class="el" href="a00008.html#gga77b3f700911f727561166dc8c7b34d0ca6c5d712be172a949f003b3ba401f548d">kASRC_DataTypeInteger</a> = 0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggabb95bdb67a9a256d5761bc4a6fe01674acd5881ecde48b28011e8a37100fd2967">kASRC_SampleBufferFillFirstSampleOnInit</a>, 
-<br/>
-&#160;&#160;<a class="el" href="a00008.html#ggabb95bdb67a9a256d5761bc4a6fe01674a9efa52d2202ef415262bfe1e87a5ebb2">kASRC_SampleBufferFillZeroOnInit</a> = 2U
+&#160;&#160;<a class="el" href="a00008.html#gga77b3f700911f727561166dc8c7b34d0cafc4edd7b3242d4757a8a00de236e0413">kASRC_DataTypeFloat</a> = 1U
 <br/>
  }</td></tr>
-<tr class="memdesc:gabb95bdb67a9a256d5761bc4a6fe01674"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc prefilter and resampler sample buffer init mode  <a href="a00008.html#gabb95bdb67a9a256d5761bc4a6fe01674">More...</a><br/></td></tr>
-<tr class="separator:gabb95bdb67a9a256d5761bc4a6fe01674"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab974fe3616cb6f5ad96e3eaa52593c2f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gab974fe3616cb6f5ad96e3eaa52593c2f">asrc_sampleBuffer_stop_mode_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggab974fe3616cb6f5ad96e3eaa52593c2fa5a5a42260e09f39d0aac79f1f3b870cc">kASRC_SampleBufferFillLastSampleOnStop</a>, 
+<tr class="memdesc:ga77b3f700911f727561166dc8c7b34d0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">data type  <a href="a00008.html#ga77b3f700911f727561166dc8c7b34d0c">More...</a><br/></td></tr>
+<tr class="separator:ga77b3f700911f727561166dc8c7b34d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb2a73773f3e393b12bf06f2e9821f3d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaeb2a73773f3e393b12bf06f2e9821f3d">_asrc_data_sign</a> { <br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaeb2a73773f3e393b12bf06f2e9821f3da3eff1eb4149b84b93b9f6d57978464ba">kASRC_DataSigned</a> = 0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggab974fe3616cb6f5ad96e3eaa52593c2fa8e33c927d786e6304b2097a53ba724ce">kASRC_SampleBufferFillZeroOnStop</a> = 1U
-<br/>
- }</td></tr>
-<tr class="memdesc:gab974fe3616cb6f5ad96e3eaa52593c2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc prefilter and resampler sample buffer stop mode  <a href="a00008.html#gab974fe3616cb6f5ad96e3eaa52593c2f">More...</a><br/></td></tr>
-<tr class="separator:gab974fe3616cb6f5ad96e3eaa52593c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga10ab17fc0f36a201d88b3afd28a2e731"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga10ab17fc0f36a201d88b3afd28a2e731">asrc_prefilter_stage1_result_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00008.html#gga10ab17fc0f36a201d88b3afd28a2e731adefd96c249f7691ceb477d90ae62ec59">kASRC_PrefilterStage1ResultInt</a> = 0U, 
-<br/>
-&#160;&#160;<a class="el" href="a00008.html#gga10ab17fc0f36a201d88b3afd28a2e731a873645a8bb4be32f13629391f8170ae9">kASRC_PrefilterStage1ResultFloat</a> = 1U
+&#160;&#160;<a class="el" href="a00008.html#ggaeb2a73773f3e393b12bf06f2e9821f3da491b4b0d171cbe00cf32fa0db68ecaac">kASRC_DataUnsigned</a> = 1U
 <br/>
  }</td></tr>
-<tr class="memdesc:ga10ab17fc0f36a201d88b3afd28a2e731"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC prefilter stage1 result format.  <a href="a00008.html#ga10ab17fc0f36a201d88b3afd28a2e731">More...</a><br/></td></tr>
-<tr class="separator:ga10ab17fc0f36a201d88b3afd28a2e731"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacd9cd1d2b8c7b66304935a9611f37078"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gacd9cd1d2b8c7b66304935a9611f37078">asrc_resampler_taps_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggacd9cd1d2b8c7b66304935a9611f37078ac107aa6d77a67651f61505b625badfb8">kASRC_ResamplerTaps_32</a> = 32U, 
+<tr class="memdesc:gaeb2a73773f3e393b12bf06f2e9821f3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">sign extension  <a href="a00008.html#gaeb2a73773f3e393b12bf06f2e9821f3d">More...</a><br/></td></tr>
+<tr class="separator:gaeb2a73773f3e393b12bf06f2e9821f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga26114d372046d9933595f05ad5a95b65"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga26114d372046d9933595f05ad5a95b65">_asrc_sampleBuffer_init_mode</a> { <br/>
+&#160;&#160;<a class="el" href="a00008.html#gga26114d372046d9933595f05ad5a95b65a09dfd192866e36446e759706b4506dd5">kASRC_SampleBufferNoPreFillOnInit</a> = 0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggacd9cd1d2b8c7b66304935a9611f37078aeb8a26debc8d8a812e00b4e8cb9dcf5c">kASRC_ResamplerTaps_64</a> = 64U, 
+&#160;&#160;<a class="el" href="a00008.html#gga26114d372046d9933595f05ad5a95b65acd5881ecde48b28011e8a37100fd2967">kASRC_SampleBufferFillFirstSampleOnInit</a>, 
 <br/>
-&#160;&#160;<a class="el" href="a00008.html#ggacd9cd1d2b8c7b66304935a9611f37078a861ce74df75d7c4a415b2b9d997ecd8e">kASRC_ResamplerTaps_128</a> = 128U
+&#160;&#160;<a class="el" href="a00008.html#gga26114d372046d9933595f05ad5a95b65a9efa52d2202ef415262bfe1e87a5ebb2">kASRC_SampleBufferFillZeroOnInit</a> = 2U
 <br/>
  }</td></tr>
-<tr class="memdesc:gacd9cd1d2b8c7b66304935a9611f37078"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC resampler taps.  <a href="a00008.html#gacd9cd1d2b8c7b66304935a9611f37078">More...</a><br/></td></tr>
-<tr class="separator:gacd9cd1d2b8c7b66304935a9611f37078"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ga26114d372046d9933595f05ad5a95b65"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc prefilter and resampler sample buffer init mode  <a href="a00008.html#ga26114d372046d9933595f05ad5a95b65">More...</a><br/></td></tr>
+<tr class="separator:ga26114d372046d9933595f05ad5a95b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c2319178a67b38e9c1e0d47c9d31a6a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga4c2319178a67b38e9c1e0d47c9d31a6a">_asrc_sampleBuffer_stop_mode</a> { <br/>
+&#160;&#160;<a class="el" href="a00008.html#gga4c2319178a67b38e9c1e0d47c9d31a6aa5a5a42260e09f39d0aac79f1f3b870cc">kASRC_SampleBufferFillLastSampleOnStop</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#gga4c2319178a67b38e9c1e0d47c9d31a6aa8e33c927d786e6304b2097a53ba724ce">kASRC_SampleBufferFillZeroOnStop</a> = 1U
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga4c2319178a67b38e9c1e0d47c9d31a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">asrc prefilter and resampler sample buffer stop mode  <a href="a00008.html#ga4c2319178a67b38e9c1e0d47c9d31a6a">More...</a><br/></td></tr>
+<tr class="separator:ga4c2319178a67b38e9c1e0d47c9d31a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadcf3d32303866da9b593f7a1fdddf780"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gadcf3d32303866da9b593f7a1fdddf780">_asrc_prefilter_stage1_result</a> { <br/>
+&#160;&#160;<a class="el" href="a00008.html#ggadcf3d32303866da9b593f7a1fdddf780adefd96c249f7691ceb477d90ae62ec59">kASRC_PrefilterStage1ResultInt</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggadcf3d32303866da9b593f7a1fdddf780a873645a8bb4be32f13629391f8170ae9">kASRC_PrefilterStage1ResultFloat</a> = 1U
+<br/>
+ }</td></tr>
+<tr class="memdesc:gadcf3d32303866da9b593f7a1fdddf780"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC prefilter stage1 result format.  <a href="a00008.html#gadcf3d32303866da9b593f7a1fdddf780">More...</a><br/></td></tr>
+<tr class="separator:gadcf3d32303866da9b593f7a1fdddf780"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaedf8638370044eb141964fddad9a245"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaaedf8638370044eb141964fddad9a245">_asrc_resampler_taps</a> { <br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaaedf8638370044eb141964fddad9a245ac107aa6d77a67651f61505b625badfb8">kASRC_ResamplerTaps_32</a> = 32U, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaaedf8638370044eb141964fddad9a245aeb8a26debc8d8a812e00b4e8cb9dcf5c">kASRC_ResamplerTaps_64</a> = 64U, 
+<br/>
+&#160;&#160;<a class="el" href="a00008.html#ggaaedf8638370044eb141964fddad9a245a861ce74df75d7c4a415b2b9d997ecd8e">kASRC_ResamplerTaps_128</a> = 128U
+<br/>
+ }</td></tr>
+<tr class="memdesc:gaaedf8638370044eb141964fddad9a245"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC resampler taps.  <a href="a00008.html#gaaedf8638370044eb141964fddad9a245">More...</a><br/></td></tr>
+<tr class="separator:gaaedf8638370044eb141964fddad9a245"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga61dadd085c1777f559549e05962b2c9e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
 &#160;&#160;<a class="el" href="a00008.html#gga61dadd085c1777f559549e05962b2c9ea05072ddafbb1a9a45ed6ef9b99e2c1fd">kASRC_SampleRate_8000</a> = 8000, 
 <br/>
@@ -342,7 +420,7 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
 <tr class="memitem:gafae92ba17d0248f0e79417358c6738ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gafae92ba17d0248f0e79417358c6738ba"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gafae92ba17d0248f0e79417358c6738ba">FSL_ASRC_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00105.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 6))</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gafae92ba17d0248f0e79417358c6738ba">FSL_ASRC_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00102.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 6))</td></tr>
 <tr class="memdesc:gafae92ba17d0248f0e79417358c6738ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version 2.0.6. <br/></td></tr>
 <tr class="separator:gafae92ba17d0248f0e79417358c6738ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -357,37 +435,37 @@ Initialization and deinitialization</h2></td></tr>
 <tr class="memitem:ga3e4c828478709d1c144a18ccadeb37b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga3e4c828478709d1c144a18ccadeb37b1">ASRC_Deinit</a> (ASRC_Type *base)</td></tr>
 <tr class="memdesc:ga3e4c828478709d1c144a18ccadeb37b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initializes the ASRC peripheral.  <a href="#ga3e4c828478709d1c144a18ccadeb37b1">More...</a><br/></td></tr>
 <tr class="separator:ga3e4c828478709d1c144a18ccadeb37b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4b9208dc8c8065e33ed16f8234f61ebd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga4b9208dc8c8065e33ed16f8234f61ebd">ASRC_GetContextDefaultConfig</a> (<a class="el" href="a00008.html#a00145">asrc_context_config_t</a> *config, uint32_t channels, uint32_t inSampleRate, uint32_t outSampleRate)</td></tr>
+<tr class="memitem:ga4b9208dc8c8065e33ed16f8234f61ebd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga4b9208dc8c8065e33ed16f8234f61ebd">ASRC_GetContextDefaultConfig</a> (<a class="el" href="a00008.html#gadead48caa8073301b91f1362a4699041">asrc_context_config_t</a> *config, uint32_t channels, uint32_t inSampleRate, uint32_t outSampleRate)</td></tr>
 <tr class="memdesc:ga4b9208dc8c8065e33ed16f8234f61ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC get context default configuration.  <a href="#ga4b9208dc8c8065e33ed16f8234f61ebd">More...</a><br/></td></tr>
 <tr class="separator:ga4b9208dc8c8065e33ed16f8234f61ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga55442a5dc7460e8a0d3b20685444601d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00105.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga55442a5dc7460e8a0d3b20685444601d">ASRC_SetContextConfig</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context, <a class="el" href="a00008.html#a00145">asrc_context_config_t</a> *config)</td></tr>
+<tr class="memitem:ga55442a5dc7460e8a0d3b20685444601d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00102.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga55442a5dc7460e8a0d3b20685444601d">ASRC_SetContextConfig</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context, <a class="el" href="a00008.html#gadead48caa8073301b91f1362a4699041">asrc_context_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga55442a5dc7460e8a0d3b20685444601d"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC configure context.  <a href="#ga55442a5dc7460e8a0d3b20685444601d">More...</a><br/></td></tr>
 <tr class="separator:ga55442a5dc7460e8a0d3b20685444601d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga966bf8ededee3ba20eae4329a269bc18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00105.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga966bf8ededee3ba20eae4329a269bc18">ASRC_SetContextOutputConfig</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context, <a class="el" href="a00008.html#a00147">asrc_context_output_config_t</a> *config)</td></tr>
+<tr class="memitem:ga966bf8ededee3ba20eae4329a269bc18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00102.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga966bf8ededee3ba20eae4329a269bc18">ASRC_SetContextOutputConfig</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context, <a class="el" href="a00008.html#ga7b23ecb40efcfba226b86858aae082be">asrc_context_output_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga966bf8ededee3ba20eae4329a269bc18"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC configure context output.  <a href="#ga966bf8ededee3ba20eae4329a269bc18">More...</a><br/></td></tr>
 <tr class="separator:ga966bf8ededee3ba20eae4329a269bc18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga55d83f12b004e85b3e9ea9f37d771d4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00105.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga55d83f12b004e85b3e9ea9f37d771d4e">ASRC_SetContextInputConfig</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context, <a class="el" href="a00008.html#a00146">asrc_context_input_config_t</a> *config)</td></tr>
+<tr class="memitem:ga55d83f12b004e85b3e9ea9f37d771d4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00102.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga55d83f12b004e85b3e9ea9f37d771d4e">ASRC_SetContextInputConfig</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context, <a class="el" href="a00008.html#gadd8eea3db2d8e51a74c898dc1f85d621">asrc_context_input_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga55d83f12b004e85b3e9ea9f37d771d4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC configure context input.  <a href="#ga55d83f12b004e85b3e9ea9f37d771d4e">More...</a><br/></td></tr>
 <tr class="separator:ga55d83f12b004e85b3e9ea9f37d771d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae9a7716ad96d0e3eb20bff976f675646"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gae9a7716ad96d0e3eb20bff976f675646">ASRC_EnableContextRun</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context, bool enable)</td></tr>
+<tr class="memitem:gae9a7716ad96d0e3eb20bff976f675646"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gae9a7716ad96d0e3eb20bff976f675646">ASRC_EnableContextRun</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context, bool enable)</td></tr>
 <tr class="memdesc:gae9a7716ad96d0e3eb20bff976f675646"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC context enable run.  <a href="#gae9a7716ad96d0e3eb20bff976f675646">More...</a><br/></td></tr>
 <tr class="separator:gae9a7716ad96d0e3eb20bff976f675646"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafb7a7d9a3e019c17818012d8c57e5d7c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gafb7a7d9a3e019c17818012d8c57e5d7c">ASRC_EnableContextRunStop</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context, bool enable)</td></tr>
+<tr class="memitem:gafb7a7d9a3e019c17818012d8c57e5d7c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gafb7a7d9a3e019c17818012d8c57e5d7c">ASRC_EnableContextRunStop</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context, bool enable)</td></tr>
 <tr class="memdesc:gafb7a7d9a3e019c17818012d8c57e5d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC context enable run stop.  <a href="#gafb7a7d9a3e019c17818012d8c57e5d7c">More...</a><br/></td></tr>
 <tr class="separator:gafb7a7d9a3e019c17818012d8c57e5d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga52a589069a08e904c6a0d3cae88b760f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga52a589069a08e904c6a0d3cae88b760f">ASRC_EnableContextInDMA</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context, bool enable)</td></tr>
+<tr class="memitem:ga52a589069a08e904c6a0d3cae88b760f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga52a589069a08e904c6a0d3cae88b760f">ASRC_EnableContextInDMA</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context, bool enable)</td></tr>
 <tr class="memdesc:ga52a589069a08e904c6a0d3cae88b760f"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC context input DMA request enable.  <a href="#ga52a589069a08e904c6a0d3cae88b760f">More...</a><br/></td></tr>
 <tr class="separator:ga52a589069a08e904c6a0d3cae88b760f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacc992f532dfdee6a3ce144d3d6740c56"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gacc992f532dfdee6a3ce144d3d6740c56">ASRC_EnableContextOutDMA</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context, bool enable)</td></tr>
+<tr class="memitem:gacc992f532dfdee6a3ce144d3d6740c56"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gacc992f532dfdee6a3ce144d3d6740c56">ASRC_EnableContextOutDMA</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context, bool enable)</td></tr>
 <tr class="memdesc:gacc992f532dfdee6a3ce144d3d6740c56"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC context output DMA request enable.  <a href="#gacc992f532dfdee6a3ce144d3d6740c56">More...</a><br/></td></tr>
 <tr class="separator:gacc992f532dfdee6a3ce144d3d6740c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga008ef79f1e2798628d330b7f60a224c1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga008ef79f1e2798628d330b7f60a224c1">ASRC_EnablePreFilterBypass</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context, bool bypass)</td></tr>
+<tr class="memitem:ga008ef79f1e2798628d330b7f60a224c1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga008ef79f1e2798628d330b7f60a224c1">ASRC_EnablePreFilterBypass</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context, bool bypass)</td></tr>
 <tr class="memdesc:ga008ef79f1e2798628d330b7f60a224c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC prefilter bypass mode This function enable or disable the ASRC prefilter bypass mode.  <a href="#ga008ef79f1e2798628d330b7f60a224c1">More...</a><br/></td></tr>
 <tr class="separator:ga008ef79f1e2798628d330b7f60a224c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa46d31eafa4e88281a39cbce2f164a27"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaa46d31eafa4e88281a39cbce2f164a27">ASRC_EnableResamplerBypass</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context, bool bypass)</td></tr>
+<tr class="memitem:gaa46d31eafa4e88281a39cbce2f164a27"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaa46d31eafa4e88281a39cbce2f164a27">ASRC_EnableResamplerBypass</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context, bool bypass)</td></tr>
 <tr class="memdesc:gaa46d31eafa4e88281a39cbce2f164a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC resampler bypass mode This function enable or disable the ASRC resampler bypass mode.  <a href="#gaa46d31eafa4e88281a39cbce2f164a27">More...</a><br/></td></tr>
 <tr class="separator:gaa46d31eafa4e88281a39cbce2f164a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3de70de63a9579a4c43aaef2335da23e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga3de70de63a9579a4c43aaef2335da23e">ASRC_SetContextChannelNumber</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context, uint32_t channels)</td></tr>
+<tr class="memitem:ga3de70de63a9579a4c43aaef2335da23e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga3de70de63a9579a4c43aaef2335da23e">ASRC_SetContextChannelNumber</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context, uint32_t channels)</td></tr>
 <tr class="memdesc:ga3de70de63a9579a4c43aaef2335da23e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC set context channel number.  <a href="#ga3de70de63a9579a4c43aaef2335da23e">More...</a><br/></td></tr>
 <tr class="separator:ga3de70de63a9579a4c43aaef2335da23e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac52013a76bae1ba80d9756d421f61ad8"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gac52013a76bae1ba80d9756d421f61ad8">ASRC_GetContextOutSampleSize</a> (uint32_t inSampleRate, uint32_t inSamplesSize, uint32_t inWidth, uint32_t outSampleRate, uint32_t outWidth)</td></tr>
@@ -411,171 +489,171 @@ Status</h2></td></tr>
 <tr class="memitem:ga3b628bda9cff566be6b2da900245707c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga3b628bda9cff566be6b2da900245707c">ASRC_ClearInterruptStatus</a> (ASRC_Type *base, uint32_t status)</td></tr>
 <tr class="memdesc:ga3b628bda9cff566be6b2da900245707c"><td class="mdescLeft">&#160;</td><td class="mdescRight">clear the ASRC interrupt status flag state.  <a href="#ga3b628bda9cff566be6b2da900245707c">More...</a><br/></td></tr>
 <tr class="separator:ga3b628bda9cff566be6b2da900245707c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1c602083218bf0857edfe9ceaa4e4056"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga1c602083218bf0857edfe9ceaa4e4056">ASRC_GetFifoStatus</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context)</td></tr>
+<tr class="memitem:ga1c602083218bf0857edfe9ceaa4e4056"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga1c602083218bf0857edfe9ceaa4e4056">ASRC_GetFifoStatus</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context)</td></tr>
 <tr class="memdesc:ga1c602083218bf0857edfe9ceaa4e4056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the ASRC fifo status flag.  <a href="#ga1c602083218bf0857edfe9ceaa4e4056">More...</a><br/></td></tr>
 <tr class="separator:ga1c602083218bf0857edfe9ceaa4e4056"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 fifo Operations</h2></td></tr>
-<tr class="memitem:gac2483fea275eca15b0333de0b1898bec"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gac2483fea275eca15b0333de0b1898bec">ASRC_WriteContextFifo</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context, uint32_t data)</td></tr>
+<tr class="memitem:gac2483fea275eca15b0333de0b1898bec"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gac2483fea275eca15b0333de0b1898bec">ASRC_WriteContextFifo</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context, uint32_t data)</td></tr>
 <tr class="memdesc:gac2483fea275eca15b0333de0b1898bec"><td class="mdescLeft">&#160;</td><td class="mdescRight">write the ASRC context fifo.  <a href="#gac2483fea275eca15b0333de0b1898bec">More...</a><br/></td></tr>
 <tr class="separator:gac2483fea275eca15b0333de0b1898bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7122081ad191336bd35461e6a96c0ede"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga7122081ad191336bd35461e6a96c0ede">ASRC_ReadContextFifo</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context)</td></tr>
+<tr class="memitem:ga7122081ad191336bd35461e6a96c0ede"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga7122081ad191336bd35461e6a96c0ede">ASRC_ReadContextFifo</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context)</td></tr>
 <tr class="memdesc:ga7122081ad191336bd35461e6a96c0ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">read the ASRC context fifo.  <a href="#ga7122081ad191336bd35461e6a96c0ede">More...</a><br/></td></tr>
 <tr class="separator:ga7122081ad191336bd35461e6a96c0ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga509996e83eee60b25df879464b83eae3"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga509996e83eee60b25df879464b83eae3">ASRC_GetWriteContextFifoAddr</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context)</td></tr>
+<tr class="memitem:ga509996e83eee60b25df879464b83eae3"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga509996e83eee60b25df879464b83eae3">ASRC_GetWriteContextFifoAddr</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context)</td></tr>
 <tr class="memdesc:ga509996e83eee60b25df879464b83eae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get ASRC write fifo address.  <a href="#ga509996e83eee60b25df879464b83eae3">More...</a><br/></td></tr>
 <tr class="separator:ga509996e83eee60b25df879464b83eae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaab790cfbce64809bbddb988c90196f9b"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaab790cfbce64809bbddb988c90196f9b">ASRC_GetReadContextFifoAddr</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context)</td></tr>
+<tr class="memitem:gaab790cfbce64809bbddb988c90196f9b"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#gaab790cfbce64809bbddb988c90196f9b">ASRC_GetReadContextFifoAddr</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context)</td></tr>
 <tr class="memdesc:gaab790cfbce64809bbddb988c90196f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ASRC read context fifo address.  <a href="#gaab790cfbce64809bbddb988c90196f9b">More...</a><br/></td></tr>
 <tr class="separator:gaab790cfbce64809bbddb988c90196f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8ec081a7cae4710f2c3de127adcc1582"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga8ec081a7cae4710f2c3de127adcc1582">ASRC_ReadFIFORemainedSample</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context, uint32_t *outAddr, uint32_t outWidth, uint32_t sampleCount)</td></tr>
+<tr class="memitem:ga8ec081a7cae4710f2c3de127adcc1582"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga8ec081a7cae4710f2c3de127adcc1582">ASRC_ReadFIFORemainedSample</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context, uint32_t *outAddr, uint32_t outWidth, uint32_t sampleCount)</td></tr>
 <tr class="memdesc:ga8ec081a7cae4710f2c3de127adcc1582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ASRC read fifo remained samples.  <a href="#ga8ec081a7cae4710f2c3de127adcc1582">More...</a><br/></td></tr>
 <tr class="separator:ga8ec081a7cae4710f2c3de127adcc1582"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Transactional</h2></td></tr>
-<tr class="memitem:ga9e6afc7152b544575e42c7a8bf6e745d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00105.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga9e6afc7152b544575e42c7a8bf6e745d">ASRC_TransferBlocking</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a> context, <a class="el" href="a00008.html#a00154">asrc_transfer_t</a> *xfer)</td></tr>
+<tr class="memitem:ga9e6afc7152b544575e42c7a8bf6e745d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00102.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ga9e6afc7152b544575e42c7a8bf6e745d">ASRC_TransferBlocking</a> (ASRC_Type *base, <a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a> context, <a class="el" href="a00008.html#gaa4f4755bc3e39609e357a6f42bde0eb0">asrc_transfer_t</a> *xfer)</td></tr>
 <tr class="memdesc:ga9e6afc7152b544575e42c7a8bf6e745d"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASRC blocking convert audio sample rate.  <a href="#ga9e6afc7152b544575e42c7a8bf6e745d">More...</a><br/></td></tr>
 <tr class="separator:ga9e6afc7152b544575e42c7a8bf6e745d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="a00150" id="a00150"></a>
+<a name="a00137" id="a00137"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct asrc_data_format_t</td>
+          <td class="memname">struct _asrc_data_format</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a4581e73b38540c5a6890dfef99d6b9fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4581e73b38540c5a6890dfef99d6b9fd"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a4581e73b38540c5a6890dfef99d6b9fd">dataPosition</a></td></tr>
-<tr class="memdesc:a4581e73b38540c5a6890dfef99d6b9fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">context input data sample position <br/></td></tr>
-<tr class="separator:a4581e73b38540c5a6890dfef99d6b9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b866b26ec40c86786fafc66804f7301"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b866b26ec40c86786fafc66804f7301"></a>
-<a class="el" href="a00008.html#gaac4bb7d45fe5a0d26263caa77d516964">asrc_data_endianness_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a9b866b26ec40c86786fafc66804f7301">dataEndianness</a></td></tr>
-<tr class="memdesc:a9b866b26ec40c86786fafc66804f7301"><td class="mdescLeft">&#160;</td><td class="mdescRight">context input data endianness <br/></td></tr>
-<tr class="separator:a9b866b26ec40c86786fafc66804f7301"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47bd47be08dac714c1e3ffb89736a0b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47bd47be08dac714c1e3ffb89736a0b4"></a>
-<a class="el" href="a00008.html#gaea1d8db6dc0effbb7b93348a6095eaad">asrc_data_width_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a47bd47be08dac714c1e3ffb89736a0b4">dataWidth</a></td></tr>
-<tr class="memdesc:a47bd47be08dac714c1e3ffb89736a0b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">context input data width <br/></td></tr>
-<tr class="separator:a47bd47be08dac714c1e3ffb89736a0b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8352973a0c98187dcc15018f33393422"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8352973a0c98187dcc15018f33393422"></a>
-<a class="el" href="a00008.html#ga7fcddbcbfcbefbe0df151c2ff44aba7b">asrc_data_type_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a8352973a0c98187dcc15018f33393422">dataType</a></td></tr>
-<tr class="memdesc:a8352973a0c98187dcc15018f33393422"><td class="mdescLeft">&#160;</td><td class="mdescRight">context input data type <br/></td></tr>
-<tr class="separator:a8352973a0c98187dcc15018f33393422"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c7649e688acab6a31ea4d0012c41985"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c7649e688acab6a31ea4d0012c41985"></a>
-<a class="el" href="a00008.html#ga6e07278be3ee1341a4de87140a39e95f">asrc_data_sign_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a1c7649e688acab6a31ea4d0012c41985">dataSign</a></td></tr>
-<tr class="memdesc:a1c7649e688acab6a31ea4d0012c41985"><td class="mdescLeft">&#160;</td><td class="mdescRight">context input data signed or unsigned <br/></td></tr>
-<tr class="separator:a1c7649e688acab6a31ea4d0012c41985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aacf876de128fc33b28ede742338e62"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8aacf876de128fc33b28ede742338e62"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a8aacf876de128fc33b28ede742338e62">dataPosition</a></td></tr>
+<tr class="memdesc:a8aacf876de128fc33b28ede742338e62"><td class="mdescLeft">&#160;</td><td class="mdescRight">context input data sample position <br/></td></tr>
+<tr class="separator:a8aacf876de128fc33b28ede742338e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9abf7dce315b8310bc9f8b6236f56fee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9abf7dce315b8310bc9f8b6236f56fee"></a>
+<a class="el" href="a00008.html#ga935d53ce7cc64fb650b68e638f1aadcf">asrc_data_endianness_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a9abf7dce315b8310bc9f8b6236f56fee">dataEndianness</a></td></tr>
+<tr class="memdesc:a9abf7dce315b8310bc9f8b6236f56fee"><td class="mdescLeft">&#160;</td><td class="mdescRight">context input data endianness <br/></td></tr>
+<tr class="separator:a9abf7dce315b8310bc9f8b6236f56fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdb6b1275680606e314ef14c06a8a761"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdb6b1275680606e314ef14c06a8a761"></a>
+<a class="el" href="a00008.html#ga513560bb9d156ffd0a825d239e019ad9">asrc_data_width_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#afdb6b1275680606e314ef14c06a8a761">dataWidth</a></td></tr>
+<tr class="memdesc:afdb6b1275680606e314ef14c06a8a761"><td class="mdescLeft">&#160;</td><td class="mdescRight">context input data width <br/></td></tr>
+<tr class="separator:afdb6b1275680606e314ef14c06a8a761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07c418365283a28d8896bb4f6b8454f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a07c418365283a28d8896bb4f6b8454f9"></a>
+<a class="el" href="a00008.html#ga4e99eea58b9bba716bb0d6d80628f5ff">asrc_data_type_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a07c418365283a28d8896bb4f6b8454f9">dataType</a></td></tr>
+<tr class="memdesc:a07c418365283a28d8896bb4f6b8454f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">context input data type <br/></td></tr>
+<tr class="separator:a07c418365283a28d8896bb4f6b8454f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9134b6ed5a8a0a4675984e917e7408f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9134b6ed5a8a0a4675984e917e7408f"></a>
+<a class="el" href="a00008.html#ga10e1d7b939f062d03ca417b20e1d2149">asrc_data_sign_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ae9134b6ed5a8a0a4675984e917e7408f">dataSign</a></td></tr>
+<tr class="memdesc:ae9134b6ed5a8a0a4675984e917e7408f"><td class="mdescLeft">&#160;</td><td class="mdescRight">context input data signed or unsigned <br/></td></tr>
+<tr class="separator:ae9134b6ed5a8a0a4675984e917e7408f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 
 </div>
 </div>
-<a name="a00144" id="a00144"></a>
+<a name="a00131" id="a00131"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct asrc_access_ctrl_t</td>
+          <td class="memname">struct _asrc_access_ctrl</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"><p>The interleave patter is controlled using 3 register fields: GROUP_LENGTH, ACCESS_LENGTH, ITERATIONIS. This is intended to support hardware configurations which distribute a single context across samples from multiple audio sources. Take a example as below: accessGroupLen = 6, the sample group length is 6 samples accessIterations = 2, the 2 sequential ACCESS_LENGTH read from single source accessLen = 2, the 2 samples fetch from one source. </p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a21b93594b378c67d50e1e8db05bb50b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21b93594b378c67d50e1e8db05bb50b0"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a21b93594b378c67d50e1e8db05bb50b0">accessIterations</a></td></tr>
-<tr class="memdesc:a21b93594b378c67d50e1e8db05bb50b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of sequential fetches per source <br/></td></tr>
-<tr class="separator:a21b93594b378c67d50e1e8db05bb50b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1c1fd23d31acb8dac962cafd4a39921"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1c1fd23d31acb8dac962cafd4a39921"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#af1c1fd23d31acb8dac962cafd4a39921">accessGroupLen</a></td></tr>
-<tr class="memdesc:af1c1fd23d31acb8dac962cafd4a39921"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of channels in a context <br/></td></tr>
-<tr class="separator:af1c1fd23d31acb8dac962cafd4a39921"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32095169c0d829744b30d9cbc8e84f7e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32095169c0d829744b30d9cbc8e84f7e"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a32095169c0d829744b30d9cbc8e84f7e">accessLen</a></td></tr>
-<tr class="memdesc:a32095169c0d829744b30d9cbc8e84f7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of channels per source1 <br/></td></tr>
-<tr class="separator:a32095169c0d829744b30d9cbc8e84f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac586a27bb68489769a70a3fa5b01c9ce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac586a27bb68489769a70a3fa5b01c9ce"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ac586a27bb68489769a70a3fa5b01c9ce">accessIterations</a></td></tr>
+<tr class="memdesc:ac586a27bb68489769a70a3fa5b01c9ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of sequential fetches per source <br/></td></tr>
+<tr class="separator:ac586a27bb68489769a70a3fa5b01c9ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23efc7c0595b836a6ce0cfe3f4419823"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23efc7c0595b836a6ce0cfe3f4419823"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a23efc7c0595b836a6ce0cfe3f4419823">accessGroupLen</a></td></tr>
+<tr class="memdesc:a23efc7c0595b836a6ce0cfe3f4419823"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of channels in a context <br/></td></tr>
+<tr class="separator:a23efc7c0595b836a6ce0cfe3f4419823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24a2c2a71d3d088ceab24616db6ddc43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24a2c2a71d3d088ceab24616db6ddc43"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a24a2c2a71d3d088ceab24616db6ddc43">accessLen</a></td></tr>
+<tr class="memdesc:a24a2c2a71d3d088ceab24616db6ddc43"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of channels per source1 <br/></td></tr>
+<tr class="separator:a24a2c2a71d3d088ceab24616db6ddc43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 
 </div>
 </div>
-<a name="a00146" id="a00146"></a>
+<a name="a00133" id="a00133"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct asrc_context_input_config_t</td>
+          <td class="memname">struct _asrc_context_input_config</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a52b2a9bc93036d786d114f94253ba93e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52b2a9bc93036d786d114f94253ba93e"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a52b2a9bc93036d786d114f94253ba93e">sampleRate</a></td></tr>
-<tr class="memdesc:a52b2a9bc93036d786d114f94253ba93e"><td class="mdescLeft">&#160;</td><td class="mdescRight">input audio data sample rate <br/></td></tr>
-<tr class="separator:a52b2a9bc93036d786d114f94253ba93e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77e60e767e4829911f76ed2f6165dbb1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77e60e767e4829911f76ed2f6165dbb1"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a77e60e767e4829911f76ed2f6165dbb1">watermark</a></td></tr>
-<tr class="memdesc:a77e60e767e4829911f76ed2f6165dbb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">input water mark per samples <br/></td></tr>
-<tr class="separator:a77e60e767e4829911f76ed2f6165dbb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad929e1e5919afdeea7a77f263526ae61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad929e1e5919afdeea7a77f263526ae61"></a>
-<a class="el" href="a00008.html#a00144">asrc_access_ctrl_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ad929e1e5919afdeea7a77f263526ae61">accessCtrl</a></td></tr>
-<tr class="memdesc:ad929e1e5919afdeea7a77f263526ae61"><td class="mdescLeft">&#160;</td><td class="mdescRight">input access control <br/></td></tr>
-<tr class="separator:ad929e1e5919afdeea7a77f263526ae61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79a94f894c413de1f693008b921baeab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79a94f894c413de1f693008b921baeab"></a>
-<a class="el" href="a00008.html#a00150">asrc_data_format_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a79a94f894c413de1f693008b921baeab">dataFormat</a></td></tr>
-<tr class="memdesc:a79a94f894c413de1f693008b921baeab"><td class="mdescLeft">&#160;</td><td class="mdescRight">input data format <br/></td></tr>
-<tr class="separator:a79a94f894c413de1f693008b921baeab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c188a3dbe90f9d8c3b3f828e1f2d5be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c188a3dbe90f9d8c3b3f828e1f2d5be"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a3c188a3dbe90f9d8c3b3f828e1f2d5be">sampleRate</a></td></tr>
+<tr class="memdesc:a3c188a3dbe90f9d8c3b3f828e1f2d5be"><td class="mdescLeft">&#160;</td><td class="mdescRight">input audio data sample rate <br/></td></tr>
+<tr class="separator:a3c188a3dbe90f9d8c3b3f828e1f2d5be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a791c9c0b2ff59109973c0b3c1b5eb1a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a791c9c0b2ff59109973c0b3c1b5eb1a7"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a791c9c0b2ff59109973c0b3c1b5eb1a7">watermark</a></td></tr>
+<tr class="memdesc:a791c9c0b2ff59109973c0b3c1b5eb1a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">input water mark per samples <br/></td></tr>
+<tr class="separator:a791c9c0b2ff59109973c0b3c1b5eb1a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43a251e6546b56cb48076e02937d0d78"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43a251e6546b56cb48076e02937d0d78"></a>
+<a class="el" href="a00008.html#ga6990826e5780f5d524d5d35e2977a1e3">asrc_access_ctrl_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a43a251e6546b56cb48076e02937d0d78">accessCtrl</a></td></tr>
+<tr class="memdesc:a43a251e6546b56cb48076e02937d0d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">input access control <br/></td></tr>
+<tr class="separator:a43a251e6546b56cb48076e02937d0d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6f5cb4f407954872299a5a116dcd580"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6f5cb4f407954872299a5a116dcd580"></a>
+<a class="el" href="a00008.html#ga82ee5888fe34679bc4366ee99c44d0d9">asrc_data_format_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ab6f5cb4f407954872299a5a116dcd580">dataFormat</a></td></tr>
+<tr class="memdesc:ab6f5cb4f407954872299a5a116dcd580"><td class="mdescLeft">&#160;</td><td class="mdescRight">input data format <br/></td></tr>
+<tr class="separator:ab6f5cb4f407954872299a5a116dcd580"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 
 </div>
 </div>
-<a name="a00147" id="a00147"></a>
+<a name="a00134" id="a00134"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct asrc_context_output_config_t</td>
+          <td class="memname">struct _asrc_context_output_config</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a7218fedb61ee8a22f39ea3097348e671"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7218fedb61ee8a22f39ea3097348e671"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a7218fedb61ee8a22f39ea3097348e671">sampleRate</a></td></tr>
-<tr class="memdesc:a7218fedb61ee8a22f39ea3097348e671"><td class="mdescLeft">&#160;</td><td class="mdescRight">output audio data sample rate <br/></td></tr>
-<tr class="separator:a7218fedb61ee8a22f39ea3097348e671"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f03d520112abf2a0a9a9ed2e25acae8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f03d520112abf2a0a9a9ed2e25acae8"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a0f03d520112abf2a0a9a9ed2e25acae8">watermark</a></td></tr>
-<tr class="memdesc:a0f03d520112abf2a0a9a9ed2e25acae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">output water mark per samples <br/></td></tr>
-<tr class="separator:a0f03d520112abf2a0a9a9ed2e25acae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb077e59466e13f352a581c2b88e7e57"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb077e59466e13f352a581c2b88e7e57"></a>
-<a class="el" href="a00008.html#a00144">asrc_access_ctrl_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#adb077e59466e13f352a581c2b88e7e57">accessCtrl</a></td></tr>
-<tr class="memdesc:adb077e59466e13f352a581c2b88e7e57"><td class="mdescLeft">&#160;</td><td class="mdescRight">output access control <br/></td></tr>
-<tr class="separator:adb077e59466e13f352a581c2b88e7e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d1026c14cce903d42cfd5e9a785412a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d1026c14cce903d42cfd5e9a785412a"></a>
-<a class="el" href="a00008.html#a00150">asrc_data_format_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a1d1026c14cce903d42cfd5e9a785412a">dataFormat</a></td></tr>
-<tr class="memdesc:a1d1026c14cce903d42cfd5e9a785412a"><td class="mdescLeft">&#160;</td><td class="mdescRight">output data format <br/></td></tr>
-<tr class="separator:a1d1026c14cce903d42cfd5e9a785412a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcbd780345b3cbabedff99398c7f0733"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#adcbd780345b3cbabedff99398c7f0733">enableDither</a></td></tr>
-<tr class="memdesc:adcbd780345b3cbabedff99398c7f0733"><td class="mdescLeft">&#160;</td><td class="mdescRight">output path contains a TPDF dither function.  <a href="#adcbd780345b3cbabedff99398c7f0733">More...</a><br/></td></tr>
-<tr class="separator:adcbd780345b3cbabedff99398c7f0733"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ef8a02a4e68ebc113694f6cc77d775b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ef8a02a4e68ebc113694f6cc77d775b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a5ef8a02a4e68ebc113694f6cc77d775b">enableIEC60958</a></td></tr>
-<tr class="memdesc:a5ef8a02a4e68ebc113694f6cc77d775b"><td class="mdescLeft">&#160;</td><td class="mdescRight">output IEC60958 bit field insertion enable <br/></td></tr>
-<tr class="separator:a5ef8a02a4e68ebc113694f6cc77d775b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae43cb368827240ede785cca5b371989e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae43cb368827240ede785cca5b371989e"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ae43cb368827240ede785cca5b371989e">sampleRate</a></td></tr>
+<tr class="memdesc:ae43cb368827240ede785cca5b371989e"><td class="mdescLeft">&#160;</td><td class="mdescRight">output audio data sample rate <br/></td></tr>
+<tr class="separator:ae43cb368827240ede785cca5b371989e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a756280774d4b08b2e8df01b4e69c24d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a756280774d4b08b2e8df01b4e69c24d2"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a756280774d4b08b2e8df01b4e69c24d2">watermark</a></td></tr>
+<tr class="memdesc:a756280774d4b08b2e8df01b4e69c24d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">output water mark per samples <br/></td></tr>
+<tr class="separator:a756280774d4b08b2e8df01b4e69c24d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c533c9bc63be3f8062298e97ed9ea4d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c533c9bc63be3f8062298e97ed9ea4d"></a>
+<a class="el" href="a00008.html#ga6990826e5780f5d524d5d35e2977a1e3">asrc_access_ctrl_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a1c533c9bc63be3f8062298e97ed9ea4d">accessCtrl</a></td></tr>
+<tr class="memdesc:a1c533c9bc63be3f8062298e97ed9ea4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">output access control <br/></td></tr>
+<tr class="separator:a1c533c9bc63be3f8062298e97ed9ea4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b4f3abd772afaacf28b6f3388740f68"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b4f3abd772afaacf28b6f3388740f68"></a>
+<a class="el" href="a00008.html#ga82ee5888fe34679bc4366ee99c44d0d9">asrc_data_format_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a6b4f3abd772afaacf28b6f3388740f68">dataFormat</a></td></tr>
+<tr class="memdesc:a6b4f3abd772afaacf28b6f3388740f68"><td class="mdescLeft">&#160;</td><td class="mdescRight">output data format <br/></td></tr>
+<tr class="separator:a6b4f3abd772afaacf28b6f3388740f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28a82f68c84fe7d207192271e9f0f9c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a28a82f68c84fe7d207192271e9f0f9c2">enableDither</a></td></tr>
+<tr class="memdesc:a28a82f68c84fe7d207192271e9f0f9c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">output path contains a TPDF dither function.  <a href="#a28a82f68c84fe7d207192271e9f0f9c2">More...</a><br/></td></tr>
+<tr class="separator:a28a82f68c84fe7d207192271e9f0f9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b9eb0d01b49002c881ac0ba81ed3889"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b9eb0d01b49002c881ac0ba81ed3889"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a9b9eb0d01b49002c881ac0ba81ed3889">enableIEC60958</a></td></tr>
+<tr class="memdesc:a9b9eb0d01b49002c881ac0ba81ed3889"><td class="mdescLeft">&#160;</td><td class="mdescRight">output IEC60958 bit field insertion enable <br/></td></tr>
+<tr class="separator:a9b9eb0d01b49002c881ac0ba81ed3889"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h4 class="groupheader">Field Documentation</h4>
-<a class="anchor" id="adcbd780345b3cbabedff99398c7f0733"></a>
+<a class="anchor" id="a28a82f68c84fe7d207192271e9f0f9c2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool asrc_context_output_config_t::enableDither</td>
+          <td class="memname">bool _asrc_context_output_config::enableDither</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -586,151 +664,165 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a000
 
 </div>
 </div>
-<a name="a00148" id="a00148"></a>
+<a name="a00135" id="a00135"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct asrc_context_prefilter_config_t</td>
+          <td class="memname">struct _asrc_context_prefilter_config</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a7cbacd163ead86bab8f8433ccaa7daca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7cbacd163ead86bab8f8433ccaa7daca"></a>
-<a class="el" href="a00008.html#gabb95bdb67a9a256d5761bc4a6fe01674">asrc_sampleBuffer_init_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a7cbacd163ead86bab8f8433ccaa7daca">initMode</a></td></tr>
-<tr class="memdesc:a7cbacd163ead86bab8f8433ccaa7daca"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefilter initial mode <br/></td></tr>
-<tr class="separator:a7cbacd163ead86bab8f8433ccaa7daca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed5c3fca9a11f679a5ca656582282ae9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed5c3fca9a11f679a5ca656582282ae9"></a>
-<a class="el" href="a00008.html#gab974fe3616cb6f5ad96e3eaa52593c2f">asrc_sampleBuffer_stop_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#aed5c3fca9a11f679a5ca656582282ae9">stopMode</a></td></tr>
-<tr class="memdesc:aed5c3fca9a11f679a5ca656582282ae9"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefilter stop mode <br/></td></tr>
-<tr class="separator:aed5c3fca9a11f679a5ca656582282ae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6134a0408d42ae652b133d0e9cec080d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6134a0408d42ae652b133d0e9cec080d"></a>
-<a class="el" href="a00008.html#ga10ab17fc0f36a201d88b3afd28a2e731">asrc_prefilter_stage1_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a6134a0408d42ae652b133d0e9cec080d">stage1Result</a></td></tr>
-<tr class="memdesc:a6134a0408d42ae652b133d0e9cec080d"><td class="mdescLeft">&#160;</td><td class="mdescRight">stage1 data store format <br/></td></tr>
-<tr class="separator:a6134a0408d42ae652b133d0e9cec080d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4abf778798ac8f6ba1c3e3b6f7896cbd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4abf778798ac8f6ba1c3e3b6f7896cbd"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a4abf778798ac8f6ba1c3e3b6f7896cbd">filterSt1Taps</a></td></tr>
-<tr class="memdesc:a4abf778798ac8f6ba1c3e3b6f7896cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefilter stage1 taps <br/></td></tr>
-<tr class="separator:a4abf778798ac8f6ba1c3e3b6f7896cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01c2cdc5593e354d5ea47867f2517d5e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a01c2cdc5593e354d5ea47867f2517d5e"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a01c2cdc5593e354d5ea47867f2517d5e">filterSt2Taps</a></td></tr>
-<tr class="memdesc:a01c2cdc5593e354d5ea47867f2517d5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefilter stage2 taps <br/></td></tr>
-<tr class="separator:a01c2cdc5593e354d5ea47867f2517d5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa7f5af74d274554cadd25d4197aeb0b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa7f5af74d274554cadd25d4197aeb0b"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#afa7f5af74d274554cadd25d4197aeb0b">filterSt1Exp</a></td></tr>
-<tr class="memdesc:afa7f5af74d274554cadd25d4197aeb0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefilter stage1 expansion factor <br/></td></tr>
-<tr class="separator:afa7f5af74d274554cadd25d4197aeb0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2aefe38124e3b985075f6aa00a3df841"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2aefe38124e3b985075f6aa00a3df841"></a>
-const uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a2aefe38124e3b985075f6aa00a3df841">filterCoeffAddress</a></td></tr>
-<tr class="memdesc:a2aefe38124e3b985075f6aa00a3df841"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefilter coeff address <br/></td></tr>
-<tr class="separator:a2aefe38124e3b985075f6aa00a3df841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8791c476e82b1c92cd35f4667b06ceb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8791c476e82b1c92cd35f4667b06ceb"></a>
+<a class="el" href="a00008.html#ga54119a8ab95c1dd9c7b6b6f70eb096ec">asrc_sampleBuffer_init_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ac8791c476e82b1c92cd35f4667b06ceb">initMode</a></td></tr>
+<tr class="memdesc:ac8791c476e82b1c92cd35f4667b06ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefilter initial mode <br/></td></tr>
+<tr class="separator:ac8791c476e82b1c92cd35f4667b06ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ef39782663a06d5bb4f0ed341453943"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ef39782663a06d5bb4f0ed341453943"></a>
+<a class="el" href="a00008.html#ga7b97863095612b41c75d8eac4963337e">asrc_sampleBuffer_stop_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a0ef39782663a06d5bb4f0ed341453943">stopMode</a></td></tr>
+<tr class="memdesc:a0ef39782663a06d5bb4f0ed341453943"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefilter stop mode <br/></td></tr>
+<tr class="separator:a0ef39782663a06d5bb4f0ed341453943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4914e41a3fc66d593f65a54c336bc73d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4914e41a3fc66d593f65a54c336bc73d"></a>
+<a class="el" href="a00008.html#ga12341f60b5f1397e07fc62f98ed0842e">asrc_prefilter_stage1_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a4914e41a3fc66d593f65a54c336bc73d">stage1Result</a></td></tr>
+<tr class="memdesc:a4914e41a3fc66d593f65a54c336bc73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">stage1 data store format <br/></td></tr>
+<tr class="separator:a4914e41a3fc66d593f65a54c336bc73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a382c304f72ada098ce395f7410f4f2e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a382c304f72ada098ce395f7410f4f2e6"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a382c304f72ada098ce395f7410f4f2e6">filterSt1Taps</a></td></tr>
+<tr class="memdesc:a382c304f72ada098ce395f7410f4f2e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefilter stage1 taps <br/></td></tr>
+<tr class="separator:a382c304f72ada098ce395f7410f4f2e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16533b7bdd89b7daf27179cdfd5c8823"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16533b7bdd89b7daf27179cdfd5c8823"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a16533b7bdd89b7daf27179cdfd5c8823">filterSt2Taps</a></td></tr>
+<tr class="memdesc:a16533b7bdd89b7daf27179cdfd5c8823"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefilter stage2 taps <br/></td></tr>
+<tr class="separator:a16533b7bdd89b7daf27179cdfd5c8823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d2f4fd26cb63aab1e53d8b0db2875b8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d2f4fd26cb63aab1e53d8b0db2875b8"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a7d2f4fd26cb63aab1e53d8b0db2875b8">filterSt1Exp</a></td></tr>
+<tr class="memdesc:a7d2f4fd26cb63aab1e53d8b0db2875b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefilter stage1 expansion factor <br/></td></tr>
+<tr class="separator:a7d2f4fd26cb63aab1e53d8b0db2875b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00ea8af8204fd2ba44600223c61b8b35"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00ea8af8204fd2ba44600223c61b8b35"></a>
+const uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a00ea8af8204fd2ba44600223c61b8b35">filterCoeffAddress</a></td></tr>
+<tr class="memdesc:a00ea8af8204fd2ba44600223c61b8b35"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefilter coeff address <br/></td></tr>
+<tr class="separator:a00ea8af8204fd2ba44600223c61b8b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 
 </div>
 </div>
-<a name="a00149" id="a00149"></a>
+<a name="a00136" id="a00136"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct asrc_context_resampler_config_t</td>
+          <td class="memname">struct _asrc_context_resampler_config</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a6e6cfcaa5271e2b11afcdc1426474e15"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e6cfcaa5271e2b11afcdc1426474e15"></a>
-<a class="el" href="a00008.html#gabb95bdb67a9a256d5761bc4a6fe01674">asrc_sampleBuffer_init_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a6e6cfcaa5271e2b11afcdc1426474e15">initMode</a></td></tr>
-<tr class="memdesc:a6e6cfcaa5271e2b11afcdc1426474e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">initial mode <br/></td></tr>
-<tr class="separator:a6e6cfcaa5271e2b11afcdc1426474e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0817584cd068a2a88c7eb9a4f52da75e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0817584cd068a2a88c7eb9a4f52da75e"></a>
-<a class="el" href="a00008.html#gab974fe3616cb6f5ad96e3eaa52593c2f">asrc_sampleBuffer_stop_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a0817584cd068a2a88c7eb9a4f52da75e">stopMode</a></td></tr>
-<tr class="memdesc:a0817584cd068a2a88c7eb9a4f52da75e"><td class="mdescLeft">&#160;</td><td class="mdescRight">resampler stop mode <br/></td></tr>
-<tr class="separator:a0817584cd068a2a88c7eb9a4f52da75e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2192fc25d544723189e2f655c0afa550"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2192fc25d544723189e2f655c0afa550"></a>
-<a class="el" href="a00008.html#gacd9cd1d2b8c7b66304935a9611f37078">asrc_resampler_taps_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a2192fc25d544723189e2f655c0afa550">tap</a></td></tr>
-<tr class="memdesc:a2192fc25d544723189e2f655c0afa550"><td class="mdescLeft">&#160;</td><td class="mdescRight">resampleer taps <br/></td></tr>
-<tr class="separator:a2192fc25d544723189e2f655c0afa550"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d872c907c97db3d6ffacc715856a6cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d872c907c97db3d6ffacc715856a6cb"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a5d872c907c97db3d6ffacc715856a6cb">filterPhases</a></td></tr>
-<tr class="memdesc:a5d872c907c97db3d6ffacc715856a6cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolation phases <br/></td></tr>
-<tr class="separator:a5d872c907c97db3d6ffacc715856a6cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36e03a0de995597dada504ecdcc99783"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36e03a0de995597dada504ecdcc99783"></a>
-uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a36e03a0de995597dada504ecdcc99783">filterCenterTap</a></td></tr>
-<tr class="memdesc:a36e03a0de995597dada504ecdcc99783"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolation center tap <br/></td></tr>
-<tr class="separator:a36e03a0de995597dada504ecdcc99783"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef8e2549a0405601125d3a2ef3e5f4e8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef8e2549a0405601125d3a2ef3e5f4e8"></a>
-const uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#aef8e2549a0405601125d3a2ef3e5f4e8">filterCoeffAddress</a></td></tr>
-<tr class="memdesc:aef8e2549a0405601125d3a2ef3e5f4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolation coeff address <br/></td></tr>
-<tr class="separator:aef8e2549a0405601125d3a2ef3e5f4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a483d9c148ab30cef5d51dfdf1258783e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a483d9c148ab30cef5d51dfdf1258783e"></a>
+<a class="el" href="a00008.html#ga54119a8ab95c1dd9c7b6b6f70eb096ec">asrc_sampleBuffer_init_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a483d9c148ab30cef5d51dfdf1258783e">initMode</a></td></tr>
+<tr class="memdesc:a483d9c148ab30cef5d51dfdf1258783e"><td class="mdescLeft">&#160;</td><td class="mdescRight">initial mode <br/></td></tr>
+<tr class="separator:a483d9c148ab30cef5d51dfdf1258783e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fbf2c5201c05c757fe5241fa3192f4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4fbf2c5201c05c757fe5241fa3192f4a"></a>
+<a class="el" href="a00008.html#ga7b97863095612b41c75d8eac4963337e">asrc_sampleBuffer_stop_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a4fbf2c5201c05c757fe5241fa3192f4a">stopMode</a></td></tr>
+<tr class="memdesc:a4fbf2c5201c05c757fe5241fa3192f4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">resampler stop mode <br/></td></tr>
+<tr class="separator:a4fbf2c5201c05c757fe5241fa3192f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f14f49aa495c58edfc42f6f74a09649"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f14f49aa495c58edfc42f6f74a09649"></a>
+<a class="el" href="a00008.html#ga2661eaa4f9344653ec57854496398a35">asrc_resampler_taps_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a5f14f49aa495c58edfc42f6f74a09649">tap</a></td></tr>
+<tr class="memdesc:a5f14f49aa495c58edfc42f6f74a09649"><td class="mdescLeft">&#160;</td><td class="mdescRight">resampleer taps <br/></td></tr>
+<tr class="separator:a5f14f49aa495c58edfc42f6f74a09649"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8b105ac23ab2f433f93bc2c32b0eb35"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8b105ac23ab2f433f93bc2c32b0eb35"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ab8b105ac23ab2f433f93bc2c32b0eb35">filterPhases</a></td></tr>
+<tr class="memdesc:ab8b105ac23ab2f433f93bc2c32b0eb35"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolation phases <br/></td></tr>
+<tr class="separator:ab8b105ac23ab2f433f93bc2c32b0eb35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e599b5d71bbef7ed356a6613b687c7e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e599b5d71bbef7ed356a6613b687c7e"></a>
+uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a4e599b5d71bbef7ed356a6613b687c7e">filterCenterTap</a></td></tr>
+<tr class="memdesc:a4e599b5d71bbef7ed356a6613b687c7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolation center tap <br/></td></tr>
+<tr class="separator:a4e599b5d71bbef7ed356a6613b687c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aade779ba6c896544ac1b902e54181bea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aade779ba6c896544ac1b902e54181bea"></a>
+const uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#aade779ba6c896544ac1b902e54181bea">filterCoeffAddress</a></td></tr>
+<tr class="memdesc:aade779ba6c896544ac1b902e54181bea"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolation coeff address <br/></td></tr>
+<tr class="separator:aade779ba6c896544ac1b902e54181bea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 
 </div>
 </div>
-<a name="a00145" id="a00145"></a>
+<a name="a00132" id="a00132"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct asrc_context_config_t</td>
+          <td class="memname">struct _asrc_context_config</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a2540461b0df2289d02945f18b7783e05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2540461b0df2289d02945f18b7783e05"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a2540461b0df2289d02945f18b7783e05">contextChannelNums</a></td></tr>
-<tr class="memdesc:a2540461b0df2289d02945f18b7783e05"><td class="mdescLeft">&#160;</td><td class="mdescRight">context channel numbers <br/></td></tr>
-<tr class="separator:a2540461b0df2289d02945f18b7783e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0c8e499f3d01af236d5bc3875200766"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0c8e499f3d01af236d5bc3875200766"></a>
-<a class="el" href="a00008.html#a00146">asrc_context_input_config_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ac0c8e499f3d01af236d5bc3875200766">contextInput</a></td></tr>
-<tr class="memdesc:ac0c8e499f3d01af236d5bc3875200766"><td class="mdescLeft">&#160;</td><td class="mdescRight">context input configuration <br/></td></tr>
-<tr class="separator:ac0c8e499f3d01af236d5bc3875200766"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada4483f50a7a21f0893f764246b4ee3d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada4483f50a7a21f0893f764246b4ee3d"></a>
-<a class="el" href="a00008.html#a00147">asrc_context_output_config_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ada4483f50a7a21f0893f764246b4ee3d">contextOutput</a></td></tr>
-<tr class="memdesc:ada4483f50a7a21f0893f764246b4ee3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">context output configuration <br/></td></tr>
-<tr class="separator:ada4483f50a7a21f0893f764246b4ee3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f20ddedf50313db8711835f9935e670"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f20ddedf50313db8711835f9935e670"></a>
-<a class="el" href="a00008.html#a00148">asrc_context_prefilter_config_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a1f20ddedf50313db8711835f9935e670">contextPrefilter</a></td></tr>
-<tr class="memdesc:a1f20ddedf50313db8711835f9935e670"><td class="mdescLeft">&#160;</td><td class="mdescRight">context pre filter configuration <br/></td></tr>
-<tr class="separator:a1f20ddedf50313db8711835f9935e670"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57c2247585303e8d2b2489c8d0ae54b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57c2247585303e8d2b2489c8d0ae54b4"></a>
-<a class="el" href="a00008.html#a00149">asrc_context_resampler_config_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a57c2247585303e8d2b2489c8d0ae54b4">contextResampler</a></td></tr>
-<tr class="memdesc:a57c2247585303e8d2b2489c8d0ae54b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">context resampler configuration <br/></td></tr>
-<tr class="separator:a57c2247585303e8d2b2489c8d0ae54b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c522e6975e5e89c69730bf7d1ef6987"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c522e6975e5e89c69730bf7d1ef6987"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a0c522e6975e5e89c69730bf7d1ef6987">contextChannelNums</a></td></tr>
+<tr class="memdesc:a0c522e6975e5e89c69730bf7d1ef6987"><td class="mdescLeft">&#160;</td><td class="mdescRight">context channel numbers <br/></td></tr>
+<tr class="separator:a0c522e6975e5e89c69730bf7d1ef6987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20591fd1d67d9d6d0806d954fb9dbe5b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20591fd1d67d9d6d0806d954fb9dbe5b"></a>
+<a class="el" href="a00008.html#gadd8eea3db2d8e51a74c898dc1f85d621">asrc_context_input_config_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a20591fd1d67d9d6d0806d954fb9dbe5b">contextInput</a></td></tr>
+<tr class="memdesc:a20591fd1d67d9d6d0806d954fb9dbe5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">context input configuration <br/></td></tr>
+<tr class="separator:a20591fd1d67d9d6d0806d954fb9dbe5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada8bd070d4fc6eb3f80135ef35fc4c90"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada8bd070d4fc6eb3f80135ef35fc4c90"></a>
+<a class="el" href="a00008.html#ga7b23ecb40efcfba226b86858aae082be">asrc_context_output_config_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ada8bd070d4fc6eb3f80135ef35fc4c90">contextOutput</a></td></tr>
+<tr class="memdesc:ada8bd070d4fc6eb3f80135ef35fc4c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">context output configuration <br/></td></tr>
+<tr class="separator:ada8bd070d4fc6eb3f80135ef35fc4c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8be02416ef0745667d8a8acd69b94e57"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8be02416ef0745667d8a8acd69b94e57"></a>
+<a class="el" href="a00008.html#ga538302807a3bee9d638364db115dd04d">asrc_context_prefilter_config_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a8be02416ef0745667d8a8acd69b94e57">contextPrefilter</a></td></tr>
+<tr class="memdesc:a8be02416ef0745667d8a8acd69b94e57"><td class="mdescLeft">&#160;</td><td class="mdescRight">context pre filter configuration <br/></td></tr>
+<tr class="separator:a8be02416ef0745667d8a8acd69b94e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9057118a3f4d728b15d47d7cdf57b454"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9057118a3f4d728b15d47d7cdf57b454"></a>
+<a class="el" href="a00008.html#gaa6d37a7d9c6ae902678e22939a91bb16">asrc_context_resampler_config_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a9057118a3f4d728b15d47d7cdf57b454">contextResampler</a></td></tr>
+<tr class="memdesc:a9057118a3f4d728b15d47d7cdf57b454"><td class="mdescLeft">&#160;</td><td class="mdescRight">context resampler configuration <br/></td></tr>
+<tr class="separator:a9057118a3f4d728b15d47d7cdf57b454"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 
 </div>
 </div>
-<a name="a00154" id="a00154"></a>
+<a name="a00142" id="a00142"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct asrc_transfer_t</td>
+          <td class="memname">struct _asrc_transfer</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a789df757ad0418966358f6608c263a8e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a789df757ad0418966358f6608c263a8e"></a>
-uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a789df757ad0418966358f6608c263a8e">inDataAddr</a></td></tr>
-<tr class="memdesc:a789df757ad0418966358f6608c263a8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">address of audio data to be converted <br/></td></tr>
-<tr class="separator:a789df757ad0418966358f6608c263a8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19e41a6dd58dc8b1b03a93c9dad00c07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19e41a6dd58dc8b1b03a93c9dad00c07"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a19e41a6dd58dc8b1b03a93c9dad00c07">inDataSize</a></td></tr>
-<tr class="memdesc:a19e41a6dd58dc8b1b03a93c9dad00c07"><td class="mdescLeft">&#160;</td><td class="mdescRight">size of the audio data <br/></td></tr>
-<tr class="separator:a19e41a6dd58dc8b1b03a93c9dad00c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2038ba02b5fd5c56be730e515c03283"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab2038ba02b5fd5c56be730e515c03283"></a>
-uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ab2038ba02b5fd5c56be730e515c03283">outDataAddr</a></td></tr>
-<tr class="memdesc:ab2038ba02b5fd5c56be730e515c03283"><td class="mdescLeft">&#160;</td><td class="mdescRight">address of audio data that is been converted <br/></td></tr>
-<tr class="separator:ab2038ba02b5fd5c56be730e515c03283"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19173474808ea73d53201508eddbbaad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19173474808ea73d53201508eddbbaad"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a19173474808ea73d53201508eddbbaad">outDataSize</a></td></tr>
-<tr class="memdesc:a19173474808ea73d53201508eddbbaad"><td class="mdescLeft">&#160;</td><td class="mdescRight">size of the audio data <br/></td></tr>
-<tr class="separator:a19173474808ea73d53201508eddbbaad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8d84179a5fd8a45a25bec306ede3b8a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8d84179a5fd8a45a25bec306ede3b8a"></a>
+uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#ad8d84179a5fd8a45a25bec306ede3b8a">inDataAddr</a></td></tr>
+<tr class="memdesc:ad8d84179a5fd8a45a25bec306ede3b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">address of audio data to be converted <br/></td></tr>
+<tr class="separator:ad8d84179a5fd8a45a25bec306ede3b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96bebe675a53a97442d9bca3be581627"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96bebe675a53a97442d9bca3be581627"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a96bebe675a53a97442d9bca3be581627">inDataSize</a></td></tr>
+<tr class="memdesc:a96bebe675a53a97442d9bca3be581627"><td class="mdescLeft">&#160;</td><td class="mdescRight">size of the audio data <br/></td></tr>
+<tr class="separator:a96bebe675a53a97442d9bca3be581627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa903bd1d19a889dc8b4ba6c79e5ba6c6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa903bd1d19a889dc8b4ba6c79e5ba6c6"></a>
+uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#aa903bd1d19a889dc8b4ba6c79e5ba6c6">outDataAddr</a></td></tr>
+<tr class="memdesc:aa903bd1d19a889dc8b4ba6c79e5ba6c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">address of audio data that is been converted <br/></td></tr>
+<tr class="separator:aa903bd1d19a889dc8b4ba6c79e5ba6c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63fcbd18b6a10aa6ba6274d8b9ee4425"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a63fcbd18b6a10aa6ba6274d8b9ee4425"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html#a63fcbd18b6a10aa6ba6274d8b9ee4425">outDataSize</a></td></tr>
+<tr class="memdesc:a63fcbd18b6a10aa6ba6274d8b9ee4425"><td class="mdescLeft">&#160;</td><td class="mdescRight">size of the audio data <br/></td></tr>
+<tr class="separator:a63fcbd18b6a10aa6ba6274d8b9ee4425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="ga6990826e5780f5d524d5d35e2977a1e3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="a00008.html#a00131">_asrc_access_ctrl</a>  <a class="el" href="a00008.html#ga6990826e5780f5d524d5d35e2977a1e3">asrc_access_ctrl_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The interleave patter is controlled using 3 register fields: GROUP_LENGTH, ACCESS_LENGTH, ITERATIONIS. This is intended to support hardware configurations which distribute a single context across samples from multiple audio sources. Take a example as below: accessGroupLen = 6, the sample group length is 6 samples accessIterations = 2, the 2 sequential ACCESS_LENGTH read from single source accessLen = 2, the 2 samples fetch from one source. </p>
 
 </div>
 </div>
@@ -782,26 +874,26 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 </div>
 </div>
-<a class="anchor" id="ga023e61e315535ac95996c1ae64ecc857"></a>
+<a class="anchor" id="gae93ec7da6dc561fd8f51665142f2a333"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a></td>
+          <td class="memname">enum <a class="el" href="a00008.html#gae93ec7da6dc561fd8f51665142f2a333">_asrc_context</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga023e61e315535ac95996c1ae64ecc857aeaea0e8f1b0cb0459ad9e27080ce1349"></a>kASRC_Context0</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggae93ec7da6dc561fd8f51665142f2a333aeaea0e8f1b0cb0459ad9e27080ce1349"></a>kASRC_Context0</em>&nbsp;</td><td class="fielddoc">
 <p>Context 0 value. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga023e61e315535ac95996c1ae64ecc857a87c986440dee6fc28841328438f5f9ce"></a>kASRC_Context1</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggae93ec7da6dc561fd8f51665142f2a333a87c986440dee6fc28841328438f5f9ce"></a>kASRC_Context1</em>&nbsp;</td><td class="fielddoc">
 <p>Context 1 value. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga023e61e315535ac95996c1ae64ecc857a9858d15e7de683d9cb8ebd03a7457df8"></a>kASRC_Context2</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggae93ec7da6dc561fd8f51665142f2a333a9858d15e7de683d9cb8ebd03a7457df8"></a>kASRC_Context2</em>&nbsp;</td><td class="fielddoc">
 <p>Context 2 value. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga023e61e315535ac95996c1ae64ecc857a3885526fe612c1030b9a41901ff0fd33"></a>kASRC_Context3</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggae93ec7da6dc561fd8f51665142f2a333a3885526fe612c1030b9a41901ff0fd33"></a>kASRC_Context3</em>&nbsp;</td><td class="fielddoc">
 <p>Context 3 value. </p>
 </td></tr>
 </table>
@@ -881,172 +973,172 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 </div>
 </div>
-<a class="anchor" id="gaac4bb7d45fe5a0d26263caa77d516964"></a>
+<a class="anchor" id="gad266879eb0edcd4d3fe663b5d6fe92c7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00008.html#gaac4bb7d45fe5a0d26263caa77d516964">asrc_data_endianness_t</a></td>
+          <td class="memname">enum <a class="el" href="a00008.html#gad266879eb0edcd4d3fe663b5d6fe92c7">_asrc_data_endianness</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaac4bb7d45fe5a0d26263caa77d516964a6a4ae9ae15cbb05ac9e5afa828d52116"></a>kASRC_DataEndianLittle</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggad266879eb0edcd4d3fe663b5d6fe92c7a6a4ae9ae15cbb05ac9e5afa828d52116"></a>kASRC_DataEndianLittle</em>&nbsp;</td><td class="fielddoc">
 <p>context data little endian </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaac4bb7d45fe5a0d26263caa77d516964aa5bb1354eae5629e369d08e300333553"></a>kASRC_DataEndianBig</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggad266879eb0edcd4d3fe663b5d6fe92c7aa5bb1354eae5629e369d08e300333553"></a>kASRC_DataEndianBig</em>&nbsp;</td><td class="fielddoc">
 <p>context data big endian </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="gaea1d8db6dc0effbb7b93348a6095eaad"></a>
+<a class="anchor" id="ga24b45c9e08c5ae84d1ea31d625a5f623"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00008.html#gaea1d8db6dc0effbb7b93348a6095eaad">asrc_data_width_t</a></td>
+          <td class="memname">enum <a class="el" href="a00008.html#ga24b45c9e08c5ae84d1ea31d625a5f623">_asrc_data_width</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaea1d8db6dc0effbb7b93348a6095eaada4d5a0b8596d5b1e74cb9ea2c29446913"></a>kASRC_DataWidth32Bit</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga24b45c9e08c5ae84d1ea31d625a5f623a4d5a0b8596d5b1e74cb9ea2c29446913"></a>kASRC_DataWidth32Bit</em>&nbsp;</td><td class="fielddoc">
 <p>data width 32bit </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaea1d8db6dc0effbb7b93348a6095eaada54c8fb38fbb5d80079f8dd04e76183fc"></a>kASRC_DataWidth24Bit</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga24b45c9e08c5ae84d1ea31d625a5f623a54c8fb38fbb5d80079f8dd04e76183fc"></a>kASRC_DataWidth24Bit</em>&nbsp;</td><td class="fielddoc">
 <p>data width 24bit </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaea1d8db6dc0effbb7b93348a6095eaada8bcf76acc035afa8d24e9f981a9036a9"></a>kASRC_DataWidth20Bit</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga24b45c9e08c5ae84d1ea31d625a5f623a8bcf76acc035afa8d24e9f981a9036a9"></a>kASRC_DataWidth20Bit</em>&nbsp;</td><td class="fielddoc">
 <p>data width 20bit </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaea1d8db6dc0effbb7b93348a6095eaada75bdfffc838219e49cf4636baa41115c"></a>kASRC_DataWidth16Bit</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga24b45c9e08c5ae84d1ea31d625a5f623a75bdfffc838219e49cf4636baa41115c"></a>kASRC_DataWidth16Bit</em>&nbsp;</td><td class="fielddoc">
 <p>data width 16bit </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="ga7fcddbcbfcbefbe0df151c2ff44aba7b"></a>
+<a class="anchor" id="ga77b3f700911f727561166dc8c7b34d0c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00008.html#ga7fcddbcbfcbefbe0df151c2ff44aba7b">asrc_data_type_t</a></td>
+          <td class="memname">enum <a class="el" href="a00008.html#ga77b3f700911f727561166dc8c7b34d0c">_asrc_data_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga7fcddbcbfcbefbe0df151c2ff44aba7ba6c5d712be172a949f003b3ba401f548d"></a>kASRC_DataTypeInteger</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga77b3f700911f727561166dc8c7b34d0ca6c5d712be172a949f003b3ba401f548d"></a>kASRC_DataTypeInteger</em>&nbsp;</td><td class="fielddoc">
 <p>data type int </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga7fcddbcbfcbefbe0df151c2ff44aba7bafc4edd7b3242d4757a8a00de236e0413"></a>kASRC_DataTypeFloat</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga77b3f700911f727561166dc8c7b34d0cafc4edd7b3242d4757a8a00de236e0413"></a>kASRC_DataTypeFloat</em>&nbsp;</td><td class="fielddoc">
 <p>data type float, single precision floating point format </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="ga6e07278be3ee1341a4de87140a39e95f"></a>
+<a class="anchor" id="gaeb2a73773f3e393b12bf06f2e9821f3d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00008.html#ga6e07278be3ee1341a4de87140a39e95f">asrc_data_sign_t</a></td>
+          <td class="memname">enum <a class="el" href="a00008.html#gaeb2a73773f3e393b12bf06f2e9821f3d">_asrc_data_sign</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga6e07278be3ee1341a4de87140a39e95fa3eff1eb4149b84b93b9f6d57978464ba"></a>kASRC_DataSigned</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaeb2a73773f3e393b12bf06f2e9821f3da3eff1eb4149b84b93b9f6d57978464ba"></a>kASRC_DataSigned</em>&nbsp;</td><td class="fielddoc">
 <p>input data is signed </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga6e07278be3ee1341a4de87140a39e95fa491b4b0d171cbe00cf32fa0db68ecaac"></a>kASRC_DataUnsigned</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggaeb2a73773f3e393b12bf06f2e9821f3da491b4b0d171cbe00cf32fa0db68ecaac"></a>kASRC_DataUnsigned</em>&nbsp;</td><td class="fielddoc">
 <p>input data is unsinged </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="gabb95bdb67a9a256d5761bc4a6fe01674"></a>
+<a class="anchor" id="ga26114d372046d9933595f05ad5a95b65"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00008.html#gabb95bdb67a9a256d5761bc4a6fe01674">asrc_sampleBuffer_init_mode_t</a></td>
+          <td class="memname">enum <a class="el" href="a00008.html#ga26114d372046d9933595f05ad5a95b65">_asrc_sampleBuffer_init_mode</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggabb95bdb67a9a256d5761bc4a6fe01674a09dfd192866e36446e759706b4506dd5"></a>kASRC_SampleBufferNoPreFillOnInit</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga26114d372046d9933595f05ad5a95b65a09dfd192866e36446e759706b4506dd5"></a>kASRC_SampleBufferNoPreFillOnInit</em>&nbsp;</td><td class="fielddoc">
 <p>do not pre-fill </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggabb95bdb67a9a256d5761bc4a6fe01674acd5881ecde48b28011e8a37100fd2967"></a>kASRC_SampleBufferFillFirstSampleOnInit</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga26114d372046d9933595f05ad5a95b65acd5881ecde48b28011e8a37100fd2967"></a>kASRC_SampleBufferFillFirstSampleOnInit</em>&nbsp;</td><td class="fielddoc">
 <p>replicate the first sample to fill the right half of the sample buffer </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggabb95bdb67a9a256d5761bc4a6fe01674a9efa52d2202ef415262bfe1e87a5ebb2"></a>kASRC_SampleBufferFillZeroOnInit</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga26114d372046d9933595f05ad5a95b65a9efa52d2202ef415262bfe1e87a5ebb2"></a>kASRC_SampleBufferFillZeroOnInit</em>&nbsp;</td><td class="fielddoc">
 <p>zero fill the right half og the sample buffer </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="gab974fe3616cb6f5ad96e3eaa52593c2f"></a>
+<a class="anchor" id="ga4c2319178a67b38e9c1e0d47c9d31a6a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00008.html#gab974fe3616cb6f5ad96e3eaa52593c2f">asrc_sampleBuffer_stop_mode_t</a></td>
+          <td class="memname">enum <a class="el" href="a00008.html#ga4c2319178a67b38e9c1e0d47c9d31a6a">_asrc_sampleBuffer_stop_mode</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggab974fe3616cb6f5ad96e3eaa52593c2fa5a5a42260e09f39d0aac79f1f3b870cc"></a>kASRC_SampleBufferFillLastSampleOnStop</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga4c2319178a67b38e9c1e0d47c9d31a6aa5a5a42260e09f39d0aac79f1f3b870cc"></a>kASRC_SampleBufferFillLastSampleOnStop</em>&nbsp;</td><td class="fielddoc">
 <p>replicate the last sample to fill the left half of the sample buffer </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggab974fe3616cb6f5ad96e3eaa52593c2fa8e33c927d786e6304b2097a53ba724ce"></a>kASRC_SampleBufferFillZeroOnStop</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga4c2319178a67b38e9c1e0d47c9d31a6aa8e33c927d786e6304b2097a53ba724ce"></a>kASRC_SampleBufferFillZeroOnStop</em>&nbsp;</td><td class="fielddoc">
 <p>zero fill the left half of the sample buffer </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="ga10ab17fc0f36a201d88b3afd28a2e731"></a>
+<a class="anchor" id="gadcf3d32303866da9b593f7a1fdddf780"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00008.html#ga10ab17fc0f36a201d88b3afd28a2e731">asrc_prefilter_stage1_result_t</a></td>
+          <td class="memname">enum <a class="el" href="a00008.html#gadcf3d32303866da9b593f7a1fdddf780">_asrc_prefilter_stage1_result</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga10ab17fc0f36a201d88b3afd28a2e731adefd96c249f7691ceb477d90ae62ec59"></a>kASRC_PrefilterStage1ResultInt</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggadcf3d32303866da9b593f7a1fdddf780adefd96c249f7691ceb477d90ae62ec59"></a>kASRC_PrefilterStage1ResultInt</em>&nbsp;</td><td class="fielddoc">
 <p>prefilter stage1 results are stored in 32 bit int format </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga10ab17fc0f36a201d88b3afd28a2e731a873645a8bb4be32f13629391f8170ae9"></a>kASRC_PrefilterStage1ResultFloat</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggadcf3d32303866da9b593f7a1fdddf780a873645a8bb4be32f13629391f8170ae9"></a>kASRC_PrefilterStage1ResultFloat</em>&nbsp;</td><td class="fielddoc">
 <p>prefilter stage1 results are stored in 32 bit float format </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="gacd9cd1d2b8c7b66304935a9611f37078"></a>
+<a class="anchor" id="gaaedf8638370044eb141964fddad9a245"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00008.html#gacd9cd1d2b8c7b66304935a9611f37078">asrc_resampler_taps_t</a></td>
+          <td class="memname">enum <a class="el" href="a00008.html#gaaedf8638370044eb141964fddad9a245">_asrc_resampler_taps</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggacd9cd1d2b8c7b66304935a9611f37078ac107aa6d77a67651f61505b625badfb8"></a>kASRC_ResamplerTaps_32</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaaedf8638370044eb141964fddad9a245ac107aa6d77a67651f61505b625badfb8"></a>kASRC_ResamplerTaps_32</em>&nbsp;</td><td class="fielddoc">
 <p>resampler taps 32 </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggacd9cd1d2b8c7b66304935a9611f37078aeb8a26debc8d8a812e00b4e8cb9dcf5c"></a>kASRC_ResamplerTaps_64</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggaaedf8638370044eb141964fddad9a245aeb8a26debc8d8a812e00b4e8cb9dcf5c"></a>kASRC_ResamplerTaps_64</em>&nbsp;</td><td class="fielddoc">
 <p>resampler taps 64 </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggacd9cd1d2b8c7b66304935a9611f37078a861ce74df75d7c4a415b2b9d997ecd8e"></a>kASRC_ResamplerTaps_128</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggaaedf8638370044eb141964fddad9a245a861ce74df75d7c4a415b2b9d997ecd8e"></a>kASRC_ResamplerTaps_128</em>&nbsp;</td><td class="fielddoc">
 <p>resampler taps 128 </p>
 </td></tr>
 </table>
@@ -1195,7 +1287,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="memname">void ASRC_GetContextDefaultConfig </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00008.html#a00145">asrc_context_config_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#gadead48caa8073301b91f1362a4699041">asrc_context_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>, </td>
         </tr>
         <tr>
@@ -1240,7 +1332,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00105.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> ASRC_SetContextConfig </td>
+          <td class="memname"><a class="el" href="a00102.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> ASRC_SetContextConfig </td>
           <td>(</td>
           <td class="paramtype">ASRC_Type *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -1248,13 +1340,13 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#a00145">asrc_context_config_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#gadead48caa8073301b91f1362a4699041">asrc_context_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>&#160;</td>
         </tr>
         <tr>
@@ -1286,7 +1378,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00105.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> ASRC_SetContextOutputConfig </td>
+          <td class="memname"><a class="el" href="a00102.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> ASRC_SetContextOutputConfig </td>
           <td>(</td>
           <td class="paramtype">ASRC_Type *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -1294,13 +1386,13 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#a00147">asrc_context_output_config_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga7b23ecb40efcfba226b86858aae082be">asrc_context_output_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>&#160;</td>
         </tr>
         <tr>
@@ -1326,7 +1418,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00105.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> ASRC_SetContextInputConfig </td>
+          <td class="memname"><a class="el" href="a00102.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> ASRC_SetContextInputConfig </td>
           <td>(</td>
           <td class="paramtype">ASRC_Type *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -1334,13 +1426,13 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#a00146">asrc_context_input_config_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#gadd8eea3db2d8e51a74c898dc1f85d621">asrc_context_input_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>&#160;</td>
         </tr>
         <tr>
@@ -1377,7 +1469,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
@@ -1426,7 +1518,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
@@ -1475,7 +1567,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
@@ -1523,7 +1615,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
@@ -1571,7 +1663,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
@@ -1619,7 +1711,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
@@ -1667,7 +1759,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
@@ -1930,7 +2022,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>&#160;</td>
         </tr>
         <tr>
@@ -1971,7 +2063,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
@@ -2019,7 +2111,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>&#160;</td>
         </tr>
         <tr>
@@ -2066,7 +2158,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>&#160;</td>
         </tr>
         <tr>
@@ -2113,7 +2205,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>&#160;</td>
         </tr>
         <tr>
@@ -2157,7 +2249,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
@@ -2210,7 +2302,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00105.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> ASRC_TransferBlocking </td>
+          <td class="memname"><a class="el" href="a00102.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> ASRC_TransferBlocking </td>
           <td>(</td>
           <td class="paramtype">ASRC_Type *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -2218,13 +2310,13 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#ga023e61e315535ac95996c1ae64ecc857">asrc_context_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#ga636ca6628b6d0e538f3c79726078c6a2">asrc_context_t</a>&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00008.html#a00154">asrc_transfer_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00008.html#gaa4f4755bc3e39609e357a6f42bde0eb0">asrc_transfer_t</a> *&#160;</td>
           <td class="paramname"><em>xfer</em>&#160;</td>
         </tr>
         <tr>

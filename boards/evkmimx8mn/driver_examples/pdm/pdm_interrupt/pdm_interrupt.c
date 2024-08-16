@@ -55,6 +55,9 @@ static volatile bool s_fifoErrorFlag        = false;
 static volatile bool s_dataReadFinishedFlag = false;
 static volatile uint32_t s_readIndex        = 0U;
 static const pdm_config_t pdmConfig         = {
+#if defined(FSL_FEATURE_PDM_HAS_DECIMATION_FILTER_BYPASS) && FSL_FEATURE_PDM_HAS_DECIMATION_FILTER_BYPASS
+    .enableFilterBypass = false,
+#endif
     .enableDoze        = false,
     .fifoWatermark     = DEMO_PDM_FIFO_WATERMARK,
     .qualityMode       = DEMO_PDM_QUALITY_MODE,
@@ -112,7 +115,7 @@ static void pdm_error_irqHandler(void)
 void PDM_ERROR_IRQHandler(void)
 {
     pdm_error_irqHandler();
-    __DSB();
+    SDK_ISR_EXIT_BARRIER;
 }
 #endif
 
@@ -155,7 +158,7 @@ void PDM_EVENT_IRQHandler(void)
         s_dataReadFinishedFlag = true;
         PDM_Enable(DEMO_PDM, false);
     }
-    __DSB();
+    SDK_ISR_EXIT_BARRIER;
 }
 
 /*!

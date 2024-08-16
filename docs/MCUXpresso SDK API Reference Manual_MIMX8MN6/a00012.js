@@ -1,51 +1,64 @@
 var a00012 =
 [
-    [ "ecspi_channel_config_t", "a00012.html#a00159", [
-      [ "channelMode", "a00012.html#ae4b6b855f5d5202d69995657f6b495f9", null ],
-      [ "clockInactiveState", "a00012.html#aa08cd8243e60e65e43e5425c8a560a07", null ],
-      [ "dataLineInactiveState", "a00012.html#a9ad22b79de30e56cb705c239c7bb62fd", null ],
-      [ "chipSlectActiveState", "a00012.html#a373701fa6b25844c20404dbda4b08612", null ],
-      [ "polarity", "a00012.html#aa6327b0a05d54c85c01ca246e86b50c4", null ],
-      [ "phase", "a00012.html#aad4e0d3e01790b01e7c0ca7c6c5920af", null ]
+    [ "_ecspi_channel_config", "a00012.html#a00148", [
+      [ "channelMode", "a00012.html#abd09b9017060185dd767009a616ecfcd", null ],
+      [ "clockInactiveState", "a00012.html#af00cb3621499ecd81128d163387e708e", null ],
+      [ "dataLineInactiveState", "a00012.html#a9d16e9b2a9ec5dd5b658e400d5da475f", null ],
+      [ "chipSlectActiveState", "a00012.html#a15b17d24c8317df0032cf9401c2bc151", null ],
+      [ "polarity", "a00012.html#a2fe236743e36722a52f78b7effd2d495", null ],
+      [ "phase", "a00012.html#a2b604882062bed92ad60f6282d161e04", null ]
     ] ],
-    [ "ecspi_master_config_t", "a00012.html#a00160", [
-      [ "channel", "a00012.html#ab7f80a7f7b11d5c4d3d08a39199dacfd", null ],
-      [ "channelConfig", "a00012.html#a5a267f3458edd5cb57aea83c3a17ae1f", null ],
-      [ "samplePeriodClock", "a00012.html#ae5056430705436de599aa16a0796f45b", null ],
-      [ "burstLength", "a00012.html#aadad8a26aa23fe97db1b1ebf26a6d7a1", null ],
-      [ "chipSelectDelay", "a00012.html#a6b4868a81aa300dd78374535af8a5993", null ],
-      [ "samplePeriod", "a00012.html#ae1827f3ca16c86b5da47b2009be91c00", null ],
-      [ "txFifoThreshold", "a00012.html#a04ef6f7d1d2914b3c28d8a6cf1cf2194", null ],
-      [ "rxFifoThreshold", "a00012.html#ae83eee3dd8599490cde034beb9243170", null ],
-      [ "baudRate_Bps", "a00012.html#a8b5fce2d680a7e33f0ca1c03108f5a50", null ],
-      [ "enableLoopback", "a00012.html#aa8d6779d34787c5fd43a3cdf6a12b42d", null ]
+    [ "_ecspi_master_config", "a00012.html#a00149", [
+      [ "channel", "a00012.html#a61da9c0ff5de4395c91c46623afde212", null ],
+      [ "channelConfig", "a00012.html#a2185e5147123420ed9bcccb32e8ccfd5", null ],
+      [ "samplePeriodClock", "a00012.html#a5ca3cc6768034b80baf57a64baa531ca", null ],
+      [ "burstLength", "a00012.html#ab44883786f3a7f9822475ed518d9c008", null ],
+      [ "chipSelectDelay", "a00012.html#afb0ca7708e43c4b6310712fb731deb6a", null ],
+      [ "samplePeriod", "a00012.html#af32825df90b76f0e4e5d6fe0e085c88f", null ],
+      [ "txFifoThreshold", "a00012.html#a2fcefb343c7ce8d7aef93e9d5dd06c5d", null ],
+      [ "rxFifoThreshold", "a00012.html#a6ade6fd293bf7e3f5b7efc8bc54ceb99", null ],
+      [ "baudRate_Bps", "a00012.html#a8c06698ae32c49acbd20f4568d40f267", null ],
+      [ "enableLoopback", "a00012.html#acfada320a857c8f571fec3fef1c52c6d", null ]
     ] ],
-    [ "ecspi_slave_config_t", "a00012.html#a00161", [
-      [ "burstLength", "a00012.html#a47dc1fd0b2e1db49b4b0adb242cce23f", null ],
-      [ "txFifoThreshold", "a00012.html#a878b083da83577aec35e0767d0e6842a", null ],
-      [ "rxFifoThreshold", "a00012.html#a5b28b64178ee94d946c401519eeda64c", null ],
-      [ "channelConfig", "a00012.html#af49e825bd581a557850df75f07e880ea", null ]
+    [ "_ecspi_slave_config", "a00012.html#a00152", [
+      [ "burstLength", "a00012.html#acea0b4decb8fdb709804172b2a0e9de7", null ],
+      [ "txFifoThreshold", "a00012.html#a84c8a00a41e61591be8cdf3761798e33", null ],
+      [ "rxFifoThreshold", "a00012.html#ad24f32ec9deb673cae10fd8daad6c54b", null ],
+      [ "channelConfig", "a00012.html#a259999d7de9e9f3d74982910942783ba", null ]
     ] ],
-    [ "ecspi_transfer_t", "a00012.html#a00162", [
-      [ "txData", "a00012.html#a024d7352f22d1a5b4e826cbc024581f0", null ],
-      [ "rxData", "a00012.html#afc78bda57ee3f9b7d7d732ef02973c2c", null ],
-      [ "dataSize", "a00012.html#ab2775e32b2da5edd97ca780106b17ca1", null ],
-      [ "channel", "a00012.html#a6f085d63c254287974a6a9175befc55e", null ]
+    [ "_ecspi_transfer", "a00012.html#a00153", [
+      [ "txData", "a00012.html#a0a32005f83d6c9294176b42d67e532f4", null ],
+      [ "rxData", "a00012.html#a1273d0d92d5cc43f90084354455d2d36", null ],
+      [ "dataSize", "a00012.html#adf89e013e41510d51b8e19898f09b3f4", null ],
+      [ "channel", "a00012.html#a33dbfbcff88a8dd7ff8daa564f9b8dad", null ]
     ] ],
-    [ "ecspi_master_handle_t", "a00012.html#a00134", [
-      [ "channel", "a00012.html#aa6c13a233cdacc489cf97bc3cd0fb6f5", null ],
-      [ "txData", "a00012.html#a32a4f2d44ea110f92b775e1ec7824063", null ],
-      [ "rxData", "a00012.html#aadd279e36f9879f8d7ce4881861cbe6f", null ],
-      [ "txRemainingBytes", "a00012.html#a3a4689219aa53ca5bdb63ce171d2285c", null ],
-      [ "rxRemainingBytes", "a00012.html#ae6b19b31a8d8428a10088831ab03f27b", null ],
-      [ "state", "a00012.html#aa07e9a421f101147c70b860b63b24d72", null ],
-      [ "transferSize", "a00012.html#a072b80c6510d0d99ce8336ed8c33d6e1", null ],
-      [ "callback", "a00012.html#acf5bbc4426afa7bea77b107dbc37652c", null ],
-      [ "userData", "a00012.html#a3ed57ad9fe76002e40f129febe160654", null ]
+    [ "_ecspi_master_handle", "a00012.html#a00150", [
+      [ "channel", "a00012.html#ad8fdb0895a203ce9d6c7b2b209fb83f8", null ],
+      [ "txData", "a00012.html#a9a5012edf5a49977e9a70abcb7712ce7", null ],
+      [ "rxData", "a00012.html#afb3a84a4f07848c484a023eaaf238f52", null ],
+      [ "txRemainingBytes", "a00012.html#acaec88c8aeba6806aa786d548382f6d1", null ],
+      [ "rxRemainingBytes", "a00012.html#a0b1586d3cac58790d033dd3372ab4ba5", null ],
+      [ "state", "a00012.html#a2ef92860e203c8e7f7401f699b1cebc1", null ],
+      [ "transferSize", "a00012.html#a9533d5fb629646c8f159fc6b044ed2d5", null ],
+      [ "callback", "a00012.html#a46e32196b7adaec00aa5a601a6f2d6a2", null ],
+      [ "userData", "a00012.html#aefdfb1caf0fa20489df092ab8a8f0b18", null ]
     ] ],
     [ "FSL_ECSPI_DRIVER_VERSION", "a00012.html#ga49e359ce2a195388c177d885b5fd3e74", null ],
     [ "ECSPI_DUMMYDATA", "a00012.html#ga885f0195612ef6aa0d8e48aa644cea57", null ],
     [ "SPI_RETRY_TIMES", "a00012.html#gaa4717c15ca9604c505a5e5c60df29ebe", null ],
+    [ "ecspi_clock_polarity_t", "a00012.html#gafeae140b7efb15d9e48e13a2bbb6648b", null ],
+    [ "ecspi_clock_phase_t", "a00012.html#gab8cb798902bc2f42a40a0c6199b63a1e", null ],
+    [ "ecspi_Data_ready_t", "a00012.html#gae05015bbba036cfc4e48d0f429395b6a", null ],
+    [ "ecspi_channel_source_t", "a00012.html#ga3e2abb88d90010f18bccc30e578f4922", null ],
+    [ "ecspi_master_slave_mode_t", "a00012.html#gadae4f393f3084c4d71c4c724dc4741a6", null ],
+    [ "ecspi_data_line_inactive_state_t", "a00012.html#ga05dce6c00f47e912774ec68de30621da", null ],
+    [ "ecspi_clock_inactive_state_t", "a00012.html#ga4674cb89f699a0bf020ac10722f4476d", null ],
+    [ "ecspi_chip_select_active_state_t", "a00012.html#gaf48a3acaea7a2c18cf1cededca1b7d0f", null ],
+    [ "ecspi_sample_period_clock_source_t", "a00012.html#ga9125108ce3ea79938ffe821adfc77357", null ],
+    [ "ecspi_channel_config_t", "a00012.html#gaf8350e81c8aea618a58fd31655edcb8c", null ],
+    [ "ecspi_master_config_t", "a00012.html#ga5b37e0a8f89e106d9f936fc9138992a1", null ],
+    [ "ecspi_slave_config_t", "a00012.html#ga38f4b39663c117c9fc46a38b6464c4c5", null ],
+    [ "ecspi_transfer_t", "a00012.html#gaf330cea652074ffe8a48bb92cdef30ba", null ],
     [ "ecspi_slave_handle_t", "a00012.html#gaba2d0ab06e8ec3b144ce09b38717c73a", null ],
     [ "ecspi_master_callback_t", "a00012.html#ga6d23219efb6e309fb8b4cbd1edc86e98", null ],
     [ "ecspi_slave_callback_t", "a00012.html#ga14759db6a77598c3d0b901154129b58d", [
@@ -55,13 +68,13 @@ var a00012 =
       [ "kStatus_ECSPI_HardwareOverFlow", "a00012.html#gga726ca809ffd3d67ab4b8476646f26635ad4e8224a416538ed087176bc033267e7", null ],
       [ "kStatus_ECSPI_Timeout", "a00012.html#gga726ca809ffd3d67ab4b8476646f26635abd5fecfe81ffd7963e65d0d3f7c99e9b", null ]
     ] ],
-    [ "ecspi_clock_polarity_t", "a00012.html#gae0418192a24558da46fad3181ad2aac6", [
-      [ "kECSPI_PolarityActiveHigh", "a00012.html#ggae0418192a24558da46fad3181ad2aac6a87b0cb4747fed7d6f25b0107ceea9a86", null ],
-      [ "kECSPI_PolarityActiveLow", "a00012.html#ggae0418192a24558da46fad3181ad2aac6a2b62838dac3b0f2fe12f4d423636ff68", null ]
+    [ "_ecspi_clock_polarity", "a00012.html#gaebdd3a8ea085ca00b8c0b59114a65a85", [
+      [ "kECSPI_PolarityActiveHigh", "a00012.html#ggaebdd3a8ea085ca00b8c0b59114a65a85a87b0cb4747fed7d6f25b0107ceea9a86", null ],
+      [ "kECSPI_PolarityActiveLow", "a00012.html#ggaebdd3a8ea085ca00b8c0b59114a65a85a2b62838dac3b0f2fe12f4d423636ff68", null ]
     ] ],
-    [ "ecspi_clock_phase_t", "a00012.html#ga776487ec9cfe2ee52d26b62f4adc6878", [
-      [ "kECSPI_ClockPhaseFirstEdge", "a00012.html#gga776487ec9cfe2ee52d26b62f4adc6878a3bd1e7add02733a4fdc701b55a28d83c", null ],
-      [ "kECSPI_ClockPhaseSecondEdge", "a00012.html#gga776487ec9cfe2ee52d26b62f4adc6878acad0974595c9bbf39c64e1b11951a78b", null ],
+    [ "_ecspi_clock_phase", "a00012.html#gaf380a917a795f841b18825b9e7514b11", [
+      [ "kECSPI_ClockPhaseFirstEdge", "a00012.html#ggaf380a917a795f841b18825b9e7514b11a3bd1e7add02733a4fdc701b55a28d83c", null ],
+      [ "kECSPI_ClockPhaseSecondEdge", "a00012.html#ggaf380a917a795f841b18825b9e7514b11acad0974595c9bbf39c64e1b11951a78b", null ],
       [ "kECSPI_TxfifoEmptyInterruptEnable", "a00012.html#gga0411cd49bb5b71852cecd93bcbf0ca2daf3d3bd3c344fecda9888c66b63f9b2bc", null ],
       [ "kECSPI_TxFifoDataRequstInterruptEnable", "a00012.html#gga0411cd49bb5b71852cecd93bcbf0ca2da2550332987e4b2832993eec7571c102d", null ],
       [ "kECSPI_TxFifoFullInterruptEnable", "a00012.html#gga0411cd49bb5b71852cecd93bcbf0ca2dab51c3b033fa2b8519a53a074be3ba6f7", null ],
@@ -83,36 +96,36 @@ var a00012 =
       [ "kECSPI_RxDmaEnable", "a00012.html#ggab04a0655cd1e3bcac5e8f48c18df1a57a53af55fec388ff98aafcfa4c947fc215", null ],
       [ "kECSPI_DmaAllEnable", "a00012.html#ggab04a0655cd1e3bcac5e8f48c18df1a57aef9846743f20a85f6429f16d7b98687d", null ]
     ] ],
-    [ "ecspi_Data_ready_t", "a00012.html#ga3f9aab667da727ae384a6b76e09fd5c0", [
-      [ "kECSPI_DataReadyIgnore", "a00012.html#gga3f9aab667da727ae384a6b76e09fd5c0ae840f8158fce546e682c6ab1710d90b0", null ],
-      [ "kECSPI_DataReadyFallingEdge", "a00012.html#gga3f9aab667da727ae384a6b76e09fd5c0a77fc4d56d82923c8cb0fcc9e5521b647", null ],
-      [ "kECSPI_DataReadyLowLevel", "a00012.html#gga3f9aab667da727ae384a6b76e09fd5c0af48e5a90d193e110bfd88dc1b4a5c0be", null ]
+    [ "_ecspi_data_ready", "a00012.html#ga688f71503fc2fe2061f5e0a2eb4f1876", [
+      [ "kECSPI_DataReadyIgnore", "a00012.html#gga688f71503fc2fe2061f5e0a2eb4f1876ae840f8158fce546e682c6ab1710d90b0", null ],
+      [ "kECSPI_DataReadyFallingEdge", "a00012.html#gga688f71503fc2fe2061f5e0a2eb4f1876a77fc4d56d82923c8cb0fcc9e5521b647", null ],
+      [ "kECSPI_DataReadyLowLevel", "a00012.html#gga688f71503fc2fe2061f5e0a2eb4f1876af48e5a90d193e110bfd88dc1b4a5c0be", null ]
     ] ],
-    [ "ecspi_channel_source_t", "a00012.html#ga0946f249a6cbdb8987baa5f4bd39a0ab", [
-      [ "kECSPI_Channel0", "a00012.html#gga0946f249a6cbdb8987baa5f4bd39a0aba1ac961fb6f497e8ad9082fb07504e9c5", null ],
-      [ "kECSPI_Channel1", "a00012.html#gga0946f249a6cbdb8987baa5f4bd39a0aba3186dfb67a1311c21c6fc81a845324db", null ],
-      [ "kECSPI_Channel2", "a00012.html#gga0946f249a6cbdb8987baa5f4bd39a0aba16c4a01e134f7db5001f496b34bb080a", null ],
-      [ "kECSPI_Channel3", "a00012.html#gga0946f249a6cbdb8987baa5f4bd39a0aba0993f73a469ede063091c7de076c006e", null ]
+    [ "_ecspi_channel_source", "a00012.html#gad3020fe9e70923b42ed1538b8fab02ca", [
+      [ "kECSPI_Channel0", "a00012.html#ggad3020fe9e70923b42ed1538b8fab02caa1ac961fb6f497e8ad9082fb07504e9c5", null ],
+      [ "kECSPI_Channel1", "a00012.html#ggad3020fe9e70923b42ed1538b8fab02caa3186dfb67a1311c21c6fc81a845324db", null ],
+      [ "kECSPI_Channel2", "a00012.html#ggad3020fe9e70923b42ed1538b8fab02caa16c4a01e134f7db5001f496b34bb080a", null ],
+      [ "kECSPI_Channel3", "a00012.html#ggad3020fe9e70923b42ed1538b8fab02caa0993f73a469ede063091c7de076c006e", null ]
     ] ],
-    [ "ecspi_master_slave_mode_t", "a00012.html#gaa8ffe589b98df551c09da7fbd5fd8149", [
-      [ "kECSPI_Slave", "a00012.html#ggaa8ffe589b98df551c09da7fbd5fd8149a492c128adc36b27e968376463d339b6c", null ],
-      [ "kECSPI_Master", "a00012.html#ggaa8ffe589b98df551c09da7fbd5fd8149afa1c745867b3076523985e99aad4b58a", null ]
+    [ "_ecspi_master_slave_mode", "a00012.html#ga1393a50c778db86292b83abbc49c11e2", [
+      [ "kECSPI_Slave", "a00012.html#gga1393a50c778db86292b83abbc49c11e2a492c128adc36b27e968376463d339b6c", null ],
+      [ "kECSPI_Master", "a00012.html#gga1393a50c778db86292b83abbc49c11e2afa1c745867b3076523985e99aad4b58a", null ]
     ] ],
-    [ "ecspi_data_line_inactive_state_t", "a00012.html#ga7756b59f227697a8d4fe335a2f40fa74", [
-      [ "kECSPI_DataLineInactiveStateHigh", "a00012.html#gga7756b59f227697a8d4fe335a2f40fa74ab9b16d2f8e51662551756b6923d8384b", null ],
-      [ "kECSPI_DataLineInactiveStateLow", "a00012.html#gga7756b59f227697a8d4fe335a2f40fa74a6d736df09298222db7f060e5bf8dae35", null ]
+    [ "_ecspi_data_line_inactive_state_t", "a00012.html#gac7463167f0d27db8603c1bd7971c0ee2", [
+      [ "kECSPI_DataLineInactiveStateHigh", "a00012.html#ggac7463167f0d27db8603c1bd7971c0ee2ab9b16d2f8e51662551756b6923d8384b", null ],
+      [ "kECSPI_DataLineInactiveStateLow", "a00012.html#ggac7463167f0d27db8603c1bd7971c0ee2a6d736df09298222db7f060e5bf8dae35", null ]
     ] ],
-    [ "ecspi_clock_inactive_state_t", "a00012.html#ga524b46a0bed966cf616715354a0468a2", [
-      [ "kECSPI_ClockInactiveStateLow", "a00012.html#gga524b46a0bed966cf616715354a0468a2ac7c53cfc3b3a445bdb4eb3a78d3d236a", null ],
-      [ "kECSPI_ClockInactiveStateHigh", "a00012.html#gga524b46a0bed966cf616715354a0468a2a8be6d1327a55926da4cc1504e3763475", null ]
+    [ "_ecspi_clock_inactive_state_t", "a00012.html#ga01ede8ff322d549961326f914c988f86", [
+      [ "kECSPI_ClockInactiveStateLow", "a00012.html#gga01ede8ff322d549961326f914c988f86ac7c53cfc3b3a445bdb4eb3a78d3d236a", null ],
+      [ "kECSPI_ClockInactiveStateHigh", "a00012.html#gga01ede8ff322d549961326f914c988f86a8be6d1327a55926da4cc1504e3763475", null ]
     ] ],
-    [ "ecspi_chip_select_active_state_t", "a00012.html#ga75ba01276811af8ffaef76e74173ac7b", [
-      [ "kECSPI_ChipSelectActiveStateLow", "a00012.html#gga75ba01276811af8ffaef76e74173ac7ba9940e869c485c1f937b0b2f9b4f7a777", null ],
-      [ "kECSPI_ChipSelectActiveStateHigh", "a00012.html#gga75ba01276811af8ffaef76e74173ac7bade90bcbe7e7f3cf34547cf8b67b965f9", null ]
+    [ "_ecspi_chip_select_active_state_t", "a00012.html#gae7eb46ab08c80ac186401b31469f6ad0", [
+      [ "kECSPI_ChipSelectActiveStateLow", "a00012.html#ggae7eb46ab08c80ac186401b31469f6ad0a9940e869c485c1f937b0b2f9b4f7a777", null ],
+      [ "kECSPI_ChipSelectActiveStateHigh", "a00012.html#ggae7eb46ab08c80ac186401b31469f6ad0ade90bcbe7e7f3cf34547cf8b67b965f9", null ]
     ] ],
-    [ "ecspi_sample_period_clock_source_t", "a00012.html#ga8e15db09a9c66cb10350282507f3d5c6", [
-      [ "kECSPI_spiClock", "a00012.html#gga8e15db09a9c66cb10350282507f3d5c6a86a48f9e83419196fadcc8189ed6e841", null ],
-      [ "kECSPI_lowFreqClock", "a00012.html#gga8e15db09a9c66cb10350282507f3d5c6a02660ea6610c018123dd691c19939f5f", null ]
+    [ "_ecspi_sample_period_clock_source", "a00012.html#gaa06b1aa06b6cda70967de9f103aefbef", [
+      [ "kECSPI_spiClock", "a00012.html#ggaa06b1aa06b6cda70967de9f103aefbefa86a48f9e83419196fadcc8189ed6e841", null ],
+      [ "kECSPI_lowFreqClock", "a00012.html#ggaa06b1aa06b6cda70967de9f103aefbefa02660ea6610c018123dd691c19939f5f", null ]
     ] ],
     [ "ECSPI_GetInstance", "a00012.html#gac93d90f992b4a279021a609ce3d76aff", null ],
     [ "ECSPI_MasterGetDefaultConfig", "a00012.html#ga3984ed3d0a8755835f1244334ff59f67", null ],
@@ -133,7 +146,7 @@ var a00012 =
     [ "ECSPI_SetChannelSelect", "a00012.html#ga3175e7552062e74bffa3538195b8df6a", null ],
     [ "ECSPI_SetChannelConfig", "a00012.html#gaa4a223ca2612f4e73fae0982afcff226", null ],
     [ "ECSPI_SetBaudRate", "a00012.html#ga4b5b00f89c45cb1164af2a4685e984d5", null ],
-    [ "ECSPI_WriteBlocking", "a00012.html#gab0233870c51a5096af0b247ec99014d0", null ],
+    [ "ECSPI_WriteBlocking", "a00012.html#gad06eba976e7cb802eb25209c3d22d2fc", null ],
     [ "ECSPI_WriteData", "a00012.html#ga99b6a9e30ad735c3634d60b81c500c2e", null ],
     [ "ECSPI_ReadData", "a00012.html#ga3c50b084acf2fe74f19575cc10069bbe", null ],
     [ "ECSPI_MasterTransferCreateHandle", "a00012.html#ga1ab5918361a605a7f0467bcb3d1760ac", null ],

@@ -39,13 +39,13 @@ SET(CMAKE_C_FLAGS_DEBUG " \
     -DSRTM_DEBUG_MESSAGE_FUNC=DbgConsole_Printf \
     -DSRTM_DEBUG_VERBOSE_LEVEL=SRTM_DEBUG_VERBOSE_WARN \
     -DNOT_CONFIG_CLK_ROOT=1 \
-    -DSDK_I2C_BASED_COMPONENT_USED=1 \
+    -DMCUXPRESSO_SDK \
     -DCODEC_MULTI_ADAPTERS=1 \
+    -DSDK_I2C_BASED_COMPONENT_USED=1 \
     -DSERIAL_PORT_TYPE_UART=1 \
     -DBOARD_USE_CODEC=1 \
     -DCODEC_WM8524_ENABLE \
     -DSDK_OS_FREE_RTOS \
-    -DMCUXPRESSO_SDK \
     -g \
     -O0 \
     -mcpu=cortex-m7 \
@@ -57,7 +57,6 @@ SET(CMAKE_C_FLAGS_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -73,13 +72,13 @@ SET(CMAKE_C_FLAGS_RELEASE " \
     -DSRTM_DEBUG_MESSAGE_FUNC=DbgConsole_Printf \
     -DSRTM_DEBUG_VERBOSE_LEVEL=SRTM_DEBUG_VERBOSE_WARN \
     -DNOT_CONFIG_CLK_ROOT=1 \
-    -DSDK_I2C_BASED_COMPONENT_USED=1 \
+    -DMCUXPRESSO_SDK \
     -DCODEC_MULTI_ADAPTERS=1 \
+    -DSDK_I2C_BASED_COMPONENT_USED=1 \
     -DSERIAL_PORT_TYPE_UART=1 \
     -DBOARD_USE_CODEC=1 \
     -DCODEC_WM8524_ENABLE \
     -DSDK_OS_FREE_RTOS \
-    -DMCUXPRESSO_SDK \
     -Os \
     -mcpu=cortex-m7 \
     -Wall \
@@ -90,7 +89,6 @@ SET(CMAKE_C_FLAGS_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -102,8 +100,8 @@ SET(CMAKE_CXX_FLAGS_DEBUG " \
     -DDEBUG \
     -DCPU_MIMX8MN6DVTJZ \
     -DCPU_MIMX8MN6DVTJZ_cm7 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -g \
     -O0 \
     -mcpu=cortex-m7 \
@@ -115,7 +113,6 @@ SET(CMAKE_CXX_FLAGS_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -128,8 +125,8 @@ SET(CMAKE_CXX_FLAGS_RELEASE " \
     -DNDEBUG \
     -DCPU_MIMX8MN6DVTJZ \
     -DCPU_MIMX8MN6DVTJZ_cm7 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -Os \
     -mcpu=cortex-m7 \
     -Wall \
@@ -140,7 +137,6 @@ SET(CMAKE_CXX_FLAGS_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -157,7 +153,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -173,7 +168,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     -Map=output.map \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8MN6xxxxx_cm7_lpa_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8MN6xxxxx_cm7_lpa_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     ${CMAKE_EXE_LINKER_FLAGS_RELEASE} \
@@ -183,7 +178,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -199,5 +193,5 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     -Map=output.map \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8MN6xxxxx_cm7_lpa_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8MN6xxxxx_cm7_lpa_ram.ld\" -static \
 ")

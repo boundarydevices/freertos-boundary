@@ -23,9 +23,6 @@ var searchData=
   ['ecspi_5fmastertransfernonblocking',['ECSPI_MasterTransferNonBlocking',['../a00012.html#gad77408a45d6982958068a49149ac60b6',1,'fsl_ecspi.h']]],
   ['ecspi_5fmastertransfersdma',['ECSPI_MasterTransferSDMA',['../a00013.html#ga507a090a4a4d88216e7a4037324131b4',1,'fsl_ecspi_sdma.h']]],
   ['ecspi_5freaddata',['ECSPI_ReadData',['../a00012.html#ga3c50b084acf2fe74f19575cc10069bbe',1,'fsl_ecspi.h']]],
-  ['ecspi_5frtos_5fdeinit',['ECSPI_RTOS_Deinit',['../a00108.html#ga901f7e93af2ee61c81d4ee0ff4801724',1,'fsl_ecspi_freertos.h']]],
-  ['ecspi_5frtos_5finit',['ECSPI_RTOS_Init',['../a00108.html#ga7918b90668b02f4d4e996f8176168451',1,'fsl_ecspi_freertos.h']]],
-  ['ecspi_5frtos_5ftransfer',['ECSPI_RTOS_Transfer',['../a00108.html#gabeedc3019d9f8ba9a20dcee2f9e14d1e',1,'fsl_ecspi_freertos.h']]],
   ['ecspi_5fsetbaudrate',['ECSPI_SetBaudRate',['../a00012.html#ga4b5b00f89c45cb1164af2a4685e984d5',1,'fsl_ecspi.h']]],
   ['ecspi_5fsetchannelconfig',['ECSPI_SetChannelConfig',['../a00012.html#gaa4a223ca2612f4e73fae0982afcff226',1,'fsl_ecspi.h']]],
   ['ecspi_5fsetchannelselect',['ECSPI_SetChannelSelect',['../a00012.html#ga3175e7552062e74bffa3538195b8df6a',1,'fsl_ecspi.h']]],
@@ -40,6 +37,9 @@ var searchData=
   ['ecspi_5fslavetransfernonblocking',['ECSPI_SlaveTransferNonBlocking',['../a00012.html#gad4a51681f1b62b0f26be844a209e6e10',1,'fsl_ecspi.h']]],
   ['ecspi_5fslavetransfersdma',['ECSPI_SlaveTransferSDMA',['../a00013.html#gad1dc36bbee073e0b5cd206bc6302788f',1,'fsl_ecspi_sdma.h']]],
   ['ecspi_5fsoftwarereset',['ECSPI_SoftwareReset',['../a00012.html#gadc13d57141df32cefbb4b0040e6404f6',1,'fsl_ecspi.h']]],
-  ['ecspi_5fwriteblocking',['ECSPI_WriteBlocking',['../a00012.html#gab0233870c51a5096af0b247ec99014d0',1,'fsl_ecspi.h']]],
-  ['ecspi_5fwritedata',['ECSPI_WriteData',['../a00012.html#ga99b6a9e30ad735c3634d60b81c500c2e',1,'fsl_ecspi.h']]]
+  ['ecspi_5fwriteblocking',['ECSPI_WriteBlocking',['../a00012.html#gad06eba976e7cb802eb25209c3d22d2fc',1,'fsl_ecspi.h']]],
+  ['ecspi_5fwritedata',['ECSPI_WriteData',['../a00012.html#ga99b6a9e30ad735c3634d60b81c500c2e',1,'fsl_ecspi.h']]],
+  ['enableglobalirq',['EnableGlobalIRQ',['../a00102.html#gacca38e4e11db8e795201c82f6ce4c9d5',1,'fsl_common_arm.h']]],
+  ['enableirq',['EnableIRQ',['../a00102.html#ga2b92855a9ebf6eadeed1527b8339d50a',1,'fsl_common_arm.h']]],
+  ['enableirqwithpriority',['EnableIRQWithPriority',['../a00102.html#gaa9463731425e110e2d841820f4559a3f',1,'fsl_common_arm.h']]]
 ];
