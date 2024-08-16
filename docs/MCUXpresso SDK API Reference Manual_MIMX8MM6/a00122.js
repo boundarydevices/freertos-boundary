@@ -1,5 +1,5 @@
 var a00122 =
 [
-    [ "PDM Driver", "a00018.html", "a00018" ],
-    [ "PDM SDMA Driver", "a00019.html", "a00019" ]
+    [ "SAI Driver", "a00021.html", "a00021" ],
+    [ "SAI SDMA Driver", "a00022.html", "a00022" ]
 ];

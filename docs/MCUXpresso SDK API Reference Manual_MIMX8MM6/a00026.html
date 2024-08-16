@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.13.0</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -101,6 +101,7 @@ $(document).ready(function(){initNavTree('a00026.html','');});
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -117,21 +118,51 @@ Monitor and report Configuration</h2>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:a00216"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a00216">tmu_thresold_config_t</a></td></tr>
-<tr class="memdesc:a00216"><td class="mdescLeft">&#160;</td><td class="mdescRight">configuration for TMU thresold.  <a href="a00026.html#a00216">More...</a><br/></td></tr>
-<tr class="separator:a00216"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00215"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a00215">tmu_interrupt_status_t</a></td></tr>
-<tr class="memdesc:a00215"><td class="mdescLeft">&#160;</td><td class="mdescRight">TMU interrupt status.  <a href="a00026.html#a00215">More...</a><br/></td></tr>
-<tr class="separator:a00215"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00214"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a00214">tmu_config_t</a></td></tr>
-<tr class="memdesc:a00214"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for TMU module.  <a href="a00026.html#a00214">More...</a><br/></td></tr>
-<tr class="separator:a00214"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00212"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a00212">_tmu_thresold_config</a></td></tr>
+<tr class="memdesc:a00212"><td class="mdescLeft">&#160;</td><td class="mdescRight">configuration for TMU thresold.  <a href="a00026.html#a00212">More...</a><br/></td></tr>
+<tr class="separator:a00212"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00211"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a00211">_tmu_interrupt_status</a></td></tr>
+<tr class="memdesc:a00211"><td class="mdescLeft">&#160;</td><td class="mdescRight">TMU interrupt status.  <a href="a00026.html#a00211">More...</a><br/></td></tr>
+<tr class="separator:a00211"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00210"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a00210">_tmu_config</a></td></tr>
+<tr class="memdesc:a00210"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for TMU module.  <a href="a00026.html#a00210">More...</a><br/></td></tr>
+<tr class="separator:a00210"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:gaeb1fc20d716a24f048c7a5ac29948086"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gaeb1fc20d716a24f048c7a5ac29948086">FSL_TMU_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00110.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 1))</td></tr>
+<tr class="memitem:gaeb1fc20d716a24f048c7a5ac29948086"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gaeb1fc20d716a24f048c7a5ac29948086">FSL_TMU_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00107.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 1))</td></tr>
 <tr class="memdesc:gaeb1fc20d716a24f048c7a5ac29948086"><td class="mdescLeft">&#160;</td><td class="mdescRight">TMU driver version.  <a href="#gaeb1fc20d716a24f048c7a5ac29948086">More...</a><br/></td></tr>
 <tr class="separator:gaeb1fc20d716a24f048c7a5ac29948086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga487862d0aa3fb984b3431ad7c6923125"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga487862d0aa3fb984b3431ad7c6923125"></a>
+typedef struct <a class="el" href="a00026.html#a00212">_tmu_thresold_config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ga487862d0aa3fb984b3431ad7c6923125">tmu_thresold_config_t</a></td></tr>
+<tr class="memdesc:ga487862d0aa3fb984b3431ad7c6923125"><td class="mdescLeft">&#160;</td><td class="mdescRight">configuration for TMU thresold. <br/></td></tr>
+<tr class="separator:ga487862d0aa3fb984b3431ad7c6923125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8430f4edd8b0bb9aaf2f031b20b7c4e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8430f4edd8b0bb9aaf2f031b20b7c4e2"></a>
+typedef struct <br class="typebreak"/>
+<a class="el" href="a00026.html#a00211">_tmu_interrupt_status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ga8430f4edd8b0bb9aaf2f031b20b7c4e2">tmu_interrupt_status_t</a></td></tr>
+<tr class="memdesc:ga8430f4edd8b0bb9aaf2f031b20b7c4e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">TMU interrupt status. <br/></td></tr>
+<tr class="separator:ga8430f4edd8b0bb9aaf2f031b20b7c4e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga556b4a353fc881d0fe7ac90d4d9b5361"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga556b4a353fc881d0fe7ac90d4d9b5361"></a>
+typedef enum <br class="typebreak"/>
+<a class="el" href="a00026.html#ga3d65f4100d8016713d765b92b35896c5">_tmu_average_low_pass_filter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ga556b4a353fc881d0fe7ac90d4d9b5361">tmu_average_low_pass_filter_t</a></td></tr>
+<tr class="memdesc:ga556b4a353fc881d0fe7ac90d4d9b5361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average low pass filter setting. <br/></td></tr>
+<tr class="separator:ga556b4a353fc881d0fe7ac90d4d9b5361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabe010dc5ec1b534461a44a1e8982f444"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gabe010dc5ec1b534461a44a1e8982f444"></a>
+typedef enum <a class="el" href="a00026.html#ga89735fabe143666579bdd46507188db4">_tmu_amplifier_gain</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gabe010dc5ec1b534461a44a1e8982f444">tmu_amplifier_gain_t</a></td></tr>
+<tr class="memdesc:gabe010dc5ec1b534461a44a1e8982f444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amplifier gain setting. <br/></td></tr>
+<tr class="separator:gabe010dc5ec1b534461a44a1e8982f444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f33c680e8c951cfe64295f63eb8b74f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3f33c680e8c951cfe64295f63eb8b74f"></a>
+typedef enum <br class="typebreak"/>
+<a class="el" href="a00026.html#gacb9d5ccdbd25a42692a230928c1a2c9b">_tmu_amplifier_reference_voltage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ga3f33c680e8c951cfe64295f63eb8b74f">tmu_amplifier_reference_voltage_t</a></td></tr>
+<tr class="memdesc:ga3f33c680e8c951cfe64295f63eb8b74f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amplifier reference voltage setting. <br/></td></tr>
+<tr class="separator:ga3f33c680e8c951cfe64295f63eb8b74f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee1abc2c6197e642651c8b74e45291af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaee1abc2c6197e642651c8b74e45291af"></a>
+typedef struct <a class="el" href="a00026.html#a00210">_tmu_config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gaee1abc2c6197e642651c8b74e45291af">tmu_config_t</a></td></tr>
+<tr class="memdesc:gaee1abc2c6197e642651c8b74e45291af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for TMU module. <br/></td></tr>
+<tr class="separator:gaee1abc2c6197e642651c8b74e45291af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -155,132 +186,132 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga7642fdce7a755df77ede97ad86683bbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">TMU interrupt status flags.  <a href="a00026.html#ga7642fdce7a755df77ede97ad86683bbe">More...</a><br/></td></tr>
 <tr class="separator:ga7642fdce7a755df77ede97ad86683bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaca82b26be0dba081331898db1a56d7b7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gaca82b26be0dba081331898db1a56d7b7">tmu_average_low_pass_filter_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00026.html#ggaca82b26be0dba081331898db1a56d7b7a291ff39f3aa2246d306d41239419ac91">kTMU_AverageLowPassFilter1_0</a> = 0U, 
+<tr class="memitem:ga3d65f4100d8016713d765b92b35896c5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ga3d65f4100d8016713d765b92b35896c5">_tmu_average_low_pass_filter</a> { <br/>
+&#160;&#160;<a class="el" href="a00026.html#gga3d65f4100d8016713d765b92b35896c5a291ff39f3aa2246d306d41239419ac91">kTMU_AverageLowPassFilter1_0</a> = 0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#ggaca82b26be0dba081331898db1a56d7b7ad4f106ea1c4a87f1baadcfcf93f9d7cc">kTMU_AverageLowPassFilter0_5</a> = 1U, 
+&#160;&#160;<a class="el" href="a00026.html#gga3d65f4100d8016713d765b92b35896c5ad4f106ea1c4a87f1baadcfcf93f9d7cc">kTMU_AverageLowPassFilter0_5</a> = 1U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#ggaca82b26be0dba081331898db1a56d7b7a15867fc170984bedc164d257b4a7961a">kTMU_AverageLowPassFilter0_25</a> = 2U, 
+&#160;&#160;<a class="el" href="a00026.html#gga3d65f4100d8016713d765b92b35896c5a15867fc170984bedc164d257b4a7961a">kTMU_AverageLowPassFilter0_25</a> = 2U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#ggaca82b26be0dba081331898db1a56d7b7adede33bc421ad4952f2949b00fde3f32">kTMU_AverageLowPassFilter0_125</a> = 3U
-<br/>
- }</td></tr>
-<tr class="memdesc:gaca82b26be0dba081331898db1a56d7b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average low pass filter setting.  <a href="a00026.html#gaca82b26be0dba081331898db1a56d7b7">More...</a><br/></td></tr>
-<tr class="separator:gaca82b26be0dba081331898db1a56d7b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga24f5b001bce2a3d7c4ec75a412c8c66a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ga24f5b001bce2a3d7c4ec75a412c8c66a">tmu_amplifier_gain_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aafbe18297e5082a68d6255c5773b4a7e5">kTMU_AmplifierGain6_34</a> = 0U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aa7cd1454e0119be5d0e0583e462f99dce">kTMU_AmplifierGain6_485</a> = 1U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aa3142148ff65e050e11d80a7e25db79be">kTMU_AmplifierGain6_63</a> = 2U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aa87ed0c008fe5851f9f432f74001c9c09">kTMU_AmplifierGain6_775</a> = 3U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aabcee25caa3267e2c91d6df49a568e68c">kTMU_AmplifierGain6_92</a> = 4U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aac57adbbf82b3b7d66ca809cf1e6c0cde">kTMU_AmplifierGain7_065</a> = 5U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aa200e5bd2c59a13e81824d8509dd11d10">kTMU_AmplifierGain7_21</a> = 6U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aae4bb305967748ea0993e1bf536fe099a">kTMU_AmplifierGain7_355</a> = 7U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aa545a99a88971548febf232b27a83008f">kTMU_AmplifierGain7_5</a> = 8U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aadf255d98a66078aeee940e5d38f81363">kTMU_AmplifierGain7_645</a> = 9U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aa60ac3832f11c903a114d6e1154ace2d8">kTMU_AmplifierGain7_79</a> = 10U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aaa63c910734df7b1da86413ad914d5842">kTMU_AmplifierGain7_935</a> = 11U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aaf5983e4677b996a4dfbcb4e3e2df32a8">kTMU_AmplifierGain8_08</a> = 12U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aa6dae6772d12b343030fa1317b410c9d1">kTMU_AmplifierGain8_225</a> = 13U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aa01fc4da5ad97c64b81418944ca3067fb">kTMU_AmplifierGain8_37</a> = 14U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga24f5b001bce2a3d7c4ec75a412c8c66aa56ca6c3c481735b786790ebc54d336ae">kTMU_AmplifierGain8_515</a> = 15U
+&#160;&#160;<a class="el" href="a00026.html#gga3d65f4100d8016713d765b92b35896c5adede33bc421ad4952f2949b00fde3f32">kTMU_AverageLowPassFilter0_125</a> = 3U
 <br/>
  }</td></tr>
-<tr class="memdesc:ga24f5b001bce2a3d7c4ec75a412c8c66a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amplifier gain setting.  <a href="a00026.html#ga24f5b001bce2a3d7c4ec75a412c8c66a">More...</a><br/></td></tr>
-<tr class="separator:ga24f5b001bce2a3d7c4ec75a412c8c66a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8561445d48e5b7d6d0e79695d29462fb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ga8561445d48e5b7d6d0e79695d29462fb">tmu_amplifier_reference_voltage_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fba230cab88a30ca8cc535f643ab9b012a7">kTMU_AmplifierReferenceVoltage510</a> = 0U, 
+<tr class="memdesc:ga3d65f4100d8016713d765b92b35896c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average low pass filter setting.  <a href="a00026.html#ga3d65f4100d8016713d765b92b35896c5">More...</a><br/></td></tr>
+<tr class="separator:ga3d65f4100d8016713d765b92b35896c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga89735fabe143666579bdd46507188db4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ga89735fabe143666579bdd46507188db4">_tmu_amplifier_gain</a> { <br/>
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4afbe18297e5082a68d6255c5773b4a7e5">kTMU_AmplifierGain6_34</a> = 0U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbada7c0d2ea419f1dcf73f38cbc6ba0a92">kTMU_AmplifierReferenceVoltage517_5</a> = 1U, 
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4a7cd1454e0119be5d0e0583e462f99dce">kTMU_AmplifierGain6_485</a> = 1U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbae679abafb8deb080535e6ec8779f7f63">kTMU_AmplifierReferenceVoltage525</a> = 2U, 
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4a3142148ff65e050e11d80a7e25db79be">kTMU_AmplifierGain6_63</a> = 2U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbab316c215fa13e94579e4e354f07435b5">kTMU_AmplifierReferenceVoltage532_5</a> = 3U, 
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4a87ed0c008fe5851f9f432f74001c9c09">kTMU_AmplifierGain6_775</a> = 3U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fba8713471d17d06be3451ec80821784845">kTMU_AmplifierReferenceVoltage540</a> = 4U, 
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4abcee25caa3267e2c91d6df49a568e68c">kTMU_AmplifierGain6_92</a> = 4U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbac6b67a394fa9f9ac1380a14b4896559f">kTMU_AmplifierReferenceVoltage547_5</a> = 5U, 
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4ac57adbbf82b3b7d66ca809cf1e6c0cde">kTMU_AmplifierGain7_065</a> = 5U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fba9f4b383b1858a9b64077f337955ca738">kTMU_AmplifierReferenceVoltage555</a> = 6U, 
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4a200e5bd2c59a13e81824d8509dd11d10">kTMU_AmplifierGain7_21</a> = 6U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fba6709c675729541552a829adff10f3918">kTMU_AmplifierReferenceVoltage562_5</a> = 7U, 
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4ae4bb305967748ea0993e1bf536fe099a">kTMU_AmplifierGain7_355</a> = 7U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fba4cbd92d098c311a3e84170fd49c1f24d">kTMU_AmplifierReferenceVoltage570</a> = 8U, 
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4a545a99a88971548febf232b27a83008f">kTMU_AmplifierGain7_5</a> = 8U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbabbe65f74c79580bf28ed42932b1f501c">kTMU_AmplifierReferenceVoltage577_5</a> = 9U, 
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4adf255d98a66078aeee940e5d38f81363">kTMU_AmplifierGain7_645</a> = 9U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbaeb7789357b7e7ac67f7861e8343a0b85">kTMU_AmplifierReferenceVoltage585</a> = 10U, 
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4a60ac3832f11c903a114d6e1154ace2d8">kTMU_AmplifierGain7_79</a> = 10U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbaa80d394032c4da1b613bb6cd66fb6246">kTMU_AmplifierReferenceVoltage592_5</a> = 11U, 
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4aa63c910734df7b1da86413ad914d5842">kTMU_AmplifierGain7_935</a> = 11U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbab48e930f7bb003e188e5f8cb6222d0c6">kTMU_AmplifierReferenceVoltage600</a> = 12U, 
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4af5983e4677b996a4dfbcb4e3e2df32a8">kTMU_AmplifierGain8_08</a> = 12U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbae9ac3b8c18015c74e2c3ddf162e6ec60">kTMU_AmplifierReferenceVoltage607_5</a> = 13U, 
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4a6dae6772d12b343030fa1317b410c9d1">kTMU_AmplifierGain8_225</a> = 13U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fba7cf993e2dc706334fd37896e5d02f878">kTMU_AmplifierReferenceVoltage615</a> = 14U, 
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4a01fc4da5ad97c64b81418944ca3067fb">kTMU_AmplifierGain8_37</a> = 14U, 
 <br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fba99bc8162dac33684169e664b97beab0d">kTMU_AmplifierReferenceVoltage622_5</a> = 15U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fba9f9f0d876bbc1c4df3d281555857b77a">kTMU_AmplifierReferenceVoltage630</a> = 16U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbaf43decd91552dc23c7949baabc879c11">kTMU_AmplifierReferenceVoltage637_5</a> = 17U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbac2b78482f79a4294499b21efc05a8091">kTMU_AmplifierReferenceVoltage645</a> = 18U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fba6a96ad9afed93ba7cf5b541b2c8377f8">kTMU_AmplifierReferenceVoltage652_5</a> = 19U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbaa362e5644aec811c6d2e8f200b1d6a1a">kTMU_AmplifierReferenceVoltage660</a> = 20U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbaa5af4d8a2d74df3d6836da00e5afbe6d">kTMU_AmplifierReferenceVoltage667_5</a> = 21U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbaf6688119601d3377c7484822c7a57877">kTMU_AmplifierReferenceVoltage675</a> = 22U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbad2a43d32cbe5e77672449372115e1856">kTMU_AmplifierReferenceVoltage682_5</a> = 23U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbaa43a4b7a02f0009c40a78645f0de2083">kTMU_AmplifierReferenceVoltage690</a> = 24U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbab5972fcfb1db46d3ffedbd0b208f95e2">kTMU_AmplifierReferenceVoltage697_5</a> = 25U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbaa6c5e99e3d37b3425cdd9c6ef3c2829f">kTMU_AmplifierReferenceVoltage705</a> = 26U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fba92de57b2cd70ac3c29b5be4e3a7c442b">kTMU_AmplifierReferenceVoltage712_5</a> = 27U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fba2335f367d72eb0e97af917121d0fbbe3">kTMU_AmplifierReferenceVoltage720</a> = 28U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fbad43b43571be5e01150e6ad832ce09858">kTMU_AmplifierReferenceVoltage727_5</a> = 29U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fba75a1248acdee78517e499540515a384b">kTMU_AmplifierReferenceVoltage735</a> = 30U, 
-<br/>
-&#160;&#160;<a class="el" href="a00026.html#gga8561445d48e5b7d6d0e79695d29462fba07363444d44eeb451166b44153158257">kTMU_AmplifierReferenceVoltage742_5</a> = 31U
+&#160;&#160;<a class="el" href="a00026.html#gga89735fabe143666579bdd46507188db4a56ca6c3c481735b786790ebc54d336ae">kTMU_AmplifierGain8_515</a> = 15U
 <br/>
  }</td></tr>
-<tr class="memdesc:ga8561445d48e5b7d6d0e79695d29462fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amplifier reference voltage setting.  <a href="a00026.html#ga8561445d48e5b7d6d0e79695d29462fb">More...</a><br/></td></tr>
-<tr class="separator:ga8561445d48e5b7d6d0e79695d29462fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ga89735fabe143666579bdd46507188db4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amplifier gain setting.  <a href="a00026.html#ga89735fabe143666579bdd46507188db4">More...</a><br/></td></tr>
+<tr class="separator:ga89735fabe143666579bdd46507188db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb9d5ccdbd25a42692a230928c1a2c9b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gacb9d5ccdbd25a42692a230928c1a2c9b">_tmu_amplifier_reference_voltage</a> { <br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9ba230cab88a30ca8cc535f643ab9b012a7">kTMU_AmplifierReferenceVoltage510</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9bada7c0d2ea419f1dcf73f38cbc6ba0a92">kTMU_AmplifierReferenceVoltage517_5</a> = 1U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9bae679abafb8deb080535e6ec8779f7f63">kTMU_AmplifierReferenceVoltage525</a> = 2U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9bab316c215fa13e94579e4e354f07435b5">kTMU_AmplifierReferenceVoltage532_5</a> = 3U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9ba8713471d17d06be3451ec80821784845">kTMU_AmplifierReferenceVoltage540</a> = 4U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9bac6b67a394fa9f9ac1380a14b4896559f">kTMU_AmplifierReferenceVoltage547_5</a> = 5U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9ba9f4b383b1858a9b64077f337955ca738">kTMU_AmplifierReferenceVoltage555</a> = 6U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9ba6709c675729541552a829adff10f3918">kTMU_AmplifierReferenceVoltage562_5</a> = 7U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9ba4cbd92d098c311a3e84170fd49c1f24d">kTMU_AmplifierReferenceVoltage570</a> = 8U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9babbe65f74c79580bf28ed42932b1f501c">kTMU_AmplifierReferenceVoltage577_5</a> = 9U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9baeb7789357b7e7ac67f7861e8343a0b85">kTMU_AmplifierReferenceVoltage585</a> = 10U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9baa80d394032c4da1b613bb6cd66fb6246">kTMU_AmplifierReferenceVoltage592_5</a> = 11U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9bab48e930f7bb003e188e5f8cb6222d0c6">kTMU_AmplifierReferenceVoltage600</a> = 12U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9bae9ac3b8c18015c74e2c3ddf162e6ec60">kTMU_AmplifierReferenceVoltage607_5</a> = 13U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9ba7cf993e2dc706334fd37896e5d02f878">kTMU_AmplifierReferenceVoltage615</a> = 14U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9ba99bc8162dac33684169e664b97beab0d">kTMU_AmplifierReferenceVoltage622_5</a> = 15U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9ba9f9f0d876bbc1c4df3d281555857b77a">kTMU_AmplifierReferenceVoltage630</a> = 16U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9baf43decd91552dc23c7949baabc879c11">kTMU_AmplifierReferenceVoltage637_5</a> = 17U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9bac2b78482f79a4294499b21efc05a8091">kTMU_AmplifierReferenceVoltage645</a> = 18U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9ba6a96ad9afed93ba7cf5b541b2c8377f8">kTMU_AmplifierReferenceVoltage652_5</a> = 19U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9baa362e5644aec811c6d2e8f200b1d6a1a">kTMU_AmplifierReferenceVoltage660</a> = 20U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9baa5af4d8a2d74df3d6836da00e5afbe6d">kTMU_AmplifierReferenceVoltage667_5</a> = 21U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9baf6688119601d3377c7484822c7a57877">kTMU_AmplifierReferenceVoltage675</a> = 22U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9bad2a43d32cbe5e77672449372115e1856">kTMU_AmplifierReferenceVoltage682_5</a> = 23U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9baa43a4b7a02f0009c40a78645f0de2083">kTMU_AmplifierReferenceVoltage690</a> = 24U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9bab5972fcfb1db46d3ffedbd0b208f95e2">kTMU_AmplifierReferenceVoltage697_5</a> = 25U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9baa6c5e99e3d37b3425cdd9c6ef3c2829f">kTMU_AmplifierReferenceVoltage705</a> = 26U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9ba92de57b2cd70ac3c29b5be4e3a7c442b">kTMU_AmplifierReferenceVoltage712_5</a> = 27U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9ba2335f367d72eb0e97af917121d0fbbe3">kTMU_AmplifierReferenceVoltage720</a> = 28U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9bad43b43571be5e01150e6ad832ce09858">kTMU_AmplifierReferenceVoltage727_5</a> = 29U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9ba75a1248acdee78517e499540515a384b">kTMU_AmplifierReferenceVoltage735</a> = 30U, 
+<br/>
+&#160;&#160;<a class="el" href="a00026.html#ggacb9d5ccdbd25a42692a230928c1a2c9ba07363444d44eeb451166b44153158257">kTMU_AmplifierReferenceVoltage742_5</a> = 31U
+<br/>
+ }</td></tr>
+<tr class="memdesc:gacb9d5ccdbd25a42692a230928c1a2c9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amplifier reference voltage setting.  <a href="a00026.html#gacb9d5ccdbd25a42692a230928c1a2c9b">More...</a><br/></td></tr>
+<tr class="separator:gacb9d5ccdbd25a42692a230928c1a2c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaf1935ea2d85738576f72606d8848c210"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gaf1935ea2d85738576f72606d8848c210">TMU_Init</a> (TMU_Type *base, const <a class="el" href="a00026.html#a00214">tmu_config_t</a> *config)</td></tr>
+<tr class="memitem:gaf1935ea2d85738576f72606d8848c210"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gaf1935ea2d85738576f72606d8848c210">TMU_Init</a> (TMU_Type *base, const <a class="el" href="a00026.html#gaee1abc2c6197e642651c8b74e45291af">tmu_config_t</a> *config)</td></tr>
 <tr class="memdesc:gaf1935ea2d85738576f72606d8848c210"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the access to TMU registers and Initialize TMU module.  <a href="#gaf1935ea2d85738576f72606d8848c210">More...</a><br/></td></tr>
 <tr class="separator:gaf1935ea2d85738576f72606d8848c210"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacf6dce9f7c9619c0d3561009f0020ab4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gacf6dce9f7c9619c0d3561009f0020ab4">TMU_Deinit</a> (TMU_Type *base)</td></tr>
 <tr class="memdesc:gacf6dce9f7c9619c0d3561009f0020ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initialize TMU module and Disable the access to DCDC registers.  <a href="#gacf6dce9f7c9619c0d3561009f0020ab4">More...</a><br/></td></tr>
 <tr class="separator:gacf6dce9f7c9619c0d3561009f0020ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2e037ecf7cbc657021b5f488a19da0e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ga2e037ecf7cbc657021b5f488a19da0e7">TMU_GetDefaultConfig</a> (<a class="el" href="a00026.html#a00214">tmu_config_t</a> *config)</td></tr>
+<tr class="memitem:ga2e037ecf7cbc657021b5f488a19da0e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ga2e037ecf7cbc657021b5f488a19da0e7">TMU_GetDefaultConfig</a> (<a class="el" href="a00026.html#gaee1abc2c6197e642651c8b74e45291af">tmu_config_t</a> *config)</td></tr>
 <tr class="memdesc:ga2e037ecf7cbc657021b5f488a19da0e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the default configuration for TMU.  <a href="#ga2e037ecf7cbc657021b5f488a19da0e7">More...</a><br/></td></tr>
 <tr class="separator:ga2e037ecf7cbc657021b5f488a19da0e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga36dbce6cc66c0d7d26bf21a961ada454"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ga36dbce6cc66c0d7d26bf21a961ada454">TMU_Enable</a> (TMU_Type *base, bool enable)</td></tr>
@@ -292,96 +323,96 @@ Functions</h2></td></tr>
 <tr class="memitem:gaa2f045a00e2f2c29ef73b24e24d5649d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gaa2f045a00e2f2c29ef73b24e24d5649d">TMU_DisableInterrupts</a> (TMU_Type *base, uint32_t mask)</td></tr>
 <tr class="memdesc:gaa2f045a00e2f2c29ef73b24e24d5649d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the TMU interrupts.  <a href="#gaa2f045a00e2f2c29ef73b24e24d5649d">More...</a><br/></td></tr>
 <tr class="separator:gaa2f045a00e2f2c29ef73b24e24d5649d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaac1d559c559b1451be2bd22ea3b15506"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gaac1d559c559b1451be2bd22ea3b15506">TMU_GetInterruptStatusFlags</a> (TMU_Type *base, <a class="el" href="a00026.html#a00215">tmu_interrupt_status_t</a> *status)</td></tr>
+<tr class="memitem:gaac1d559c559b1451be2bd22ea3b15506"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gaac1d559c559b1451be2bd22ea3b15506">TMU_GetInterruptStatusFlags</a> (TMU_Type *base, <a class="el" href="a00026.html#ga8430f4edd8b0bb9aaf2f031b20b7c4e2">tmu_interrupt_status_t</a> *status)</td></tr>
 <tr class="memdesc:gaac1d559c559b1451be2bd22ea3b15506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get interrupt status flags.  <a href="#gaac1d559c559b1451be2bd22ea3b15506">More...</a><br/></td></tr>
 <tr class="separator:gaac1d559c559b1451be2bd22ea3b15506"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab96d6588069f0a392706121a8536a334"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gab96d6588069f0a392706121a8536a334">TMU_ClearInterruptStatusFlags</a> (TMU_Type *base, uint32_t mask)</td></tr>
 <tr class="memdesc:gab96d6588069f0a392706121a8536a334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear interrupt status flags.  <a href="#gab96d6588069f0a392706121a8536a334">More...</a><br/></td></tr>
 <tr class="separator:gab96d6588069f0a392706121a8536a334"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacd56981ba9b6310cbdac1a1d8ab60461"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00110.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gacd56981ba9b6310cbdac1a1d8ab60461">TMU_GetImmediateTemperature</a> (TMU_Type *base, uint32_t *temperature)</td></tr>
+<tr class="memitem:gacd56981ba9b6310cbdac1a1d8ab60461"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00107.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gacd56981ba9b6310cbdac1a1d8ab60461">TMU_GetImmediateTemperature</a> (TMU_Type *base, uint32_t *temperature)</td></tr>
 <tr class="memdesc:gacd56981ba9b6310cbdac1a1d8ab60461"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the last immediate temperature at site.  <a href="#gacd56981ba9b6310cbdac1a1d8ab60461">More...</a><br/></td></tr>
 <tr class="separator:gacd56981ba9b6310cbdac1a1d8ab60461"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga64963986f954e95e6f9d0173dd0feab5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00110.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ga64963986f954e95e6f9d0173dd0feab5">TMU_GetAverageTemperature</a> (TMU_Type *base, uint32_t *temperature)</td></tr>
+<tr class="memitem:ga64963986f954e95e6f9d0173dd0feab5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00107.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ga64963986f954e95e6f9d0173dd0feab5">TMU_GetAverageTemperature</a> (TMU_Type *base, uint32_t *temperature)</td></tr>
 <tr class="memdesc:ga64963986f954e95e6f9d0173dd0feab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the last average temperature at site.  <a href="#ga64963986f954e95e6f9d0173dd0feab5">More...</a><br/></td></tr>
 <tr class="separator:ga64963986f954e95e6f9d0173dd0feab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae0fe58362113f09ec233fb83f4c1cc01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gae0fe58362113f09ec233fb83f4c1cc01">TMU_SetHighTemperatureThresold</a> (TMU_Type *base, const <a class="el" href="a00026.html#a00216">tmu_thresold_config_t</a> *config)</td></tr>
+<tr class="memitem:gae0fe58362113f09ec233fb83f4c1cc01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#gae0fe58362113f09ec233fb83f4c1cc01">TMU_SetHighTemperatureThresold</a> (TMU_Type *base, const <a class="el" href="a00026.html#ga487862d0aa3fb984b3431ad7c6923125">tmu_thresold_config_t</a> *config)</td></tr>
 <tr class="memdesc:gae0fe58362113f09ec233fb83f4c1cc01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the high temperature thresold value and enable/disable relevant thresold.  <a href="#gae0fe58362113f09ec233fb83f4c1cc01">More...</a><br/></td></tr>
 <tr class="separator:gae0fe58362113f09ec233fb83f4c1cc01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="a00216" id="a00216"></a>
+<a name="a00212" id="a00212"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct tmu_thresold_config_t</td>
+          <td class="memname">struct _tmu_thresold_config</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a26dcfbd2e1b2358536423c97a932b220"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a26dcfbd2e1b2358536423c97a932b220">immediateThresoldEnable</a></td></tr>
-<tr class="memdesc:a26dcfbd2e1b2358536423c97a932b220"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable high temperature immediate threshold.  <a href="#a26dcfbd2e1b2358536423c97a932b220">More...</a><br/></td></tr>
-<tr class="separator:a26dcfbd2e1b2358536423c97a932b220"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a269f4768530d6a95fd23ad2bce651cde"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a269f4768530d6a95fd23ad2bce651cde">AverageThresoldEnable</a></td></tr>
-<tr class="memdesc:a269f4768530d6a95fd23ad2bce651cde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable high temperature average threshold.  <a href="#a269f4768530d6a95fd23ad2bce651cde">More...</a><br/></td></tr>
-<tr class="separator:a269f4768530d6a95fd23ad2bce651cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3422784818643c5e78ab9b2b545204b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ae3422784818643c5e78ab9b2b545204b">AverageCriticalThresoldEnable</a></td></tr>
-<tr class="memdesc:ae3422784818643c5e78ab9b2b545204b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable high temperature average critical threshold.  <a href="#ae3422784818643c5e78ab9b2b545204b">More...</a><br/></td></tr>
-<tr class="separator:ae3422784818643c5e78ab9b2b545204b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86a0ce2dd78e46a1b842a4c86afeee11"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a86a0ce2dd78e46a1b842a4c86afeee11">immediateThresoldValue</a></td></tr>
-<tr class="memdesc:a86a0ce2dd78e46a1b842a4c86afeee11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range:10U-125U.  <a href="#a86a0ce2dd78e46a1b842a4c86afeee11">More...</a><br/></td></tr>
-<tr class="separator:a86a0ce2dd78e46a1b842a4c86afeee11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee4703600e7bae9134b7fb717071a3d0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#aee4703600e7bae9134b7fb717071a3d0">averageThresoldValue</a></td></tr>
-<tr class="memdesc:aee4703600e7bae9134b7fb717071a3d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range:10U-125U.  <a href="#aee4703600e7bae9134b7fb717071a3d0">More...</a><br/></td></tr>
-<tr class="separator:aee4703600e7bae9134b7fb717071a3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36c49c9978a39decb657e72026189754"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a36c49c9978a39decb657e72026189754">averageCriticalThresoldValue</a></td></tr>
-<tr class="memdesc:a36c49c9978a39decb657e72026189754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range:10U-125U.  <a href="#a36c49c9978a39decb657e72026189754">More...</a><br/></td></tr>
-<tr class="separator:a36c49c9978a39decb657e72026189754"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeac986904c49c00572763b06fc7065a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#aeac986904c49c00572763b06fc7065a3">immediateThresoldEnable</a></td></tr>
+<tr class="memdesc:aeac986904c49c00572763b06fc7065a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable high temperature immediate threshold.  <a href="#aeac986904c49c00572763b06fc7065a3">More...</a><br/></td></tr>
+<tr class="separator:aeac986904c49c00572763b06fc7065a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cb3b2992a262e084d2533ca62db4a0c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a8cb3b2992a262e084d2533ca62db4a0c">AverageThresoldEnable</a></td></tr>
+<tr class="memdesc:a8cb3b2992a262e084d2533ca62db4a0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable high temperature average threshold.  <a href="#a8cb3b2992a262e084d2533ca62db4a0c">More...</a><br/></td></tr>
+<tr class="separator:a8cb3b2992a262e084d2533ca62db4a0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bc0698acdddde49fd6a18e3aaef8b40"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a2bc0698acdddde49fd6a18e3aaef8b40">AverageCriticalThresoldEnable</a></td></tr>
+<tr class="memdesc:a2bc0698acdddde49fd6a18e3aaef8b40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable high temperature average critical threshold.  <a href="#a2bc0698acdddde49fd6a18e3aaef8b40">More...</a><br/></td></tr>
+<tr class="separator:a2bc0698acdddde49fd6a18e3aaef8b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5fe44464c1cacfe75ee82b8cbcd2ce0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ae5fe44464c1cacfe75ee82b8cbcd2ce0">immediateThresoldValue</a></td></tr>
+<tr class="memdesc:ae5fe44464c1cacfe75ee82b8cbcd2ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range:10U-125U.  <a href="#ae5fe44464c1cacfe75ee82b8cbcd2ce0">More...</a><br/></td></tr>
+<tr class="separator:ae5fe44464c1cacfe75ee82b8cbcd2ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2836b3ac0865b743f109f813c08ca22b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a2836b3ac0865b743f109f813c08ca22b">averageThresoldValue</a></td></tr>
+<tr class="memdesc:a2836b3ac0865b743f109f813c08ca22b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range:10U-125U.  <a href="#a2836b3ac0865b743f109f813c08ca22b">More...</a><br/></td></tr>
+<tr class="separator:a2836b3ac0865b743f109f813c08ca22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac01d497bc25964566de01d54cfc5a990"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ac01d497bc25964566de01d54cfc5a990">averageCriticalThresoldValue</a></td></tr>
+<tr class="memdesc:ac01d497bc25964566de01d54cfc5a990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range:10U-125U.  <a href="#ac01d497bc25964566de01d54cfc5a990">More...</a><br/></td></tr>
+<tr class="separator:ac01d497bc25964566de01d54cfc5a990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h4 class="groupheader">Field Documentation</h4>
-<a class="anchor" id="a26dcfbd2e1b2358536423c97a932b220"></a>
+<a class="anchor" id="aeac986904c49c00572763b06fc7065a3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tmu_thresold_config_t::immediateThresoldEnable</td>
+          <td class="memname">bool _tmu_thresold_config::immediateThresoldEnable</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a269f4768530d6a95fd23ad2bce651cde"></a>
+<a class="anchor" id="a8cb3b2992a262e084d2533ca62db4a0c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tmu_thresold_config_t::AverageThresoldEnable</td>
+          <td class="memname">bool _tmu_thresold_config::AverageThresoldEnable</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="ae3422784818643c5e78ab9b2b545204b"></a>
+<a class="anchor" id="a2bc0698acdddde49fd6a18e3aaef8b40"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tmu_thresold_config_t::AverageCriticalThresoldEnable</td>
+          <td class="memname">bool _tmu_thresold_config::AverageCriticalThresoldEnable</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a86a0ce2dd78e46a1b842a4c86afeee11"></a>
+<a class="anchor" id="ae5fe44464c1cacfe75ee82b8cbcd2ce0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t tmu_thresold_config_t::immediateThresoldValue</td>
+          <td class="memname">uint8_t _tmu_thresold_config::immediateThresoldValue</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -389,12 +420,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aee4703600e7bae9134b7fb717071a3d0"></a>
+<a class="anchor" id="a2836b3ac0865b743f109f813c08ca22b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t tmu_thresold_config_t::averageThresoldValue</td>
+          <td class="memname">uint8_t _tmu_thresold_config::averageThresoldValue</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -402,12 +433,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a36c49c9978a39decb657e72026189754"></a>
+<a class="anchor" id="ac01d497bc25964566de01d54cfc5a990"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t tmu_thresold_config_t::averageCriticalThresoldValue</td>
+          <td class="memname">uint8_t _tmu_thresold_config::averageCriticalThresoldValue</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -418,28 +449,28 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a name="a00215" id="a00215"></a>
+<a name="a00211" id="a00211"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct tmu_interrupt_status_t</td>
+          <td class="memname">struct _tmu_interrupt_status</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:ab43148d3beb8ceff37928791119ccad5"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#ab43148d3beb8ceff37928791119ccad5">interruptDetectMask</a></td></tr>
-<tr class="memdesc:ab43148d3beb8ceff37928791119ccad5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The mask of interrupt status flags.  <a href="#ab43148d3beb8ceff37928791119ccad5">More...</a><br/></td></tr>
-<tr class="separator:ab43148d3beb8ceff37928791119ccad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa003e39771da8ef1face098c1f84a92"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#afa003e39771da8ef1face098c1f84a92">interruptDetectMask</a></td></tr>
+<tr class="memdesc:afa003e39771da8ef1face098c1f84a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">The mask of interrupt status flags.  <a href="#afa003e39771da8ef1face098c1f84a92">More...</a><br/></td></tr>
+<tr class="separator:afa003e39771da8ef1face098c1f84a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h4 class="groupheader">Field Documentation</h4>
-<a class="anchor" id="ab43148d3beb8ceff37928791119ccad5"></a>
+<a class="anchor" id="afa003e39771da8ef1face098c1f84a92"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t tmu_interrupt_status_t::interruptDetectMask</td>
+          <td class="memname">uint32_t _tmu_interrupt_status::interruptDetectMask</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -450,28 +481,28 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a name="a00214" id="a00214"></a>
+<a name="a00210" id="a00210"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct tmu_config_t</td>
+          <td class="memname">struct _tmu_config</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a19cb414c5a89d06931bb5d3f48ba64c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00026.html#gaca82b26be0dba081331898db1a56d7b7">tmu_average_low_pass_filter_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a19cb414c5a89d06931bb5d3f48ba64c2">averageLPF</a></td></tr>
-<tr class="memdesc:a19cb414c5a89d06931bb5d3f48ba64c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The average temperature is calculated as: ALPF x Current_Temp + (1 - ALPF) x Average_Temp.  <a href="#a19cb414c5a89d06931bb5d3f48ba64c2">More...</a><br/></td></tr>
-<tr class="separator:a19cb414c5a89d06931bb5d3f48ba64c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbb852655cf1f47d22d19c1838616421"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00026.html#ga556b4a353fc881d0fe7ac90d4d9b5361">tmu_average_low_pass_filter_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#abbb852655cf1f47d22d19c1838616421">averageLPF</a></td></tr>
+<tr class="memdesc:abbb852655cf1f47d22d19c1838616421"><td class="mdescLeft">&#160;</td><td class="mdescRight">The average temperature is calculated as: ALPF x Current_Temp + (1 - ALPF) x Average_Temp.  <a href="#abbb852655cf1f47d22d19c1838616421">More...</a><br/></td></tr>
+<tr class="separator:abbb852655cf1f47d22d19c1838616421"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h4 class="groupheader">Field Documentation</h4>
-<a class="anchor" id="a19cb414c5a89d06931bb5d3f48ba64c2"></a>
+<a class="anchor" id="abbb852655cf1f47d22d19c1838616421"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00026.html#gaca82b26be0dba081331898db1a56d7b7">tmu_average_low_pass_filter_t</a> tmu_config_t::averageLPF</td>
+          <td class="memname"><a class="el" href="a00026.html#ga556b4a353fc881d0fe7ac90d4d9b5361">tmu_average_low_pass_filter_t</a> _tmu_config::averageLPF</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -488,7 +519,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FSL_TMU_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00110.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 1))</td>
+          <td class="memname">#define FSL_TMU_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00107.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 1))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -545,198 +576,198 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="gaca82b26be0dba081331898db1a56d7b7"></a>
+<a class="anchor" id="ga3d65f4100d8016713d765b92b35896c5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00026.html#gaca82b26be0dba081331898db1a56d7b7">tmu_average_low_pass_filter_t</a></td>
+          <td class="memname">enum <a class="el" href="a00026.html#ga3d65f4100d8016713d765b92b35896c5">_tmu_average_low_pass_filter</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaca82b26be0dba081331898db1a56d7b7a291ff39f3aa2246d306d41239419ac91"></a>kTMU_AverageLowPassFilter1_0</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga3d65f4100d8016713d765b92b35896c5a291ff39f3aa2246d306d41239419ac91"></a>kTMU_AverageLowPassFilter1_0</em>&nbsp;</td><td class="fielddoc">
 <p>Average low pass filter = 1. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaca82b26be0dba081331898db1a56d7b7ad4f106ea1c4a87f1baadcfcf93f9d7cc"></a>kTMU_AverageLowPassFilter0_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga3d65f4100d8016713d765b92b35896c5ad4f106ea1c4a87f1baadcfcf93f9d7cc"></a>kTMU_AverageLowPassFilter0_5</em>&nbsp;</td><td class="fielddoc">
 <p>Average low pass filter = 0.5. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaca82b26be0dba081331898db1a56d7b7a15867fc170984bedc164d257b4a7961a"></a>kTMU_AverageLowPassFilter0_25</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga3d65f4100d8016713d765b92b35896c5a15867fc170984bedc164d257b4a7961a"></a>kTMU_AverageLowPassFilter0_25</em>&nbsp;</td><td class="fielddoc">
 <p>Average low pass filter = 0.25. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaca82b26be0dba081331898db1a56d7b7adede33bc421ad4952f2949b00fde3f32"></a>kTMU_AverageLowPassFilter0_125</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga3d65f4100d8016713d765b92b35896c5adede33bc421ad4952f2949b00fde3f32"></a>kTMU_AverageLowPassFilter0_125</em>&nbsp;</td><td class="fielddoc">
 <p>Average low pass filter = 0.125. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="ga24f5b001bce2a3d7c4ec75a412c8c66a"></a>
+<a class="anchor" id="ga89735fabe143666579bdd46507188db4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00026.html#ga24f5b001bce2a3d7c4ec75a412c8c66a">tmu_amplifier_gain_t</a></td>
+          <td class="memname">enum <a class="el" href="a00026.html#ga89735fabe143666579bdd46507188db4">_tmu_amplifier_gain</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aafbe18297e5082a68d6255c5773b4a7e5"></a>kTMU_AmplifierGain6_34</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4afbe18297e5082a68d6255c5773b4a7e5"></a>kTMU_AmplifierGain6_34</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 6.34mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aa7cd1454e0119be5d0e0583e462f99dce"></a>kTMU_AmplifierGain6_485</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4a7cd1454e0119be5d0e0583e462f99dce"></a>kTMU_AmplifierGain6_485</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 6.485mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aa3142148ff65e050e11d80a7e25db79be"></a>kTMU_AmplifierGain6_63</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4a3142148ff65e050e11d80a7e25db79be"></a>kTMU_AmplifierGain6_63</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 6.63mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aa87ed0c008fe5851f9f432f74001c9c09"></a>kTMU_AmplifierGain6_775</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4a87ed0c008fe5851f9f432f74001c9c09"></a>kTMU_AmplifierGain6_775</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 6.775mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aabcee25caa3267e2c91d6df49a568e68c"></a>kTMU_AmplifierGain6_92</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4abcee25caa3267e2c91d6df49a568e68c"></a>kTMU_AmplifierGain6_92</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 6.92mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aac57adbbf82b3b7d66ca809cf1e6c0cde"></a>kTMU_AmplifierGain7_065</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4ac57adbbf82b3b7d66ca809cf1e6c0cde"></a>kTMU_AmplifierGain7_065</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 7.065mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aa200e5bd2c59a13e81824d8509dd11d10"></a>kTMU_AmplifierGain7_21</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4a200e5bd2c59a13e81824d8509dd11d10"></a>kTMU_AmplifierGain7_21</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 7.21mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aae4bb305967748ea0993e1bf536fe099a"></a>kTMU_AmplifierGain7_355</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4ae4bb305967748ea0993e1bf536fe099a"></a>kTMU_AmplifierGain7_355</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 7.355mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aa545a99a88971548febf232b27a83008f"></a>kTMU_AmplifierGain7_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4a545a99a88971548febf232b27a83008f"></a>kTMU_AmplifierGain7_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 7.5mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aadf255d98a66078aeee940e5d38f81363"></a>kTMU_AmplifierGain7_645</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4adf255d98a66078aeee940e5d38f81363"></a>kTMU_AmplifierGain7_645</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 7.645mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aa60ac3832f11c903a114d6e1154ace2d8"></a>kTMU_AmplifierGain7_79</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4a60ac3832f11c903a114d6e1154ace2d8"></a>kTMU_AmplifierGain7_79</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 7.79mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aaa63c910734df7b1da86413ad914d5842"></a>kTMU_AmplifierGain7_935</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4aa63c910734df7b1da86413ad914d5842"></a>kTMU_AmplifierGain7_935</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 7.935mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aaf5983e4677b996a4dfbcb4e3e2df32a8"></a>kTMU_AmplifierGain8_08</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4af5983e4677b996a4dfbcb4e3e2df32a8"></a>kTMU_AmplifierGain8_08</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 8.08mV(default). </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aa6dae6772d12b343030fa1317b410c9d1"></a>kTMU_AmplifierGain8_225</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4a6dae6772d12b343030fa1317b410c9d1"></a>kTMU_AmplifierGain8_225</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 8.225mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aa01fc4da5ad97c64b81418944ca3067fb"></a>kTMU_AmplifierGain8_37</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4a01fc4da5ad97c64b81418944ca3067fb"></a>kTMU_AmplifierGain8_37</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 8.37mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga24f5b001bce2a3d7c4ec75a412c8c66aa56ca6c3c481735b786790ebc54d336ae"></a>kTMU_AmplifierGain8_515</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga89735fabe143666579bdd46507188db4a56ca6c3c481735b786790ebc54d336ae"></a>kTMU_AmplifierGain8_515</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier gain voltage 8.515mV. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="ga8561445d48e5b7d6d0e79695d29462fb"></a>
+<a class="anchor" id="gacb9d5ccdbd25a42692a230928c1a2c9b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00026.html#ga8561445d48e5b7d6d0e79695d29462fb">tmu_amplifier_reference_voltage_t</a></td>
+          <td class="memname">enum <a class="el" href="a00026.html#gacb9d5ccdbd25a42692a230928c1a2c9b">_tmu_amplifier_reference_voltage</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fba230cab88a30ca8cc535f643ab9b012a7"></a>kTMU_AmplifierReferenceVoltage510</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9ba230cab88a30ca8cc535f643ab9b012a7"></a>kTMU_AmplifierReferenceVoltage510</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 510mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbada7c0d2ea419f1dcf73f38cbc6ba0a92"></a>kTMU_AmplifierReferenceVoltage517_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9bada7c0d2ea419f1dcf73f38cbc6ba0a92"></a>kTMU_AmplifierReferenceVoltage517_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 517.5mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbae679abafb8deb080535e6ec8779f7f63"></a>kTMU_AmplifierReferenceVoltage525</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9bae679abafb8deb080535e6ec8779f7f63"></a>kTMU_AmplifierReferenceVoltage525</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 525mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbab316c215fa13e94579e4e354f07435b5"></a>kTMU_AmplifierReferenceVoltage532_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9bab316c215fa13e94579e4e354f07435b5"></a>kTMU_AmplifierReferenceVoltage532_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 532.5mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fba8713471d17d06be3451ec80821784845"></a>kTMU_AmplifierReferenceVoltage540</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9ba8713471d17d06be3451ec80821784845"></a>kTMU_AmplifierReferenceVoltage540</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 540mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbac6b67a394fa9f9ac1380a14b4896559f"></a>kTMU_AmplifierReferenceVoltage547_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9bac6b67a394fa9f9ac1380a14b4896559f"></a>kTMU_AmplifierReferenceVoltage547_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 547.5mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fba9f4b383b1858a9b64077f337955ca738"></a>kTMU_AmplifierReferenceVoltage555</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9ba9f4b383b1858a9b64077f337955ca738"></a>kTMU_AmplifierReferenceVoltage555</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 555mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fba6709c675729541552a829adff10f3918"></a>kTMU_AmplifierReferenceVoltage562_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9ba6709c675729541552a829adff10f3918"></a>kTMU_AmplifierReferenceVoltage562_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 562.5mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fba4cbd92d098c311a3e84170fd49c1f24d"></a>kTMU_AmplifierReferenceVoltage570</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9ba4cbd92d098c311a3e84170fd49c1f24d"></a>kTMU_AmplifierReferenceVoltage570</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 570mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbabbe65f74c79580bf28ed42932b1f501c"></a>kTMU_AmplifierReferenceVoltage577_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9babbe65f74c79580bf28ed42932b1f501c"></a>kTMU_AmplifierReferenceVoltage577_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 577.5mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbaeb7789357b7e7ac67f7861e8343a0b85"></a>kTMU_AmplifierReferenceVoltage585</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9baeb7789357b7e7ac67f7861e8343a0b85"></a>kTMU_AmplifierReferenceVoltage585</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 585mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbaa80d394032c4da1b613bb6cd66fb6246"></a>kTMU_AmplifierReferenceVoltage592_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9baa80d394032c4da1b613bb6cd66fb6246"></a>kTMU_AmplifierReferenceVoltage592_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 592.5mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbab48e930f7bb003e188e5f8cb6222d0c6"></a>kTMU_AmplifierReferenceVoltage600</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9bab48e930f7bb003e188e5f8cb6222d0c6"></a>kTMU_AmplifierReferenceVoltage600</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 600mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbae9ac3b8c18015c74e2c3ddf162e6ec60"></a>kTMU_AmplifierReferenceVoltage607_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9bae9ac3b8c18015c74e2c3ddf162e6ec60"></a>kTMU_AmplifierReferenceVoltage607_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 607.5mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fba7cf993e2dc706334fd37896e5d02f878"></a>kTMU_AmplifierReferenceVoltage615</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9ba7cf993e2dc706334fd37896e5d02f878"></a>kTMU_AmplifierReferenceVoltage615</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 615mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fba99bc8162dac33684169e664b97beab0d"></a>kTMU_AmplifierReferenceVoltage622_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9ba99bc8162dac33684169e664b97beab0d"></a>kTMU_AmplifierReferenceVoltage622_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 622.5mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fba9f9f0d876bbc1c4df3d281555857b77a"></a>kTMU_AmplifierReferenceVoltage630</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9ba9f9f0d876bbc1c4df3d281555857b77a"></a>kTMU_AmplifierReferenceVoltage630</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 630mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbaf43decd91552dc23c7949baabc879c11"></a>kTMU_AmplifierReferenceVoltage637_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9baf43decd91552dc23c7949baabc879c11"></a>kTMU_AmplifierReferenceVoltage637_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 637.5mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbac2b78482f79a4294499b21efc05a8091"></a>kTMU_AmplifierReferenceVoltage645</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9bac2b78482f79a4294499b21efc05a8091"></a>kTMU_AmplifierReferenceVoltage645</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 645mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fba6a96ad9afed93ba7cf5b541b2c8377f8"></a>kTMU_AmplifierReferenceVoltage652_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9ba6a96ad9afed93ba7cf5b541b2c8377f8"></a>kTMU_AmplifierReferenceVoltage652_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 652.5mV(default). </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbaa362e5644aec811c6d2e8f200b1d6a1a"></a>kTMU_AmplifierReferenceVoltage660</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9baa362e5644aec811c6d2e8f200b1d6a1a"></a>kTMU_AmplifierReferenceVoltage660</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 660mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbaa5af4d8a2d74df3d6836da00e5afbe6d"></a>kTMU_AmplifierReferenceVoltage667_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9baa5af4d8a2d74df3d6836da00e5afbe6d"></a>kTMU_AmplifierReferenceVoltage667_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 667.5mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbaf6688119601d3377c7484822c7a57877"></a>kTMU_AmplifierReferenceVoltage675</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9baf6688119601d3377c7484822c7a57877"></a>kTMU_AmplifierReferenceVoltage675</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 675mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbad2a43d32cbe5e77672449372115e1856"></a>kTMU_AmplifierReferenceVoltage682_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9bad2a43d32cbe5e77672449372115e1856"></a>kTMU_AmplifierReferenceVoltage682_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 682.5mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbaa43a4b7a02f0009c40a78645f0de2083"></a>kTMU_AmplifierReferenceVoltage690</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9baa43a4b7a02f0009c40a78645f0de2083"></a>kTMU_AmplifierReferenceVoltage690</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 690mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbab5972fcfb1db46d3ffedbd0b208f95e2"></a>kTMU_AmplifierReferenceVoltage697_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9bab5972fcfb1db46d3ffedbd0b208f95e2"></a>kTMU_AmplifierReferenceVoltage697_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 697.5mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbaa6c5e99e3d37b3425cdd9c6ef3c2829f"></a>kTMU_AmplifierReferenceVoltage705</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9baa6c5e99e3d37b3425cdd9c6ef3c2829f"></a>kTMU_AmplifierReferenceVoltage705</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 705mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fba92de57b2cd70ac3c29b5be4e3a7c442b"></a>kTMU_AmplifierReferenceVoltage712_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9ba92de57b2cd70ac3c29b5be4e3a7c442b"></a>kTMU_AmplifierReferenceVoltage712_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 712.5mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fba2335f367d72eb0e97af917121d0fbbe3"></a>kTMU_AmplifierReferenceVoltage720</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9ba2335f367d72eb0e97af917121d0fbbe3"></a>kTMU_AmplifierReferenceVoltage720</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 720mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fbad43b43571be5e01150e6ad832ce09858"></a>kTMU_AmplifierReferenceVoltage727_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9bad43b43571be5e01150e6ad832ce09858"></a>kTMU_AmplifierReferenceVoltage727_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 727.5mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fba75a1248acdee78517e499540515a384b"></a>kTMU_AmplifierReferenceVoltage735</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9ba75a1248acdee78517e499540515a384b"></a>kTMU_AmplifierReferenceVoltage735</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 735mV. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8561445d48e5b7d6d0e79695d29462fba07363444d44eeb451166b44153158257"></a>kTMU_AmplifierReferenceVoltage742_5</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="ggacb9d5ccdbd25a42692a230928c1a2c9ba07363444d44eeb451166b44153158257"></a>kTMU_AmplifierReferenceVoltage742_5</em>&nbsp;</td><td class="fielddoc">
 <p>TMU amplifier reference voltage 742.5mV. </p>
 </td></tr>
 </table>
@@ -757,7 +788,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00026.html#a00214">tmu_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00026.html#gaee1abc2c6197e642651c8b74e45291af">tmu_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>&#160;</td>
         </tr>
         <tr>
@@ -806,7 +837,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void TMU_GetDefaultConfig </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00026.html#a00214">tmu_config_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00026.html#gaee1abc2c6197e642651c8b74e45291af">tmu_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em></td><td>)</td>
           <td></td>
         </tr>
@@ -814,7 +845,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>This function initializes the user configuration structure to default value. The default value are:</p>
 <p>Example: </p>
-<div class="fragment"><div class="line">config-&gt;averageLPF = <a class="code" href="a00026.html#ggaca82b26be0dba081331898db1a56d7b7ad4f106ea1c4a87f1baadcfcf93f9d7cc">kTMU_AverageLowPassFilter0_5</a>;</div>
+<div class="fragment"><div class="line">config-&gt;averageLPF = <a class="code" href="a00026.html#gga3d65f4100d8016713d765b92b35896c5ad4f106ea1c4a87f1baadcfcf93f9d7cc">kTMU_AverageLowPassFilter0_5</a>;</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">config</td><td>Pointer to TMU configuration structure. </td></tr>
@@ -960,7 +991,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00026.html#a00215">tmu_interrupt_status_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00026.html#ga8430f4edd8b0bb9aaf2f031b20b7c4e2">tmu_interrupt_status_t</a> *&#160;</td>
           <td class="paramname"><em>status</em>&#160;</td>
         </tr>
         <tr>
@@ -1018,7 +1049,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00110.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> TMU_GetImmediateTemperature </td>
+          <td class="memname"><a class="el" href="a00107.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> TMU_GetImmediateTemperature </td>
           <td>(</td>
           <td class="paramtype">TMU_Type *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -1059,7 +1090,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00110.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> TMU_GetAverageTemperature </td>
+          <td class="memname"><a class="el" href="a00107.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> TMU_GetAverageTemperature </td>
           <td>(</td>
           <td class="paramtype">TMU_Type *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -1108,7 +1139,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00026.html#a00216">tmu_thresold_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00026.html#ga487862d0aa3fb984b3431ad7c6923125">tmu_thresold_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>&#160;</td>
         </tr>
         <tr>

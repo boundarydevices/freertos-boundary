@@ -57,6 +57,7 @@ typedef int (*PUTCHAR_FUNC)(int a);
 /*! @brief Debug UART state information. */
 static debug_console_state_t s_debugConsole;
 #endif
+
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
@@ -117,9 +118,31 @@ status_t DbgConsole_Deinit(void)
     (void)HAL_UartDeinit((hal_uart_handle_t)&s_debugConsole.uartHandleBuffer[0]);
 
     s_debugConsole.serial_port_type = kSerialPort_None;
-
     return kStatus_Success;
 }
+
+/* See fsl_debug_console.h for documentation of this function. */
+status_t DbgConsole_EnterLowpower(void)
+{
+    hal_uart_status_t DbgConsoleUartStatus = kStatus_HAL_UartError;
+    if (kSerialPort_Uart == s_debugConsole.serial_port_type)
+    {
+        DbgConsoleUartStatus = HAL_UartEnterLowpower((hal_uart_handle_t)&s_debugConsole.uartHandleBuffer[0]);
+    }
+    return (status_t)DbgConsoleUartStatus;
+}
+
+/* See fsl_debug_console.h for documentation of this function. */
+status_t DbgConsole_ExitLowpower(void)
+{
+    hal_uart_status_t DbgConsoleUartStatus = kStatus_HAL_UartError;
+    if (kSerialPort_Uart == s_debugConsole.serial_port_type)
+    {
+        DbgConsoleUartStatus = HAL_UartExitLowpower((hal_uart_handle_t)&s_debugConsole.uartHandleBuffer[0]);
+    }
+    return (status_t)DbgConsoleUartStatus;
+}
+
 #endif /* DEBUGCONSOLE_REDIRECT_TO_SDK */
 
 #if (defined(SDK_DEBUGCONSOLE) && (SDK_DEBUGCONSOLE == DEBUGCONSOLE_REDIRECT_TO_SDK))
@@ -153,14 +176,14 @@ int DbgConsole_Vprintf(const char *fmt_s, va_list formatStringArg)
 }
 
 /* See fsl_debug_console.h for documentation of this function. */
-int DbgConsole_Putchar(int ch)
+int DbgConsole_Putchar(int dbgConsoleCh)
 {
     /* Do nothing if the debug UART is not initialized. */
     if (kSerialPort_None == s_debugConsole.serial_port_type)
     {
         return -1;
     }
-    (void)s_debugConsole.putChar((hal_uart_handle_t)&s_debugConsole.uartHandleBuffer[0], (uint8_t *)(&ch), 1);
+    (void)s_debugConsole.putChar((hal_uart_handle_t)&s_debugConsole.uartHandleBuffer[0], (uint8_t *)(&dbgConsoleCh), 1);
 
     return 1;
 }
@@ -227,19 +250,19 @@ int DbgConsole_Scanf(char *fmt_s, ...)
 /* See fsl_debug_console.h for documentation of this function. */
 int DbgConsole_Getchar(void)
 {
-    char ch;
+    char dbgConsoleCh;
     /* Do nothing if the debug UART is not initialized. */
     if (kSerialPort_None == s_debugConsole.serial_port_type)
     {
         return -1;
     }
     while (kStatus_HAL_UartSuccess !=
-           s_debugConsole.getChar((hal_uart_handle_t)&s_debugConsole.uartHandleBuffer[0], (uint8_t *)(&ch), 1))
+           s_debugConsole.getChar((hal_uart_handle_t)&s_debugConsole.uartHandleBuffer[0], (uint8_t *)(&dbgConsoleCh), 1))
     {
         return -1;
     }
 
-    return (int)ch;
+    return (int)dbgConsoleCh;
 }
 
 /*************Code for process formatted data*******************************/
@@ -946,7 +969,7 @@ static int DbgConsole_PrintfFormattedData(PUTCHAR_FUNC func_ptr, const char *fmt
                     }
                     else
                     {
-                        if (0U == (flags_used & (uint32_t)kPRINTF_Pound))
+                        if (0U == (flags_used & (uint32_t)kPRINTF_Minus))
                         {
                             if (0U != (flags_used & (uint32_t)kPRINTF_Pound))
                             {
@@ -1129,7 +1152,7 @@ static int DbgConsole_PrintfFormattedData(PUTCHAR_FUNC func_ptr, const char *fmt
         }
         p++;
     }
-    return (int)count;
+    return count;
 }
 
 #endif /* SDK_DEBUGCONSOLE */

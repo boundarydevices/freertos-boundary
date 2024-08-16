@@ -1,46 +1,54 @@
 var a00017 =
 [
-    [ "i2c_master_config_t", "a00017.html#a00177", [
-      [ "enableMaster", "a00017.html#a2419131a10906475fd31950f17ac8895", null ],
-      [ "baudRate_Bps", "a00017.html#a2186844dc87bcde999fc12005f4c550a", null ]
+    [ "_i2c_master_config", "a00017.html#a00167", [
+      [ "enableMaster", "a00017.html#a7a58fd313d0615ac1ca70d2b4f17ae9a", null ],
+      [ "baudRate_Bps", "a00017.html#a282b6a9bd8e98bf35e8183665488d98c", null ]
     ] ],
-    [ "i2c_master_transfer_t", "a00017.html#a00178", [
-      [ "flags", "a00017.html#a8835787e1b0f9a4b8868e7cbe53e45d5", null ],
-      [ "slaveAddress", "a00017.html#a3b9c4ae818b1194955db51de0f67795f", null ],
-      [ "direction", "a00017.html#ac5b89dc9115b7760431c981e0c1fd443", null ],
-      [ "subaddress", "a00017.html#ae7facb612714785d4e143e57d47a5af3", null ],
-      [ "subaddressSize", "a00017.html#a9c08797f65f0faac78f44ac038c45c38", null ],
-      [ "data", "a00017.html#a0b4fa495c845d29fe6eaad7350337943", null ],
-      [ "dataSize", "a00017.html#a071d26432bea08e4bf76bb4eb8805770", null ]
+    [ "_i2c_master_transfer", "a00017.html#a00169", [
+      [ "flags", "a00017.html#a84861e140902bd67ae901b2f4c53bfc0", null ],
+      [ "slaveAddress", "a00017.html#aa6d93caa78fc9bf0f0aac10f66b8eba1", null ],
+      [ "direction", "a00017.html#a7bd3afcf89b78d9397b2f0c55f9deb27", null ],
+      [ "subaddress", "a00017.html#a7a4f43a16e63d9f286bc41b6255b5e3f", null ],
+      [ "subaddressSize", "a00017.html#a810393f12a8bd6360e04b79ea83fcf3b", null ],
+      [ "data", "a00017.html#a89a3ac8137ef778590d0ab3581187a60", null ],
+      [ "dataSize", "a00017.html#a2e4cb139c00e6dd854232d4b2bfcf87a", null ]
     ] ],
-    [ "i2c_master_handle_t", "a00017.html#a00141", [
-      [ "transfer", "a00017.html#a6858d3525f762d7aded20e6c95eb19fc", null ],
-      [ "transferSize", "a00017.html#a5f6e3613a1fe8c3534a31526b1a34647", null ],
-      [ "state", "a00017.html#add7ec18bc8239c5c87ffcec2fbcf5dd8", null ],
-      [ "completionCallback", "a00017.html#a15b84b8a94c2b2e5ace0a695c79edd84", null ],
-      [ "userData", "a00017.html#aad7df570c53adb2e80acd2ba0d39d109", null ]
+    [ "_i2c_master_handle", "a00017.html#a00168", [
+      [ "transfer", "a00017.html#a403d5da02efab45e1ebb8bef2ae063d5", null ],
+      [ "transferSize", "a00017.html#aab5058b059faf2268848645a1b204cfe", null ],
+      [ "state", "a00017.html#ade67a2d6339836711ee255a18405e750", null ],
+      [ "completionCallback", "a00017.html#a0c6862e22cf2047661ce05975756093a", null ],
+      [ "userData", "a00017.html#a862e1a312eb8b2bd537f1a22a48f455f", null ]
     ] ],
-    [ "i2c_slave_config_t", "a00017.html#a00179", [
-      [ "enableSlave", "a00017.html#a92d20835618a946b8f7702455877ef7a", null ],
-      [ "slaveAddress", "a00017.html#a05851e26565e2b89bd49ef230cc397be", null ]
+    [ "_i2c_slave_config", "a00017.html#a00170", [
+      [ "enableSlave", "a00017.html#ad720331a891010209a1209585056a2b7", null ],
+      [ "slaveAddress", "a00017.html#a60784d4b0182f877068255d5c2f54732", null ]
     ] ],
-    [ "i2c_slave_transfer_t", "a00017.html#a00180", [
-      [ "event", "a00017.html#ad0a9e837e9df16d89bab98a78af5bd10", null ],
-      [ "data", "a00017.html#ae8dab4de2445f3094b6baef3712a80a9", null ],
-      [ "dataSize", "a00017.html#a96d433bce400dfc4917343f2b07e8b1d", null ],
-      [ "completionStatus", "a00017.html#a35adbf64ca65dd2c1b52f9260f5b9e90", null ],
-      [ "transferredCount", "a00017.html#a0394563c8d0f9eeeecd242a65cee2ad4", null ]
+    [ "_i2c_slave_transfer", "a00017.html#a00172", [
+      [ "event", "a00017.html#a461d482d4a91765e8820b55b17e7e53c", null ],
+      [ "data", "a00017.html#a0d4fde45f82fa9dfdb7d13d4e123a894", null ],
+      [ "dataSize", "a00017.html#a59fbecd8b66464de8013c39e40eb4b30", null ],
+      [ "completionStatus", "a00017.html#a5c09cb680bd188a4176823b6dfa21335", null ],
+      [ "transferredCount", "a00017.html#aae53c04dd44495a5f8cf8813e715a53e", null ]
     ] ],
-    [ "i2c_slave_handle_t", "a00017.html#a00142", [
-      [ "state", "a00017.html#a05e28c7ba871cce0a3dd1bad4b768336", null ],
-      [ "transfer", "a00017.html#a49f6e4eb57b2158f3886f47e6c84d1b9", null ],
-      [ "eventMask", "a00017.html#a8ab7d35b42a241c05ddb4c18f8d1e522", null ],
-      [ "callback", "a00017.html#a7229e894f762ead4bd08b4add49e6bc2", null ],
-      [ "userData", "a00017.html#a98ea5e99278b386e2ddb99d45a9750ee", null ]
+    [ "_i2c_slave_handle", "a00017.html#a00171", [
+      [ "state", "a00017.html#a238db96c276b4536be2290d2fe37d230", null ],
+      [ "transfer", "a00017.html#a1dc2ffa11e396aad054370efeb3f2510", null ],
+      [ "eventMask", "a00017.html#a769c9b64e73a1ddb99dfbf8cbc244b14", null ],
+      [ "callback", "a00017.html#aa1a2ab536368e7b2e8981879f1a3f5ca", null ],
+      [ "userData", "a00017.html#a0c21a56aa399763f1969a28fbea35054", null ]
     ] ],
     [ "FSL_I2C_DRIVER_VERSION", "a00017.html#ga60fdaec284298758a650ce1122aef231", null ],
     [ "I2C_RETRY_TIMES", "a00017.html#gaac288786aaa7d0cb947c91591baf42d7", null ],
+    [ "i2c_direction_t", "a00017.html#ga4bf954d998f086594eece268c780bec7", null ],
+    [ "i2c_master_config_t", "a00017.html#gad739710b6b65e12ca5ba9dc2a2a2b463", null ],
+    [ "i2c_master_handle_t", "a00017.html#ga2fd51f58b8cfd309be985bce4b817fdc", null ],
     [ "i2c_master_transfer_callback_t", "a00017.html#ga1c6e059706357c744c165ce7ecd1c185", null ],
+    [ "i2c_master_transfer_t", "a00017.html#ga0e25c3c153992361c8d359a86b70d3c6", null ],
+    [ "i2c_slave_transfer_event_t", "a00017.html#ga95f120f6a73af41648364538cf9a6eca", null ],
+    [ "i2c_slave_handle_t", "a00017.html#ga394e5278816efe62815de9d25be84752", null ],
+    [ "i2c_slave_config_t", "a00017.html#gaa70dd0ec9815617269569190efd2de5d", null ],
+    [ "i2c_slave_transfer_t", "a00017.html#ga69e696cb21165bc58176475879a471cf", null ],
     [ "i2c_slave_transfer_callback_t", "a00017.html#ga974310ded85af5ef341811d542db650c", [
       [ "kStatus_I2C_Busy", "a00017.html#gga0411cd49bb5b71852cecd93bcbf0ca2da49091894b590d7e479605bf113918952", null ],
       [ "kStatus_I2C_Idle", "a00017.html#gga0411cd49bb5b71852cecd93bcbf0ca2da628d242f7bc0e3d5949c7f73eafaa508", null ],
@@ -61,9 +69,9 @@ var a00017 =
     [ "_i2c_interrupt_enable", "a00017.html#ga87c81dd985dad07dc26cb93125a94ec7", [
       [ "kI2C_GlobalInterruptEnable", "a00017.html#gga87c81dd985dad07dc26cb93125a94ec7a5526e27ef6e8317ba928849da890b3b2", null ]
     ] ],
-    [ "i2c_direction_t", "a00017.html#gab49c827b45635206f06e5737606e4611", [
-      [ "kI2C_Write", "a00017.html#ggab49c827b45635206f06e5737606e4611a93b476b469c2a4bfed5916b458ae9bb0", null ],
-      [ "kI2C_Read", "a00017.html#ggab49c827b45635206f06e5737606e4611a3a7bb24dc8d1c1be8925603eeafe9b30", null ]
+    [ "_i2c_direction", "a00017.html#ga1625497320644ba123718bafdd2c1f39", [
+      [ "kI2C_Write", "a00017.html#gga1625497320644ba123718bafdd2c1f39a93b476b469c2a4bfed5916b458ae9bb0", null ],
+      [ "kI2C_Read", "a00017.html#gga1625497320644ba123718bafdd2c1f39a3a7bb24dc8d1c1be8925603eeafe9b30", null ]
     ] ],
     [ "_i2c_master_transfer_flags", "a00017.html#ga87ea07668194cfb46c7c368d2cb42433", [
       [ "kI2C_TransferDefaultFlag", "a00017.html#gga87ea07668194cfb46c7c368d2cb42433ae80f7b768b1621e42ac965d3d23de5e2", null ],
@@ -71,13 +79,13 @@ var a00017 =
       [ "kI2C_TransferRepeatedStartFlag", "a00017.html#gga87ea07668194cfb46c7c368d2cb42433aadf112471ef12f194985a093cd9b9721", null ],
       [ "kI2C_TransferNoStopFlag", "a00017.html#gga87ea07668194cfb46c7c368d2cb42433afb8aeea71b5b7475e3d3df86220db566", null ]
     ] ],
-    [ "i2c_slave_transfer_event_t", "a00017.html#gac53e5c96a2eed1b5a95b7d84be48f4ac", [
-      [ "kI2C_SlaveAddressMatchEvent", "a00017.html#ggac53e5c96a2eed1b5a95b7d84be48f4acacb1ae174dd6798a6fd79800a9e39a3c6", null ],
-      [ "kI2C_SlaveTransmitEvent", "a00017.html#ggac53e5c96a2eed1b5a95b7d84be48f4aca2f85039a57379838909876a1d509b7aa", null ],
-      [ "kI2C_SlaveReceiveEvent", "a00017.html#ggac53e5c96a2eed1b5a95b7d84be48f4acaac8593e808a8137d1b5d3a51640779de", null ],
-      [ "kI2C_SlaveTransmitAckEvent", "a00017.html#ggac53e5c96a2eed1b5a95b7d84be48f4aca43c045da27fa60e7a0540c743eca4e79", null ],
-      [ "kI2C_SlaveCompletionEvent", "a00017.html#ggac53e5c96a2eed1b5a95b7d84be48f4aca38cca3cd668e73f51b8e574835d419df", null ],
-      [ "kI2C_SlaveAllEvents", "a00017.html#ggac53e5c96a2eed1b5a95b7d84be48f4aca94b030ebdac378a84961893ae567bfbc", null ]
+    [ "_i2c_slave_transfer_event", "a00017.html#ga87e42e170b60f17f657ef3c06a918133", [
+      [ "kI2C_SlaveAddressMatchEvent", "a00017.html#gga87e42e170b60f17f657ef3c06a918133acb1ae174dd6798a6fd79800a9e39a3c6", null ],
+      [ "kI2C_SlaveTransmitEvent", "a00017.html#gga87e42e170b60f17f657ef3c06a918133a2f85039a57379838909876a1d509b7aa", null ],
+      [ "kI2C_SlaveReceiveEvent", "a00017.html#gga87e42e170b60f17f657ef3c06a918133aac8593e808a8137d1b5d3a51640779de", null ],
+      [ "kI2C_SlaveTransmitAckEvent", "a00017.html#gga87e42e170b60f17f657ef3c06a918133a43c045da27fa60e7a0540c743eca4e79", null ],
+      [ "kI2C_SlaveCompletionEvent", "a00017.html#gga87e42e170b60f17f657ef3c06a918133a38cca3cd668e73f51b8e574835d419df", null ],
+      [ "kI2C_SlaveAllEvents", "a00017.html#gga87e42e170b60f17f657ef3c06a918133a94b030ebdac378a84961893ae567bfbc", null ]
     ] ],
     [ "I2C_MasterInit", "a00017.html#ga29f967b3ae8487a36ba2a58deb01ccae", null ],
     [ "I2C_MasterDeinit", "a00017.html#gadcf7122f0a38d4d9da0f052fcb167957", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['outputlogic',['outputLogic',['../a00015.html#a9d37ffd9a2943f10a91095759bd52da5',1,'gpio_pin_config_t']]]
+  ['outputlogic',['outputLogic',['../a00015.html#a70ede6dc868ff6dd15987ba62c5d574b',1,'_gpio_pin_config']]]
 ];

@@ -1,43 +1,50 @@
 var a00027 =
 [
-    [ "uart_config_t", "a00027.html#a00217", [
-      [ "baudRate_Bps", "a00027.html#acc123668836f3432c54ee6a2f6f318f1", null ],
-      [ "parityMode", "a00027.html#a1a3abcf4f0f5d0a3893df14f2991aa39", null ],
-      [ "dataBitsCount", "a00027.html#aa026642db643d8cae1a64869acd9baf5", null ],
-      [ "stopBitCount", "a00027.html#adf6e33c13910e9ec7c2688f83a462be0", null ],
-      [ "txFifoWatermark", "a00027.html#a5eb9ab81752080bc726b8d625d2b6b21", null ],
-      [ "rxFifoWatermark", "a00027.html#a1bb7b2f0f7df79977d33be264fb5163a", null ],
-      [ "rxRTSWatermark", "a00027.html#a4c7cdd2e54c98166de5148ffe637ce8c", null ],
-      [ "enableAutoBaudRate", "a00027.html#ac595435b68632c2dbaece764c54cd41d", null ],
-      [ "enableTx", "a00027.html#a91d575902455699a312c64b564133a8d", null ],
-      [ "enableRx", "a00027.html#aa045acd340fc86d70a497f49e0a95bdd", null ],
-      [ "enableRxRTS", "a00027.html#adc47219b87ec27ff77d872e1dd234fa4", null ],
-      [ "enableTxCTS", "a00027.html#a800f164d6cfca4e94dedf307bbc6a555", null ]
+    [ "_uart_config", "a00027.html#a00213", [
+      [ "baudRate_Bps", "a00027.html#a7887988d467cbcb940bfb69e30f4b419", null ],
+      [ "parityMode", "a00027.html#aedd929d32b06c4bc7418067c832ab28f", null ],
+      [ "dataBitsCount", "a00027.html#a94bbbf136bbcb7acd10f7a7abd3cc32d", null ],
+      [ "stopBitCount", "a00027.html#a0f9966f4b0a032df66ffc233c65264f9", null ],
+      [ "txFifoWatermark", "a00027.html#a080a4d1e3cc73718fd9609a154f3352d", null ],
+      [ "rxFifoWatermark", "a00027.html#a92b0cc268cbe203c207779c5b6d569fa", null ],
+      [ "rxRTSWatermark", "a00027.html#a23b1e6e04de101a46836dab6d3477612", null ],
+      [ "enableAutoBaudRate", "a00027.html#a12f641ac95769db93199caacd021afda", null ],
+      [ "enableTx", "a00027.html#a2f651168ae7be081a29e8f1de5244540", null ],
+      [ "enableRx", "a00027.html#aa854be533f7f43433572dbf1e4bebb03", null ],
+      [ "enableRxRTS", "a00027.html#aae8a136ede05667f52e63c46ca8378bc", null ],
+      [ "enableTxCTS", "a00027.html#afb32f70748661f6e944c1b864e955870", null ]
     ] ],
-    [ "uart_transfer_t", "a00027.html#a00219", [
-      [ "data", "a00027.html#af91f05b0f951836e3002f60f0575f369", null ],
-      [ "rxData", "a00027.html#a6a01cecc49085fd54225618e4aa7d9df", null ],
-      [ "txData", "a00027.html#a6b21ddbed7f4029bbd73c783d7633339", null ],
-      [ "dataSize", "a00027.html#a21820f8294de0d75d863b72512a7c12f", null ]
+    [ "_uart_transfer", "a00027.html#a00216", [
+      [ "data", "a00027.html#a539dba6b07c6b81b52f508ebf8a7d6c0", null ],
+      [ "rxData", "a00027.html#aed76abc37dea80849d9d0cc35a216e45", null ],
+      [ "txData", "a00027.html#a6465f735a1152bcb8d731cc2d52dbc37", null ],
+      [ "dataSize", "a00027.html#a47819d071bfe28c770850b7569fe3483", null ]
     ] ],
-    [ "uart_handle_t", "a00027.html#a00147", [
-      [ "txData", "a00027.html#a8335d5ed357baeccd5c4dc961be8441e", null ],
-      [ "txDataSize", "a00027.html#a1e67a92b463ad328646834ea0de4d70d", null ],
-      [ "txDataSizeAll", "a00027.html#a80361474eb03b3aa30d02bda82adce65", null ],
-      [ "rxData", "a00027.html#a5c87354702502998d3ccca9d9bfd3069", null ],
-      [ "rxDataSize", "a00027.html#a46bd84d885004806f89744ad79edd81e", null ],
-      [ "rxDataSizeAll", "a00027.html#a800a05d5ea3c6240daad46f466a8fea4", null ],
-      [ "rxRingBuffer", "a00027.html#afeba8b549facc329937046e734681963", null ],
-      [ "rxRingBufferSize", "a00027.html#a8d6afed4b64233c959a180b66686c14c", null ],
-      [ "rxRingBufferHead", "a00027.html#a85d061606b31401fb4a9d0e22e77056c", null ],
-      [ "rxRingBufferTail", "a00027.html#a9f4482059188bea2603b1c07cf9cc084", null ],
-      [ "callback", "a00027.html#a2ef9706e8203ba72fa1e04c48581fb0f", null ],
-      [ "userData", "a00027.html#a69ce1fdb7a2f60c0ecc94c4d1b2ed6ff", null ],
-      [ "txState", "a00027.html#a9fa8f119b6e0e3a7805fb25edafb1498", null ],
-      [ "rxState", "a00027.html#a5aa95f3d2cb81a8bb01a11ab2cf66234", null ]
+    [ "_uart_handle", "a00027.html#a00214", [
+      [ "txData", "a00027.html#a2a21ca8d9b4fb65febc769c187abc0fe", null ],
+      [ "txDataSize", "a00027.html#ae58e8fca80610613930971c944c5a13f", null ],
+      [ "txDataSizeAll", "a00027.html#ab1681a0ef5772f10119be9f66efb0d77", null ],
+      [ "rxData", "a00027.html#aedb4263284f51ebecf7842dbc6a12958", null ],
+      [ "rxDataSize", "a00027.html#aa9575748a161e9b26616c07357b5ffbf", null ],
+      [ "rxDataSizeAll", "a00027.html#a6f67f7836c8e0575489ddb579be06ab2", null ],
+      [ "rxRingBuffer", "a00027.html#a0899932285fcefa9d2cb3a5528c5f1f2", null ],
+      [ "rxRingBufferSize", "a00027.html#ab17ccbc11c8d2de94eb6105db53583c9", null ],
+      [ "rxRingBufferHead", "a00027.html#a9d116920fe45bdbb0819841841fa3ea5", null ],
+      [ "rxRingBufferTail", "a00027.html#adb8a7d117c675e9164a480265aecae45", null ],
+      [ "callback", "a00027.html#a6aa04dcc733827d88d7ca589cad87008", null ],
+      [ "userData", "a00027.html#aa5813a8c6733b4ac0b4979c68c45168c", null ],
+      [ "txState", "a00027.html#a4dc421b251f4feb8a01258737294c5ab", null ],
+      [ "rxState", "a00027.html#a627bed2cba21fd6ba785bc49e7d87c3d", null ]
     ] ],
     [ "FSL_UART_DRIVER_VERSION", "a00027.html#ga89f9649bfe350eb7b1e53146f35d3de5", null ],
     [ "UART_RETRY_TIMES", "a00027.html#gac0f88b67f77fd05f186a5ec940c340bd", null ],
+    [ "uart_data_bits_t", "a00027.html#ga5733305b30c1d41fa58f14c0a3156578", null ],
+    [ "uart_parity_mode_t", "a00027.html#ga3d74bf70252b21a0dd19d61587ed320c", null ],
+    [ "uart_stop_bit_count_t", "a00027.html#ga1df1fcb3fcd2d2db0b7ea0189fd94554", null ],
+    [ "uart_idle_condition_t", "a00027.html#gaf7b51cd2e675a6bf91e6b5eb0db30ec6", null ],
+    [ "uart_config_t", "a00027.html#ga032da70848aac8bc9c3904a32bde5899", null ],
+    [ "uart_transfer_t", "a00027.html#gae245db88e02822f416e4d246d49076df", null ],
+    [ "uart_handle_t", "a00027.html#gae4cc0b0d1b32237a516424ff2f60e406", null ],
     [ "uart_transfer_callback_t", "a00027.html#gaf164fa4e12ff8a3e3f3997512001e007", [
       [ "kStatus_UART_TxBusy", "a00027.html#ggabed82baf7f470b522273a3e37c24c600a19ddee4fe5963467600028b78fb468e7", null ],
       [ "kStatus_UART_RxBusy", "a00027.html#ggabed82baf7f470b522273a3e37c24c600a68cf23f981c4b85f82291163fbb2a5e6", null ],
@@ -56,24 +63,24 @@ var a00027 =
       [ "kStatus_UART_BreakDetect", "a00027.html#ggabed82baf7f470b522273a3e37c24c600a43540408a2faf9ce9e8e8c940bddd456", null ],
       [ "kStatus_UART_Timeout", "a00027.html#ggabed82baf7f470b522273a3e37c24c600a1fef1b2a4a60c45c7fc329bbe8c1e34d", null ]
     ] ],
-    [ "uart_data_bits_t", "a00027.html#gadc68b8fd9ded3990f84129df23fee798", [
-      [ "kUART_SevenDataBits", "a00027.html#ggadc68b8fd9ded3990f84129df23fee798ab8c89dfed11b0628f58344705d4b0fb8", null ],
-      [ "kUART_EightDataBits", "a00027.html#ggadc68b8fd9ded3990f84129df23fee798a2d77888a8dd82a66fb7bd86e51b4127c", null ]
+    [ "_uart_data_bits", "a00027.html#ga86b6c29e8e296bfd0f8fabfa08340bb1", [
+      [ "kUART_SevenDataBits", "a00027.html#gga86b6c29e8e296bfd0f8fabfa08340bb1ab8c89dfed11b0628f58344705d4b0fb8", null ],
+      [ "kUART_EightDataBits", "a00027.html#gga86b6c29e8e296bfd0f8fabfa08340bb1a2d77888a8dd82a66fb7bd86e51b4127c", null ]
     ] ],
-    [ "uart_parity_mode_t", "a00027.html#ga436e5a7bdb5f24decb5bfb0c87a83ff4", [
-      [ "kUART_ParityDisabled", "a00027.html#gga436e5a7bdb5f24decb5bfb0c87a83ff4a97e2feae6671a6de1126ebc2edf4606b", null ],
-      [ "kUART_ParityEven", "a00027.html#gga436e5a7bdb5f24decb5bfb0c87a83ff4a9e68fe3aba46e045bee5433ed098bff0", null ],
-      [ "kUART_ParityOdd", "a00027.html#gga436e5a7bdb5f24decb5bfb0c87a83ff4ae48c7fabc9babf1be626ebeb2627a54c", null ]
+    [ "_uart_parity_mode", "a00027.html#gadf9f66755acc340eab030e1a48e35e10", [
+      [ "kUART_ParityDisabled", "a00027.html#ggadf9f66755acc340eab030e1a48e35e10a97e2feae6671a6de1126ebc2edf4606b", null ],
+      [ "kUART_ParityEven", "a00027.html#ggadf9f66755acc340eab030e1a48e35e10a9e68fe3aba46e045bee5433ed098bff0", null ],
+      [ "kUART_ParityOdd", "a00027.html#ggadf9f66755acc340eab030e1a48e35e10ae48c7fabc9babf1be626ebeb2627a54c", null ]
     ] ],
-    [ "uart_stop_bit_count_t", "a00027.html#gaca4f14d23735c6afefb76cbee18e1db6", [
-      [ "kUART_OneStopBit", "a00027.html#ggaca4f14d23735c6afefb76cbee18e1db6a5a8829a108d8a46abb097a36cde051a7", null ],
-      [ "kUART_TwoStopBit", "a00027.html#ggaca4f14d23735c6afefb76cbee18e1db6a9704b3ae3ee851acf324eb357f75ab56", null ]
+    [ "_uart_stop_bit_count", "a00027.html#ga3c656a4365cab1185398ff953272091e", [
+      [ "kUART_OneStopBit", "a00027.html#gga3c656a4365cab1185398ff953272091ea5a8829a108d8a46abb097a36cde051a7", null ],
+      [ "kUART_TwoStopBit", "a00027.html#gga3c656a4365cab1185398ff953272091ea9704b3ae3ee851acf324eb357f75ab56", null ]
     ] ],
-    [ "uart_idle_condition_t", "a00027.html#gac1d3d36674ef10ea596df09cd1ac4834", [
-      [ "kUART_IdleFor4Frames", "a00027.html#ggac1d3d36674ef10ea596df09cd1ac4834a5b39a550a12fb82364e14867ba800df6", null ],
-      [ "kUART_IdleFor8Frames", "a00027.html#ggac1d3d36674ef10ea596df09cd1ac4834ad1a880a7b8d05eabd494ad0a9154555d", null ],
-      [ "kUART_IdleFor16Frames", "a00027.html#ggac1d3d36674ef10ea596df09cd1ac4834a2379458f47b103178be8e3265e02fa28", null ],
-      [ "kUART_IdleFor32Frames", "a00027.html#ggac1d3d36674ef10ea596df09cd1ac4834a12f80ba050b8a679e22b92d5e4e163e7", null ]
+    [ "_uart_idle_condition", "a00027.html#ga136932d7bbb25b3d517b01f858a1c774", [
+      [ "kUART_IdleFor4Frames", "a00027.html#gga136932d7bbb25b3d517b01f858a1c774a5b39a550a12fb82364e14867ba800df6", null ],
+      [ "kUART_IdleFor8Frames", "a00027.html#gga136932d7bbb25b3d517b01f858a1c774ad1a880a7b8d05eabd494ad0a9154555d", null ],
+      [ "kUART_IdleFor16Frames", "a00027.html#gga136932d7bbb25b3d517b01f858a1c774a2379458f47b103178be8e3265e02fa28", null ],
+      [ "kUART_IdleFor32Frames", "a00027.html#gga136932d7bbb25b3d517b01f858a1c774a12f80ba050b8a679e22b92d5e4e163e7", null ]
     ] ],
     [ "_uart_interrupt_enable", "a00027.html#ga700f3cd8e3800273a1591307cab6311c", [
       [ "kUART_RxCharReadyFlag", "a00027.html#ggab04a0655cd1e3bcac5e8f48c18df1a57a309643dfba0c44efc0600c02af6eaebf", null ],

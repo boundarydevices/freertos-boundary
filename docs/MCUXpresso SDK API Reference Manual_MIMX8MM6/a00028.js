@@ -1,17 +1,21 @@
 var a00028 =
 [
-    [ "uart_rtos_config_t", "a00028.html#a00218", [
-      [ "base", "a00028.html#af93759d3503ab560aef347c02e5f42dd", null ],
-      [ "srcclk", "a00028.html#aaa9ea3cb62d50a49b907b1baddbeeaa0", null ],
-      [ "baudrate", "a00028.html#a3a516fb385a59c89720a3dead326df78", null ],
-      [ "parity", "a00028.html#a8d8809aff183104892d30cc0734679bd", null ],
-      [ "stopbits", "a00028.html#a2afb208100058edfc05aa161e555483f", null ],
-      [ "buffer", "a00028.html#ad05b4abce6a95baa7ba35eaa57569cfe", null ],
-      [ "buffer_size", "a00028.html#a7b7d6d667f6e06c720f506a07869e14d", null ]
+    [ "_uart_sdma_handle", "a00028.html#a00215", [
+      [ "callback", "a00028.html#a44ec0479125b14a07d3ef702b7a8a9e5", null ],
+      [ "userData", "a00028.html#a43b4fb3e2e64b1ca501e94ff3033aa40", null ],
+      [ "rxDataSizeAll", "a00028.html#a7d21a285263406435d82b08b200570eb", null ],
+      [ "txDataSizeAll", "a00028.html#a383dfc2cb237f48b67804d7769d3c1fd", null ],
+      [ "txSdmaHandle", "a00028.html#af0f7f447afbefb40876d212205fd9fb8", null ],
+      [ "rxSdmaHandle", "a00028.html#ad2f10640093aa2d549f8795078756b40", null ],
+      [ "txState", "a00028.html#ae71d0abaa2ed9f4de118198ec29aa02a", null ],
+      [ "rxState", "a00028.html#a723037346a312d56a2f0b7b5df5cc735", null ]
     ] ],
-    [ "FSL_UART_FREERTOS_DRIVER_VERSION", "a00028.html#ga0023d77491809dff862358266574febb", null ],
-    [ "UART_RTOS_Init", "a00028.html#ga1ca9d0f6b8d4d5fc3e64c9a57d7ada7d", null ],
-    [ "UART_RTOS_Deinit", "a00028.html#gab7ac281cb85e1d290c8f25c83a6facfc", null ],
-    [ "UART_RTOS_Send", "a00028.html#gac14fc0e6c6cac6818958e92d2f8950bb", null ],
-    [ "UART_RTOS_Receive", "a00028.html#gaa8adcb11232b565985f3f5961815a00c", null ]
+    [ "FSL_UART_SDMA_DRIVER_VERSION", "a00028.html#gaec24d47dcc6d0244294a3cd5e59944aa", null ],
+    [ "uart_sdma_transfer_callback_t", "a00028.html#ga99bbb5bd4c0958a0440d34d4000f24f0", null ],
+    [ "UART_TransferCreateHandleSDMA", "a00028.html#ga0c50f5dc5bfdd56a6d3100b0bd7c7253", null ],
+    [ "UART_SendSDMA", "a00028.html#ga38a0db46c56cc3ddf78142c88ad70669", null ],
+    [ "UART_ReceiveSDMA", "a00028.html#gac01a1eba1e297b0d7f48324c7a994bf3", null ],
+    [ "UART_TransferAbortSendSDMA", "a00028.html#ga4b8434c55fd82a8bb22e4b5b8adeb1b4", null ],
+    [ "UART_TransferAbortReceiveSDMA", "a00028.html#ga3d2e02cef72ee6ad5d24e999ab661e3b", null ],
+    [ "UART_TransferSdmaHandleIRQ", "a00028.html#ga8ec3b453066422fbaa7b2928b7890123", null ]
 ];

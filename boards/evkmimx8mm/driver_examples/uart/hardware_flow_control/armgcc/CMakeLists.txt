@@ -3,8 +3,16 @@ SET(CMAKE_SYSTEM_NAME Generic)
 CMAKE_MINIMUM_REQUIRED (VERSION 3.10.0)
 
 # THE VERSION NUMBER
-SET (Tutorial_VERSION_MAJOR 1)
-SET (Tutorial_VERSION_MINOR 0)
+SET (MCUXPRESSO_CMAKE_FORMAT_MAJOR_VERSION 2)
+SET (MCUXPRESSO_CMAKE_FORMAT_MINOR_VERSION 0)
+
+include(ide_overrides.cmake OPTIONAL)
+
+if(CMAKE_SCRIPT_MODE_FILE)
+  message("${MCUXPRESSO_CMAKE_FORMAT_MAJOR_VERSION}")
+  return()
+endif()
+
 
 # ENABLE ASM
 ENABLE_LANGUAGE(ASM)
@@ -48,51 +56,12 @@ add_executable(${MCUX_SDK_PROJECT_NAME}
 "${ProjDirPath}/../empty_rsc_table.c"
 )
 
-target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
+target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
     ${ProjDirPath}/..
 )
 
-set(CMAKE_MODULE_PATH
-    ${SdkRootDirPath}/devices/MIMX8MM6/drivers
-    ${SdkRootDirPath}/devices/MIMX8MM6
-    ${SdkRootDirPath}/devices/MIMX8MM6/utilities
-    ${SdkRootDirPath}/components/uart
-    ${SdkRootDirPath}/components/serial_manager
-    ${SdkRootDirPath}/components/lists
-    ${SdkRootDirPath}/CMSIS/Core/Include
-)
 
-# include modules
-include(driver_iuart_MIMX8MM6)
-
-include(driver_clock_MIMX8MM6)
-
-include(driver_common_MIMX8MM6)
-
-include(driver_rdc_MIMX8MM6)
-
-include(device_MIMX8MM6_CMSIS_MIMX8MM6)
-
-include(utility_debug_console_MIMX8MM6)
-
-include(component_iuart_adapter_MIMX8MM6)
-
-include(component_serial_manager_MIMX8MM6)
-
-include(component_lists_MIMX8MM6)
-
-include(component_serial_manager_uart_MIMX8MM6)
-
-include(device_MIMX8MM6_startup_MIMX8MM6)
-
-include(utility_assert_MIMX8MM6)
-
-include(utilities_misc_utilities_MIMX8MM6)
-
-include(CMSIS_Include_core_cm_MIMX8MM6)
-
-include(device_MIMX8MM6_system_MIMX8MM6)
-
+include(${SdkRootDirPath}/devices/MIMX8MM6/all_lib_device.cmake)
 
 IF(NOT DEFINED TARGET_LINK_SYSTEM_LIBRARIES)  
     SET(TARGET_LINK_SYSTEM_LIBRARIES "-lm -lc -lgcc -lnosys")  
@@ -104,4 +73,5 @@ target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE ${TARGET_LINK_SYSTEM_LIBR
 
 TARGET_LINK_LIBRARIES(${MCUX_SDK_PROJECT_NAME} PRIVATE -Wl,--end-group)
 
+set_target_properties(${MCUX_SDK_PROJECT_NAME} PROPERTIES ADDITIONAL_CLEAN_FILES "output.map")
 

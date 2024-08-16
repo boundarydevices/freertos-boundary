@@ -5,7 +5,7 @@ var NAVTREE =
     [ "Trademarks", "a00002.html", null ],
     [ "Architectural Overview", "a00004.html", null ],
     [ "Driver errors status", "a00006.html", null ],
-    [ "Deprecated List", "a00136.html", null ],
+    [ "Deprecated List", "a00135.html", null ],
     [ "API Reference", "modules.html", "modules" ]
   ] ]
 ];
@@ -13,18 +13,19 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "a00002.html",
-"a00009.html#gga23c8b3ae62f7865b2e228408be95946da2073aacb108d570b5cd4099d6294d74d",
-"a00009.html#ggab64fac44ce1a4d063b3b5d031870f24da73277f608ff6125dfed4c604eb167cef",
-"a00010.html#ggae4d5251432e1a9e6803c0240cc492e18ade2462c5c328527b8620abd51d0bcc56",
-"a00014.html#ab86e18f20c8151d1f2b30fa9807e976b",
-"a00015.html#gaf9613d5714d047051b09f86592d9cdc4",
-"a00018.html#ga4ab28bad8662663117e8dd6514e9271c",
-"a00021.html#a05bc395932b5262476fa9a10fde9ede5",
-"a00021.html#ggae4a409d44282959d52f804c0d754764ca42a8a2e2f5e6900233e91754862ba6e1",
-"a00024.html#ga43b6bea88dad21ddfd0a9eeba15500fe",
-"a00027.html#ggab04a0655cd1e3bcac5e8f48c18df1a57a792f36da4b89b615ad2d20e05ccb4232",
-"a00110.html#gga7ff0b98bb1341c07acefb1473b6eda29acdfe26eb8bbbaaea438470512401e09a",
-"a00130.html"
+"a00009.html#gga072ebabe3613a5b37596f847a57fc8d1abf52313822e98a10562c1ce7b477f090",
+"a00009.html#gga843d32f8e181377588a82dad99e5b42aa8cd10e41dbb30d4eb53da42bed0013ee",
+"a00010.html#gga5d76b81b0ad4c19007a781d4edb8181fae36407d3290aa5efceef159f0a631fe3",
+"a00014.html#a00162",
+"a00014.html#gga446b2fd195b08262ad80e7a2ef50e523a645869434cd6f3f4830d417dd1ecf49d",
+"a00017.html#ga9839c1fd49a0f62f42b0adfa74f62853",
+"a00018.html#ggacb5d2d39dd26e12891236046cb2da582a84ff749ce64d3ec48c97d3256b6c7950",
+"a00021.html#ga745ce3eada78b53250d40333482915b0",
+"a00023.html#ga3a813a7a5250828b08695f4b1ef72e02",
+"a00026.html#aeac986904c49c00572763b06fc7065a3",
+"a00028.html#gaec24d47dcc6d0244294a3cd5e59944aa",
+"a00107.html#ggadf764cbdea00d65edcd07bb9953ad2b7a9743ab3bec5065667c0b12510317e76c",
+"a00129.html#ga83accba6d004f262fbfec7e88f22c696"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

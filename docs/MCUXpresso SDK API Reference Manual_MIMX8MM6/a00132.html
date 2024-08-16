@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: Serial Port Uart</title>
+<title>MCUXpresso SDK API Reference Manual: Enet_cmsis_driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.13.0</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -98,92 +98,104 @@ $(document).ready(function(){initNavTree('a00132.html','');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">Serial Port Uart<div class="ingroups"><a class="el" href="a00024.html">Serial Manager</a></div></div>  </div>
+<div class="title">Enet_cmsis_driver</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:gaff6176ea2af7001a012172a47622e204"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaff6176ea2af7001a012172a47622e204"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#gaff6176ea2af7001a012172a47622e204">SERIAL_PORT_UART_DMA_RECEIVE_DATA_LENGTH</a>&#160;&#160;&#160;(64U)</td></tr>
-<tr class="memdesc:gaff6176ea2af7001a012172a47622e204"><td class="mdescLeft">&#160;</td><td class="mdescRight">serial port uart handle size <br/></td></tr>
-<tr class="separator:gaff6176ea2af7001a012172a47622e204"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga29c0fa5c543615a75f63bdcb7e086b16"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga29c0fa5c543615a75f63bdcb7e086b16"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#ga29c0fa5c543615a75f63bdcb7e086b16">SERIAL_USE_CONFIGURE_STRUCTURE</a>&#160;&#160;&#160;(0U)</td></tr>
-<tr class="memdesc:ga29c0fa5c543615a75f63bdcb7e086b16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable the confgure structure pointer. <br/></td></tr>
-<tr class="separator:ga29c0fa5c543615a75f63bdcb7e086b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:ga89a4bbed0c24cfe5e085194add680ccc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#ga89a4bbed0c24cfe5e085194add680ccc">serial_port_uart_parity_mode_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00132.html#gga89a4bbed0c24cfe5e085194add680ccca208958aa923a2c50ac1192a5085ab8b1">kSerialManager_UartParityDisabled</a> = 0x0U, 
-<br/>
-&#160;&#160;<a class="el" href="a00132.html#gga89a4bbed0c24cfe5e085194add680ccca7d9d6f05fb6e1099fdfbf1f79a699356">kSerialManager_UartParityEven</a> = 0x2U, 
-<br/>
-&#160;&#160;<a class="el" href="a00132.html#gga89a4bbed0c24cfe5e085194add680ccca15bc11791c1f07fac71c808d083515db">kSerialManager_UartParityOdd</a> = 0x3U
-<br/>
- }</td></tr>
-<tr class="memdesc:ga89a4bbed0c24cfe5e085194add680ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">serial port uart parity mode  <a href="a00132.html#ga89a4bbed0c24cfe5e085194add680ccc">More...</a><br/></td></tr>
-<tr class="separator:ga89a4bbed0c24cfe5e085194add680ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8bdf0213026f54fd54c21971e07f2d56"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#ga8bdf0213026f54fd54c21971e07f2d56">serial_port_uart_stop_bit_count_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00132.html#gga8bdf0213026f54fd54c21971e07f2d56a5caed34146b357a7061aaacfe378e039">kSerialManager_UartOneStopBit</a> = 0U, 
-<br/>
-&#160;&#160;<a class="el" href="a00132.html#gga8bdf0213026f54fd54c21971e07f2d56a83eb7aee91f3fd8964d283c0057880dc">kSerialManager_UartTwoStopBit</a> = 1U
-<br/>
- }</td></tr>
-<tr class="memdesc:ga8bdf0213026f54fd54c21971e07f2d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">serial port uart stop bit count  <a href="a00132.html#ga8bdf0213026f54fd54c21971e07f2d56">More...</a><br/></td></tr>
-<tr class="separator:ga8bdf0213026f54fd54c21971e07f2d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="ga89a4bbed0c24cfe5e085194add680ccc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00132.html#ga89a4bbed0c24cfe5e085194add680ccc">serial_port_uart_parity_mode_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga89a4bbed0c24cfe5e085194add680ccca208958aa923a2c50ac1192a5085ab8b1"></a>kSerialManager_UartParityDisabled</em>&nbsp;</td><td class="fielddoc">
-<p>Parity disabled. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga89a4bbed0c24cfe5e085194add680ccca7d9d6f05fb6e1099fdfbf1f79a699356"></a>kSerialManager_UartParityEven</em>&nbsp;</td><td class="fielddoc">
-<p>Parity even enabled. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga89a4bbed0c24cfe5e085194add680ccca15bc11791c1f07fac71c808d083515db"></a>kSerialManager_UartParityOdd</em>&nbsp;</td><td class="fielddoc">
-<p>Parity odd enabled. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a class="anchor" id="ga8bdf0213026f54fd54c21971e07f2d56"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00132.html#ga8bdf0213026f54fd54c21971e07f2d56">serial_port_uart_stop_bit_count_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga8bdf0213026f54fd54c21971e07f2d56a5caed34146b357a7061aaacfe378e039"></a>kSerialManager_UartOneStopBit</em>&nbsp;</td><td class="fielddoc">
-<p>One stop bit. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga8bdf0213026f54fd54c21971e07f2d56a83eb7aee91f3fd8964d283c0057880dc"></a>kSerialManager_UartTwoStopBit</em>&nbsp;</td><td class="fielddoc">
-<p>Two stop bits. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-</div><!-- contents -->
+<p>This section describes the programming interface of the ENET Cortex Microcontroller Software Interface Standard (CMSIS) driver. This driver defines generic peripheral driver interfaces for middleware making it reusable across a wide range of supported microcontroller devices. The API connects microcontroller peripherals with middleware that implements for example communication stacks, file systems, or graphic user interfaces. More information and usage methord see <a href="http://www.keil.com/pack/doc/cmsis/Driver/html/index.html">http://www.keil.com/pack/doc/cmsis/Driver/html/index.html</a>.</p>
+<p>The ENET CMSIS driver includes transactional APIs.</p>
+<p>Transactional APIs are transaction target high-level APIs. The transactional APIs can be used to enable the peripheral quickly and also in the application if the code size and performance of transactional APIs satisfy the requirements. If the code size and performance are critical requirements, see the transactional API implementation and write custom code accessing the hardware registers.</p>
+<h1><a class="anchor" id="ENETTpyUC"></a>
+Typical use case</h1>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> ENET_SignalEvent_t(uint32_t event)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (event == ARM_ETH_MAC_EVENT_RX_FRAME)</div>
+<div class="line">    {</div>
+<div class="line">        uint32_t size;</div>
+<div class="line">        uint32_t len;</div>
+<div class="line"></div>
+<div class="line">        <span class="comment">/* Get the Frame size */</span></div>
+<div class="line">        size =  EXAMPLE_ENET.GetRxFrameSize();</div>
+<div class="line">        <span class="comment">/* Call ENET_ReadFrame when there is a received frame. */</span></div>
+<div class="line">        <span class="keywordflow">if</span> (size != 0)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="comment">/* Received valid frame. Deliver the rx buffer with the size equal to length. */</span></div>
+<div class="line">            uint8_t *data = (uint8_t *)malloc(size);</div>
+<div class="line">            <span class="keywordflow">if</span> (data)</div>
+<div class="line">            {</div>
+<div class="line">                len = EXAMPLE_ENET.ReadFrame(data, size);</div>
+<div class="line">                <span class="keywordflow">if</span> (size == len)</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="comment">/* Increase the received frame numbers. */</span></div>
+<div class="line">                    <span class="keywordflow">if</span> (g_rxIndex &lt; ENET_EXAMPLE_LOOP_COUNT)</div>
+<div class="line">                    {</div>
+<div class="line">                        g_rxIndex++;</div>
+<div class="line">                    }                        </div>
+<div class="line">                }</div>
+<div class="line">                free(data);                             </div>
+<div class="line">            }</div>
+<div class="line">         }</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (event == ARM_ETH_MAC_EVENT_TX_FRAME)</div>
+<div class="line">    {</div>
+<div class="line">        g_testTxNum ++;</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line">    <span class="comment">/* Initialize the ENET module. */</span></div>
+<div class="line">    EXAMPLE_ENET.Initialize(ENET_SignalEvent_t);</div>
+<div class="line">    EXAMPLE_ENET.PowerControl(ARM_POWER_FULL);</div>
+<div class="line">    EXAMPLE_ENET.SetMacAddress((ARM_ETH_MAC_ADDR *)g_macAddr); </div>
+<div class="line">    EXAMPLE_ENET.Control(ARM_ETH_MAC_CONFIGURE, linkInfo.speed &lt;&lt; ARM_ETH_MAC_SPEED_Pos  |</div>
+<div class="line">                 linkInfo.duplex &lt;&lt; ARM_ETH_MAC_DUPLEX_Pos | ARM_ETH_MAC_ADDRESS_BROADCAST);  </div>
+<div class="line">    EXAMPLE_ENET_PHY.PowerControl(ARM_POWER_FULL);</div>
+<div class="line">    EXAMPLE_ENET_PHY.SetMode(ARM_ETH_PHY_AUTO_NEGOTIATE);</div>
+<div class="line">      EXAMPLE_ENET.Control(ARM_ETH_MAC_CONTROL_RX, 1);</div>
+<div class="line">    EXAMPLE_ENET.Control(ARM_ETH_MAC_CONTROL_TX, 1);</div>
+<div class="line">    <span class="keywordflow">if</span> (EXAMPLE_ENET_PHY.GetLinkState() == ARM_ETH_LINK_UP)</div>
+<div class="line">    {</div>
+<div class="line">        linkInfo = EXAMPLE_ENET_PHY.GetLinkInfo();</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">    {</div>
+<div class="line">        <a class="code" href="a00124.html#gae1649fc947ca37a86917a08354f48d1a">PRINTF</a>(<span class="stringliteral">&quot;\r\nPHY Link down, please check the cable connection and link partner setting.\r\n&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <span class="comment">/* Build broadcast for sending. */</span></div>
+<div class="line">    ENET_BuildBroadCastFrame();</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">while</span> (1)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">/* Check the total number of received number. */</span></div>
+<div class="line">        <span class="keywordflow">if</span> (g_rxCheckIdx != g_rxIndex)</div>
+<div class="line">        {</div>
+<div class="line">            <a class="code" href="a00124.html#gae1649fc947ca37a86917a08354f48d1a">PRINTF</a>(<span class="stringliteral">&quot;The %d frame has been successfuly received!\r\n&quot;</span>, g_rxIndex);</div>
+<div class="line">            g_rxCheckIdx = g_rxIndex;</div>
+<div class="line">        }          </div>
+<div class="line">        <span class="keywordflow">if</span> ( g_testTxNum &amp;&amp; (g_txCheckIdx != g_testTxNum))</div>
+<div class="line">        {</div>
+<div class="line">            g_txCheckIdx = g_testTxNum;</div>
+<div class="line">            <a class="code" href="a00124.html#gae1649fc947ca37a86917a08354f48d1a">PRINTF</a>(<span class="stringliteral">&quot;The %d frame transmitted success!\r\n&quot;</span>, g_txCheckIdx);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="comment">/* Get the Frame size */</span></div>
+<div class="line">        <span class="keywordflow">if</span> (txnumber &lt; ENET_EXAMPLE_LOOP_COUNT)</div>
+<div class="line">        {</div>
+<div class="line">            txnumber ++;</div>
+<div class="line">            <span class="comment">/* Send a multicast frame when the PHY is link up. */</span></div>
+<div class="line">            <span class="keywordflow">if</span> (EXAMPLE_ENET.SendFrame(&amp;g_frame[0], ENET_DATA_LENGTH, ARM_ETH_MAC_TX_FRAME_EVENT) == ARM_DRIVER_OK)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">for</span> (uint32_t count = 0; count &lt; 0x3FF; count++)</div>
+<div class="line">                {</div>
+<div class="line">                    __ASM(<span class="stringliteral">&quot;nop&quot;</span>);</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span></div>
+<div class="line">            {</div>
+<div class="line">                <a class="code" href="a00124.html#gae1649fc947ca37a86917a08354f48d1a">PRINTF</a>(<span class="stringliteral">&quot; \r\nTransmit frame failed!\r\n&quot;</span>);</div>
+<div class="line">            }</div>
+<div class="line">         }</div>
+<div class="line">    }</div>
+</div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.5-->
 <!-- start footer part -->
