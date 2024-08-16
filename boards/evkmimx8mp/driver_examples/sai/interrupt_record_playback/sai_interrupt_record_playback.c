@@ -13,9 +13,9 @@
 #include "fsl_sai.h"
 #include "fsl_codec_common.h"
 
+#include "fsl_wm8960.h"
 #include "fsl_gpio.h"
 #include "fsl_iomuxc.h"
-#include "fsl_wm8960.h"
 #include "fsl_codec_adapter.h"
 /*******************************************************************************
  * Definitions
@@ -67,8 +67,8 @@ wm8960_config_t wm8960Config = {
     .slaveAddress    = WM8960_I2C_ADDR,
     .bus             = kWM8960_BusI2S,
     .format          = {.mclk_HZ    = 24576000U,
-               .sampleRate = kWM8960_AudioSampleRate16KHz,
-               .bitWidth   = kWM8960_AudioBitWidth16bit},
+                        .sampleRate = kWM8960_AudioSampleRate16KHz,
+                        .bitWidth   = kWM8960_AudioBitWidth16bit},
     .master_slave    = false,
 };
 codec_config_t boardCodecConfig = {.codecDevType = kCODEC_WM8960, .codecDevConfig = &wm8960Config};

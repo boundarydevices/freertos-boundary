@@ -69,7 +69,8 @@
 /*******************************************************************************
  * Variables
  ******************************************************************************/
-volatile uint32_t rxQueueNum = 0;
+volatile uint32_t rxQueue1Flag = 0;
+volatile uint32_t rxQueue2Flag = 0;
 #if (defined(USE_CANFD) && USE_CANFD)
 flexcan_fd_frame_t rxFrame[RX_QUEUE_BUFFER_SIZE * 2];
 flexcan_fd_frame_t txFrame;
@@ -81,6 +82,99 @@ volatile status_t rxStatus = 0;
 /*******************************************************************************
  * Code
  ******************************************************************************/
+/*!
+ * @brief CAN transceiver configuration function
+ */
+static void FLEXCAN_PHY_Config(void)
+{
+#if (defined(USE_PHY_TJA1152) && USE_PHY_TJA1152)
+    /* Setup Tx Message Buffer. */
+#if (defined(USE_CANFD) && USE_CANFD)
+    FLEXCAN_SetFDTxMbConfig(EXAMPLE_CAN, TX_MESSAGE_BUFFER_NUM, true);
+#else
+    FLEXCAN_SetTxMbConfig(EXAMPLE_CAN, TX_MESSAGE_BUFFER_NUM, true);
+#endif
+
+    /* Initialize TJA1152. */
+    /* STB=H, configuration CAN messages are expected from the local host via TXD pin. */
+    RGPIO_PortSet(EXAMPLE_STB_RGPIO, 1u << EXAMPLE_STB_RGPIO_PIN);
+
+    /* Classical CAN messages with standard identifier 0x555 must be transmitted 
+     * by the local host controller until acknowledged by the TJA1152 for
+     * automatic bit rate detection. Do not set frame.brs = 1U to keep nominal
+     * bit rate in CANFD frame data phase. */
+    txFrame.id     = FLEXCAN_ID_STD(0x555);
+    txFrame.format = (uint8_t)kFLEXCAN_FrameFormatStandard;
+    txFrame.type   = (uint8_t)kFLEXCAN_FrameTypeData;
+    txFrame.length = 0U;
+#if (defined(USE_CANFD) && USE_CANFD)
+    (void)FLEXCAN_TransferFDSendBlocking(EXAMPLE_CAN, TX_MESSAGE_BUFFER_NUM, &txFrame);
+#else
+    (void)FLEXCAN_TransferSendBlocking(EXAMPLE_CAN, TX_MESSAGE_BUFFER_NUM, &txFrame);
+#endif
+    SDK_DelayAtLeastUs(10000U, SDK_DEVICE_MAXIMUM_CPU_CLOCK_FREQUENCY);
+
+    /* Configuration of spoofing protection. */
+    /* Add 0x321 and 0x123 to Transmission Whitelist. */
+    txFrame.id     = FLEXCAN_ID_EXT(0x18DA00F1);
+    txFrame.format = (uint8_t)kFLEXCAN_FrameFormatExtend;
+    txFrame.type   = (uint8_t)kFLEXCAN_FrameTypeData;
+    txFrame.length = 6U;
+#if (defined(USE_CANFD) && USE_CANFD)
+    txFrame.dataWord[0] = CAN_WORD_DATA_BYTE_0(0x10) | CAN_WORD_DATA_BYTE_1(0x00) | CAN_WORD_DATA_BYTE_2(0x33) |
+                          CAN_WORD_DATA_BYTE_3(0x21);
+    txFrame.dataWord[1] = CAN_WORD_DATA_BYTE_4(0x11) | CAN_WORD_DATA_BYTE_5(0x23);
+    (void)FLEXCAN_TransferFDSendBlocking(EXAMPLE_CAN, TX_MESSAGE_BUFFER_NUM, &txFrame);
+#else
+    txFrame.dataWord0 = CAN_WORD0_DATA_BYTE_0(0x10) | CAN_WORD0_DATA_BYTE_1(0x00) | CAN_WORD0_DATA_BYTE_2(0x33) |
+                        CAN_WORD0_DATA_BYTE_3(0x21);
+    txFrame.dataWord1 = CAN_WORD1_DATA_BYTE_4(0x11) | CAN_WORD1_DATA_BYTE_5(0x23);
+    (void)FLEXCAN_TransferSendBlocking(EXAMPLE_CAN, TX_MESSAGE_BUFFER_NUM, &txFrame);
+#endif
+    SDK_DelayAtLeastUs(10000U, SDK_DEVICE_MAXIMUM_CPU_CLOCK_FREQUENCY);
+
+    /* Configuration of command message ID. */
+    /* Reconfiguration is only accepted locally. Keep CONFIG_ID as default value 0x18DA00F1. */
+    txFrame.length = 5U;
+#if (defined(USE_CANFD) && USE_CANFD)
+    txFrame.dataWord[0] = CAN_WORD_DATA_BYTE_0(0x60) | CAN_WORD_DATA_BYTE_1(0x98) | CAN_WORD_DATA_BYTE_2(0xDA) |
+                          CAN_WORD_DATA_BYTE_3(0x00);
+    txFrame.dataWord[1] = CAN_WORD_DATA_BYTE_4(0xF1);
+    (void)FLEXCAN_TransferFDSendBlocking(EXAMPLE_CAN, TX_MESSAGE_BUFFER_NUM, &txFrame);
+#else
+    txFrame.dataWord0 = CAN_WORD0_DATA_BYTE_0(0x60) | CAN_WORD0_DATA_BYTE_1(0x98) | CAN_WORD0_DATA_BYTE_2(0xDA) |
+                        CAN_WORD0_DATA_BYTE_3(0x00);
+    txFrame.dataWord1 = CAN_WORD1_DATA_BYTE_4(0xF1);
+    (void)FLEXCAN_TransferSendBlocking(EXAMPLE_CAN, TX_MESSAGE_BUFFER_NUM, &txFrame);
+#endif
+    SDK_DelayAtLeastUs(10000U, SDK_DEVICE_MAXIMUM_CPU_CLOCK_FREQUENCY);
+
+    /* Leaving configuration mode. */
+    /* Configuration into volatile memory only. */
+    txFrame.length = 8U;
+#if (defined(USE_CANFD) && USE_CANFD)
+    txFrame.dataWord[0] = CAN_WORD_DATA_BYTE_0(0x71) | CAN_WORD_DATA_BYTE_1(0x02) | CAN_WORD_DATA_BYTE_2(0x03) |
+                          CAN_WORD_DATA_BYTE_3(0x04);
+    txFrame.dataWord[1] = CAN_WORD_DATA_BYTE_4(0x05) | CAN_WORD_DATA_BYTE_5(0x06) | CAN_WORD_DATA_BYTE_6(0x07) |
+                          CAN_WORD_DATA_BYTE_7(0x08);
+    (void)FLEXCAN_TransferFDSendBlocking(EXAMPLE_CAN, TX_MESSAGE_BUFFER_NUM, &txFrame);
+#else
+    txFrame.dataWord0 = CAN_WORD0_DATA_BYTE_0(0x71) | CAN_WORD0_DATA_BYTE_1(0x02) | CAN_WORD0_DATA_BYTE_2(0x03) |
+                        CAN_WORD0_DATA_BYTE_3(0x04);
+    txFrame.dataWord1 = CAN_WORD1_DATA_BYTE_4(0x05) | CAN_WORD1_DATA_BYTE_5(0x06) | CAN_WORD1_DATA_BYTE_6(0x07) |
+                        CAN_WORD1_DATA_BYTE_7(0x08);              
+    (void)FLEXCAN_TransferSendBlocking(EXAMPLE_CAN, TX_MESSAGE_BUFFER_NUM, &txFrame);
+#endif
+    SDK_DelayAtLeastUs(10000U, SDK_DEVICE_MAXIMUM_CPU_CLOCK_FREQUENCY);
+
+    LOG_INFO("Initialize TJA1152 successfully!\r\n\r\n");
+
+    /* STB=L, TJA1152 switch from secure standby mode to normal mode. */
+    RGPIO_PortClear(EXAMPLE_STB_RGPIO, 1u << EXAMPLE_STB_RGPIO_PIN);
+    /* Initialize TJA1152 end. */    
+#endif
+}
+
 /*!
  * @brief User read message buffer function
  */
@@ -237,14 +331,20 @@ static void User_TransferHandleIRQ(CAN_Type *base)
         else
         {
             /* Handle real data transfer. */
-#if (defined(FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER)) && (FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER > 0)
+#if (defined(FSL_FEATURE_FLEXCAN_HAS_MORE_THAN_64_MB) && FSL_FEATURE_FLEXCAN_HAS_MORE_THAN_64_MB)
+#if (RX_QUEUE_BUFFER_END_1 >= 64U)
+            if (0U != FLEXCAN_GetHigh64MbStatusFlags(base, (uint64_t)1U << (RX_QUEUE_BUFFER_END_1 - 64U)))
+#else
+            if (0U != FLEXCAN_GetMbStatusFlags(base, (uint64_t)1U << RX_QUEUE_BUFFER_END_1))
+#endif
+#elif (defined(FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER)) && (FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER > 0)
             if (0U != FLEXCAN_GetMbStatusFlags(base, (uint64_t)1U << RX_QUEUE_BUFFER_END_1))
 #else
             if (0U != FLEXCAN_GetMbStatusFlags(base, (uint32_t)1U << RX_QUEUE_BUFFER_END_1))
 #endif
             {
                 /* Queue 1 end Message Buffer interrupt. */
-                rxQueueNum = 1U;
+                rxQueue1Flag = 1U;
                 for (i = 0; i < RX_QUEUE_BUFFER_SIZE; i++)
                 {
                     /* Default receive message ID is 0x321, and after individual mask 0xFF, can match the Rx queue MB ID
@@ -255,21 +355,36 @@ static void User_TransferHandleIRQ(CAN_Type *base)
                                                 FLEXCAN_RX_MB_STD_MASK(RX_MB_ID_MASK | TX_MB_ID, 0, 0));
                     (void)User_ReadRxMb(EXAMPLE_CAN, RX_QUEUE_BUFFER_BASE + i, &rxFrame[i]);
                     /* Clear queue 1 Message Buffer receive status. */
-#if (defined(FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER)) && (FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER > 0)
+#if (defined(FSL_FEATURE_FLEXCAN_HAS_MORE_THAN_64_MB) && FSL_FEATURE_FLEXCAN_HAS_MORE_THAN_64_MB)
+                    if ((RX_QUEUE_BUFFER_BASE + i) >= 64U)
+                    {
+                        FLEXCAN_ClearHigh64MbStatusFlags(base, (uint64_t)1U << (RX_QUEUE_BUFFER_BASE + i - 64U));
+                    }
+                    else
+                    {
+                        FLEXCAN_ClearMbStatusFlags(base, (uint64_t)1U << (RX_QUEUE_BUFFER_BASE + i));
+                    }
+#elif (defined(FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER)) && (FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER > 0)
                     FLEXCAN_ClearMbStatusFlags(base, (uint64_t)1U << (RX_QUEUE_BUFFER_BASE + i));
 #else
                     FLEXCAN_ClearMbStatusFlags(base, (uint32_t)1U << (RX_QUEUE_BUFFER_BASE + i));
 #endif
                 }
             }
-#if (defined(FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER)) && (FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER > 0)
+#if (defined(FSL_FEATURE_FLEXCAN_HAS_MORE_THAN_64_MB) && FSL_FEATURE_FLEXCAN_HAS_MORE_THAN_64_MB)
+#if (RX_QUEUE_BUFFER_END_2 >= 64U)
+            else if (0U != FLEXCAN_GetHigh64MbStatusFlags(base, (uint64_t)1U << (RX_QUEUE_BUFFER_END_2 - 64U)))
+#else
+            else if (0U != FLEXCAN_GetMbStatusFlags(base, (uint64_t)1U << RX_QUEUE_BUFFER_END_2))
+#endif
+#elif (defined(FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER)) && (FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER > 0)
             else if (0U != FLEXCAN_GetMbStatusFlags(base, (uint64_t)1U << RX_QUEUE_BUFFER_END_2))
 #else
             else if (0U != FLEXCAN_GetMbStatusFlags(base, (uint32_t)1U << RX_QUEUE_BUFFER_END_2))
 #endif
             {
                 /* Queue 2 end Message Buffer interrupt. */
-                rxQueueNum = 2U;
+                rxQueue2Flag = 1U;
                 /* Restore queue 1 ID mask to make it can receive the next CAN/CANFD messages again. */
                 for (i = 0; i < RX_QUEUE_BUFFER_SIZE; i++)
                     FLEXCAN_SetRxIndividualMask(EXAMPLE_CAN, RX_QUEUE_BUFFER_BASE + i,
@@ -279,7 +394,16 @@ static void User_TransferHandleIRQ(CAN_Type *base)
                     status = User_ReadRxMb(EXAMPLE_CAN, RX_QUEUE_BUFFER_BASE + i, &rxFrame[i]);
 
                     /* Clear queue 2 Message Buffer receive status. */
-#if (defined(FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER)) && (FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER > 0)
+#if (defined(FSL_FEATURE_FLEXCAN_HAS_MORE_THAN_64_MB) && FSL_FEATURE_FLEXCAN_HAS_MORE_THAN_64_MB)
+                    if ((RX_QUEUE_BUFFER_BASE + i) >= 64U)
+                    {
+                        FLEXCAN_ClearHigh64MbStatusFlags(base, (uint64_t)1U << (RX_QUEUE_BUFFER_BASE + i - 64U));
+                    }
+                    else
+                    {
+                        FLEXCAN_ClearMbStatusFlags(base, (uint64_t)1U << (RX_QUEUE_BUFFER_BASE + i));
+                    }
+#elif (defined(FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER)) && (FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER > 0)
                     FLEXCAN_ClearMbStatusFlags(base, (uint64_t)1U << (RX_QUEUE_BUFFER_BASE + i));
 #else
                     FLEXCAN_ClearMbStatusFlags(base, (uint32_t)1U << (RX_QUEUE_BUFFER_BASE + i));
@@ -292,7 +416,30 @@ static void User_TransferHandleIRQ(CAN_Type *base)
             }
         }
     }
-#if (defined(FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER)) && (FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER > 0)
+#if (defined(FSL_FEATURE_FLEXCAN_HAS_MORE_THAN_64_MB) && FSL_FEATURE_FLEXCAN_HAS_MORE_THAN_64_MB)
+#if (RX_QUEUE_BUFFER_END_1 >= 64U)
+    while (
+        (0U != FLEXCAN_GetHigh64MbStatusFlags(base, ((uint64_t)1U << (RX_QUEUE_BUFFER_END_1 - 64U)) |
+                                                        ((uint64_t)1U << (RX_QUEUE_BUFFER_END_2 - 64U)))) ||
+        (0U != (FLEXCAN_GetStatusFlags(base) & ((uint32_t)kFLEXCAN_TxWarningIntFlag |
+                                                (uint32_t)kFLEXCAN_RxWarningIntFlag | (uint32_t)kFLEXCAN_BusOffIntFlag |
+                                                (uint32_t)kFLEXCAN_ErrorIntFlag | (uint32_t)kFLEXCAN_WakeUpIntFlag))));
+#elif (RX_QUEUE_BUFFER_END_2 >= 64U)
+    while (
+        (0U != FLEXCAN_GetMbStatusFlags(base, ((uint64_t)1U << RX_QUEUE_BUFFER_END_1))) ||
+        (0U != FLEXCAN_GetHigh64MbStatusFlags(base, ((uint64_t)1U << (RX_QUEUE_BUFFER_END_2 - 64U)))) ||
+        (0U != (FLEXCAN_GetStatusFlags(base) & ((uint32_t)kFLEXCAN_TxWarningIntFlag |
+                                                (uint32_t)kFLEXCAN_RxWarningIntFlag | (uint32_t)kFLEXCAN_BusOffIntFlag |
+                                                (uint32_t)kFLEXCAN_ErrorIntFlag | (uint32_t)kFLEXCAN_WakeUpIntFlag))));
+#else
+    while (
+        (0U != FLEXCAN_GetMbStatusFlags(
+                   base, ((uint64_t)1U << RX_QUEUE_BUFFER_END_1) | ((uint64_t)1U << RX_QUEUE_BUFFER_END_2))) ||
+        (0U != (FLEXCAN_GetStatusFlags(base) & ((uint32_t)kFLEXCAN_TxWarningIntFlag |
+                                                (uint32_t)kFLEXCAN_RxWarningIntFlag | (uint32_t)kFLEXCAN_BusOffIntFlag |
+                                                (uint32_t)kFLEXCAN_ErrorIntFlag | (uint32_t)kFLEXCAN_WakeUpIntFlag))));
+#endif
+#elif (defined(FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER)) && (FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER > 0)
     while (
         (0U != FLEXCAN_GetMbStatusFlags(
                    base, ((uint64_t)1U << RX_QUEUE_BUFFER_END_1) | ((uint64_t)1U << RX_QUEUE_BUFFER_END_2))) ||
@@ -374,6 +521,8 @@ int main(void)
      */
     FLEXCAN_GetDefaultConfig(&flexcanConfig);
 
+    flexcanConfig.bitRate = 500000U;
+
     /* Enable Rx Individual Mask and Queue feature. */
     flexcanConfig.enableIndividMask = true;
 
@@ -415,6 +564,9 @@ int main(void)
     FLEXCAN_Init(EXAMPLE_CAN, &flexcanConfig, EXAMPLE_CAN_CLK_FREQ);
 #endif
 
+    /* Configure CAN transceiver */
+    FLEXCAN_PHY_Config();
+
     if ((node_type == 'A') || (node_type == 'a'))
     {
         /* Setup Tx Message Buffer. */
@@ -437,13 +589,15 @@ int main(void)
         (void)EnableIRQ(EXAMPLE_FLEXCAN_ErrorIRQn);
         (void)EnableIRQ(EXAMPLE_FLEXCAN_MBIRQn);
         /* Setup Rx Message Buffer. */
+        /* Suppose to receive message ID 0x21. */
         mbConfig.format = kFLEXCAN_FrameFormatStandard;
         mbConfig.type   = kFLEXCAN_FrameTypeData;
         mbConfig.id     = FLEXCAN_ID_STD(RX_MB_ID_AFTER_MASK);
 
         for (i = 0U; i < RX_QUEUE_BUFFER_SIZE * 2U; i++)
         {
-            /* Setup Rx individual ID mask. */
+            /* Setup Rx individual ID mask 0xff. */
+            /* Rx will receive message ID 0x321 and match with supposed ID 0x21. */
             FLEXCAN_SetRxIndividualMask(EXAMPLE_CAN, RX_QUEUE_BUFFER_BASE + i,
                                         FLEXCAN_RX_MB_STD_MASK(RX_MB_ID_MASK, 0, 0));
 #if (defined(USE_CANFD) && USE_CANFD)
@@ -453,7 +607,18 @@ int main(void)
 #endif
         }
         /* Enable receive interrupt for Rx queue 1 & 2 end Message Buffer. */
-#if (defined(FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER)) && (FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER > 0)
+#if (defined(FSL_FEATURE_FLEXCAN_HAS_MORE_THAN_64_MB) && FSL_FEATURE_FLEXCAN_HAS_MORE_THAN_64_MB)
+#if (RX_QUEUE_BUFFER_END_1 >= 64U)
+        FLEXCAN_EnableHigh64MbInterrupts(EXAMPLE_CAN, (uint64_t)1U << (RX_QUEUE_BUFFER_END_1 - 64U));
+#else
+        FLEXCAN_EnableMbInterrupts(EXAMPLE_CAN, (uint64_t)1U << RX_QUEUE_BUFFER_END_1);
+#endif
+#if (RX_QUEUE_BUFFER_END_2 >= 64U)
+        FLEXCAN_EnableHigh64MbInterrupts(EXAMPLE_CAN, (uint64_t)1U << (RX_QUEUE_BUFFER_END_2 - 64U));
+#else
+        FLEXCAN_EnableMbInterrupts(EXAMPLE_CAN, (uint64_t)1U << RX_QUEUE_BUFFER_END_2);
+#endif
+#elif (defined(FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER)) && (FSL_FEATURE_FLEXCAN_HAS_EXTENDED_FLAG_REGISTER > 0)
         FLEXCAN_EnableMbInterrupts(EXAMPLE_CAN, (uint64_t)1U << RX_QUEUE_BUFFER_END_1);
         FLEXCAN_EnableMbInterrupts(EXAMPLE_CAN, (uint64_t)1U << RX_QUEUE_BUFFER_END_2);
 #else
@@ -485,7 +650,8 @@ int main(void)
             txFrame.type   = (uint8_t)kFLEXCAN_FrameTypeData;
             txFrame.length = (uint8_t)DLC;
 #if (defined(USE_CANFD) && USE_CANFD)
-            txFrame.brs = (uint8_t)1U;
+            txFrame.brs = 1U;
+            txFrame.edl = 1U;
 #endif
 
             for (i = 1; i <= times; i++)
@@ -507,10 +673,10 @@ int main(void)
         else
         {
             /* Wait until Rx queue 1 full. */
-            while (rxQueueNum != 1U)
+            while (rxQueue1Flag != 1U)
             {
             };
-            rxQueueNum = 0;
+            rxQueue1Flag = 0;
             LOG_INFO("Read Rx MB from Queue 1.\r\n");
             for (i = 0; i < RX_QUEUE_BUFFER_SIZE; i++)
             {
@@ -518,10 +684,10 @@ int main(void)
                          rxFrame[i].dataByte0, rxFrame[i].timestamp);
             }
             /* Wait until Rx queue 2 full. */
-            while (rxQueueNum != 2U)
+            while (rxQueue2Flag != 1U)
             {
             };
-            rxQueueNum = 0;
+            rxQueue2Flag = 0;
             LOG_INFO("Read Rx MB from Queue 2.\r\n");
             for (; i < (RX_QUEUE_BUFFER_SIZE * 2U); i++)
             {

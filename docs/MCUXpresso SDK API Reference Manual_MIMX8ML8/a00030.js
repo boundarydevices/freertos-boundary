@@ -1,21 +1,23 @@
 var a00030 =
 [
-    [ "wdog_work_mode_t", "a00030.html#a00231", [
-      [ "enableWait", "a00030.html#ac4c03e680f6c2070c50e9cbb7eae64fc", null ],
-      [ "enableStop", "a00030.html#a26f09db30cdfe918931fb6e2ea0545ad", null ],
-      [ "enableDebug", "a00030.html#ac46160e5425428c3f6b2bd7a9103539e", null ]
+    [ "_wdog_work_mode", "a00030.html#a00245", [
+      [ "enableWait", "a00030.html#a55c6154d576db274039be997e3ec71b3", null ],
+      [ "enableStop", "a00030.html#a87af9a89b5059c8ff3e6f96c8d388986", null ],
+      [ "enableDebug", "a00030.html#a6288ae1c1343579214e0cd1394cc910d", null ]
     ] ],
-    [ "wdog_config_t", "a00030.html#a00230", [
-      [ "enableWdog", "a00030.html#a871dc017463d6cc5d31121b40affa1a4", null ],
-      [ "workMode", "a00030.html#a52dd1d98958c48e0a342e3ffe9a1c351", null ],
-      [ "enableInterrupt", "a00030.html#aa749ba919bb8ddf9b52fda7781afa6b5", null ],
-      [ "timeoutValue", "a00030.html#a867555736162830ec456cb98b37431bf", null ],
-      [ "interruptTimeValue", "a00030.html#aac4e0165a8a5674bbd4ac8e7c32d7217", null ],
-      [ "softwareResetExtension", "a00030.html#aa698ca620c05feee0946ee91e1b3374f", null ],
-      [ "enablePowerDown", "a00030.html#a8596d41dfdb0d29a55dfee5e9d707d68", null ],
-      [ "enableTimeOutAssert", "a00030.html#a5e3f1a4dd09bde15aac1ca0e9ad16640", null ]
+    [ "_wdog_config", "a00030.html#a00244", [
+      [ "enableWdog", "a00030.html#a4b7049723790cbd8a8d1e7e3971a5950", null ],
+      [ "workMode", "a00030.html#af6c23332b53f68b3d82dd2b8b15d4b85", null ],
+      [ "enableInterrupt", "a00030.html#ae3aa77209befd691717bbf92d3d6368d", null ],
+      [ "timeoutValue", "a00030.html#a3ab2fcc87bafca5e24cc69a3be364997", null ],
+      [ "interruptTimeValue", "a00030.html#aa26228198b7d2406719385d112c265a2", null ],
+      [ "softwareResetExtension", "a00030.html#a417d0ccf18d5c31afececb0ba239bed7", null ],
+      [ "enablePowerDown", "a00030.html#af7620ff7aaea29c44469ba62103ad527", null ],
+      [ "enableTimeOutAssert", "a00030.html#a6d63a952eb0bce621ba7ddcebeb89456", null ]
     ] ],
     [ "FSL_WDOG_DRIVER_VERSION", "a00030.html#ga5baa4ad349ae3c543938d4ee773df43e", null ],
+    [ "wdog_work_mode_t", "a00030.html#ga4c03cba4ef6445904c5733f9859cf3cb", null ],
+    [ "wdog_config_t", "a00030.html#ga843869e99770392d4679ba26609548b2", null ],
     [ "_wdog_interrupt_enable", "a00030.html#ga568a59a02c40c87ed791f569c68e3617", [
       [ "kWDOG_InterruptEnable", "a00030.html#gga568a59a02c40c87ed791f569c68e3617a8c358d55c0101eaa0a580d867572ec8d", null ]
     ] ],

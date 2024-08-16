@@ -1,6 +1,5 @@
 /*
- * Copyright 2020-2022 NXP
- * All rights reserved.
+ * Copyright 2020-2023 NXP
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -61,6 +60,24 @@
 #define PHY_1000BASET_FULLDUPLEX_MASK ((uint16_t)0x200U) /*!< The PHY has the 1000M full duplex ability.*/
 #define PHY_1000BASET_HALFDUPLEX_MASK ((uint16_t)0x100U) /*!< The PHY has the 1000M half duplex ability.*/
 
+/*! @brief Defines the IEEE802.3 standard MDIO Manageable Device addresses. */
+#define PHY_MMD_PMAPMD       (1U)
+#define PHY_MMD_WIS          (2U)
+#define PHY_MMD_PCS          (3U)
+#define PHY_MMD_PHY_XS       (4U)
+#define PHY_MMD_DTE_XS       (5U)
+#define PHY_MMD_TC           (6U)
+#define PHY_MMD_AN           (7U)
+#define PHY_MMD_PMA1         (8U)
+#define PHY_MMD_PMA2         (9U)
+#define PHY_MMD_PMA3         (10U)
+#define PHY_MMD_PMA4         (11U)
+#define PHY_MMD_OFDM_PMAPMD  (12U)
+#define PHY_MMD_POWER_UNIT   (13U)
+#define PHY_MMD_C22EXT       (29U)
+#define PHY_MMD_VEND1        (30U)
+#define PHY_MMD_VEND2        (31U)
+
 typedef struct _phy_handle phy_handle_t;
 typedef struct _phy_config phy_config_t;
 
@@ -81,7 +98,10 @@ typedef enum _phy_speed
 {
     kPHY_Speed10M = 0U, /*!< ENET PHY 10M speed. */
     kPHY_Speed100M,     /*!< ENET PHY 100M speed. */
-    kPHY_Speed1000M     /*!< ENET PHY 1000M speed. */
+    kPHY_Speed1000M,    /*!< ENET PHY 1000M speed. */
+    kPHY_Speed2500M,    /*!< ENET PHY 2.5G speed. */
+    kPHY_Speed5G,       /*!< ENET PHY 5G speed. */
+    kPHY_Speed10G       /*!< ENET PHY 10G speed. */
 } phy_speed_t;
 
 /*! @brief Defines the PHY link duplex. */
@@ -111,8 +131,9 @@ typedef enum _phy_mmd_access_mode
 /*! @brief Defines the PHY interrupt type. */
 typedef enum _phy_interrupt_type
 {
-    kPHY_IntrActiveLow = 0U, /*!< ENET PHY active low. */
-    kPHY_IntrActiveHigh,     /*!< ENET PHY active high. */
+    kPHY_IntrDisable = 0U, /*!< ENET PHY interrupt disable. */
+    kPHY_IntrActiveLow,    /*!< ENET PHY interrupt active low. */
+    kPHY_IntrActiveHigh,   /*!< ENET PHY interrupt active high. */
 } phy_interrupt_type_t;
 
 /*! @brief PHY device operations. */
@@ -121,12 +142,14 @@ typedef struct _phy_operations
     status_t (*phyInit)(phy_handle_t *handle, const phy_config_t *config);
     status_t (*phyWrite)(phy_handle_t *handle, uint8_t phyReg, uint16_t data);
     status_t (*phyRead)(phy_handle_t *handle, uint8_t phyReg, uint16_t *pData);
+    status_t (*phyWriteC45)(phy_handle_t *handle, uint8_t devAddr, uint16_t regAddr, uint16_t data);
+    status_t (*phyReadC45)(phy_handle_t *handle, uint8_t devAddr, uint16_t regAddr, uint16_t *pdata);
     status_t (*getAutoNegoStatus)(phy_handle_t *handle, bool *status);
     status_t (*getLinkStatus)(phy_handle_t *handle, bool *status);
     status_t (*getLinkSpeedDuplex)(phy_handle_t *handle, phy_speed_t *speed, phy_duplex_t *duplex);
     status_t (*setLinkSpeedDuplex)(phy_handle_t *handle, phy_speed_t speed, phy_duplex_t duplex);
     status_t (*enableLoopback)(phy_handle_t *handle, phy_loop_t mode, phy_speed_t speed, bool enable);
-    status_t (*enableLinkInterrupt)(phy_handle_t *handle, phy_interrupt_type_t type, bool enable);
+    status_t (*enableLinkInterrupt)(phy_handle_t *handle, phy_interrupt_type_t type);
     status_t (*clearInterrupt)(phy_handle_t *handle);
 } phy_operations_t;
 
@@ -140,8 +163,7 @@ struct _phy_config
     phy_duplex_t duplex;           /*!< PHY duplex configuration. */
     bool autoNeg;                  /*!< PHY auto-negotiation, true: enable, false: disable. */
     bool enableEEE;                /*!< PHY Energy Efficient Ethernet, true: enable, false: disable. */
-    bool enableLinkIntr;           /*!< PHY Link management interrupt, true: enable, false: disable. */
-    phy_interrupt_type_t intrType; /*!< PHY interrupt assert type. */
+    phy_interrupt_type_t intrType; /*!< PHY interrupt configuration. */
 };
 
 /*! @brief PHY device handle. */
@@ -208,6 +230,38 @@ static inline status_t PHY_Write(phy_handle_t *handle, uint8_t phyReg, uint16_t 
 static inline status_t PHY_Read(phy_handle_t *handle, uint8_t phyReg, uint16_t *pData)
 {
     return handle->ops->phyRead(handle, phyReg, pData);
+}
+
+/*!
+ * @brief PHY Write C45 function.
+ * This function writes data over the MDIO to the specified PHY register.
+ *
+ * @param handle  PHY device handle.
+ * @param devAddr  The device address.
+ * @param phyReg  The PHY register.
+ * @param data    The data written to the PHY register.
+ * @retval kStatus_Success  PHY write success
+ * @retval kStatus_Timeout  PHY MDIO visit time out
+ */
+static inline status_t PHY_WriteC45(phy_handle_t *handle, uint8_t devAddr, uint8_t phyReg, uint16_t data)
+{
+    return handle->ops->phyWriteC45(handle, devAddr, phyReg, data);
+}
+
+/*!
+ * @brief PHY Read C45 function.
+ * This interface reads data over the MDIO from the specified PHY register.
+ *
+ * @param handle  PHY device handle.
+ * @param devAddr  The device address.
+ * @param phyReg  The PHY register address.
+ * @param pData  The address to store the data read from the PHY register.
+ * @retval kStatus_Success  PHY read success
+ * @retval kStatus_Timeout  PHY MDIO visit time out
+ */
+static inline status_t PHY_ReadC45(phy_handle_t *handle, uint8_t devAddr, uint8_t phyReg, uint16_t *pData)
+{
+    return handle->ops->phyReadC45(handle, devAddr, phyReg, pData);
 }
 
 /*!
@@ -302,13 +356,12 @@ static inline status_t PHY_EnableLoopback(phy_handle_t *handle, phy_loop_t mode,
  *
  * @param handle  PHY device handle.
  * @param type    PHY interrupt type.
- * @param enable  True to enable, false to disable.
  * @retval kStatus_Success  PHY enables/disables interrupt success
  * @retval kStatus_Timeout  PHY MDIO visit time out
  */
-static inline status_t PHY_EnableLinkInterrupt(phy_handle_t *handle, phy_interrupt_type_t type, bool enable)
+static inline status_t PHY_EnableLinkInterrupt(phy_handle_t *handle, phy_interrupt_type_t type)
 {
-    return handle->ops->enableLinkInterrupt(handle, type, enable);
+    return handle->ops->enableLinkInterrupt(handle, type);
 }
 
 /*!
@@ -325,7 +378,7 @@ static inline status_t PHY_ClearInterrupt(phy_handle_t *handle)
     return handle->ops->clearInterrupt(handle);
 }
 
-/* @} */
+/*! @} */
 
 #if defined(__cplusplus)
 }

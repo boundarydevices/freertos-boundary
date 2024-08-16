@@ -1,14 +1,14 @@
 var a00029 =
 [
-    [ "uart_sdma_handle_t", "a00029.html#a00153", [
-      [ "callback", "a00029.html#a9bfac94dfa351480c7758f6eec951581", null ],
-      [ "userData", "a00029.html#a5acf81152cc288fefcd6529d50bc48b9", null ],
-      [ "rxDataSizeAll", "a00029.html#a5a78ec231b140dac6e2fde9f6b5bb88a", null ],
-      [ "txDataSizeAll", "a00029.html#ad53a7811ce1a24530f07b181194af6ce", null ],
-      [ "txSdmaHandle", "a00029.html#af638c5d4399fc677a928e6608a993eb4", null ],
-      [ "rxSdmaHandle", "a00029.html#a22b55cccadd9c0b5de6a5245e14600b2", null ],
-      [ "txState", "a00029.html#ac512e5cf0122162333483871e8ae055d", null ],
-      [ "rxState", "a00029.html#a38bcebb7fe84e03118f3dd231d99e883", null ]
+    [ "_uart_sdma_handle", "a00029.html#a00242", [
+      [ "callback", "a00029.html#a44ec0479125b14a07d3ef702b7a8a9e5", null ],
+      [ "userData", "a00029.html#a43b4fb3e2e64b1ca501e94ff3033aa40", null ],
+      [ "rxDataSizeAll", "a00029.html#a7d21a285263406435d82b08b200570eb", null ],
+      [ "txDataSizeAll", "a00029.html#a383dfc2cb237f48b67804d7769d3c1fd", null ],
+      [ "txSdmaHandle", "a00029.html#af0f7f447afbefb40876d212205fd9fb8", null ],
+      [ "rxSdmaHandle", "a00029.html#ad2f10640093aa2d549f8795078756b40", null ],
+      [ "txState", "a00029.html#ae71d0abaa2ed9f4de118198ec29aa02a", null ],
+      [ "rxState", "a00029.html#a723037346a312d56a2f0b7b5df5cc735", null ]
     ] ],
     [ "FSL_UART_SDMA_DRIVER_VERSION", "a00029.html#gaec24d47dcc6d0244294a3cd5e59944aa", null ],
     [ "uart_sdma_transfer_callback_t", "a00029.html#ga99bbb5bd4c0958a0440d34d4000f24f0", null ],

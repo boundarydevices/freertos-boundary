@@ -31,5 +31,13 @@ var searchData=
   ['asrc_5ftransferoutcreatehandlesdma',['ASRC_TransferOutCreateHandleSDMA',['../a00009.html#gaf923bba066f80f91df387a5abfcb3e7d',1,'fsl_asrc_sdma.h']]],
   ['asrc_5ftransfersdma',['ASRC_TransferSDMA',['../a00009.html#gabc17140269867e8989d038af7ff1152e',1,'fsl_asrc_sdma.h']]],
   ['asrc_5ftransfersetcontextconfigsdma',['ASRC_TransferSetContextConfigSDMA',['../a00009.html#ga85a3d74a4ce503e2a4028e1ab8cb97c7',1,'fsl_asrc_sdma.h']]],
-  ['asrc_5fwritecontextfifo',['ASRC_WriteContextFifo',['../a00008.html#gac2483fea275eca15b0333de0b1898bec',1,'fsl_asrc.h']]]
+  ['asrc_5fwritecontextfifo',['ASRC_WriteContextFifo',['../a00008.html#gac2483fea275eca15b0333de0b1898bec',1,'fsl_asrc.h']]],
+  ['audiomix_5fattachclk',['AUDIOMIX_AttachClk',['../a00114.html#ga3c50a68d28601c63e44758f4d80ff037',1,'fsl_audiomix.h']]],
+  ['audiomix_5fdeinitaudiopll1',['AUDIOMIX_DeinitAudioPll1',['../a00114.html#ga05afdd45921dfaff333b3120602b8b6e',1,'fsl_audiomix.h']]],
+  ['audiomix_5fgetaudiopllfreq',['AUDIOMIX_GetAudioPllFreq',['../a00114.html#gae1ca3fe020446a016093772ed80f75ea',1,'fsl_audiomix.h']]],
+  ['audiomix_5fgetipstopack',['AUDIOMIX_GetIPStopAck',['../a00114.html#ga1312a76ec7e82d554d2fb3897122d81e',1,'fsl_audiomix.h']]],
+  ['audiomix_5finitaudiopll',['AUDIOMIX_InitAudioPll',['../a00114.html#ga221ebea63c585b985b9367c21541f6cc',1,'fsl_audiomix.h']]],
+  ['audiomix_5fsetearcphyreset',['AUDIOMIX_SetEARCPhyReset',['../a00114.html#gaea41393bfd2949df5d1817761c81c56f',1,'fsl_audiomix.h']]],
+  ['audiomix_5fsetearcreset',['AUDIOMIX_SetEARCReset',['../a00114.html#ga150270bf4b2f4c321f96d432ec58a2e1',1,'fsl_audiomix.h']]],
+  ['audiomix_5fsetipstop',['AUDIOMIX_SetIPStop',['../a00114.html#gaf6252cde31b629dd0e61eeff76402e32',1,'fsl_audiomix.h']]]
 ];
