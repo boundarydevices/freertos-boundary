@@ -121,7 +121,7 @@ static void DSI_ApbClearRxFifo(MIPI_DSI_Type *base)
 
 static uint8_t DSI_GetBitsPerPixel(dsi_dpi_color_coding_t coding)
 {
-    uint8_t bpp;
+    uint8_t bpp = 0U;
     switch (coding)
     {
         case kDSI_DpiYCbCr12Bit:
@@ -896,7 +896,7 @@ status_t DSI_TransferBlocking(MIPI_DSI_Type *base, dsi_transfer_t *xfer)
 {
     status_t status;
     uint32_t pktStatus;
-    uint32_t intFlags1, intFlags2;
+    uint32_t intFlags1 = 0U, intFlags2 = 0U;
 
     status = DSI_PrepareApbTransfer(base, xfer);
 

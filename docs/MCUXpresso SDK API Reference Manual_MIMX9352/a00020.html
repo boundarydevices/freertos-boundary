@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.15.000</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('a00020.html','');});
 <a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">FlexIO Camera Driver<div class="ingroups"><a class="el" href="a00228.html">FlexIO: FlexIO Driver</a></div></div>  </div>
+<div class="title">FlexIO Camera Driver<div class="ingroups"><a class="el" href="a00224.html">FlexIO: FlexIO Driver</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
@@ -117,9 +117,9 @@ Typical use case</h1>
 <h2><a class="anchor" id="CAMERACasePolling"></a>
 FlexIO Camera Receive using eDMA method</h2>
 <div class="fragment"><div class="line"><span class="keyword">volatile</span> uint32_t isEDMAGetOnePictureFinish = <span class="keyword">false</span>;</div>
-<div class="line"><a class="code" href="a00013.html#a00315">edma_handle_t</a> g_edmaHandle;</div>
+<div class="line"><a class="code" href="a00014.html#a00314">edma_handle_t</a> g_edmaHandle;</div>
 <div class="line">flexio_camera_edma_handle_t g_cameraEdmaHandle;</div>
-<div class="line"><a class="code" href="a00013.html#a00311">edma_config_t</a> edmaConfig;</div>
+<div class="line"><a class="code" href="a00014.html#a00310">edma_config_t</a> edmaConfig;</div>
 <div class="line"><a class="code" href="a00020.html#a00369">FLEXIO_CAMERA_Type</a> g_FlexioCameraDevice = {.<a class="code" href="a00020.html#ae0f8a4522f24e49f4b07d817cd83bc9d">flexioBase</a> = FLEXIO0,</div>
 <div class="line">                                       .datPinStartIdx = 24U, <span class="comment">/* fxio_pin 24 -31 are used. */</span></div>
 <div class="line">                                       .pclkPinIdx = 1U,      <span class="comment">/* fxio_pin 1 is used as pclk pin. */</span></div>
@@ -130,14 +130,14 @@ FlexIO Camera Receive using eDMA method</h2>
 <div class="line"><a class="code" href="a00020.html#a00367">flexio_camera_config_t</a> cameraConfig;</div>
 <div class="line"></div>
 <div class="line"><span class="comment">/* Configure DMAMUX */</span></div>
-<div class="line"><a class="code" href="a00224.html#ga850545ac61a004df8ca312db2ca9db73">DMAMUX_Init</a>(DMAMUX0);</div>
+<div class="line"><a class="code" href="a00220.html#ga850545ac61a004df8ca312db2ca9db73">DMAMUX_Init</a>(DMAMUX0);</div>
 <div class="line"><span class="comment">/* Configure DMA */</span></div>
-<div class="line"><a class="code" href="a00013.html#ga9851dc5addd6a1fc557bfdb625aa5c19">EDMA_GetDefaultConfig</a>(&amp;edmaConfig);</div>
-<div class="line"><a class="code" href="a00013.html#gaf7588eb4b54499f0f55c698bd98bc1bb">EDMA_Init</a>(DMA0, &amp;edmaConfig);</div>
+<div class="line"><a class="code" href="a00014.html#ga9851dc5addd6a1fc557bfdb625aa5c19">EDMA_GetDefaultConfig</a>(&amp;edmaConfig);</div>
+<div class="line"><a class="code" href="a00014.html#gaf7588eb4b54499f0f55c698bd98bc1bb">EDMA_Init</a>(DMA0, &amp;edmaConfig);</div>
 <div class="line"></div>
-<div class="line"><a class="code" href="a00224.html#gab4cfa329d636dc52dffb7fedef84367e">DMAMUX_SetSource</a>(DMAMUX0, DMA_CHN_FLEXIO_TO_FRAMEBUFF, (g_FlexioCameraDevice.<a class="code" href="a00020.html#af554771d59526dae198dbccced67dd3d">shifterStartIdx</a> + 1U));</div>
-<div class="line"><a class="code" href="a00224.html#gaecac68802d961c31a06389caa97387f5">DMAMUX_EnableChannel</a>(DMAMUX0, DMA_CHN_FLEXIO_TO_FRAMEBUFF);</div>
-<div class="line"><a class="code" href="a00013.html#gae71842684e693908395784e8b7f7ef55">EDMA_CreateHandle</a>(&amp;g_edmaHandle, DMA0, DMA_CHN_FLEXIO_TO_FRAMEBUFF);</div>
+<div class="line"><a class="code" href="a00220.html#gab4cfa329d636dc52dffb7fedef84367e">DMAMUX_SetSource</a>(DMAMUX0, DMA_CHN_FLEXIO_TO_FRAMEBUFF, (g_FlexioCameraDevice.<a class="code" href="a00020.html#af554771d59526dae198dbccced67dd3d">shifterStartIdx</a> + 1U));</div>
+<div class="line"><a class="code" href="a00220.html#gaecac68802d961c31a06389caa97387f5">DMAMUX_EnableChannel</a>(DMAMUX0, DMA_CHN_FLEXIO_TO_FRAMEBUFF);</div>
+<div class="line"><a class="code" href="a00014.html#gae71842684e693908395784e8b7f7ef55">EDMA_CreateHandle</a>(&amp;g_edmaHandle, DMA0, DMA_CHN_FLEXIO_TO_FRAMEBUFF);</div>
 <div class="line"></div>
 <div class="line"><a class="code" href="a00020.html#ga802016ccb9ed8299101f66455b85d7db">FLEXIO_CAMERA_GetDefaultConfig</a>(&amp;cameraConfig);</div>
 <div class="line"><a class="code" href="a00020.html#ga673dbe9cee73c1bc18a48d4903ae0d0f">FLEXIO_CAMERA_Init</a>(&amp;g_FlexioCameraDevice, &amp;cameraConfig);</div>
@@ -158,12 +158,12 @@ FlexIO Camera Receive using eDMA method</h2>
 <div class="line"><span class="comment">/* A callback function is also needed */</span></div>
 <div class="line"><span class="keywordtype">void</span> FLEXIO_CAMERA_UserCallback(<a class="code" href="a00020.html#a00369">FLEXIO_CAMERA_Type</a> *base,</div>
 <div class="line">                            flexio_camera_edma_handle_t *handle,</div>
-<div class="line">                            <a class="code" href="a00223.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> status,</div>
+<div class="line">                            <a class="code" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> status,</div>
 <div class="line">                            <span class="keywordtype">void</span> *userData)</div>
 <div class="line">{</div>
 <div class="line">    userData = userData;</div>
 <div class="line">    <span class="comment">/* eDMA Transfer finished */</span></div>
-<div class="line">    <span class="keywordflow">if</span> (<a class="code" href="a00020.html#gga2970898e8a43ce21e1cc510d49f1b89da1350eedcb89f16d93727f570b63a79b4">kStatus_FLEXIO_CAMERA_RxIdle</a> == status)</div>
+<div class="line">    <span class="keywordflow">if</span> (<a class="code" href="a00020.html#gga84627a72058502328269676b81780f89a1350eedcb89f16d93727f570b63a79b4">kStatus_FLEXIO_CAMERA_RxIdle</a> == status)</div>
 <div class="line">    {</div>
 <div class="line">        isEDMAGetOnePictureFinish = <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
@@ -194,14 +194,14 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ga2970898e8a43ce21e1cc510d49f1b89d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
-&#160;&#160;<a class="el" href="a00020.html#gga2970898e8a43ce21e1cc510d49f1b89da68a8386d9dc811f20b4955edc9e456ae">kStatus_FLEXIO_CAMERA_RxBusy</a> = MAKE_STATUS(kStatusGroup_FLEXIO_CAMERA, 0), 
+<tr class="memitem:ga84627a72058502328269676b81780f89"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
+&#160;&#160;<a class="el" href="a00020.html#gga84627a72058502328269676b81780f89a68a8386d9dc811f20b4955edc9e456ae">kStatus_FLEXIO_CAMERA_RxBusy</a> = MAKE_STATUS(kStatusGroup_FLEXIO_CAMERA, 0), 
 <br/>
-&#160;&#160;<a class="el" href="a00020.html#gga2970898e8a43ce21e1cc510d49f1b89da1350eedcb89f16d93727f570b63a79b4">kStatus_FLEXIO_CAMERA_RxIdle</a> = MAKE_STATUS(kStatusGroup_FLEXIO_CAMERA, 1)
+&#160;&#160;<a class="el" href="a00020.html#gga84627a72058502328269676b81780f89a1350eedcb89f16d93727f570b63a79b4">kStatus_FLEXIO_CAMERA_RxIdle</a> = MAKE_STATUS(kStatusGroup_FLEXIO_CAMERA, 1)
 <br/>
  }</td></tr>
-<tr class="memdesc:ga2970898e8a43ce21e1cc510d49f1b89d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error codes for the Camera driver.  <a href="a00020.html#ga2970898e8a43ce21e1cc510d49f1b89d">More...</a><br/></td></tr>
-<tr class="separator:ga2970898e8a43ce21e1cc510d49f1b89d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ga84627a72058502328269676b81780f89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error codes for the Camera driver.  <a href="a00020.html#ga84627a72058502328269676b81780f89">More...</a><br/></td></tr>
+<tr class="separator:ga84627a72058502328269676b81780f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga19fc70fddf16fa061eff3de0f46ee888"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#ga19fc70fddf16fa061eff3de0f46ee888">_flexio_camera_status_flags</a> { <br/>
 &#160;&#160;<a class="el" href="a00020.html#gga19fc70fddf16fa061eff3de0f46ee888a3d55cd5136d4cbb5ea3ae3372d7b98ef">kFLEXIO_CAMERA_RxDataRegFullFlag</a> = 0x1U, 
 <br/>
@@ -213,7 +213,7 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
-<tr class="memitem:gaf67f7409d83d5806e8dee459e28ea116"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gaf67f7409d83d5806e8dee459e28ea116">FSL_FLEXIO_CAMERA_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00223.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 3))</td></tr>
+<tr class="memitem:gaf67f7409d83d5806e8dee459e28ea116"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html#gaf67f7409d83d5806e8dee459e28ea116">FSL_FLEXIO_CAMERA_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00219.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 3))</td></tr>
 <tr class="memdesc:gaf67f7409d83d5806e8dee459e28ea116"><td class="mdescLeft">&#160;</td><td class="mdescRight">FlexIO Camera driver version 2.1.3.  <a href="#gaf67f7409d83d5806e8dee459e28ea116">More...</a><br/></td></tr>
 <tr class="separator:gaf67f7409d83d5806e8dee459e28ea116"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -466,7 +466,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FSL_FLEXIO_CAMERA_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00223.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 3))</td>
+          <td class="memname">#define FSL_FLEXIO_CAMERA_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00219.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 3))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -486,7 +486,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="ga2970898e8a43ce21e1cc510d49f1b89d"></a>
+<a class="anchor" id="ga84627a72058502328269676b81780f89"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -496,10 +496,10 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga2970898e8a43ce21e1cc510d49f1b89da68a8386d9dc811f20b4955edc9e456ae"></a>kStatus_FLEXIO_CAMERA_RxBusy</em>&nbsp;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga84627a72058502328269676b81780f89a68a8386d9dc811f20b4955edc9e456ae"></a>kStatus_FLEXIO_CAMERA_RxBusy</em>&nbsp;</td><td class="fielddoc">
 <p>Receiver is busy. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga2970898e8a43ce21e1cc510d49f1b89da1350eedcb89f16d93727f570b63a79b4"></a>kStatus_FLEXIO_CAMERA_RxIdle</em>&nbsp;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="gga84627a72058502328269676b81780f89a1350eedcb89f16d93727f570b63a79b4"></a>kStatus_FLEXIO_CAMERA_RxIdle</em>&nbsp;</td><td class="fielddoc">
 <p>Camera receiver is idle. </p>
 </td></tr>
 </table>

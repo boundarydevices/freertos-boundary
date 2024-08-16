@@ -3,7 +3,7 @@
 include_guard(GLOBAL)
 message("${CMAKE_CURRENT_LIST_FILE} component is included.")
 
-if(CONFIG_USE_middleware_eiq_tensorflow_lite_micro_headers)
+if(CONFIG_USE_middleware_eiq_tensorflow_lite_micro_headers AND CONFIG_USE_middleware_eiq_tensorflow_lite_micro_third_party_kissfft)
 
 target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}/signal/micro/kernels/delay.cpp

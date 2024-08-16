@@ -1,23 +1,35 @@
 var a00249 =
 [
-    [ "FSL_PORT_DRIVER_VERSION", "a00249.html#ga75a0a23a423adf79cd0f83a5fa2567a3", null ],
-    [ "port_interrupt_t", "a00249.html#ga18b2add7e164a5dfa5c00832f857a1f6", [
-      [ "kPORT_InterruptOrDMADisabled", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a3a632495179d065e620ada24a6521ac6", null ],
-      [ "kPORT_DMARisingEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6acf057f010d45cf99b2d42ca76752b103", null ],
-      [ "kPORT_DMAFallingEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6af3275302ec20083e1f12047b2982057c", null ],
-      [ "kPORT_DMAEitherEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aa9d93b8e5b3ae154b5b33ed86d3370ca", null ],
-      [ "kPORT_FlagRisingEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aed05d5f28be0e81a10b36765b1e62750", null ],
-      [ "kPORT_FlagFallingEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aa741b2c34ca3924b5f25a118d833fa2b", null ],
-      [ "kPORT_FlagEitherEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a31d92dea54cfd39106b324260bc3c8f6", null ],
-      [ "kPORT_InterruptLogicZero", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a4001279f550382ce823ad62136970f14", null ],
-      [ "kPORT_InterruptRisingEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a2f8db24e21fd5fabfc8dc5250fbc6471", null ],
-      [ "kPORT_InterruptFallingEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6afe8f52eaca9af2ce2087a2991f50c463", null ],
-      [ "kPORT_InterruptEitherEdge", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a02b1f5ef221c395aa49960c8c32943d2", null ],
-      [ "kPORT_InterruptLogicOne", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aa10b78a566c8439f00d14d18897f765c", null ],
-      [ "kPORT_ActiveHighTriggerOutputEnable", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a47452bd9fd5a7ff1dce3ccba5b38fe25", null ],
-      [ "kPORT_ActiveLowTriggerOutputEnable", "a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6af726a3a1b4f551c31fe80cac6111484a", null ]
+    [ "FSL_SEMA42_DRIVER_VERSION", "a00249.html#ga9d157e87f2444c405d2ebf7fe9a39508", null ],
+    [ "SEMA42_GATE_NUM_RESET_ALL", "a00249.html#gaa2a42c2ffaa2a3b57c39a5e46988d7f3", null ],
+    [ "SEMA42_GATEn", "a00249.html#ga530cd6b85fc81427b81eb16b837b7dfd", [
+      [ "kStatus_SEMA42_Busy", "a00249.html#gga3babbf89cae9b856a12864a41506efbdad5619ab112a016977ca65fb758bf6c17", null ],
+      [ "kStatus_SEMA42_Reseting", "a00249.html#gga3babbf89cae9b856a12864a41506efbdab405b2900737aa815ebc18ea68df56b1", null ]
     ] ],
-    [ "PORT_SetPinInterruptConfig", "a00249.html#ga001584128ac80df3857c8df6cf5245ff", null ],
-    [ "PORT_GetPinsInterruptFlags", "a00249.html#ga50cecfe358ab8f9cad6ab881be2f8899", null ],
-    [ "PORT_ClearPinsInterruptFlags", "a00249.html#gadb6ede61f32b89a54049b899cd576ff7", null ]
+    [ "sema42_gate_status_t", "a00249.html#ga84eaf8f6200932ad09d0a75ece6e463d", [
+      [ "kSEMA42_Unlocked", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463daf9c45d68a643bac3a34b65a5cf1aade6", null ],
+      [ "kSEMA42_LockedByProc0", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da3006dc26747f1eb2b8e1941660f7dc24", null ],
+      [ "kSEMA42_LockedByProc1", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463daf4a285b99114632b0b00c85ea7bf1956", null ],
+      [ "kSEMA42_LockedByProc2", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da94c2081e5497a328126e879bf874fbc5", null ],
+      [ "kSEMA42_LockedByProc3", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463dad41b71c7142766ca69c0aade4c3bee53", null ],
+      [ "kSEMA42_LockedByProc4", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da9e984cd6c8ea942d67614cbd8faa7799", null ],
+      [ "kSEMA42_LockedByProc5", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463dad5f2f1cfd86ec744eb9c406baccdeeaf", null ],
+      [ "kSEMA42_LockedByProc6", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da20694487b850dcb86cab5735686d9590", null ],
+      [ "kSEMA42_LockedByProc7", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da94c20f5d4e13f9ed07cf370b3bbe33cb", null ],
+      [ "kSEMA42_LockedByProc8", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463dad614e32d0b0814c1fe69c3e0c92f7f94", null ],
+      [ "kSEMA42_LockedByProc9", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da26fb2f4b8ceeae21a8e93fd069d9f2e4", null ],
+      [ "kSEMA42_LockedByProc10", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463dad888ea149e3b30c04aec2e828f97deee", null ],
+      [ "kSEMA42_LockedByProc11", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da1923aba10a72c8729327a9c8e6a008f1", null ],
+      [ "kSEMA42_LockedByProc12", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463dac2129067e57645365d38996426d8197f", null ],
+      [ "kSEMA42_LockedByProc13", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da6e63d742de6625c789e49b0586f73c3e", null ],
+      [ "kSEMA42_LockedByProc14", "a00249.html#gga84eaf8f6200932ad09d0a75ece6e463daed15def9132f383c674644194a699ef9", null ]
+    ] ],
+    [ "SEMA42_Init", "a00249.html#ga13685f70a38ed1f8368581b475e963cf", null ],
+    [ "SEMA42_Deinit", "a00249.html#gae646085e5d791b895d478e9ef161c3b3", null ],
+    [ "SEMA42_TryLock", "a00249.html#gab5e2b0d71c6219bcfb381f4b70d7e7b0", null ],
+    [ "SEMA42_Lock", "a00249.html#gaab41e809f563868b6b477a7bb62c9ce2", null ],
+    [ "SEMA42_Unlock", "a00249.html#gac19b80ba254697a9e22b54866226e879", null ],
+    [ "SEMA42_GetGateStatus", "a00249.html#gace62f3aae17c5f6d75764f932f2a673f", null ],
+    [ "SEMA42_ResetGate", "a00249.html#ga6fc8ecf853c6394511d55536d37c7d4f", null ],
+    [ "SEMA42_ResetAllGates", "a00249.html#ga9695921a658471089cddadb8789bb138", null ]
 ];

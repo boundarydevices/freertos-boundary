@@ -101,7 +101,11 @@ wm8962_config_t wm8962Config = {
 };
 
 codec_config_t boardCodecConfig = {.codecDevType = kCODEC_WM8962, .codecDevConfig = &wm8962Config};
+#if defined(DEMO_QUICKACCESS_SECTION_CACHEABLE) && DEMO_QUICKACCESS_SECTION_CACHEABLE
+AT_NONCACHEABLE_SECTION_INIT(sai_edma_handle_t txHandle);
+#else
 AT_QUICKACCESS_SECTION_DATA(sai_edma_handle_t txHandle);
+#endif
 edma_handle_t g_dmaHandle = {0};
 extern codec_config_t boardCodecConfig;
 AT_NONCACHEABLE_SECTION_ALIGN(static uint8_t buffer[BUFFER_NUM * DEMO_XFER_BUFFER_SIZE], 4);
@@ -201,7 +205,7 @@ int main(void)
     wm8962Config.i2cConfig.codecI2CSourceClock = DEMO_I2C_CLK_FREQ;
     wm8962Config.format.mclk_HZ                = DEMO_SAI_CLK_FREQ;
 
-    PRINTF("SAI example started!\n\r");
+    PRINTF("SAI EDMA example started!\n\r");
 
 #if (!defined(DEMO_EDMA_HAS_CHANNEL_CONFIG) || (defined(DEMO_EDMA_HAS_CHANNEL_CONFIG) && !DEMO_EDMA_HAS_CHANNEL_CONFIG))
     /* Create EDMA handle */

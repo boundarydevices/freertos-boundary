@@ -1,5 +1,6 @@
 #
 # Copyright (c) 2001, 2002 Swedish Institute of Computer Science.
+# Copyright 2023 NXP
 # All rights reserved. 
 # 
 # Redistribution and use in source and binary forms, with or without modification, 
@@ -40,6 +41,7 @@ TESTFILES=$(TESTDIR)/lwip_unittests.c \
 	$(TESTDIR)/core/test_pbuf.c \
 	$(TESTDIR)/core/test_timers.c \
 	$(TESTDIR)/dhcp/test_dhcp.c \
+	$(TESTDIR)/dhcp6/test_dhcp6.c \
 	$(TESTDIR)/etharp/test_etharp.c \
 	$(TESTDIR)/ip4/test_ip4.c \
 	$(TESTDIR)/ip6/test_ip6.c \

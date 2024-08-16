@@ -1,8 +1,16 @@
 var a00225 =
 [
-    [ "FSL_EDMA_SOC_DRIVER_VERSION", "a00225.html#ga831120489cc9d849c4b52872c89a07bf", null ],
-    [ "FSL_EDMA_SOC_IP_DMA3", "a00225.html#ga4ba2841202cf12aa54753d5d88d16777", null ],
-    [ "EDMA_BASE_PTRS", "a00225.html#gae2ad368d3a0b53d823af4fee8e0260ba", null ],
-    [ "FSL_FEATURE_EDMA_HAS_CHANNEL_MUX", "a00225.html#ga7f5931124fa31982bcdbb53d7f47bcb0", null ],
-    [ "EDMA_CHANNEL_OFFSET", "a00225.html#ga2727967e9e2e1be65e12ad7bc4ada456", null ]
+    [ "GPIO_PinInit", "a00225.html#ga0793a4e8cb6e746485012da3e487db53", null ],
+    [ "GPIO_PinWrite", "a00225.html#ga80e69ba881f3667fee56c01fa2b2e890", null ],
+    [ "GPIO_PortSet", "a00225.html#ga2de9f41517bfde0920a5dea5db6e56d6", null ],
+    [ "GPIO_PortClear", "a00225.html#gaff8a89d83ce5fdaea9db88317eece33c", null ],
+    [ "GPIO_PortToggle", "a00225.html#gaedff8c598cb084323f2aa6c324c2c0cb", null ],
+    [ "GPIO_PinRead", "a00225.html#gac999c0dd229595fe2b651e796da560be", null ],
+    [ "GPIO_SetPinInterruptConfig", "a00225.html#gab9967340de1977ca533240e0819ad876", null ],
+    [ "GPIO_GpioGetInterruptFlags", "a00225.html#ga9f0b75348e79199f81b75d4969b3867e", null ],
+    [ "GPIO_PinGetInterruptFlag", "a00225.html#ga9769a667a796bcd93cf28304870d3257", null ],
+    [ "GPIO_GpioClearInterruptFlags", "a00225.html#gafd738c868447c88d9f010a7c04a0c551", null ],
+    [ "GPIO_PinClearInterruptFlag", "a00225.html#gab3c667b58e2fb90d0f998f66d9bdea7b", null ],
+    [ "GPIO_GetPinsDMARequestFlags", "a00225.html#ga9d2981db2bb5124995e29c6a92df8b5a", null ],
+    [ "GPIO_SetMultipleInterruptPinsConfig", "a00225.html#ga7f5186a9bedc509e40799d9e060b28db", null ]
 ];

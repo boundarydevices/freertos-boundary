@@ -1,6 +1,5 @@
 /*
- * Copyright 2022, NXP
- * All rights reserved.
+ * Copyright 2022-2024, NXP
  *
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -117,7 +116,9 @@ void TMU_Init(TMU_Type *base, const tmu_config_t *config)
     /* Clear interrupt relevant register. */
     TMU_ClearInterruptStatusFlags(base, (uint32_t)kTMU_ImmediateTemperatureStatusFlags |
                                             (uint32_t)kTMU_AverageTemperatureStatusFlags |
-                                            (uint32_t)kTMU_AverageTemperatureCriticalStatusFlags);
+                                            (uint32_t)kTMU_AverageTemperatureCriticalStatusFlags |
+                                            (uint32_t)kTMU_RisingTemperatureCriticalStatusFlags  |
+                                            (uint32_t)kTMU_FallingTemperatureCriticalStatusFlags);
     /* Configure TCMCFG register. */
     base->TCMCFG |= (TMU_TCMCFG_OCM_MASK | TMU_TCMCFG_DEMA_MASK);
     base->TCMCFG &= ~TMU_TCMCFG_CLK_DIV_MASK;
@@ -186,6 +187,10 @@ void TMU_GetInterruptStatusFlags(TMU_Type *base, tmu_interrupt_status_t *status)
     status->averageInterruptsSiteMask   = (uint16_t)((TMU_TIASCR_SITE_MASK & base->TIASCR) >> TMU_TIASCR_SITE_SHIFT);
     status->averageCriticalInterruptsSiteMask =
         (uint16_t)((TMU_TICSCR_SITE_MASK & base->TICSCR) >> TMU_TICSCR_SITE_SHIFT);
+    status->risingCriticalInterruptsSiteMask =
+        (uint16_t)((TMU_TICSCR_SITE_MASK & base->TICSCR) >> TMU_TICSCR_SITE_SHIFT);
+    status->fallingCriticalInterruptsSiteMask =
+        (uint16_t)((TMU_TICSCR_SITE_MASK & base->TICSCR) >> TMU_TICSCR_SITE_SHIFT);
 }
 
 /*!
@@ -212,6 +217,18 @@ void TMU_ClearInterruptStatusFlags(TMU_Type *base, uint32_t mask)
     if (0U != ((uint32_t)kTMU_AverageTemperatureCriticalStatusFlags & mask))
     {
         base->TIDR = TMU_TIDR_AHTCT_MASK;      /* Clear interrupt detect register. */
+        base->TICSCR &= ~TMU_TICSCR_SITE_MASK; /* Clear interrupt critical site capture register. */
+    }
+    /* For Rising temperature critical threshold interrupt. */
+    if (0U != ((uint32_t)kTMU_RisingTemperatureCriticalStatusFlags & mask))
+    {
+        base->TIDR = TMU_TIDR_RTRCT_MASK;      /* Clear interrupt detect register. */
+        base->TICSCR &= ~TMU_TICSCR_SITE_MASK; /* Clear interrupt critical site capture register. */
+    }
+    /* For Falling temperature critical threshold interrupt. */
+    if (0U != ((uint32_t)kTMU_FallingTemperatureCriticalStatusFlags & mask))
+    {
+        base->TIDR = TMU_TIDR_FTRCT_MASK;      /* Clear interrupt detect register. */
         base->TICSCR &= ~TMU_TICSCR_SITE_MASK; /* Clear interrupt critical site capture register. */
     }
 }
@@ -378,5 +395,23 @@ void TMU_SetHighTemperatureThresold(TMU_Type *base, const tmu_thresold_config_t 
     else
     {
         base->TMHTACTR = 0U;
+    }
+    /* Configure the rising temperature rate critical thresold. */
+    if (config->risingCriticalThresoldEnable)
+    {
+        base->TMRTRCTR = TMU_TMRTRCTR_EN_MASK | TMU_TMRTRCTR_TEMP(config->risingfallingCriticalThresoldValue);
+    }
+    else
+    {
+        base->TMRTRCTR = 0U;
+    }
+    /* Configure the falling temperature rate critical thresold. */
+    if (config->fallingCriticalThresoldEnable)
+    {
+        base->TMFTRCTR = TMU_TMFTRCTR_EN_MASK | TMU_TMFTRCTR_TEMP(config->risingfallingCriticalThresoldValue);
+    }
+    else
+    {
+        base->TMFTRCTR = 0U;
     }
 }

@@ -1,3 +1,33 @@
+/*
+ * Copyright lwIP authors
+ * Copyright 2023 NXP
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 3. The name of the author may not be used to endorse or promote products
+ *    derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
+ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+ * OF SUCH DAMAGE.
+ *
+ * This file is part of the lwIP TCP/IP stack.
+ */
+
 #include "test_ip4.h"
 
 #include "lwip/icmp.h"
@@ -146,11 +176,14 @@ START_TEST(test_ip4_frag)
   err_t err;
   LWIP_UNUSED_ARG(_i);
 
-  linkoutput_ctr = 0;
-
   /* Verify that 8000 byte payload is split into six packets */
   fail_unless(data != NULL);
   test_netif_add();
+
+  /* Reset counters after add because add issues reports. */
+  linkoutput_ctr = 0;
+  linkoutput_byte_ctr = 0;
+
   test_netif.output = arpless_output;
   err = ip4_output_if_src(data, &test_ipaddr, ip_2_ip4(&peer_ip),
                           16, 0, IP_PROTO_UDP, &test_netif);
@@ -241,9 +274,10 @@ START_TEST(test_127_0_0_1)
   struct pbuf* p;
   LWIP_UNUSED_ARG(_i);
 
+  test_netif_add();
+
   linkoutput_ctr = 0;
 
-  test_netif_add();
   netif_set_down(netif_get_loopif());
 
   IP4_ADDR(&localhost, 127, 0, 0, 1);
@@ -284,9 +318,10 @@ START_TEST(test_ip4_icmp_replylen_short)
   const int icmp_len = IP_HLEN + sizeof(struct icmp_hdr);
   LWIP_UNUSED_ARG(_i);
 
+  test_netif_add();
+
   linkoutput_ctr = 0;
 
-  test_netif_add();
   test_netif.output = arpless_output;
   p = pbuf_alloc(PBUF_IP, sizeof(unknown_proto), PBUF_RAM);
   pbuf_take(p, unknown_proto, sizeof(unknown_proto));
@@ -312,9 +347,10 @@ START_TEST(test_ip4_icmp_replylen_first_8)
   const int unreach_len = IP_HLEN + 8;
   LWIP_UNUSED_ARG(_i);
 
+  test_netif_add();
+
   linkoutput_ctr = 0;
 
-  test_netif_add();
   test_netif.output = arpless_output;
   p = pbuf_alloc(PBUF_IP, sizeof(unknown_proto), PBUF_RAM);
   pbuf_take(p, unknown_proto, sizeof(unknown_proto));

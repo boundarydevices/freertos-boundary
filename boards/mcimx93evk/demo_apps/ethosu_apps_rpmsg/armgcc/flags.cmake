@@ -21,7 +21,6 @@ SET(CMAKE_ASM_FLAGS_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -38,7 +37,6 @@ SET(CMAKE_ASM_FLAGS_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \

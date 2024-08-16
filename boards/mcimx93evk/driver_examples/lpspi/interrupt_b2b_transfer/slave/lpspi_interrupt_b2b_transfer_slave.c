@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 NXP
+ * Copyright 2017, 2024 NXP
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -48,14 +48,14 @@ void LPSPI_SlaveUserCallback(LPSPI_Type *base, lpspi_slave_handle_t *handle, sta
 {
     if (status == kStatus_Success)
     {
-        PRINTF("This is LPSPI slave transfer completed callback. \r\n");
-        PRINTF("It's a successful transfer. \r\n\r\n");
+        PRINTF("This is LPSPI slave transfer completed callback.\r\n");
+        PRINTF("It's a successful transfer.\r\n\r\n");
     }
 
     if (status == kStatus_LPSPI_Error)
     {
-        PRINTF("This is LPSPI slave transfer completed callback. \r\n");
-        PRINTF("Error occurred in this transfer. \r\n\r\n");
+        PRINTF("This is LPSPI slave transfer completed callback.\r\n");
+        PRINTF("Error occurred in this transfer.\r\n\r\n");
     }
 
     isTransferCompleted = true;
@@ -94,13 +94,13 @@ int main(void)
     ADP5585_SetDirection(&handle, (1 << BOARD_ADP5585_EXP_SEL), kADP5585_Output);
     ADP5585_SetPins(&handle, (1 << BOARD_ADP5585_EXP_SEL));
 
-    PRINTF("LPSPI board to board interrupt example.\r\n");
+    PRINTF("LPSPI interrupt board to board (b2b) transfer slave example.\r\n");
 
     uint32_t i;
     lpspi_slave_config_t slaveConfig;
     lpspi_transfer_t slaveXfer;
 
-    /*Slave config*/
+    /* Slave config */
     LPSPI_SlaveGetDefaultConfig(&slaveConfig);
     slaveConfig.whichPcs = EXAMPLE_LPSPI_SLAVE_PCS_FOR_INIT;
 
@@ -110,7 +110,7 @@ int main(void)
 
     while (1)
     {
-        PRINTF("\r\n Slave example is running...\r\n");
+        PRINTF("\r\nSlave example is running...\r\n\r\n");
 
         /* Reset the receive buffer */
         for (i = 0U; i < TRANSFER_SIZE; i++)

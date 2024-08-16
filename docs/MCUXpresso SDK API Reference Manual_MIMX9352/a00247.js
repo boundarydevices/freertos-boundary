@@ -1,21 +1,20 @@
 var a00247 =
 [
-    [ "FSL_OCOTP_DRIVER_VERSION", "a00247.html#ga211ad512cb6afc3a8649a61c4f887dd5", [
-      [ "kStatus_OCOTP_AccessError", "a00247.html#gga56a0f36da7f9eaaf54bd05cc2bf49173a6133e2fb03bd09bc490982251048c8de", null ],
-      [ "kStatus_OCOTP_CrcFail", "a00247.html#gga56a0f36da7f9eaaf54bd05cc2bf49173a6c5aa99c2965029cf80feaf36cd0763a", null ],
-      [ "kStatus_OCOTP_ReloadError", "a00247.html#gga56a0f36da7f9eaaf54bd05cc2bf49173aa1a3a69603c6973128021852a03cf9ce", null ],
-      [ "kStatus_OCOTP_ProgramFail", "a00247.html#gga56a0f36da7f9eaaf54bd05cc2bf49173ae3aafd3ae27db94a954965038445d240", null ],
-      [ "kStatus_OCOTP_Locked", "a00247.html#gga56a0f36da7f9eaaf54bd05cc2bf49173a3a38a5c2c3c0f0146c9b773e855812a6", null ]
-    ] ],
-    [ "OCOTP_Init", "a00247.html#ga54480b3c489116b8cb76053b16f02c89", null ],
-    [ "OCOTP_Deinit", "a00247.html#gaafffa3b5fe3f1f69f077e88ba5a7e107", null ],
-    [ "OCOTP_CheckBusyStatus", "a00247.html#gaa3040092099624ec476dd81bd022712c", null ],
-    [ "OCOTP_CheckErrorStatus", "a00247.html#gaf0ee0166ccd35b0273d468b7eb72c954", null ],
-    [ "OCOTP_ClearErrorStatus", "a00247.html#gad9294be0c39be4dfaa1eea436ac85171", null ],
-    [ "OCOTP_ReloadShadowRegister", "a00247.html#ga7a7b1cd03383fafde15157a06fdda557", null ],
-    [ "OCOTP_ReadFuseShadowRegister", "a00247.html#gaecc991ccf4be0c49286fb13cba97e389", null ],
-    [ "OCOTP_ReadFuseShadowRegisterExt", "a00247.html#gaa1b0f813fa5ca43225d71d9218c48a28", null ],
-    [ "OCOTP_WriteFuseShadowRegister", "a00247.html#ga43636ab96125958c9a14fe82c176e33e", null ],
-    [ "OCOTP_WriteFuseShadowRegisterWithLock", "a00247.html#ga4f837c7b4a66ffe3153f2975fd5c6388", null ],
-    [ "OCOTP_GetVersion", "a00247.html#ga38c12a5cb815d9330cd8f2c04e8e1ec5", null ]
+    [ "RGPIO_PinInit", "a00247.html#ga42cda15dc1ac1b284c6a6c5f3b13acac", null ],
+    [ "RGPIO_GetInstance", "a00247.html#gad9d28b84d07289185e083f55774ab955", null ],
+    [ "RGPIO_PinWrite", "a00247.html#gab15094fdc4d10be61b1d06e3f7c5b2fe", null ],
+    [ "RGPIO_WritePinOutput", "a00247.html#ga9e30f65c0614004e9a823b18f4583e75", null ],
+    [ "RGPIO_PortSet", "a00247.html#ga037dc0d9d12a61612c3d2afa82d9503d", null ],
+    [ "RGPIO_SetPinsOutput", "a00247.html#ga9f909f004905ecb6b041578ae4d76bc7", null ],
+    [ "RGPIO_PortClear", "a00247.html#ga9ad5380e1d3c6f8ef1c6403972a80c93", null ],
+    [ "RGPIO_ClearPinsOutput", "a00247.html#ga397c61c954d196dbeefefdfbd680f227", null ],
+    [ "RGPIO_PortToggle", "a00247.html#gac62c7953f98cb89581b5cbc1e86c1818", null ],
+    [ "RGPIO_TogglePinsOutput", "a00247.html#ga760ba04d0b0a6cb6824d8b99783dd66e", null ],
+    [ "RGPIO_PinRead", "a00247.html#gade7c174aacd929650a4a9e43ddc63f1a", null ],
+    [ "RGPIO_ReadPinInput", "a00247.html#gae5104afcca51061300c0302c7eef1ff5", null ],
+    [ "RGPIO_EnablePortInput", "a00247.html#ga1f2424d540b128f4897568428b65359b", null ],
+    [ "RGPIO_SetPinInterruptConfig", "a00247.html#ga9aeb304bc0904708586c188e1d07cd90", null ],
+    [ "_SetMultipleInterruptPinsConfig", "a00247.html#ga4989002c0ca634d8d5093d3b6c6c3600", null ],
+    [ "RGPIO_GetPinsInterruptFlags", "a00247.html#ga51c4db7b21aa216e2fae585521fe51f6", null ],
+    [ "RGPIO_ClearPinsInterruptFlags", "a00247.html#ga9e6caa17713b659523acff662b52b443", null ]
 ];

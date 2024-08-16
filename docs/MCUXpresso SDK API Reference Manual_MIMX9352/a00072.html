@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: WDOG32: 32-bit Watchdog Timer</title>
+<title>MCUXpresso SDK API Reference Manual: WM8960 Driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.15.000</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -100,239 +100,471 @@ $(document).ready(function(){initNavTree('a00072.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">WDOG32: 32-bit Watchdog Timer</div>  </div>
+<div class="title">WM8960 Driver<div class="ingroups"><a class="el" href="a00256.html">CODEC Driver</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
-<p>The MCUXpresso SDK provides a peripheral driver for the WDOG32 module of MCUXpresso SDK devices.</p>
-<h1><a class="anchor" id="WDOG32TypUC"></a>
-Typical use case</h1>
-<p>Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/wdog32 </p>
+<p>The wm8960 driver provides a codec control interface. </p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:a00501"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a00501">wdog32_work_mode_t</a></td></tr>
-<tr class="memdesc:a00501"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines WDOG32 work mode.  <a href="a00072.html#a00501">More...</a><br/></td></tr>
-<tr class="separator:a00501"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00500"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a00500">wdog32_config_t</a></td></tr>
-<tr class="memdesc:a00500"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes WDOG32 configuration structure.  <a href="a00072.html#a00500">More...</a><br/></td></tr>
-<tr class="separator:a00500"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00502"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a00502">wm8960_audio_format_t</a></td></tr>
+<tr class="memdesc:a00502"><td class="mdescLeft">&#160;</td><td class="mdescRight">wm8960 audio format  <a href="a00072.html#a00502">More...</a><br/></td></tr>
+<tr class="separator:a00502"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00505"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a00505">wm8960_master_sysclk_config_t</a></td></tr>
+<tr class="memdesc:a00505"><td class="mdescLeft">&#160;</td><td class="mdescRight">wm8960 master system clock configuration  <a href="a00072.html#a00505">More...</a><br/></td></tr>
+<tr class="separator:a00505"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00503"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a00503">wm8960_config_t</a></td></tr>
+<tr class="memdesc:a00503"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize structure of WM8960.  <a href="a00072.html#a00503">More...</a><br/></td></tr>
+<tr class="separator:a00503"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00504"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a></td></tr>
+<tr class="memdesc:a00504"><td class="mdescLeft">&#160;</td><td class="mdescRight">wm8960 codec handler  <a href="a00072.html#a00504">More...</a><br/></td></tr>
+<tr class="separator:a00504"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gad42c885e755bfa53b74cd811af45db8a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad42c885e755bfa53b74cd811af45db8a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gad42c885e755bfa53b74cd811af45db8a">WM8960_I2C_HANDLER_SIZE</a>&#160;&#160;&#160;<a class="el" href="a00010.html#ga708be0fda3516367fe0461a5f054118c">CODEC_I2C_MASTER_HANDLER_SIZE</a></td></tr>
+<tr class="memdesc:gad42c885e755bfa53b74cd811af45db8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">wm8960 handle size <br/></td></tr>
+<tr class="separator:gad42c885e755bfa53b74cd811af45db8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae6c6a3b67c7930937dd877390dc94cbe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gae6c6a3b67c7930937dd877390dc94cbe">WM8960_LINVOL</a>&#160;&#160;&#160;0x0U</td></tr>
+<tr class="memdesc:gae6c6a3b67c7930937dd877390dc94cbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define the register address of WM8960.  <a href="#gae6c6a3b67c7930937dd877390dc94cbe">More...</a><br/></td></tr>
+<tr class="separator:gae6c6a3b67c7930937dd877390dc94cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacdd9105c1955cf9b7be99a89121e9e7a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gacdd9105c1955cf9b7be99a89121e9e7a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gacdd9105c1955cf9b7be99a89121e9e7a">WM8960_CACHEREGNUM</a>&#160;&#160;&#160;56U</td></tr>
+<tr class="memdesc:gacdd9105c1955cf9b7be99a89121e9e7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cache register number. <br/></td></tr>
+<tr class="separator:gacdd9105c1955cf9b7be99a89121e9e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0725f8e23c8e9a812136d9461a348f11"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga0725f8e23c8e9a812136d9461a348f11"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga0725f8e23c8e9a812136d9461a348f11">WM8960_CLOCK2_BCLK_DIV_MASK</a>&#160;&#160;&#160;0xFU</td></tr>
+<tr class="memdesc:ga0725f8e23c8e9a812136d9461a348f11"><td class="mdescLeft">&#160;</td><td class="mdescRight">WM8960 CLOCK2 bits. <br/></td></tr>
+<tr class="separator:ga0725f8e23c8e9a812136d9461a348f11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1cfddde9bff2839d98dad8cea4d958df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga1cfddde9bff2839d98dad8cea4d958df"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga1cfddde9bff2839d98dad8cea4d958df">WM8960_IFACE1_FORMAT_MASK</a>&#160;&#160;&#160;0x03U</td></tr>
+<tr class="memdesc:ga1cfddde9bff2839d98dad8cea4d958df"><td class="mdescLeft">&#160;</td><td class="mdescRight">WM8960_IFACE1 FORMAT bits. <br/></td></tr>
+<tr class="separator:ga1cfddde9bff2839d98dad8cea4d958df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d2bc2d14ee9c5aeb37042af35715e1b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5d2bc2d14ee9c5aeb37042af35715e1b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga5d2bc2d14ee9c5aeb37042af35715e1b">WM8960_IFACE1_WL_MASK</a>&#160;&#160;&#160;0x0CU</td></tr>
+<tr class="memdesc:ga5d2bc2d14ee9c5aeb37042af35715e1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">WM8960_IFACE1 WL bits. <br/></td></tr>
+<tr class="separator:ga5d2bc2d14ee9c5aeb37042af35715e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga17766c78737e1eb92290921c3110dd92"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga17766c78737e1eb92290921c3110dd92"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga17766c78737e1eb92290921c3110dd92">WM8960_IFACE1_LRP_MASK</a>&#160;&#160;&#160;0x10U</td></tr>
+<tr class="memdesc:ga17766c78737e1eb92290921c3110dd92"><td class="mdescLeft">&#160;</td><td class="mdescRight">WM8960_IFACE1 LRP bit. <br/></td></tr>
+<tr class="separator:ga17766c78737e1eb92290921c3110dd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa36fdca87c244c8f6d2fff4d96611087"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa36fdca87c244c8f6d2fff4d96611087"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gaa36fdca87c244c8f6d2fff4d96611087">WM8960_IFACE1_DLRSWAP_MASK</a>&#160;&#160;&#160;0x20U</td></tr>
+<tr class="memdesc:gaa36fdca87c244c8f6d2fff4d96611087"><td class="mdescLeft">&#160;</td><td class="mdescRight">WM8960_IFACE1 DLRSWAP bit. <br/></td></tr>
+<tr class="separator:gaa36fdca87c244c8f6d2fff4d96611087"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga139e7ba937dd4d9cf1077bf1598ec86b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga139e7ba937dd4d9cf1077bf1598ec86b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga139e7ba937dd4d9cf1077bf1598ec86b">WM8960_IFACE1_MS_MASK</a>&#160;&#160;&#160;0x40U</td></tr>
+<tr class="memdesc:ga139e7ba937dd4d9cf1077bf1598ec86b"><td class="mdescLeft">&#160;</td><td class="mdescRight">WM8960_IFACE1 MS bit. <br/></td></tr>
+<tr class="separator:ga139e7ba937dd4d9cf1077bf1598ec86b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb30f80634350ca28097b895df43cc02"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gacb30f80634350ca28097b895df43cc02"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gacb30f80634350ca28097b895df43cc02">WM8960_IFACE1_BCLKINV_MASK</a>&#160;&#160;&#160;0x80U</td></tr>
+<tr class="memdesc:gacb30f80634350ca28097b895df43cc02"><td class="mdescLeft">&#160;</td><td class="mdescRight">WM8960_IFACE1 BCLKINV bit. <br/></td></tr>
+<tr class="separator:gacb30f80634350ca28097b895df43cc02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b6f652b9b3e5fd2dc7d728f7b967c9a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5b6f652b9b3e5fd2dc7d728f7b967c9a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga5b6f652b9b3e5fd2dc7d728f7b967c9a">WM8960_IFACE1_ALRSWAP_MASK</a>&#160;&#160;&#160;0x100U</td></tr>
+<tr class="memdesc:ga5b6f652b9b3e5fd2dc7d728f7b967c9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">WM8960_IFACE1 ALRSWAP bit. <br/></td></tr>
+<tr class="separator:ga5b6f652b9b3e5fd2dc7d728f7b967c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga885a20098e84dc26ab843b69830048b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga885a20098e84dc26ab843b69830048b5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga885a20098e84dc26ab843b69830048b5">WM8960_POWER1_VREF_MASK</a>&#160;&#160;&#160;0x40U</td></tr>
+<tr class="memdesc:ga885a20098e84dc26ab843b69830048b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">WM8960_POWER1. <br/></td></tr>
+<tr class="separator:ga885a20098e84dc26ab843b69830048b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab8a3493e9e8f10ae4d2c7986aa0c3329"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab8a3493e9e8f10ae4d2c7986aa0c3329"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gab8a3493e9e8f10ae4d2c7986aa0c3329">WM8960_POWER2_DACL_MASK</a>&#160;&#160;&#160;0x100U</td></tr>
+<tr class="memdesc:gab8a3493e9e8f10ae4d2c7986aa0c3329"><td class="mdescLeft">&#160;</td><td class="mdescRight">WM8960_POWER2. <br/></td></tr>
+<tr class="separator:gab8a3493e9e8f10ae4d2c7986aa0c3329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab3675ad227d4528542916e9b591ace43"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gab3675ad227d4528542916e9b591ace43">WM8960_I2C_ADDR</a>&#160;&#160;&#160;0x1A</td></tr>
+<tr class="memdesc:gab3675ad227d4528542916e9b591ace43"><td class="mdescLeft">&#160;</td><td class="mdescRight">WM8960 I2C address.  <a href="#gab3675ad227d4528542916e9b591ace43">More...</a><br/></td></tr>
+<tr class="separator:gab3675ad227d4528542916e9b591ace43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf9f86ecdf51d7c84a55caa0ef67a37f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf9f86ecdf51d7c84a55caa0ef67a37f5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gaf9f86ecdf51d7c84a55caa0ef67a37f5">WM8960_I2C_BAUDRATE</a>&#160;&#160;&#160;(100000U)</td></tr>
+<tr class="memdesc:gaf9f86ecdf51d7c84a55caa0ef67a37f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">WM8960 I2C baudrate. <br/></td></tr>
+<tr class="separator:gaf9f86ecdf51d7c84a55caa0ef67a37f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5c61e09d9dcad206e40ea299b9b3487"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab5c61e09d9dcad206e40ea299b9b3487"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gab5c61e09d9dcad206e40ea299b9b3487">WM8960_ADC_MAX_VOLUME_vALUE</a>&#160;&#160;&#160;0xFFU</td></tr>
+<tr class="memdesc:gab5c61e09d9dcad206e40ea299b9b3487"><td class="mdescLeft">&#160;</td><td class="mdescRight">WM8960 maximum volume value. <br/></td></tr>
+<tr class="separator:gab5c61e09d9dcad206e40ea299b9b3487"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:gaf2723218d3b5f72fe2078c79ae89e22b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gaf2723218d3b5f72fe2078c79ae89e22b">wdog32_clock_source_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00072.html#ggaf2723218d3b5f72fe2078c79ae89e22ba29116f214e8508c4b2bb4ba7bcb5fac0">kWDOG32_ClockSource0</a> = 0U, 
+<tr class="memitem:gad71999d652d6d29485aea6dacf371fc7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gad71999d652d6d29485aea6dacf371fc7">wm8960_module_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00072.html#ggad71999d652d6d29485aea6dacf371fc7ae06d8a84878c6ea432e3401e65fb87cb">kWM8960_ModuleADC</a> = 0, 
 <br/>
-&#160;&#160;<a class="el" href="a00072.html#ggaf2723218d3b5f72fe2078c79ae89e22bae9745d6cb2fb57147140688d9e5d1857">kWDOG32_ClockSource1</a> = 1U, 
+&#160;&#160;<a class="el" href="a00072.html#ggad71999d652d6d29485aea6dacf371fc7a536f29cc4bde51273aee16ca2f5e6079">kWM8960_ModuleDAC</a> = 1, 
 <br/>
-&#160;&#160;<a class="el" href="a00072.html#ggaf2723218d3b5f72fe2078c79ae89e22ba3d49c034db28ff04c7f3bf00d7b61eb2">kWDOG32_ClockSource2</a> = 2U, 
+&#160;&#160;<a class="el" href="a00072.html#ggad71999d652d6d29485aea6dacf371fc7a73f24782244c9b2965072eaa7e59a5d3">kWM8960_ModuleVREF</a> = 2, 
 <br/>
-&#160;&#160;<a class="el" href="a00072.html#ggaf2723218d3b5f72fe2078c79ae89e22ba1bd8755307385dc989ed7eac9d07239b">kWDOG32_ClockSource3</a> = 3U
+&#160;&#160;<a class="el" href="a00072.html#ggad71999d652d6d29485aea6dacf371fc7ac5579774be5b12a7a18f98d1cf374c55">kWM8960_ModuleHP</a> = 3, 
 <br/>
- }</td></tr>
-<tr class="memdesc:gaf2723218d3b5f72fe2078c79ae89e22b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes WDOG32 clock source.  <a href="a00072.html#gaf2723218d3b5f72fe2078c79ae89e22b">More...</a><br/></td></tr>
-<tr class="separator:gaf2723218d3b5f72fe2078c79ae89e22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga647d4707383f8a5c5b94531e04f9cfeb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga647d4707383f8a5c5b94531e04f9cfeb">wdog32_clock_prescaler_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00072.html#gga647d4707383f8a5c5b94531e04f9cfebaddc9f46aa2fe0154abb987f98151de1f">kWDOG32_ClockPrescalerDivide1</a> = 0x0U, 
+&#160;&#160;<a class="el" href="a00072.html#ggad71999d652d6d29485aea6dacf371fc7a4db03d48e615c4643ad53e361737218d">kWM8960_ModuleMICB</a> = 4, 
 <br/>
-&#160;&#160;<a class="el" href="a00072.html#gga647d4707383f8a5c5b94531e04f9cfeba138c782b99d7a3f6fc43d46833e4c451">kWDOG32_ClockPrescalerDivide256</a> = 0x1U
+&#160;&#160;<a class="el" href="a00072.html#ggad71999d652d6d29485aea6dacf371fc7a2ccb86eb6c7ce514a7ce51b97206c426">kWM8960_ModuleMIC</a> = 5, 
 <br/>
- }</td></tr>
-<tr class="memdesc:ga647d4707383f8a5c5b94531e04f9cfeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes the selection of the clock prescaler.  <a href="a00072.html#ga647d4707383f8a5c5b94531e04f9cfeb">More...</a><br/></td></tr>
-<tr class="separator:ga647d4707383f8a5c5b94531e04f9cfeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga963073f1cb4719d64f4d491bebdde9d9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga963073f1cb4719d64f4d491bebdde9d9">wdog32_test_mode_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00072.html#gga963073f1cb4719d64f4d491bebdde9d9a10dd0cd97f64cdcbb846ac489ec5bc99">kWDOG32_TestModeDisabled</a> = 0U, 
+&#160;&#160;<a class="el" href="a00072.html#ggad71999d652d6d29485aea6dacf371fc7a303a97aa3ca809c7f6a972d64287a878">kWM8960_ModuleLineIn</a> = 6, 
 <br/>
-&#160;&#160;<a class="el" href="a00072.html#gga963073f1cb4719d64f4d491bebdde9d9a9e08cae085e373ad7a215ec8ee7b2bc3">kWDOG32_UserModeEnabled</a> = 1U, 
+&#160;&#160;<a class="el" href="a00072.html#ggad71999d652d6d29485aea6dacf371fc7afee92d11ea3a0fc6f9345eac1c648215">kWM8960_ModuleLineOut</a> = 7, 
 <br/>
-&#160;&#160;<a class="el" href="a00072.html#gga963073f1cb4719d64f4d491bebdde9d9a48ae5f6b0527dbcf54c460e2cbc4f260">kWDOG32_LowByteTest</a> = 2U, 
+&#160;&#160;<a class="el" href="a00072.html#ggad71999d652d6d29485aea6dacf371fc7ab2927284f295d943ba601829f5c85d25">kWM8960_ModuleSpeaker</a> = 8, 
 <br/>
-&#160;&#160;<a class="el" href="a00072.html#gga963073f1cb4719d64f4d491bebdde9d9a7a27a5128ac2a2bb1a1af3a8afadc3fa">kWDOG32_HighByteTest</a> = 3U
+&#160;&#160;<a class="el" href="a00072.html#ggad71999d652d6d29485aea6dacf371fc7a0bedf71e89a9a96bf649200db84f77be">kWM8960_ModuleOMIX</a> = 9
 <br/>
  }</td></tr>
-<tr class="memdesc:ga963073f1cb4719d64f4d491bebdde9d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes WDOG32 test mode.  <a href="a00072.html#ga963073f1cb4719d64f4d491bebdde9d9">More...</a><br/></td></tr>
-<tr class="separator:ga963073f1cb4719d64f4d491bebdde9d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabf259a6d842f0d6f4a5a24618e6b6ed4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gabf259a6d842f0d6f4a5a24618e6b6ed4">_wdog32_interrupt_enable_t</a> { <a class="el" href="a00072.html#ggabf259a6d842f0d6f4a5a24618e6b6ed4ae2a2e7d4a8c554ecad8fbcab0b787c1d">kWDOG32_InterruptEnable</a> = WDOG_CS_INT_MASK
- }</td></tr>
-<tr class="memdesc:gabf259a6d842f0d6f4a5a24618e6b6ed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">WDOG32 interrupt configuration structure.  <a href="a00072.html#gabf259a6d842f0d6f4a5a24618e6b6ed4">More...</a><br/></td></tr>
-<tr class="separator:gabf259a6d842f0d6f4a5a24618e6b6ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa02da70d359406657bcf92b4040eeeda"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gaa02da70d359406657bcf92b4040eeeda">_wdog32_status_flags_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00072.html#ggaa02da70d359406657bcf92b4040eeedaac711f02ae4bc6b2421e4f1b46b171585">kWDOG32_RunningFlag</a> = WDOG_CS_EN_MASK, 
+<tr class="memdesc:gad71999d652d6d29485aea6dacf371fc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modules in WM8960 board.  <a href="a00072.html#gad71999d652d6d29485aea6dacf371fc7">More...</a><br/></td></tr>
+<tr class="separator:gad71999d652d6d29485aea6dacf371fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10e74d65d7876276a8f6061c71dcf469"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
+&#160;&#160;<a class="el" href="a00072.html#gga10e74d65d7876276a8f6061c71dcf469a5cb5a5fd1015f7957c198a440d406e96">kWM8960_HeadphoneLeft</a> = 1, 
 <br/>
-&#160;&#160;<a class="el" href="a00072.html#ggaa02da70d359406657bcf92b4040eeedaae0eb7ffaae9ae933dc700fd78d556d32">kWDOG32_InterruptFlag</a> = WDOG_CS_FLG_MASK
+&#160;&#160;<a class="el" href="a00072.html#gga10e74d65d7876276a8f6061c71dcf469a0721220fe5946056318d7e0ec3cbb682">kWM8960_HeadphoneRight</a> = 2, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga10e74d65d7876276a8f6061c71dcf469a38ea4c658535deb51658ce2e00aa4c3e">kWM8960_SpeakerLeft</a> = 4, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga10e74d65d7876276a8f6061c71dcf469a12ce651420aecbccd5be4512ab204523">kWM8960_SpeakerRight</a> = 8
 <br/>
  }</td></tr>
-<tr class="memdesc:gaa02da70d359406657bcf92b4040eeeda"><td class="mdescLeft">&#160;</td><td class="mdescRight">WDOG32 status flags.  <a href="a00072.html#gaa02da70d359406657bcf92b4040eeeda">More...</a><br/></td></tr>
-<tr class="separator:gaa02da70d359406657bcf92b4040eeeda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ga10e74d65d7876276a8f6061c71dcf469"><td class="mdescLeft">&#160;</td><td class="mdescRight">wm8960 play channel  <a href="a00072.html#ga10e74d65d7876276a8f6061c71dcf469">More...</a><br/></td></tr>
+<tr class="separator:ga10e74d65d7876276a8f6061c71dcf469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac536addc1967c512191ce08e3452e84a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gac536addc1967c512191ce08e3452e84a">wm8960_play_source_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00072.html#ggac536addc1967c512191ce08e3452e84aa861dc114e341d3245bed939058c16183">kWM8960_PlaySourcePGA</a> = 1, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#ggac536addc1967c512191ce08e3452e84aaac489a1eedbfc272a9023862efedacc0">kWM8960_PlaySourceInput</a> = 2, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#ggac536addc1967c512191ce08e3452e84aa5a1779ecd2781e184cbb41aa826f9550">kWM8960_PlaySourceDAC</a> = 4
+<br/>
+ }</td></tr>
+<tr class="memdesc:gac536addc1967c512191ce08e3452e84a"><td class="mdescLeft">&#160;</td><td class="mdescRight">wm8960 play source  <a href="a00072.html#gac536addc1967c512191ce08e3452e84a">More...</a><br/></td></tr>
+<tr class="separator:gac536addc1967c512191ce08e3452e84a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadeeac537e163e7225244411c27a43210"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gadeeac537e163e7225244411c27a43210">wm8960_route_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00072.html#ggadeeac537e163e7225244411c27a43210a7ebcfe6753412e27508fab055a844642">kWM8960_RouteBypass</a> = 0, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#ggadeeac537e163e7225244411c27a43210a952a2f8b6834cb61b67f6430a71094ef">kWM8960_RoutePlayback</a> = 1, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#ggadeeac537e163e7225244411c27a43210a6a5973f3f8f53223a26f9e1368eae9c9">kWM8960_RoutePlaybackandRecord</a> = 2, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#ggadeeac537e163e7225244411c27a43210a6d7f4a4f100efb3ad5b05ba3eae74def">kWM8960_RouteRecord</a> = 5
+<br/>
+ }</td></tr>
+<tr class="memdesc:gadeeac537e163e7225244411c27a43210"><td class="mdescLeft">&#160;</td><td class="mdescRight">WM8960 data route.  <a href="a00072.html#gadeeac537e163e7225244411c27a43210">More...</a><br/></td></tr>
+<tr class="separator:gadeeac537e163e7225244411c27a43210"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga64f94347b02b08161996766de30b14fb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga64f94347b02b08161996766de30b14fb">wm8960_protocol_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00072.html#gga64f94347b02b08161996766de30b14fba8efabaf43c6bb17acf54ae37cec6c5f5">kWM8960_BusI2S</a> = 2, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga64f94347b02b08161996766de30b14fbaf87b1ee7c9c54da5f136f1b79a64b5b9">kWM8960_BusLeftJustified</a> = 1, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga64f94347b02b08161996766de30b14fbaed00553ce02a48439a5ec8984d5db467">kWM8960_BusRightJustified</a> = 0, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga64f94347b02b08161996766de30b14fba8fb45995b3bf25ee5122e4ab270c7d2a">kWM8960_BusPCMA</a> = 3, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga64f94347b02b08161996766de30b14fba7a6a94a2db557a1ebe08f4cf10b23f66">kWM8960_BusPCMB</a> = 3 | (1 &lt;&lt; 4)
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga64f94347b02b08161996766de30b14fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The audio data transfer protocol choice.  <a href="a00072.html#ga64f94347b02b08161996766de30b14fb">More...</a><br/></td></tr>
+<tr class="separator:ga64f94347b02b08161996766de30b14fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga53d7560a3c263de4bdaddb7ff6b91a8a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga53d7560a3c263de4bdaddb7ff6b91a8a">wm8960_input_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00072.html#gga53d7560a3c263de4bdaddb7ff6b91a8aa2c6eae84feeba20a1b15e8538202bdbf">kWM8960_InputClosed</a> = 0, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga53d7560a3c263de4bdaddb7ff6b91a8aa1013bdcf916395fb0c7cda34bc9218df">kWM8960_InputSingleEndedMic</a> = 1, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga53d7560a3c263de4bdaddb7ff6b91a8aa96dd0a1fbf73e530b2a8f73994fa8788">kWM8960_InputDifferentialMicInput2</a> = 2, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga53d7560a3c263de4bdaddb7ff6b91a8aa26c5d1f279052c5b3991a563af490ae0">kWM8960_InputDifferentialMicInput3</a> = 3, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga53d7560a3c263de4bdaddb7ff6b91a8aafb03754cff21d67de95242a285a3fc13">kWM8960_InputLineINPUT2</a> = 4, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga53d7560a3c263de4bdaddb7ff6b91a8aae011db846215196ebcecb8cbbb17e5e3">kWM8960_InputLineINPUT3</a> = 5
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga53d7560a3c263de4bdaddb7ff6b91a8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">wm8960 input source  <a href="a00072.html#ga53d7560a3c263de4bdaddb7ff6b91a8a">More...</a><br/></td></tr>
+<tr class="separator:ga53d7560a3c263de4bdaddb7ff6b91a8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1f3b6c692395e5007ff47ce5d9304c1c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
+&#160;&#160;<a class="el" href="a00072.html#gga1f3b6c692395e5007ff47ce5d9304c1ca50961d3980d3e37dd41e3d8c62c3a870">kWM8960_AudioSampleRate8KHz</a> = 8000U, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga1f3b6c692395e5007ff47ce5d9304c1ca509786e8390518009b7349ee35290f02">kWM8960_AudioSampleRate11025Hz</a> = 11025U, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga1f3b6c692395e5007ff47ce5d9304c1cafc081d6675dcc61766d1db7b7a6e57ba">kWM8960_AudioSampleRate12KHz</a> = 12000U, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga1f3b6c692395e5007ff47ce5d9304c1ca37f98eb4cc147382a0001729bfcffd98">kWM8960_AudioSampleRate16KHz</a> = 16000U, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga1f3b6c692395e5007ff47ce5d9304c1ca0a285edc0cb7ce46f6844fca3f8f3689">kWM8960_AudioSampleRate22050Hz</a> = 22050U, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga1f3b6c692395e5007ff47ce5d9304c1cacc8ce4cd6fa286f26a8850093f2aa696">kWM8960_AudioSampleRate24KHz</a> = 24000U, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga1f3b6c692395e5007ff47ce5d9304c1ca59a22bfdc17d3ce83eb4d78507565700">kWM8960_AudioSampleRate32KHz</a> = 32000U, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga1f3b6c692395e5007ff47ce5d9304c1caf44c5c0712d53f88943e56d8ccd466a4">kWM8960_AudioSampleRate44100Hz</a> = 44100U, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga1f3b6c692395e5007ff47ce5d9304c1cae09e315fe927817900e50edd8f5dc29c">kWM8960_AudioSampleRate48KHz</a> = 48000U, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga1f3b6c692395e5007ff47ce5d9304c1ca07ce8a1ae26763623e24caed8f9c42e3">kWM8960_AudioSampleRate96KHz</a> = 96000U, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga1f3b6c692395e5007ff47ce5d9304c1cae9007085de5c77817b93a8d5ef16e227">kWM8960_AudioSampleRate192KHz</a> = 192000U, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga1f3b6c692395e5007ff47ce5d9304c1cabdd1e457644ed2ba495ab7c010876e9e">kWM8960_AudioSampleRate384KHz</a> = 384000U
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga1f3b6c692395e5007ff47ce5d9304c1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">audio sample rate definition  <a href="a00072.html#ga1f3b6c692395e5007ff47ce5d9304c1c">More...</a><br/></td></tr>
+<tr class="separator:ga1f3b6c692395e5007ff47ce5d9304c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0ae1e3bf78c960c83e2d437efd802058"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
+&#160;&#160;<a class="el" href="a00072.html#gga0ae1e3bf78c960c83e2d437efd802058a1e3149fabb02a0cc14413352945cabef">kWM8960_AudioBitWidth16bit</a> = 16U, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga0ae1e3bf78c960c83e2d437efd802058ab67c78216a745b5cd0c6b2bc348a6d85">kWM8960_AudioBitWidth20bit</a> = 20U, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga0ae1e3bf78c960c83e2d437efd802058a32e10ddc499b7b6c91af8a4b515fb9b3">kWM8960_AudioBitWidth24bit</a> = 24U, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#gga0ae1e3bf78c960c83e2d437efd802058abd1253b6f3fa57dd356d1280add31a66">kWM8960_AudioBitWidth32bit</a> = 32U
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga0ae1e3bf78c960c83e2d437efd802058"><td class="mdescLeft">&#160;</td><td class="mdescRight">audio bit width  <a href="a00072.html#ga0ae1e3bf78c960c83e2d437efd802058">More...</a><br/></td></tr>
+<tr class="separator:ga0ae1e3bf78c960c83e2d437efd802058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabc038c44fbcf4f341d6a56168b091671"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gabc038c44fbcf4f341d6a56168b091671">wm8960_sysclk_source_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00072.html#ggabc038c44fbcf4f341d6a56168b091671a2f693bb4ba26726b322414de913c7952">kWM8960_SysClkSourceMclk</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00072.html#ggabc038c44fbcf4f341d6a56168b091671a3c99b674642b963f84888733e1dcb80a">kWM8960_SysClkSourceInternalPLL</a> = 1U
+<br/>
+ }</td></tr>
+<tr class="memdesc:gabc038c44fbcf4f341d6a56168b091671"><td class="mdescLeft">&#160;</td><td class="mdescRight">wm8960 sysclk source  <a href="a00072.html#gabc038c44fbcf4f341d6a56168b091671">More...</a><br/></td></tr>
+<tr class="separator:gabc038c44fbcf4f341d6a56168b091671"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-Unlock sequence</h2></td></tr>
-<tr class="memitem:ga8825b35bd62726165737f5dc0f5f61e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8825b35bd62726165737f5dc0f5f61e4"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga8825b35bd62726165737f5dc0f5f61e4">WDOG_FIRST_WORD_OF_UNLOCK</a>&#160;&#160;&#160;(WDOG_UPDATE_KEY &amp; 0xFFFFU)</td></tr>
-<tr class="memdesc:ga8825b35bd62726165737f5dc0f5f61e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">First word of unlock sequence. <br/></td></tr>
-<tr class="separator:ga8825b35bd62726165737f5dc0f5f61e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae2018a4151df654f86822786500cf2d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae2018a4151df654f86822786500cf2d3"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gae2018a4151df654f86822786500cf2d3">WDOG_SECOND_WORD_OF_UNLOCK</a>&#160;&#160;&#160;((WDOG_UPDATE_KEY &gt;&gt; 16U) &amp; 0xFFFFU)</td></tr>
-<tr class="memdesc:gae2018a4151df654f86822786500cf2d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Second word of unlock sequence. <br/></td></tr>
-<tr class="separator:gae2018a4151df654f86822786500cf2d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-Refresh sequence</h2></td></tr>
-<tr class="memitem:ga10f1df824e5965d6413b2e892fd04659"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga10f1df824e5965d6413b2e892fd04659"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga10f1df824e5965d6413b2e892fd04659">WDOG_FIRST_WORD_OF_REFRESH</a>&#160;&#160;&#160;(WDOG_REFRESH_KEY &amp; 0xFFFFU)</td></tr>
-<tr class="memdesc:ga10f1df824e5965d6413b2e892fd04659"><td class="mdescLeft">&#160;</td><td class="mdescRight">First word of refresh sequence. <br/></td></tr>
-<tr class="separator:ga10f1df824e5965d6413b2e892fd04659"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2a375c7e4d71e7f52e899bce0a9106ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2a375c7e4d71e7f52e899bce0a9106ee"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga2a375c7e4d71e7f52e899bce0a9106ee">WDOG_SECOND_WORD_OF_REFRESH</a>&#160;&#160;&#160;((WDOG_REFRESH_KEY &gt;&gt; 16U) &amp; 0xFFFFU)</td></tr>
-<tr class="memdesc:ga2a375c7e4d71e7f52e899bce0a9106ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Second word of refresh sequence. <br/></td></tr>
-<tr class="separator:ga2a375c7e4d71e7f52e899bce0a9106ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga858aef4726057dd44882d1ed86979b9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga858aef4726057dd44882d1ed86979b9b">WM8960_Init</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle, const <a class="el" href="a00072.html#a00503">wm8960_config_t</a> *config)</td></tr>
+<tr class="memdesc:ga858aef4726057dd44882d1ed86979b9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">WM8960 initialize function.  <a href="#ga858aef4726057dd44882d1ed86979b9b">More...</a><br/></td></tr>
+<tr class="separator:ga858aef4726057dd44882d1ed86979b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaedaaeb3e155069e1e7d6e41d8597561f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gaedaaeb3e155069e1e7d6e41d8597561f">WM8960_Deinit</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle)</td></tr>
+<tr class="memdesc:gaedaaeb3e155069e1e7d6e41d8597561f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinit the WM8960 codec.  <a href="#gaedaaeb3e155069e1e7d6e41d8597561f">More...</a><br/></td></tr>
+<tr class="separator:gaedaaeb3e155069e1e7d6e41d8597561f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6922f6e4b7e5edec6f29549e1f9df98b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga6922f6e4b7e5edec6f29549e1f9df98b">WM8960_SetDataRoute</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle, <a class="el" href="a00072.html#gadeeac537e163e7225244411c27a43210">wm8960_route_t</a> route)</td></tr>
+<tr class="memdesc:ga6922f6e4b7e5edec6f29549e1f9df98b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set audio data route in WM8960.  <a href="#ga6922f6e4b7e5edec6f29549e1f9df98b">More...</a><br/></td></tr>
+<tr class="separator:ga6922f6e4b7e5edec6f29549e1f9df98b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf6b69e1ebbca5832f6c2c9065a8623e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gaf6b69e1ebbca5832f6c2c9065a8623e5">WM8960_SetLeftInput</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle, <a class="el" href="a00072.html#ga53d7560a3c263de4bdaddb7ff6b91a8a">wm8960_input_t</a> input)</td></tr>
+<tr class="memdesc:gaf6b69e1ebbca5832f6c2c9065a8623e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set left audio input source in WM8960.  <a href="#gaf6b69e1ebbca5832f6c2c9065a8623e5">More...</a><br/></td></tr>
+<tr class="separator:gaf6b69e1ebbca5832f6c2c9065a8623e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78f5175195593c91559abd992e9cf395"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga78f5175195593c91559abd992e9cf395">WM8960_SetRightInput</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle, <a class="el" href="a00072.html#ga53d7560a3c263de4bdaddb7ff6b91a8a">wm8960_input_t</a> input)</td></tr>
+<tr class="memdesc:ga78f5175195593c91559abd992e9cf395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set right audio input source in WM8960.  <a href="#ga78f5175195593c91559abd992e9cf395">More...</a><br/></td></tr>
+<tr class="separator:ga78f5175195593c91559abd992e9cf395"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga13e6e6f7bc58616cc9a79be31137ede5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga13e6e6f7bc58616cc9a79be31137ede5">WM8960_SetProtocol</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle, <a class="el" href="a00072.html#ga64f94347b02b08161996766de30b14fb">wm8960_protocol_t</a> protocol)</td></tr>
+<tr class="memdesc:ga13e6e6f7bc58616cc9a79be31137ede5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the audio transfer protocol.  <a href="#ga13e6e6f7bc58616cc9a79be31137ede5">More...</a><br/></td></tr>
+<tr class="separator:ga13e6e6f7bc58616cc9a79be31137ede5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga88842e10f2046b4bb6cd24f6e605ccad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga88842e10f2046b4bb6cd24f6e605ccad">WM8960_SetMasterSlave</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle, bool master)</td></tr>
+<tr class="memdesc:ga88842e10f2046b4bb6cd24f6e605ccad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set WM8960 as master or slave.  <a href="#ga88842e10f2046b4bb6cd24f6e605ccad">More...</a><br/></td></tr>
+<tr class="separator:ga88842e10f2046b4bb6cd24f6e605ccad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga046444c70f68c74b0514211a6f4ab3a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga046444c70f68c74b0514211a6f4ab3a7">WM8960_SetVolume</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle, <a class="el" href="a00072.html#gad71999d652d6d29485aea6dacf371fc7">wm8960_module_t</a> module, uint32_t volume)</td></tr>
+<tr class="memdesc:ga046444c70f68c74b0514211a6f4ab3a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the volume of different modules in WM8960.  <a href="#ga046444c70f68c74b0514211a6f4ab3a7">More...</a><br/></td></tr>
+<tr class="separator:ga046444c70f68c74b0514211a6f4ab3a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga57f8b8228a0031cccc8fba4c079ccd7b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga57f8b8228a0031cccc8fba4c079ccd7b">WM8960_GetVolume</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle, <a class="el" href="a00072.html#gad71999d652d6d29485aea6dacf371fc7">wm8960_module_t</a> module)</td></tr>
+<tr class="memdesc:ga57f8b8228a0031cccc8fba4c079ccd7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the volume of different modules in WM8960.  <a href="#ga57f8b8228a0031cccc8fba4c079ccd7b">More...</a><br/></td></tr>
+<tr class="separator:ga57f8b8228a0031cccc8fba4c079ccd7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd5893a1845dfd1a4c1721f9cbf720e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gafd5893a1845dfd1a4c1721f9cbf720e0">WM8960_SetMute</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle, <a class="el" href="a00072.html#gad71999d652d6d29485aea6dacf371fc7">wm8960_module_t</a> module, bool isEnabled)</td></tr>
+<tr class="memdesc:gafd5893a1845dfd1a4c1721f9cbf720e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mute modules in WM8960.  <a href="#gafd5893a1845dfd1a4c1721f9cbf720e0">More...</a><br/></td></tr>
+<tr class="separator:gafd5893a1845dfd1a4c1721f9cbf720e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa173f27a2ffcfc3d7c9fc60f96e1070f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gaa173f27a2ffcfc3d7c9fc60f96e1070f">WM8960_SetModule</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle, <a class="el" href="a00072.html#gad71999d652d6d29485aea6dacf371fc7">wm8960_module_t</a> module, bool isEnabled)</td></tr>
+<tr class="memdesc:gaa173f27a2ffcfc3d7c9fc60f96e1070f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable/disable expected devices.  <a href="#gaa173f27a2ffcfc3d7c9fc60f96e1070f">More...</a><br/></td></tr>
+<tr class="separator:gaa173f27a2ffcfc3d7c9fc60f96e1070f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadd0a4568108064adc221bd9c823e423a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gadd0a4568108064adc221bd9c823e423a">WM8960_SetPlay</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle, uint32_t playSource)</td></tr>
+<tr class="memdesc:gadd0a4568108064adc221bd9c823e423a"><td class="mdescLeft">&#160;</td><td class="mdescRight">SET the WM8960 play source.  <a href="#gadd0a4568108064adc221bd9c823e423a">More...</a><br/></td></tr>
+<tr class="separator:gadd0a4568108064adc221bd9c823e423a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ac24f4e16ca54145d44e38ac8085e6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga8ac24f4e16ca54145d44e38ac8085e6f">WM8960_ConfigDataFormat</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle, uint32_t sysclk, uint32_t sample_rate, uint32_t bits)</td></tr>
+<tr class="memdesc:ga8ac24f4e16ca54145d44e38ac8085e6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the data format of audio data.  <a href="#ga8ac24f4e16ca54145d44e38ac8085e6f">More...</a><br/></td></tr>
+<tr class="separator:ga8ac24f4e16ca54145d44e38ac8085e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2bb7a2a1dfb0513f8e1238a952cc77cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga2bb7a2a1dfb0513f8e1238a952cc77cc">WM8960_SetJackDetect</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle, bool isEnabled)</td></tr>
+<tr class="memdesc:ga2bb7a2a1dfb0513f8e1238a952cc77cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable/disable jack detect feature.  <a href="#ga2bb7a2a1dfb0513f8e1238a952cc77cc">More...</a><br/></td></tr>
+<tr class="separator:ga2bb7a2a1dfb0513f8e1238a952cc77cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46c9a029f9e5155486506e4493fe983f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga46c9a029f9e5155486506e4493fe983f">WM8960_WriteReg</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle, uint8_t reg, uint16_t val)</td></tr>
+<tr class="memdesc:ga46c9a029f9e5155486506e4493fe983f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write register to WM8960 using I2C.  <a href="#ga46c9a029f9e5155486506e4493fe983f">More...</a><br/></td></tr>
+<tr class="separator:ga46c9a029f9e5155486506e4493fe983f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga32914c3d6d76e5507f945966400229ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga32914c3d6d76e5507f945966400229ca">WM8960_ReadReg</a> (uint8_t reg, uint16_t *val)</td></tr>
+<tr class="memdesc:ga32914c3d6d76e5507f945966400229ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read register from WM8960 using I2C.  <a href="#ga32914c3d6d76e5507f945966400229ca">More...</a><br/></td></tr>
+<tr class="separator:ga32914c3d6d76e5507f945966400229ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab7aa751625c271e00860ab99b33a9532"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gab7aa751625c271e00860ab99b33a9532">WM8960_ModifyReg</a> (<a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *handle, uint8_t reg, uint16_t mask, uint16_t val)</td></tr>
+<tr class="memdesc:gab7aa751625c271e00860ab99b33a9532"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify some bits in the register using I2C.  <a href="#gab7aa751625c271e00860ab99b33a9532">More...</a><br/></td></tr>
+<tr class="separator:gab7aa751625c271e00860ab99b33a9532"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
-<tr class="memitem:ga3aed9b151ba2a936e1274fdacc3adc48"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga3aed9b151ba2a936e1274fdacc3adc48">FSL_WDOG32_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00223.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 0))</td></tr>
-<tr class="memdesc:ga3aed9b151ba2a936e1274fdacc3adc48"><td class="mdescLeft">&#160;</td><td class="mdescRight">WDOG32 driver version.  <a href="#ga3aed9b151ba2a936e1274fdacc3adc48">More...</a><br/></td></tr>
-<tr class="separator:ga3aed9b151ba2a936e1274fdacc3adc48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-WDOG32 Initialization and De-initialization</h2></td></tr>
-<tr class="memitem:ga2a600d8293c406750156e0555e9f977f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga2a600d8293c406750156e0555e9f977f">WDOG32_GetDefaultConfig</a> (<a class="el" href="a00072.html#a00500">wdog32_config_t</a> *config)</td></tr>
-<tr class="memdesc:ga2a600d8293c406750156e0555e9f977f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the WDOG32 configuration structure.  <a href="#ga2a600d8293c406750156e0555e9f977f">More...</a><br/></td></tr>
-<tr class="separator:ga2a600d8293c406750156e0555e9f977f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga837e5f59db9b58e0f66a947193b30545"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga837e5f59db9b58e0f66a947193b30545">WDOG32_Init</a> (WDOG_Type *base, const <a class="el" href="a00072.html#a00500">wdog32_config_t</a> *config)</td></tr>
-<tr class="memdesc:ga837e5f59db9b58e0f66a947193b30545"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the WDOG32 module.  <a href="#ga837e5f59db9b58e0f66a947193b30545">More...</a><br/></td></tr>
-<tr class="separator:ga837e5f59db9b58e0f66a947193b30545"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga711412b5690c1af272b7f2268c195bcf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga711412b5690c1af272b7f2268c195bcf">WDOG32_Deinit</a> (WDOG_Type *base)</td></tr>
-<tr class="memdesc:ga711412b5690c1af272b7f2268c195bcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initializes the WDOG32 module.  <a href="#ga711412b5690c1af272b7f2268c195bcf">More...</a><br/></td></tr>
-<tr class="separator:ga711412b5690c1af272b7f2268c195bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-WDOG32 functional Operation</h2></td></tr>
-<tr class="memitem:ga0511570e5f8456cfa6b1b2ce00a0ae4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga0511570e5f8456cfa6b1b2ce00a0ae4a">WDOG32_Unlock</a> (WDOG_Type *base)</td></tr>
-<tr class="memdesc:ga0511570e5f8456cfa6b1b2ce00a0ae4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlocks the WDOG32 register written.  <a href="#ga0511570e5f8456cfa6b1b2ce00a0ae4a">More...</a><br/></td></tr>
-<tr class="separator:ga0511570e5f8456cfa6b1b2ce00a0ae4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3bb5f971199e1a21ae57884a299792e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga3bb5f971199e1a21ae57884a299792e1">WDOG32_Enable</a> (WDOG_Type *base)</td></tr>
-<tr class="memdesc:ga3bb5f971199e1a21ae57884a299792e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the WDOG32 module.  <a href="#ga3bb5f971199e1a21ae57884a299792e1">More...</a><br/></td></tr>
-<tr class="separator:ga3bb5f971199e1a21ae57884a299792e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0a23104c81ade515394874175ab7ddc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga0a23104c81ade515394874175ab7ddc4">WDOG32_Disable</a> (WDOG_Type *base)</td></tr>
-<tr class="memdesc:ga0a23104c81ade515394874175ab7ddc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the WDOG32 module.  <a href="#ga0a23104c81ade515394874175ab7ddc4">More...</a><br/></td></tr>
-<tr class="separator:ga0a23104c81ade515394874175ab7ddc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabaa2126e704d23f59313a431585bbf41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gabaa2126e704d23f59313a431585bbf41">WDOG32_EnableInterrupts</a> (WDOG_Type *base, uint32_t mask)</td></tr>
-<tr class="memdesc:gabaa2126e704d23f59313a431585bbf41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the WDOG32 interrupt.  <a href="#gabaa2126e704d23f59313a431585bbf41">More...</a><br/></td></tr>
-<tr class="separator:gabaa2126e704d23f59313a431585bbf41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabc727be6482297a308e2e3f18db8b6c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gabc727be6482297a308e2e3f18db8b6c4">WDOG32_DisableInterrupts</a> (WDOG_Type *base, uint32_t mask)</td></tr>
-<tr class="memdesc:gabc727be6482297a308e2e3f18db8b6c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the WDOG32 interrupt.  <a href="#gabc727be6482297a308e2e3f18db8b6c4">More...</a><br/></td></tr>
-<tr class="separator:gabc727be6482297a308e2e3f18db8b6c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1f7011053adb37b71d3ac2b8dba918a7"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga1f7011053adb37b71d3ac2b8dba918a7">WDOG32_GetStatusFlags</a> (WDOG_Type *base)</td></tr>
-<tr class="memdesc:ga1f7011053adb37b71d3ac2b8dba918a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the WDOG32 all status flags.  <a href="#ga1f7011053adb37b71d3ac2b8dba918a7">More...</a><br/></td></tr>
-<tr class="separator:ga1f7011053adb37b71d3ac2b8dba918a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga03293e4e343c1575b0fc268495826df0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga03293e4e343c1575b0fc268495826df0">WDOG32_ClearStatusFlags</a> (WDOG_Type *base, uint32_t mask)</td></tr>
-<tr class="memdesc:ga03293e4e343c1575b0fc268495826df0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the WDOG32 flag.  <a href="#ga03293e4e343c1575b0fc268495826df0">More...</a><br/></td></tr>
-<tr class="separator:ga03293e4e343c1575b0fc268495826df0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac13fb90315dd17a7f7624717fa94bb68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gac13fb90315dd17a7f7624717fa94bb68">WDOG32_SetTimeoutValue</a> (WDOG_Type *base, uint16_t timeoutCount)</td></tr>
-<tr class="memdesc:gac13fb90315dd17a7f7624717fa94bb68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the WDOG32 timeout value.  <a href="#gac13fb90315dd17a7f7624717fa94bb68">More...</a><br/></td></tr>
-<tr class="separator:gac13fb90315dd17a7f7624717fa94bb68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0bda44be56c7db9b1988b87962c4b269"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga0bda44be56c7db9b1988b87962c4b269">WDOG32_SetWindowValue</a> (WDOG_Type *base, uint16_t windowValue)</td></tr>
-<tr class="memdesc:ga0bda44be56c7db9b1988b87962c4b269"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the WDOG32 window value.  <a href="#ga0bda44be56c7db9b1988b87962c4b269">More...</a><br/></td></tr>
-<tr class="separator:ga0bda44be56c7db9b1988b87962c4b269"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8cd48b61083e47080be856ae46a27374"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga8cd48b61083e47080be856ae46a27374">WDOG32_Refresh</a> (WDOG_Type *base)</td></tr>
-<tr class="memdesc:ga8cd48b61083e47080be856ae46a27374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refreshes the WDOG32 timer.  <a href="#ga8cd48b61083e47080be856ae46a27374">More...</a><br/></td></tr>
-<tr class="separator:ga8cd48b61083e47080be856ae46a27374"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac51b0779cc8980812f1e81d993135c1a"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#gac51b0779cc8980812f1e81d993135c1a">WDOG32_GetCounterValue</a> (WDOG_Type *base)</td></tr>
-<tr class="memdesc:gac51b0779cc8980812f1e81d993135c1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the WDOG32 counter value.  <a href="#gac51b0779cc8980812f1e81d993135c1a">More...</a><br/></td></tr>
-<tr class="separator:gac51b0779cc8980812f1e81d993135c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4a96a53318ae1b2c8778b10501018fc3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4a96a53318ae1b2c8778b10501018fc3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ga4a96a53318ae1b2c8778b10501018fc3">FSL_WM8960_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00219.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 2, 4))</td></tr>
+<tr class="memdesc:ga4a96a53318ae1b2c8778b10501018fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">CLOCK driver version 2.2.4. <br/></td></tr>
+<tr class="separator:ga4a96a53318ae1b2c8778b10501018fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="a00501" id="a00501"></a>
+<a name="a00502" id="a00502"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct wdog32_work_mode_t</td>
+          <td class="memname">struct wm8960_audio_format_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:a4eafd57a0902efab66232ab33de3c73d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4eafd57a0902efab66232ab33de3c73d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a4eafd57a0902efab66232ab33de3c73d">enableWait</a></td></tr>
-<tr class="memdesc:a4eafd57a0902efab66232ab33de3c73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables WDOG32 in wait mode. <br/></td></tr>
-<tr class="separator:a4eafd57a0902efab66232ab33de3c73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89722846e36fbd9aaed4f45cf03fbe00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89722846e36fbd9aaed4f45cf03fbe00"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a89722846e36fbd9aaed4f45cf03fbe00">enableStop</a></td></tr>
-<tr class="memdesc:a89722846e36fbd9aaed4f45cf03fbe00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables WDOG32 in stop mode. <br/></td></tr>
-<tr class="separator:a89722846e36fbd9aaed4f45cf03fbe00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae39601802486455524ca8f7f877ec0dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae39601802486455524ca8f7f877ec0dc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ae39601802486455524ca8f7f877ec0dc">enableDebug</a></td></tr>
-<tr class="memdesc:ae39601802486455524ca8f7f877ec0dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables WDOG32 in debug mode. <br/></td></tr>
-<tr class="separator:ae39601802486455524ca8f7f877ec0dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb1efbb406e368e6fd5393da2543bb8a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb1efbb406e368e6fd5393da2543bb8a"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#afb1efbb406e368e6fd5393da2543bb8a">mclk_HZ</a></td></tr>
+<tr class="memdesc:afb1efbb406e368e6fd5393da2543bb8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">master clock frequency <br/></td></tr>
+<tr class="separator:afb1efbb406e368e6fd5393da2543bb8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae96a0158b6a005c24d4713578b9f493a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae96a0158b6a005c24d4713578b9f493a"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ae96a0158b6a005c24d4713578b9f493a">sampleRate</a></td></tr>
+<tr class="memdesc:ae96a0158b6a005c24d4713578b9f493a"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate <br/></td></tr>
+<tr class="separator:ae96a0158b6a005c24d4713578b9f493a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd1d53b78beb2d929a1d1200c2a18227"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd1d53b78beb2d929a1d1200c2a18227"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#abd1d53b78beb2d929a1d1200c2a18227">bitWidth</a></td></tr>
+<tr class="memdesc:abd1d53b78beb2d929a1d1200c2a18227"><td class="mdescLeft">&#160;</td><td class="mdescRight">bit width <br/></td></tr>
+<tr class="separator:abd1d53b78beb2d929a1d1200c2a18227"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 
 </div>
 </div>
-<a name="a00500" id="a00500"></a>
+<a name="a00505" id="a00505"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct wdog32_config_t</td>
+          <td class="memname">struct wm8960_master_sysclk_config_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock"></div><table class="memberdecls">
 <tr><td colspan="2"><h3>Data Fields</h3></td></tr>
-<tr class="memitem:ab80dd2f0e5475395f0e031e0811c127f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab80dd2f0e5475395f0e031e0811c127f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ab80dd2f0e5475395f0e031e0811c127f">enableWdog32</a></td></tr>
-<tr class="memdesc:ab80dd2f0e5475395f0e031e0811c127f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables WDOG32. <br/></td></tr>
-<tr class="separator:ab80dd2f0e5475395f0e031e0811c127f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55ee4dcaa7322068ae52fef6150f24a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a55ee4dcaa7322068ae52fef6150f24a6"></a>
-<a class="el" href="a00072.html#gaf2723218d3b5f72fe2078c79ae89e22b">wdog32_clock_source_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a55ee4dcaa7322068ae52fef6150f24a6">clockSource</a></td></tr>
-<tr class="memdesc:a55ee4dcaa7322068ae52fef6150f24a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clock source select. <br/></td></tr>
-<tr class="separator:a55ee4dcaa7322068ae52fef6150f24a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7df5183ec267667a9e4c88e627da6cd8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7df5183ec267667a9e4c88e627da6cd8"></a>
-<a class="el" href="a00072.html#ga647d4707383f8a5c5b94531e04f9cfeb">wdog32_clock_prescaler_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a7df5183ec267667a9e4c88e627da6cd8">prescaler</a></td></tr>
-<tr class="memdesc:a7df5183ec267667a9e4c88e627da6cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clock prescaler value. <br/></td></tr>
-<tr class="separator:a7df5183ec267667a9e4c88e627da6cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0bac2121a846c18f1abd7180c0bef96"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af0bac2121a846c18f1abd7180c0bef96"></a>
-<a class="el" href="a00072.html#a00501">wdog32_work_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#af0bac2121a846c18f1abd7180c0bef96">workMode</a></td></tr>
-<tr class="memdesc:af0bac2121a846c18f1abd7180c0bef96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures WDOG32 work mode in debug stop and wait mode. <br/></td></tr>
-<tr class="separator:af0bac2121a846c18f1abd7180c0bef96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a064f2be7cd3eb75072823c7fa55641fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a064f2be7cd3eb75072823c7fa55641fd"></a>
-<a class="el" href="a00072.html#ga963073f1cb4719d64f4d491bebdde9d9">wdog32_test_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a064f2be7cd3eb75072823c7fa55641fd">testMode</a></td></tr>
-<tr class="memdesc:a064f2be7cd3eb75072823c7fa55641fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures WDOG32 test mode. <br/></td></tr>
-<tr class="separator:a064f2be7cd3eb75072823c7fa55641fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40e63e94a31c56d510835d6071a1df85"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40e63e94a31c56d510835d6071a1df85"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a40e63e94a31c56d510835d6071a1df85">enableUpdate</a></td></tr>
-<tr class="memdesc:a40e63e94a31c56d510835d6071a1df85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update write-once register enable. <br/></td></tr>
-<tr class="separator:a40e63e94a31c56d510835d6071a1df85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17256555c7dc9048a7a1ab68c467ca63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17256555c7dc9048a7a1ab68c467ca63"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a17256555c7dc9048a7a1ab68c467ca63">enableInterrupt</a></td></tr>
-<tr class="memdesc:a17256555c7dc9048a7a1ab68c467ca63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables WDOG32 interrupt. <br/></td></tr>
-<tr class="separator:a17256555c7dc9048a7a1ab68c467ca63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3399d73ca4291a5883b578fccc95c091"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3399d73ca4291a5883b578fccc95c091"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a3399d73ca4291a5883b578fccc95c091">enableWindowMode</a></td></tr>
-<tr class="memdesc:a3399d73ca4291a5883b578fccc95c091"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables WDOG32 window mode. <br/></td></tr>
-<tr class="separator:a3399d73ca4291a5883b578fccc95c091"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa60ca9f1ffe17c99d0178332497d2af5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa60ca9f1ffe17c99d0178332497d2af5"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#aa60ca9f1ffe17c99d0178332497d2af5">windowValue</a></td></tr>
-<tr class="memdesc:aa60ca9f1ffe17c99d0178332497d2af5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Window value. <br/></td></tr>
-<tr class="separator:aa60ca9f1ffe17c99d0178332497d2af5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ca6f4314b188418dcc82e9a8a6eb4c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ca6f4314b188418dcc82e9a8a6eb4c4"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a6ca6f4314b188418dcc82e9a8a6eb4c4">timeoutValue</a></td></tr>
-<tr class="memdesc:a6ca6f4314b188418dcc82e9a8a6eb4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout value. <br/></td></tr>
-<tr class="separator:a6ca6f4314b188418dcc82e9a8a6eb4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d65bbccb784d7bd1850e0c4bd505469"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d65bbccb784d7bd1850e0c4bd505469"></a>
+<a class="el" href="a00072.html#gabc038c44fbcf4f341d6a56168b091671">wm8960_sysclk_source_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a9d65bbccb784d7bd1850e0c4bd505469">sysclkSource</a></td></tr>
+<tr class="memdesc:a9d65bbccb784d7bd1850e0c4bd505469"><td class="mdescLeft">&#160;</td><td class="mdescRight">sysclk source <br/></td></tr>
+<tr class="separator:a9d65bbccb784d7bd1850e0c4bd505469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a351c89e7074a75ea90e4a69b70721a7a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a351c89e7074a75ea90e4a69b70721a7a"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a351c89e7074a75ea90e4a69b70721a7a">sysclkFreq</a></td></tr>
+<tr class="memdesc:a351c89e7074a75ea90e4a69b70721a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">PLL output frequency value. <br/></td></tr>
+<tr class="separator:a351c89e7074a75ea90e4a69b70721a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="a00503" id="a00503"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct wm8960_config_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"></div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:aecb1d7a00e01dca75ed9008045fea7c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00072.html#gadeeac537e163e7225244411c27a43210">wm8960_route_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#aecb1d7a00e01dca75ed9008045fea7c9">route</a></td></tr>
+<tr class="memdesc:aecb1d7a00e01dca75ed9008045fea7c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio data route.  <a href="#aecb1d7a00e01dca75ed9008045fea7c9">More...</a><br/></td></tr>
+<tr class="separator:aecb1d7a00e01dca75ed9008045fea7c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2aa9a1534286c670f9cccc121dfc2427"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2aa9a1534286c670f9cccc121dfc2427"></a>
+<a class="el" href="a00072.html#ga64f94347b02b08161996766de30b14fb">wm8960_protocol_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a2aa9a1534286c670f9cccc121dfc2427">bus</a></td></tr>
+<tr class="memdesc:a2aa9a1534286c670f9cccc121dfc2427"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio transfer protocol. <br/></td></tr>
+<tr class="separator:a2aa9a1534286c670f9cccc121dfc2427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f604d76836bba22c48628d1790abbf1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f604d76836bba22c48628d1790abbf1"></a>
+<a class="el" href="a00072.html#a00502">wm8960_audio_format_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a1f604d76836bba22c48628d1790abbf1">format</a></td></tr>
+<tr class="memdesc:a1f604d76836bba22c48628d1790abbf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio format. <br/></td></tr>
+<tr class="separator:a1f604d76836bba22c48628d1790abbf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2628e48b064d8d943c0f247da6404342"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a2628e48b064d8d943c0f247da6404342">master_slave</a></td></tr>
+<tr class="memdesc:a2628e48b064d8d943c0f247da6404342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Master or slave.  <a href="#a2628e48b064d8d943c0f247da6404342">More...</a><br/></td></tr>
+<tr class="separator:a2628e48b064d8d943c0f247da6404342"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8641bb5e2d06983e204a10b798d2d230"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8641bb5e2d06983e204a10b798d2d230"></a>
+<a class="el" href="a00072.html#a00505">wm8960_master_sysclk_config_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a8641bb5e2d06983e204a10b798d2d230">masterClock</a></td></tr>
+<tr class="memdesc:a8641bb5e2d06983e204a10b798d2d230"><td class="mdescLeft">&#160;</td><td class="mdescRight">master clock configurations <br/></td></tr>
+<tr class="separator:a8641bb5e2d06983e204a10b798d2d230"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab417dfff6b9fbaed35eb25d8b3d77bc2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab417dfff6b9fbaed35eb25d8b3d77bc2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ab417dfff6b9fbaed35eb25d8b3d77bc2">enableSpeaker</a></td></tr>
+<tr class="memdesc:ab417dfff6b9fbaed35eb25d8b3d77bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">True means enable class D speaker as output, false means no. <br/></td></tr>
+<tr class="separator:ab417dfff6b9fbaed35eb25d8b3d77bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a775a0be4401bb4e3bfabc2cf30bc62c6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a775a0be4401bb4e3bfabc2cf30bc62c6"></a>
+<a class="el" href="a00072.html#ga53d7560a3c263de4bdaddb7ff6b91a8a">wm8960_input_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a775a0be4401bb4e3bfabc2cf30bc62c6">leftInputSource</a></td></tr>
+<tr class="memdesc:a775a0be4401bb4e3bfabc2cf30bc62c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Left input source for WM8960. <br/></td></tr>
+<tr class="separator:a775a0be4401bb4e3bfabc2cf30bc62c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e52782271640121f001ba4d1404e5e3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e52782271640121f001ba4d1404e5e3"></a>
+<a class="el" href="a00072.html#ga53d7560a3c263de4bdaddb7ff6b91a8a">wm8960_input_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a4e52782271640121f001ba4d1404e5e3">rightInputSource</a></td></tr>
+<tr class="memdesc:a4e52782271640121f001ba4d1404e5e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Right input source for wm8960. <br/></td></tr>
+<tr class="separator:a4e52782271640121f001ba4d1404e5e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c121144634e1ef8a1eed7f28f155031"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c121144634e1ef8a1eed7f28f155031"></a>
+<a class="el" href="a00072.html#gac536addc1967c512191ce08e3452e84a">wm8960_play_source_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a7c121144634e1ef8a1eed7f28f155031">playSource</a></td></tr>
+<tr class="memdesc:a7c121144634e1ef8a1eed7f28f155031"><td class="mdescLeft">&#160;</td><td class="mdescRight">play source <br/></td></tr>
+<tr class="separator:a7c121144634e1ef8a1eed7f28f155031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3789a7dad901df8d576de42d76b47b41"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3789a7dad901df8d576de42d76b47b41"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a3789a7dad901df8d576de42d76b47b41">slaveAddress</a></td></tr>
+<tr class="memdesc:a3789a7dad901df8d576de42d76b47b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">wm8960 device address <br/></td></tr>
+<tr class="separator:a3789a7dad901df8d576de42d76b47b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a223e757e0c4efc169f0b45385d99dbd5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a223e757e0c4efc169f0b45385d99dbd5"></a>
+<a class="el" href="a00010.html#a00300">codec_i2c_config_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a223e757e0c4efc169f0b45385d99dbd5">i2cConfig</a></td></tr>
+<tr class="memdesc:a223e757e0c4efc169f0b45385d99dbd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">i2c configuration <br/></td></tr>
+<tr class="separator:a223e757e0c4efc169f0b45385d99dbd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a class="anchor" id="aecb1d7a00e01dca75ed9008045fea7c9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00072.html#gadeeac537e163e7225244411c27a43210">wm8960_route_t</a> wm8960_config_t::route</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2628e48b064d8d943c0f247da6404342"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wm8960_config_t::master_slave</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="a00504" id="a00504"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct wm8960_handle_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"></div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a1445b9b877b692662e5fb0f8ce3224c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1445b9b877b692662e5fb0f8ce3224c9"></a>
+const <a class="el" href="a00072.html#a00503">wm8960_config_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#a1445b9b877b692662e5fb0f8ce3224c9">config</a></td></tr>
+<tr class="memdesc:a1445b9b877b692662e5fb0f8ce3224c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">wm8904 config pointer <br/></td></tr>
+<tr class="separator:a1445b9b877b692662e5fb0f8ce3224c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6d5faabcff6b852ebb460da190c9811"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6d5faabcff6b852ebb460da190c9811"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html#ae6d5faabcff6b852ebb460da190c9811">i2cHandle</a> [<a class="el" href="a00072.html#gad42c885e755bfa53b74cd811af45db8a">WM8960_I2C_HANDLER_SIZE</a>]</td></tr>
+<tr class="memdesc:ae6d5faabcff6b852ebb460da190c9811"><td class="mdescLeft">&#160;</td><td class="mdescRight">i2c handle <br/></td></tr>
+<tr class="separator:ae6d5faabcff6b852ebb460da190c9811"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="ga3aed9b151ba2a936e1274fdacc3adc48"></a>
+<a class="anchor" id="gae6c6a3b67c7930937dd877390dc94cbe"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FSL_WDOG32_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00223.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 1, 0))</td>
+          <td class="memname">#define WM8960_LINVOL&#160;&#160;&#160;0x0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="gab3675ad227d4528542916e9b591ace43"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WM8960_I2C_ADDR&#160;&#160;&#160;0x1A</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -340,169 +572,302 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="gaf2723218d3b5f72fe2078c79ae89e22b"></a>
+<a class="anchor" id="gad71999d652d6d29485aea6dacf371fc7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00072.html#gaf2723218d3b5f72fe2078c79ae89e22b">wdog32_clock_source_t</a></td>
+          <td class="memname">enum <a class="el" href="a00072.html#gad71999d652d6d29485aea6dacf371fc7">wm8960_module_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaf2723218d3b5f72fe2078c79ae89e22ba29116f214e8508c4b2bb4ba7bcb5fac0"></a>kWDOG32_ClockSource0</em>&nbsp;</td><td class="fielddoc">
-<p>Clock source 0. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggad71999d652d6d29485aea6dacf371fc7ae06d8a84878c6ea432e3401e65fb87cb"></a>kWM8960_ModuleADC</em>&nbsp;</td><td class="fielddoc">
+<p>ADC module in WM8960. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf2723218d3b5f72fe2078c79ae89e22bae9745d6cb2fb57147140688d9e5d1857"></a>kWDOG32_ClockSource1</em>&nbsp;</td><td class="fielddoc">
-<p>Clock source 1. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad71999d652d6d29485aea6dacf371fc7a536f29cc4bde51273aee16ca2f5e6079"></a>kWM8960_ModuleDAC</em>&nbsp;</td><td class="fielddoc">
+<p>DAC module in WM8960. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf2723218d3b5f72fe2078c79ae89e22ba3d49c034db28ff04c7f3bf00d7b61eb2"></a>kWDOG32_ClockSource2</em>&nbsp;</td><td class="fielddoc">
-<p>Clock source 2. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad71999d652d6d29485aea6dacf371fc7a73f24782244c9b2965072eaa7e59a5d3"></a>kWM8960_ModuleVREF</em>&nbsp;</td><td class="fielddoc">
+<p>VREF module. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaf2723218d3b5f72fe2078c79ae89e22ba1bd8755307385dc989ed7eac9d07239b"></a>kWDOG32_ClockSource3</em>&nbsp;</td><td class="fielddoc">
-<p>Clock source 3. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad71999d652d6d29485aea6dacf371fc7ac5579774be5b12a7a18f98d1cf374c55"></a>kWM8960_ModuleHP</em>&nbsp;</td><td class="fielddoc">
+<p>Headphone. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad71999d652d6d29485aea6dacf371fc7a4db03d48e615c4643ad53e361737218d"></a>kWM8960_ModuleMICB</em>&nbsp;</td><td class="fielddoc">
+<p>Mic bias. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad71999d652d6d29485aea6dacf371fc7a2ccb86eb6c7ce514a7ce51b97206c426"></a>kWM8960_ModuleMIC</em>&nbsp;</td><td class="fielddoc">
+<p>Input Mic. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad71999d652d6d29485aea6dacf371fc7a303a97aa3ca809c7f6a972d64287a878"></a>kWM8960_ModuleLineIn</em>&nbsp;</td><td class="fielddoc">
+<p>Analog in PGA. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad71999d652d6d29485aea6dacf371fc7afee92d11ea3a0fc6f9345eac1c648215"></a>kWM8960_ModuleLineOut</em>&nbsp;</td><td class="fielddoc">
+<p>Line out module. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad71999d652d6d29485aea6dacf371fc7ab2927284f295d943ba601829f5c85d25"></a>kWM8960_ModuleSpeaker</em>&nbsp;</td><td class="fielddoc">
+<p>Speaker module. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggad71999d652d6d29485aea6dacf371fc7a0bedf71e89a9a96bf649200db84f77be"></a>kWM8960_ModuleOMIX</em>&nbsp;</td><td class="fielddoc">
+<p>Output mixer. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="ga647d4707383f8a5c5b94531e04f9cfeb"></a>
+<a class="anchor" id="ga10e74d65d7876276a8f6061c71dcf469"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00072.html#ga647d4707383f8a5c5b94531e04f9cfeb">wdog32_clock_prescaler_t</a></td>
+          <td class="memname">anonymous enum</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p><a class="anchor" id="_wm8960_play_channel"></a></p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga647d4707383f8a5c5b94531e04f9cfebaddc9f46aa2fe0154abb987f98151de1f"></a>kWDOG32_ClockPrescalerDivide1</em>&nbsp;</td><td class="fielddoc">
-<p>Divided by 1. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga10e74d65d7876276a8f6061c71dcf469a5cb5a5fd1015f7957c198a440d406e96"></a>kWM8960_HeadphoneLeft</em>&nbsp;</td><td class="fielddoc">
+<p>wm8960 headphone left channel </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga647d4707383f8a5c5b94531e04f9cfeba138c782b99d7a3f6fc43d46833e4c451"></a>kWDOG32_ClockPrescalerDivide256</em>&nbsp;</td><td class="fielddoc">
-<p>Divided by 256. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga10e74d65d7876276a8f6061c71dcf469a0721220fe5946056318d7e0ec3cbb682"></a>kWM8960_HeadphoneRight</em>&nbsp;</td><td class="fielddoc">
+<p>wm8960 headphone right channel </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga10e74d65d7876276a8f6061c71dcf469a38ea4c658535deb51658ce2e00aa4c3e"></a>kWM8960_SpeakerLeft</em>&nbsp;</td><td class="fielddoc">
+<p>wm8960 speaker left channel </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga10e74d65d7876276a8f6061c71dcf469a12ce651420aecbccd5be4512ab204523"></a>kWM8960_SpeakerRight</em>&nbsp;</td><td class="fielddoc">
+<p>wm8960 speaker right channel </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="ga963073f1cb4719d64f4d491bebdde9d9"></a>
+<a class="anchor" id="gac536addc1967c512191ce08e3452e84a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00072.html#ga963073f1cb4719d64f4d491bebdde9d9">wdog32_test_mode_t</a></td>
+          <td class="memname">enum <a class="el" href="a00072.html#gac536addc1967c512191ce08e3452e84a">wm8960_play_source_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga963073f1cb4719d64f4d491bebdde9d9a10dd0cd97f64cdcbb846ac489ec5bc99"></a>kWDOG32_TestModeDisabled</em>&nbsp;</td><td class="fielddoc">
-<p>Test Mode disabled. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggac536addc1967c512191ce08e3452e84aa861dc114e341d3245bed939058c16183"></a>kWM8960_PlaySourcePGA</em>&nbsp;</td><td class="fielddoc">
+<p>wm8960 play source PGA </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga963073f1cb4719d64f4d491bebdde9d9a9e08cae085e373ad7a215ec8ee7b2bc3"></a>kWDOG32_UserModeEnabled</em>&nbsp;</td><td class="fielddoc">
-<p>User Mode enabled. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="ggac536addc1967c512191ce08e3452e84aaac489a1eedbfc272a9023862efedacc0"></a>kWM8960_PlaySourceInput</em>&nbsp;</td><td class="fielddoc">
+<p>wm8960 play source Input </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga963073f1cb4719d64f4d491bebdde9d9a48ae5f6b0527dbcf54c460e2cbc4f260"></a>kWDOG32_LowByteTest</em>&nbsp;</td><td class="fielddoc">
-<p>Test Mode enabled, only low byte is used. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga963073f1cb4719d64f4d491bebdde9d9a7a27a5128ac2a2bb1a1af3a8afadc3fa"></a>kWDOG32_HighByteTest</em>&nbsp;</td><td class="fielddoc">
-<p>Test Mode enabled, only high byte is used. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="ggac536addc1967c512191ce08e3452e84aa5a1779ecd2781e184cbb41aa826f9550"></a>kWM8960_PlaySourceDAC</em>&nbsp;</td><td class="fielddoc">
+<p>wm8960 play source DAC </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="gabf259a6d842f0d6f4a5a24618e6b6ed4"></a>
+<a class="anchor" id="gadeeac537e163e7225244411c27a43210"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00072.html#gabf259a6d842f0d6f4a5a24618e6b6ed4">_wdog32_interrupt_enable_t</a></td>
+          <td class="memname">enum <a class="el" href="a00072.html#gadeeac537e163e7225244411c27a43210">wm8960_route_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This structure contains the settings for all of the WDOG32 interrupt configurations. </p>
+<p>Only provide some typical data route, not all route listed. Note: Users cannot combine any routes, once a new route is set, the previous one would be replaced. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggabf259a6d842f0d6f4a5a24618e6b6ed4ae2a2e7d4a8c554ecad8fbcab0b787c1d"></a>kWDOG32_InterruptEnable</em>&nbsp;</td><td class="fielddoc">
-<p>Interrupt is generated before forcing a reset. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggadeeac537e163e7225244411c27a43210a7ebcfe6753412e27508fab055a844642"></a>kWM8960_RouteBypass</em>&nbsp;</td><td class="fielddoc">
+<p>LINEIN-&gt;Headphone. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggadeeac537e163e7225244411c27a43210a952a2f8b6834cb61b67f6430a71094ef"></a>kWM8960_RoutePlayback</em>&nbsp;</td><td class="fielddoc">
+<p>I2SIN-&gt;DAC-&gt;Headphone. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggadeeac537e163e7225244411c27a43210a6a5973f3f8f53223a26f9e1368eae9c9"></a>kWM8960_RoutePlaybackandRecord</em>&nbsp;</td><td class="fielddoc">
+<p>I2SIN-&gt;DAC-&gt;Headphone, LINEIN-&gt;ADC-&gt;I2SOUT. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggadeeac537e163e7225244411c27a43210a6d7f4a4f100efb3ad5b05ba3eae74def"></a>kWM8960_RouteRecord</em>&nbsp;</td><td class="fielddoc">
+<p>LINEIN-&gt;ADC-&gt;I2SOUT. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a class="anchor" id="gaa02da70d359406657bcf92b4040eeeda"></a>
+<a class="anchor" id="ga64f94347b02b08161996766de30b14fb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00072.html#gaa02da70d359406657bcf92b4040eeeda">_wdog32_status_flags_t</a></td>
+          <td class="memname">enum <a class="el" href="a00072.html#ga64f94347b02b08161996766de30b14fb">wm8960_protocol_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This structure contains the WDOG32 status flags for use in the WDOG32 functions. </p>
+<p>WM8960 only supports I2S format and PCM format. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggaa02da70d359406657bcf92b4040eeedaac711f02ae4bc6b2421e4f1b46b171585"></a>kWDOG32_RunningFlag</em>&nbsp;</td><td class="fielddoc">
-<p>Running flag, set when WDOG32 is enabled. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga64f94347b02b08161996766de30b14fba8efabaf43c6bb17acf54ae37cec6c5f5"></a>kWM8960_BusI2S</em>&nbsp;</td><td class="fielddoc">
+<p>I2S type. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ggaa02da70d359406657bcf92b4040eeedaae0eb7ffaae9ae933dc700fd78d556d32"></a>kWDOG32_InterruptFlag</em>&nbsp;</td><td class="fielddoc">
-<p>Interrupt flag, set when interrupt occurs. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga64f94347b02b08161996766de30b14fbaf87b1ee7c9c54da5f136f1b79a64b5b9"></a>kWM8960_BusLeftJustified</em>&nbsp;</td><td class="fielddoc">
+<p>Left justified mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga64f94347b02b08161996766de30b14fbaed00553ce02a48439a5ec8984d5db467"></a>kWM8960_BusRightJustified</em>&nbsp;</td><td class="fielddoc">
+<p>Right justified mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga64f94347b02b08161996766de30b14fba8fb45995b3bf25ee5122e4ab270c7d2a"></a>kWM8960_BusPCMA</em>&nbsp;</td><td class="fielddoc">
+<p>PCM A mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga64f94347b02b08161996766de30b14fba7a6a94a2db557a1ebe08f4cf10b23f66"></a>kWM8960_BusPCMB</em>&nbsp;</td><td class="fielddoc">
+<p>PCM B mode. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="ga53d7560a3c263de4bdaddb7ff6b91a8a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00072.html#ga53d7560a3c263de4bdaddb7ff6b91a8a">wm8960_input_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga53d7560a3c263de4bdaddb7ff6b91a8aa2c6eae84feeba20a1b15e8538202bdbf"></a>kWM8960_InputClosed</em>&nbsp;</td><td class="fielddoc">
+<p>Input device is closed. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga53d7560a3c263de4bdaddb7ff6b91a8aa1013bdcf916395fb0c7cda34bc9218df"></a>kWM8960_InputSingleEndedMic</em>&nbsp;</td><td class="fielddoc">
+<p>Input as single ended mic, only use L/RINPUT1. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga53d7560a3c263de4bdaddb7ff6b91a8aa96dd0a1fbf73e530b2a8f73994fa8788"></a>kWM8960_InputDifferentialMicInput2</em>&nbsp;</td><td class="fielddoc">
+<p>Input as differential mic, use L/RINPUT1 and L/RINPUT2. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga53d7560a3c263de4bdaddb7ff6b91a8aa26c5d1f279052c5b3991a563af490ae0"></a>kWM8960_InputDifferentialMicInput3</em>&nbsp;</td><td class="fielddoc">
+<p>Input as differential mic, use L/RINPUT1 and L/RINPUT3. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga53d7560a3c263de4bdaddb7ff6b91a8aafb03754cff21d67de95242a285a3fc13"></a>kWM8960_InputLineINPUT2</em>&nbsp;</td><td class="fielddoc">
+<p>Input as line input, only use L/RINPUT2. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga53d7560a3c263de4bdaddb7ff6b91a8aae011db846215196ebcecb8cbbb17e5e3"></a>kWM8960_InputLineINPUT3</em>&nbsp;</td><td class="fielddoc">
+<p>Input as line input, only use L/RINPUT3. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="ga1f3b6c692395e5007ff47ce5d9304c1c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="anchor" id="_wm8960_sample_rate"></a></p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga1f3b6c692395e5007ff47ce5d9304c1ca50961d3980d3e37dd41e3d8c62c3a870"></a>kWM8960_AudioSampleRate8KHz</em>&nbsp;</td><td class="fielddoc">
+<p>Sample rate 8000 Hz. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga1f3b6c692395e5007ff47ce5d9304c1ca509786e8390518009b7349ee35290f02"></a>kWM8960_AudioSampleRate11025Hz</em>&nbsp;</td><td class="fielddoc">
+<p>Sample rate 11025 Hz. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga1f3b6c692395e5007ff47ce5d9304c1cafc081d6675dcc61766d1db7b7a6e57ba"></a>kWM8960_AudioSampleRate12KHz</em>&nbsp;</td><td class="fielddoc">
+<p>Sample rate 12000 Hz. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga1f3b6c692395e5007ff47ce5d9304c1ca37f98eb4cc147382a0001729bfcffd98"></a>kWM8960_AudioSampleRate16KHz</em>&nbsp;</td><td class="fielddoc">
+<p>Sample rate 16000 Hz. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga1f3b6c692395e5007ff47ce5d9304c1ca0a285edc0cb7ce46f6844fca3f8f3689"></a>kWM8960_AudioSampleRate22050Hz</em>&nbsp;</td><td class="fielddoc">
+<p>Sample rate 22050 Hz. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga1f3b6c692395e5007ff47ce5d9304c1cacc8ce4cd6fa286f26a8850093f2aa696"></a>kWM8960_AudioSampleRate24KHz</em>&nbsp;</td><td class="fielddoc">
+<p>Sample rate 24000 Hz. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga1f3b6c692395e5007ff47ce5d9304c1ca59a22bfdc17d3ce83eb4d78507565700"></a>kWM8960_AudioSampleRate32KHz</em>&nbsp;</td><td class="fielddoc">
+<p>Sample rate 32000 Hz. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga1f3b6c692395e5007ff47ce5d9304c1caf44c5c0712d53f88943e56d8ccd466a4"></a>kWM8960_AudioSampleRate44100Hz</em>&nbsp;</td><td class="fielddoc">
+<p>Sample rate 44100 Hz. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga1f3b6c692395e5007ff47ce5d9304c1cae09e315fe927817900e50edd8f5dc29c"></a>kWM8960_AudioSampleRate48KHz</em>&nbsp;</td><td class="fielddoc">
+<p>Sample rate 48000 Hz. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga1f3b6c692395e5007ff47ce5d9304c1ca07ce8a1ae26763623e24caed8f9c42e3"></a>kWM8960_AudioSampleRate96KHz</em>&nbsp;</td><td class="fielddoc">
+<p>Sample rate 96000 Hz. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga1f3b6c692395e5007ff47ce5d9304c1cae9007085de5c77817b93a8d5ef16e227"></a>kWM8960_AudioSampleRate192KHz</em>&nbsp;</td><td class="fielddoc">
+<p>Sample rate 192000 Hz. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga1f3b6c692395e5007ff47ce5d9304c1cabdd1e457644ed2ba495ab7c010876e9e"></a>kWM8960_AudioSampleRate384KHz</em>&nbsp;</td><td class="fielddoc">
+<p>Sample rate 384000 Hz. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="ga0ae1e3bf78c960c83e2d437efd802058"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="anchor" id="_wm8960_audio_bit_width"></a></p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga0ae1e3bf78c960c83e2d437efd802058a1e3149fabb02a0cc14413352945cabef"></a>kWM8960_AudioBitWidth16bit</em>&nbsp;</td><td class="fielddoc">
+<p>audio bit width 16 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0ae1e3bf78c960c83e2d437efd802058ab67c78216a745b5cd0c6b2bc348a6d85"></a>kWM8960_AudioBitWidth20bit</em>&nbsp;</td><td class="fielddoc">
+<p>audio bit width 20 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0ae1e3bf78c960c83e2d437efd802058a32e10ddc499b7b6c91af8a4b515fb9b3"></a>kWM8960_AudioBitWidth24bit</em>&nbsp;</td><td class="fielddoc">
+<p>audio bit width 24 </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga0ae1e3bf78c960c83e2d437efd802058abd1253b6f3fa57dd356d1280add31a66"></a>kWM8960_AudioBitWidth32bit</em>&nbsp;</td><td class="fielddoc">
+<p>audio bit width 32 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="gabc038c44fbcf4f341d6a56168b091671"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00072.html#gabc038c44fbcf4f341d6a56168b091671">wm8960_sysclk_source_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggabc038c44fbcf4f341d6a56168b091671a2f693bb4ba26726b322414de913c7952"></a>kWM8960_SysClkSourceMclk</em>&nbsp;</td><td class="fielddoc">
+<p>sysclk source from external MCLK </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggabc038c44fbcf4f341d6a56168b091671a3c99b674642b963f84888733e1dcb80a"></a>kWM8960_SysClkSourceInternalPLL</em>&nbsp;</td><td class="fielddoc">
+<p>sysclk source from internal PLL </p>
 </td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga2a600d8293c406750156e0555e9f977f"></a>
+<a class="anchor" id="ga858aef4726057dd44882d1ed86979b9b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void WDOG32_GetDefaultConfig </td>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> WM8960_Init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00072.html#a00500">wdog32_config_t</a> *&#160;</td>
-          <td class="paramname"><em>config</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function initializes the WDOG32 configuration structure to default values. The default values are: </p>
-<div class="fragment"><div class="line">*   wdog32Config-&gt;enableWdog32 = <span class="keyword">true</span>;</div>
-<div class="line">*   wdog32Config-&gt;clockSource = <a class="code" href="a00072.html#ggaf2723218d3b5f72fe2078c79ae89e22bae9745d6cb2fb57147140688d9e5d1857">kWDOG32_ClockSource1</a>;</div>
-<div class="line">*   wdog32Config-&gt;prescaler = <a class="code" href="a00072.html#gga647d4707383f8a5c5b94531e04f9cfebaddc9f46aa2fe0154abb987f98151de1f">kWDOG32_ClockPrescalerDivide1</a>;</div>
-<div class="line">*   wdog32Config-&gt;workMode.enableWait = <span class="keyword">true</span>;</div>
-<div class="line">*   wdog32Config-&gt;workMode.enableStop = <span class="keyword">false</span>;</div>
-<div class="line">*   wdog32Config-&gt;workMode.enableDebug = <span class="keyword">false</span>;</div>
-<div class="line">*   wdog32Config-&gt;testMode = <a class="code" href="a00072.html#gga963073f1cb4719d64f4d491bebdde9d9a10dd0cd97f64cdcbb846ac489ec5bc99">kWDOG32_TestModeDisabled</a>;</div>
-<div class="line">*   wdog32Config-&gt;enableUpdate = <span class="keyword">true</span>;</div>
-<div class="line">*   wdog32Config-&gt;enableInterrupt = <span class="keyword">false</span>;</div>
-<div class="line">*   wdog32Config-&gt;enableWindowMode = <span class="keyword">false</span>;</div>
-<div class="line">*   wdog32Config-&gt;windowValue = 0U;</div>
-<div class="line">*   wdog32Config-&gt;timeoutValue = 0xFFFFU;</div>
-<div class="line">* </div>
-</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">config</td><td>Pointer to the WDOG32 configuration structure. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="a00072.html#a00500" title="Describes WDOG32 configuration structure. ">wdog32_config_t</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga837e5f59db9b58e0f66a947193b30545"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void WDOG32_Init </td>
-          <td>(</td>
-          <td class="paramtype">WDOG_Type *&#160;</td>
-          <td class="paramname"><em>base</em>, </td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00072.html#a00500">wdog32_config_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00072.html#a00503">wm8960_config_t</a> *&#160;</td>
           <td class="paramname"><em>config</em>&#160;</td>
         </tr>
         <tr>
@@ -512,133 +877,55 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function initializes the WDOG32. To reconfigure the WDOG32 without forcing a reset first, enableUpdate must be set to true in the configuration.</p>
-<p>Example: </p>
-<div class="fragment"><div class="line">*   <a class="code" href="a00072.html#a00500">wdog32_config_t</a> config;</div>
-<div class="line">*   <a class="code" href="a00072.html#ga2a600d8293c406750156e0555e9f977f">WDOG32_GetDefaultConfig</a>(&amp;config);</div>
-<div class="line">*   config.<a class="code" href="a00072.html#a6ca6f4314b188418dcc82e9a8a6eb4c4">timeoutValue</a> = 0x7ffU;</div>
-<div class="line">*   config.<a class="code" href="a00072.html#a40e63e94a31c56d510835d6071a1df85">enableUpdate</a> = <span class="keyword">true</span>;</div>
-<div class="line">*   <a class="code" href="a00072.html#ga837e5f59db9b58e0f66a947193b30545">WDOG32_Init</a>(wdog_base,&amp;config);</div>
-<div class="line">* </div>
-</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>If there is errata ERR010536 (FSL_FEATURE_WDOG_HAS_ERRATA_010536 defined as 1), then after calling this function, user need delay at least 4 LPO clock cycles before accessing other WDOG32 registers.</dd></dl>
+<p>The second parameter is NULL to WM8960 in this version. If users want to change the settings, they have to use wm8960_write_reg() or wm8960_modify_reg() to set the register value of WM8960. Note: If the codec_config is NULL, it would initialize WM8960 using default settings. The default setting: codec_config-&gt;route = kWM8960_RoutePlaybackandRecord codec_config-&gt;bus = kWM8960_BusI2S codec_config-&gt;master = slave</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">base</td><td>WDOG32 peripheral base address. </td></tr>
-    <tr><td class="paramname">config</td><td>The configuration of the WDOG32. </td></tr>
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure. </td></tr>
+    <tr><td class="paramname">config</td><td>WM8960 configuration structure. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="ga711412b5690c1af272b7f2268c195bcf"></a>
+<a class="anchor" id="gaedaaeb3e155069e1e7d6e41d8597561f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void WDOG32_Deinit </td>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> WM8960_Deinit </td>
           <td>(</td>
-          <td class="paramtype">WDOG_Type *&#160;</td>
-          <td class="paramname"><em>base</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function shuts down the WDOG32. Ensure that the WDOG_CS.UPDATE is 1, which means that the register update is enabled.</p>
+<p>This function close all modules in WM8960 to save power.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">base</td><td>WDOG32 peripheral base address. </td></tr>
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure pointer. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="ga0511570e5f8456cfa6b1b2ce00a0ae4a"></a>
+<a class="anchor" id="ga6922f6e4b7e5edec6f29549e1f9df98b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void WDOG32_Unlock </td>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> WM8960_SetDataRoute </td>
           <td>(</td>
-          <td class="paramtype">WDOG_Type *&#160;</td>
-          <td class="paramname"><em>base</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function unlocks the WDOG32 register written.</p>
-<p>Before starting the unlock sequence and following the configuration, disable the global interrupts. Otherwise, an interrupt could effectively invalidate the unlock sequence and the WCT may expire. After the configuration finishes, re-enable the global interrupts.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">base</td><td>WDOG32 peripheral base address </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga3bb5f971199e1a21ae57884a299792e1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void WDOG32_Enable </td>
-          <td>(</td>
-          <td class="paramtype">WDOG_Type *&#160;</td>
-          <td class="paramname"><em>base</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function writes a value into the WDOG_CS register to enable the WDOG32. The WDOG_CS register is a write-once register. Please check the enableUpdate is set to true for calling <a class="el" href="a00072.html#ga837e5f59db9b58e0f66a947193b30545">WDOG32_Init</a> to do wdog initialize. Before call the re-configuration APIs, ensure that the WCT window is still open and this register has not been written in this WCT while the function is called.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">base</td><td>WDOG32 peripheral base address. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga0a23104c81ade515394874175ab7ddc4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void WDOG32_Disable </td>
-          <td>(</td>
-          <td class="paramtype">WDOG_Type *&#160;</td>
-          <td class="paramname"><em>base</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function writes a value into the WDOG_CS register to disable the WDOG32. The WDOG_CS register is a write-once register. Please check the enableUpdate is set to true for calling <a class="el" href="a00072.html#ga837e5f59db9b58e0f66a947193b30545">WDOG32_Init</a> to do wdog initialize. Before call the re-configuration APIs, ensure that the WCT window is still open and this register has not been written in this WCT while the function is called.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">base</td><td>WDOG32 peripheral base address </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gabaa2126e704d23f59313a431585bbf41"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void WDOG32_EnableInterrupts </td>
-          <td>(</td>
-          <td class="paramtype">WDOG_Type *&#160;</td>
-          <td class="paramname"><em>base</em>, </td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>mask</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00072.html#gadeeac537e163e7225244411c27a43210">wm8960_route_t</a>&#160;</td>
+          <td class="paramname"><em>route</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -647,35 +934,32 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function writes a value into the WDOG_CS register to enable the WDOG32 interrupt. The WDOG_CS register is a write-once register. Please check the enableUpdate is set to true for calling <a class="el" href="a00072.html#ga837e5f59db9b58e0f66a947193b30545">WDOG32_Init</a> to do wdog initialize. Before call the re-configuration APIs, ensure that the WCT window is still open and this register has not been written in this WCT while the function is called.</p>
+<p>This function would set the data route according to route. The route cannot be combined, as all route would enable different modules. Note: If a new route is set, the previous route would not work.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">base</td><td>WDOG32 peripheral base address. </td></tr>
-    <tr><td class="paramname">mask</td><td>The interrupts to enable. The parameter can be a combination of the following source if defined: <ul>
-<li>kWDOG32_InterruptEnable </li>
-</ul>
-</td></tr>
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure. </td></tr>
+    <tr><td class="paramname">route</td><td>Audio data route in WM8960. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="gabc727be6482297a308e2e3f18db8b6c4"></a>
+<a class="anchor" id="gaf6b69e1ebbca5832f6c2c9065a8623e5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void WDOG32_DisableInterrupts </td>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> WM8960_SetLeftInput </td>
           <td>(</td>
-          <td class="paramtype">WDOG_Type *&#160;</td>
-          <td class="paramname"><em>base</em>, </td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>mask</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00072.html#ga53d7560a3c263de4bdaddb7ff6b91a8a">wm8960_input_t</a>&#160;</td>
+          <td class="paramname"><em>input</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -684,76 +968,31 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function writes a value into the WDOG_CS register to disable the WDOG32 interrupt. The WDOG_CS register is a write-once register. Please check the enableUpdate is set to true for calling <a class="el" href="a00072.html#ga837e5f59db9b58e0f66a947193b30545">WDOG32_Init</a> to do wdog initialize. Before call the re-configuration APIs, ensure that the WCT window is still open and this register has not been written in this WCT while the function is called.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">base</td><td>WDOG32 peripheral base address. </td></tr>
-    <tr><td class="paramname">mask</td><td>The interrupts to disabled. The parameter can be a combination of the following source if defined: <ul>
-<li>kWDOG32_InterruptEnable </li>
-</ul>
-</td></tr>
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure. </td></tr>
+    <tr><td class="paramname">input</td><td>Audio input source. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="ga1f7011053adb37b71d3ac2b8dba918a7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static uint32_t WDOG32_GetStatusFlags </td>
-          <td>(</td>
-          <td class="paramtype">WDOG_Type *&#160;</td>
-          <td class="paramname"><em>base</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This function gets all status flags.</p>
-<p>Example to get the running flag: </p>
-<div class="fragment"><div class="line">*   uint32_t status;</div>
-<div class="line">*   status = <a class="code" href="a00072.html#ga1f7011053adb37b71d3ac2b8dba918a7">WDOG32_GetStatusFlags</a>(wdog_base) &amp; <a class="code" href="a00072.html#ggaa02da70d359406657bcf92b4040eeedaac711f02ae4bc6b2421e4f1b46b171585">kWDOG32_RunningFlag</a>;</div>
-<div class="line">* </div>
-</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">base</td><td>WDOG32 peripheral base address </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>State of the status flag: asserted (true) or not-asserted (false). </dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="a00072.html#gaa02da70d359406657bcf92b4040eeeda" title="WDOG32 status flags. ">_wdog32_status_flags_t</a><ul>
-<li>true: related status flag has been set.</li>
-<li>false: related status flag is not set. </li>
-</ul>
-</dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga03293e4e343c1575b0fc268495826df0"></a>
+<a class="anchor" id="ga78f5175195593c91559abd992e9cf395"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void WDOG32_ClearStatusFlags </td>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> WM8960_SetRightInput </td>
           <td>(</td>
-          <td class="paramtype">WDOG_Type *&#160;</td>
-          <td class="paramname"><em>base</em>, </td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>mask</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00072.html#ga53d7560a3c263de4bdaddb7ff6b91a8a">wm8960_input_t</a>&#160;</td>
+          <td class="paramname"><em>input</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -762,38 +1001,376 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function clears the WDOG32 status flag.</p>
-<p>Example to clear an interrupt flag: </p>
-<div class="fragment"><div class="line">*   <a class="code" href="a00072.html#ga03293e4e343c1575b0fc268495826df0">WDOG32_ClearStatusFlags</a>(wdog_base,<a class="code" href="a00072.html#ggaa02da70d359406657bcf92b4040eeedaae0eb7ffaae9ae933dc700fd78d556d32">kWDOG32_InterruptFlag</a>);</div>
-<div class="line">* </div>
-</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">base</td><td>WDOG32 peripheral base address. </td></tr>
-    <tr><td class="paramname">mask</td><td>The status flags to clear. The parameter can be any combination of the following values: <ul>
-<li>kWDOG32_InterruptFlag </li>
-</ul>
-</td></tr>
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure. </td></tr>
+    <tr><td class="paramname">input</td><td>Audio input source. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="gac13fb90315dd17a7f7624717fa94bb68"></a>
+<a class="anchor" id="ga13e6e6f7bc58616cc9a79be31137ede5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void WDOG32_SetTimeoutValue </td>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> WM8960_SetProtocol </td>
           <td>(</td>
-          <td class="paramtype">WDOG_Type *&#160;</td>
-          <td class="paramname"><em>base</em>, </td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00072.html#ga64f94347b02b08161996766de30b14fb">wm8960_protocol_t</a>&#160;</td>
+          <td class="paramname"><em>protocol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>WM8960 only supports I2S, left justified, right justified, PCM A, PCM B format.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure. </td></tr>
+    <tr><td class="paramname">protocol</td><td>Audio data transfer protocol. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga88842e10f2046b4bb6cd24f6e605ccad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WM8960_SetMasterSlave </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>master</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure. </td></tr>
+    <tr><td class="paramname">master</td><td>1 represent master, 0 represent slave. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga046444c70f68c74b0514211a6f4ab3a7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> WM8960_SetVolume </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00072.html#gad71999d652d6d29485aea6dacf371fc7">wm8960_module_t</a>&#160;</td>
+          <td class="paramname"><em>module</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>volume</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function would set the volume of WM8960 modules. Uses need to appoint the module. The function assume that left channel and right channel has the same volume.</p>
+<p>Module:kWM8960_ModuleADC, volume range value: 0 is mute, 1-255 is -97db to 30db Module:kWM8960_ModuleDAC, volume range value: 0 is mute, 1-255 is -127db to 0db Module:kWM8960_ModuleHP, volume range value: 0 - 2F is mute, 0x30 - 0x7F is -73db to 6db Module:kWM8960_ModuleLineIn, volume range value: 0 - 0x3F is -17.25db to 30db Module:kWM8960_ModuleSpeaker, volume range value: 0 - 2F is mute, 0x30 - 0x7F is -73db to 6db</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure. </td></tr>
+    <tr><td class="paramname">module</td><td>Module to set volume, it can be ADC, DAC, Headphone and so on. </td></tr>
+    <tr><td class="paramname">volume</td><td>Volume value need to be set. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga57f8b8228a0031cccc8fba4c079ccd7b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t WM8960_GetVolume </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00072.html#gad71999d652d6d29485aea6dacf371fc7">wm8960_module_t</a>&#160;</td>
+          <td class="paramname"><em>module</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function gets the volume of WM8960 modules. Uses need to appoint the module. The function assume that left channel and right channel has the same volume.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure. </td></tr>
+    <tr><td class="paramname">module</td><td>Module to set volume, it can be ADC, DAC, Headphone and so on. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Volume value of the module. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gafd5893a1845dfd1a4c1721f9cbf720e0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> WM8960_SetMute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00072.html#gad71999d652d6d29485aea6dacf371fc7">wm8960_module_t</a>&#160;</td>
+          <td class="paramname"><em>module</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isEnabled</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure. </td></tr>
+    <tr><td class="paramname">module</td><td>Modules need to be mute. </td></tr>
+    <tr><td class="paramname">isEnabled</td><td>Mute or unmute, 1 represent mute. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa173f27a2ffcfc3d7c9fc60f96e1070f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> WM8960_SetModule </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00072.html#gad71999d652d6d29485aea6dacf371fc7">wm8960_module_t</a>&#160;</td>
+          <td class="paramname"><em>module</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isEnabled</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure. </td></tr>
+    <tr><td class="paramname">module</td><td>Module expected to enable. </td></tr>
+    <tr><td class="paramname">isEnabled</td><td>Enable or disable moudles. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gadd0a4568108064adc221bd9c823e423a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> WM8960_SetPlay </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>playSource</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure. </td></tr>
+    <tr><td class="paramname">playSource</td><td>play source , can be a value combine of kWM8960_ModuleHeadphoneSourcePGA, kWM8960_ModuleHeadphoneSourceDAC, kWM8960_ModulePlaySourceInput, kWM8960_ModulePlayMonoRight, kWM8960_ModulePlayMonoLeft.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>kStatus_WM8904_Success if successful, different code otherwise.. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga8ac24f4e16ca54145d44e38ac8085e6f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> WM8960_ConfigDataFormat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>sysclk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>sample_rate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>bits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function would configure the registers about the sample rate, bit depths.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure pointer. </td></tr>
+    <tr><td class="paramname">sysclk</td><td>system clock of the codec which can be generated by MCLK or PLL output. </td></tr>
+    <tr><td class="paramname">sample_rate</td><td>Sample rate of audio file running in WM8960. WM8960 now supports 8k, 11.025k, 12k, 16k, 22.05k, 24k, 32k, 44.1k, 48k and 96k sample rate. </td></tr>
+    <tr><td class="paramname">bits</td><td>Bit depth of audio file (WM8960 only supports 16bit, 20bit, 24bit and 32 bit in HW). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga2bb7a2a1dfb0513f8e1238a952cc77cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> WM8960_SetJackDetect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isEnabled</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure. </td></tr>
+    <tr><td class="paramname">isEnabled</td><td>Enable or disable moudles. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga46c9a029f9e5155486506e4493fe983f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> WM8960_WriteReg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>timeoutCount</em>&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -802,32 +1379,77 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function writes a timeout value into the WDOG_TOVAL register. The WDOG_TOVAL register is a write-once register. To ensure the reconfiguration fits the timing of WCT, unlock function will be called inline.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">base</td><td>WDOG32 peripheral base address </td></tr>
-    <tr><td class="paramname">timeoutCount</td><td>WDOG32 timeout value, count of WDOG32 clock ticks. </td></tr>
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure. </td></tr>
+    <tr><td class="paramname">reg</td><td>The register address in WM8960. </td></tr>
+    <tr><td class="paramname">val</td><td>Value needs to write into the register. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="ga0bda44be56c7db9b1988b87962c4b269"></a>
+<a class="anchor" id="ga32914c3d6d76e5507f945966400229ca"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void WDOG32_SetWindowValue </td>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> WM8960_ReadReg </td>
           <td>(</td>
-          <td class="paramtype">WDOG_Type *&#160;</td>
-          <td class="paramname"><em>base</em>, </td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg</td><td>The register address in WM8960. </td></tr>
+    <tr><td class="paramname">val</td><td>Value written to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gab7aa751625c271e00860ab99b33a9532"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> WM8960_ModifyReg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00072.html#a00504">wm8960_handle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>windowValue</em>&#160;</td>
+          <td class="paramname"><em>mask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -836,77 +1458,15 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function writes a window value into the WDOG_WIN register. The WDOG_WIN register is a write-once register. Please check the enableUpdate is set to true for calling <a class="el" href="a00072.html#ga837e5f59db9b58e0f66a947193b30545">WDOG32_Init</a> to do wdog initialize. Before call the re-configuration APIs, ensure that the WCT window is still open and this register has not been written in this WCT while the function is called.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">base</td><td>WDOG32 peripheral base address. </td></tr>
-    <tr><td class="paramname">windowValue</td><td>WDOG32 window value. </td></tr>
+    <tr><td class="paramname">handle</td><td>WM8960 handle structure. </td></tr>
+    <tr><td class="paramname">reg</td><td>The register address in WM8960. </td></tr>
+    <tr><td class="paramname">mask</td><td>The mask code for the bits want to write. The bit you want to write should be 0. </td></tr>
+    <tr><td class="paramname">val</td><td>Value needs to write into the register. </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a class="anchor" id="ga8cd48b61083e47080be856ae46a27374"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void WDOG32_Refresh </td>
-          <td>(</td>
-          <td class="paramtype">WDOG_Type *&#160;</td>
-          <td class="paramname"><em>base</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This function feeds the WDOG32. This function should be called before the Watchdog timer is in timeout. Otherwise, a reset is asserted.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">base</td><td>WDOG32 peripheral base address </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gac51b0779cc8980812f1e81d993135c1a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static uint16_t WDOG32_GetCounterValue </td>
-          <td>(</td>
-          <td class="paramtype">WDOG_Type *&#160;</td>
-          <td class="paramname"><em>base</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This function gets the WDOG32 counter value.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">base</td><td>WDOG32 peripheral base address. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Current WDOG32 counter value. </dd></dl>
 
 </div>
 </div>

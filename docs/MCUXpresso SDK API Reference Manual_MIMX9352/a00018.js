@@ -122,7 +122,7 @@ var a00018 =
       [ "frame", "a00018.html#ad3420cfcbd536444d54b6a223b615d6f", null ],
       [ "frameNum", "a00018.html#ab7f277f9a0f8a1369657808a5c9c8ff6", null ]
     ] ],
-    [ "flexcan_handle_t", "a00018.html#a00273", [
+    [ "flexcan_handle_t", "a00018.html#a00270", [
       [ "callback", "a00018.html#afd5494a415932b8008ce8db6a9ea2b6f", null ],
       [ "userData", "a00018.html#ab6e0932c11eba224663bec6ead9f5e78", null ],
       [ "mbFrameBuf", "a00018.html#ad7693cd6966ea1e887a60c39a7a0c029", null ],
@@ -182,22 +182,22 @@ var a00018 =
     [ "FLEXCAN_EFIFO_INT_MASK", "a00018.html#gaacc04ffccc088d214bf2fbd1752658bc", null ],
     [ "E_RX_FIFO", "a00018.html#ga7efc375db27e855c7e6d26a9200f743a", null ],
     [ "FLEXCAN_CALLBACK", "a00018.html#gaa4c5f1690a09bd7a862d6ebf66034291", [
-      [ "kStatus_FLEXCAN_TxBusy", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035da0080617424605a0a0a95e3333f24b3e4", null ],
-      [ "kStatus_FLEXCAN_TxIdle", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035da91fc36f54041f079bd0cbec9dedac200", null ],
-      [ "kStatus_FLEXCAN_TxSwitchToRx", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035da1faddda6dd8b232ad54604365e2d605d", null ],
-      [ "kStatus_FLEXCAN_RxBusy", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035da5b713aab29b9accd29aa58d8dc4447e7", null ],
-      [ "kStatus_FLEXCAN_RxIdle", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035dae2b4dcba97c6f468046168046135af67", null ],
-      [ "kStatus_FLEXCAN_RxOverflow", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035da8e2d4031323b8747c5d74c6275e3b9f1", null ],
-      [ "kStatus_FLEXCAN_RxFifoBusy", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035da74adab69bc91962510c1cc1faa96220d", null ],
-      [ "kStatus_FLEXCAN_RxFifoIdle", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035da6b1ace2daae9aa209f6c57e8e1dae2f5", null ],
-      [ "kStatus_FLEXCAN_RxFifoOverflow", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035da257602d134fb16ca03908ba7ef9c5e0f", null ],
-      [ "kStatus_FLEXCAN_RxFifoWarning", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035da49de45608b1bef73b58f59b5aac6e459", null ],
-      [ "kStatus_FLEXCAN_RxFifoDisabled", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035da3d5eeb1a177e24724287a2ab03e1665c", null ],
-      [ "kStatus_FLEXCAN_ErrorStatus", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035da08579ac6bdc65a85046b33cd0d5d636a", null ],
-      [ "kStatus_FLEXCAN_WakeUp", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035dadedfb2837f7a10f5cd8ed5420d24db1d", null ],
-      [ "kStatus_FLEXCAN_UnHandled", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035da853b75a2a57e9d380ee85ab69da946cc", null ],
-      [ "kStatus_FLEXCAN_RxRemote", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035daaf941c1bd407869facec54259129a97c", null ],
-      [ "kStatus_FLEXCAN_RxFifoUnderflow", "a00018.html#ggabc5c98fcc1211af2b80116dd6e0a035da0fce2b91e00eaef17dfa00ddaa4a7415", null ]
+      [ "kStatus_FLEXCAN_TxBusy", "a00018.html#gga80155586fa275b28773c9b203f52cabaa0080617424605a0a0a95e3333f24b3e4", null ],
+      [ "kStatus_FLEXCAN_TxIdle", "a00018.html#gga80155586fa275b28773c9b203f52cabaa91fc36f54041f079bd0cbec9dedac200", null ],
+      [ "kStatus_FLEXCAN_TxSwitchToRx", "a00018.html#gga80155586fa275b28773c9b203f52cabaa1faddda6dd8b232ad54604365e2d605d", null ],
+      [ "kStatus_FLEXCAN_RxBusy", "a00018.html#gga80155586fa275b28773c9b203f52cabaa5b713aab29b9accd29aa58d8dc4447e7", null ],
+      [ "kStatus_FLEXCAN_RxIdle", "a00018.html#gga80155586fa275b28773c9b203f52cabaae2b4dcba97c6f468046168046135af67", null ],
+      [ "kStatus_FLEXCAN_RxOverflow", "a00018.html#gga80155586fa275b28773c9b203f52cabaa8e2d4031323b8747c5d74c6275e3b9f1", null ],
+      [ "kStatus_FLEXCAN_RxFifoBusy", "a00018.html#gga80155586fa275b28773c9b203f52cabaa74adab69bc91962510c1cc1faa96220d", null ],
+      [ "kStatus_FLEXCAN_RxFifoIdle", "a00018.html#gga80155586fa275b28773c9b203f52cabaa6b1ace2daae9aa209f6c57e8e1dae2f5", null ],
+      [ "kStatus_FLEXCAN_RxFifoOverflow", "a00018.html#gga80155586fa275b28773c9b203f52cabaa257602d134fb16ca03908ba7ef9c5e0f", null ],
+      [ "kStatus_FLEXCAN_RxFifoWarning", "a00018.html#gga80155586fa275b28773c9b203f52cabaa49de45608b1bef73b58f59b5aac6e459", null ],
+      [ "kStatus_FLEXCAN_RxFifoDisabled", "a00018.html#gga80155586fa275b28773c9b203f52cabaa3d5eeb1a177e24724287a2ab03e1665c", null ],
+      [ "kStatus_FLEXCAN_ErrorStatus", "a00018.html#gga80155586fa275b28773c9b203f52cabaa08579ac6bdc65a85046b33cd0d5d636a", null ],
+      [ "kStatus_FLEXCAN_WakeUp", "a00018.html#gga80155586fa275b28773c9b203f52cabaadedfb2837f7a10f5cd8ed5420d24db1d", null ],
+      [ "kStatus_FLEXCAN_UnHandled", "a00018.html#gga80155586fa275b28773c9b203f52cabaa853b75a2a57e9d380ee85ab69da946cc", null ],
+      [ "kStatus_FLEXCAN_RxRemote", "a00018.html#gga80155586fa275b28773c9b203f52cabaaaf941c1bd407869facec54259129a97c", null ],
+      [ "kStatus_FLEXCAN_RxFifoUnderflow", "a00018.html#gga80155586fa275b28773c9b203f52cabaa0fce2b91e00eaef17dfa00ddaa4a7415", null ]
     ] ],
     [ "flexcan_frame_format_t", "a00018.html#ga89e76f77a571693c1adeec47796c97df", [
       [ "kFLEXCAN_FrameFormatStandard", "a00018.html#gga89e76f77a571693c1adeec47796c97dfa82e576bc13cb647a948eed52564d109b", null ],
@@ -328,9 +328,9 @@ var a00018 =
       [ "kFLEXCAN_AckError", "a00018.html#ggae49fa3b7177a77bb6441a251d7d1c04ba2e89a0bda4c49a0b3b186c4f53b66a21", null ],
       [ "kFLEXCAN_Bit0Error", "a00018.html#ggae49fa3b7177a77bb6441a251d7d1c04bafbb466f580b3a3b5fac17856f018ada8", null ],
       [ "kFLEXCAN_Bit1Error", "a00018.html#ggae49fa3b7177a77bb6441a251d7d1c04bac507066e62503970fbc6efd5d573f055", null ],
-      [ "kFLEXCAN_RxFifoOverflowFlag", "a00018.html#ggac36f475ca5b446f4fde4c9b90bec77c8aaea98e3313f0b74f0485fe39425fdb79", null ],
-      [ "kFLEXCAN_RxFifoWarningFlag", "a00018.html#ggac36f475ca5b446f4fde4c9b90bec77c8aa1faa3742f1c027714f92db80310e33f", null ],
-      [ "kFLEXCAN_RxFifoFrameAvlFlag", "a00018.html#ggac36f475ca5b446f4fde4c9b90bec77c8a0d78a5c058c0908b5a0f43997046965f", null ]
+      [ "kFLEXCAN_RxFifoOverflowFlag", "a00018.html#gga6b7b47dd702d9e331586d485013fd1eaaaea98e3313f0b74f0485fe39425fdb79", null ],
+      [ "kFLEXCAN_RxFifoWarningFlag", "a00018.html#gga6b7b47dd702d9e331586d485013fd1eaaa1faa3742f1c027714f92db80310e33f", null ],
+      [ "kFLEXCAN_RxFifoFrameAvlFlag", "a00018.html#gga6b7b47dd702d9e331586d485013fd1eaa0d78a5c058c0908b5a0f43997046965f", null ]
     ] ],
     [ "flexcan_memory_error_type_t", "a00018.html#ga75774b7c11771eeba9ae60a17abd9b4f", [
       [ "kFLEXCAN_CorrectableError", "a00018.html#gga75774b7c11771eeba9ae60a17abd9b4fab009d87f019526b48758386aa9d27e48", null ],

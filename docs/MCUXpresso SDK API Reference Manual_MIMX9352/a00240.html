@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: LTC: LP Trusted Cryptography</title>
+<title>MCUXpresso SDK API Reference Manual: LTC AES driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.15.000</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -99,180 +99,713 @@ $(document).ready(function(){initNavTree('a00240.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">LTC: LP Trusted Cryptography</div>  </div>
+<div class="title">LTC AES driver<div class="ingroups"><a class="el" href="a00238.html">LTC Blocking APIs</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
-<p>The MCUXpresso SDK provides a peripheral driver for the LP Trusted Cryptography (LTC) module of MCUXpresso SDK devices. LP Trusted Cryptography is a set of cryptograhpic hardware accelerator engines that share common registers. LTC architecture can support AES, DES, 3DES, MDHA (SHA), RSA, and ECC. The actual list of implemented cryptograhpic hardware accelerator engines depends on the specific microcontroller.</p>
-<p>The driver comprises two sets of API functions.</p>
-<p>In the first set, blocking synchronous APIs are provided, for all operations supported by LTC hardware. The LTC operations are complete (and results are made availabe for further usage) when a function returns. When called, these functions do not return until an LTC operation is complete. These functions use main CPU for simple polling loops to determine operation complete or error status and also for plaintext or ciphertext data movements. The driver functions are not re-entrant. These functions provide typical interface to upper layer or application software.</p>
-<p>In the second set, DMA support for symmetric LTC processing is provided, for AES and DES engines. APIs in the second set use DMA for data movement to and from the LTC input and output FIFOs. By using these functions, main CPU is not used for plaintext or ciphertext data movements (DMA is used instead). Thus, CPU processing power can be used for other application tasks, at cost of decreased maximum data throughput (because of DMA module and transactions management overhead). These functions provide less typical interface, for applications that must offload main CPU while ciphertext or plaintext is being processed, at cost of longer cryptograhpic processing time.</p>
-<h1><a class="anchor" id="LTCInit"></a>
-LTC Driver Initialization and Configuration</h1>
-<p>LTC Driver is initialized by calling the <a class="el" href="a00240.html#gafea5a60bdbe7129ca5456edd57ed2766" title="Initializes the LTC driver. ">LTC_Init()</a> function, it enables the LTC module clock in the SIM module. If AES or DES engine is used and the LTC module implementation features the LTC DPA Mask Seed register, seed the DPA mask generator by using the seed from a random number generator. The LTC_SetDpaMaskSeed() function is provided to set the DPA mask seed.</p>
-<h1><a class="anchor" id="LTCRtos"></a>
-Comments about API usage in RTOS</h1>
-<p>LTC operations provided by this driver are not re-entrant. Thus, application software shall ensure the LTC module operation is not requested from different tasks or interrupt service routines while an operation is in progress.</p>
-<h1><a class="anchor" id="LTCisr"></a>
-Comments about API usage in interrupt handler</h1>
-<p>All APIs can be used from interrupt handler although execution time shall be considered (interrupt latency of equal and lower priority interrupts increases).</p>
-<h1><a class="anchor" id="LTCEx"></a>
-LTC Driver Examples</h1>
-<h2><a class="anchor" id="LTCSimpleEx"></a>
-Simple examples</h2>
-<p>Initialize LTC after Power On Reset or reset cycle Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/ltcEncrypt plaintext by DES engine Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/ltc Encrypt plaintext by AES engine Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/ltc Compute keyed hash by AES engine (CMAC) Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/ltc Compute hash by MDHA engine (SHA-256) Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/ltc Compute modular integer exponentiation Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/ltc Compute elliptic curve point multiplication Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/ltc </p>
+<p>This section describes the programming interface of the LTC AES driver. </p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
-Modules</h2></td></tr>
-<tr class="memitem:a00241"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00241.html">LTC Blocking APIs</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00052"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00052.html">LTC Non-blocking eDMA APIs</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gacd3ad4fc9a5754f2c8eaee6ef5f93377"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gacd3ad4fc9a5754f2c8eaee6ef5f93377"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#gacd3ad4fc9a5754f2c8eaee6ef5f93377">LTC_AES_BLOCK_SIZE</a>&#160;&#160;&#160;16U</td></tr>
+<tr class="memdesc:gacd3ad4fc9a5754f2c8eaee6ef5f93377"><td class="mdescLeft">&#160;</td><td class="mdescRight">AES block size in bytes. <br/></td></tr>
+<tr class="separator:gacd3ad4fc9a5754f2c8eaee6ef5f93377"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a2bfdc6fb7984ec4735fae9af33c637"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5a2bfdc6fb7984ec4735fae9af33c637"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#ga5a2bfdc6fb7984ec4735fae9af33c637">LTC_AES_IV_SIZE</a>&#160;&#160;&#160;16</td></tr>
+<tr class="memdesc:ga5a2bfdc6fb7984ec4735fae9af33c637"><td class="mdescLeft">&#160;</td><td class="mdescRight">AES Input Vector size in bytes. <br/></td></tr>
+<tr class="separator:ga5a2bfdc6fb7984ec4735fae9af33c637"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf7b4300245af853393ee56194133069d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf7b4300245af853393ee56194133069d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#gaf7b4300245af853393ee56194133069d">LTC_AES_DecryptCtr</a>(base, input, output, size, counter, key, keySize, counterlast, szLeft)&#160;&#160;&#160;<a class="el" href="a00240.html#ga895db6523e09d71ae3a1c56d30e37662">LTC_AES_CryptCtr</a>(base, input, output, size, counter, key, keySize, counterlast, szLeft)</td></tr>
+<tr class="memdesc:gaf7b4300245af853393ee56194133069d"><td class="mdescLeft">&#160;</td><td class="mdescRight">AES CTR decrypt is mapped to the AES CTR generic operation. <br/></td></tr>
+<tr class="separator:gaf7b4300245af853393ee56194133069d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga98e8cdcf011fa16580c634f652e716c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga98e8cdcf011fa16580c634f652e716c5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#ga98e8cdcf011fa16580c634f652e716c5">LTC_AES_EncryptCtr</a>(base, input, output, size, counter, key, keySize, counterlast, szLeft)&#160;&#160;&#160;<a class="el" href="a00240.html#ga895db6523e09d71ae3a1c56d30e37662">LTC_AES_CryptCtr</a>(base, input, output, size, counter, key, keySize, counterlast, szLeft)</td></tr>
+<tr class="memdesc:ga98e8cdcf011fa16580c634f652e716c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">AES CTR encrypt is mapped to the AES CTR generic operation. <br/></td></tr>
+<tr class="separator:ga98e8cdcf011fa16580c634f652e716c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga27d8eb054f08682d9514d575e682eafb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#ga27d8eb054f08682d9514d575e682eafb">ltc_aes_key_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00240.html#gga27d8eb054f08682d9514d575e682eafbaafaf0e007874ad89f4c8dcc881f0a58c">kLTC_EncryptKey</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00240.html#gga27d8eb054f08682d9514d575e682eafba92c0c89db07bdd0b564802fcd76b5f9e">kLTC_DecryptKey</a> = 1U
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga27d8eb054f08682d9514d575e682eafb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of AES key for ECB and CBC decrypt operations.  <a href="a00240.html#ga27d8eb054f08682d9514d575e682eafb">More...</a><br/></td></tr>
+<tr class="separator:ga27d8eb054f08682d9514d575e682eafb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gafea5a60bdbe7129ca5456edd57ed2766"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#gafea5a60bdbe7129ca5456edd57ed2766">LTC_Init</a> (LTC_Type *base)</td></tr>
-<tr class="memdesc:gafea5a60bdbe7129ca5456edd57ed2766"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the LTC driver.  <a href="#gafea5a60bdbe7129ca5456edd57ed2766">More...</a><br/></td></tr>
-<tr class="separator:gafea5a60bdbe7129ca5456edd57ed2766"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5c347943d2994a658efeb04e2b9a7fcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#ga5c347943d2994a658efeb04e2b9a7fcc">LTC_Deinit</a> (LTC_Type *base)</td></tr>
-<tr class="memdesc:ga5c347943d2994a658efeb04e2b9a7fcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the LTC driver.  <a href="#ga5c347943d2994a658efeb04e2b9a7fcc">More...</a><br/></td></tr>
-<tr class="separator:ga5c347943d2994a658efeb04e2b9a7fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-Driver version</h2></td></tr>
-<tr class="memitem:ga93b946bb00253cca6bbcd81d761a7d58"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#ga93b946bb00253cca6bbcd81d761a7d58">FSL_LTC_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00223.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 16))</td></tr>
-<tr class="memdesc:ga93b946bb00253cca6bbcd81d761a7d58"><td class="mdescLeft">&#160;</td><td class="mdescRight">LTC driver version.  <a href="#ga93b946bb00253cca6bbcd81d761a7d58">More...</a><br/></td></tr>
-<tr class="separator:ga93b946bb00253cca6bbcd81d761a7d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d343f750a93c0772e0fca8802b13246"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#ga9d343f750a93c0772e0fca8802b13246">LTC_AES_GenerateDecryptKey</a> (LTC_Type *base, const uint8_t *encryptKey, uint8_t *decryptKey, uint32_t keySize)</td></tr>
+<tr class="memdesc:ga9d343f750a93c0772e0fca8802b13246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms an AES encrypt key (forward AES) into the decrypt key (inverse AES).  <a href="#ga9d343f750a93c0772e0fca8802b13246">More...</a><br/></td></tr>
+<tr class="separator:ga9d343f750a93c0772e0fca8802b13246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab52cfd18b6a18b1270922d056021b5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#gaab52cfd18b6a18b1270922d056021b5c">LTC_AES_EncryptEcb</a> (LTC_Type *base, const uint8_t *plaintext, uint8_t *ciphertext, uint32_t size, const uint8_t *key, uint32_t keySize)</td></tr>
+<tr class="memdesc:gaab52cfd18b6a18b1270922d056021b5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encrypts AES using the ECB block mode.  <a href="#gaab52cfd18b6a18b1270922d056021b5c">More...</a><br/></td></tr>
+<tr class="separator:gaab52cfd18b6a18b1270922d056021b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga62d081e484c4e0eb7b98960afd031fc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#ga62d081e484c4e0eb7b98960afd031fc3">LTC_AES_DecryptEcb</a> (LTC_Type *base, const uint8_t *ciphertext, uint8_t *plaintext, uint32_t size, const uint8_t *key, uint32_t keySize, <a class="el" href="a00240.html#ga27d8eb054f08682d9514d575e682eafb">ltc_aes_key_t</a> keyType)</td></tr>
+<tr class="memdesc:ga62d081e484c4e0eb7b98960afd031fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrypts AES using ECB block mode.  <a href="#ga62d081e484c4e0eb7b98960afd031fc3">More...</a><br/></td></tr>
+<tr class="separator:ga62d081e484c4e0eb7b98960afd031fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f95a64808ea51e9c7ecba4e58b18dc9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#ga9f95a64808ea51e9c7ecba4e58b18dc9">LTC_AES_EncryptCbc</a> (LTC_Type *base, const uint8_t *plaintext, uint8_t *ciphertext, uint32_t size, const uint8_t iv[<a class="el" href="a00240.html#ga5a2bfdc6fb7984ec4735fae9af33c637">LTC_AES_IV_SIZE</a>], const uint8_t *key, uint32_t keySize)</td></tr>
+<tr class="memdesc:ga9f95a64808ea51e9c7ecba4e58b18dc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encrypts AES using CBC block mode.  <a href="#ga9f95a64808ea51e9c7ecba4e58b18dc9">More...</a><br/></td></tr>
+<tr class="separator:ga9f95a64808ea51e9c7ecba4e58b18dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b65c4bfd108efd02c63ba82add445a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#ga7b65c4bfd108efd02c63ba82add445a2">LTC_AES_DecryptCbc</a> (LTC_Type *base, const uint8_t *ciphertext, uint8_t *plaintext, uint32_t size, const uint8_t iv[<a class="el" href="a00240.html#ga5a2bfdc6fb7984ec4735fae9af33c637">LTC_AES_IV_SIZE</a>], const uint8_t *key, uint32_t keySize, <a class="el" href="a00240.html#ga27d8eb054f08682d9514d575e682eafb">ltc_aes_key_t</a> keyType)</td></tr>
+<tr class="memdesc:ga7b65c4bfd108efd02c63ba82add445a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrypts AES using CBC block mode.  <a href="#ga7b65c4bfd108efd02c63ba82add445a2">More...</a><br/></td></tr>
+<tr class="separator:ga7b65c4bfd108efd02c63ba82add445a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga895db6523e09d71ae3a1c56d30e37662"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#ga895db6523e09d71ae3a1c56d30e37662">LTC_AES_CryptCtr</a> (LTC_Type *base, const uint8_t *input, uint8_t *output, uint32_t size, uint8_t counter[<a class="el" href="a00240.html#gacd3ad4fc9a5754f2c8eaee6ef5f93377">LTC_AES_BLOCK_SIZE</a>], const uint8_t *key, uint32_t keySize, uint8_t counterlast[<a class="el" href="a00240.html#gacd3ad4fc9a5754f2c8eaee6ef5f93377">LTC_AES_BLOCK_SIZE</a>], uint32_t *szLeft)</td></tr>
+<tr class="memdesc:ga895db6523e09d71ae3a1c56d30e37662"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encrypts or decrypts AES using CTR block mode.  <a href="#ga895db6523e09d71ae3a1c56d30e37662">More...</a><br/></td></tr>
+<tr class="separator:ga895db6523e09d71ae3a1c56d30e37662"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8d25803ddea4da4d7b94663c27b9f5f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#ga8d25803ddea4da4d7b94663c27b9f5f3">LTC_AES_EncryptTagCcm</a> (LTC_Type *base, const uint8_t *plaintext, uint8_t *ciphertext, uint32_t size, const uint8_t *iv, uint32_t ivSize, const uint8_t *aad, uint32_t aadSize, const uint8_t *key, uint32_t keySize, uint8_t *tag, uint32_t tagSize)</td></tr>
+<tr class="memdesc:ga8d25803ddea4da4d7b94663c27b9f5f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encrypts AES and tags using CCM block mode.  <a href="#ga8d25803ddea4da4d7b94663c27b9f5f3">More...</a><br/></td></tr>
+<tr class="separator:ga8d25803ddea4da4d7b94663c27b9f5f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5bc7a8f6dbcb2b6ff3d648149cdf208d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#ga5bc7a8f6dbcb2b6ff3d648149cdf208d">LTC_AES_DecryptTagCcm</a> (LTC_Type *base, const uint8_t *ciphertext, uint8_t *plaintext, uint32_t size, const uint8_t *iv, uint32_t ivSize, const uint8_t *aad, uint32_t aadSize, const uint8_t *key, uint32_t keySize, const uint8_t *tag, uint32_t tagSize)</td></tr>
+<tr class="memdesc:ga5bc7a8f6dbcb2b6ff3d648149cdf208d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrypts AES and authenticates using CCM block mode.  <a href="#ga5bc7a8f6dbcb2b6ff3d648149cdf208d">More...</a><br/></td></tr>
+<tr class="separator:ga5bc7a8f6dbcb2b6ff3d648149cdf208d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="ga93b946bb00253cca6bbcd81d761a7d58"></a>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="ga27d8eb054f08682d9514d575e682eafb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FSL_LTC_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00223.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 16))</td>
+          <td class="memname">enum <a class="el" href="a00240.html#ga27d8eb054f08682d9514d575e682eafb">ltc_aes_key_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Version 2.0.16.</p>
-<p>Current version: 2.0.16</p>
-<p>Change log:</p>
-<ul>
-<li>Version 2.0.1<ul>
-<li>fixed warning during g++ compilation</li>
-</ul>
-</li>
-<li>Version 2.0.2<ul>
-<li>fixed [KPSDK-10932][LTC][SHA] <a class="el" href="a00053.html#ga78a23fb22a91c573d844b4b27294f6dc" title="Create HASH on given data. ">LTC_HASH()</a> blocks indefinitely when message size exceeds 4080 bytes</li>
-</ul>
-</li>
-<li>Version 2.0.3<ul>
-<li>fixed LTC_PKHA_CompareBigNum() in case an integer argument is an array of all zeroes</li>
-</ul>
-</li>
-<li>Version 2.0.4<ul>
-<li>constant LTC_PKHA_CompareBigNum() processing time</li>
-</ul>
-</li>
-<li>Version 2.0.5<ul>
-<li>Fix MISRA issues</li>
-</ul>
-</li>
-<li>Version 2.0.6<ul>
-<li>fixed [KPSDK-23603][LTC] AES Decrypt in ECB and CBC modes fail when ciphertext size &gt; 0xff0 bytes</li>
-</ul>
-</li>
-<li>Version 2.0.7<ul>
-<li>Fix MISRA-2012 issues</li>
-</ul>
-</li>
-<li>Version 2.0.8<ul>
-<li>Fix Coverity issues</li>
-</ul>
-</li>
-<li>Version 2.0.9<ul>
-<li>Fix sign-compare warning in ltc_set_context and in ltc_get_context</li>
-</ul>
-</li>
-<li>Version 2.0.10<ul>
-<li>Fix MISRA-2012 issues</li>
-</ul>
-</li>
-<li>Version 2.0.11<ul>
-<li>Fix MISRA-2012 issues</li>
-</ul>
-</li>
-<li>Version 2.0.12<ul>
-<li>Fix AES Decrypt in CBC modes fail when used kLTC_DecryptKey.</li>
-</ul>
-</li>
-<li>Version 2.0.13<ul>
-<li>Add feature macro FSL_FEATURE_LTC_HAS_NO_CLOCK_CONTROL_BIT into LTC_Init function.</li>
-</ul>
-</li>
-<li>Version 2.0.14<ul>
-<li>Add feature macro FSL_FEATURE_LTC_HAS_NO_CLOCK_CONTROL_BIT into LTC_Deinit function.</li>
-</ul>
-</li>
-<li>Version 2.0.15<ul>
-<li>Fix MISRA-2012 issues</li>
-</ul>
-</li>
-<li>Version 2.0.16<ul>
-<li>Fix unitialized GCC warning in <a class="el" href="a00243.html#ga9d343f750a93c0772e0fca8802b13246" title="Transforms an AES encrypt key (forward AES) into the decrypt key (inverse AES). ">LTC_AES_GenerateDecryptKey()</a> </li>
-</ul>
-</li>
-</ul>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga27d8eb054f08682d9514d575e682eafbaafaf0e007874ad89f4c8dcc881f0a58c"></a>kLTC_EncryptKey</em>&nbsp;</td><td class="fielddoc">
+<p>Input key is an encrypt key. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga27d8eb054f08682d9514d575e682eafba92c0c89db07bdd0b564802fcd76b5f9e"></a>kLTC_DecryptKey</em>&nbsp;</td><td class="fielddoc">
+<p>Input key is a decrypt key. </p>
+</td></tr>
+</table>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="gafea5a60bdbe7129ca5456edd57ed2766"></a>
+<a class="anchor" id="ga9d343f750a93c0772e0fca8802b13246"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void LTC_Init </td>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> LTC_AES_GenerateDecryptKey </td>
           <td>(</td>
           <td class="paramtype">LTC_Type *&#160;</td>
-          <td class="paramname"><em>base</em></td><td>)</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>encryptKey</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>decryptKey</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>keySize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function initializes the LTC driver. </p>
+<p>Transforms the AES encrypt key (forward AES) into the decrypt key (inverse AES). The key derived by this function can be used as a direct load decrypt key for AES ECB and CBC decryption operations (keyType argument).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">base</td><td>LTC peripheral base address </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">base</td><td>LTC peripheral base address </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">encryptKey</td><td>Input key for decrypt key transformation </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">decryptKey</td><td>Output key, the decrypt form of the AES key. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">keySize</td><td>Size of the input key and output key in bytes. Must be 16, 24, or 32. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status from key generation operation </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga5c347943d2994a658efeb04e2b9a7fcc"></a>
+<a class="anchor" id="gaab52cfd18b6a18b1270922d056021b5c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void LTC_Deinit </td>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> LTC_AES_EncryptEcb </td>
           <td>(</td>
           <td class="paramtype">LTC_Type *&#160;</td>
-          <td class="paramname"><em>base</em></td><td>)</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>plaintext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>ciphertext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>keySize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function deinitializes the LTC driver. </p>
+<p>Encrypts AES using the ECB block mode.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">base</td><td>LTC peripheral base address </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">base</td><td>LTC peripheral base address </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">plaintext</td><td>Input plain text to encrypt </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ciphertext</td><td>Output cipher text </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">size</td><td>Size of input and output data in bytes. Must be multiple of 16 bytes. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Input key to use for encryption </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">keySize</td><td>Size of the input key, in bytes. Must be 16, 24, or 32. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status from encrypt operation </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga62d081e484c4e0eb7b98960afd031fc3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> LTC_AES_DecryptEcb </td>
+          <td>(</td>
+          <td class="paramtype">LTC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>ciphertext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>plaintext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>keySize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00240.html#ga27d8eb054f08682d9514d575e682eafb">ltc_aes_key_t</a>&#160;</td>
+          <td class="paramname"><em>keyType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Decrypts AES using ECB block mode.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">base</td><td>LTC peripheral base address </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">ciphertext</td><td>Input cipher text to decrypt </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">plaintext</td><td>Output plain text </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">size</td><td>Size of input and output data in bytes. Must be multiple of 16 bytes. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Input key. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">keySize</td><td>Size of the input key, in bytes. Must be 16, 24, or 32. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">keyType</td><td>Input type of the key (allows to directly load decrypt key for AES ECB decrypt operation.) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status from decrypt operation </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga9f95a64808ea51e9c7ecba4e58b18dc9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> LTC_AES_EncryptCbc </td>
+          <td>(</td>
+          <td class="paramtype">LTC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>plaintext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>ciphertext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>iv</em>[LTC_AES_IV_SIZE], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>keySize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">base</td><td>LTC peripheral base address </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">plaintext</td><td>Input plain text to encrypt </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ciphertext</td><td>Output cipher text </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">size</td><td>Size of input and output data in bytes. Must be multiple of 16 bytes. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">iv</td><td>Input initial vector to combine with the first input block. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Input key to use for encryption </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">keySize</td><td>Size of the input key, in bytes. Must be 16, 24, or 32. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status from encrypt operation </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga7b65c4bfd108efd02c63ba82add445a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> LTC_AES_DecryptCbc </td>
+          <td>(</td>
+          <td class="paramtype">LTC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>ciphertext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>plaintext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>iv</em>[LTC_AES_IV_SIZE], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>keySize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00240.html#ga27d8eb054f08682d9514d575e682eafb">ltc_aes_key_t</a>&#160;</td>
+          <td class="paramname"><em>keyType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">base</td><td>LTC peripheral base address </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">ciphertext</td><td>Input cipher text to decrypt </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">plaintext</td><td>Output plain text </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">size</td><td>Size of input and output data in bytes. Must be multiple of 16 bytes. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">iv</td><td>Input initial vector to combine with the first input block. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Input key to use for decryption </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">keySize</td><td>Size of the input key, in bytes. Must be 16, 24, or 32. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">keyType</td><td>Input type of the key (allows to directly load decrypt key for AES CBC decrypt operation.) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status from decrypt operation </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga895db6523e09d71ae3a1c56d30e37662"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> LTC_AES_CryptCtr </td>
+          <td>(</td>
+          <td class="paramtype">LTC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>counter</em>[LTC_AES_BLOCK_SIZE], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>keySize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>counterlast</em>[LTC_AES_BLOCK_SIZE], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>szLeft</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Encrypts or decrypts AES using CTR block mode. AES CTR mode uses only forward AES cipher and same algorithm for encryption and decryption. The only difference between encryption and decryption is that, for encryption, the input argument is plain text and the output argument is cipher text. For decryption, the input argument is cipher text and the output argument is plain text.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">base</td><td>LTC peripheral base address </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">input</td><td>Input data for CTR block mode </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>Output data for CTR block mode </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">size</td><td>Size of input and output data in bytes </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">counter</td><td>Input counter (updates on return) </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Input key to use for forward AES cipher </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">keySize</td><td>Size of the input key, in bytes. Must be 16, 24, or 32. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">counterlast</td><td>Output cipher of last counter, for chained CTR calls. NULL can be passed if chained calls are not used. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">szLeft</td><td>Output number of bytes in left unused in counterlast block. NULL can be passed if chained calls are not used. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status from encrypt operation </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga8d25803ddea4da4d7b94663c27b9f5f3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> LTC_AES_EncryptTagCcm </td>
+          <td>(</td>
+          <td class="paramtype">LTC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>plaintext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>ciphertext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>iv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>ivSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>aad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>aadSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>keySize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>tag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>tagSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Encrypts AES and optionally tags using CCM block mode.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">base</td><td>LTC peripheral base address </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">plaintext</td><td>Input plain text to encrypt </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ciphertext</td><td>Output cipher text. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">size</td><td>Size of input and output data in bytes. Zero means authentication only. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">iv</td><td>Nonce </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">ivSize</td><td>Length of the Nonce in bytes. Must be 7, 8, 9, 10, 11, 12, or 13. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">aad</td><td>Input additional authentication data. Can be NULL if aadSize is zero. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">aadSize</td><td>Input size in bytes of AAD. Zero means data mode only (authentication skipped). </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Input key to use for encryption </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">keySize</td><td>Size of the input key, in bytes. Must be 16, 24, or 32. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">tag</td><td>Generated output tag. Set to NULL to skip tag processing. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">tagSize</td><td>Input size of the tag to generate, in bytes. Must be 4, 6, 8, 10, 12, 14, or 16. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status from encrypt operation </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga5bc7a8f6dbcb2b6ff3d648149cdf208d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> LTC_AES_DecryptTagCcm </td>
+          <td>(</td>
+          <td class="paramtype">LTC_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>ciphertext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>plaintext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>iv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>ivSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>aad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>aadSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>keySize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>tag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>tagSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Decrypts AES and optionally authenticates using CCM block mode.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">base</td><td>LTC peripheral base address </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">ciphertext</td><td>Input cipher text to decrypt </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">plaintext</td><td>Output plain text. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">size</td><td>Size of input and output data in bytes. Zero means authentication only. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">iv</td><td>Nonce </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">ivSize</td><td>Length of the Nonce in bytes. Must be 7, 8, 9, 10, 11, 12, or 13. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">aad</td><td>Input additional authentication data. Can be NULL if aadSize is zero. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">aadSize</td><td>Input size in bytes of AAD. Zero means data mode only (authentication skipped). </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Input key to use for decryption </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">keySize</td><td>Size of the input key, in bytes. Must be 16, 24, or 32. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">tag</td><td>Received tag. Set to NULL to skip tag processing. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">tagSize</td><td>Input size of the received tag to compare with the computed tag, in bytes. Must be 4, 6, 8, 10, 12, 14, or 16. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status from decrypt operation </dd></dl>
 
 </div>
 </div>

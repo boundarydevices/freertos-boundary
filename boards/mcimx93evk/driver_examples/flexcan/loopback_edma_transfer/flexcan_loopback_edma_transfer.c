@@ -23,9 +23,9 @@
 #define EXAMPLE_CAN           CAN1
 #define TX_MESSAGE_BUFFER_NUM (9)
 
-#define EXAMPLE_CAN_DMA         (DMA3)
-#define EXAMPLE_CAN_DMA_CHANNEL kDma3RequestMuxCAN1
-
+#define EXAMPLE_CAN_DMA            (DMA3)
+#define EXAMPLE_CAN_DMA_CHANNEL    kDma3RequestMuxCAN1
+#define FLEXCAN_DMA_REQUEST_SOURCE (-1)
 #define FLEXCAN_CLOCK_ROOT         (kCLOCK_Root_Can1)
 #define FLEXCAN_CLOCK_GATE         kCLOCK_Can1
 #define EXAMPLE_CAN_CLK_FREQ       CLOCK_GetIpFreq(FLEXCAN_CLOCK_ROOT)
@@ -177,6 +177,9 @@ int main(void)
      * edmaConfig.enableDebugMode = false;
      */
     EDMA_GetDefaultConfig(&edmaConfig);
+#if defined(BOARD_GetEDMAConfig)
+    BOARD_GetEDMAConfig(edmaConfig);
+#endif
     EDMA_Init(EXAMPLE_CAN_DMA, &edmaConfig);
 
     /* Create EDMA handle. */

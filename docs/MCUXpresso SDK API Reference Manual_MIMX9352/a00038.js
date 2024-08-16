@@ -25,7 +25,7 @@ var a00038 =
       [ "completionStatus", "a00038.html#a66ea82168521a0843a4619ea4933c0da", null ],
       [ "transferredCount", "a00038.html#a0b66066e2be94f4eaa371adf37da32a8", null ]
     ] ],
-    [ "i3c_slave_handle_t", "a00038.html#a00286", [
+    [ "i3c_slave_handle_t", "a00038.html#a00283", [
       [ "transfer", "a00038.html#a50a74a027294db6b95d2436342644d32", null ],
       [ "isBusy", "a00038.html#a623b52328752ec251c7235b560b359b3", null ],
       [ "wasTransmit", "a00038.html#a726c4eb7a4a7dbcb6bff19892b52fb92", null ],

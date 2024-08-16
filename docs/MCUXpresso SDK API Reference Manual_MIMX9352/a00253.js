@@ -1,14 +1,14 @@
 var a00253 =
 [
-    [ "FSL_TRGMUX_DRIVER_VERSION", "a00253.html#ga328a23a075a4885fbe9e077344df2c08", [
-      [ "kStatus_TRGMUX_Locked", "a00253.html#ggabe974f22edeef8189603ba75fd90ff3ca7923504849a10689e4cdcb1e62c1558b", null ]
-    ] ],
-    [ "trgmux_trigger_input_t", "a00253.html#gaf2f023de74f52a7af5a915a0c5ac37af", [
-      [ "kTRGMUX_TriggerInput0", "a00253.html#ggaf2f023de74f52a7af5a915a0c5ac37afa3aff19ab48d4a58f19a23a37ab41693e", null ],
-      [ "kTRGMUX_TriggerInput1", "a00253.html#ggaf2f023de74f52a7af5a915a0c5ac37afa44d5bfde0ab0466928fd788848a8798c", null ],
-      [ "kTRGMUX_TriggerInput2", "a00253.html#ggaf2f023de74f52a7af5a915a0c5ac37afa0a7d331cc7437f034145829495b60130", null ],
-      [ "kTRGMUX_TriggerInput3", "a00253.html#ggaf2f023de74f52a7af5a915a0c5ac37afafb347bd2cc7fa3a396edd5d2b81ec327", null ]
-    ] ],
-    [ "TRGMUX_LockRegister", "a00253.html#ga5053e8af1807c2b125d3521936801587", null ],
-    [ "TRGMUX_SetTriggerSource", "a00253.html#ga000c2133f34743a2738943b3e8359916", null ]
+    [ "DEBUG_CONSOLE_TRANSMIT_BUFFER_LEN", "a00253.html#ga028eff2428680ec9e47eed17d7ad6180", null ],
+    [ "DEBUG_CONSOLE_RECEIVE_BUFFER_LEN", "a00253.html#gadad6011e61c820f396b1c13568dbfe16", null ],
+    [ "DEBUG_CONSOLE_TX_RELIABLE_ENABLE", "a00253.html#gab2823ff7917ffeaaccf805f739116ec1", null ],
+    [ "DEBUG_CONSOLE_RX_ENABLE", "a00253.html#ga27259eda6262948659d081ea4b7ad2fe", null ],
+    [ "DEBUG_CONSOLE_PRINTF_MAX_LOG_LEN", "a00253.html#ga9777b06b434b336e5a2c1b21421c9ea3", null ],
+    [ "DEBUG_CONSOLE_SCANF_MAX_LOG_LEN", "a00253.html#gab2afcebb59f366867a49bb888b8d043d", null ],
+    [ "DEBUG_CONSOLE_SYNCHRONIZATION_BM", "a00253.html#ga1cbe5dd480860843788779e39d1d0d1e", null ],
+    [ "DEBUG_CONSOLE_SYNCHRONIZATION_FREERTOS", "a00253.html#ga9589914d5a8b1cfedf834d52a6574496", null ],
+    [ "DEBUG_CONSOLE_SYNCHRONIZATION_MODE", "a00253.html#ga7b85f4e4309413064a69c99e7327d3f2", null ],
+    [ "DEBUG_CONSOLE_ENABLE_ECHO_FUNCTION", "a00253.html#ga5cc1f7845683fbde63e9619f38aac2d1", null ],
+    [ "BOARD_USE_VIRTUALCOM", "a00253.html#ga74776e2523880761897d8b57199e5596", null ]
 ];

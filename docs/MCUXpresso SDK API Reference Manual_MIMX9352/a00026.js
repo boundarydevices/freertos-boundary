@@ -30,7 +30,7 @@ var a00026 =
       [ "mode", "a00026.html#ac69465289fcc81b805c8ee84d4f5f526", null ],
       [ "dataOnly", "a00026.html#a30cf1a1bd9447f72e9d9d77045215295", null ]
     ] ],
-    [ "flexio_mculcd_handle_t", "a00026.html#a00279", [
+    [ "flexio_mculcd_handle_t", "a00026.html#a00276", [
       [ "dataAddrOrSameValue", "a00026.html#afd6b5ba7856e4a60b09284d8648927f6", null ],
       [ "dataCount", "a00026.html#a96a7d3183ca79dc52ea96f1cf3cdaee1", null ],
       [ "remainingCount", "a00026.html#a84abb6b0e289e316142b979d5e937b26", null ],
@@ -43,9 +43,9 @@ var a00026 =
     [ "FLEXIO_MCULCD_DATA_BUS_WIDTH", "a00026.html#ga99d509e0e5dae07eefc11c826e91aa20", null ],
     [ "flexio_mculcd_pin_func_t", "a00026.html#ga488a641aac28ea18d6126851f5c6b181", null ],
     [ "flexio_mculcd_transfer_callback_t", "a00026.html#ga9c5e282fd6d1cae13dc533a106a3da23", [
-      [ "kStatus_FLEXIO_MCULCD_Idle", "a00026.html#gga1fb9092bcdeada2d206bdc74afbbe122a2dff5d93dfb65bc74ebfc97dd185517f", null ],
-      [ "kStatus_FLEXIO_MCULCD_Busy", "a00026.html#gga1fb9092bcdeada2d206bdc74afbbe122a04c11c9c91be5814653e720200470e62", null ],
-      [ "kStatus_FLEXIO_MCULCD_Error", "a00026.html#gga1fb9092bcdeada2d206bdc74afbbe122afa90a745e2b170d4e7b9e3b6d4ef7074", null ]
+      [ "kStatus_FLEXIO_MCULCD_Idle", "a00026.html#ggafccd240f973cf154952fb917c9209719a2dff5d93dfb65bc74ebfc97dd185517f", null ],
+      [ "kStatus_FLEXIO_MCULCD_Busy", "a00026.html#ggafccd240f973cf154952fb917c9209719a04c11c9c91be5814653e720200470e62", null ],
+      [ "kStatus_FLEXIO_MCULCD_Error", "a00026.html#ggafccd240f973cf154952fb917c9209719afa90a745e2b170d4e7b9e3b6d4ef7074", null ]
     ] ],
     [ "flexio_mculcd_pixel_format_t", "a00026.html#ga3721e99acc2b54f3b08411e5880c476f", [
       [ "kFLEXIO_MCULCD_RGB565", "a00026.html#gga3721e99acc2b54f3b08411e5880c476fa5dd7ef049e9e0b6653a98ba5fadd583d", null ],

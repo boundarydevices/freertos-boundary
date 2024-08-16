@@ -1,6 +1,6 @@
 var a00042 =
 [
-    [ "lpi2c_master_config_t", "a00042.html#a00413", [
+    [ "lpi2c_master_config_t", "a00042.html#a00414", [
       [ "enableMaster", "a00042.html#a36f58debd82d2fe56bffc3d8d8748e22", null ],
       [ "enableDoze", "a00042.html#a4f75d18b353af3668e0c3a8dc2c65133", null ],
       [ "debugEnable", "a00042.html#a73c9f8dca26ed429fb5df6eebbb757b1", null ],
@@ -14,15 +14,15 @@ var a00042 =
       [ "enable", "a00042.html#adf43f53aece30b66a9dc29a6fe2bb02d", null ],
       [ "source", "a00042.html#a2c56d9865a4d122894a4918b21540151", null ],
       [ "polarity", "a00042.html#acb38f33f1c5f33595cae1133882c4d24", null ],
-      [ "hostRequest", "a00042.html#a9e280e6707d94bcb58c1fb0c616bc30d", null ]
+      [ "hostRequest", "a00042.html#a1c620512ae8f228811e435071e940763", null ]
     ] ],
-    [ "lpi2c_data_match_config_t", "a00042.html#a00412", [
+    [ "lpi2c_data_match_config_t", "a00042.html#a00413", [
       [ "matchMode", "a00042.html#a1ee7d6261dcde31818b381f189569d80", null ],
       [ "rxDataMatchOnly", "a00042.html#a2d2eed3e5f6fb4a94b653f416818ae30", null ],
       [ "match0", "a00042.html#ad28aaeb70cf478b4564cc05da64ce062", null ],
       [ "match1", "a00042.html#a8062fa234f06a2888f04dc95dab28240", null ]
     ] ],
-    [ "lpi2c_master_transfer_t", "a00042.html#a00289", [
+    [ "lpi2c_master_transfer_t", "a00042.html#a00286", [
       [ "flags", "a00042.html#a1c11b4cb590384ca6a8f9b8b43d23558", null ],
       [ "slaveAddress", "a00042.html#a7b9a1f78b5cf27502969224775e2134b", null ],
       [ "direction", "a00042.html#af9c1114cb5c6834f07c2069e39faba17", null ],
@@ -31,7 +31,7 @@ var a00042 =
       [ "data", "a00042.html#a6f242bd0a1ce4821c7d1d26074b29a9d", null ],
       [ "dataSize", "a00042.html#a79682c750a97b52d05515165f3f530e1", null ]
     ] ],
-    [ "lpi2c_master_handle_t", "a00042.html#a00288", [
+    [ "lpi2c_master_handle_t", "a00042.html#a00285", [
       [ "state", "a00042.html#aa754ef003d1639ef78a69dbe450c9e72", null ],
       [ "remainingBytes", "a00042.html#a5a35aa5dfb9d0b99bf6b63d8ca2d0571", null ],
       [ "buf", "a00042.html#a54a8e0398a4a439336f677034a221e29", null ],

@@ -20,14 +20,15 @@ var a00035 =
       [ "hKeep", "a00035.html#a8063af1c56f6e56568e9ed521264d552", null ],
       [ "enableOpenDrainStop", "a00035.html#a02607c05c70d63d6d6c0a13d3bffb2eb", null ],
       [ "enableOpenDrainHigh", "a00035.html#aacb29404b3812093a6585d23378493b9", null ],
-      [ "baudRate_Hz", "a00035.html#ade8d4a66d41250e92500504891f30914", null ]
+      [ "baudRate_Hz", "a00035.html#ade8d4a66d41250e92500504891f30914", null ],
+      [ "slowClock_Hz", "a00035.html#a86b890051d3a6cb021fa46adb253a1a9", null ]
     ] ],
     [ "i3c_master_transfer_callback_t", "a00035.html#a00397", [
       [ "slave2Master", "a00035.html#ad9fee2ce6f680841ff6e9c0d0c887482", null ],
       [ "ibiCallback", "a00035.html#a6d42aad3611beb397bcc8ec4184def61", null ],
       [ "transferComplete", "a00035.html#aa40d4a35313debc5c67134bc953d50e0", null ]
     ] ],
-    [ "i3c_master_transfer_t", "a00035.html#a00285", [
+    [ "i3c_master_transfer_t", "a00035.html#a00282", [
       [ "flags", "a00035.html#aec9a81ea02e19c36c6643dc85ed868d2", null ],
       [ "slaveAddress", "a00035.html#a33ff10d5cd0a6221d5fda6c003dcaf0e", null ],
       [ "direction", "a00035.html#a8382b4f8a4e3f4cac7c0c756d2bb2f98", null ],
@@ -38,7 +39,7 @@ var a00035 =
       [ "busType", "a00035.html#a80a8cf853d5884d1b358cf549996d306", null ],
       [ "ibiResponse", "a00035.html#a20a11a4b7bbd43315ed03c91762f5a53", null ]
     ] ],
-    [ "i3c_master_handle_t", "a00035.html#a00284", [
+    [ "i3c_master_handle_t", "a00035.html#a00281", [
       [ "state", "a00035.html#a9a67e46c098a6617d683a2928728d7bb", null ],
       [ "remainingBytes", "a00035.html#a4f67af21e75862ddda5f0e98f35c15da", null ],
       [ "rxTermOps", "a00035.html#a9134a914b59803ff974a0c78772da550", null ],
@@ -148,6 +149,12 @@ var a00035 =
       [ "kI3C_RxAutoTerm", "a00035.html#ggae8da91500ca2122f18ea51562fd141aba7d571487d2f49cda6e86eeacdc90f6a5", null ],
       [ "kI3C_RxTermLastByte", "a00035.html#ggae8da91500ca2122f18ea51562fd141abab077f7524fd10031d4d37a3fd6459753", null ]
     ] ],
+    [ "i3c_start_scl_delay_t", "a00035.html#ga797755a8dc3d8b09a4878143e5c2d086", [
+      [ "kI3C_NoDelay", "a00035.html#gga797755a8dc3d8b09a4878143e5c2d086a5098dbe19c03a821ab422756074ff38e", null ],
+      [ "kI3C_IncreaseSclHalfPeriod", "a00035.html#gga797755a8dc3d8b09a4878143e5c2d086a941f479e1d308bf28a52a7a2042fa6fa", null ],
+      [ "kI3C_IncreaseSclOnePeriod", "a00035.html#gga797755a8dc3d8b09a4878143e5c2d086a9110a5195fa061c25b6e0069e727cb19", null ],
+      [ "kI3C_IncreaseSclOneAndHalfPeriod", "a00035.html#gga797755a8dc3d8b09a4878143e5c2d086a18d15b8832abf8dc2f99c5ed1c14b2c5", null ]
+    ] ],
     [ "_i3c_master_transfer_flags", "a00035.html#gae6afbe5acf604875c68cf03b5d733a94", [
       [ "kI3C_TransferDefaultFlag", "a00035.html#ggae6afbe5acf604875c68cf03b5d733a94a83180edbcbe8754fe9ff03c4acaa8a46", null ],
       [ "kI3C_TransferNoStartFlag", "a00035.html#ggae6afbe5acf604875c68cf03b5d733a94ae79f0063a09bc4acc5b76da7ece1bd6c", null ],
@@ -155,7 +162,8 @@ var a00035 =
       [ "kI3C_TransferNoStopFlag", "a00035.html#ggae6afbe5acf604875c68cf03b5d733a94adbdc132591ba66ce34e9c2eb441265c9", null ],
       [ "kI3C_TransferWordsFlag", "a00035.html#ggae6afbe5acf604875c68cf03b5d733a94ada0a0ce241c2430131f6038ab249f67f", null ],
       [ "kI3C_TransferDisableRxTermFlag", "a00035.html#ggae6afbe5acf604875c68cf03b5d733a94a67019b460701ceef87f67764fc0da0b5", null ],
-      [ "kI3C_TransferRxAutoTermFlag", "a00035.html#ggae6afbe5acf604875c68cf03b5d733a94abb3ba4d9ca750f94d7a5652df0ee0f52", null ]
+      [ "kI3C_TransferRxAutoTermFlag", "a00035.html#ggae6afbe5acf604875c68cf03b5d733a94abb3ba4d9ca750f94d7a5652df0ee0f52", null ],
+      [ "kI3C_TransferStartWithBroadcastAddr", "a00035.html#ggae6afbe5acf604875c68cf03b5d733a94a97f909fea44c5bb29b6d3229a5a82e64", null ]
     ] ],
     [ "I3C_MasterGetDefaultConfig", "a00035.html#ga5bb9fd313269a1296f45be247e3904be", null ],
     [ "I3C_MasterInit", "a00035.html#ga47771e8dec518671a3e7945c9bf6a2a4", null ],

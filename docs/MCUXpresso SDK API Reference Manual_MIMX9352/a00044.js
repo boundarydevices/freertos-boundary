@@ -1,6 +1,6 @@
 var a00044 =
 [
-    [ "lpi2c_slave_config_t", "a00044.html#a00414", [
+    [ "lpi2c_slave_config_t", "a00044.html#a00415", [
       [ "enableSlave", "a00044.html#ad220cfa81b4117fd1d952b43ff0d5511", null ],
       [ "address0", "a00044.html#a16f171990f815872142d3fe73eb74ff4", null ],
       [ "address1", "a00044.html#afb3035cd87a9746bdbe5c6618a492034", null ],
@@ -12,7 +12,7 @@ var a00044 =
       [ "enableTx", "a00044.html#ad0fea92e29e7afff3d7072ab3c722bc8", null ],
       [ "enableRx", "a00044.html#aff856d2084ff0ede49f0ff25e6cf5529", null ],
       [ "enableAddress", "a00044.html#a6ec794389bd9fb5e51c802bb0b9ee26b", null ],
-      [ "sclStall", "a00044.html#a748b07009ba0d6cba62f7e15f92913f5", null ],
+      [ "sclStall", "a00044.html#a252b2a4d4e8c84a6cf65637a561c8965", null ],
       [ "ignoreAck", "a00044.html#ae68493537f90f7bff4a421ff534fb7a1", null ],
       [ "enableReceivedAddressRead", "a00044.html#ac273a825233fe937aa16d98e38664812", null ],
       [ "sdaGlitchFilterWidth_ns", "a00044.html#a7c28ef56af23d2e059942e8d80e5cd15", null ],
@@ -20,7 +20,7 @@ var a00044 =
       [ "dataValidDelay_ns", "a00044.html#a920288e7667b3b363f019384ebc58606", null ],
       [ "clockHoldTime_ns", "a00044.html#a2e672f5446e7d86eb9d74bdc785df0fb", null ]
     ] ],
-    [ "lpi2c_slave_transfer_t", "a00044.html#a00415", [
+    [ "lpi2c_slave_transfer_t", "a00044.html#a00416", [
       [ "event", "a00044.html#a19df3bc5c35ed8ae03a927dcc89daa48", null ],
       [ "receivedAddress", "a00044.html#a336e15a483043ed7ace990517fff6686", null ],
       [ "data", "a00044.html#a54436075594000b4d56471b29dd6734f", null ],
@@ -28,7 +28,7 @@ var a00044 =
       [ "completionStatus", "a00044.html#aafd14bc835c1c23de6bf06834d1a0b3c", null ],
       [ "transferredCount", "a00044.html#a67e03ab90367cb1d48d42b718e6438f5", null ]
     ] ],
-    [ "lpi2c_slave_handle_t", "a00044.html#a00290", [
+    [ "lpi2c_slave_handle_t", "a00044.html#a00287", [
       [ "transfer", "a00044.html#aed2dec763e40c6caa129c082603852d5", null ],
       [ "isBusy", "a00044.html#a8f0662c2c78df7b8e8b5ed4c1119823d", null ],
       [ "wasTransmit", "a00044.html#af0a187d43f251bc67fb9c34dedbf9253", null ],

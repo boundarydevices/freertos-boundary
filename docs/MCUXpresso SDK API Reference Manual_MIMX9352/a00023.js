@@ -24,7 +24,7 @@ var a00023 =
       [ "data", "a00023.html#a94b0a6518c96392dd0497350af675ada", null ],
       [ "dataSize", "a00023.html#a5bd368a720ef8ed7df1601d7cac19ae2", null ]
     ] ],
-    [ "flexio_i2c_master_handle_t", "a00023.html#a00275", [
+    [ "flexio_i2c_master_handle_t", "a00023.html#a00272", [
       [ "transfer", "a00023.html#a60bd61f7bad1102b8ae17c147ebe7562", null ],
       [ "transferSize", "a00023.html#a48d8d3dd2b37359e54ee1ac10d68bfa5", null ],
       [ "state", "a00023.html#abdeb9df90f61127f95734a9ad2226de8", null ],
@@ -34,10 +34,10 @@ var a00023 =
     ] ],
     [ "I2C_RETRY_TIMES", "a00023.html#gaac288786aaa7d0cb947c91591baf42d7", null ],
     [ "flexio_i2c_master_transfer_callback_t", "a00023.html#ga4a92b2aafd0ea1e7746dc23a7b0f0691", [
-      [ "kStatus_FLEXIO_I2C_Busy", "a00023.html#ggafa231099d07583c3ed0981e0bb665f55a8ab8145bc386f3630f13b87c38496331", null ],
-      [ "kStatus_FLEXIO_I2C_Idle", "a00023.html#ggafa231099d07583c3ed0981e0bb665f55a2f105638fc06422cc54cf5337d507873", null ],
-      [ "kStatus_FLEXIO_I2C_Nak", "a00023.html#ggafa231099d07583c3ed0981e0bb665f55af5e4a932f6f9e6ae30a42dc31fab8bd5", null ],
-      [ "kStatus_FLEXIO_I2C_Timeout", "a00023.html#ggafa231099d07583c3ed0981e0bb665f55a3d8bcc4ffd332948cb8b28f7982ac4d1", null ]
+      [ "kStatus_FLEXIO_I2C_Busy", "a00023.html#ggaf3520ff6d43011872bab77edd27d4de3a8ab8145bc386f3630f13b87c38496331", null ],
+      [ "kStatus_FLEXIO_I2C_Idle", "a00023.html#ggaf3520ff6d43011872bab77edd27d4de3a2f105638fc06422cc54cf5337d507873", null ],
+      [ "kStatus_FLEXIO_I2C_Nak", "a00023.html#ggaf3520ff6d43011872bab77edd27d4de3af5e4a932f6f9e6ae30a42dc31fab8bd5", null ],
+      [ "kStatus_FLEXIO_I2C_Timeout", "a00023.html#ggaf3520ff6d43011872bab77edd27d4de3a3d8bcc4ffd332948cb8b28f7982ac4d1", null ]
     ] ],
     [ "_flexio_i2c_master_interrupt", "a00023.html#gaa4597b532bb2a564c329076dc5da8155", [
       [ "kFLEXIO_I2C_TxEmptyInterruptEnable", "a00023.html#ggaa4597b532bb2a564c329076dc5da8155ac34fefcbb2d45dd7bfd385586439923b", null ],

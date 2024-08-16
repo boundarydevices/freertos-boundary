@@ -448,7 +448,7 @@ status_t DSI_PowerUp(MIPI_DSI_Type *base);
  *
  * @param base MIPI DSI host peripheral base address.
  */
-static void DSI_PowerDown(MIPI_DSI_Type *base)
+static inline void DSI_PowerDown(MIPI_DSI_Type *base)
 {
     base->PWR_UP = 0UL;
 }
@@ -543,7 +543,7 @@ void DSI_SetCommandModeConfig(MIPI_DSI_Type *base, const dsi_command_config_t *c
  * @param base MIPI DSI host peripheral base address.
  * @param enable true to enable command mode and disable video mode, vise versa.
  */
-static void DSI_EnableCommandMode(MIPI_DSI_Type *base, bool enable)
+static inline void DSI_EnableCommandMode(MIPI_DSI_Type *base, bool enable)
 {
     if (enable)
     {

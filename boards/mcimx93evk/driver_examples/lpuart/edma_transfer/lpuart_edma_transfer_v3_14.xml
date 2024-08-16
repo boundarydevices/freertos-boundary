@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ksdk:examples xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd manifest.xsd">
   <externalDefinitions>
-    <definition extID="platform.drivers.dma3.MIMX9352"/>
     <definition extID="utility.debug_console_lite.MIMX9352"/>
     <definition extID="platform.utilities.assert_lite.MIMX9352"/>
     <definition extID="platform.drivers.lpuart.MIMX9352"/>
@@ -19,6 +18,9 @@
     <definition extID="driver.adp5585.MIMX9352"/>
     <definition extID="driver.pcal6524.MIMX9352"/>
     <definition extID="platform.utilities.misc_utilities.MIMX9352"/>
+    <definition extID="utility.str.MIMX9352"/>
+    <definition extID="platform.drivers.edma4.MIMX9352"/>
+    <definition extID="driver.edma_soc.MIMX9352"/>
     <definition extID="platform.drivers.memory.MIMX9352"/>
     <definition extID="CMSIS_Include_core_cm.MIMX9352"/>
     <definition extID="iar"/>
@@ -27,7 +29,7 @@
     <definition extID="com.nxp.mcuxpresso"/>
     <definition extID="mdk"/>
   </externalDefinitions>
-  <example id="mcimx93evk_lpuart_edma_transfer" name="lpuart_edma_transfer" dependency="platform.drivers.dma3.MIMX9352 utility.debug_console_lite.MIMX9352 platform.utilities.assert_lite.MIMX9352 platform.drivers.lpuart.MIMX9352 platform.drivers.lpuart_edma.MIMX9352 platform.drivers.clock.MIMX9352 platform.drivers.common.MIMX9352 platform.devices.MIMX9352_CMSIS.MIMX9352 component.lpuart_adapter.MIMX9352 component.lists.MIMX9352 platform.devices.MIMX9352_startup.MIMX9352 platform.drivers.iomuxc.MIMX9352 platform.drivers.rgpio.MIMX9352 platform.drivers.cache_xcache.MIMX9352 platform.drivers.sentinel.MIMX9352 driver.adp5585.MIMX9352 driver.pcal6524.MIMX9352 platform.utilities.misc_utilities.MIMX9352 platform.drivers.memory.MIMX9352 CMSIS_Include_core_cm.MIMX9352" category="driver_examples/lpuart">
+  <example id="mcimx93evk_lpuart_edma_transfer" name="lpuart_edma_transfer" dependency="utility.debug_console_lite.MIMX9352 platform.utilities.assert_lite.MIMX9352 platform.drivers.lpuart.MIMX9352 platform.drivers.lpuart_edma.MIMX9352 platform.drivers.clock.MIMX9352 platform.drivers.common.MIMX9352 platform.devices.MIMX9352_CMSIS.MIMX9352 component.lpuart_adapter.MIMX9352 component.lists.MIMX9352 platform.devices.MIMX9352_startup.MIMX9352 platform.drivers.iomuxc.MIMX9352 platform.drivers.rgpio.MIMX9352 platform.drivers.cache_xcache.MIMX9352 platform.drivers.sentinel.MIMX9352 driver.adp5585.MIMX9352 driver.pcal6524.MIMX9352 platform.utilities.misc_utilities.MIMX9352 utility.str.MIMX9352 platform.drivers.edma4.MIMX9352 driver.edma_soc.MIMX9352 platform.drivers.memory.MIMX9352 CMSIS_Include_core_cm.MIMX9352" category="driver_examples/lpuart">
     <projects>
       <project type="com.crt.advproject.projecttype.exe" nature="org.eclipse.cdt.core.cnature"/>
     </projects>
@@ -46,7 +48,7 @@
           <value>com.crt.advproject.gcc.fpu.none</value>
         </option>
         <option id="gnu.c.compiler.option.misc.other" type="string">
-          <value>-c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin</value>
+          <value>-c -ffunction-sections -fdata-sections -fno-builtin</value>
         </option>
         <option id="gnu.c.compiler.option.warnings.allwarn" type="boolean">
           <value>false</value>

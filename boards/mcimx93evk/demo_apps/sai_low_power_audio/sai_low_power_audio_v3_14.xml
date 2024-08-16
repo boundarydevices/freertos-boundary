@@ -38,21 +38,22 @@
     <definition extID="platform.drivers.sentinel.MIMX9352"/>
     <definition extID="driver.pcal6524.MIMX9352"/>
     <definition extID="platform.utilities.misc_utilities.MIMX9352"/>
-    <definition extID="platform.drivers.pdm.MIMX9352"/>
     <definition extID="platform.drivers.edma4.MIMX9352"/>
+    <definition extID="platform.drivers.pdm.MIMX9352"/>
     <definition extID="driver.edma_soc.MIMX9352"/>
     <definition extID="platform.drivers.memory.MIMX9352"/>
     <definition extID="middleware.freertos-kernel.MIMX9352"/>
     <definition extID="middleware.freertos-kernel.template.MIMX9352"/>
     <definition extID="middleware.freertos-kernel.extension.MIMX9352"/>
     <definition extID="CMSIS_Include_core_cm.MIMX9352"/>
+    <definition extID="utility.str.MIMX9352"/>
     <definition extID="iar"/>
     <definition extID="armgcc"/>
     <definition extID="mcuxpresso"/>
     <definition extID="com.nxp.mcuxpresso"/>
     <definition extID="mdk"/>
   </externalDefinitions>
-  <example id="mcimx93evk_sai_low_power_audio" name="sai_low_power_audio" dependency="driver.srtm.MIMX9352 driver.srtm.freertos.MIMX9352 platform.drivers.lptmr.MIMX9352 platform.drivers.pdm_edma.MIMX9352 platform.drivers.sai_edma.MIMX9352 driver.adp5585.MIMX9352 platform.drivers.lpi2c.MIMX9352 platform.drivers.mu1.MIMX9352 driver.wm8962.MIMX9352 platform.drivers.sema42.MIMX9352 driver.codec.MIMX9352 component.codec_i2c.MIMX9352 component.lpi2c_adapter.MIMX9352 component.wm8962_adapter.MIMX9352 middleware.freertos-kernel.cm33_non_trustzone.MIMX9352 middleware.multicore.rpmsg_lite.imx93_m33_freertos.MIMX9352 middleware.multicore.rpmsg_lite.freertos.MIMX9352 middleware.multicore.rpmsg_lite.MIMX9352 middleware.freertos-kernel.heap_4.MIMX9352 platform.drivers.clock.MIMX9352 platform.drivers.sai.MIMX9352 platform.drivers.common.MIMX9352 platform.devices.MIMX9352_CMSIS.MIMX9352 utility.debug_console.MIMX9352 platform.utilities.assert.MIMX9352 component.lpuart_adapter.MIMX9352 component.serial_manager_uart.MIMX9352 component.serial_manager.MIMX9352 platform.drivers.lpuart.MIMX9352 component.lists.MIMX9352 platform.devices.MIMX9352_startup.MIMX9352 platform.drivers.iomuxc.MIMX9352 platform.drivers.rgpio.MIMX9352 platform.drivers.cache_xcache.MIMX9352 platform.drivers.sentinel.MIMX9352 driver.pcal6524.MIMX9352 platform.utilities.misc_utilities.MIMX9352 platform.drivers.pdm.MIMX9352 platform.drivers.edma4.MIMX9352 driver.edma_soc.MIMX9352 platform.drivers.memory.MIMX9352 middleware.freertos-kernel.MIMX9352 middleware.freertos-kernel.template.MIMX9352 middleware.freertos-kernel.extension.MIMX9352 CMSIS_Include_core_cm.MIMX9352" category="demo_apps">
+  <example id="mcimx93evk_sai_low_power_audio" name="sai_low_power_audio" dependency="driver.srtm.MIMX9352 driver.srtm.freertos.MIMX9352 platform.drivers.lptmr.MIMX9352 platform.drivers.pdm_edma.MIMX9352 platform.drivers.sai_edma.MIMX9352 driver.adp5585.MIMX9352 platform.drivers.lpi2c.MIMX9352 platform.drivers.mu1.MIMX9352 driver.wm8962.MIMX9352 platform.drivers.sema42.MIMX9352 driver.codec.MIMX9352 component.codec_i2c.MIMX9352 component.lpi2c_adapter.MIMX9352 component.wm8962_adapter.MIMX9352 middleware.freertos-kernel.cm33_non_trustzone.MIMX9352 middleware.multicore.rpmsg_lite.imx93_m33_freertos.MIMX9352 middleware.multicore.rpmsg_lite.freertos.MIMX9352 middleware.multicore.rpmsg_lite.MIMX9352 middleware.freertos-kernel.heap_4.MIMX9352 platform.drivers.clock.MIMX9352 platform.drivers.sai.MIMX9352 platform.drivers.common.MIMX9352 platform.devices.MIMX9352_CMSIS.MIMX9352 utility.debug_console.MIMX9352 platform.utilities.assert.MIMX9352 component.lpuart_adapter.MIMX9352 component.serial_manager_uart.MIMX9352 component.serial_manager.MIMX9352 platform.drivers.lpuart.MIMX9352 component.lists.MIMX9352 platform.devices.MIMX9352_startup.MIMX9352 platform.drivers.iomuxc.MIMX9352 platform.drivers.rgpio.MIMX9352 platform.drivers.cache_xcache.MIMX9352 platform.drivers.sentinel.MIMX9352 driver.pcal6524.MIMX9352 platform.utilities.misc_utilities.MIMX9352 platform.drivers.edma4.MIMX9352 platform.drivers.pdm.MIMX9352 driver.edma_soc.MIMX9352 platform.drivers.memory.MIMX9352 middleware.freertos-kernel.MIMX9352 middleware.freertos-kernel.template.MIMX9352 middleware.freertos-kernel.extension.MIMX9352 CMSIS_Include_core_cm.MIMX9352 utility.str.MIMX9352" category="demo_apps">
     <projects>
       <project type="com.crt.advproject.projecttype.exe" nature="org.eclipse.cdt.core.cnature"/>
     </projects>
@@ -79,7 +80,7 @@
           <value>com.crt.advproject.gcc.fpu.none</value>
         </option>
         <option id="gnu.c.compiler.option.misc.other" type="string">
-          <value>-c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin</value>
+          <value>-c -ffunction-sections -fdata-sections -fno-builtin</value>
         </option>
         <option id="gnu.c.compiler.option.warnings.allwarn" type="boolean">
           <value>false</value>

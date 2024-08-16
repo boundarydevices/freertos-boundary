@@ -73,7 +73,7 @@ var searchData=
   ['i3c_5fslavetransfergetcount',['I3C_SlaveTransferGetCount',['../a00038.html#ga9f19df9a2dd5d99440e7707aa662d49c',1,'fsl_i3c.h']]],
   ['i3c_5fslavetransferhandleirq',['I3C_SlaveTransferHandleIRQ',['../a00038.html#gaf604d3e51fccadaa37e28bd6ba6d37c3',1,'fsl_i3c.h']]],
   ['i3c_5fslavetransfernonblocking',['I3C_SlaveTransferNonBlocking',['../a00038.html#ga6105a83b8c488151a17eb8d93d51f00d',1,'fsl_i3c.h']]],
-  ['icache_5finvalidatebyrange',['ICACHE_InvalidateByRange',['../a00222.html#gab9e79fa88e11db521b74f5316de68676',1,'fsl_cache.h']]],
-  ['irq_5fclearpendingirq',['IRQ_ClearPendingIRQ',['../a00223.html#gac9b0f720fcb617b3aa9cb554d87dbc55',1,'fsl_common_arm.h']]],
-  ['irq_5fsetpriority',['IRQ_SetPriority',['../a00223.html#ga9d1df086c696c7864d98ea6ec28846f3',1,'fsl_common_arm.h']]]
+  ['icache_5finvalidatebyrange',['ICACHE_InvalidateByRange',['../a00218.html#gab9e79fa88e11db521b74f5316de68676',1,'fsl_cache.h']]],
+  ['irq_5fclearpendingirq',['IRQ_ClearPendingIRQ',['../a00219.html#gac9b0f720fcb617b3aa9cb554d87dbc55',1,'fsl_common_arm.h']]],
+  ['irq_5fsetpriority',['IRQ_SetPriority',['../a00219.html#ga9d1df086c696c7864d98ea6ec28846f3',1,'fsl_common_arm.h']]]
 ];

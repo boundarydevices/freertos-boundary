@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>MCUXpresso SDK API Reference Manual: PORT: Port Control and Interrupts</title>
+<title>MCUXpresso SDK API Reference Manual: SEMA42: Hardware Semaphores Driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.15.000</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -99,139 +99,374 @@ $(document).ready(function(){initNavTree('a00249.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">PORT: Port Control and Interrupts</div>  </div>
+<div class="title">SEMA42: Hardware Semaphores Driver</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Overview</h2>
-<p>The MCUXpresso SDK provides a driver for the Port Control and Interrupts (PORT) module of MCUXpresso SDK devices. </p>
+<p>The MCUXpresso SDK provides a driver for the SEMA42 module of MCUXpresso SDK devices.</p>
+<p>The SEMA42 driver is used for multicore platforms. Before using the SEMA42, call the <a class="el" href="a00249.html#ga13685f70a38ed1f8368581b475e963cf" title="Initializes the SEMA42 module. ">SEMA42_Init()</a> function to initialize the module. Note that this function only enables the clock but does not reset the gates because the module might be used by other processors at the same time. To reset the gates, call either the <a class="el" href="a00249.html#ga6fc8ecf853c6394511d55536d37c7d4f" title="Resets the SEMA42 gate to an unlocked status. ">SEMA42_ResetGate()</a> or <a class="el" href="a00249.html#ga9695921a658471089cddadb8789bb138" title="Resets all SEMA42 gates to an unlocked status. ">SEMA42_ResetAllGates()</a> functions. The function <a class="el" href="a00249.html#gae646085e5d791b895d478e9ef161c3b3" title="De-initializes the SEMA42 module. ">SEMA42_Deinit()</a> deinitializes the SEMA42.<br/>
+ The SEMA42 provides two functions to lock the SEMA42 gate. The function <a class="el" href="a00249.html#gab5e2b0d71c6219bcfb381f4b70d7e7b0" title="Tries to lock the SEMA42 gate. ">SEMA42_TryLock()</a> tries to lock the gate. If the gate has been locked by another processor, this function returns an error immediately. The function <a class="el" href="a00249.html#gaab41e809f563868b6b477a7bb62c9ce2" title="Locks the SEMA42 gate. ">SEMA42_Lock()</a> is a blocking method, which waits until the gate is free and locks it.<br/>
+ The <a class="el" href="a00249.html#gac19b80ba254697a9e22b54866226e879" title="Unlocks the SEMA42 gate. ">SEMA42_Unlock()</a> unlocks the SEMA42 gate. The gate can only be unlocked by the processor which locked it. If the gate is not locked by the current processor, this function takes no effect. The function <a class="el" href="a00249.html#gace62f3aae17c5f6d75764f932f2a673f" title="Gets the status of the SEMA42 gate. ">SEMA42_GetGateStatus()</a> returns a status whether the gate is unlocked and which processor locks the gate.<br/>
+ The SEMA42 gate can be reset to unlock forcefully. The function <a class="el" href="a00249.html#ga6fc8ecf853c6394511d55536d37c7d4f" title="Resets the SEMA42 gate to an unlocked status. ">SEMA42_ResetGate()</a> resets a specific gate. The function <a class="el" href="a00249.html#ga9695921a658471089cddadb8789bb138" title="Resets all SEMA42 gates to an unlocked status. ">SEMA42_ResetAllGates()</a> resets all gates.</p>
+<h1><a class="anchor" id="SEMA42TypUC"></a>
+Typical use case</h1>
+<p>Refer to the driver examples codes located at &lt;SDK_ROOT&gt;/boards/&lt;BOARD&gt;/driver_examples/sema42 </p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gaa2a42c2ffaa2a3b57c39a5e46988d7f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#gaa2a42c2ffaa2a3b57c39a5e46988d7f3">SEMA42_GATE_NUM_RESET_ALL</a>&#160;&#160;&#160;(64U)</td></tr>
+<tr class="memdesc:gaa2a42c2ffaa2a3b57c39a5e46988d7f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number to reset all SEMA42 gates.  <a href="#gaa2a42c2ffaa2a3b57c39a5e46988d7f3">More...</a><br/></td></tr>
+<tr class="separator:gaa2a42c2ffaa2a3b57c39a5e46988d7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga530cd6b85fc81427b81eb16b837b7dfd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#ga530cd6b85fc81427b81eb16b837b7dfd">SEMA42_GATEn</a>(base, n)&#160;&#160;&#160;(((volatile uint8_t *)(&amp;((base)-&gt;GATE3)))[(n) ^ 3U])</td></tr>
+<tr class="memdesc:ga530cd6b85fc81427b81eb16b837b7dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">SEMA42 gate n register address.  <a href="#ga530cd6b85fc81427b81eb16b837b7dfd">More...</a><br/></td></tr>
+<tr class="separator:ga530cd6b85fc81427b81eb16b837b7dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ga18b2add7e164a5dfa5c00832f857a1f6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#ga18b2add7e164a5dfa5c00832f857a1f6">port_interrupt_t</a> { <br/>
-&#160;&#160;<a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a3a632495179d065e620ada24a6521ac6">kPORT_InterruptOrDMADisabled</a> = 0x0U, 
+<tr class="memitem:ga3babbf89cae9b856a12864a41506efbd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br/>
+&#160;&#160;<a class="el" href="a00249.html#gga3babbf89cae9b856a12864a41506efbdad5619ab112a016977ca65fb758bf6c17">kStatus_SEMA42_Busy</a> = MAKE_STATUS(kStatusGroup_SEMA42, 0), 
 <br/>
-&#160;&#160;<a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6acf057f010d45cf99b2d42ca76752b103">kPORT_DMARisingEdge</a> = 0x1U, 
-<br/>
-&#160;&#160;<a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6af3275302ec20083e1f12047b2982057c">kPORT_DMAFallingEdge</a> = 0x2U, 
-<br/>
-&#160;&#160;<a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aa9d93b8e5b3ae154b5b33ed86d3370ca">kPORT_DMAEitherEdge</a> = 0x3U, 
-<br/>
-&#160;&#160;<a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aed05d5f28be0e81a10b36765b1e62750">kPORT_FlagRisingEdge</a> = 0x05U, 
-<br/>
-&#160;&#160;<a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aa741b2c34ca3924b5f25a118d833fa2b">kPORT_FlagFallingEdge</a> = 0x06U, 
-<br/>
-&#160;&#160;<a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a31d92dea54cfd39106b324260bc3c8f6">kPORT_FlagEitherEdge</a> = 0x07U, 
-<br/>
-&#160;&#160;<a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a4001279f550382ce823ad62136970f14">kPORT_InterruptLogicZero</a> = 0x8U, 
-<br/>
-&#160;&#160;<a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a2f8db24e21fd5fabfc8dc5250fbc6471">kPORT_InterruptRisingEdge</a> = 0x9U, 
-<br/>
-&#160;&#160;<a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6afe8f52eaca9af2ce2087a2991f50c463">kPORT_InterruptFallingEdge</a> = 0xAU, 
-<br/>
-&#160;&#160;<a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a02b1f5ef221c395aa49960c8c32943d2">kPORT_InterruptEitherEdge</a> = 0xBU, 
-<br/>
-&#160;&#160;<a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aa10b78a566c8439f00d14d18897f765c">kPORT_InterruptLogicOne</a> = 0xCU, 
-<br/>
-&#160;&#160;<a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a47452bd9fd5a7ff1dce3ccba5b38fe25">kPORT_ActiveHighTriggerOutputEnable</a> = 0xDU, 
-<br/>
-&#160;&#160;<a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6af726a3a1b4f551c31fe80cac6111484a">kPORT_ActiveLowTriggerOutputEnable</a> = 0xEU
+&#160;&#160;<a class="el" href="a00249.html#gga3babbf89cae9b856a12864a41506efbdab405b2900737aa815ebc18ea68df56b1">kStatus_SEMA42_Reseting</a> = MAKE_STATUS(kStatusGroup_SEMA42, 1)
 <br/>
  }</td></tr>
-<tr class="memdesc:ga18b2add7e164a5dfa5c00832f857a1f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the interrupt generation condition.  <a href="a00249.html#ga18b2add7e164a5dfa5c00832f857a1f6">More...</a><br/></td></tr>
-<tr class="separator:ga18b2add7e164a5dfa5c00832f857a1f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ga3babbf89cae9b856a12864a41506efbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">SEMA42 status return codes.  <a href="a00249.html#ga3babbf89cae9b856a12864a41506efbd">More...</a><br/></td></tr>
+<tr class="separator:ga3babbf89cae9b856a12864a41506efbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga84eaf8f6200932ad09d0a75ece6e463d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#ga84eaf8f6200932ad09d0a75ece6e463d">sema42_gate_status_t</a> { <br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463daf9c45d68a643bac3a34b65a5cf1aade6">kSEMA42_Unlocked</a> = 0U, 
+<br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da3006dc26747f1eb2b8e1941660f7dc24">kSEMA42_LockedByProc0</a> = 1U, 
+<br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463daf4a285b99114632b0b00c85ea7bf1956">kSEMA42_LockedByProc1</a> = 2U, 
+<br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da94c2081e5497a328126e879bf874fbc5">kSEMA42_LockedByProc2</a> = 3U, 
+<br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463dad41b71c7142766ca69c0aade4c3bee53">kSEMA42_LockedByProc3</a> = 4U, 
+<br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da9e984cd6c8ea942d67614cbd8faa7799">kSEMA42_LockedByProc4</a> = 5U, 
+<br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463dad5f2f1cfd86ec744eb9c406baccdeeaf">kSEMA42_LockedByProc5</a> = 6U, 
+<br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da20694487b850dcb86cab5735686d9590">kSEMA42_LockedByProc6</a> = 7U, 
+<br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da94c20f5d4e13f9ed07cf370b3bbe33cb">kSEMA42_LockedByProc7</a> = 8U, 
+<br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463dad614e32d0b0814c1fe69c3e0c92f7f94">kSEMA42_LockedByProc8</a> = 9U, 
+<br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da26fb2f4b8ceeae21a8e93fd069d9f2e4">kSEMA42_LockedByProc9</a> = 10U, 
+<br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463dad888ea149e3b30c04aec2e828f97deee">kSEMA42_LockedByProc10</a> = 11U, 
+<br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da1923aba10a72c8729327a9c8e6a008f1">kSEMA42_LockedByProc11</a> = 12U, 
+<br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463dac2129067e57645365d38996426d8197f">kSEMA42_LockedByProc12</a> = 13U, 
+<br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463da6e63d742de6625c789e49b0586f73c3e">kSEMA42_LockedByProc13</a> = 14U, 
+<br/>
+&#160;&#160;<a class="el" href="a00249.html#gga84eaf8f6200932ad09d0a75ece6e463daed15def9132f383c674644194a699ef9">kSEMA42_LockedByProc14</a> = 15U
+<br/>
+ }</td></tr>
+<tr class="memdesc:ga84eaf8f6200932ad09d0a75ece6e463d"><td class="mdescLeft">&#160;</td><td class="mdescRight">SEMA42 gate lock status.  <a href="a00249.html#ga84eaf8f6200932ad09d0a75ece6e463d">More...</a><br/></td></tr>
+<tr class="separator:ga84eaf8f6200932ad09d0a75ece6e463d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga13685f70a38ed1f8368581b475e963cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#ga13685f70a38ed1f8368581b475e963cf">SEMA42_Init</a> (SEMA42_Type *base)</td></tr>
+<tr class="memdesc:ga13685f70a38ed1f8368581b475e963cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the SEMA42 module.  <a href="#ga13685f70a38ed1f8368581b475e963cf">More...</a><br/></td></tr>
+<tr class="separator:ga13685f70a38ed1f8368581b475e963cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae646085e5d791b895d478e9ef161c3b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#gae646085e5d791b895d478e9ef161c3b3">SEMA42_Deinit</a> (SEMA42_Type *base)</td></tr>
+<tr class="memdesc:gae646085e5d791b895d478e9ef161c3b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initializes the SEMA42 module.  <a href="#gae646085e5d791b895d478e9ef161c3b3">More...</a><br/></td></tr>
+<tr class="separator:gae646085e5d791b895d478e9ef161c3b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5e2b0d71c6219bcfb381f4b70d7e7b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#gab5e2b0d71c6219bcfb381f4b70d7e7b0">SEMA42_TryLock</a> (SEMA42_Type *base, uint8_t gateNum, uint8_t procNum)</td></tr>
+<tr class="memdesc:gab5e2b0d71c6219bcfb381f4b70d7e7b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to lock the SEMA42 gate.  <a href="#gab5e2b0d71c6219bcfb381f4b70d7e7b0">More...</a><br/></td></tr>
+<tr class="separator:gab5e2b0d71c6219bcfb381f4b70d7e7b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab41e809f563868b6b477a7bb62c9ce2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#gaab41e809f563868b6b477a7bb62c9ce2">SEMA42_Lock</a> (SEMA42_Type *base, uint8_t gateNum, uint8_t procNum)</td></tr>
+<tr class="memdesc:gaab41e809f563868b6b477a7bb62c9ce2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the SEMA42 gate.  <a href="#gaab41e809f563868b6b477a7bb62c9ce2">More...</a><br/></td></tr>
+<tr class="separator:gaab41e809f563868b6b477a7bb62c9ce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac19b80ba254697a9e22b54866226e879"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#gac19b80ba254697a9e22b54866226e879">SEMA42_Unlock</a> (SEMA42_Type *base, uint8_t gateNum)</td></tr>
+<tr class="memdesc:gac19b80ba254697a9e22b54866226e879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlocks the SEMA42 gate.  <a href="#gac19b80ba254697a9e22b54866226e879">More...</a><br/></td></tr>
+<tr class="separator:gac19b80ba254697a9e22b54866226e879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace62f3aae17c5f6d75764f932f2a673f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00249.html#ga84eaf8f6200932ad09d0a75ece6e463d">sema42_gate_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#gace62f3aae17c5f6d75764f932f2a673f">SEMA42_GetGateStatus</a> (SEMA42_Type *base, uint8_t gateNum)</td></tr>
+<tr class="memdesc:gace62f3aae17c5f6d75764f932f2a673f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the status of the SEMA42 gate.  <a href="#gace62f3aae17c5f6d75764f932f2a673f">More...</a><br/></td></tr>
+<tr class="separator:gace62f3aae17c5f6d75764f932f2a673f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6fc8ecf853c6394511d55536d37c7d4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#ga6fc8ecf853c6394511d55536d37c7d4f">SEMA42_ResetGate</a> (SEMA42_Type *base, uint8_t gateNum)</td></tr>
+<tr class="memdesc:ga6fc8ecf853c6394511d55536d37c7d4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the SEMA42 gate to an unlocked status.  <a href="#ga6fc8ecf853c6394511d55536d37c7d4f">More...</a><br/></td></tr>
+<tr class="separator:ga6fc8ecf853c6394511d55536d37c7d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9695921a658471089cddadb8789bb138"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#ga9695921a658471089cddadb8789bb138">SEMA42_ResetAllGates</a> (SEMA42_Type *base)</td></tr>
+<tr class="memdesc:ga9695921a658471089cddadb8789bb138"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets all SEMA42 gates to an unlocked status.  <a href="#ga9695921a658471089cddadb8789bb138">More...</a><br/></td></tr>
+<tr class="separator:ga9695921a658471089cddadb8789bb138"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Driver version</h2></td></tr>
-<tr class="memitem:ga75a0a23a423adf79cd0f83a5fa2567a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#ga75a0a23a423adf79cd0f83a5fa2567a3">FSL_PORT_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00223.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 4, 1))</td></tr>
-<tr class="memdesc:ga75a0a23a423adf79cd0f83a5fa2567a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">PORT driver version.  <a href="#ga75a0a23a423adf79cd0f83a5fa2567a3">More...</a><br/></td></tr>
-<tr class="separator:ga75a0a23a423adf79cd0f83a5fa2567a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-Interrupt</h2></td></tr>
-<tr class="memitem:ga001584128ac80df3857c8df6cf5245ff"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#ga001584128ac80df3857c8df6cf5245ff">PORT_SetPinInterruptConfig</a> (PORT_Type *base, uint32_t pin, <a class="el" href="a00249.html#ga18b2add7e164a5dfa5c00832f857a1f6">port_interrupt_t</a> config)</td></tr>
-<tr class="memdesc:ga001584128ac80df3857c8df6cf5245ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the port pin interrupt/DMA request.  <a href="#ga001584128ac80df3857c8df6cf5245ff">More...</a><br/></td></tr>
-<tr class="separator:ga001584128ac80df3857c8df6cf5245ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga50cecfe358ab8f9cad6ab881be2f8899"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#ga50cecfe358ab8f9cad6ab881be2f8899">PORT_GetPinsInterruptFlags</a> (PORT_Type *base)</td></tr>
-<tr class="memdesc:ga50cecfe358ab8f9cad6ab881be2f8899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the whole port status flag.  <a href="#ga50cecfe358ab8f9cad6ab881be2f8899">More...</a><br/></td></tr>
-<tr class="separator:ga50cecfe358ab8f9cad6ab881be2f8899"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadb6ede61f32b89a54049b899cd576ff7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#gadb6ede61f32b89a54049b899cd576ff7">PORT_ClearPinsInterruptFlags</a> (PORT_Type *base, uint32_t mask)</td></tr>
-<tr class="memdesc:gadb6ede61f32b89a54049b899cd576ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the multiple pin interrupt status flag.  <a href="#gadb6ede61f32b89a54049b899cd576ff7">More...</a><br/></td></tr>
-<tr class="separator:gadb6ede61f32b89a54049b899cd576ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d157e87f2444c405d2ebf7fe9a39508"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9d157e87f2444c405d2ebf7fe9a39508"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#ga9d157e87f2444c405d2ebf7fe9a39508">FSL_SEMA42_DRIVER_VERSION</a>&#160;&#160;&#160;(<a class="el" href="a00219.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 0, 4))</td></tr>
+<tr class="memdesc:ga9d157e87f2444c405d2ebf7fe9a39508"><td class="mdescLeft">&#160;</td><td class="mdescRight">SEMA42 driver version. <br/></td></tr>
+<tr class="separator:ga9d157e87f2444c405d2ebf7fe9a39508"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="ga75a0a23a423adf79cd0f83a5fa2567a3"></a>
+<a class="anchor" id="gaa2a42c2ffaa2a3b57c39a5e46988d7f3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FSL_PORT_DRIVER_VERSION&#160;&#160;&#160;(<a class="el" href="a00223.html#ga812138aa3315b0c6953c1a26130bcc37">MAKE_VERSION</a>(2, 4, 1))</td>
+          <td class="memname">#define SEMA42_GATE_NUM_RESET_ALL&#160;&#160;&#160;(64U)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="ga18b2add7e164a5dfa5c00832f857a1f6"></a>
+<a class="anchor" id="ga530cd6b85fc81427b81eb16b837b7dfd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00249.html#ga18b2add7e164a5dfa5c00832f857a1f6">port_interrupt_t</a></td>
+          <td class="memname">#define SEMA42_GATEn</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">base, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">n&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(((volatile uint8_t *)(&amp;((base)-&gt;GATE3)))[(n) ^ 3U])</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The SEMA42 gates are sorted in the order 3, 2, 1, 0, 7, 6, 5, 4, ... not in the order 0, 1, 2, 3, 4, 5, 6, 7, ... The macro SEMA42_GATEn gets the SEMA42 gate based on the gate index.</p>
+<p>The input gate index is XOR'ed with 3U: 0 ^ 3 = 3 1 ^ 3 = 2 2 ^ 3 = 1 3 ^ 3 = 0 4 ^ 3 = 7 5 ^ 3 = 6 6 ^ 3 = 5 7 ^ 3 = 4 ... </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="ga3babbf89cae9b856a12864a41506efbd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga18b2add7e164a5dfa5c00832f857a1f6a3a632495179d065e620ada24a6521ac6"></a>kPORT_InterruptOrDMADisabled</em>&nbsp;</td><td class="fielddoc">
-<p>Interrupt/DMA request is disabled. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga3babbf89cae9b856a12864a41506efbdad5619ab112a016977ca65fb758bf6c17"></a>kStatus_SEMA42_Busy</em>&nbsp;</td><td class="fielddoc">
+<p>SEMA42 gate has been locked by other processor. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga18b2add7e164a5dfa5c00832f857a1f6acf057f010d45cf99b2d42ca76752b103"></a>kPORT_DMARisingEdge</em>&nbsp;</td><td class="fielddoc">
-<p>DMA request on rising edge. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga3babbf89cae9b856a12864a41506efbdab405b2900737aa815ebc18ea68df56b1"></a>kStatus_SEMA42_Reseting</em>&nbsp;</td><td class="fielddoc">
+<p>SEMA42 gate reseting is ongoing. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga18b2add7e164a5dfa5c00832f857a1f6af3275302ec20083e1f12047b2982057c"></a>kPORT_DMAFallingEdge</em>&nbsp;</td><td class="fielddoc">
-<p>DMA request on falling edge. </p>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="ga84eaf8f6200932ad09d0a75ece6e463d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00249.html#ga84eaf8f6200932ad09d0a75ece6e463d">sema42_gate_status_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463daf9c45d68a643bac3a34b65a5cf1aade6"></a>kSEMA42_Unlocked</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is unlocked. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga18b2add7e164a5dfa5c00832f857a1f6aa9d93b8e5b3ae154b5b33ed86d3370ca"></a>kPORT_DMAEitherEdge</em>&nbsp;</td><td class="fielddoc">
-<p>DMA request on either edge. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da3006dc26747f1eb2b8e1941660f7dc24"></a>kSEMA42_LockedByProc0</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is locked by processor 0. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga18b2add7e164a5dfa5c00832f857a1f6aed05d5f28be0e81a10b36765b1e62750"></a>kPORT_FlagRisingEdge</em>&nbsp;</td><td class="fielddoc">
-<p>Flag sets on rising edge. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463daf4a285b99114632b0b00c85ea7bf1956"></a>kSEMA42_LockedByProc1</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is locked by processor 1. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga18b2add7e164a5dfa5c00832f857a1f6aa741b2c34ca3924b5f25a118d833fa2b"></a>kPORT_FlagFallingEdge</em>&nbsp;</td><td class="fielddoc">
-<p>Flag sets on falling edge. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da94c2081e5497a328126e879bf874fbc5"></a>kSEMA42_LockedByProc2</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is locked by processor 2. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga18b2add7e164a5dfa5c00832f857a1f6a31d92dea54cfd39106b324260bc3c8f6"></a>kPORT_FlagEitherEdge</em>&nbsp;</td><td class="fielddoc">
-<p>Flag sets on either edge. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463dad41b71c7142766ca69c0aade4c3bee53"></a>kSEMA42_LockedByProc3</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is locked by processor 3. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga18b2add7e164a5dfa5c00832f857a1f6a4001279f550382ce823ad62136970f14"></a>kPORT_InterruptLogicZero</em>&nbsp;</td><td class="fielddoc">
-<p>Interrupt when logic zero. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da9e984cd6c8ea942d67614cbd8faa7799"></a>kSEMA42_LockedByProc4</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is locked by processor 4. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga18b2add7e164a5dfa5c00832f857a1f6a2f8db24e21fd5fabfc8dc5250fbc6471"></a>kPORT_InterruptRisingEdge</em>&nbsp;</td><td class="fielddoc">
-<p>Interrupt on rising edge. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463dad5f2f1cfd86ec744eb9c406baccdeeaf"></a>kSEMA42_LockedByProc5</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is locked by processor 5. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga18b2add7e164a5dfa5c00832f857a1f6afe8f52eaca9af2ce2087a2991f50c463"></a>kPORT_InterruptFallingEdge</em>&nbsp;</td><td class="fielddoc">
-<p>Interrupt on falling edge. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da20694487b850dcb86cab5735686d9590"></a>kSEMA42_LockedByProc6</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is locked by processor 6. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga18b2add7e164a5dfa5c00832f857a1f6a02b1f5ef221c395aa49960c8c32943d2"></a>kPORT_InterruptEitherEdge</em>&nbsp;</td><td class="fielddoc">
-<p>Interrupt on either edge. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da94c20f5d4e13f9ed07cf370b3bbe33cb"></a>kSEMA42_LockedByProc7</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is locked by processor 7. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga18b2add7e164a5dfa5c00832f857a1f6aa10b78a566c8439f00d14d18897f765c"></a>kPORT_InterruptLogicOne</em>&nbsp;</td><td class="fielddoc">
-<p>Interrupt when logic one. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463dad614e32d0b0814c1fe69c3e0c92f7f94"></a>kSEMA42_LockedByProc8</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is locked by processor 8. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga18b2add7e164a5dfa5c00832f857a1f6a47452bd9fd5a7ff1dce3ccba5b38fe25"></a>kPORT_ActiveHighTriggerOutputEnable</em>&nbsp;</td><td class="fielddoc">
-<p>Enable active high-trigger output. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da26fb2f4b8ceeae21a8e93fd069d9f2e4"></a>kSEMA42_LockedByProc9</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is locked by processor 9. </p>
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="gga18b2add7e164a5dfa5c00832f857a1f6af726a3a1b4f551c31fe80cac6111484a"></a>kPORT_ActiveLowTriggerOutputEnable</em>&nbsp;</td><td class="fielddoc">
-<p>Enable active low-trigger output. </p>
+<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463dad888ea149e3b30c04aec2e828f97deee"></a>kSEMA42_LockedByProc10</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is locked by processor 10. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da1923aba10a72c8729327a9c8e6a008f1"></a>kSEMA42_LockedByProc11</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is locked by processor 11. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463dac2129067e57645365d38996426d8197f"></a>kSEMA42_LockedByProc12</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is locked by processor 12. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463da6e63d742de6625c789e49b0586f73c3e"></a>kSEMA42_LockedByProc13</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is locked by processor 13. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga84eaf8f6200932ad09d0a75ece6e463daed15def9132f383c674644194a699ef9"></a>kSEMA42_LockedByProc14</em>&nbsp;</td><td class="fielddoc">
+<p>The gate is locked by processor 14. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga001584128ac80df3857c8df6cf5245ff"></a>
+<a class="anchor" id="ga13685f70a38ed1f8368581b475e963cf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SEMA42_Init </td>
+          <td>(</td>
+          <td class="paramtype">SEMA42_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function initializes the SEMA42 module. It only enables the clock but does not reset the gates because the module might be used by other processors at the same time. To reset the gates, call either SEMA42_ResetGate or SEMA42_ResetAllGates function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SEMA42 peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gae646085e5d791b895d478e9ef161c3b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SEMA42_Deinit </td>
+          <td>(</td>
+          <td class="paramtype">SEMA42_Type *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function de-initializes the SEMA42 module. It only disables the clock.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SEMA42 peripheral base address. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gab5e2b0d71c6219bcfb381f4b70d7e7b0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SEMA42_TryLock </td>
+          <td>(</td>
+          <td class="paramtype">SEMA42_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>gateNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>procNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function tries to lock the specific SEMA42 gate. If the gate has been locked by another processor, this function returns an error code.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SEMA42 peripheral base address. </td></tr>
+    <tr><td class="paramname">gateNum</td><td>Gate number to lock. </td></tr>
+    <tr><td class="paramname">procNum</td><td>Current processor number.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">kStatus_Success</td><td>Lock the sema42 gate successfully. </td></tr>
+    <tr><td class="paramname">kStatus_SEMA42_Busy</td><td>Sema42 gate has been locked by another processor. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gaab41e809f563868b6b477a7bb62c9ce2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SEMA42_Lock </td>
+          <td>(</td>
+          <td class="paramtype">SEMA42_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>gateNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>procNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function locks the specific SEMA42 gate. If the gate has been locked by other processors, this function waits until it is unlocked and then lock it.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SEMA42 peripheral base address. </td></tr>
+    <tr><td class="paramname">gateNum</td><td>Gate number to lock. </td></tr>
+    <tr><td class="paramname">procNum</td><td>Current processor number. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gac19b80ba254697a9e22b54866226e879"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -239,22 +474,16 @@ Interrupt</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void PORT_SetPinInterruptConfig </td>
+          <td class="memname">static void SEMA42_Unlock </td>
           <td>(</td>
-          <td class="paramtype">PORT_Type *&#160;</td>
+          <td class="paramtype">SEMA42_Type *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>pin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00249.html#ga18b2add7e164a5dfa5c00832f857a1f6">port_interrupt_t</a>&#160;</td>
-          <td class="paramname"><em>config</em>&#160;</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>gateNum</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -268,34 +497,18 @@ Interrupt</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>This function unlocks the specific SEMA42 gate. It only writes unlock value to the SEMA42 gate register. However, it does not check whether the SEMA42 gate is locked by the current processor or not. As a result, if the SEMA42 gate is not locked by the current processor, this function has no effect.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">base</td><td>PORT peripheral base pointer. </td></tr>
-    <tr><td class="paramname">pin</td><td>PORT pin number. </td></tr>
-    <tr><td class="paramname">config</td><td>PORT pin interrupt configuration.<ul>
-<li><a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a3a632495179d065e620ada24a6521ac6" title="Interrupt/DMA request is disabled. ">kPORT_InterruptOrDMADisabled</a>: Interrupt/DMA request disabled.</li>
-<li><a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6acf057f010d45cf99b2d42ca76752b103" title="DMA request on rising edge. ">kPORT_DMARisingEdge</a> : DMA request on rising edge(if the DMA requests exit).</li>
-<li><a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6af3275302ec20083e1f12047b2982057c" title="DMA request on falling edge. ">kPORT_DMAFallingEdge</a>: DMA request on falling edge(if the DMA requests exit).</li>
-<li><a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aa9d93b8e5b3ae154b5b33ed86d3370ca" title="DMA request on either edge. ">kPORT_DMAEitherEdge</a> : DMA request on either edge(if the DMA requests exit).</li>
-<li><a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aed05d5f28be0e81a10b36765b1e62750" title="Flag sets on rising edge. ">kPORT_FlagRisingEdge</a> : Flag sets on rising edge(if the Flag states exit).</li>
-<li><a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aa741b2c34ca3924b5f25a118d833fa2b" title="Flag sets on falling edge. ">kPORT_FlagFallingEdge</a> : Flag sets on falling edge(if the Flag states exit).</li>
-<li><a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a31d92dea54cfd39106b324260bc3c8f6" title="Flag sets on either edge. ">kPORT_FlagEitherEdge</a> : Flag sets on either edge(if the Flag states exit).</li>
-<li><a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a4001279f550382ce823ad62136970f14" title="Interrupt when logic zero. ">kPORT_InterruptLogicZero</a> : Interrupt when logic zero.</li>
-<li><a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a2f8db24e21fd5fabfc8dc5250fbc6471" title="Interrupt on rising edge. ">kPORT_InterruptRisingEdge</a> : Interrupt on rising edge.</li>
-<li><a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6afe8f52eaca9af2ce2087a2991f50c463" title="Interrupt on falling edge. ">kPORT_InterruptFallingEdge</a>: Interrupt on falling edge.</li>
-<li><a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a02b1f5ef221c395aa49960c8c32943d2" title="Interrupt on either edge. ">kPORT_InterruptEitherEdge</a> : Interrupt on either edge.</li>
-<li><a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6aa10b78a566c8439f00d14d18897f765c" title="Interrupt when logic one. ">kPORT_InterruptLogicOne</a> : Interrupt when logic one.</li>
-<li><a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6a47452bd9fd5a7ff1dce3ccba5b38fe25" title="Enable active high-trigger output. ">kPORT_ActiveHighTriggerOutputEnable</a> : Enable active high-trigger output (if the trigger states exit).</li>
-<li><a class="el" href="a00249.html#gga18b2add7e164a5dfa5c00832f857a1f6af726a3a1b4f551c31fe80cac6111484a" title="Enable active low-trigger output. ">kPORT_ActiveLowTriggerOutputEnable</a> : Enable active low-trigger output (if the trigger states exit). </li>
-</ul>
-</td></tr>
+    <tr><td class="paramname">base</td><td>SEMA42 peripheral base address. </td></tr>
+    <tr><td class="paramname">gateNum</td><td>Gate number to unlock. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="ga50cecfe358ab8f9cad6ab881be2f8899"></a>
+<a class="anchor" id="gace62f3aae17c5f6d75764f932f2a673f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -303,9 +516,93 @@ Interrupt</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static uint32_t PORT_GetPinsInterruptFlags </td>
+          <td class="memname">static <a class="el" href="a00249.html#ga84eaf8f6200932ad09d0a75ece6e463d">sema42_gate_status_t</a> SEMA42_GetGateStatus </td>
           <td>(</td>
-          <td class="paramtype">PORT_Type *&#160;</td>
+          <td class="paramtype">SEMA42_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>gateNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function checks the lock status of a specific SEMA42 gate.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SEMA42 peripheral base address. </td></tr>
+    <tr><td class="paramname">gateNum</td><td>Gate number.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>status Current status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga6fc8ecf853c6394511d55536d37c7d4f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SEMA42_ResetGate </td>
+          <td>(</td>
+          <td class="paramtype">SEMA42_Type *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>gateNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function resets a SEMA42 gate to an unlocked status.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>SEMA42 peripheral base address. </td></tr>
+    <tr><td class="paramname">gateNum</td><td>Gate number.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">kStatus_Success</td><td>SEMA42 gate is reset successfully. </td></tr>
+    <tr><td class="paramname">kStatus_SEMA42_Reseting</td><td>Some other reset process is ongoing. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga9695921a658471089cddadb8789bb138"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00219.html#gaaabdaf7ee58ca7269bd4bf24efcde092">status_t</a> SEMA42_ResetAllGates </td>
+          <td>(</td>
+          <td class="paramtype">SEMA42_Type *&#160;</td>
           <td class="paramname"><em>base</em></td><td>)</td>
           <td></td>
         </tr>
@@ -316,52 +613,17 @@ Interrupt</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>If a pin is configured to generate the DMA request, the corresponding flag is cleared automatically at the completion of the requested DMA transfer. Otherwise, the flag remains set until a logic one is written to that flag. If configured for a level sensitive interrupt that remains asserted, the flag is set again immediately.</p>
+<p>This function resets all SEMA42 gate to an unlocked status.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">base</td><td>PORT peripheral base pointer. </td></tr>
+    <tr><td class="paramname">base</td><td>SEMA42 peripheral base address.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Current port interrupt status flags, for example, 0x00010001 means the pin 0 and 16 have the interrupt. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gadb6ede61f32b89a54049b899cd576ff7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void PORT_ClearPinsInterruptFlags </td>
-          <td>(</td>
-          <td class="paramtype">PORT_Type *&#160;</td>
-          <td class="paramname"><em>base</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>mask</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">base</td><td>PORT peripheral base pointer. </td></tr>
-    <tr><td class="paramname">mask</td><td>PORT pin number macro. </td></tr>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">kStatus_Success</td><td>SEMA42 is reset successfully. </td></tr>
+    <tr><td class="paramname">kStatus_SEMA42_Reseting</td><td>Some other reset process is ongoing. </td></tr>
   </table>
   </dd>
 </dl>

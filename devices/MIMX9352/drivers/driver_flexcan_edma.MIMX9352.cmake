@@ -3,7 +3,7 @@
 include_guard(GLOBAL)
 message("${CMAKE_CURRENT_LIST_FILE} component is included.")
 
-if(CONFIG_USE_driver_flexcan AND (CONFIG_DEVICE_ID STREQUAL MIMX9352xxxxM))
+if(CONFIG_USE_driver_edma4 AND CONFIG_USE_driver_flexcan AND (CONFIG_DEVICE_ID STREQUAL MIMX9352xxxxM))
 
 target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}/fsl_flexcan_edma.c

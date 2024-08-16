@@ -30,7 +30,7 @@ var a00024 =
       [ "data", "a00024.html#a3a1bad13211ca0ffe270d1efaebed0ac", null ],
       [ "dataSize", "a00024.html#a02aca7ffe23c696b0d903d43736eea7c", null ]
     ] ],
-    [ "flexio_i2s_handle_t", "a00024.html#a00277", [
+    [ "flexio_i2s_handle_t", "a00024.html#a00274", [
       [ "state", "a00024.html#ae6b4c9950aab2628a2afad4ce1843f53", null ],
       [ "callback", "a00024.html#a8595e0e9871200a31487a7366568cee9", null ],
       [ "userData", "a00024.html#ae1dbe0ea87de3e1008d53ad96f358eff", null ],
@@ -44,20 +44,20 @@ var a00024 =
     [ "I2S_RETRY_TIMES", "a00024.html#ga7ea2ecb47ec7c253f394013b3d5b680f", null ],
     [ "FLEXIO_I2S_XFER_QUEUE_SIZE", "a00024.html#ga16823ec3547c940091b4eccc87fb5847", null ],
     [ "flexio_i2s_callback_t", "a00024.html#ga5ab500341d34539faaea54f985950046", [
-      [ "kStatus_FLEXIO_I2S_Idle", "a00024.html#gga394b3903fbf00ba2b6243f60689a5a5fa78e5217077552655a4fbd4990ec5c311", null ],
-      [ "kStatus_FLEXIO_I2S_TxBusy", "a00024.html#gga394b3903fbf00ba2b6243f60689a5a5fa48d8c97ea4e46f6631429992f1814a7a", null ],
-      [ "kStatus_FLEXIO_I2S_RxBusy", "a00024.html#gga394b3903fbf00ba2b6243f60689a5a5fafc24c81bf7a6c092dc2ac0131739fb33", null ],
-      [ "kStatus_FLEXIO_I2S_Error", "a00024.html#gga394b3903fbf00ba2b6243f60689a5a5fa73c78f01390e990b4cc75cca203780a5", null ],
-      [ "kStatus_FLEXIO_I2S_QueueFull", "a00024.html#gga394b3903fbf00ba2b6243f60689a5a5fae38ee4495779398804472d81dac37c3e", null ],
-      [ "kStatus_FLEXIO_I2S_Timeout", "a00024.html#gga394b3903fbf00ba2b6243f60689a5a5fa1857c052202d7abc210a4f1defb2332c", null ]
+      [ "kStatus_FLEXIO_I2S_Idle", "a00024.html#ggae8a3b6a5d0d3244ed73924ab2421a0d0a78e5217077552655a4fbd4990ec5c311", null ],
+      [ "kStatus_FLEXIO_I2S_TxBusy", "a00024.html#ggae8a3b6a5d0d3244ed73924ab2421a0d0a48d8c97ea4e46f6631429992f1814a7a", null ],
+      [ "kStatus_FLEXIO_I2S_RxBusy", "a00024.html#ggae8a3b6a5d0d3244ed73924ab2421a0d0afc24c81bf7a6c092dc2ac0131739fb33", null ],
+      [ "kStatus_FLEXIO_I2S_Error", "a00024.html#ggae8a3b6a5d0d3244ed73924ab2421a0d0a73c78f01390e990b4cc75cca203780a5", null ],
+      [ "kStatus_FLEXIO_I2S_QueueFull", "a00024.html#ggae8a3b6a5d0d3244ed73924ab2421a0d0ae38ee4495779398804472d81dac37c3e", null ],
+      [ "kStatus_FLEXIO_I2S_Timeout", "a00024.html#ggae8a3b6a5d0d3244ed73924ab2421a0d0a1857c052202d7abc210a4f1defb2332c", null ]
     ] ],
     [ "flexio_i2s_master_slave_t", "a00024.html#ga4251f1ee8699baaef1c7fd11b7f76782", [
       [ "kFLEXIO_I2S_Master", "a00024.html#gga4251f1ee8699baaef1c7fd11b7f76782a07afd29192b090e4721733409c076924", null ],
       [ "kFLEXIO_I2S_Slave", "a00024.html#gga4251f1ee8699baaef1c7fd11b7f76782a97fd81b843abe473a98104592b07573c", null ],
-      [ "kFLEXIO_I2S_TxDataRegEmptyInterruptEnable", "a00024.html#ggac205be2172292384dd687b5471a87edda1ef2aba36fa79d0d6c3137cbc396703f", null ],
-      [ "kFLEXIO_I2S_RxDataRegFullInterruptEnable", "a00024.html#ggac205be2172292384dd687b5471a87eddac5723570f50576ab3f106a8391e0836e", null ],
-      [ "kFLEXIO_I2S_TxDataRegEmptyFlag", "a00024.html#gga157d5577a5b2f5986037d0d09c7dc77da19e09f8fa7b55c47396e2b1766675f35", null ],
-      [ "kFLEXIO_I2S_RxDataRegFullFlag", "a00024.html#gga157d5577a5b2f5986037d0d09c7dc77da33dfc99c1e90d0e6b0e09964625405e2", null ]
+      [ "kFLEXIO_I2S_TxDataRegEmptyInterruptEnable", "a00024.html#ggaf715e26dfffd1f8de1c18449e2770cffa1ef2aba36fa79d0d6c3137cbc396703f", null ],
+      [ "kFLEXIO_I2S_RxDataRegFullInterruptEnable", "a00024.html#ggaf715e26dfffd1f8de1c18449e2770cffac5723570f50576ab3f106a8391e0836e", null ],
+      [ "kFLEXIO_I2S_TxDataRegEmptyFlag", "a00024.html#ggafb730582952b7ceec73d7dc9bf7bef39a19e09f8fa7b55c47396e2b1766675f35", null ],
+      [ "kFLEXIO_I2S_RxDataRegFullFlag", "a00024.html#ggafb730582952b7ceec73d7dc9bf7bef39a33dfc99c1e90d0e6b0e09964625405e2", null ]
     ] ],
     [ "flexio_i2s_sample_rate_t", "a00024.html#ga068da57c1c28f1630de3c6f98217af43", [
       [ "kFLEXIO_I2S_SampleRate8KHz", "a00024.html#gga068da57c1c28f1630de3c6f98217af43abdbb06784965d0befa972cf261bfe4e7", null ],

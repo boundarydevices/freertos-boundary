@@ -1,6 +1,6 @@
 var a00041 =
 [
-    [ "lpadc_config_t", "a00041.html#a00408", [
+    [ "lpadc_config_t", "a00041.html#a00409", [
       [ "enableInDozeMode", "a00041.html#ac47a5a50ba40ca3b021b4be239a048f3", null ],
       [ "enableAnalogPreliminary", "a00041.html#ab62dd78747ca5df971c30ad59d0127ba", null ],
       [ "powerUpDelay", "a00041.html#a05885e7359e788bfee8bee8b1b7e17ac", null ],
@@ -10,7 +10,7 @@ var a00041 =
       [ "convPauseDelay", "a00041.html#a95cd7bea05bf46e0f5444762aba38fbe", null ],
       [ "FIFOWatermark", "a00041.html#aeb5cae2223bf1d49e13332308ceae79b", null ]
     ] ],
-    [ "lpadc_conv_command_config_t", "a00041.html#a00409", [
+    [ "lpadc_conv_command_config_t", "a00041.html#a00410", [
       [ "sampleChannelMode", "a00041.html#ad83d6cc054bd648551aa7a875e5e8a58", null ],
       [ "channelNumber", "a00041.html#a34b3392e374a496930b09d8c5a410d7b", null ],
       [ "chainedNextCommandNumber", "a00041.html#adcf04257bab0b975b7667a25bf4cbcdf", null ],
@@ -22,13 +22,13 @@ var a00041 =
       [ "hardwareCompareValueHigh", "a00041.html#a4bc748a87503d1d30fce8652296a21a1", null ],
       [ "hardwareCompareValueLow", "a00041.html#aded6fd827d36d7f20693cf5f361ec57e", null ]
     ] ],
-    [ "lpadc_conv_trigger_config_t", "a00041.html#a00411", [
+    [ "lpadc_conv_trigger_config_t", "a00041.html#a00412", [
       [ "targetCommandId", "a00041.html#ae1c77e5afcb5c9d2b80ac92cc5de597e", null ],
       [ "delayPower", "a00041.html#a33fd3b422ca9c26c1eb915ef8fdc3c3e", null ],
       [ "priority", "a00041.html#a2e4d3a907597cd2c8c712ae967c5ac2f", null ],
       [ "enableHardwareTrigger", "a00041.html#a32a44ab0d65a0666b659027b93738c95", null ]
     ] ],
-    [ "lpadc_conv_result_t", "a00041.html#a00410", [
+    [ "lpadc_conv_result_t", "a00041.html#a00411", [
       [ "commandIdSource", "a00041.html#a7ed6dcbf44ad017014525335013c817b", null ],
       [ "loopCountIndex", "a00041.html#a87e1ee666c960928797ca574f1bcae1b", null ],
       [ "triggerIdSource", "a00041.html#ad3b63c03e1c136e4293dd82a443f1de2", null ],

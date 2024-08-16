@@ -67,10 +67,7 @@ const uint32_t customLUT[CUSTOM_LUT_LENGTH] = {
 
     /* Read status register */
     [4 * NOR_CMD_LUT_SEQ_IDX_READSTATUSREG] =
-        FLEXSPI_LUT_SEQ(kFLEXSPI_Command_SDR, kFLEXSPI_4PAD, 0xB5, kFLEXSPI_Command_DUMMY_SDR, kFLEXSPI_4PAD, 0x0),
-    [4 * NOR_CMD_LUT_SEQ_IDX_READSTATUSREG + 1] =
-        FLEXSPI_LUT_SEQ(kFLEXSPI_Command_READ_SDR, kFLEXSPI_4PAD, 0x04, kFLEXSPI_Command_STOP, kFLEXSPI_1PAD, 0x0),
-
+        FLEXSPI_LUT_SEQ(kFLEXSPI_Command_SDR, kFLEXSPI_4PAD, 0x05, kFLEXSPI_Command_READ_SDR, kFLEXSPI_4PAD, 0x02),
     /* Read ID */
     [4 * NOR_CMD_LUT_SEQ_IDX_READID] =
         FLEXSPI_LUT_SEQ(kFLEXSPI_Command_SDR, kFLEXSPI_1PAD, 0x9F, kFLEXSPI_Command_READ_SDR, kFLEXSPI_1PAD, 0x04),
@@ -100,11 +97,6 @@ const uint32_t customLUT[CUSTOM_LUT_LENGTH] = {
     /*  Dummy write, do nothing when AHB write command is triggered. */
     [4 * NOR_CMD_LUT_SEQ_IDX_WRITE] =
         FLEXSPI_LUT_SEQ(kFLEXSPI_Command_STOP, kFLEXSPI_1PAD, 0x0, kFLEXSPI_Command_STOP, kFLEXSPI_1PAD, 0x0),
-
-    /*  Read status register using Qual SDR read */
-    [4 * NOR_CMD_LUT_SEQ_IDX_READSTATUS_OPI] =
-        FLEXSPI_LUT_SEQ(kFLEXSPI_Command_SDR, kFLEXSPI_4PAD, 0x05, kFLEXSPI_Command_READ_SDR, kFLEXSPI_4PAD, 0x02),
-
 };
 
 

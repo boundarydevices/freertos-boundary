@@ -1,6 +1,5 @@
 /*
- * Copyright 2022, NXP
- * All rights reserved.
+ * Copyright 2022-2024, NXP
  *
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -20,7 +19,7 @@
  * Definitions
  ******************************************************************************/
 /*! @brief TMU driver version. */
-#define FSL_TMU_DRIVER_VERSION (MAKE_VERSION(2, 0, 0)) /*!< Version 2.0.0. */
+#define FSL_TMU_DRIVER_VERSION (MAKE_VERSION(2, 1, 0)) /*!< Version 2.1.0. */
 
 /*!
  * @brief TMU monitor site.
@@ -41,6 +40,10 @@ enum _tmu_interrupt_enable
         TMU_TIER_AHTTIE_MASK, /*!< Average temperature threshold exceeded interrupt enable. */
     kTMU_AverageTemperatureCriticalInterruptEnable =
         TMU_TIER_AHTCTIE_MASK, /*!< Average temperature critical threshold exceeded interrupt enable. */
+    kTMU_RisingTemperatureCriticalInterruptEnable =
+        TMU_TIER_RTRCTIE_MASK, /*!< Rising temperature critical threshold exceeded interrupt enable. */
+    kTMU_FallingTemperatureCriticalInterruptEnable =
+        TMU_TIER_FTRCTIE_MASK, /*!< Falling temperature critical threshold exceeded interrupt enable. */
 };
 
 /*!
@@ -52,6 +55,10 @@ enum _tmu_interrupt_status_flags
     kTMU_AverageTemperatureStatusFlags   = TMU_TIDR_AHTT_MASK, /*!< Average temperature threshold exceeded(AHTT). */
     kTMU_AverageTemperatureCriticalStatusFlags =
         TMU_TIDR_AHTCT_MASK, /*!< Average temperature critical threshold exceeded.(AHTCT) */
+    kTMU_RisingTemperatureCriticalStatusFlags =
+        TMU_TIDR_RTRCT_MASK, /*!< Rising temperature critical threshold exceeded.(RTRCT) */
+    kTMU_FallingTemperatureCriticalStatusFlags =
+        TMU_TIDR_FTRCT_MASK, /*!< Falling temperature critical threshold exceeded.(FTRCT) */
 };
 
 /*!
@@ -79,6 +86,8 @@ typedef struct _tmu_thresold_config
     bool immediateThresoldEnable;       /*!< Enable high temperature immediate threshold. */
     bool averageThresoldEnable;         /*!< Enable high temperature average threshold. */
     bool averageCriticalThresoldEnable; /*!< Enable high temperature average critical threshold. */
+    bool risingCriticalThresoldEnable; /*!< Enable rising temperature rate critical threshold. */
+    bool fallingCriticalThresoldEnable; /*!< Enable rising temperature rate critical threshold. */
     uint8_t immediateThresoldValue; /*!< Range:0U-160U. Valid when corresponding thresold is enabled. High temperature
                                        immediate threshold value.
                                                Determines the current upper temperature threshold, for anyenabled
@@ -90,6 +99,10 @@ typedef struct _tmu_thresold_config
     uint8_t averageCriticalThresoldValue; /*!< Range:0U-160U. Valid when corresponding thresold is enabled. High
                                              temperature average critical threshold value.
                                                      Determines the average upper critical temperature threshold, for
+                                             any enabled monitored site. */
+    uint8_t risingfallingCriticalThresoldValue; /*!< Range:0U-160U. Valid when corresponding thresold is enabled. Rising
+                                             temperature rate critical threshold value.
+                                                     Determines the rising upper critical temperature threshold, for
                                              any enabled monitored site. */
 } tmu_thresold_config_t;
 
@@ -106,6 +119,12 @@ typedef struct _tmu_interrupt_status
                                              event.   Please refer to "_tmu_monitor_site" enumeration. */
     uint16_t averageCriticalInterruptsSiteMask; /*!< The mask of the temperature sensor site associated with a detected
                                                    AHTCT event.
+                                                     Please refer to "_tmu_monitor_site" enumeration. */
+    uint16_t risingCriticalInterruptsSiteMask; /*!< The mask of the temperature sensor site associated with a detected
+                                                   RTRCT event.
+                                                     Please refer to "_tmu_monitor_site" enumeration. */
+    uint16_t fallingCriticalInterruptsSiteMask; /*!< The mask of the temperature sensor site associated with a detected
+                                                   FTRCT event.
                                                      Please refer to "_tmu_monitor_site" enumeration. */
 } tmu_interrupt_status_t;
 /*!

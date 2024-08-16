@@ -17,13 +17,15 @@
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-/* Get source clock for LPIT driver */
 #define DEMO_LPUART                 LPUART2
 #define LPUART_CLOCK_ROOT           kCLOCK_Root_Lpuart2
 #define LPUART_CLOCK_GATE           kCLOCK_Lpuart2
 #define DEMO_LPUART_CLK_FREQ        CLOCK_GetIpFreq(LPUART_CLOCK_ROOT)
+
 #define LPUART_RX_DMA_CHANNEL       kDma3RequestMuxLPUART2Rx
 #define LPUART_TX_DMA_CHANNEL       kDma3RequestMuxLPUART2Tx
+#define DEMO_LPUART_TX_EDMA_CHANNEL (-1)
+#define DEMO_LPUART_RX_EDMA_CHANNEL (-1)
 #define EXAMPLE_LPUART_DMA_BASEADDR DMA3
 #define EXAMPLE_DMA_CLOCK_ROOT      kCLOCK_Root_M33
 #define EXAMPLE_DMA_CLOCK_GATE      kCLOCK_Edma1
@@ -51,11 +53,7 @@ volatile bool rxBufferEmpty                                          = true;
 volatile bool txBufferFull                                           = false;
 volatile bool txOnGoing                                              = false;
 volatile bool rxOnGoing                                              = false;
-#if (defined(DEMO_EDMA_HAS_CHANNEL_CONFIG) && DEMO_EDMA_HAS_CHANNEL_CONFIG)
-extern edma_config_t userConfig;
-#else
-edma_config_t userConfig;
-#endif
+
 /*******************************************************************************
  * Code
  ******************************************************************************/
@@ -86,6 +84,7 @@ int main(void)
     lpuart_transfer_t xfer;
     lpuart_transfer_t sendXfer;
     lpuart_transfer_t receiveXfer;
+    edma_config_t userConfig = {0};
 
     /* clang-format off */
 
@@ -138,8 +137,9 @@ int main(void)
     DMAMUX_EnableChannel(EXAMPLE_LPUART_DMAMUX_BASEADDR, LPUART_RX_DMA_CHANNEL);
 #endif
     /* Init the EDMA module */
-#if (!defined(DEMO_EDMA_HAS_CHANNEL_CONFIG) || (defined(DEMO_EDMA_HAS_CHANNEL_CONFIG) && !DEMO_EDMA_HAS_CHANNEL_CONFIG))
     EDMA_GetDefaultConfig(&userConfig);
+#if defined(BOARD_GetEDMAConfig)
+    BOARD_GetEDMAConfig(userConfig);
 #endif
     EDMA_Init(EXAMPLE_LPUART_DMA_BASEADDR, &userConfig);
     EDMA_CreateHandle(&g_lpuartTxEdmaHandle, EXAMPLE_LPUART_DMA_BASEADDR, LPUART_TX_DMA_CHANNEL);

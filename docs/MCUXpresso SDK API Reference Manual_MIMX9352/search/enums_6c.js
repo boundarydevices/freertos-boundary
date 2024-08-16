@@ -1,10 +1,13 @@
 var searchData=
 [
   ['lcdif_5fcursor_5fformat_5ft',['lcdif_cursor_format_t',['../a00040.html#gacd497b9f21eba04e9c35a626ad8f4be3',1,'fsl_lcdif.h']]],
+  ['lcdif_5fdbi_5fout_5fformat_5ft',['lcdif_dbi_out_format_t',['../a00040.html#ga31df0900c154d79b414e0bf69dacaf38',1,'fsl_lcdif.h']]],
+  ['lcdif_5fdbi_5fout_5fswizzle_5ft',['lcdif_dbi_out_swizzle_t',['../a00040.html#ga71b57257726d2e55428cff92eacc0e51',1,'fsl_lcdif.h']]],
+  ['lcdif_5fdbi_5ftype_5ft',['lcdif_dbi_type_t',['../a00040.html#ga4a124dd4aaef8d46a14e96e5473ddee1',1,'fsl_lcdif.h']]],
   ['lcdif_5ffb_5fformat_5ft',['lcdif_fb_format_t',['../a00040.html#ga2fc79ebe789de2f5712d048d2f2d0b4b',1,'fsl_lcdif.h']]],
   ['lcdif_5foutput_5fformat_5ft',['lcdif_output_format_t',['../a00040.html#gabda3a49032546bf3f21cfd7d5855a7f4',1,'fsl_lcdif.h']]],
-  ['llwu_5fexternal_5fpin_5fmode_5ft',['llwu_external_pin_mode_t',['../a00231.html#gaef7b7f596eb66ea9d825bfd7a05278ea',1,'fsl_llwu.h']]],
-  ['llwu_5fpin_5ffilter_5fmode_5ft',['llwu_pin_filter_mode_t',['../a00231.html#ga2719c17c108a42ecdf3e8d97d8312d8a',1,'fsl_llwu.h']]],
+  ['llwu_5fexternal_5fpin_5fmode_5ft',['llwu_external_pin_mode_t',['../a00227.html#gaef7b7f596eb66ea9d825bfd7a05278ea',1,'fsl_llwu.h']]],
+  ['llwu_5fpin_5ffilter_5fmode_5ft',['llwu_pin_filter_mode_t',['../a00227.html#ga2719c17c108a42ecdf3e8d97d8312d8a',1,'fsl_llwu.h']]],
   ['lpadc_5fhardware_5faverage_5fmode_5ft',['lpadc_hardware_average_mode_t',['../a00041.html#gabb529e856c73d606ce37f7da01a0f6f3',1,'fsl_lpadc.h']]],
   ['lpadc_5fhardware_5fcompare_5fmode_5ft',['lpadc_hardware_compare_mode_t',['../a00041.html#gad7a09557254487374b1b125f2146ba22',1,'fsl_lpadc.h']]],
   ['lpadc_5fpower_5flevel_5fmode_5ft',['lpadc_power_level_mode_t',['../a00041.html#gab930081517abc866eaa456e58fd365aa',1,'fsl_lpadc.h']]],
@@ -52,9 +55,9 @@ var searchData=
   ['lpuart_5fstop_5fbit_5fcount_5ft',['lpuart_stop_bit_count_t',['../a00049.html#ga7540d87bc3fa8a605d8da53fe08219f0',1,'fsl_lpuart.h']]],
   ['lpuart_5ftransmit_5fcts_5fconfig_5ft',['lpuart_transmit_cts_config_t',['../a00049.html#gafe1039afd48853bd649e23bdfa034540',1,'fsl_lpuart.h']]],
   ['lpuart_5ftransmit_5fcts_5fsource_5ft',['lpuart_transmit_cts_source_t',['../a00049.html#gadd3cf9892416c5503dce7f0567e8c41f',1,'fsl_lpuart.h']]],
-  ['ltc_5faes_5fkey_5ft',['ltc_aes_key_t',['../a00243.html#ga27d8eb054f08682d9514d575e682eafb',1,'fsl_ltc.h']]],
-  ['ltc_5fhash_5falgo_5ft',['ltc_hash_algo_t',['../a00053.html#gad8e545023f6e9ab3c7c40de3b3b37106',1,'fsl_ltc.h']]],
-  ['ltc_5fpkha_5ff2m_5ft',['ltc_pkha_f2m_t',['../a00054.html#ga8508a97598439c72c545da28868be18e',1,'fsl_ltc.h']]],
-  ['ltc_5fpkha_5fmontgomery_5fform_5ft',['ltc_pkha_montgomery_form_t',['../a00054.html#ga4d4f275b705ffe36b9d60f32d7d27cc6',1,'fsl_ltc.h']]],
-  ['ltc_5fpkha_5ftiming_5ft',['ltc_pkha_timing_t',['../a00054.html#ga1a1e15f2277e244b7e580d7ad7af413f',1,'fsl_ltc.h']]]
+  ['ltc_5faes_5fkey_5ft',['ltc_aes_key_t',['../a00240.html#ga27d8eb054f08682d9514d575e682eafb',1,'fsl_ltc.h']]],
+  ['ltc_5fhash_5falgo_5ft',['ltc_hash_algo_t',['../a00052.html#gad8e545023f6e9ab3c7c40de3b3b37106',1,'fsl_ltc.h']]],
+  ['ltc_5fpkha_5ff2m_5ft',['ltc_pkha_f2m_t',['../a00053.html#ga8508a97598439c72c545da28868be18e',1,'fsl_ltc.h']]],
+  ['ltc_5fpkha_5fmontgomery_5fform_5ft',['ltc_pkha_montgomery_form_t',['../a00053.html#ga4d4f275b705ffe36b9d60f32d7d27cc6',1,'fsl_ltc.h']]],
+  ['ltc_5fpkha_5ftiming_5ft',['ltc_pkha_timing_t',['../a00053.html#ga1a1e15f2277e244b7e580d7ad7af413f',1,'fsl_ltc.h']]]
 ];

@@ -51,6 +51,10 @@ typedef void (*pdm_dev_init)(bool enable);
 /*! @brief Extra device configuration function based on format and sample rate, return PMD clock source in HZ. */
 typedef uint32_t (*pdm_dev_conf)(srtm_audio_format_type_t format, uint32_t srate);
 
+#ifndef EDMA_Type
+typedef void EDMA_Type;
+#endif
+
 /*! @brief Misc configuration structure. */
 typedef struct _pdm_misc_set
 {

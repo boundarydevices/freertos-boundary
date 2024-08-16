@@ -28,17 +28,19 @@
     <definition extID="middleware.eiq.tensorflow_lite_micro.MIMX9352"/>
     <definition extID="middleware.eiq.tensorflow_lite_micro.third_party.cmsis_nn.MIMX9352"/>
     <definition extID="middleware.eiq.tensorflow_lite_micro.headers.MIMX9352"/>
+    <definition extID="middleware.eiq.tensorflow_lite_micro.third_party.kissfft.MIMX9352"/>
     <definition extID="middleware.eiq.tensorflow_lite_micro.third_party.flatbuffers.MIMX9352"/>
     <definition extID="middleware.eiq.tensorflow_lite_micro.third_party.gemmlowp.MIMX9352"/>
     <definition extID="middleware.eiq.tensorflow_lite_micro.third_party.ruy.MIMX9352"/>
     <definition extID="middleware.freertos-kernel.template.MIMX9352"/>
     <definition extID="middleware.freertos-kernel.extension.MIMX9352"/>
+    <definition extID="utility.str.MIMX9352"/>
     <definition extID="iar"/>
     <definition extID="armgcc"/>
     <definition extID="mcuxpresso"/>
     <definition extID="com.nxp.mcuxpresso"/>
   </externalDefinitions>
-  <example id="mcimx93evk_ethosu_apps_rpmsg" name="ethosu_apps_rpmsg" dependency="middleware.multicore.rpmsg_lite.imx93_m33_freertos.MIMX9352 middleware.multicore.rpmsg_lite.freertos.MIMX9352 middleware.multicore.rpmsg_lite.MIMX9352 middleware.freertos-kernel.heap_4.MIMX9352 CMSIS_Include_core_cm.MIMX9352 platform.drivers.mu1.MIMX9352 middleware.eiq.tensorflow_lite_micro.cmsis_nn.ethosu.MIMX9352 middleware.freertos-kernel.MIMX9352 middleware.freertos-kernel.cm33_non_trustzone.MIMX9352 platform.drivers.rgpio.MIMX9352 platform.drivers.clock.MIMX9352 middleware.ethosu.application.MIMX9352 middleware.ethosu.core_driver.MIMX9352 platform.drivers.common.MIMX9352 platform.devices.MIMX9352_CMSIS.MIMX9352 utility.debug_console.MIMX9352 platform.utilities.assert.MIMX9352 component.lpuart_adapter.MIMX9352 component.serial_manager_uart.MIMX9352 component.serial_manager.MIMX9352 platform.drivers.lpuart.MIMX9352 component.lists.MIMX9352 platform.devices.MIMX9352_startup.MIMX9352 platform.utilities.misc_utilities.MIMX9352 middleware.eiq.tensorflow_lite_micro.MIMX9352 middleware.eiq.tensorflow_lite_micro.third_party.cmsis_nn.MIMX9352 middleware.eiq.tensorflow_lite_micro.headers.MIMX9352 middleware.eiq.tensorflow_lite_micro.third_party.flatbuffers.MIMX9352 middleware.eiq.tensorflow_lite_micro.third_party.gemmlowp.MIMX9352 middleware.eiq.tensorflow_lite_micro.third_party.ruy.MIMX9352 middleware.freertos-kernel.template.MIMX9352 middleware.freertos-kernel.extension.MIMX9352" category="ethosu_examples">
+  <example id="mcimx93evk_ethosu_apps_rpmsg" name="ethosu_apps_rpmsg" dependency="middleware.multicore.rpmsg_lite.imx93_m33_freertos.MIMX9352 middleware.multicore.rpmsg_lite.freertos.MIMX9352 middleware.multicore.rpmsg_lite.MIMX9352 middleware.freertos-kernel.heap_4.MIMX9352 CMSIS_Include_core_cm.MIMX9352 platform.drivers.mu1.MIMX9352 middleware.eiq.tensorflow_lite_micro.cmsis_nn.ethosu.MIMX9352 middleware.freertos-kernel.MIMX9352 middleware.freertos-kernel.cm33_non_trustzone.MIMX9352 platform.drivers.rgpio.MIMX9352 platform.drivers.clock.MIMX9352 middleware.ethosu.application.MIMX9352 middleware.ethosu.core_driver.MIMX9352 platform.drivers.common.MIMX9352 platform.devices.MIMX9352_CMSIS.MIMX9352 utility.debug_console.MIMX9352 platform.utilities.assert.MIMX9352 component.lpuart_adapter.MIMX9352 component.serial_manager_uart.MIMX9352 component.serial_manager.MIMX9352 platform.drivers.lpuart.MIMX9352 component.lists.MIMX9352 platform.devices.MIMX9352_startup.MIMX9352 platform.utilities.misc_utilities.MIMX9352 middleware.eiq.tensorflow_lite_micro.MIMX9352 middleware.eiq.tensorflow_lite_micro.third_party.cmsis_nn.MIMX9352 middleware.eiq.tensorflow_lite_micro.headers.MIMX9352 middleware.eiq.tensorflow_lite_micro.third_party.kissfft.MIMX9352 middleware.eiq.tensorflow_lite_micro.third_party.flatbuffers.MIMX9352 middleware.eiq.tensorflow_lite_micro.third_party.gemmlowp.MIMX9352 middleware.eiq.tensorflow_lite_micro.third_party.ruy.MIMX9352 middleware.freertos-kernel.template.MIMX9352 middleware.freertos-kernel.extension.MIMX9352 utility.str.MIMX9352" category="ethosu_examples">
     <projects>
       <project type="com.crt.advproject.projecttype.exe" nature="org.eclipse.cdt.core.cnature"/>
     </projects>
@@ -68,7 +70,7 @@
           <value>com.crt.advproject.gcc.fpu.none</value>
         </option>
         <option id="gnu.c.compiler.option.misc.other" type="string">
-          <value>-Wno-strict-aliasing -c -ffunction-sections -fdata-sections</value>
+          <value>-fmessage-length=0 -funsigned-char -Wno-strict-aliasing -c -ffunction-sections -fdata-sections</value>
         </option>
         <option id="gnu.c.compiler.option.warnings.allwarn" type="boolean">
           <value>false</value>

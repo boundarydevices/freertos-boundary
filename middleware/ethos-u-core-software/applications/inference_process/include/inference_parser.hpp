@@ -82,7 +82,8 @@ public:
             return true;
         }
 
-        strncpy(description, model->description()->c_str(), sizeof(description));
+        strncpy(description, model->description()->c_str(), S - 1);
+        description[S - 1] = '\0';
 
         // Get input dimensions for first subgraph
         auto *subgraph = *model->subgraphs()->begin();
@@ -111,7 +112,8 @@ public:
             return true;
         }
 
-        strncpy(description, model->description()->c_str(), sizeof(description));
+        strncpy(description, model->description()->c_str(), S - 1);
+        description[S - 1] = '\0';
 
         //Get adress offset
         auto *md = model->metadata();

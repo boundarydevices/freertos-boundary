@@ -3,7 +3,7 @@
 include_guard(GLOBAL)
 message("${CMAKE_CURRENT_LIST_FILE} component is included.")
 
-if(CONFIG_USE_middleware_eiq_tensorflow_lite_micro AND (CONFIG_CORE STREQUAL cm33) AND CONFIG_USE_middleware_eiq_tensorflow_lite_micro_third_party_cmsis_nn)
+if(CONFIG_USE_middleware_eiq_tensorflow_lite_micro AND CONFIG_USE_middleware_eiq_tensorflow_lite_micro_third_party_cmsis_nn AND (CONFIG_DEVICE_ID STREQUAL MIMX9322xxxxM OR CONFIG_DEVICE_ID STREQUAL MIMX9352xxxxM) AND (CONFIG_CORE STREQUAL cm4f OR CONFIG_CORE STREQUAL cm33 OR CONFIG_CORE STREQUAL cm7f))
 
 target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}/tensorflow/lite/micro/debug_log.cpp

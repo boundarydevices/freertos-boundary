@@ -22,8 +22,8 @@ var a00020 =
     ] ],
     [ "FSL_FLEXIO_CAMERA_DRIVER_VERSION", "a00020.html#gaf67f7409d83d5806e8dee459e28ea116", null ],
     [ "FLEXIO_CAMERA_PARALLEL_DATA_WIDTH", "a00020.html#ga353a8218bf5dd22032b9055285e2bb49", [
-      [ "kStatus_FLEXIO_CAMERA_RxBusy", "a00020.html#gga2970898e8a43ce21e1cc510d49f1b89da68a8386d9dc811f20b4955edc9e456ae", null ],
-      [ "kStatus_FLEXIO_CAMERA_RxIdle", "a00020.html#gga2970898e8a43ce21e1cc510d49f1b89da1350eedcb89f16d93727f570b63a79b4", null ]
+      [ "kStatus_FLEXIO_CAMERA_RxBusy", "a00020.html#gga84627a72058502328269676b81780f89a68a8386d9dc811f20b4955edc9e456ae", null ],
+      [ "kStatus_FLEXIO_CAMERA_RxIdle", "a00020.html#gga84627a72058502328269676b81780f89a1350eedcb89f16d93727f570b63a79b4", null ]
     ] ],
     [ "_flexio_camera_status_flags", "a00020.html#ga19fc70fddf16fa061eff3de0f46ee888", [
       [ "kFLEXIO_CAMERA_RxDataRegFullFlag", "a00020.html#gga19fc70fddf16fa061eff3de0f46ee888a3d55cd5136d4cbb5ea3ae3372d7b98ef", null ],

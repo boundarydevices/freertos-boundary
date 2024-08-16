@@ -16,7 +16,7 @@
 
 /*
  * Copyright (c) 2010 Inico Technologies Ltd.
- * Copyright 2023 NXP
+ * Copyright 2017, 2023 NXP
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -92,7 +92,7 @@ enum mld_filter_mode {
     MODE_IS_INCLUDE = 1,
     MODE_IS_EXCLUDE = 2,
     MODE_CHANGE_TO_INCLUDE = 3,
-    MODE_CHANGE_TO_EXCLUDE = 4,
+    MODE_CHANGE_TO_EXCLUDE = 4
 };
 
 /* Forward declarations. */
