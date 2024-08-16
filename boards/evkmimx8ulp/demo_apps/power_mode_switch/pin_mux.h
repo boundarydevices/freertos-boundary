@@ -55,49 +55,7 @@ void BOARD_InitPmicI2cPins(void);                          /*!< Function assigne
  * @brief Configures pin routing and optionally pin electrical features.
  *
  */
-void BOARD_InitI2sPins(void);                              /*!< Function assigned for the core: Cortex-M33[cm33] */
-
-/*!
- * @brief Configures pin routing and optionally pin electrical features.
- *
- */
-void BOARD_InitTpmPins(void);                              /*!< Function assigned for the core: Cortex-M33[cm33] */
-
-/*!
- * @brief Configures pin routing and optionally pin electrical features.
- *
- */
-void BOARD_InitHdmiIntPins(void);                          /*!< Function assigned for the core: Cortex-M33[cm33] */
-
-/*!
- * @brief Configures pin routing and optionally pin electrical features.
- *
- */
-void BOARD_InitTouchIntPins(void);                         /*!< Function assigned for the core: Cortex-M33[cm33] */
-
-/*!
- * @brief Configures pin routing and optionally pin electrical features.
- *
- */
-void BOARD_InitButtonPins(void);                           /*!< Function assigned for the core: Cortex-M33[cm33] */
-
-/*!
- * @brief Configures pin routing and optionally pin electrical features.
- *
- */
 void BOARD_InitPmicModePins(void);                         /*!< Function assigned for the core: Cortex-M33[cm33] */
-
-/*!
- * @brief Configures pin routing and optionally pin electrical features.
- *
- */
-void BOARD_InitLsm6dsoPins(void);                          /*!< Function assigned for the core: Cortex-M33[cm33] */
-
-/*!
- * @brief Configures pin routing and optionally pin electrical features.
- *
- */
-void BOARD_InitPdmPins(void);                              /*!< Function assigned for the core: Cortex-M33[cm33] */
 
 #if defined(__cplusplus)
 }

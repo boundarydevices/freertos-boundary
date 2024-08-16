@@ -12,21 +12,14 @@
 
 #include "srtm_dispatcher.h"
 #include "srtm_peercore.h"
-#include "srtm_pwm_adapter.h"
-#include "srtm_pwm_service.h"
 #include "srtm_message.h"
 #include "srtm_rpmsg_endpoint.h"
 #include "srtm_i2c_service.h"
-
-#include "srtm_sensor_service.h"
-
-#include "srtm_sai_edma_adapter.h"
 #include "srtm_io_service.h"
 #include "srtm_keypad_service.h"
 #include "srtm_lfcl_service.h"
 #include "srtm_rtc_service.h"
 #include "srtm_rtc_adapter.h"
-#include "srtm_pdm_edma_adapter.h"
 
 #include "app_srtm.h"
 #include "board.h"
@@ -79,36 +72,6 @@ typedef enum
     CORE_STDB = CMC_AD_AD_A35CORE0_LPMODE_A35CORE0_LPMODE(0x1U),
     CORE_PD   = CMC_AD_AD_A35CORE0_LPMODE_A35CORE0_LPMODE(0x3U),
 } core_low_power_mode_t; /* A35 core0/1 low power mode */
-
-typedef struct
-{
-    uint32_t cnt; /* step counter now. */
-} app_pedometer_t;
-
-typedef struct
-{
-    bool stateEnabled;
-    bool dataEnabled;
-    uint32_t pollDelay;
-    app_pedometer_t pedometer;
-} app_sensor_t;
-
-static uint8_t edmaUseCnt = 0U;
-#if SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-#define BUFFER_LEN (128 * 1024)
-#if (defined(__ICCARM__))
-static uint8_t g_buffer[BUFFER_LEN] @"AudioBuf";
-#else
-static uint8_t g_buffer[BUFFER_LEN] __attribute__((section("AudioBuf,\"w\",%nobits @")));
-#endif
-static srtm_sai_edma_local_buf_t g_local_buf = {
-    .buf       = (uint8_t *)&g_buffer,
-    .bufSize   = BUFFER_LEN,
-    .periods   = SRTM_SAI_EDMA_MAX_LOCAL_BUF_PERIODS,
-    .threshold = 1,
-
-};
-#endif
 
 /*******************************************************************************
  * Prototypes
@@ -218,37 +181,12 @@ static const srtm_io_event_t wuuPinModeEvents[] = {
     SRTM_IoEventEitherEdge   /* kWUU_ExternalPinAnyEdge */
 };
 
-static srtm_status_t APP_SRTM_Sensor_EnableStateDetector(srtm_sensor_adapter_t adapter,
-                                                         srtm_sensor_type_t type,
-                                                         uint8_t index,
-                                                         bool enable);
-static srtm_status_t APP_SRTM_Sensor_EnableDataReport(srtm_sensor_adapter_t adapter,
-                                                      srtm_sensor_type_t type,
-                                                      uint8_t index,
-                                                      bool enable);
-static srtm_status_t APP_SRTM_Sensor_SetPollDelay(srtm_sensor_adapter_t adapter,
-                                                  srtm_sensor_type_t type,
-                                                  uint8_t index,
-                                                  uint32_t millisec);
-
-static struct _srtm_sensor_adapter sensorAdapter = {.enableStateDetector = APP_SRTM_Sensor_EnableStateDetector,
-                                                    .enableDataReport    = APP_SRTM_Sensor_EnableDataReport,
-                                                    .setPollDelay        = APP_SRTM_Sensor_SetPollDelay};
-static app_sensor_t sensor                       = {.stateEnabled  = false,
-                                                    .dataEnabled   = false,
-                                                    .pollDelay     = 1000, /* 1 sec by default. */
-                                                    .pedometer.cnt = 0};
-
 static srtm_dispatcher_t disp;
 static srtm_peercore_t core;
-static srtm_sai_adapter_t saiAdapter;
-static srtm_service_t audioService;
-static srtm_service_t pwmService;
 static srtm_service_t rtcService;
 static srtm_rtc_adapter_t rtcAdapter;
 static srtm_service_t i2cService;
 static srtm_service_t ioService;
-srtm_sai_adapter_t pdmAdapter;
 static srtm_service_t keypadService;
 static SemaphoreHandle_t monSig;
 static struct rpmsg_lite_instance *rpmsgHandle;
@@ -264,30 +202,13 @@ static TimerHandle_t restoreRegValOfMuTimer; /* use the timer to restore registe
 static TimerHandle_t
     chngModeFromActToDslForApdTimer; /* use the timer to change mode of APD from active mode to Deep Sleep Mode */
 
-static lsm_handle_t lsmHandle;
-static srtm_service_t sensorService;
-static bool sensorReady            = false;
-static srtm_procedure_t sensorProc = NULL;
-static TimerHandle_t
-    sensorTiltWakeupEventTimer; /* It is used to send sensor tilt wakeup event to acore after acore(acore entered power
-                           down mode) is waken by sensor(tilt interrupt)(Avoid losting a sensor tilt wakeup event) */
-
 static app_irq_handler_t irqHandler;
 static void *irqHandlerParam;
 
-static HAL_PWM_HANDLE_DEFINE(pwmHandle0);
-
 static HAL_RTC_HANDLE_DEFINE(rtcHandle);
-
-const uint8_t g_sensor_address[] = {LSM6DSO_SLAVE_ADDRESS_WHEN_SA0_PIN_IS_LOW,
-                                    LSM6DSO_SLAVE_ADDRESS_WHEN_SA0_PIN_IS_HIGH};
 
 lpm_ad_power_mode_e AD_CurrentMode   = AD_UNKOWN;
 lpm_ad_power_mode_e AD_WillEnterMode = AD_UNKOWN;
-
-/* pwmHandles must strictly follow TPM instances. If you don't provide service for some TPM instance,
- * set the corresponding handle to NULL. */
-static hal_pwm_handle_t pwmHandles[2] = {(hal_pwm_handle_t)pwmHandle0, NULL};
 
 static struct _i2c_bus platform_i2c_buses[] = {
     {.bus_id         = 0,
@@ -453,32 +374,6 @@ void APP_WakeupACore(void)
         }
         else /* owner of lpav is AD */
         {
-            /* For RTD hold lpav, sai low power audio demo, we need enable lpav before wakeup APD */
-#if SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-            if (R32(DDR_IN_SELFREFRESH_BASE))
-            {
-                DisableIRQ(BBNSM_IRQn);
-                DisableIRQ(GPIOA_INT0_IRQn);
-                DisableIRQ(GPIOA_INT1_IRQn);
-                DisableIRQ(GPIOB_INT0_IRQn);
-                DisableIRQ(GPIOB_INT1_IRQn);
-                DisableIRQ(GPIOB_INT1_IRQn);
-                DisableIRQ(WUU0_IRQn);
-
-                PRINTF("Acore will enter avtive, Put ddr into active\r\n");
-                /* ddr in retention state, need put ddr exit retention */
-                APP_SRTM_EnableLPAV();
-
-                W32(DDR_IN_SELFREFRESH_BASE, 0);
-
-                EnableIRQ(GPIOA_INT0_IRQn);
-                EnableIRQ(GPIOA_INT1_IRQn);
-                EnableIRQ(GPIOB_INT0_IRQn);
-                EnableIRQ(GPIOB_INT1_IRQn);
-                EnableIRQ(BBNSM_IRQn);
-                EnableIRQ(WUU0_IRQn);
-            }
-#endif
         }
 
         if (support_dsl_for_apd == true && AD_CurrentMode == AD_DSL)
@@ -557,16 +452,6 @@ static void APP_SRTM_SetLPAV(srtm_dispatcher_t dispatcher, void *param1, void *p
             {
                 /* Power down lpav domain, put ddr into retention, poweroff LDO1, set BUCK3 to 0.73V */
                 APP_SRTM_DisableLPAV();
-#if SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-                W32(DDR_IN_SELFREFRESH_BASE, 1);
-                /* In dualboot mode, RTD hold LPAV domain, set LPAV ownership to APD let ddr into retention */
-                SIM_SEC->SYSCTRL0 |= SIM_SEC_SYSCTRL0_LPAV_MASTER_CTRL(1);
-                SIM_SEC->LPAV_MASTER_ALLOC_CTRL = 0x7f;
-                SIM_SEC->LPAV_SLAVE_ALLOC_CTRL |=
-                    (SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SAI6(0x1) | SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SAI7(0x1) |
-                     SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SEMA42(0x1) | SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_LPTPM8(0x1) |
-                     SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SPDIF(0x1));
-#endif
             }
             break;
         case AD_DPD:
@@ -662,79 +547,6 @@ void WUU0_IRQHandler(void)
     }
 }
 
-static void sensorTiltWakeupEventTimer_Callback(TimerHandle_t xTimer)
-{
-    if (AD_CurrentMode == AD_ACT && sensorAdapter.updateState && sensorAdapter.service)
-    {
-        sensorAdapter.updateState(sensorAdapter.service, SRTM_SensorTypeTilt, 0);
-    }
-    xTimerStop(sensorTiltWakeupEventTimer, portMAX_DELAY);
-}
-
-static void APP_CheckSensorInterrupt(srtm_dispatcher_t dispatcher, void *param1, void *param2)
-{
-    status_t result;
-    lsm_emb_func_status_t val;
-    BaseType_t reschedule = pdFALSE;
-
-    result = LSM_GetVal(&lsmHandle, LSM_EMB_FUNC_STATUS_REG, (uint8_t *)&val, LSM_EMBEDDED_FUNC_BANK, LSM_USER_BANK);
-    if (result == kStatus_Success)
-    {
-        if (val.is_tilt && (AD_CurrentMode == AD_PD || (support_dsl_for_apd == true && AD_CurrentMode == AD_DSL)))
-        {
-            /* Wakeup A Core(CA35) when the tilt interrupt is comming */
-            APP_WakeupACore();
-
-            /* Send tilt wakeup event(notification) to A Core in timer */
-            xTimerStartFromISR(sensorTiltWakeupEventTimer, &reschedule);
-        }
-
-        if (val.is_step_det)
-        {
-            uint16_t stepCnt = 0;
-
-            LSM_GetPedometerCnt(&lsmHandle, &stepCnt);
-            sensor.pedometer.cnt = stepCnt;
-            if (sensor.stateEnabled)
-            {
-                /* Step detected, then update peer core. */
-                assert(sensorAdapter.updateState && sensorAdapter.service);
-
-                if (AD_CurrentMode == AD_ACT)
-                {
-                    sensorAdapter.updateState(sensorAdapter.service, SRTM_SensorTypePedometer, 0);
-                }
-            }
-
-            if (sensor.dataEnabled)
-            {
-                assert(sensorAdapter.reportData && sensorAdapter.service);
-
-                if (AD_CurrentMode == AD_ACT)
-                {
-                    sensorAdapter.reportData(sensorAdapter.service, SRTM_SensorTypePedometer, 0,
-                                             (uint8_t *)(&sensor.pedometer.cnt), sizeof(sensor.pedometer.cnt));
-                }
-            }
-        }
-    }
-
-    if (reschedule)
-    {
-        portYIELD_FROM_ISR(reschedule);
-    }
-}
-
-static void APP_CheckSensorInterruptCallback(void)
-{
-    /* Read and process sensor data in SRTM task context */
-    if (sensorProc)
-    {
-        SRTM_Dispatcher_PostProc(disp, sensorProc);
-        sensorProc = NULL;
-    }
-}
-
 static void APP_HandleGPIOHander(uint8_t gpioIdx)
 {
     BaseType_t reschedule = pdFALSE;
@@ -770,14 +582,6 @@ static void APP_HandleGPIOHander(uint8_t gpioIdx)
             APP_WakeupACore();
         }
         xTimerStartFromISR(suspendContext.io.data[APP_INPUT_TOUCH_INT].timer, &reschedule);
-    }
-
-    if (APP_GPIO_IDX(APP_LSM6DSO_INT1_B_PIN) == gpioIdx &&
-        (1U << APP_PIN_IDX(APP_LSM6DSO_INT1_B_PIN)) & RGPIO_GetPinsInterruptFlags(gpio, APP_GPIO_INT_SEL))
-    {
-        RGPIO_ClearPinsInterruptFlags(gpio, APP_GPIO_INT_SEL, 1U << APP_PIN_IDX(APP_LSM6DSO_INT1_B_PIN));
-        /* Read sensor data in dispatcher task context */
-        APP_CheckSensorInterruptCallback();
     }
 
     if (APP_GPIO_IDX(APP_PIN_RTD_BTN1) == gpioIdx &&
@@ -1301,13 +1105,6 @@ static void APP_SRTM_Linkup(void)
     chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
     SRTM_PeerCore_AddChannel(core, chan);
 
-    /* Create and add SRTM AUDIO channel to peer core*/
-    rpmsgConfig.epName = APP_SRTM_AUDIO_CHANNEL_NAME;
-    chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
-    SRTM_PeerCore_AddChannel(core, chan);
-    assert((audioService != NULL) && (saiAdapter != NULL));
-    SRTM_AudioService_BindChannel(audioService, saiAdapter, chan);
-
     /* Create and add SRTM Keypad channel to peer core */
     rpmsgConfig.epName = APP_SRTM_KEYPAD_CHANNEL_NAME;
     chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
@@ -1315,11 +1112,6 @@ static void APP_SRTM_Linkup(void)
 
     /* Create and add SRTM IO channel to peer core */
     rpmsgConfig.epName = APP_SRTM_IO_CHANNEL_NAME;
-    chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
-    SRTM_PeerCore_AddChannel(core, chan);
-
-    /* Create and add SRTM PWM channel to peer core */
-    rpmsgConfig.epName = APP_SRTM_PWM_CHANNEL_NAME;
     chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
     SRTM_PeerCore_AddChannel(core, chan);
 
@@ -1332,20 +1124,6 @@ static void APP_SRTM_Linkup(void)
     rpmsgConfig.epName = APP_SRTM_LFCL_CHANNEL_NAME;
     chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
     SRTM_PeerCore_AddChannel(core, chan);
-
-    /* Create and add SRTM PDM channel to peer core */
-    rpmsgConfig.epName = APP_SRTM_PDM_CHANNEL_NAME;
-    chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
-    SRTM_PeerCore_AddChannel(core, chan);
-    SRTM_AudioService_BindChannel(audioService, pdmAdapter, chan);
-
-    /* Create and add SRTM Sensor channel to peer core */
-    if (sensorReady)
-    {
-        rpmsgConfig.epName = APP_SRTM_SENSOR_CHANNEL_NAME;
-        chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
-        SRTM_PeerCore_AddChannel(core, chan);
-    }
 
     SRTM_Dispatcher_AddPeerCore(disp, core);
 }
@@ -1371,126 +1149,6 @@ static void APP_SRTM_InitPeerCore(void)
         /* Start timer to poll linkup status. */
         xTimerStart(linkupTimer, portMAX_DELAY);
     }
-}
-
-static srtm_status_t APP_SRTM_Sensor_Init(void)
-{
-    /*
-     * Create a timer to send sensor tilt wakeup event to A Core after A Core is waken by (avoid losting
-     * sensor tilt wakeup interrupt)
-     */
-    if (sensorTiltWakeupEventTimer == NULL)
-    {
-        sensorTiltWakeupEventTimer =
-            xTimerCreate("sensorTiltWakeupEventTimer", APP_MS2TICK(APP_SENSOR_TILT_WAKEUP_EVT_TIMER_PERIOD_MS), pdFALSE,
-                         NULL, sensorTiltWakeupEventTimer_Callback);
-        assert(sensorTiltWakeupEventTimer);
-    }
-
-    return SRTM_Status_Success;
-}
-
-static srtm_status_t APP_SRTM_Sensor_Deinit(void)
-{
-    return SRTM_Status_Success;
-}
-
-static srtm_status_t APP_SRTM_Sensor_EnableStateDetector(srtm_sensor_adapter_t adapter,
-                                                         srtm_sensor_type_t type,
-                                                         uint8_t index,
-                                                         bool enable)
-{
-    srtm_status_t status = SRTM_Status_Success;
-
-    if ((type != SRTM_SensorTypePedometer) && (type != SRTM_SensorTypeTilt))
-    {
-        /* Support pedometer and tilt wakeup A Core. */
-        return SRTM_Status_InvalidParameter;
-    }
-
-    if (enable)
-    {
-        if (!sensor.stateEnabled && !sensor.dataEnabled)
-        {
-            status = APP_SRTM_Sensor_Init();
-        }
-        if (status == SRTM_Status_Success)
-        {
-            sensor.stateEnabled = true;
-        }
-    }
-    else if (sensor.stateEnabled)
-    {
-        sensor.stateEnabled = false;
-        if (!sensor.dataEnabled)
-        {
-            status = APP_SRTM_Sensor_Deinit();
-        }
-    }
-
-    return status;
-}
-
-static srtm_status_t APP_SRTM_Sensor_EnableDataReport(srtm_sensor_adapter_t adapter,
-                                                      srtm_sensor_type_t type,
-                                                      uint8_t index,
-                                                      bool enable)
-{
-    srtm_status_t status = SRTM_Status_Success;
-
-    if (type != SRTM_SensorTypePedometer)
-    {
-        /* Only support pedometer now. */
-        return SRTM_Status_InvalidParameter;
-    }
-
-    if (enable && !sensor.dataEnabled)
-    {
-        if (!sensor.stateEnabled)
-        {
-            /* Initialize Pedometer. */
-            status = APP_SRTM_Sensor_Init();
-        }
-        if (status == SRTM_Status_Success)
-        {
-            uint16_t stepCnt;
-
-            LSM_GetPedometerCnt(&lsmHandle, &stepCnt);
-            sensor.dataEnabled   = true;
-            sensor.pedometer.cnt = stepCnt;
-        }
-    }
-    else if (!enable && sensor.dataEnabled)
-    {
-        sensor.dataEnabled = false;
-        if (!sensor.stateEnabled)
-        {
-            status = APP_SRTM_Sensor_Deinit();
-        }
-    }
-
-    return status;
-}
-
-static srtm_status_t APP_SRTM_Sensor_SetPollDelay(srtm_sensor_adapter_t adapter,
-                                                  srtm_sensor_type_t type,
-                                                  uint8_t index,
-                                                  uint32_t millisec)
-{
-    if (type != SRTM_SensorTypePedometer)
-    {
-        /* Only support pedometer now. */
-        return SRTM_Status_InvalidParameter;
-    }
-
-    if (millisec > APP_PEDOMETER_POLL_DELAY_MAX || millisec < APP_PEDOMETER_POLL_DELAY_MIN)
-    {
-        return SRTM_Status_InvalidParameter;
-    }
-
-    sensor.pollDelay = millisec;
-
-    return SRTM_Status_Success;
 }
 
 static void APP_SRTM_GpioReset(void)
@@ -1525,13 +1183,8 @@ static void APP_SRTM_GpioReset(void)
 
 static void APP_SRTM_ResetServices(void)
 {
-    /* When CA35 resets, we need to avoid async event to send to CA35. Audio and IO services have async events. */
-    SRTM_AudioService_Reset(audioService, core);
+    /* When CA35 resets, we need to avoid async event to send to CA35. IO services have async events. */
     SRTM_RtcService_Reset(rtcService, core);
-    if (sensorService != NULL)
-    {
-        SRTM_SensorService_Reset(sensorService, core);
-    }
     APP_SRTM_GpioReset();
 }
 
@@ -1689,12 +1342,6 @@ void APP_SRTM_DisableLPAV()
         /* Poweroff LDO1 */
         UPOWER_SetPmicReg(PCA9460_LDO1_CFG_ADDR, ldo1_cfg.val);
 
-#ifndef SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-        /* For sai_low_power_audio, reduce buck3 power will impact fucntion */
-        /* Set BUCK3 voltage to 0.7375V, please refer to PCA9460 for the specific data */
-        UPOWER_SetPmicReg(PCA9460_BUCK3OUT_DVS0_ADDR, 0x0B);
-#endif
-
         if (!BOARD_IsLPAVOwnedByRTD())
         {
             /* Set LPAV ownership to RTD */
@@ -1730,213 +1377,6 @@ void APP_SRTM_DisableLPAV()
     }
 }
 
-#if SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-/*
- * For sai low power audio demo, when Acore enter Power down mode, Mcore will
- * put ddr into self-refresh-->transfer data by dma and play audio-->put ddr exit self-refresh-->memcpy data from ddr to
- * ssram
- */
-void APP_SRTM_PreCopyCallback()
-{
-    if (R32(DDR_IN_SELFREFRESH_BASE) || (SRTM_PeerCore_GetState(core) == SRTM_PeerCore_State_Deactivated))
-    {
-        /* Disable GAIO BBNSM IRQ before operate LPAV */
-        DisableIRQ(BBNSM_IRQn);
-        DisableIRQ(GPIOA_INT0_IRQn);
-        DisableIRQ(GPIOA_INT1_IRQn);
-        DisableIRQ(GPIOB_INT0_IRQn);
-        DisableIRQ(GPIOB_INT1_IRQn);
-        DisableIRQ(WUU0_IRQn);
-
-        /* Poweron LPAV domain, ddr exit retention */
-        APP_SRTM_EnableLPAV();
-        W32(DDR_IN_SELFREFRESH_BASE, 0);
-
-        EnableIRQ(GPIOA_INT0_IRQn);
-        EnableIRQ(GPIOA_INT1_IRQn);
-        EnableIRQ(GPIOB_INT0_IRQn);
-        EnableIRQ(GPIOB_INT1_IRQn);
-        EnableIRQ(BBNSM_IRQn);
-        EnableIRQ(WUU0_IRQn);
-    }
-}
-
-void APP_SRTM_PostCopyCallback()
-{
-    if (SRTM_PeerCore_GetState(core) == SRTM_PeerCore_State_Deactivated)
-    {
-        /* Disable GAIO BBNSM IRQ before operate LPAV */
-        DisableIRQ(BBNSM_IRQn);
-        DisableIRQ(GPIOA_INT0_IRQn);
-        DisableIRQ(GPIOA_INT1_IRQn);
-        DisableIRQ(GPIOB_INT0_IRQn);
-        DisableIRQ(GPIOB_INT1_IRQn);
-        DisableIRQ(WUU0_IRQn);
-
-        /* Poweroff LPAV domain, put ddr into retention */
-        APP_SRTM_DisableLPAV();
-
-        /* In dualboot mode, RTD hold LPAV domain, set LPAV ownership to APD let ddr into retention */
-        SIM_SEC->SYSCTRL0 |= SIM_SEC_SYSCTRL0_LPAV_MASTER_CTRL(1);
-        SIM_SEC->LPAV_MASTER_ALLOC_CTRL = 0x7f;
-        SIM_SEC->LPAV_SLAVE_ALLOC_CTRL |=
-            (SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SAI6(0x1) | SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SAI7(0x1) |
-             SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SEMA42(0x1) | SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_LPTPM8(0x1) |
-             SIM_SEC_LPAV_SLAVE_ALLOC_CTRL_SPDIF(0x1));
-
-        W32(DDR_IN_SELFREFRESH_BASE, 1);
-
-        EnableIRQ(GPIOA_INT0_IRQn);
-        EnableIRQ(GPIOA_INT1_IRQn);
-        EnableIRQ(GPIOB_INT0_IRQn);
-        EnableIRQ(GPIOB_INT1_IRQn);
-        EnableIRQ(BBNSM_IRQn);
-        EnableIRQ(WUU0_IRQn);
-    }
-}
-#endif
-
-static void APP_SRTM_InitPdmDevice(bool enable)
-{
-    edma_config_t dmaConfig;
-
-    if (enable)
-    {
-        if (edmaUseCnt == 0U)
-        {
-            EDMA_GetDefaultConfig(&dmaConfig);
-            EDMA_Init(DMA0, &dmaConfig);
-        }
-        edmaUseCnt++;
-    }
-    else
-    {
-        edmaUseCnt--;
-        if (edmaUseCnt == 0U)
-        {
-            EDMA_Deinit(DMA0);
-        }
-    }
-}
-
-static void APP_SRTM_InitAudioDevice(void)
-{
-    edma_config_t dmaConfig;
-
-    CLOCK_EnableClock(kCLOCK_Dma0Ch0);
-
-    /* Initialize DMA0 for SAI */
-    EDMA_GetDefaultConfig(&dmaConfig);
-    EDMA_Init(DMA0, &dmaConfig);
-
-    /* Initialize DMAMUX for SAI */
-    EDMA_SetChannelMux(DMA0, APP_SAI_TX_DMA_CHANNEL, kDmaRequestMux0SAI0Tx);
-    EDMA_SetChannelMux(DMA0, APP_SAI_RX_DMA_CHANNEL, kDmaRequestMux0SAI0Rx);
-
-    APP_SRTM_InitPdmDevice(true);
-
-    EDMA_SetChannelMux(DMA0, APP_PDM_RX_DMA_CHANNEL, kDmaRequestMux0MICFIL);
-}
-
-static uint32_t APP_SRTM_ConfPdmDevice(srtm_audio_format_type_t format, uint32_t srate)
-{
-    return CLOCK_GetIpFreq(kCLOCK_Micfil);
-}
-
-static void APP_SRTM_InitAudioService(void)
-{
-    srtm_sai_edma_config_t saiTxConfig;
-    srtm_sai_edma_config_t saiRxConfig;
-    srtm_pdm_edma_config_t pdmConfig;
-
-    APP_SRTM_InitAudioDevice();
-
-    memset(&saiTxConfig, 0, sizeof(saiTxConfig));
-    memset(&saiRxConfig, 0, sizeof(saiRxConfig));
-    memset(&pdmConfig, 0, sizeof(pdmConfig));
-
-    /*  Set SAI DMA IRQ Priority. */
-    NVIC_SetPriority(APP_DMA_IRQN(APP_SAI_TX_DMA_CHANNEL), APP_SAI_TX_DMA_IRQ_PRIO);
-    NVIC_SetPriority(APP_DMA_IRQN(APP_SAI_RX_DMA_CHANNEL), APP_SAI_RX_DMA_IRQ_PRIO);
-    NVIC_SetPriority(APP_SRTM_SAI_IRQn, APP_SAI_IRQ_PRIO);
-    NVIC_SetPriority(APP_DMA_IRQN(APP_PDM_RX_DMA_CHANNEL), APP_PDM_RX_DMA_IRQ_PRIO);
-    NVIC_SetPriority(APP_SRTM_PDM_IRQn, APP_PDM_IRQ_PRIO);
-
-    /* Create SAI EDMA adapter */
-    SAI_GetClassicI2SConfig(&saiTxConfig.config, kSAI_WordWidth16bits, kSAI_Stereo, kSAI_Channel0Mask);
-    saiTxConfig.config.syncMode           = kSAI_ModeSync; /* Tx in Sync mode */
-    saiTxConfig.config.fifo.fifoWatermark = FSL_FEATURE_SAI_FIFO_COUNTn(APP_SRTM_SAI) - 1;
-    saiTxConfig.mclk                      = CLOCK_GetIpFreq(kCLOCK_Sai0);
-#if SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-    saiTxConfig.stopOnSuspend = false; /* Keep playing audio on APD suspend. */
-#else
-    saiTxConfig.stopOnSuspend = true;
-#endif
-    saiTxConfig.threshold = 1U; /* Every period transmitted triggers periodDone message to A core. */
-    saiTxConfig.guardTime =
-        1000; /* Unit:ms. This is a lower limit that M core should reserve such time data to wakeup A core. */
-    saiTxConfig.dmaChannel = APP_SAI_TX_DMA_CHANNEL;
-
-    SAI_GetClassicI2SConfig(&saiRxConfig.config, kSAI_WordWidth16bits, kSAI_Stereo, kSAI_Channel0Mask);
-    saiRxConfig.config.syncMode           = kSAI_ModeAsync; /* Rx in async mode */
-    saiRxConfig.config.fifo.fifoWatermark = 1;
-    saiRxConfig.mclk                      = saiTxConfig.mclk;
-#if SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-    saiRxConfig.stopOnSuspend = false; /* Keep recording data on APD suspend. */
-#else
-    saiRxConfig.stopOnSuspend = true;
-#endif
-    saiRxConfig.threshold  = UINT32_MAX; /* Every period received triggers periodDone message to A core. */
-    saiRxConfig.dmaChannel = APP_SAI_RX_DMA_CHANNEL;
-
-    saiAdapter = SRTM_SaiEdmaAdapter_Create(SAI0, DMA0, &saiTxConfig, &saiRxConfig);
-    assert(saiAdapter);
-
-#if SRTM_SAI_EDMA_LOCAL_BUF_ENABLE
-    SRTM_SaiEdmaAdapter_SetTxLocalBuf(saiAdapter, &g_local_buf);
-    SRTM_SaiEdmaAdapter_SetTxPreCopyCallback(saiAdapter, APP_SRTM_PreCopyCallback);
-    SRTM_SaiEdmaAdapter_SetTxPostCopyCallback(saiAdapter, APP_SRTM_PostCopyCallback);
-#endif
-
-    /* Creat PDM SDMA adapter */
-    pdmConfig.stopOnSuspend = true; // Halt recording on A core suspend.
-    pdmConfig.dmaChannel    = APP_PDM_RX_DMA_CHANNEL;
-    pdmConfig.eventSource              = APP_PDM_RX_DMA_SOURCE;
-    pdmConfig.extendConfig.audioDevInit = APP_SRTM_InitPdmDevice;
-    pdmConfig.extendConfig.audioDevConf = APP_SRTM_ConfPdmDevice;
-    pdmConfig.pdmSrcClk                 = APP_PDM_CLOCK;
-    pdmConfig.config.qualityMode        = APP_PDM_QUALITY_MODE;
-    pdmConfig.config.enableDoze         = false;
-    pdmConfig.config.fifoWatermark      = FSL_FEATURE_PDM_FIFO_DEPTH / 2U;
-    pdmConfig.config.cicOverSampleRate  = APP_PDM_CICOVERSAMPLE_RATE;
-    pdmConfig.channelConfig.gain        = APP_PDM_CHANNEL_GAIN;
-    pdmAdapter                          = SRTM_PdmEdmaAdapter_Create(PDM, DMA0, &pdmConfig);
-    assert(pdmAdapter);
-
-    /* Create and register audio service */
-    audioService = SRTM_AudioService_Create(saiAdapter, NULL);
-    SRTM_AudioService_AddAudioInterface(audioService, pdmAdapter);
-    SRTM_Dispatcher_RegisterService(disp, audioService);
-}
-
-static void APP_SRTM_InitPwmDevice(void)
-{
-    HAL_PwmInit(pwmHandles[0], 0U, CLOCK_GetTpmClkFreq(0U));
-}
-
-static void APP_SRTM_InitPwmService(void)
-{
-    srtm_pwm_adapter_t pwmAdapter;
-
-    APP_SRTM_InitPwmDevice();
-    pwmAdapter = SRTM_PwmAdapter_Create(pwmHandles, ARRAY_SIZE(pwmHandles));
-    assert(pwmAdapter);
-
-    /* Create and register pwm service */
-    pwmService = SRTM_PwmService_Create(pwmAdapter);
-    SRTM_Dispatcher_RegisterService(disp, pwmService);
-}
-
 static void APP_SRTM_InitI2CDevice(void)
 {
     lpi2c_master_config_t masterConfig;
@@ -1953,62 +1393,6 @@ static void APP_SRTM_InitI2CService(void)
     APP_SRTM_InitI2CDevice();
     i2cService = SRTM_I2CService_Create(&i2c_adapter);
     SRTM_Dispatcher_RegisterService(disp, i2cService);
-}
-
-static void APP_CheckSensorInterrupt_RecycleMessage(srtm_message_t msg, void *param)
-{
-    assert(sensorProc == NULL);
-
-    sensorProc = msg;
-}
-
-static status_t APP_SRTM_InitSensorDevice(void)
-{
-    lsm_config_t config = {0};
-    status_t result;
-    uint8_t i               = 0;
-    uint8_t array_addr_size = 0;
-
-    config.I2C_SendFunc    = BOARD_Accel_I2C_Send;
-    config.I2C_ReceiveFunc = BOARD_Accel_I2C_Receive;
-    config.int_active_level = APP_LSM6DSO_INT_ACTIVE_LEVEL;
-
-    array_addr_size = sizeof(g_sensor_address) / sizeof(g_sensor_address[0]);
-    for (i = 0; i < array_addr_size; i++)
-    {
-        config.slaveAddress = g_sensor_address[i];
-        result              = LSM_Init(&lsmHandle, &config);
-        if (result == kStatus_Success)
-        {
-            /* Setup gpio interrupt trigger type */
-            RGPIO_SetPinInterruptConfig(gpios[APP_GPIO_IDX(APP_LSM6DSO_INT1_B_PIN)],
-                                        APP_PIN_IDX(APP_LSM6DSO_INT1_B_PIN), APP_GPIO_INT_SEL,
-                                        APP_LSM6DSO_INT_TRIGGER_TYPE);
-            break;
-        }
-    }
-    if (result != kStatus_Success)
-    {
-        PRINTF("\r\nSensor device initialize failed!\r\n");
-    }
-    else
-    {
-        sensorReady = true;
-        sensorProc  = SRTM_Procedure_Create(APP_CheckSensorInterrupt, NULL, NULL);
-        assert(sensorProc);
-        SRTM_Message_SetFreeFunc(sensorProc, APP_CheckSensorInterrupt_RecycleMessage, NULL);
-    }
-
-    return result;
-}
-
-static void APP_SRTM_InitSensorService(void)
-{
-    if (APP_SRTM_InitSensorDevice() == kStatus_Success)
-    {
-        sensorService = SRTM_SensorService_Create(&sensorAdapter);
-        SRTM_Dispatcher_RegisterService(disp, sensorService);
-    }
 }
 
 static void APP_SRTM_InitIoKeyDevice(void)
@@ -2292,10 +1676,7 @@ static void APP_SRTM_InitLfclService(void)
 static void APP_SRTM_InitServices(void)
 {
     APP_SRTM_InitI2CService();
-    APP_SRTM_InitSensorService();
-    APP_SRTM_InitAudioService();
     APP_SRTM_InitIoKeyService();
-    APP_SRTM_InitPwmService();
     APP_SRTM_InitRtcService();
     APP_SRTM_InitLfclService();
 }
@@ -2358,9 +1739,10 @@ static void SRTM_MonitorTask(void *pvParameters)
                         APP_PowerOnCA35();
                     }
                 }
+#if 0
                 BOARD_InitMipiDsiPins();
                 BOARD_EnableMipiDsiBacklight();
-
+#endif
                 /*
                  * Need handshake with uboot when SoC in all boot type(single boot type, dual boot type, low power boot
                  * type);
@@ -2423,11 +1805,11 @@ static void SRTM_MonitorTask(void *pvParameters)
                 SRTM_Dispatcher_Stop(disp);
                 /* Remove peer core from dispatcher */
                 APP_SRTM_DeinitPeerCore();
-
+#if 0
                 /* Initialize io and tpm for uboot */
                 BOARD_InitMipiDsiPins();
                 BOARD_EnableMipiDsiBacklight();
-
+#endif
                 /* enable clock of MU0_MUA before accessing registers of MU0_MUA */
                 MU_Init(MU0_MUA);
 
@@ -2582,7 +1964,6 @@ void APP_SRTM_Suspend(void)
 void APP_SRTM_Resume(bool resume)
 {
     APP_SRTM_InitI2CDevice();
-    APP_SRTM_InitAudioDevice();
     /*
      * IO has restored in APP_Resume(), so don't need init io again in here.
      * For RTD Power Down Mode(Wakeup through WUU), it's okay to initialize io again(use WUU to wakeup cortex-M33, the
@@ -2590,7 +1971,6 @@ void APP_SRTM_Resume(bool resume)
      * initialize io with APP_SRTM_InitIoKeyDevice().
      */
     /* APP_SRTM_InitIoKeyDevice(); */
-    APP_SRTM_InitPwmDevice();
     HAL_RtcInit(rtcHandle, 0);
     if (resume)
     {
