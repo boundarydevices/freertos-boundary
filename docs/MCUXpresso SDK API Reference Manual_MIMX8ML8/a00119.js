@@ -1,6 +1,7 @@
 var a00119 =
 [
-    [ "I2C CMSIS Driver", "a00121.html", null ],
-    [ "I2C Driver", "a00017.html", "a00017" ],
-    [ "I2C FreeRTOS Driver", "a00120.html", "a00120" ]
+    [ "ECSPI CMSIS Driver", "a00121.html", null ],
+    [ "ECSPI Driver", "a00012.html", "a00012" ],
+    [ "ECSPI FreeRTOS Driver", "a00120.html", null ],
+    [ "ECSPI SDMA Driver", "a00013.html", "a00013" ]
 ];

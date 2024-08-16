@@ -72,8 +72,8 @@ SET(CMAKE_C_FLAGS_DEBUG " \
     -DCPU_MIMX8ML8DVNLZ \
     -DCPU_MIMX8ML8DVNLZ_cm7 \
     -DFLEXCAN_WAIT_TIMEOUT=1000 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -g \
     -O0 \
     -mcpu=cortex-m7 \
@@ -85,7 +85,6 @@ SET(CMAKE_C_FLAGS_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -98,8 +97,8 @@ SET(CMAKE_C_FLAGS_RELEASE " \
     -DCPU_MIMX8ML8DVNLZ \
     -DCPU_MIMX8ML8DVNLZ_cm7 \
     -DFLEXCAN_WAIT_TIMEOUT=1000 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -Os \
     -mcpu=cortex-m7 \
     -Wall \
@@ -110,7 +109,6 @@ SET(CMAKE_C_FLAGS_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -123,8 +121,8 @@ SET(CMAKE_C_FLAGS_DDR_DEBUG " \
     -DCPU_MIMX8ML8DVNLZ \
     -DCPU_MIMX8ML8DVNLZ_cm7 \
     -DFLEXCAN_WAIT_TIMEOUT=1000 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -g \
     -O0 \
     -mcpu=cortex-m7 \
@@ -136,7 +134,6 @@ SET(CMAKE_C_FLAGS_DDR_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -149,8 +146,8 @@ SET(CMAKE_C_FLAGS_DDR_RELEASE " \
     -DCPU_MIMX8ML8DVNLZ \
     -DCPU_MIMX8ML8DVNLZ_cm7 \
     -DFLEXCAN_WAIT_TIMEOUT=1000 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -Os \
     -mcpu=cortex-m7 \
     -Wall \
@@ -161,7 +158,6 @@ SET(CMAKE_C_FLAGS_DDR_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -175,8 +171,8 @@ SET(CMAKE_C_FLAGS_FLASH_DEBUG " \
     -DCPU_MIMX8ML8DVNLZ \
     -DCPU_MIMX8ML8DVNLZ_cm7 \
     -DFLEXCAN_WAIT_TIMEOUT=1000 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -g \
     -O0 \
     -mcpu=cortex-m7 \
@@ -188,7 +184,6 @@ SET(CMAKE_C_FLAGS_FLASH_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -202,8 +197,8 @@ SET(CMAKE_C_FLAGS_FLASH_RELEASE " \
     -DCPU_MIMX8ML8DVNLZ \
     -DCPU_MIMX8ML8DVNLZ_cm7 \
     -DFLEXCAN_WAIT_TIMEOUT=1000 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -Os \
     -mcpu=cortex-m7 \
     -Wall \
@@ -214,7 +209,6 @@ SET(CMAKE_C_FLAGS_FLASH_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -226,8 +220,8 @@ SET(CMAKE_CXX_FLAGS_DEBUG " \
     -DDEBUG \
     -DCPU_MIMX8ML8DVNLZ \
     -DCPU_MIMX8ML8DVNLZ_cm7 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -g \
     -O0 \
     -mcpu=cortex-m7 \
@@ -239,7 +233,6 @@ SET(CMAKE_CXX_FLAGS_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -252,8 +245,8 @@ SET(CMAKE_CXX_FLAGS_RELEASE " \
     -DNDEBUG \
     -DCPU_MIMX8ML8DVNLZ \
     -DCPU_MIMX8ML8DVNLZ_cm7 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -Os \
     -mcpu=cortex-m7 \
     -Wall \
@@ -264,7 +257,6 @@ SET(CMAKE_CXX_FLAGS_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -277,8 +269,8 @@ SET(CMAKE_CXX_FLAGS_DDR_DEBUG " \
     -DDEBUG \
     -DCPU_MIMX8ML8DVNLZ \
     -DCPU_MIMX8ML8DVNLZ_cm7 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -g \
     -O0 \
     -mcpu=cortex-m7 \
@@ -290,7 +282,6 @@ SET(CMAKE_CXX_FLAGS_DDR_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -303,8 +294,8 @@ SET(CMAKE_CXX_FLAGS_DDR_RELEASE " \
     -DNDEBUG \
     -DCPU_MIMX8ML8DVNLZ \
     -DCPU_MIMX8ML8DVNLZ_cm7 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -Os \
     -mcpu=cortex-m7 \
     -Wall \
@@ -315,7 +306,6 @@ SET(CMAKE_CXX_FLAGS_DDR_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -329,8 +319,8 @@ SET(CMAKE_CXX_FLAGS_FLASH_DEBUG " \
     -DFLASH_TARGET \
     -DCPU_MIMX8ML8DVNLZ \
     -DCPU_MIMX8ML8DVNLZ_cm7 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -g \
     -O0 \
     -mcpu=cortex-m7 \
@@ -342,7 +332,6 @@ SET(CMAKE_CXX_FLAGS_FLASH_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -356,8 +345,8 @@ SET(CMAKE_CXX_FLAGS_FLASH_RELEASE " \
     -DFLASH_TARGET \
     -DCPU_MIMX8ML8DVNLZ \
     -DCPU_MIMX8ML8DVNLZ_cm7 \
-    -DSERIAL_PORT_TYPE_UART=1 \
     -DMCUXPRESSO_SDK \
+    -DSERIAL_PORT_TYPE_UART=1 \
     -Os \
     -mcpu=cortex-m7 \
     -Wall \
@@ -368,7 +357,6 @@ SET(CMAKE_CXX_FLAGS_FLASH_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -385,7 +373,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -401,7 +388,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     -Map=output.map \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8ML8xxxxx_cm7_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8ML8xxxxx_cm7_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     ${CMAKE_EXE_LINKER_FLAGS_RELEASE} \
@@ -411,7 +398,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -427,7 +413,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     -Map=output.map \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8ML8xxxxx_cm7_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8ML8xxxxx_cm7_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_DDR_DEBUG " \
     ${CMAKE_EXE_LINKER_FLAGS_DDR_DEBUG} \
@@ -438,7 +424,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_DDR_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -454,7 +439,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_DDR_DEBUG " \
     -Map=output.map \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8ML8xxxxx_cm7_ddr_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8ML8xxxxx_cm7_ddr_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_DDR_RELEASE " \
     ${CMAKE_EXE_LINKER_FLAGS_DDR_RELEASE} \
@@ -464,7 +449,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_DDR_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -480,7 +464,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_DDR_RELEASE " \
     -Map=output.map \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8ML8xxxxx_cm7_ddr_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8ML8xxxxx_cm7_ddr_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_FLASH_DEBUG " \
     ${CMAKE_EXE_LINKER_FLAGS_FLASH_DEBUG} \
@@ -491,7 +475,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_FLASH_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -507,7 +490,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_FLASH_DEBUG " \
     -Map=output.map \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8ML8xxxxx_cm7_flash.ld -static \
+    -T\"${ProjDirPath}/MIMX8ML8xxxxx_cm7_flash.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_FLASH_RELEASE " \
     ${CMAKE_EXE_LINKER_FLAGS_FLASH_RELEASE} \
@@ -517,7 +500,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_FLASH_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -533,5 +515,5 @@ SET(CMAKE_EXE_LINKER_FLAGS_FLASH_RELEASE " \
     -Map=output.map \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8ML8xxxxx_cm7_flash.ld -static \
+    -T\"${ProjDirPath}/MIMX8ML8xxxxx_cm7_flash.ld\" -static \
 ")

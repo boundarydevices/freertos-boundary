@@ -1,6 +1,5 @@
 /*
- * Copyright 2017-2022 NXP
- * All rights reserved.
+ * Copyright 2017-2023 NXP
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -15,8 +14,8 @@
 #include "fsl_memory.h"
 #endif
 
-#include "fsl_phyrtl8211f.h"
 #include "fsl_gpio.h"
+#include "fsl_phyrtl8211f.h"
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
@@ -61,8 +60,8 @@ extern phy_rtl8211f_resource_t g_phy_resource;
 
 /* @TEST_ANCHOR */
 
-#ifndef MAC_ADDRESS
-#define MAC_ADDRESS                        \
+#ifndef MAC_ADDR
+#define MAC_ADDR                        \
     {                                      \
         0xd4, 0xbe, 0xd9, 0x45, 0x22, 0x60 \
     }
@@ -103,7 +102,7 @@ SDK_ALIGN(uint8_t g_txDataBuff2[ENET_TXBD_NUM][SDK_SIZEALIGN(ENET_TXBUFF_SIZE, A
 enet_handle_t g_handle;
 
 /* The MAC address for ENET device. */
-uint8_t g_macAddr[6] = MAC_ADDRESS;
+uint8_t g_macAddr[6] = MAC_ADDR;
 uint8_t g_frame[FSL_FEATURE_ENET_QUEUE][ENET_FRAME_LENGTH];
 uint32_t g_rxIndex       = 0;
 uint32_t g_rxIndex1      = 0;
@@ -422,20 +421,18 @@ int main(void)
     config.miiMode   = kENET_RgmiiMode;
     config.interrupt = ENET_TX_INTERRUPT | ENET_RX_INTERRUPT;
     config.ringNum   = 3;
+    config.callback  = ENET_IntCallback;
 
     /* Initialize ENET. */
     ENET_Init(EXAMPLE_ENET, &g_handle, &config, &buffConfig[0], &g_macAddr[0], EXAMPLE_CLOCK_FREQ);
+
     /* Ring 1 BW fraction is 0.5 = 1/(1+ 512/512), Ring 2 BW fraction is 0.2 = 1/(1 + 512/128)  */
     avbConfig.idleSlope[0] = kENET_IdleSlope512;
     avbConfig.idleSlope[1] = kENET_IdleSlope128;
     /* Receive classification for ring 1 and ring 2 */
     avbConfig.rxClassifyMatch[0] = ENET_RCMR_CMP0(1) | ENET_RCMR_CMP1(2) | ENET_RCMR_CMP2(3) | ENET_RCMR_CMP3(4);
     avbConfig.rxClassifyMatch[1] = ENET_RCMR_CMP0(5) | ENET_RCMR_CMP1(6) | ENET_RCMR_CMP2(7) | ENET_RCMR_CMP3(7);
-
     ENET_AVBConfigure(EXAMPLE_ENET, &g_handle, &avbConfig);
-
-    /* Setup callback. */
-    ENET_SetCallback(&g_handle, ENET_IntCallback, NULL);
 
     /* Build broadcast for sending and active for receiving. */
     ENET_BuildFrame();

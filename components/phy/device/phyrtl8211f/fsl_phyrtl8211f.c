@@ -1,6 +1,5 @@
 /*
- * Copyright 2020-2022 NXP
- * All rights reserved.
+ * Copyright 2020-2023 NXP
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -38,9 +37,9 @@
 #define PHY_PAGE_INTR_PIN_REG  (0x16U)             /*!< The PHY interrupt pin setting register. */
 #define PHY_PAGE_INTR_PIN_MASK ((uint16_t)0x0020U) /*!< The PHY interrupt pin setting mask. */
 
-#define PHY_PAGE_INTR_ADDR (0xA42U) /*!< The register page including interrupt control setting. */
-#define PHY_INER_REG       (0x12U)  /*!< The PHY interrupt enable register. */
-#define PHY_INSR_REG       (0x1DU)  /*!< The PHY interrupt status register. */
+#define PHY_PAGE_INTR_ADDR (0xA42U)                /*!< The register page including interrupt control setting. */
+#define PHY_INER_REG       (0x12U)                 /*!< The PHY interrupt enable register. */
+#define PHY_INSR_REG       (0x1DU)                 /*!< The PHY interrupt status register. */
 
 /*! @brief MDIO MMD Devices .*/
 #define PHY_MDIO_MMD_PCS 3U
@@ -238,12 +237,6 @@ status_t PHY_RTL8211F_Init(phy_handle_t *handle, const phy_config_t *config)
         return result;
     }
 
-    result = PHY_RTL8211F_EnableLinkInterrupt(handle, config->intrType, config->enableLinkIntr);
-    if (result != kStatus_Success)
-    {
-        return result;
-    }
-
     if (config->autoNeg)
     {
         /* Set the auto-negotiation. */
@@ -283,6 +276,13 @@ status_t PHY_RTL8211F_Init(phy_handle_t *handle, const phy_config_t *config)
         /* Disable the auto-negotiation and set user-defined speed/duplex configuration. */
         result = PHY_RTL8211F_SetLinkSpeedDuplex(handle, config->speed, config->duplex);
     }
+    if (result != kStatus_Success)
+    {
+        return result;
+    }
+
+    result = PHY_RTL8211F_EnableLinkInterrupt(handle, config->intrType);
+
     return result;
 }
 
@@ -463,9 +463,9 @@ status_t PHY_RTL8211F_EnableLoopback(phy_handle_t *handle, phy_loop_t mode, phy_
     return result;
 }
 
-status_t PHY_RTL8211F_EnableLinkInterrupt(phy_handle_t *handle, phy_interrupt_type_t type, bool enable)
+status_t PHY_RTL8211F_EnableLinkInterrupt(phy_handle_t *handle, phy_interrupt_type_t type)
 {
-    assert(type == kPHY_IntrActiveLow);
+    assert(type != kPHY_IntrActiveHigh);
 
     status_t result;
     uint16_t regValue;
@@ -484,7 +484,7 @@ status_t PHY_RTL8211F_EnableLinkInterrupt(phy_handle_t *handle, phy_interrupt_ty
     }
 
     /* Enable/Disable link up+down interrupt. */
-    if (enable)
+    if (type != kPHY_IntrDisable)
     {
         regValue |= PHY_INER_LINKSTATUS_CHANGE_MASK;
     }

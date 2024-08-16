@@ -11,9 +11,9 @@
 #include "fsl_debug_console.h"
 #include "fsl_sai_sdma.h"
 #include "fsl_codec_common.h"
+#include "fsl_wm8960.h"
 #include "fsl_gpio.h"
 #include "fsl_iomuxc.h"
-#include "fsl_wm8960.h"
 #include "fsl_codec_adapter.h"
 #include "fsl_sai.h"
 /*******************************************************************************
@@ -72,8 +72,8 @@ wm8960_config_t wm8960Config = {
     .slaveAddress    = WM8960_I2C_ADDR,
     .bus             = kWM8960_BusI2S,
     .format          = {.mclk_HZ    = 24576000U / 2,
-               .sampleRate = kWM8960_AudioSampleRate16KHz,
-               .bitWidth   = kWM8960_AudioBitWidth16bit},
+                        .sampleRate = kWM8960_AudioSampleRate16KHz,
+                        .bitWidth   = kWM8960_AudioBitWidth16bit},
     .master_slave    = true,
 };
 codec_config_t boardCodecConfig = {.codecDevType = kCODEC_WM8960, .codecDevConfig = &wm8960Config};
@@ -277,5 +277,5 @@ int main(void)
 void SAI_UserIRQHandler(void)
 {
     SAI_TxClearStatusFlags(DEMO_SAI, kSAI_FIFOErrorFlag);
-    __DSB();
+    SDK_ISR_EXIT_BARRIER;
 }

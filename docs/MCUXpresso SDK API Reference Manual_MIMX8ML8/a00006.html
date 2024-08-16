@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="fs_logo.gif"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">MCUXpresso SDK API Reference Manual
-   &#160;<span id="projectnumber">Rev 2.13.0</span>
+   &#160;<span id="projectnumber">Rev 2.16.000</span>
    </div>
    <div id="projectbrief">NXP Semiconductors</div>
   </td>
@@ -115,41 +115,53 @@ $(document).ready(function(){initNavTree('a00006.html','');});
 <li><a class="el" href="a00014.html#gga385c44f6fb256e5716a2302a5b940388af12461c772f3ff70fc5a8664bb49701e" title="Tx frame over length. ">kStatus_ENET_TxFrameOverLen</a> = 4005</li>
 <li><a class="el" href="a00014.html#gga385c44f6fb256e5716a2302a5b940388ad15b9b2af39f28f90889bb19f568e844" title="Tx buffer descriptors are under process. ">kStatus_ENET_TxFrameBusy</a> = 4006</li>
 <li><a class="el" href="a00014.html#gga385c44f6fb256e5716a2302a5b940388a34b4c8ff24db933516a0cf13fc8174ad" title="Transmit frame fail. ">kStatus_ENET_TxFrameFail</a> = 4007</li>
-<li><a class="el" href="a00017.html#ggabc5c98fcc1211af2b80116dd6e0a035da49091894b590d7e479605bf113918952" title="I2C is busy with current transfer. ">kStatus_I2C_Busy</a> = 1100</li>
-<li><a class="el" href="a00017.html#ggabc5c98fcc1211af2b80116dd6e0a035da628d242f7bc0e3d5949c7f73eafaa508" title="Bus is Idle. ">kStatus_I2C_Idle</a> = 1101</li>
-<li><a class="el" href="a00017.html#ggabc5c98fcc1211af2b80116dd6e0a035da72fd33d0b5263a63766e62f71d16be00" title="NAK received during transfer. ">kStatus_I2C_Nak</a> = 1102</li>
-<li><a class="el" href="a00017.html#ggabc5c98fcc1211af2b80116dd6e0a035da139b52cc3305ec2c06d0ac94313c221f" title="Arbitration lost during transfer. ">kStatus_I2C_ArbitrationLost</a> = 1103</li>
-<li><a class="el" href="a00017.html#ggabc5c98fcc1211af2b80116dd6e0a035da81ad7cc198436cabbe91ea55c5288747" title="Timeout polling status flags. ">kStatus_I2C_Timeout</a> = 1104</li>
-<li><a class="el" href="a00017.html#ggabc5c98fcc1211af2b80116dd6e0a035dadf7437bfedcc0d57338ed33f1be5c805" title="NAK received during the address probe. ">kStatus_I2C_Addr_Nak</a> = 1105</li>
-<li><a class="el" href="a00027.html#ggac36f475ca5b446f4fde4c9b90bec77c8a19ddee4fe5963467600028b78fb468e7" title="Transmitter is busy. ">kStatus_UART_TxBusy</a> = 2800</li>
-<li><a class="el" href="a00027.html#ggac36f475ca5b446f4fde4c9b90bec77c8a68cf23f981c4b85f82291163fbb2a5e6" title="Receiver is busy. ">kStatus_UART_RxBusy</a> = 2801</li>
-<li><a class="el" href="a00027.html#ggac36f475ca5b446f4fde4c9b90bec77c8af36c829b1b889517bf775c0d7ce29fa6" title="UART transmitter is idle. ">kStatus_UART_TxIdle</a> = 2802</li>
-<li><a class="el" href="a00027.html#ggac36f475ca5b446f4fde4c9b90bec77c8ae0877b14627ed2aa8ddb2bf5b033f407" title="UART receiver is idle. ">kStatus_UART_RxIdle</a> = 2803</li>
-<li><a class="el" href="a00027.html#ggac36f475ca5b446f4fde4c9b90bec77c8a765913f003819ed87b861d187bf79ab8" title="TX FIFO watermark too large. ">kStatus_UART_TxWatermarkTooLarge</a> = 2804</li>
-<li><a class="el" href="a00027.html#ggac36f475ca5b446f4fde4c9b90bec77c8a720cefde05389830f35f6e6df6f6ac67" title="RX FIFO watermark too large. ">kStatus_UART_RxWatermarkTooLarge</a> = 2805</li>
-<li><a class="el" href="a00027.html#ggac36f475ca5b446f4fde4c9b90bec77c8a5ee8e23fc9ab20cf366942751b895f54" title="UART flag can&#39;t be manually cleared. ">kStatus_UART_FlagCannotClearManually</a> = 2806</li>
-<li><a class="el" href="a00027.html#ggac36f475ca5b446f4fde4c9b90bec77c8a950972a9e2ebbaa13c92e8f5a51f785d" title="Error happens on UART. ">kStatus_UART_Error</a> = 2807</li>
-<li><a class="el" href="a00027.html#ggac36f475ca5b446f4fde4c9b90bec77c8a2e5b644b1e10c426af818bc78657e992" title="UART RX software ring buffer overrun. ">kStatus_UART_RxRingBufferOverrun</a> = 2808</li>
-<li><a class="el" href="a00027.html#ggac36f475ca5b446f4fde4c9b90bec77c8ab6b1fd6c2deec25992449f5b12303a26" title="UART RX receiver overrun. ">kStatus_UART_RxHardwareOverrun</a> = 2809</li>
-<li><a class="el" href="a00027.html#ggac36f475ca5b446f4fde4c9b90bec77c8ae4ef4df9a5f756ccf1b4bf08292ec2fb" title="UART noise error. ">kStatus_UART_NoiseError</a> = 2810</li>
-<li><a class="el" href="a00027.html#ggac36f475ca5b446f4fde4c9b90bec77c8aa7aa134f85df3d5863ca962ce1ea7ee0" title="UART framing error. ">kStatus_UART_FramingError</a> = 2811</li>
-<li><a class="el" href="a00027.html#ggac36f475ca5b446f4fde4c9b90bec77c8aea20b2588c38f259f1412aa7132c9ef8" title="UART parity error. ">kStatus_UART_ParityError</a> = 2812</li>
-<li><a class="el" href="a00027.html#ggac36f475ca5b446f4fde4c9b90bec77c8ae6cdb41e1b49958f57727cd47afd69b2" title="Baudrate is not support in current clock source. ">kStatus_UART_BaudrateNotSupport</a> = 2813</li>
-<li><a class="el" href="a00027.html#ggac36f475ca5b446f4fde4c9b90bec77c8a43540408a2faf9ce9e8e8c940bddd456" title="Receiver detect BREAK signal. ">kStatus_UART_BreakDetect</a> = 2814</li>
-<li><a class="el" href="a00018.html#ggaaf105ae5beaca1dee30ae54530691fcea7fd57efdf5fd862d82ad3ddc4061995b" title="PDM is busy. ">kStatus_PDM_Busy</a> = 7200</li>
-<li><a class="el" href="a00018.html#ggaaf105ae5beaca1dee30ae54530691fcead8106fba77ad8b2ae3d1bf8ad844c28a" title="PDM clock frequency low. ">kStatus_PDM_CLK_LOW</a> = 7201</li>
-<li><a class="el" href="a00018.html#ggaaf105ae5beaca1dee30ae54530691fceac8731f691ed5f103dc9dbed6a9d16e34" title="PDM FIFO underrun or overflow. ">kStatus_PDM_FIFO_ERROR</a> = 7202</li>
-<li><a class="el" href="a00018.html#ggaaf105ae5beaca1dee30ae54530691fcea852dac50df76ac041f7957defb71e418" title="PDM FIFO underrun or overflow. ">kStatus_PDM_QueueFull</a> = 7203</li>
-<li><a class="el" href="a00018.html#ggaaf105ae5beaca1dee30ae54530691fcead838969e71909e93ae67e4442bd708d4" title="PDM is idle. ">kStatus_PDM_Idle</a> = 7204</li>
-<li><a class="el" href="a00021.html#gga80155586fa275b28773c9b203f52cabaae095b9b1a3ec7b998d722b1e1d73ca44" title="SAI Tx is busy. ">kStatus_SAI_TxBusy</a> = 1900</li>
-<li><a class="el" href="a00021.html#gga80155586fa275b28773c9b203f52cabaa8e432517b16b5784a72a95e0caf7bb4a" title="SAI Rx is busy. ">kStatus_SAI_RxBusy</a> = 1901</li>
-<li><a class="el" href="a00021.html#gga80155586fa275b28773c9b203f52cabaa5f17818e41e2fb07e35e43e1a03bfeb9" title="SAI Tx FIFO error. ">kStatus_SAI_TxError</a> = 1902</li>
-<li><a class="el" href="a00021.html#gga80155586fa275b28773c9b203f52cabaa0d8c8cec03abcd722d2ec4358451461c" title="SAI Rx FIFO error. ">kStatus_SAI_RxError</a> = 1903</li>
-<li><a class="el" href="a00021.html#gga80155586fa275b28773c9b203f52cabaa19680647d09a7437afd6b6ae7013095e" title="SAI transfer queue is full. ">kStatus_SAI_QueueFull</a> = 1904</li>
-<li><a class="el" href="a00021.html#gga80155586fa275b28773c9b203f52cabaa2a58fb377508baa31df58beb5f406761" title="SAI Tx is idle. ">kStatus_SAI_TxIdle</a> = 1905</li>
-<li><a class="el" href="a00021.html#gga80155586fa275b28773c9b203f52cabaa0f398d330abd6df4255be13d39968e1d" title="SAI Rx is idle. ">kStatus_SAI_RxIdle</a> = 1906</li>
-<li><a class="el" href="a00023.html#gga39fca1837c5ce7715cbf571669660c13a03cf037d71abc39d5d16d98e07e2e217" title="SDMA context error. ">kStatus_SDMA_ERROR</a> = 7300</li>
-<li><a class="el" href="a00023.html#gga39fca1837c5ce7715cbf571669660c13ae7f535ed8ea581f421d5bce34c0444af" title="Channel is busy and can&#39;t handle the transfer request. ">kStatus_SDMA_Busy</a> = 7301 </li>
+<li><a class="el" href="a00015.html#ggabc5c98fcc1211af2b80116dd6e0a035da0080617424605a0a0a95e3333f24b3e4" title="Tx Message Buffer is Busy. ">kStatus_FLEXCAN_TxBusy</a> = 5300</li>
+<li><a class="el" href="a00015.html#ggabc5c98fcc1211af2b80116dd6e0a035da91fc36f54041f079bd0cbec9dedac200" title="Tx Message Buffer is Idle. ">kStatus_FLEXCAN_TxIdle</a> = 5301</li>
+<li><a class="el" href="a00015.html#ggabc5c98fcc1211af2b80116dd6e0a035da1faddda6dd8b232ad54604365e2d605d" title="Remote Message is send out and Message buffer changed to Receive one. ">kStatus_FLEXCAN_TxSwitchToRx</a> = 5302</li>
+<li><a class="el" href="a00015.html#ggabc5c98fcc1211af2b80116dd6e0a035da5b713aab29b9accd29aa58d8dc4447e7" title="Rx Message Buffer is Busy. ">kStatus_FLEXCAN_RxBusy</a> = 5303</li>
+<li><a class="el" href="a00015.html#ggabc5c98fcc1211af2b80116dd6e0a035dae2b4dcba97c6f468046168046135af67" title="Rx Message Buffer is Idle. ">kStatus_FLEXCAN_RxIdle</a> = 5304</li>
+<li><a class="el" href="a00015.html#ggabc5c98fcc1211af2b80116dd6e0a035da8e2d4031323b8747c5d74c6275e3b9f1" title="Rx Message Buffer is Overflowed. ">kStatus_FLEXCAN_RxOverflow</a> = 5305</li>
+<li><a class="el" href="a00015.html#ggabc5c98fcc1211af2b80116dd6e0a035da74adab69bc91962510c1cc1faa96220d" title="Rx Message FIFO is Busy. ">kStatus_FLEXCAN_RxFifoBusy</a> = 5306</li>
+<li><a class="el" href="a00015.html#ggabc5c98fcc1211af2b80116dd6e0a035da6b1ace2daae9aa209f6c57e8e1dae2f5" title="Rx Message FIFO is Idle. ">kStatus_FLEXCAN_RxFifoIdle</a> = 5307</li>
+<li><a class="el" href="a00015.html#ggabc5c98fcc1211af2b80116dd6e0a035da257602d134fb16ca03908ba7ef9c5e0f" title="Rx Message FIFO is overflowed. ">kStatus_FLEXCAN_RxFifoOverflow</a> = 5308</li>
+<li><a class="el" href="a00015.html#ggabc5c98fcc1211af2b80116dd6e0a035da49de45608b1bef73b58f59b5aac6e459" title="Rx Message FIFO is almost overflowed. ">kStatus_FLEXCAN_RxFifoWarning</a> = 5309</li>
+<li><a class="el" href="a00015.html#ggabc5c98fcc1211af2b80116dd6e0a035da08579ac6bdc65a85046b33cd0d5d636a" title="FlexCAN Module Error and Status. ">kStatus_FLEXCAN_ErrorStatus</a> = 5310</li>
+<li><a class="el" href="a00015.html#ggabc5c98fcc1211af2b80116dd6e0a035da853b75a2a57e9d380ee85ab69da946cc" title="UnHadled Interrupt asserted. ">kStatus_FLEXCAN_UnHandled</a> = 5311</li>
+<li><a class="el" href="a00018.html#gga0ed680fdb405e7195d9f14032851eebba49091894b590d7e479605bf113918952" title="I2C is busy with current transfer. ">kStatus_I2C_Busy</a> = 1100</li>
+<li><a class="el" href="a00018.html#gga0ed680fdb405e7195d9f14032851eebba628d242f7bc0e3d5949c7f73eafaa508" title="Bus is Idle. ">kStatus_I2C_Idle</a> = 1101</li>
+<li><a class="el" href="a00018.html#gga0ed680fdb405e7195d9f14032851eebba72fd33d0b5263a63766e62f71d16be00" title="NAK received during transfer. ">kStatus_I2C_Nak</a> = 1102</li>
+<li><a class="el" href="a00018.html#gga0ed680fdb405e7195d9f14032851eebba139b52cc3305ec2c06d0ac94313c221f" title="Arbitration lost during transfer. ">kStatus_I2C_ArbitrationLost</a> = 1103</li>
+<li><a class="el" href="a00018.html#gga0ed680fdb405e7195d9f14032851eebba81ad7cc198436cabbe91ea55c5288747" title="Timeout polling status flags. ">kStatus_I2C_Timeout</a> = 1104</li>
+<li><a class="el" href="a00018.html#gga0ed680fdb405e7195d9f14032851eebbadf7437bfedcc0d57338ed33f1be5c805" title="NAK received during the address probe. ">kStatus_I2C_Addr_Nak</a> = 1105</li>
+<li><a class="el" href="a00028.html#gga0944a4353780132eeab7b06e3e42291da19ddee4fe5963467600028b78fb468e7" title="Transmitter is busy. ">kStatus_UART_TxBusy</a> = 2800</li>
+<li><a class="el" href="a00028.html#gga0944a4353780132eeab7b06e3e42291da68cf23f981c4b85f82291163fbb2a5e6" title="Receiver is busy. ">kStatus_UART_RxBusy</a> = 2801</li>
+<li><a class="el" href="a00028.html#gga0944a4353780132eeab7b06e3e42291daf36c829b1b889517bf775c0d7ce29fa6" title="UART transmitter is idle. ">kStatus_UART_TxIdle</a> = 2802</li>
+<li><a class="el" href="a00028.html#gga0944a4353780132eeab7b06e3e42291dae0877b14627ed2aa8ddb2bf5b033f407" title="UART receiver is idle. ">kStatus_UART_RxIdle</a> = 2803</li>
+<li><a class="el" href="a00028.html#gga0944a4353780132eeab7b06e3e42291da765913f003819ed87b861d187bf79ab8" title="TX FIFO watermark too large. ">kStatus_UART_TxWatermarkTooLarge</a> = 2804</li>
+<li><a class="el" href="a00028.html#gga0944a4353780132eeab7b06e3e42291da720cefde05389830f35f6e6df6f6ac67" title="RX FIFO watermark too large. ">kStatus_UART_RxWatermarkTooLarge</a> = 2805</li>
+<li><a class="el" href="a00028.html#gga0944a4353780132eeab7b06e3e42291da5ee8e23fc9ab20cf366942751b895f54" title="UART flag can&#39;t be manually cleared. ">kStatus_UART_FlagCannotClearManually</a> = 2806</li>
+<li><a class="el" href="a00028.html#gga0944a4353780132eeab7b06e3e42291da950972a9e2ebbaa13c92e8f5a51f785d" title="Error happens on UART. ">kStatus_UART_Error</a> = 2807</li>
+<li><a class="el" href="a00028.html#gga0944a4353780132eeab7b06e3e42291da2e5b644b1e10c426af818bc78657e992" title="UART RX software ring buffer overrun. ">kStatus_UART_RxRingBufferOverrun</a> = 2808</li>
+<li><a class="el" href="a00028.html#gga0944a4353780132eeab7b06e3e42291dab6b1fd6c2deec25992449f5b12303a26" title="UART RX receiver overrun. ">kStatus_UART_RxHardwareOverrun</a> = 2809</li>
+<li><a class="el" href="a00028.html#gga0944a4353780132eeab7b06e3e42291dae4ef4df9a5f756ccf1b4bf08292ec2fb" title="UART noise error. ">kStatus_UART_NoiseError</a> = 2810</li>
+<li><a class="el" href="a00028.html#gga0944a4353780132eeab7b06e3e42291daa7aa134f85df3d5863ca962ce1ea7ee0" title="UART framing error. ">kStatus_UART_FramingError</a> = 2811</li>
+<li><a class="el" href="a00028.html#gga0944a4353780132eeab7b06e3e42291daea20b2588c38f259f1412aa7132c9ef8" title="UART parity error. ">kStatus_UART_ParityError</a> = 2812</li>
+<li><a class="el" href="a00028.html#gga0944a4353780132eeab7b06e3e42291dae6cdb41e1b49958f57727cd47afd69b2" title="Baudrate is not support in current clock source. ">kStatus_UART_BaudrateNotSupport</a> = 2813</li>
+<li><a class="el" href="a00028.html#gga0944a4353780132eeab7b06e3e42291da43540408a2faf9ce9e8e8c940bddd456" title="Receiver detect BREAK signal. ">kStatus_UART_BreakDetect</a> = 2814</li>
+<li><a class="el" href="a00019.html#ggab48899087cc647f0f791ed0c459adc53a7fd57efdf5fd862d82ad3ddc4061995b" title="PDM is busy. ">kStatus_PDM_Busy</a> = 7200</li>
+<li><a class="el" href="a00019.html#ggab48899087cc647f0f791ed0c459adc53ad8106fba77ad8b2ae3d1bf8ad844c28a" title="PDM clock frequency low. ">kStatus_PDM_CLK_LOW</a> = 7201</li>
+<li><a class="el" href="a00019.html#ggab48899087cc647f0f791ed0c459adc53ac8731f691ed5f103dc9dbed6a9d16e34" title="PDM FIFO underrun or overflow. ">kStatus_PDM_FIFO_ERROR</a> = 7202</li>
+<li><a class="el" href="a00019.html#ggab48899087cc647f0f791ed0c459adc53a852dac50df76ac041f7957defb71e418" title="PDM FIFO underrun or overflow. ">kStatus_PDM_QueueFull</a> = 7203</li>
+<li><a class="el" href="a00019.html#ggab48899087cc647f0f791ed0c459adc53ad838969e71909e93ae67e4442bd708d4" title="PDM is idle. ">kStatus_PDM_Idle</a> = 7204</li>
+<li><a class="el" href="a00022.html#gga458e651af6690959efa2afb96be7d609ae095b9b1a3ec7b998d722b1e1d73ca44" title="SAI Tx is busy. ">kStatus_SAI_TxBusy</a> = 1900</li>
+<li><a class="el" href="a00022.html#gga458e651af6690959efa2afb96be7d609a8e432517b16b5784a72a95e0caf7bb4a" title="SAI Rx is busy. ">kStatus_SAI_RxBusy</a> = 1901</li>
+<li><a class="el" href="a00022.html#gga458e651af6690959efa2afb96be7d609a5f17818e41e2fb07e35e43e1a03bfeb9" title="SAI Tx FIFO error. ">kStatus_SAI_TxError</a> = 1902</li>
+<li><a class="el" href="a00022.html#gga458e651af6690959efa2afb96be7d609a0d8c8cec03abcd722d2ec4358451461c" title="SAI Rx FIFO error. ">kStatus_SAI_RxError</a> = 1903</li>
+<li><a class="el" href="a00022.html#gga458e651af6690959efa2afb96be7d609a19680647d09a7437afd6b6ae7013095e" title="SAI transfer queue is full. ">kStatus_SAI_QueueFull</a> = 1904</li>
+<li><a class="el" href="a00022.html#gga458e651af6690959efa2afb96be7d609a2a58fb377508baa31df58beb5f406761" title="SAI Tx is idle. ">kStatus_SAI_TxIdle</a> = 1905</li>
+<li><a class="el" href="a00022.html#gga458e651af6690959efa2afb96be7d609a0f398d330abd6df4255be13d39968e1d" title="SAI Rx is idle. ">kStatus_SAI_RxIdle</a> = 1906</li>
+<li><a class="el" href="a00024.html#ggafa231099d07583c3ed0981e0bb665f55a03cf037d71abc39d5d16d98e07e2e217" title="SDMA context error. ">kStatus_SDMA_ERROR</a> = 7300</li>
+<li><a class="el" href="a00024.html#ggafa231099d07583c3ed0981e0bb665f55ae7f535ed8ea581f421d5bce34c0444af" title="Channel is busy and can&#39;t handle the transfer request. ">kStatus_SDMA_Busy</a> = 7301 </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- doc-content -->

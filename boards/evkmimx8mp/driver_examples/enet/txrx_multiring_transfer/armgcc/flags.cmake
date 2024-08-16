@@ -86,7 +86,6 @@ SET(CMAKE_C_FLAGS_DDR_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -112,7 +111,6 @@ SET(CMAKE_C_FLAGS_DDR_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -138,7 +136,6 @@ SET(CMAKE_C_FLAGS_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -163,7 +160,6 @@ SET(CMAKE_C_FLAGS_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -190,7 +186,6 @@ SET(CMAKE_C_FLAGS_FLASH_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -216,7 +211,6 @@ SET(CMAKE_C_FLAGS_FLASH_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -std=gnu99 \
@@ -240,7 +234,6 @@ SET(CMAKE_CXX_FLAGS_DDR_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -264,7 +257,6 @@ SET(CMAKE_CXX_FLAGS_DDR_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -289,7 +281,6 @@ SET(CMAKE_CXX_FLAGS_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -313,7 +304,6 @@ SET(CMAKE_CXX_FLAGS_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -339,7 +329,6 @@ SET(CMAKE_CXX_FLAGS_FLASH_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -364,7 +353,6 @@ SET(CMAKE_CXX_FLAGS_FLASH_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mapcs \
     -fno-rtti \
@@ -381,7 +369,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_DDR_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -401,7 +388,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_DDR_DEBUG " \
     --defsym=__heap_size__=0x1000 \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8ML8xxxxx_cm7_ddr_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8ML8xxxxx_cm7_ddr_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_DDR_RELEASE " \
     ${CMAKE_EXE_LINKER_FLAGS_DDR_RELEASE} \
@@ -411,7 +398,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_DDR_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -431,7 +417,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_DDR_RELEASE " \
     --defsym=__heap_size__=0x1000 \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8ML8xxxxx_cm7_ddr_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8ML8xxxxx_cm7_ddr_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     ${CMAKE_EXE_LINKER_FLAGS_DEBUG} \
@@ -442,7 +428,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -462,7 +447,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     --defsym=__heap_size__=0x1000 \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8ML8xxxxx_cm7_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8ML8xxxxx_cm7_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     ${CMAKE_EXE_LINKER_FLAGS_RELEASE} \
@@ -472,7 +457,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -492,7 +476,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     --defsym=__heap_size__=0x1000 \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8ML8xxxxx_cm7_ram.ld -static \
+    -T\"${ProjDirPath}/MIMX8ML8xxxxx_cm7_ram.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_FLASH_DEBUG " \
     ${CMAKE_EXE_LINKER_FLAGS_FLASH_DEBUG} \
@@ -503,7 +487,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_FLASH_DEBUG " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -523,7 +506,7 @@ SET(CMAKE_EXE_LINKER_FLAGS_FLASH_DEBUG " \
     --defsym=__heap_size__=0x1000 \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8ML8xxxxx_cm7_flash.ld -static \
+    -T\"${ProjDirPath}/MIMX8ML8xxxxx_cm7_flash.ld\" -static \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_FLASH_RELEASE " \
     ${CMAKE_EXE_LINKER_FLAGS_FLASH_RELEASE} \
@@ -533,7 +516,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_FLASH_RELEASE " \
     -fno-common \
     -ffunction-sections \
     -fdata-sections \
-    -ffreestanding \
     -fno-builtin \
     -mthumb \
     -mapcs \
@@ -553,5 +535,5 @@ SET(CMAKE_EXE_LINKER_FLAGS_FLASH_RELEASE " \
     --defsym=__heap_size__=0x1000 \
     ${FPU} \
     ${SPECS} \
-    -T${ProjDirPath}/MIMX8ML8xxxxx_cm7_flash.ld -static \
+    -T\"${ProjDirPath}/MIMX8ML8xxxxx_cm7_flash.ld\" -static \
 ")
