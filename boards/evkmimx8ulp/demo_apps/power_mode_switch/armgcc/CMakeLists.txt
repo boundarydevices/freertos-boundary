@@ -80,6 +80,10 @@ add_executable(${MCUX_SDK_PROJECT_NAME}
 "${ProjDirPath}/../srtm/services/srtm_rtc_adapter.c"
 "${ProjDirPath}/../srtm/services/srtm_lfcl_service.h"
 "${ProjDirPath}/../srtm/services/srtm_lfcl_service.c"
+"${ProjDirPath}/../srtm/services/srtm_uart_service.h"
+"${ProjDirPath}/../srtm/services/srtm_uart_service.c"
+"${ProjDirPath}/../srtm/services/srtm_uart_adapter.h"
+"${ProjDirPath}/../srtm/services/srtm_uart_adapter.c"
 )
 
 target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
@@ -87,6 +91,10 @@ target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE
     ${SdkRootDirPath}/boards/evkmimx8ulp
     ${ProjDirPath}/../srtm/channels
     ${ProjDirPath}/../srtm/services
+)
+
+target_compile_definitions(${MCUX_SDK_PROJECT_NAME} PUBLIC
+    -DDEBUG_CONSOLE_TRANSFER_NON_BLOCKING=1
 )
 
 set_source_files_properties("${ProjDirPath}/../FreeRTOSConfig.h" PROPERTIES COMPONENT_CONFIG_FILE "middleware_freertos-kernel_template")

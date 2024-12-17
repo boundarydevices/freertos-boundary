@@ -20,6 +20,8 @@
 #include "srtm_lfcl_service.h"
 #include "srtm_rtc_service.h"
 #include "srtm_rtc_adapter.h"
+#include "srtm_uart_adapter.h"
+#include "srtm_uart_service.h"
 
 #include "app_srtm.h"
 #include "board.h"
