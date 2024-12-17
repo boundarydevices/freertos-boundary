@@ -59,6 +59,22 @@ enum
     APP_IO_NUM           = 4U
 };
 
+/* Define macros for UARTs used for RPMSG */
+#define APP_SRTM_UART0_CLK_FREQ     CLOCK_GetLpuartClkFreq(0)
+#define APP_SRTM_UART1_CLK_FREQ     CLOCK_GetLpuartClkFreq(1)
+#define APP_SRTM_UART2_CLK_FREQ     CLOCK_GetLpuartClkFreq(2)
+#define APP_SRTM_UART3_CLK_FREQ     CLOCK_GetLpuartClkFreq(3)
+
+#define APP_SRTM_UART_BAUDRATE (115200U)
+#define APP_SRTM_UART0_INSTANCE (0U)
+#define APP_SRTM_UART1_INSTANCE (1U)
+#define APP_SRTM_UART2_INSTANCE (2U)
+#define APP_SRTM_UART3_INSTANCE (3U)
+#define APP_SRTM_UART_SERIAL_MANAGER_RING_BUFFER_SIZE (1024U)
+#define APP_SRTM_UART_SERIAL_MANAGER_BLOCK_TYPE (kSerialManager_NonBlocking)
+#define APP_SRTM_UART_TYPE (kSerialPort_Uart)
+#define APP_SRTM_UART_RECEIVER_TASK_PRIO (3U)
+
 /* Define macros for input gpios that setup by linux that running on A Core(CA35) */
 #define APP_INPUT_GPIO_CONTROL_BY_ACORE_START APP_INPUT_PTA19
 #define APP_INPUT_GPIO_CONTROL_BY_ACORE_END   APP_INPUT_PTB5
@@ -96,6 +112,7 @@ enum
 #define APP_SRTM_IO_CHANNEL_NAME     "rpmsg-io-channel"
 #define APP_SRTM_RTC_CHANNEL_NAME    "rpmsg-rtc-channel"
 #define APP_SRTM_LFCL_CHANNEL_NAME   "rpmsg-life-cycle-channel"
+#define APP_SRTM_UART_CHANNEL_NAME   "srtm-uart-channel"
 
 #define PEER_CORE_ID (1U)
 

@@ -187,9 +187,11 @@ static srtm_dispatcher_t disp;
 static srtm_peercore_t core;
 static srtm_service_t rtcService;
 static srtm_rtc_adapter_t rtcAdapter;
+static srtm_uart_adapter_t uartAdapter = NULL;
 static srtm_service_t i2cService;
 static srtm_service_t ioService;
 static srtm_service_t keypadService;
+static srtm_service_t uartService = NULL;
 static SemaphoreHandle_t monSig;
 static struct rpmsg_lite_instance *rpmsgHandle;
 static app_rpmsg_monitor_t rpmsgMonitor;
@@ -239,9 +241,100 @@ static RGPIO_Type *const gpios[] = RGPIO_BASE_PTRS;
 static app_suspend_ctx_t suspendContext;
 
 static MU_Type mu0_mua;
+
+/* UART0 */
+static SERIAL_MANAGER_HANDLE_DEFINE(serialHandle0);
+static SERIAL_MANAGER_WRITE_HANDLE_DEFINE(serialWriteHandle0);
+static SERIAL_MANAGER_READ_HANDLE_DEFINE(serialReadHandle0);
+
+#define FSL_FEATURE_SOC_IUART_COUNT (4)
+static serial_handle_t serialHandles[FSL_FEATURE_SOC_IUART_COUNT] = {
+    (serial_handle_t)serialHandle0,
+    NULL,
+    NULL,
+    NULL
+};
+static serial_write_handle_t serialWriteHandles[FSL_FEATURE_SOC_IUART_COUNT] = {
+    (serial_write_handle_t)serialWriteHandle0,
+    NULL,
+    NULL,
+    NULL
+};
+static serial_read_handle_t serialReadHandles[FSL_FEATURE_SOC_IUART_COUNT] = {
+    (serial_read_handle_t)serialReadHandle0,
+    NULL,
+    NULL,
+    NULL
+};
+
+static uint8_t s_ringBuffer[FSL_FEATURE_SOC_IUART_COUNT][APP_SRTM_UART_SERIAL_MANAGER_RING_BUFFER_SIZE];
+
 /*******************************************************************************
  * Code
  ******************************************************************************/
+static srtm_status_t APP_SRTM_InitUartDevice(void)
+{
+    srtm_status_t error = SRTM_Status_Error;
+    serial_port_uart_config_t uartConfig[ARRAY_SIZE(serialHandles)] = {0};
+    serial_manager_config_t serialManagerConfig[ARRAY_SIZE(serialHandles)] = {0};
+    int i = 0;
+
+    /* UART0 */
+    uartConfig[0].clockRate = APP_SRTM_UART0_CLK_FREQ;
+    uartConfig[0].baudRate = APP_SRTM_UART_BAUDRATE;
+    uartConfig[0].parityMode = kSerialManager_UartParityDisabled;
+    uartConfig[0].stopBitCount = kSerialManager_UartOneStopBit;
+    uartConfig[0].enableRx = 1;
+    uartConfig[0].enableTx = 1;
+    uartConfig[0].enableRxRTS = 0;
+    uartConfig[0].enableTxCTS = 0;
+    uartConfig[0].instance = APP_SRTM_UART0_INSTANCE;
+
+    serialManagerConfig[0].type = APP_SRTM_UART_TYPE;
+    serialManagerConfig[0].ringBuffer     = &s_ringBuffer[0][0];
+    serialManagerConfig[0].ringBufferSize = APP_SRTM_UART_SERIAL_MANAGER_RING_BUFFER_SIZE;
+    serialManagerConfig[0].blockType = APP_SRTM_UART_SERIAL_MANAGER_BLOCK_TYPE;
+    serialManagerConfig[0].portConfig = (serial_port_uart_config_t *)&uartConfig[0];
+
+    for (i = 0; i < ARRAY_SIZE(serialHandles); i++)
+    {
+        if (serialHandles[i] != NULL)
+        {
+            do {
+                if (SerialManager_Init((serial_handle_t)serialHandles[i], &serialManagerConfig[i]) != kStatus_SerialManager_Success)
+                    break;
+                if (SerialManager_OpenWriteHandle((serial_handle_t)serialHandles[i], (serial_write_handle_t)serialWriteHandles[i]) != kStatus_SerialManager_Success)
+                    break;
+                if (SerialManager_OpenReadHandle((serial_handle_t)serialHandles[i], (serial_read_handle_t)serialReadHandles[i]) != kStatus_SerialManager_Success)
+                    break;
+                if (SerialManager_InstallRxCallback((serial_read_handle_t)serialReadHandles[i], SRTM_Uart_RxCallBack, serialReadHandles[i]) != kStatus_SerialManager_Success)
+                    break;
+                if (SerialManager_InstallTxCallback((serial_write_handle_t)serialWriteHandles[i], SRTM_Uart_TxCallBack, serialWriteHandles[i]) != kStatus_SerialManager_Success)
+                    break;
+                error = SRTM_Status_Success;
+            } while(0);
+        }
+    }
+    return error;
+}
+
+static void APP_SRTM_InitUartService(void)
+{
+    if (SRTM_Status_Success == APP_SRTM_InitUartDevice())
+    {
+        uartAdapter = SRTM_UartAdapter_Create(serialHandles, serialWriteHandles, serialReadHandles, ARRAY_SIZE(serialHandles));
+        assert(uartAdapter);
+
+        /* Create and register serial service */
+        uartService = SRTM_UartService_Create(uartAdapter);
+        SRTM_Dispatcher_RegisterService(disp, uartService);
+    }
+    else
+    {
+	    PRINTF("%s: %d Failed to Do Init SRTM Serial Service\r\n", __func__, __LINE__);
+    }
+}
+
 /* For Deep Sleep Mode of APD */
 bool APP_SRTM_GetSupportDSLForApd(void)
 {
@@ -1086,6 +1179,7 @@ static void APP_SRTM_NotifyPeerCoreReady(struct rpmsg_lite_instance *rpmsgHandle
 
 static void APP_SRTM_Linkup(void)
 {
+    uint8_t uart_id = 0;
     srtm_channel_t chan;
     srtm_rpmsg_endpoint_config_t rpmsgConfig;
 
@@ -1126,6 +1220,15 @@ static void APP_SRTM_Linkup(void)
     rpmsgConfig.epName = APP_SRTM_LFCL_CHANNEL_NAME;
     chan               = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
     SRTM_PeerCore_AddChannel(core, chan);
+
+    /* Create and add SRTM UART channel to peer core */
+    rpmsgConfig.epName = APP_SRTM_UART_CHANNEL_NAME;
+    for (uart_id = 0; uart_id < FSL_FEATURE_SOC_IUART_COUNT; uart_id++)
+    {
+        chan = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
+        uartAdapter->bindChanByUartId(chan, SRTM_UART_INVALID_BUS_ID, 0U, uart_id);
+        SRTM_PeerCore_AddChannel(core, chan);
+    }
 
     SRTM_Dispatcher_AddPeerCore(disp, core);
 }
@@ -1681,6 +1784,7 @@ static void APP_SRTM_InitServices(void)
     APP_SRTM_InitIoKeyService();
     APP_SRTM_InitRtcService();
     APP_SRTM_InitLfclService();
+    APP_SRTM_InitUartService();
 }
 
 void APP_PowerOffCA35(void)

@@ -1157,6 +1157,7 @@ int main(void)
     CLOCK_SetIpSrcDiv(kCLOCK_Lpi2c1, kCLOCK_Pcc1BusIpSrcCm33Bus, 0U, 0U);
     /* Use Pll1Pfd2Div clock source 12.288MHz. */
     CLOCK_SetIpSrc(kCLOCK_Sai0, kCLOCK_Cm33SaiClkSrcPll1Pfd2Div);
+    CLOCK_SetIpSrc(kCLOCK_Lpuart0, kCLOCK_Pcc1BusIpSrcSysOscDiv2);
 
     CLOCK_EnableClock(kCLOCK_Dma0Ch0);
     CLOCK_EnableClock(kCLOCK_Dma0Ch16);
@@ -1165,11 +1166,13 @@ int main(void)
     CLOCK_EnableClock(kCLOCK_RgpioB);
     CLOCK_EnableClock(kCLOCK_Wuu0);
     CLOCK_EnableClock(kCLOCK_Bbnsm);
+    CLOCK_EnableClock(kCLOCK_Lpuart0);
 
     RESET_PeripheralReset(kRESET_Sai0);
     RESET_PeripheralReset(kRESET_Lpi2c0);
     RESET_PeripheralReset(kRESET_Lpi2c1);
     RESET_PeripheralReset(kRESET_Tpm0);
+    RESET_PeripheralReset(kRESET_Lpuart0);
 
     /* In order to enable the PDM record service located in FUSION_AO, FUSION needs to be initial. */
     Fusion_Init();
