@@ -429,10 +429,10 @@ void APP_PowerPreSwitchHook(lpm_rtd_power_mode_e targetMode)
          * Debug console RX pin: Set to pinmux to analog.
          * Debug console TX pin: Set to pinmux to analog.
          */
-        IOMUXC_SetPinMux(IOMUXC_PTA10_LPUART1_TX, 0);
-        IOMUXC_SetPinConfig(IOMUXC_PTA10_LPUART1_TX, 0);
-        IOMUXC_SetPinMux(IOMUXC_PTA11_LPUART1_RX, 0);
-        IOMUXC_SetPinConfig(IOMUXC_PTA11_LPUART1_RX, 0);
+        IOMUXC_SetPinMux(IOMUXC_PTA2_LPUART0_TX, 0);
+        IOMUXC_SetPinConfig(IOMUXC_PTA2_LPUART0_TX, 0);
+        IOMUXC_SetPinMux(IOMUXC_PTA3_LPUART0_RX, 0);
+        IOMUXC_SetPinConfig(IOMUXC_PTA3_LPUART0_RX, 0);
 
         if (LPM_PowerModePowerDown == targetMode || LPM_PowerModeDeepSleep == targetMode)
         {
@@ -474,10 +474,10 @@ void APP_PowerPostSwitchHook(lpm_rtd_power_mode_e targetMode, bool result)
          * Debug console RX pin was set to disable for current leakage, need to re-configure pinmux.
          * Debug console TX pin was set to disable for current leakage, need to re-configure pinmux.
          */
-        IOMUXC_SetPinMux(IOMUXC_PTA10_LPUART1_TX, 0U);
-        IOMUXC_SetPinConfig(IOMUXC_PTA10_LPUART1_TX, IOMUXC_PCR_PE_MASK | IOMUXC_PCR_PS_MASK);
-        IOMUXC_SetPinMux(IOMUXC_PTA11_LPUART1_RX, 0U);
-        IOMUXC_SetPinConfig(IOMUXC_PTA11_LPUART1_RX, IOMUXC_PCR_PE_MASK | IOMUXC_PCR_PS_MASK);
+        IOMUXC_SetPinMux(IOMUXC_PTA2_LPUART0_TX, 0U);
+        IOMUXC_SetPinConfig(IOMUXC_PTA2_LPUART0_TX, IOMUXC_PCR_PE_MASK | IOMUXC_PCR_PS_MASK);
+        IOMUXC_SetPinMux(IOMUXC_PTA3_LPUART0_RX, 0U);
+        IOMUXC_SetPinConfig(IOMUXC_PTA3_LPUART0_RX, IOMUXC_PCR_PE_MASK | IOMUXC_PCR_PS_MASK);
 
         BOARD_InitClock(); /* initialize system osc for uart(using osc as clock source) */
         BOARD_InitDebugConsole();
@@ -1157,7 +1157,7 @@ int main(void)
     CLOCK_SetIpSrcDiv(kCLOCK_Lpi2c1, kCLOCK_Pcc1BusIpSrcCm33Bus, 0U, 0U);
     /* Use Pll1Pfd2Div clock source 12.288MHz. */
     CLOCK_SetIpSrc(kCLOCK_Sai0, kCLOCK_Cm33SaiClkSrcPll1Pfd2Div);
-    CLOCK_SetIpSrc(kCLOCK_Lpuart0, kCLOCK_Pcc1BusIpSrcSysOscDiv2);
+    CLOCK_SetIpSrc(kCLOCK_Lpuart1, kCLOCK_Pcc1BusIpSrcSysOscDiv2);
 
     CLOCK_EnableClock(kCLOCK_Dma0Ch0);
     CLOCK_EnableClock(kCLOCK_Dma0Ch16);
@@ -1166,13 +1166,13 @@ int main(void)
     CLOCK_EnableClock(kCLOCK_RgpioB);
     CLOCK_EnableClock(kCLOCK_Wuu0);
     CLOCK_EnableClock(kCLOCK_Bbnsm);
-    CLOCK_EnableClock(kCLOCK_Lpuart0);
+    CLOCK_EnableClock(kCLOCK_Lpuart1);
 
     RESET_PeripheralReset(kRESET_Sai0);
     RESET_PeripheralReset(kRESET_Lpi2c0);
     RESET_PeripheralReset(kRESET_Lpi2c1);
     RESET_PeripheralReset(kRESET_Tpm0);
-    RESET_PeripheralReset(kRESET_Lpuart0);
+    RESET_PeripheralReset(kRESET_Lpuart1);
 
     /* In order to enable the PDM record service located in FUSION_AO, FUSION needs to be initial. */
     Fusion_Init();

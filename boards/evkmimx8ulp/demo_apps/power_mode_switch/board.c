@@ -888,13 +888,13 @@ void BOARD_SetTrdcGlobalConfig(void)
         mbcBlockConfig.memoryBlockIdx            = 60U;                 /* MBC2_DOM0_MEM0_BLK_CFG_W60 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
 
-        /* non secure state can access lpuart1(PBridge1 slot 27, T-MBC2) for eDMA0 */
+        /* non secure state can access lpuart0(PBridge1 slot 26, T-MBC2) for eDMA0 */
         mbcBlockConfig.memoryAccessControlSelect = TRDC_MBC_ACCESS_CONTROL_POLICY_ALL_INDEX;
         mbcBlockConfig.nseEnable                 = true; /* non secure state can access the block for eDMA0 */
         mbcBlockConfig.mbcIdx                    = 2U;   /* MBC2 */
         mbcBlockConfig.domainIdx                 = TRDC_DMA0_DOMAIN_ID; /* MBC2_DOM0 */
         mbcBlockConfig.slaveMemoryIdx            = 1U;                  /* MBC2_DOM0_MEM1 */
-        mbcBlockConfig.memoryBlockIdx            = 27U;                 /* MBC2_DOM0_MEM1_BLK_CFG_W27 */
+        mbcBlockConfig.memoryBlockIdx            = 26U;                 /* MBC2_DOM0_MEM1_BLK_CFG_W26 */
         TRDC_MbcSetMemoryBlockConfig(TRDC, &mbcBlockConfig);
 
         /* non secure state can access flexcan0(PBridge1 slot 40~43, T-MBC2) for eDMA0 */

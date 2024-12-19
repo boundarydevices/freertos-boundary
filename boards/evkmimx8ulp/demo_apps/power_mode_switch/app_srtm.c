@@ -242,27 +242,27 @@ static app_suspend_ctx_t suspendContext;
 
 static MU_Type mu0_mua;
 
-/* UART0 */
-static SERIAL_MANAGER_HANDLE_DEFINE(serialHandle0);
-static SERIAL_MANAGER_WRITE_HANDLE_DEFINE(serialWriteHandle0);
-static SERIAL_MANAGER_READ_HANDLE_DEFINE(serialReadHandle0);
+/* UART1 */
+static SERIAL_MANAGER_HANDLE_DEFINE(serialHandle1);
+static SERIAL_MANAGER_WRITE_HANDLE_DEFINE(serialWriteHandle1);
+static SERIAL_MANAGER_READ_HANDLE_DEFINE(serialReadHandle1);
 
 #define FSL_FEATURE_SOC_IUART_COUNT (4)
 static serial_handle_t serialHandles[FSL_FEATURE_SOC_IUART_COUNT] = {
-    (serial_handle_t)serialHandle0,
     NULL,
+    (serial_handle_t)serialHandle1,
     NULL,
     NULL
 };
 static serial_write_handle_t serialWriteHandles[FSL_FEATURE_SOC_IUART_COUNT] = {
-    (serial_write_handle_t)serialWriteHandle0,
     NULL,
+    (serial_write_handle_t)serialWriteHandle1,
     NULL,
     NULL
 };
 static serial_read_handle_t serialReadHandles[FSL_FEATURE_SOC_IUART_COUNT] = {
-    (serial_read_handle_t)serialReadHandle0,
     NULL,
+    (serial_read_handle_t)serialReadHandle1,
     NULL,
     NULL
 };
@@ -279,22 +279,22 @@ static srtm_status_t APP_SRTM_InitUartDevice(void)
     serial_manager_config_t serialManagerConfig[ARRAY_SIZE(serialHandles)] = {0};
     int i = 0;
 
-    /* UART0 */
-    uartConfig[0].clockRate = APP_SRTM_UART0_CLK_FREQ;
-    uartConfig[0].baudRate = APP_SRTM_UART_BAUDRATE;
-    uartConfig[0].parityMode = kSerialManager_UartParityDisabled;
-    uartConfig[0].stopBitCount = kSerialManager_UartOneStopBit;
-    uartConfig[0].enableRx = 1;
-    uartConfig[0].enableTx = 1;
-    uartConfig[0].enableRxRTS = 0;
-    uartConfig[0].enableTxCTS = 0;
-    uartConfig[0].instance = APP_SRTM_UART0_INSTANCE;
+    /* UART1 */
+    uartConfig[1].clockRate = APP_SRTM_UART1_CLK_FREQ;
+    uartConfig[1].baudRate = APP_SRTM_UART_BAUDRATE;
+    uartConfig[1].parityMode = kSerialManager_UartParityDisabled;
+    uartConfig[1].stopBitCount = kSerialManager_UartOneStopBit;
+    uartConfig[1].enableRx = 1;
+    uartConfig[1].enableTx = 1;
+    uartConfig[1].enableRxRTS = 0;
+    uartConfig[1].enableTxCTS = 0;
+    uartConfig[1].instance = APP_SRTM_UART1_INSTANCE;
 
-    serialManagerConfig[0].type = APP_SRTM_UART_TYPE;
-    serialManagerConfig[0].ringBuffer     = &s_ringBuffer[0][0];
-    serialManagerConfig[0].ringBufferSize = APP_SRTM_UART_SERIAL_MANAGER_RING_BUFFER_SIZE;
-    serialManagerConfig[0].blockType = APP_SRTM_UART_SERIAL_MANAGER_BLOCK_TYPE;
-    serialManagerConfig[0].portConfig = (serial_port_uart_config_t *)&uartConfig[0];
+    serialManagerConfig[1].type = APP_SRTM_UART_TYPE;
+    serialManagerConfig[1].ringBuffer     = &s_ringBuffer[1][0];
+    serialManagerConfig[1].ringBufferSize = APP_SRTM_UART_SERIAL_MANAGER_RING_BUFFER_SIZE;
+    serialManagerConfig[1].blockType = APP_SRTM_UART_SERIAL_MANAGER_BLOCK_TYPE;
+    serialManagerConfig[1].portConfig = (serial_port_uart_config_t *)&uartConfig[1];
 
     for (i = 0; i < ARRAY_SIZE(serialHandles); i++)
     {
