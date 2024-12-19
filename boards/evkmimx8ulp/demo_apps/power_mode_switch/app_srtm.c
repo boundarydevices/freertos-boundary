@@ -1225,8 +1225,6 @@ static void APP_SRTM_Linkup(void)
     rpmsgConfig.epName = APP_SRTM_UART_CHANNEL_NAME;
     for (uart_id = 0; uart_id < FSL_FEATURE_SOC_IUART_COUNT; uart_id++)
     {
-        if (serialHandles[uart_id] == NULL)
-            continue;
         chan = SRTM_RPMsgEndpoint_Create(&rpmsgConfig);
         uartAdapter->bindChanByUartId(chan, uart_id, 0U, uart_id);
         SRTM_PeerCore_AddChannel(core, chan);

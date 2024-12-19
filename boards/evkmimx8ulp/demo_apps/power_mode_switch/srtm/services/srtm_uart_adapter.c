@@ -44,7 +44,6 @@ static serial_read_handle_t SRTM_UartAdapter_FindReadHandleByBusId(srtm_uart_ada
 
     if (!handle->serialReadHandle[busId])
     {
-        SRTM_DEBUG_MESSAGE(SRTM_DEBUG_VERBOSE_ERROR, "%s: busId %d not supported\r\n", __func__, busId);
         return NULL;
     }
 
