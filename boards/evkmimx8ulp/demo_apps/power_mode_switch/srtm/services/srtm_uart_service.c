@@ -445,7 +445,8 @@ static srtm_status_t SRTM_UartService_ReceiveNotify(srtm_service_t service, srtm
                 }
 
                 SRTM_UartService_BindChanByUartId(NULL, uartNotif->busId, uartNotif->flags, src_uart_id);
-                if (uartNotif->busId == SRTM_UART_INVALID_BUS_ID) /* directly print */
+                if ((uartNotif->busId == SRTM_UART_INVALID_BUS_ID) &&
+                    (srtm_uart_channels[src_uart_id].bus_id == SRTM_UART_INVALID_BUS_ID))
                 {
                     data[dataLen - 1] = 0;
                     PRINTF("%s: %d, data = %s\r\n", __func__, __LINE__, data);
@@ -454,7 +455,7 @@ static srtm_status_t SRTM_UartService_ReceiveNotify(srtm_service_t service, srtm
                 else
                 {
                     assert(adapter->send != NULL);
-                    status = adapter->send(adapter, uartNotif->busId, data, dataLen); /* non blocking transfer mode */
+                    status = adapter->send(adapter, srtm_uart_channels[src_uart_id].bus_id, data, dataLen);
                     goto exit1;
                 }
                 break;
