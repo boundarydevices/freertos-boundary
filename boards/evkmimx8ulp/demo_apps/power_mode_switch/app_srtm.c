@@ -286,8 +286,8 @@ static srtm_status_t APP_SRTM_InitUartDevice(void)
     uartConfig[1].stopBitCount = kSerialManager_UartOneStopBit;
     uartConfig[1].enableRx = 1;
     uartConfig[1].enableTx = 1;
-    uartConfig[1].enableRxRTS = 0;
-    uartConfig[1].enableTxCTS = 0;
+    uartConfig[1].enableRxRTS = 1;
+    uartConfig[1].enableTxCTS = 1;
     uartConfig[1].instance = APP_SRTM_UART1_INSTANCE;
 
     serialManagerConfig[1].type = APP_SRTM_UART_TYPE;
