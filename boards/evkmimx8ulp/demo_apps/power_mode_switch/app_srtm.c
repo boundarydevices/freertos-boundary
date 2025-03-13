@@ -1784,7 +1784,7 @@ static void APP_SRTM_InitServices(void)
     APP_SRTM_InitIoKeyService();
     APP_SRTM_InitRtcService();
     APP_SRTM_InitLfclService();
-    APP_SRTM_InitUartService();
+    // APP_SRTM_InitUartService();
 }
 
 void APP_PowerOffCA35(void)
