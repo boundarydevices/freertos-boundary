@@ -66,22 +66,14 @@ void BOARD_InitLpuartPins(void) {                          /*!< Function assigne
                         IOMUXC_PCR_PE_MASK |
                         IOMUXC_PCR_PS_MASK);
     /* UART1 */
-    IOMUXC_SetPinMux(IOMUXC_PTA4_LPUART1_CTS_B, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_PTA4_LPUART1_CTS_B,
-                        IOMUXC_PCR_PE_MASK |
-                        IOMUXC_PCR_PS_MASK);
-    IOMUXC_SetPinMux(IOMUXC_PTA5_LPUART1_RTS_B, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_PTA5_LPUART1_RTS_B,
-                        IOMUXC_PCR_PE_MASK |
-                        IOMUXC_PCR_PS_MASK);
-    IOMUXC_SetPinMux(IOMUXC_PTA6_LPUART1_TX, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_PTA6_LPUART1_TX,
-                        IOMUXC_PCR_PE_MASK |
-                        IOMUXC_PCR_PS_MASK);
-    IOMUXC_SetPinMux(IOMUXC_PTA7_LPUART1_RX, 0U);
-    IOMUXC_SetPinConfig(IOMUXC_PTA7_LPUART1_RX,
-                        IOMUXC_PCR_PE_MASK |
-                        IOMUXC_PCR_PS_MASK);
+    IOMUXC_SetPinMux(IOMUXC_PTA4_PTA4, 0U);
+    IOMUXC_SetPinConfig(IOMUXC_PTA4_PTA4, 0U);
+    IOMUXC_SetPinMux(IOMUXC_PTA5_PTA5, 0U);
+    IOMUXC_SetPinConfig(IOMUXC_PTA5_PTA5, 0U);
+    IOMUXC_SetPinMux(IOMUXC_PTA6_PTA6, 0U);
+    IOMUXC_SetPinConfig(IOMUXC_PTA6_PTA6, 0U);
+    IOMUXC_SetPinMux(IOMUXC_PTA7_PTA7, 0U);
+    IOMUXC_SetPinConfig(IOMUXC_PTA7_PTA7, 0U);
 }
 
 
